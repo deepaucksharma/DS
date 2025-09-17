@@ -1,0 +1,105 @@
+site_name: Distributed Systems Architecture Framework v5.0
+site_description: The Complete Distributed Systems Architecture Framework - The Definitive Reference
+site_author: DS Framework Team
+site_url: https://ds-framework.dev
+
+repo_name: ds-framework
+repo_url: https://github.com/ds-framework/docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.action.edit
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ds-framework
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ds-framework
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Overview: getting-started/overview.md
+    - Quick Start: getting-started/quick-start.md
+    - Concepts: getting-started/concepts.md
+  - Foundation:
+    - Universal Laws: foundation/universal-laws.md
+    - Capabilities: foundation/capabilities.md
+    - Primitives: foundation/primitives.md
+  - Patterns:
+    - Micro-Patterns: patterns/micro-patterns.md
+    - System Patterns: patterns/system-patterns.md
+    - Decision Engine: patterns/decision-engine.md
+  - Production:
+    - Reality Check: production/reality.md
+    - Proof Obligations: production/proof-obligations.md
+    - Best Practices: production/best-practices.md
+  - Examples:
+    - Case Studies: examples/case-studies.md
+    - Implementation Guides: examples/implementation.md
+    - Common Pitfalls: examples/pitfalls.md
+  - Reference:
+    - API Reference: reference/api.md
+    - Glossary: reference/glossary.md
+    - Further Reading: reference/reading.md
+
+plugins:
+  - search
+  - mermaid2
