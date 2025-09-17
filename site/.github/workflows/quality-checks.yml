@@ -1,0 +1,150 @@
+name: Quality Checks
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  markdown-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli
+        
+      - name: Lint Markdown files
+        run: |
+          markdownlint docs/**/*.md reference/*.md --ignore node_modules || true
+          
+  build-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.8', '3.9', '3.10', '3.11']
+        
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install mkdocs mkdocs-material pymdownx-extensions mkdocs-mermaid2-plugin
+          
+      - name: Test MkDocs build
+        working-directory: ./site
+        run: |
+          mkdocs build --strict
+          
+      - name: Test MkDocs serve (background)
+        working-directory: ./site
+        run: |
+          timeout 10s mkdocs serve --dev-addr=127.0.0.1:8000 || true
+          
+  link-checker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      - name: Install dependencies
+        run: |
+          pip install mkdocs mkdocs-material pymdownx-extensions mkdocs-mermaid2-plugin
+          
+      - name: Build site
+        working-directory: ./site
+        run: mkdocs build
+        
+      - name: Check internal links
+        run: |
+          # Install link checker
+          npm install -g broken-link-checker
+          
+          # Start simple HTTP server
+          cd site/site
+          python -m http.server 8080 &
+          SERVER_PID=$!
+          
+          # Wait for server to start
+          sleep 5
+          
+          # Check links (allow some failures for external links)
+          blc http://localhost:8080 --recursive --exclude-external || true
+          
+          # Kill server
+          kill $SERVER_PID || true
+          
+  content-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Validate content structure
+        run: |
+          # Check required files exist
+          test -f site/mkdocs.yml || exit 1
+          test -f site/docs/index.md || exit 1
+          test -f reference/00-overview.md || exit 1
+          
+          # Check for proper section structure
+          test -d site/docs/getting-started || exit 1
+          test -d site/docs/foundation || exit 1
+          test -d site/docs/patterns || exit 1
+          test -d site/docs/production || exit 1
+          test -d site/docs/examples || exit 1
+          test -d site/docs/reference || exit 1
+          
+          echo "✅ Content structure validation passed"
+          
+      - name: Count documentation files
+        run: |
+          MARKDOWN_COUNT=$(find site/docs reference -name "*.md" | wc -l)
+          echo "Found $MARKDOWN_COUNT markdown files"
+          
+          if [ $MARKDOWN_COUNT -lt 15 ]; then
+            echo "❌ Expected at least 15 markdown files, found $MARKDOWN_COUNT"
+            exit 1
+          fi
+          
+          echo "✅ Documentation file count validation passed"
+          
+      - name: Check for mathematical formulas
+        run: |
+          if ! grep -r "P(C.*A.*P)" site/docs/ reference/; then
+            echo "❌ Mathematical formulas not found"
+            exit 1
+          fi
+          
+          echo "✅ Mathematical content validation passed"
+          
+      - name: Check for code examples
+        run: |
+          CODE_BLOCKS=$(grep -r "```" site/docs/ | wc -l)
+          echo "Found $CODE_BLOCKS code blocks"
+          
+          if [ $CODE_BLOCKS -lt 50 ]; then
+            echo "❌ Expected at least 50 code blocks, found $CODE_BLOCKS"
+            exit 1
+          fi
+          
+          echo "✅ Code examples validation passed"

@@ -1,0 +1,152 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., v5.0.0)'
+        required: true
+        type: string
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      - name: Install dependencies
+        run: |
+          pip install mkdocs mkdocs-material pymdownx-extensions mkdocs-mermaid2-plugin
+          
+      - name: Build documentation
+        working-directory: ./site
+        run: |
+          mkdocs build --clean
+          
+      - name: Create documentation archive
+        run: |
+          # Create archives
+          tar -czf distributed-systems-framework-docs.tar.gz -C site/site .
+          zip -r distributed-systems-framework-docs.zip site/site/
+          
+          # Create source archive
+          tar -czf distributed-systems-framework-source.tar.gz \
+            --exclude='.git' \
+            --exclude='site/site' \
+            --exclude='*.pyc' \
+            --exclude='__pycache__' \
+            .
+            
+      - name: Generate release notes
+        id: release_notes
+        run: |
+          cat > release_notes.md << 'EOF'
+          # Distributed Systems Architecture Framework v5.0
+          
+          ## 🎉 Complete Framework Release
+          
+          This release includes the complete Distributed Systems Architecture Framework with:
+          
+          ### 📚 Framework Documentation
+          - **15 Universal Laws** with mathematical proofs
+          - **30 Fundamental Capabilities** taxonomy  
+          - **20 Building Block Primitives** for system composition
+          - **15 Proven Micro-Patterns** for common problems
+          - **Complete System Patterns** used by major tech companies
+          - **Algorithmic Decision Engine** for automated design
+          - **Production Reality** - what actually breaks and why
+          - **Formal Verification** methods and testing strategies
+          
+          ### 🌐 Documentation Website
+          - Professional MkDocs Material theme
+          - Interactive mathematical formulas with MathJax
+          - Architecture diagrams with Mermaid
+          - Comprehensive search functionality
+          - Real-world case studies (Netflix, Uber, Amazon, WhatsApp)
+          - Implementation guides with working code
+          - Production best practices and common pitfalls
+          
+          ### 📦 What's Included
+          - **Documentation Website** (distributed-systems-framework-docs.zip)
+          - **Complete Source** (distributed-systems-framework-source.tar.gz)
+          - **Ready for deployment** to GitHub Pages, Netlify, or any static hosting
+          
+          ### 🚀 Quick Start
+          1. Download and extract the documentation archive
+          2. Host the files on any web server
+          3. Or use the source to build with `mkdocs build`
+          
+          ### 🔗 Links
+          - [Live Documentation](https://deepaucksharma.github.io/DS/)
+          - [GitHub Repository](https://github.com/deepaucksharma/DS)
+          
+          ---
+          
+          *The Complete Distributed Systems Architecture Framework v5.0: The Definitive Reference*
+          EOF
+          
+          echo "release_notes<<EOF" >> $GITHUB_OUTPUT
+          cat release_notes.md >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+      - name: Get version
+        id: get_version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.get_version.outputs.version }}
+          release_name: Distributed Systems Framework ${{ steps.get_version.outputs.version }}
+          body: ${{ steps.release_notes.outputs.release_notes }}
+          draft: false
+          prerelease: false
+          
+      - name: Upload Documentation Archive (ZIP)
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./distributed-systems-framework-docs.zip
+          asset_name: distributed-systems-framework-docs.zip
+          asset_content_type: application/zip
+          
+      - name: Upload Documentation Archive (TAR.GZ)
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./distributed-systems-framework-docs.tar.gz
+          asset_name: distributed-systems-framework-docs.tar.gz
+          asset_content_type: application/gzip
+          
+      - name: Upload Source Archive
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./distributed-systems-framework-source.tar.gz
+          asset_name: distributed-systems-framework-source.tar.gz
+          asset_content_type: application/gzip
