@@ -1,0 +1,77 @@
+name: Weekly Source Discovery
+# Minimal automation for weekly source discovery
+# Based on readonly-spec/13-SOURCE-DISCOVERY-AUTOMATION.md
+
+on:
+  schedule:
+    # Run every Monday at 9 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    inputs:
+      manual_trigger:
+        description: 'Manual trigger for testing'
+        required: false
+        default: 'true'
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml requests beautifulsoup4 feedparser
+
+      - name: Run source discovery
+        run: |
+          cd site
+          python scripts/manual_source_discovery.py
+          echo "✓ Generated weekly-checklist.md"
+
+      - name: Generate progress report
+        run: |
+          cd site
+          python scripts/progress_tracker.py
+          echo "✓ Generated progress-report.md"
+
+      - name: Create discovery issue
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const checklist = fs.readFileSync('site/weekly-checklist.md', 'utf8');
+            const progress = fs.readFileSync('site/progress-report.md', 'utf8');
+
+            const issueBody = `${checklist}\n\n---\n\n${progress}`;
+
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `📋 Weekly Discovery & Progress - ${new Date().toISOString().split('T')[0]}`,
+              body: issueBody,
+              labels: ['discovery', 'weekly-review', 'atlas']
+            });
+
+            console.log(`Created issue #${issue.data.number}`);
+
+      - name: Archive reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-reports-${{ github.run_id }}
+          path: |
+            site/weekly-checklist.md
+            site/progress-report.md
+            site/case-study-template.yaml
+          retention-days: 30

@@ -83,18 +83,31 @@ nav:
     - Universal Laws: foundation/universal-laws.md
     - Capabilities: foundation/capabilities.md
     - Primitives: foundation/primitives.md
+    - Guarantees: foundation/guarantees.md
+    - Mechanisms: foundation/mechanisms.md
   - Patterns:
-    - Micro-Patterns: patterns/micro-patterns.md
+    - Overview: patterns/index.md
+    - Production Architecture: patterns/production-architecture.md
     - System Patterns: patterns/system-patterns.md
+    - Micro-Patterns: patterns/micro-patterns.md
     - Decision Engine: patterns/decision-engine.md
-  - Production:
-    - Reality Check: production/reality.md
-    - Proof Obligations: production/proof-obligations.md
-    - Best Practices: production/best-practices.md
+    - Mechanisms: patterns/mechanisms.md
+    - Pattern Catalog: patterns/pattern-catalog.md
+  - Case Studies:
+    - Overview: case-studies/index.md
+    - Netflix Architecture: case-studies/netflix.md
+    - Uber Systems: case-studies/uber.md
+    - Framework: case-studies/framework.md
+    - Data Collection: case-studies/data-collection-framework.md
+    - Comparisons: case-studies/comparison-matrices.md
   - Examples:
     - Case Studies: examples/case-studies.md
-    - Implementation Guides: examples/implementation.md
-    - Common Pitfalls: examples/pitfalls.md
+    - Implementation: examples/implementation.md
+    - Pitfalls: examples/pitfalls.md
+  - Production:
+    - Reality Check: production/reality.md
+    - Best Practices: production/best-practices.md
+    - Proof Obligations: production/proof-obligations.md
   - Reference:
     - API Reference: reference/api.md
     - Glossary: reference/glossary.md

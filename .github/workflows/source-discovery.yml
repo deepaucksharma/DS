@@ -1,0 +1,223 @@
+name: Source Discovery Pipeline
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+  workflow_dispatch:
+    inputs:
+      source_filter:
+        description: 'Specific sources to check (comma-separated)'
+        required: false
+        type: string
+      since:
+        description: 'Time period to scan (e.g., 7d, 30d)'
+        required: false
+        default: '7d'
+        type: string
+      min_score:
+        description: 'Minimum relevance score'
+        required: false
+        default: '0.7'
+        type: string
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      candidates_count: ${{ steps.scan.outputs.candidates }}
+      high_score_count: ${{ steps.scan.outputs.high_score }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r scripts/requirements-discovery.txt
+
+      - name: Verify sources accessibility
+        id: verify
+        run: |
+          echo "Verifying source accessibility..."
+          python scripts/verify_sources.py \
+            --config data/sources/registry.yaml \
+            --output verification_results.json \
+            --verbose
+
+      - name: Scan sources for candidates
+        id: scan
+        run: |
+          echo "Scanning sources for candidates..."
+
+          # Parse inputs
+          SOURCES_ARG=""
+          if [ -n "${{ github.event.inputs.source_filter }}" ]; then
+            IFS=',' read -ra SOURCES <<< "${{ github.event.inputs.source_filter }}"
+            SOURCES_ARG="--sources ${SOURCES[@]}"
+          fi
+
+          SINCE="${{ github.event.inputs.since || '7d' }}"
+          MIN_SCORE="${{ github.event.inputs.min_score || '0.7' }}"
+
+          # Run discovery
+          python scripts/discover_sources.py \
+            --config data/sources/registry.yaml \
+            --keywords data/sources/keywords.yaml \
+            --output candidates.json \
+            --since "$SINCE" \
+            --min-score "$MIN_SCORE" \
+            $SOURCES_ARG \
+            --verbose
+
+          # Extract metrics
+          TOTAL_CANDIDATES=$(jq length candidates.json)
+          HIGH_SCORE_CANDIDATES=$(jq '[.[] | select(.relevance_score >= 0.8)] | length' candidates.json)
+
+          echo "candidates=$TOTAL_CANDIDATES" >> $GITHUB_OUTPUT
+          echo "high_score=$HIGH_SCORE_CANDIDATES" >> $GITHUB_OUTPUT
+
+          echo "Found $TOTAL_CANDIDATES candidates ($HIGH_SCORE_CANDIDATES high-score)"
+
+      - name: Filter and enrich candidates
+        if: steps.scan.outputs.candidates > 0
+        run: |
+          echo "Filtering and enriching candidates..."
+
+          # Create enriched candidates with additional metadata
+          python -c "
+          import json
+          from datetime import datetime
+
+          with open('candidates.json') as f:
+              candidates = json.load(f)
+
+          # Add discovery metadata
+          for candidate in candidates:
+              candidate['discovered_at'] = datetime.now().isoformat()
+              candidate['discovery_run'] = '${{ github.run_id }}'
+              candidate['github_actor'] = '${{ github.actor }}'
+
+          # Sort by relevance score
+          candidates.sort(key=lambda x: x['relevance_score'], reverse=True)
+
+          with open('enriched_candidates.json', 'w') as f:
+              json.dump(candidates, f, indent=2)
+
+          print(f'Enriched {len(candidates)} candidates')
+          "
+
+      - name: Generate discovery report
+        if: steps.scan.outputs.candidates > 0
+        run: |
+          echo "Generating discovery report..."
+
+          python -c "
+          import json
+          from datetime import datetime
+
+          # Load data
+          with open('candidates.json') as f:
+              candidates = json.load(f)
+
+          with open('verification_results.json') as f:
+              verification = json.load(f)
+
+          # Generate markdown report
+          report = f'''# Source Discovery Report
+
+          **Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}
+          **Run ID:** ${{ github.run_id }}
+          **Triggered by:** ${{ github.actor }}
+
+          ## Summary
+
+          - **Sources verified:** {verification['summary']['total_feeds']}
+          - **Accessible sources:** {verification['summary']['accessible']} ({verification['summary']['accessibility_rate']:.1%})
+          - **Candidates found:** {len(candidates)}
+          - **High-score candidates (≥0.8):** {sum(1 for c in candidates if c['relevance_score'] >= 0.8)}
+          - **Average response time:** {verification['summary']['avg_response_time']:.2f}s
+
+          ## Top Candidates
+
+          '''
+
+          # Add top 10 candidates
+          for i, candidate in enumerate(candidates[:10], 1):
+              scale_signals = ', '.join([s['type'] for s in candidate['scale_signals']])
+              innovations = ', '.join(candidate['innovations'][:3])
+
+              report += f'''### {i}. {candidate['title']}
+
+          - **Source:** {candidate['source']}
+          - **Score:** {candidate['relevance_score']:.2f}
+          - **URL:** {candidate['url']}
+          - **Date:** {candidate['date']}
+          - **Scale signals:** {scale_signals or 'None'}
+          - **Innovations:** {innovations or 'None'}
+
+          {candidate['summary'][:200]}...
+
+          '''
+
+          # Add verification issues if any
+          if verification['errors']:
+              report += f'''
+          ## Source Issues
+
+          '''
+              for error, count in verification['errors'].items():
+                  report += f'- **{error}:** {count} sources\\n'
+
+          # Save report
+          with open('discovery_report.md', 'w') as f:
+              f.write(report)
+
+          print('Discovery report generated')
+          "
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: discovery-results-${{ github.run_id }}
+          path: |
+            candidates.json
+            enriched_candidates.json
+            verification_results.json
+            discovery_report.md
+          retention-days: 30
+
+      - name: Comment on PR if candidates found
+        if: github.event_name == 'pull_request' && steps.scan.outputs.candidates > 0
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('discovery_report.md', 'utf8');
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## 🔍 Source Discovery Results\n\n${report}`
+            });
+
+  alert:
+    needs: discover
+    runs-on: ubuntu-latest
+    if: always() && (failure() || needs.discover.outputs.candidates_count > 0)
+    steps:
+      - name: Send notification
+        run: |
+          if [ "${{ job.status }}" = "failure" ]; then
+            echo "⚠️ Source discovery pipeline failed"
+            # Add notification logic here (Slack, email, etc.)
+          elif [ "${{ needs.discover.outputs.candidates_count }}" -gt "0" ]; then
+            echo "✅ Found ${{ needs.discover.outputs.candidates_count }} new candidates"
+            echo "📈 ${{ needs.discover.outputs.high_score_count }} high-score candidates"
+            # Add notification logic here
+          fi

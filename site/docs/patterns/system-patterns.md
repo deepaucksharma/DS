@@ -246,4 +246,315 @@ def calculate_pattern_cost(pattern, requirements):
 | Complexity Explosion | Incremental rollout | Error rate monitoring | Service rollback |
 | Team Productivity Loss | Training and documentation | Velocity metrics | Temporary consultants |
 
-Each system pattern represents a fundamental architectural approach proven at scale. Choose based on your specific requirements, team capabilities, and acceptable complexity trade-offs.
+### Serverless Architecture
+
+**Architecture Components**:
+```yaml
+compute_layer:
+  functions: AWS Lambda, Google Cloud Functions
+  triggers: HTTP, Events, Schedule, Storage
+  timeout: 15 minutes maximum
+  scaling: Automatic based on demand
+
+gateway_layer:
+  api_gateway: AWS API Gateway, Azure APIM
+  authentication: JWT, OAuth2, API Keys
+  rate_limiting: Per-key and global limits
+  caching: Response caching
+
+storage_layer:
+  databases: DynamoDB, CosmosDB (serverless)
+  object_storage: S3, Cloud Storage
+  cache: ElastiCache, Redis (serverless)
+  queue: SQS, Service Bus
+```
+
+**Guarantees**:
+- Auto-scaling: Zero to millions of requests
+- Cost efficiency: Pay only for actual usage
+- High availability: Built-in redundancy
+- Fast deployment: Minutes to deploy changes
+
+**Implementation Checklist**:
+- [ ] Function size optimization (<50MB)
+- [ ] Cold start mitigation strategies
+- [ ] Proper error handling and retries
+- [ ] Monitoring and observability
+- [ ] Security (IAM, least privilege)
+- [ ] State management strategy
+
+### Edge Computing Architecture
+
+**Architecture Components**:
+```yaml
+edge_tier:
+  compute: Lambda@Edge, Cloudflare Workers
+  storage: Edge caching, KV stores
+  network: CDN endpoints
+  latency: <20ms to users
+
+regional_tier:
+  compute: Container clusters
+  storage: Regional databases
+  cache: Regional cache clusters
+  latency: <100ms inter-region
+
+core_tier:
+  compute: Central data centers
+  storage: Master databases
+  analytics: Data warehouses
+  ml: Model training
+```
+
+**Guarantees**:
+- Low latency: <50ms globally
+- Data locality: Process data near users
+- Bandwidth efficiency: Reduce data transfer
+- Global scale: Hundreds of edge locations
+
+**Implementation Checklist**:
+- [ ] Edge workload identification
+- [ ] Data synchronization strategy
+- [ ] Cache invalidation mechanisms
+- [ ] Regional failover procedures
+- [ ] Global configuration management
+- [ ] Edge monitoring and analytics
+
+## Advanced Pattern Combinations
+
+### Lambda Architecture (Batch + Stream)
+
+**Problem**: Need both real-time and batch processing with different latency/accuracy trade-offs.
+
+**Solution**:
+```yaml
+batch_layer:
+  storage: Data lake (S3/HDFS)
+  processing: Spark/MapReduce
+  latency: Hours to days
+  accuracy: Perfect
+
+speed_layer:
+  storage: Kafka/Kinesis
+  processing: Storm/Flink
+  latency: Seconds to minutes
+  accuracy: Approximate
+
+serving_layer:
+  batch_views: Pre-computed aggregations
+  real_time_views: Incremental updates
+  query: Merge batch + real-time
+```
+
+### Kappa Architecture (Stream-Only)
+
+**Problem**: Simplify Lambda architecture by using only stream processing.
+
+**Solution**:
+```yaml
+stream_processing:
+  storage: Event log (Kafka)
+  processing: Kafka Streams/Flink
+  reprocessing: Replay from log
+  accuracy: Configurable
+
+serving_layer:
+  materialized_views: Stream processors output
+  query: Direct query to views
+  updates: Real-time stream updates
+```
+
+### Multi-Tenant Patterns
+
+**Tenant Isolation Strategies**:
+
+1. **Shared Database, Shared Schema**
+   - Lowest cost, highest density
+   - Row-level security required
+   - Risk: Data leakage
+
+2. **Shared Database, Separate Schema**
+   - Medium cost, good isolation
+   - Schema per tenant
+   - Risk: Resource contention
+
+3. **Separate Database**
+   - Highest cost, best isolation
+   - Complete data separation
+   - Risk: Operational complexity
+
+4. **Cell-Based Multi-Tenancy**
+   - Tenant groups per cell
+   - Predictable performance
+   - Risk: Cross-tenant features
+
+## Pattern Evolution Paths
+
+### Monolith to Microservices
+
+```
+Phase 1: Extract Read Models (CQRS)
+├─ Add event publishing to monolith
+├─ Build separate read services
+└─ Migrate read traffic gradually
+
+Phase 2: Extract Business Domains
+├─ Identify bounded contexts
+├─ Extract high-value services
+└─ Add service mesh
+
+Phase 3: Data Decomposition
+├─ Split shared databases
+├─ Add event-driven integration
+└─ Remove database coupling
+
+Phase 4: Full Decomposition
+├─ Extract remaining services
+├─ Add comprehensive monitoring
+└─ Optimize service boundaries
+```
+
+### Microservices to Cell-Based
+
+```
+Phase 1: Service Grouping
+├─ Analyze service dependencies
+├─ Group by data locality
+└─ Define cell boundaries
+
+Phase 2: Cell Infrastructure
+├─ Build cell templates
+├─ Add global routing layer
+└─ Test cell provisioning
+
+Phase 3: Gradual Migration
+├─ Migrate user cohorts
+├─ Monitor cell utilization
+└─ Optimize cell size
+
+Phase 4: Global Optimization
+├─ Cross-cell analytics
+├─ Global feature rollouts
+└─ Cell lifecycle management
+```
+
+## Anti-Patterns and Common Mistakes
+
+### Distributed Monolith
+
+**Problem**: Microservices that share databases and have tight coupling.
+
+**Detection**:
+- Services can't deploy independently
+- Shared database across services
+- Synchronous chains of service calls
+- No clear service boundaries
+
+**Fix**:
+- Database per service
+- Event-driven communication
+- Async messaging patterns
+- Clear domain boundaries
+
+### Premature Optimization
+
+**Problem**: Choosing complex patterns before they're needed.
+
+**Detection**:
+- Over-engineering for current scale
+- Complex patterns with simple requirements
+- High operational overhead
+- Team struggling with complexity
+
+**Fix**:
+- Start simple, evolve gradually
+- Measure before optimizing
+- Focus on business value
+- Match pattern to actual needs
+
+### Event Sourcing Everywhere
+
+**Problem**: Using event sourcing for all data instead of where it's needed.
+
+**Detection**:
+- Complex queries for simple CRUD
+- Event replay taking too long
+- Storage costs growing rapidly
+- Team struggling with event modeling
+
+**Fix**:
+- Use for audit-critical domains only
+- CRUD for simple reference data
+- Hybrid approaches
+- Clear event boundaries
+
+### Microservice Sprawl
+
+**Problem**: Too many small services creating operational complexity.
+
+**Detection**:
+- Services with single operations
+- Network chatty operations
+- Difficult debugging
+- High deployment overhead
+
+**Fix**:
+- Merge overly granular services
+- Batch operations at boundaries
+- Clear service responsibilities
+- Service consolidation
+
+## Monitoring and Observability
+
+### Key Metrics by Pattern
+
+**CQRS**:
+- Projection lag time
+- Read/write throughput ratio
+- Event processing errors
+- Cache hit rates
+
+**Event Sourcing**:
+- Event replay speed
+- Snapshot creation time
+- Storage growth rate
+- Query performance
+
+**Microservices**:
+- Service dependency map
+- Inter-service latency
+- Error rate by service
+- Deployment frequency
+
+**Serverless**:
+- Cold start frequency
+- Function duration
+- Cost per invocation
+- Error rates
+
+**Cell-Based**:
+- Cell utilization
+- Cross-cell operations
+- Cell health scores
+- Routing efficiency
+
+### Alerting Strategies
+
+```yaml
+critical_alerts:
+  data_loss: Any projection falling behind >1 hour
+  availability: Service availability <99.9%
+  performance: P99 latency >2x baseline
+
+warning_alerts:
+  capacity: Resource utilization >80%
+  drift: Configuration drift detected
+  cost: Cost increase >20% month-over-month
+
+info_alerts:
+  deployments: Successful/failed deployments
+  scaling: Auto-scaling events
+  experiments: A/B test results
+```
+
+Each system pattern represents a fundamental architectural approach proven at scale. Choose based on your specific requirements, team capabilities, and acceptable complexity trade-offs. Remember that patterns can evolve - start simple and add complexity only when necessary.

@@ -1,12 +1,7 @@
-# MkDocs and dependencies for GitHub Actions
+# Core MkDocs requirements
 mkdocs>=1.5.0
 mkdocs-material>=9.4.0
-pymdownx-extensions>=10.0.0
 mkdocs-mermaid2-plugin>=1.1.0
 
-# Additional dependencies for enhanced functionality
-markdown>=3.4.0
-jinja2>=3.1.0
-markupsafe>=2.1.0
-pyyaml>=6.0
-watchdog>=3.0.0
+# Optional: For additional MkDocs features
+pymdownx-extensions>=10.0.0

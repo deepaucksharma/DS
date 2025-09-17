@@ -1,0 +1,96 @@
+name: Progress Tracking
+# Track diagram generation progress
+# Minimal automation focused on metrics
+
+on:
+  push:
+    paths:
+      - 'site/docs/**/*.md'
+      - 'site/scripts/progress_tracker.py'
+  schedule:
+    # Run every Friday at 5 PM UTC
+    - cron: '0 17 * * 5'
+  workflow_dispatch:
+
+jobs:
+  track-progress:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml
+
+      - name: Generate progress report
+        run: |
+          cd site
+          python scripts/progress_tracker.py > progress-summary.txt
+          echo "✓ Generated progress report"
+
+      - name: Update progress data
+        run: |
+          cd site
+          if [ -f "data/progress.json" ]; then
+            echo "✓ Progress data updated"
+          else
+            echo "⚠ No progress data found"
+          fi
+
+      - name: Display dashboard
+        run: |
+          cd site
+          cat progress-summary.txt
+
+      - name: Check velocity
+        run: |
+          cd site
+          python -c "
+          import json
+          import sys
+          try:
+              with open('data/progress.json') as f:
+                  history = json.load(f)
+                  if history:
+                      current = history[-1]['total_diagrams']
+                      target_min = 900
+                      if current >= target_min:
+                          print(f'🎉 TARGET ACHIEVED: {current} diagrams!')
+                      else:
+                          remaining = target_min - current
+                          print(f'📊 Progress: {current} diagrams, {remaining} to minimum target')
+          except:
+              print('📊 Starting fresh tracking')
+          "
+
+      - name: Commit progress data
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+          cd site
+          if [ -f "data/progress.json" ]; then
+            git add data/progress.json
+            git diff --staged --quiet || git commit -m "Update progress tracking data"
+            git push || echo "No changes to push"
+          fi
+
+      - name: Archive progress report
+        uses: actions/upload-artifact@v4
+        with:
+          name: progress-${{ github.run_id }}
+          path: |
+            site/progress-report.md
+            site/progress-summary.txt
+            site/data/progress.json
+          retention-days: 90

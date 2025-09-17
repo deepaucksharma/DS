@@ -1,0 +1,13 @@
+[
+  {
+    "date": "2025-09-18T04:59:58.802153",
+    "total_diagrams": 19,
+    "total_files": 9,
+    "breakdown": {
+      "guarantees": 1,
+      "mechanisms": 1,
+      "patterns": 11,
+      "case_studies": 6
+    }
+  }
+]

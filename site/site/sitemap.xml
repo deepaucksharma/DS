@@ -5,6 +5,30 @@
          <lastmod>2025-09-17</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/case-studies/</loc>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/case-studies/comparison-matrices/</loc>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/case-studies/data-collection-framework/</loc>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/case-studies/framework/</loc>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/case-studies/netflix/</loc>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/case-studies/uber/</loc>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/examples/case-studies/</loc>
          <lastmod>2025-09-17</lastmod>
     </url>
@@ -41,11 +65,35 @@
          <lastmod>2025-09-17</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/guarantees/</loc>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/</loc>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/patterns/</loc>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/patterns/decision-engine/</loc>
          <lastmod>2025-09-17</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/patterns/mechanisms/</loc>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/patterns/micro-patterns/</loc>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/patterns/pattern-catalog/</loc>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/patterns/production-architecture/</loc>
          <lastmod>2025-09-17</lastmod>
     </url>
     <url>
@@ -74,6 +122,10 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/reference/reading/</loc>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/testing/visual-testing/</loc>
          <lastmod>2025-09-17</lastmod>
     </url>
 </urlset>
