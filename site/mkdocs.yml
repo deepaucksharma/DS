@@ -76,23 +76,308 @@ extra_javascript:
 nav:
   - Home:
     - Welcome: index.md
-
-    # Getting Started Section
     - Getting Started:
       - Overview: getting-started/overview.md
       - Quick Start: getting-started/quick-start.md
       - Concepts: getting-started/concepts.md
-
-    # Foundation Section
     - Foundation:
       - Universal Laws: foundation/universal-laws.md
       - Capabilities: foundation/capabilities.md
       - Primitives: foundation/primitives.md
       - Guarantees: foundation/guarantees.md
       - Mechanisms: foundation/mechanisms.md
-
-    # Core Guarantees
-    - Guarantees:
+    - Production:
+      - Reality Check: production/reality.md
+      - Best Practices: production/best-practices.md
+      - Proof Obligations: production/proof-obligations.md
+    - Reference:
+      - API Reference: reference/api.md
+      - Glossary: reference/glossary.md
+      - Further Reading: reference/reading.md
+  - Systems Architecture:
+    # Complete Systems (8 diagrams each)
+    - Netflix:
+      - Complete Architecture: systems/netflix/architecture.md
+      - Request Flow: systems/netflix/request-flow.md
+      - Storage Architecture: systems/netflix/storage-architecture.md
+      - Failure Domains: systems/netflix/failure-domains.md
+      - Scale Evolution: systems/netflix/scale-evolution.md
+      - Cost Breakdown: systems/netflix/cost-breakdown.md
+      - Novel Solutions: systems/netflix/novel-solutions.md
+      - Production Operations: systems/netflix/production-operations.md
+    - Uber:
+      - Complete Architecture: systems/uber/architecture.md
+      - Request Flow: systems/uber/request-flow.md
+      - Storage Architecture: systems/uber/storage-architecture.md
+      - Failure Domains: systems/uber/failure-domains.md
+      - Scale Evolution: systems/uber/scale-evolution.md
+      - Cost Breakdown: systems/uber/cost-breakdown.md
+      - Novel Solutions: systems/uber/novel-solutions.md
+      - Production Operations: systems/uber/production-operations.md
+    - Amazon:
+      - Complete Architecture: systems/amazon/architecture.md
+      - Request Flow: systems/amazon/request-flow.md
+      - Storage Architecture: systems/amazon/storage-architecture.md
+      - Failure Domains: systems/amazon/failure-domains.md
+      - Scale Evolution: systems/amazon/scale-evolution.md
+      - Cost Breakdown: systems/amazon/cost-breakdown.md
+      - Novel Solutions: systems/amazon/novel-solutions.md
+      - Production Operations: systems/amazon/production-operations.md
+    - Google:
+      - Complete Architecture: systems/google/architecture.md
+      - Request Flow: systems/google/request-flow.md
+      - Storage Architecture: systems/google/storage-architecture.md
+      - Failure Domains: systems/google/failure-domains.md
+      - Scale Evolution: systems/google/scale-evolution.md
+      - Cost Breakdown: systems/google/cost-breakdown.md
+      - Novel Solutions: systems/google/novel-solutions.md
+      - Production Operations: systems/google/production-operations.md
+    - Meta:
+      - Complete Architecture: systems/meta/architecture.md
+      - Request Flow: systems/meta/request-flow.md
+      - Storage Architecture: systems/meta/storage-architecture.md
+      - Failure Domains: systems/meta/failure-domains.md
+      - Scale Evolution: systems/meta/scale-evolution.md
+      - Cost Breakdown: systems/meta/cost-breakdown.md
+      - Novel Solutions: systems/meta/novel-solutions.md
+      - Production Operations: systems/meta/production-operations.md
+    - LinkedIn:
+      - Complete Architecture: systems/linkedin/architecture.md
+      - Request Flow: systems/linkedin/request-flow.md
+      - Storage Architecture: systems/linkedin/storage-architecture.md
+      - Failure Domains: systems/linkedin/failure-domains.md
+      - Scale Evolution: systems/linkedin/scale-evolution.md
+      - Cost Breakdown: systems/linkedin/cost-breakdown.md
+      - Novel Solutions: systems/linkedin/novel-solutions.md
+      - Production Operations: systems/linkedin/production-operations.md
+    - Stripe:
+      - Complete Architecture: systems/stripe/architecture.md
+      - Request Flow: systems/stripe/request-flow.md
+      - Storage Architecture: systems/stripe/storage-architecture.md
+      - Failure Domains: systems/stripe/failure-domains.md
+      - Scale Evolution: systems/stripe/scale-evolution.md
+      - Cost Breakdown: systems/stripe/cost-breakdown.md
+      - Novel Solutions: systems/stripe/novel-solutions.md
+      - Production Operations: systems/stripe/production-operations.md
+    - Spotify:
+      - Complete Architecture: systems/spotify/architecture.md
+      - Request Flow: systems/spotify/request-flow.md
+      - Storage Architecture: systems/spotify/storage-architecture.md
+      - Failure Domains: systems/spotify/failure-domains.md
+      - Scale Evolution: systems/spotify/scale-evolution.md
+      - Cost Breakdown: systems/spotify/cost-breakdown.md
+      - Novel Solutions: systems/spotify/novel-solutions.md
+      - Production Operations: systems/spotify/production-operations.md
+    - Airbnb:
+      - Complete Architecture: systems/airbnb/architecture.md
+      - Request Flow: systems/airbnb/request-flow.md
+      - Storage Architecture: systems/airbnb/storage-architecture.md
+      - Failure Domains: systems/airbnb/failure-domains.md
+      - Scale Evolution: systems/airbnb/scale-evolution.md
+      - Cost Breakdown: systems/airbnb/cost-breakdown.md
+      - Novel Solutions: systems/airbnb/novel-solutions.md
+      - Production Operations: systems/airbnb/production-operations.md
+    - Discord:
+      - Complete Architecture: systems/discord/architecture.md
+      - Request Flow: systems/discord/request-flow.md
+      - Storage Architecture: systems/discord/storage-architecture.md
+      - Failure Domains: systems/discord/failure-domains.md
+      - Scale Evolution: systems/discord/scale-evolution.md
+      - Cost Breakdown: systems/discord/cost-breakdown.md
+      - Novel Solutions: systems/discord/novel-solutions.md
+      - Production Operations: systems/discord/production-operations.md
+    - Cloudflare:
+      - Complete Architecture: systems/cloudflare/architecture.md
+      - Request Flow: systems/cloudflare/request-flow.md
+      - Storage Architecture: systems/cloudflare/storage-architecture.md
+      - Failure Domains: systems/cloudflare/failure-domains.md
+      - Scale Evolution: systems/cloudflare/scale-evolution.md
+      - Cost Breakdown: systems/cloudflare/cost-breakdown.md
+      - Novel Solutions: systems/cloudflare/novel-solutions.md
+      - Production Operations: systems/cloudflare/production-operations.md
+    - Shopify:
+      - Complete Architecture: systems/shopify/architecture.md
+      - Request Flow: systems/shopify/request-flow.md
+      - Storage Architecture: systems/shopify/storage-architecture.md
+      - Failure Domains: systems/shopify/failure-domains.md
+      - Scale Evolution: systems/shopify/scale-evolution.md
+      - Cost Breakdown: systems/shopify/cost-breakdown.md
+      - Novel Solutions: systems/shopify/novel-solutions.md
+      - Production Operations: systems/shopify/production-operations.md
+    - Zoom:
+      - Complete Architecture: systems/zoom/architecture.md
+      - Request Flow: systems/zoom/request-flow.md
+      - Failure Domains: systems/zoom/failure-domains.md
+    - Twitter/X:
+      - Complete Architecture: systems/twitter/architecture.md
+      - Request Flow: systems/twitter/request-flow.md
+      - Storage Architecture: systems/twitter/storage-architecture.md
+      - Failure Domains: systems/twitter/failure-domains.md
+      - Scale Evolution: systems/twitter/scale-evolution.md
+      - Cost Breakdown: systems/twitter/cost-breakdown.md
+      - Novel Solutions: systems/twitter/novel-solutions.md
+      - Production Operations: systems/twitter/production-operations.md
+    - GitHub:
+      - Complete Architecture: systems/github/architecture.md
+      - Request Flow: systems/github/request-flow.md
+      - Storage Architecture: systems/github/storage-architecture.md
+      - Failure Domains: systems/github/failure-domains.md
+      - Scale Evolution: systems/github/scale-evolution.md
+      - Cost Breakdown: systems/github/cost-breakdown.md
+      - Novel Solutions: systems/github/novel-solutions.md
+      - Production Operations: systems/github/production-operations.md
+    - OpenAI:
+      - Complete Architecture: systems/openai/architecture.md
+      - Request Flow: systems/openai/request-flow.md
+      - Storage Architecture: systems/openai/storage-architecture.md
+      - Failure Domains: systems/openai/failure-domains.md
+      - Scale Evolution: systems/openai/scale-evolution.md
+      - Cost Breakdown: systems/openai/cost-breakdown.md
+      - Novel Solutions: systems/openai/novel-solutions.md
+      - Production Operations: systems/openai/production-operations.md
+    - Microsoft:
+      - Complete Architecture: systems/microsoft/architecture.md
+      - Request Flow: systems/microsoft/request-flow.md
+      - Storage Architecture: systems/microsoft/storage-architecture.md
+      - Failure Domains: systems/microsoft/failure-domains.md
+      - Scale Evolution: systems/microsoft/scale-evolution.md
+      - Cost Breakdown: systems/microsoft/cost-breakdown.md
+      - Novel Solutions: systems/microsoft/novel-solutions.md
+      - Production Operations: systems/microsoft/production-operations.md
+  - Incident Anatomies:
+    - High Profile Incidents:
+      - AWS S3 Outage 2017: incidents/aws-s3-2017.md
+      - Cloudflare BGP Leak 2019: incidents/cloudflare-2019.md
+      - Fastly CDN Outage 2021: incidents/fastly-2021.md
+      - GitHub Outage 2018: incidents/github-2018.md
+      - Slack Outage 2022: incidents/slack-2022.md
+    - Cloud Provider Incidents:
+      - AWS US-East-1 2021: incidents/aws-us-east-1-2021.md
+      - Azure AD March 2021: incidents/azure-ad-march-2021.md
+      - Alibaba Cloud 2023: incidents/alibaba-cloud-2023.md
+      - Google Cloud November 2021: incidents/google-cloud-november-2021.md
+      - Oracle Cloud 2022: incidents/oracle-cloud-2022.md
+    - Financial Services:
+      - Coinbase May 2021: incidents/coinbase-may-2021.md
+      - Robinhood January 2021: incidents/robinhood-january-2021.md
+      - Stripe July 2023: incidents/stripe-july-2023.md
+      - PayPal November 2022: incidents/paypal-november-2022.md
+      - Visa June 2021: incidents/visa-june-2021.md
+    - Communication Platforms:
+      - Discord March 2024: incidents/discord-march-2024.md
+      - Zoom August 2020: incidents/zoom-august-2020.md
+      - Teams January 2023: incidents/teams-january-2023.md
+      - WhatsApp October 2022: incidents/whatsapp-october-2022.md
+    - Entertainment & Media:
+      - Netflix December 2022: incidents/netflix-december-2022.md
+      - Netflix December 2023: incidents/netflix-dec-2023-outage.md
+      - Spotify March 2024: incidents/spotify-march-2024.md
+    - E-commerce & Food Delivery:
+      - DoorDash July 2023: incidents/doordash-july-2023.md
+      - Shopify Black Friday 2022: incidents/shopify-black-friday-2022.md
+      - Uber March 2023: incidents/uber-march-2023.md
+    - Social Media:
+      - Reddit March 2023: incidents/reddit-march-2023.md
+    - Response Patterns:
+      - Cascading Failures:
+        - Circuit Breaker Patterns: incidents/response-patterns/cascading-failures/circuit-breaker-patterns.md
+        - Cache Stampede Response: incidents/response-patterns/cascading-failures/cache-stampede-response.md
+        - Retry Storm Prevention: incidents/response-patterns/cascading-failures/retry-storm-prevention.md
+        - Service Cascade Detection: incidents/response-patterns/cascading-failures/service-cascade-detection.md
+        - Split Brain Detection: incidents/response-patterns/cascading-failures/split-brain-detection.md
+      - Data Consistency:
+        - Conflict Resolution Patterns: incidents/response-patterns/data-consistency/conflict-resolution-patterns.md
+        - Data Corruption Detection: incidents/response-patterns/data-consistency/data-corruption-detection.md
+        - Eventual Consistency Failures: incidents/response-patterns/data-consistency/eventual-consistency-failures.md
+        - Replication Lag Recovery: incidents/response-patterns/data-consistency/replication-lag-recovery.md
+        - Transaction Isolation Failures: incidents/response-patterns/data-consistency/transaction-isolation-failures.md
+      - Distributed Systems:
+        - Consensus Algorithm Failures: incidents/response-patterns/distributed-systems/consensus-algorithm-failures.md
+        - Distributed Deadlock Resolution: incidents/response-patterns/distributed-systems/distributed-deadlock-resolution.md
+        - Load Balancer Failures: incidents/response-patterns/distributed-systems/load-balancer-failures.md
+        - Network Partition Handling: incidents/response-patterns/distributed-systems/network-partition-handling.md
+        - Service Mesh Failures: incidents/response-patterns/distributed-systems/service-mesh-failures.md
+      - Resource Exhaustion:
+        - Memory Leak Detection: incidents/response-patterns/resource-exhaustion/memory-leak-detection.md
+        - CPU Spike Response: incidents/response-patterns/resource-exhaustion/cpu-spike-response.md
+        - Database Connection Exhaustion: incidents/response-patterns/resource-exhaustion/database-connection-exhaustion.md
+        - Disk Space Exhaustion: incidents/response-patterns/resource-exhaustion/disk-space-exhaustion.md
+        - Network Bandwidth Saturation: incidents/response-patterns/resource-exhaustion/network-bandwidth-saturation.md
+  - Debugging Guides:
+    - Performance Issues:
+      - CPU Spike Diagnosis: debugging/cpu-spike-diagnosis.md
+      - Memory Leak Detection: debugging/memory-leak-detection.md
+      - Network Issues Troubleshooting: debugging/network-issues-troubleshooting.md
+      - High Latency Investigation: debugging/high-latency-investigation.md
+      - Latency Spike Investigation: debugging/latency-spike-investigation.md
+    - Data Issues:
+      - Data Inconsistency Detection: debugging/data-inconsistency-detection.md
+      - Data Inconsistency Resolution: debugging/data-inconsistency-resolution.md
+    - Infrastructure:
+      - Container Orchestration Issues: debugging/container-orchestration-issues.md
+      - Load Balancer Health Check: debugging/load-balancer-health-check-debugging.md
+      - Message Queue Backlog: debugging/message-queue-backlog-debugging.md
+      - DNS Resolution Issues: debugging/dns-resolution-issues-debugging.md
+    - Database Issues:
+      - Database Connection Pool: debugging/database-connection-pool-debugging.md
+    - Distributed Systems:
+      - Distributed Tracing Analysis: debugging/distributed-tracing-analysis.md
+      - Circuit Breaker Failure: debugging/circuit-breaker-failure-debugging.md
+      - Log Correlation Services: debugging/log-correlation-services.md
+      - Service Discovery Failures: debugging/service-discovery-failures.md
+      - Service Dependency Mapping: debugging/service-dependency-mapping.md
+      - Split Brain Recovery: debugging/split-brain-recovery.md
+      - Timeout Cascade Debugging: debugging/timeout-cascade-debugging.md
+    - Capacity & Scale:
+      - Capacity Planning Debugging: debugging/capacity-planning-debugging.md
+      - Cache Miss Storm Investigation: debugging/cache-miss-storm-investigation.md
+    - Prevention:
+      - Cascading Failure Prevention: debugging/cascading-failure-prevention.md
+      - Error Rate Surge Debugging: debugging/error-rate-surge-debugging.md
+      - Metric Anomaly Detection: debugging/metric-anomaly-detection.md
+    - Additional Debugging:
+      - Performance Bottleneck Identification: debugging/performance-bottleneck-identification.md
+      - Resource Exhaustion Diagnosis: debugging/resource-exhaustion-diagnosis.md
+      - Security Incident Response: debugging/security-incident-response-debugging.md
+      - Slow Query Analysis: debugging/slow-query-analysis.md
+      - Throughput Degradation: debugging/throughput-degradation.md
+      - Timeout and Retry Tuning: debugging/timeout-and-retry-tuning.md
+  - Performance Profiles:
+    - Database Performance:
+      - MySQL Performance Profile: performance/mysql-performance-profile.md
+      - PostgreSQL Performance Profile: performance/postgresql-performance-profile.md
+      - MongoDB Performance Profile: performance/mongodb-performance-profile.md
+      - Redis Performance Profile: performance/redis-performance-profile.md
+      - Cassandra Performance Profile: performance/cassandra-performance-profile.md
+      - DynamoDB Query Optimization: performance/dynamodb-query-optimization.md
+    - Application Performance:
+      - JVM GC Optimization: performance/jvm-gc-optimization.md
+      - Go Goroutine Optimization: performance/golang-goroutine-optimization.md
+      - Tomcat Connector Optimization: performance/tomcat-connector-optimization.md
+      - HikariCP Connection Pool Tuning: performance/hikaricp-connection-pool-tuning.md
+    - Web & API Performance:
+      - REST API Performance Profile: performance/rest-api-performance-profile.md
+      - GraphQL Performance Profile: performance/graphql-performance-profile.md
+      - gRPC Performance Profile: performance/grpc-performance-profile.md
+      - WebSocket Performance Profile: performance/websocket-performance-profile.md
+    - Infrastructure Performance:
+      - AWS ALB Optimization: performance/aws-alb-optimization.md
+      - CloudFront CDN Optimization: performance/cloudfront-cdn-optimization.md
+      - Nginx Async Optimization: performance/nginx-async-optimization.md
+      - Serverless Performance Profile: performance/serverless-performance-profile.md
+    - Messaging Performance:
+      - Kafka Performance Profile: performance/kafka-performance-profile.md
+      - Kafka Batch Processing: performance/kafka-batch-processing.md
+      - RabbitMQ Performance Profile: performance/rabbitmq-performance-profile.md
+      - NATS Performance Profile: performance/nats-performance-profile.md
+      - Pulsar Performance Profile: performance/pulsar-performance-profile.md
+      - SQS SNS Performance Profile: performance/sqs-sns-performance-profile.md
+    - Caching Performance:
+      - Redis Cache Hit Optimization: performance/redis-cache-hit-optimization.md
+      - Memcached Cluster Optimization: performance/memcached-cluster-optimization.md
+      - Facebook TAO Cache Optimization: performance/facebook-tao-cache-optimization.md
+  - Guarantees:
+    - Consistency Models:
       - Linearizability:
         - Concept: guarantees/linearizability/linearizability-concept.md
         - Implementation: guarantees/linearizability/linearizability-implementation.md
@@ -110,348 +395,132 @@ nav:
       - Exactly Once:
         - Concept: guarantees/exactly-once/exactly-once-concept.md
         - Implementation: guarantees/exactly-once/exactly-once-implementation.md
-        - Kafka: guarantees/exactly-once/exactly-once-kafka.md
-        - Payments: guarantees/exactly-once/exactly-once-payment.md
+        - Kafka Implementation: guarantees/exactly-once/exactly-once-kafka.md
+        - Payment Systems: guarantees/exactly-once/exactly-once-payment.md
         - Failures: guarantees/exactly-once/exactly-once-failures.md
-        - Cost: guarantees/exactly-once/exactly-once-cost.md
-
-    # Core Mechanisms
-    - Mechanisms:
-      - Replication:
-        - Strategies: mechanisms/replication/replication-strategies.md
-        - Topologies: mechanisms/replication/replication-topologies.md
-        - Conflicts: mechanisms/replication/replication-conflicts.md
-        - Lag: mechanisms/replication/replication-lag.md
-        - MySQL: mechanisms/replication/replication-mysql.md
-        - PostgreSQL: mechanisms/replication/replication-postgres.md
-      - Load Balancing:
-        - Algorithms: mechanisms/load-balancing/load-balancing-algorithms.md
-        - Layer 4: mechanisms/load-balancing/load-balancing-layer4.md
-        - Layer 7: mechanisms/load-balancing/load-balancing-layer7.md
-        - Health: mechanisms/load-balancing/load-balancing-health.md
-        - Geographic: mechanisms/load-balancing/load-balancing-geo.md
-        - Failures: mechanisms/load-balancing/load-balancing-failures.md
-      - Partitioning:
-        - Strategies: mechanisms/partitioning/partitioning-strategies.md
-        - Consistent Hash: mechanisms/partitioning/partitioning-consistent-hash.md
-        - Hotspots: mechanisms/partitioning/partitioning-hotspots.md
-        - Resharding: mechanisms/partitioning/partitioning-resharding.md
-        - MongoDB: mechanisms/partitioning/partitioning-mongodb.md
-        - Cassandra: mechanisms/partitioning/partitioning-cassandra.md
-      - Consensus:
-        - Raft: mechanisms/consensus/raft-algorithm.md
-        - Implementation: mechanisms/consensus/raft-implementation.md
-        - vs Paxos: mechanisms/consensus/raft-vs-paxos.md
-        - Performance: mechanisms/consensus/raft-performance.md
-        - Failures: mechanisms/consensus/raft-failures.md
-        - Debugging: mechanisms/consensus/raft-debugging.md
-      - Caching:
-        - Patterns: mechanisms/caching/caching-patterns.md
-        - Invalidation: mechanisms/caching/caching-invalidation.md
-        - Consistency: mechanisms/caching/caching-consistency.md
-        - Redis: mechanisms/caching/caching-redis.md
-        - Memcached: mechanisms/caching/caching-memcached.md
-
-    # Patterns
-    - Patterns:
-      - Overview: patterns/index.md
-      - Production: patterns/production-architecture.md
-      - System: patterns/system-patterns.md
-      - Micro: patterns/micro-patterns.md
-      - Decision: patterns/decision-engine.md
-      - Mechanisms: patterns/mechanisms.md
-      - Catalog: patterns/pattern-catalog.md
-
-    # Systems Architecture
-    - Systems:
-      - Netflix:
-        - Architecture: systems/netflix/architecture.md
-        - Request Flow: systems/netflix/request-flow.md
-        - Storage: systems/netflix/storage-architecture.md
-        - Failures: systems/netflix/failure-domains.md
-        - Scale: systems/netflix/scale-evolution.md
-        - Cost: systems/netflix/cost-breakdown.md
-        - Novel: systems/netflix/novel-solutions.md
-        - Operations: systems/netflix/production-operations.md
-      - Uber:
-        - Architecture: systems/uber/architecture.md
-        - Request Flow: systems/uber/request-flow.md
-        - Storage: systems/uber/storage-architecture.md
-        - Failures: systems/uber/failure-domains.md
-        - Scale: systems/uber/scale-evolution.md
-        - Cost: systems/uber/cost-breakdown.md
-        - Novel: systems/uber/novel-solutions.md
-        - Operations: systems/uber/production-operations.md
-      - Amazon:
-        - Architecture: systems/amazon/architecture.md
-        - Request Flow: systems/amazon/request-flow.md
-        - Storage: systems/amazon/storage-architecture.md
-        - Failures: systems/amazon/failure-domains.md
-        - Scale: systems/amazon/scale-evolution.md
-        - Cost: systems/amazon/cost-breakdown.md
-        - Novel: systems/amazon/novel-solutions.md
-        - Operations: systems/amazon/production-operations.md
-      - Google:
-        - Architecture: systems/google/architecture.md
-        - Request Flow: systems/google/request-flow.md
-        - Storage: systems/google/storage-architecture.md
-        - Failures: systems/google/failure-domains.md
-        - Scale: systems/google/scale-evolution.md
-        - Cost: systems/google/cost-breakdown.md
-        - Novel: systems/google/novel-solutions.md
-        - Operations: systems/google/production-operations.md
-      - Meta:
-        - Architecture: systems/meta/architecture.md
-        - Request Flow: systems/meta/request-flow.md
-        - Storage: systems/meta/storage-architecture.md
-        - Failures: systems/meta/failure-domains.md
-        - Scale: systems/meta/scale-evolution.md
-        - Cost: systems/meta/cost-breakdown.md
-        - Novel: systems/meta/novel-solutions.md
-        - Operations: systems/meta/production-operations.md
-      - LinkedIn:
-        - Architecture: systems/linkedin/architecture.md
-        - Request Flow: systems/linkedin/request-flow.md
-        - Storage: systems/linkedin/storage-architecture.md
-        - Failures: systems/linkedin/failure-domains.md
-        - Scale: systems/linkedin/scale-evolution.md
-        - Cost: systems/linkedin/cost-breakdown.md
-        - Novel: systems/linkedin/novel-solutions.md
-        - Operations: systems/linkedin/production-operations.md
-      - Stripe:
-        - Architecture: systems/stripe/architecture.md
-        - Request Flow: systems/stripe/request-flow.md
-        - Storage: systems/stripe/storage-architecture.md
-        - Failures: systems/stripe/failure-domains.md
-        - Scale: systems/stripe/scale-evolution.md
-        - Cost: systems/stripe/cost-breakdown.md
-        - Novel: systems/stripe/novel-solutions.md
-        - Operations: systems/stripe/production-operations.md
-      - Spotify:
-        - Architecture: systems/spotify/architecture.md
-        - Request Flow: systems/spotify/request-flow.md
-        - Storage: systems/spotify/storage-architecture.md
-        - Failures: systems/spotify/failure-domains.md
-        - Scale: systems/spotify/scale-evolution.md
-        - Cost: systems/spotify/cost-breakdown.md
-        - Novel: systems/spotify/novel-solutions.md
-        - Operations: systems/spotify/production-operations.md
-      - Others:
-        - Airbnb: systems/airbnb/architecture.md
-        - Discord: systems/discord/architecture.md
-        - Cloudflare: systems/cloudflare/architecture.md
-        - Shopify: systems/shopify/architecture.md
-        - Twitter: systems/twitter/architecture.md
-        - Microsoft: systems/microsoft/architecture.md
-        - Zoom: systems/zoom/architecture.md
-
-    # Incidents
-    - Incidents:
-      - AWS S3 2017: incidents/aws-s3-2017.md
-      - Cloudflare 2019: incidents/cloudflare-2019.md
-      - Fastly 2021: incidents/fastly-2021.md
-      - GitHub 2018: incidents/github-2018.md
-      - Slack 2022: incidents/slack-2022.md
-      - AWS US-East 2021: incidents/aws-us-east-1-2021.md
-      - Azure AD 2021: incidents/azure-ad-march-2021.md
-      - Alibaba 2023: incidents/alibaba-cloud-2023.md
-      - Google Cloud 2021: incidents/google-cloud-november-2021.md
-      - Oracle 2022: incidents/oracle-cloud-2022.md
-      - Coinbase 2021: incidents/coinbase-may-2021.md
-      - Robinhood 2021: incidents/robinhood-january-2021.md
-      - Stripe 2023: incidents/stripe-july-2023.md
-      - PayPal 2022: incidents/paypal-november-2022.md
-      - Visa 2021: incidents/visa-june-2021.md
-      - Discord 2024: incidents/discord-march-2024.md
-      - Zoom 2020: incidents/zoom-august-2020.md
-      - Teams 2023: incidents/teams-january-2023.md
-      - WhatsApp 2022: incidents/whatsapp-october-2022.md
-      - Netflix 2022: incidents/netflix-december-2022.md
-      - Netflix 2023: incidents/netflix-dec-2023-outage.md
-      - Spotify 2024: incidents/spotify-march-2024.md
-      - DoorDash 2023: incidents/doordash-july-2023.md
-      - Shopify 2022: incidents/shopify-black-friday-2022.md
-      - Uber 2023: incidents/uber-march-2023.md
-      - Reddit 2023: incidents/reddit-march-2023.md
-      - Response Patterns:
-        - Circuit Breakers: incidents/response-patterns/cascading-failures/circuit-breaker-patterns.md
-        - Cache Stampede: incidents/response-patterns/cascading-failures/cache-stampede-response.md
-        - Retry Storms: incidents/response-patterns/cascading-failures/retry-storm-prevention.md
-        - Service Cascades: incidents/response-patterns/cascading-failures/service-cascade-detection.md
-        - Split Brain: incidents/response-patterns/cascading-failures/split-brain-detection.md
-        - Conflict Resolution: incidents/response-patterns/data-consistency/conflict-resolution-patterns.md
-        - Data Corruption: incidents/response-patterns/data-consistency/data-corruption-detection.md
-        - Consistency Failures: incidents/response-patterns/data-consistency/eventual-consistency-failures.md
-        - Replication Lag: incidents/response-patterns/data-consistency/replication-lag-recovery.md
-        - Transaction Isolation: incidents/response-patterns/data-consistency/transaction-isolation-failures.md
-        - Consensus Failures: incidents/response-patterns/distributed-systems/consensus-algorithm-failures.md
-        - Deadlock Resolution: incidents/response-patterns/distributed-systems/distributed-deadlock-resolution.md
-        - Load Balancer Failures: incidents/response-patterns/distributed-systems/load-balancer-failures.md
-        - Network Partitions: incidents/response-patterns/distributed-systems/network-partition-handling.md
-        - Service Mesh: incidents/response-patterns/distributed-systems/service-mesh-failures.md
-        - Memory Leaks: incidents/response-patterns/resource-exhaustion/memory-leak-detection.md
-        - CPU Spikes: incidents/response-patterns/resource-exhaustion/cpu-spike-response.md
-        - Connection Exhaustion: incidents/response-patterns/resource-exhaustion/database-connection-exhaustion.md
-        - Disk Space: incidents/response-patterns/resource-exhaustion/disk-space-exhaustion.md
-        - Network Saturation: incidents/response-patterns/resource-exhaustion/network-bandwidth-saturation.md
-
-    # Debugging
-    - Debugging:
-      - CPU Diagnosis: debugging/cpu-spike-diagnosis.md
-      - Memory Leaks: debugging/memory-leak-detection.md
-      - Network Issues: debugging/network-issues-troubleshooting.md
-      - High Latency: debugging/high-latency-investigation.md
-      - Latency Spikes: debugging/latency-spike-investigation.md
-      - Bottlenecks: debugging/performance-bottleneck-identification.md
-      - Resource Exhaustion: debugging/resource-exhaustion-diagnosis.md
-      - Slow Queries: debugging/slow-query-analysis.md
-      - Throughput: debugging/throughput-degradation.md
-      - Timeouts: debugging/timeout-and-retry-tuning.md
-      - Data Inconsistency: debugging/data-inconsistency-detection.md
-      - Inconsistency Resolution: debugging/data-inconsistency-resolution.md
-      - Container Issues: debugging/container-orchestration-issues.md
-      - Load Balancers: debugging/load-balancer-health-check-debugging.md
-      - Message Queues: debugging/message-queue-backlog-debugging.md
-      - DNS Issues: debugging/dns-resolution-issues-debugging.md
-      - Connection Pools: debugging/database-connection-pool-debugging.md
-      - Distributed Tracing: debugging/distributed-tracing-analysis.md
-      - Circuit Breakers: debugging/circuit-breaker-failure-debugging.md
-      - Log Correlation: debugging/log-correlation-services.md
-      - Service Discovery: debugging/service-discovery-failures.md
-      - Service Dependencies: debugging/service-dependency-mapping.md
-      - Split Brain: debugging/split-brain-recovery.md
-      - Timeout Cascades: debugging/timeout-cascade-debugging.md
-      - Cascading Failures: debugging/cascading-failure-prevention.md
-      - Error Surges: debugging/error-rate-surge-debugging.md
-      - Anomaly Detection: debugging/metric-anomaly-detection.md
-      - Security Incidents: debugging/security-incident-response-debugging.md
-      - Capacity Planning: debugging/capacity-planning-debugging.md
-      - Cache Storms: debugging/cache-miss-storm-investigation.md
-
-    # Performance
-    - Performance:
-      - MySQL: performance/mysql-performance-profile.md
-      - PostgreSQL: performance/postgresql-performance-profile.md
-      - MongoDB: performance/mongodb-performance-profile.md
-      - Redis: performance/redis-performance-profile.md
-      - Cassandra: performance/cassandra-performance-profile.md
-      - DynamoDB: performance/dynamodb-query-optimization.md
-      - JVM GC: performance/jvm-gc-optimization.md
-      - Go Goroutines: performance/golang-goroutine-optimization.md
-      - Tomcat: performance/tomcat-connector-optimization.md
-      - HikariCP: performance/hikaricp-connection-pool-tuning.md
-      - REST API: performance/rest-api-performance-profile.md
-      - GraphQL: performance/graphql-performance-profile.md
-      - gRPC: performance/grpc-performance-profile.md
-      - WebSocket: performance/websocket-performance-profile.md
-      - AWS ALB: performance/aws-alb-optimization.md
-      - CloudFront: performance/cloudfront-cdn-optimization.md
-      - Nginx: performance/nginx-async-optimization.md
-      - Serverless: performance/serverless-performance-profile.md
-      - Kafka: performance/kafka-performance-profile.md
-      - Kafka Batch: performance/kafka-batch-processing.md
-      - RabbitMQ: performance/rabbitmq-performance-profile.md
-      - NATS: performance/nats-performance-profile.md
-      - Pulsar: performance/pulsar-performance-profile.md
-      - SQS/SNS: performance/sqs-sns-performance-profile.md
-      - Redis Cache: performance/redis-cache-hit-optimization.md
-      - Memcached: performance/memcached-cluster-optimization.md
-      - Facebook TAO: performance/facebook-tao-cache-optimization.md
-
-    # Scaling
-    - Scaling:
-      - Instagram: scaling/instagram-evolution.md
-      - WhatsApp: scaling/whatsapp-evolution.md
-      - Twitter Journey: scaling/twitter-scale-journey.md
-      - Discord Journey: scaling/discord-scale-journey.md
-      - Discord Evolution: scaling/discord-evolution.md
-      - Shopify: scaling/shopify-evolution.md
+        - Cost Analysis: guarantees/exactly-once/exactly-once-cost.md
+  - Mechanisms:
+    - Replication:
+      - Strategies: mechanisms/replication/replication-strategies.md
+      - Topologies: mechanisms/replication/replication-topologies.md
+      - Conflict Resolution: mechanisms/replication/replication-conflicts.md
+      - Lag Management: mechanisms/replication/replication-lag.md
+      - MySQL Replication: mechanisms/replication/replication-mysql.md
+      - PostgreSQL Replication: mechanisms/replication/replication-postgres.md
+    - Load Balancing:
+      - Algorithms: mechanisms/load-balancing/load-balancing-algorithms.md
+      - Layer 4 Balancing: mechanisms/load-balancing/load-balancing-layer4.md
+      - Layer 7 Balancing: mechanisms/load-balancing/load-balancing-layer7.md
+      - Health Checks: mechanisms/load-balancing/load-balancing-health.md
+      - Geographic Distribution: mechanisms/load-balancing/load-balancing-geo.md
+      - Failure Handling: mechanisms/load-balancing/load-balancing-failures.md
+    - Partitioning:
+      - Strategies: mechanisms/partitioning/partitioning-strategies.md
+      - Consistent Hashing: mechanisms/partitioning/partitioning-consistent-hash.md
+      - Hotspot Management: mechanisms/partitioning/partitioning-hotspots.md
+      - Resharding: mechanisms/partitioning/partitioning-resharding.md
+      - MongoDB Sharding: mechanisms/partitioning/partitioning-mongodb.md
+      - Cassandra Partitioning: mechanisms/partitioning/partitioning-cassandra.md
+    - Consensus:
+      - Raft Algorithm: mechanisms/consensus/raft-algorithm.md
+      - Raft Implementation: mechanisms/consensus/raft-implementation.md
+      - Raft vs Paxos: mechanisms/consensus/raft-vs-paxos.md
+      - Raft Performance: mechanisms/consensus/raft-performance.md
+      - Raft Failures: mechanisms/consensus/raft-failures.md
+      - Raft Debugging: mechanisms/consensus/raft-debugging.md
+    - Caching:
+      - Cache Patterns: mechanisms/caching/caching-patterns.md
+      - Cache Invalidation: mechanisms/caching/caching-invalidation.md
+      - Cache Consistency: mechanisms/caching/caching-consistency.md
+      - Redis Caching: mechanisms/caching/caching-redis.md
+      - Memcached: mechanisms/caching/caching-memcached.md
+  - Patterns:
+    - Overview: patterns/index.md
+    - Production Architecture: patterns/production-architecture.md
+    - System Patterns: patterns/system-patterns.md
+    - Micro-Patterns: patterns/micro-patterns.md
+    - Decision Engine: patterns/decision-engine.md
+    - Mechanisms: patterns/mechanisms.md
+    - Pattern Catalog: patterns/pattern-catalog.md
+  - Scaling Journeys:
+    - Evolution Stories:
+      - Instagram Scale Journey: scaling/instagram-evolution.md
+      - WhatsApp Scale Journey: scaling/whatsapp-evolution.md
+      - Twitter Scale Journey: scaling/twitter-scale-journey.md
+      - Discord Scale Journey: scaling/discord-scale-journey.md
+      - Shopify Evolution: scaling/shopify-evolution.md
       - Twitter Evolution: scaling/twitter-evolution.md
-      - Reddit: scaling/reddit-evolution.md
-      - Twitch: scaling/twitch-evolution.md
-      - Pinterest: scaling/pinterest-evolution.md
-
-    # Migrations
-    - Migrations:
-      - Overview: migrations/index.md
+      - Discord Evolution: scaling/discord-evolution.md
+      - Reddit Evolution: scaling/reddit-evolution.md
+      - Twitch Evolution: scaling/twitch-evolution.md
+      - Pinterest Evolution: scaling/pinterest-evolution.md
+  - Capacity Planning:
+    - Infrastructure Sizing:
+      - Database Capacity Planning: capacity/database-capacity-planning.md
+      - Redis Memory Planning: capacity/redis-memory-planning.md
+      - Elasticsearch Cluster Sizing: capacity/elasticsearch-cluster-sizing.md
+      - Kafka Cluster Sizing: capacity/kafka-cluster-sizing.md
+      - Kubernetes Cluster Capacity: capacity/kubernetes-cluster-capacity.md
+    - Application Capacity:
+      - API Gateway Capacity: capacity/api-gateway-capacity.md
+      - Load Balancer Capacity: capacity/load-balancer-capacity.md
+      - Message Queue Sizing: capacity/message-queue-sizing.md
+      - CDN Capacity Planning: capacity/cdn-capacity-planning.md
+      - Serverless Capacity Planning: capacity/serverless-capacity-planning.md
+    - Event-Driven Capacity:
+      - Netflix Show Release Surge: capacity/netflix-show-release-surge.md
+      - Amazon Black Friday Capacity: capacity/amazon-black-friday-capacity.md
+      - Zoom COVID Explosion: capacity/zoom-covid-explosion.md
+  - Migration Playbooks:
+    - Overview: migrations/index.md
+    - Database Migrations:
       - MySQL to Aurora: migrations/mysql-to-aurora.md
       - PostgreSQL to DynamoDB: migrations/postgresql-to-dynamodb.md
+    - Messaging Migrations:
       - Kafka to Kinesis: migrations/kafka-to-kinesis.md
+    - Architecture Migrations:
       - Monolith to Microservices: migrations/monolith-to-microservices.md
       - On-premise to Cloud: migrations/on-premise-to-cloud.md
-      - Uber Transformation: migrations/uber-monolith-to-microservices.md
-      - Uber Evolution: migrations/uber-microservices.md
-      - LinkedIn Kafka: migrations/linkedin-kafka-evolution.md
-
-    # Capacity
-    - Capacity:
-      - Database: capacity/database-capacity-planning.md
-      - Redis: capacity/redis-memory-planning.md
-      - Elasticsearch: capacity/elasticsearch-cluster-sizing.md
-      - Kafka: capacity/kafka-cluster-sizing.md
-      - Kubernetes: capacity/kubernetes-cluster-capacity.md
-      - API Gateway: capacity/api-gateway-capacity.md
-      - Load Balancers: capacity/load-balancer-capacity.md
-      - Message Queues: capacity/message-queue-sizing.md
-      - CDN: capacity/cdn-capacity-planning.md
-      - Serverless: capacity/serverless-capacity-planning.md
-      - Netflix Surges: capacity/netflix-show-release-surge.md
-      - Black Friday: capacity/amazon-black-friday-capacity.md
-      - Zoom COVID: capacity/zoom-covid-explosion.md
-
-    # Costs
-    - Costs:
-      - Netflix: costs/netflix-infrastructure-breakdown.md
-      - Netflix $500M: costs/netflix-infrastructure-500m.md
-      - Spotify: costs/spotify-infrastructure-breakdown.md
-      - Airbnb: costs/airbnb-infrastructure-breakdown.md
-      - Cloudflare: costs/cloudflare-infrastructure-breakdown.md
-      - Dropbox: costs/dropbox-infrastructure-breakdown.md
-      - GitHub: costs/github-infrastructure-breakdown.md
-      - Pinterest: costs/pinterest-infrastructure-breakdown.md
-      - Slack: costs/slack-infrastructure-breakdown.md
-
-    # Comparisons
-    - Comparisons:
+      - Uber Monolith to Microservices: migrations/uber-monolith-to-microservices.md
+      - Uber Microservices Evolution: migrations/uber-microservices.md
+      - LinkedIn Kafka Evolution: migrations/linkedin-kafka-evolution.md
+  - Cost Analysis:
+    - Infrastructure Economics:
+      - Netflix Infrastructure Breakdown: costs/netflix-infrastructure-breakdown.md
+      - Netflix $500M Infrastructure: costs/netflix-infrastructure-500m.md
+      - Spotify Infrastructure Breakdown: costs/spotify-infrastructure-breakdown.md
+      - Airbnb Infrastructure Breakdown: costs/airbnb-infrastructure-breakdown.md
+      - Cloudflare Infrastructure Breakdown: costs/cloudflare-infrastructure-breakdown.md
+      - Dropbox Infrastructure Breakdown: costs/dropbox-infrastructure-breakdown.md
+      - GitHub Infrastructure Breakdown: costs/github-infrastructure-breakdown.md
+      - Pinterest Infrastructure Breakdown: costs/pinterest-infrastructure-breakdown.md
+      - Slack Infrastructure Breakdown: costs/slack-infrastructure-breakdown.md
+  - Technology Comparisons:
+    - Database Comparisons:
       - PostgreSQL vs DynamoDB: comparisons/postgresql-vs-dynamodb.md
       - Redis vs Memcached: comparisons/redis-vs-memcached.md
       - MongoDB vs Cassandra: comparisons/mongodb-vs-cassandra.md
       - MySQL vs PostgreSQL: comparisons/mysql-vs-postgresql.md
+    - Messaging Comparisons:
       - Kafka vs Kinesis: comparisons/kafka-vs-kinesis.md
       - Kafka vs Kinesis vs Pulsar: comparisons/kafka-vs-kinesis-vs-pulsar.md
+    - API Comparisons:
       - REST vs GraphQL vs gRPC: comparisons/rest-vs-graphql-vs-grpc.md
+    - Cloud Providers:
       - AWS vs GCP vs Azure: comparisons/aws-vs-gcp-vs-azure.md
+    - Orchestration Comparisons:
       - Kubernetes vs Mesos vs Nomad: comparisons/kubernetes-vs-mesos-vs-nomad.md
-
-    # Case Studies
-    - Case Studies:
-      - Overview: case-studies/index.md
-      - Netflix: case-studies/netflix.md
-      - Uber: case-studies/uber.md
-      - Framework: case-studies/framework.md
-      - Data Collection: case-studies/data-collection-framework.md
-      - Comparison Matrices: case-studies/comparison-matrices.md
-
-    # Examples
-    - Examples:
-      - Case Studies: examples/case-studies.md
-      - Implementation: examples/implementation.md
-      - Pitfalls: examples/pitfalls.md
-
-    # Production
-    - Production:
-      - Reality Check: production/reality.md
-      - Best Practices: production/best-practices.md
-      - Proof Obligations: production/proof-obligations.md
-
-    # Reference
-    - Reference:
-      - API Reference: reference/api.md
-      - Glossary: reference/glossary.md
-      - Further Reading: reference/reading.md
-      - Color Comparison: color-comparison.md
-      - Mermaid Style Guide: mermaid-style-guide.md
-      - Incident Templates: diagrams/INCIDENT_RESPONSE_TEMPLATES.md
+  - Case Studies:
+    - Overview: case-studies/index.md
+    - Netflix Architecture: case-studies/netflix.md
+    - Uber Systems: case-studies/uber.md
+    - Framework: case-studies/framework.md
+    - Data Collection: case-studies/data-collection-framework.md
+    - Comparisons: case-studies/comparison-matrices.md
+  - Examples:
+    - Case Studies: examples/case-studies.md
+    - Implementation: examples/implementation.md
+    - Pitfalls: examples/pitfalls.md
 
 plugins:
   - search
