@@ -1,23 +1,67 @@
 # Part II: The Decision Engine
 
-The Decision Engine provides algorithmic approaches to system design, replacing intuition with mathematical models and proven heuristics.
+The Decision Engine transforms system design from intuition to mathematical models. It provides quantitative frameworks for selecting patterns, calculating capacity, and validating architectures.
 
-## Cache Type Decision Matrix
+## Complete Decision Engine Architecture
 
 ```mermaid
-graph TD
-    START[Need Caching?] -->|Data Size?| SIZE{Data Size}
+graph TB
+    subgraph EdgePlane[Edge Plane]
+        LB[Load Balancer<br/>p99: 2ms<br/>Capacity: 100K RPS]
+        CDN[CDN<br/>Hit Ratio: 95%<br/>Global: <50ms]
+    end
 
-    SIZE -->|<100MB| LOCAL[Local Memory<br/>Cost: $0<br/>Latency: 0.01ms]
-    SIZE -->|100MB-10GB| REDIS[Redis Single<br/>Cost: $50/mo<br/>Latency: 1ms]
-    SIZE -->|10GB-1TB| CLUSTER[Redis Cluster<br/>Cost: $500/mo<br/>Latency: 2ms]
-    SIZE -->|>1TB| CDN[CDN + Tiered<br/>Cost: $5000/mo<br/>Latency: 10ms]
+    subgraph ServicePlane[Service Plane]
+        API[Decision API<br/>Go 1.21<br/>8 cores, 16GB]
+        CALC[Calculator Engine<br/>Rust<br/>Mathematical Models]
+        VAL[Validator<br/>Python<br/>Constraint Checking]
+    end
 
-    LOCAL -->|Use When| LU[Single server<br/>Read-heavy<br/>Static data]
-    REDIS -->|Use When| RU[Multi-server<br/>Session data<br/>Leaderboards]
-    CLUSTER -->|Use When| CU[Large datasets<br/>Sharded access<br/>HA required]
-    CDN -->|Use When| DU[Global users<br/>Media files<br/>Static assets]
+    subgraph StatePlane[State Plane]
+        PRIM[(Primitives DB<br/>PostgreSQL<br/>1000 patterns)]
+        METRICS[(Metrics Store<br/>InfluxDB<br/>Real-time data)]
+        CACHE[(Redis Cluster<br/>100GB<br/>Sub-ms lookup)]
+    end
+
+    subgraph ControlPlane[Control Plane]
+        MON[Monitoring<br/>Prometheus<br/>SLA tracking]
+        ALERT[Alerting<br/>PagerDuty<br/>Violation detection]
+    end
+
+    %% Flow
+    CDN --> LB
+    LB --> API
+    API --> CALC
+    API --> VAL
+    CALC --> PRIM
+    VAL --> METRICS
+    API --> CACHE
+
+    %% Failure scenarios
+    CALC -.->|Timeout 30s| VAL
+    PRIM -.->|Connection lost| CACHE
+    API -.->|Circuit breaker| LB
+
+    %% Apply four-plane colors
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class LB,CDN edgeStyle
+    class API,CALC,VAL serviceStyle
+    class PRIM,METRICS,CACHE stateStyle
+    class MON,ALERT controlStyle
 ```
+
+## Cache Selection Decision Matrix
+
+| Data Size | Technology | Cost/Month | Latency p99 | Use Cases | Configuration |
+|-----------|------------|------------|-------------|-----------|---------------|
+| <100MB | Local Memory | $0 | 0.01ms | Single server, Static data | HashMap, 50MB heap |
+| 100MB-10GB | Redis Single | $50 | 1ms | Multi-server, Sessions | r6g.large, 16GB |
+| 10GB-1TB | Redis Cluster | $500 | 2ms | Sharded data, HA required | 6 nodes, r6g.xlarge |
+| >1TB | CDN + Tiered | $5000 | 10ms | Global users, Media files | CloudFront + S3 |
 
 ## The Master Algorithm
 

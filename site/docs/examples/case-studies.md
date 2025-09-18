@@ -1,57 +1,172 @@
 # Case Studies
 
-Real-world examples of how major companies apply distributed systems patterns.
+Real-world production architectures from companies handling massive scale.
 
 ## Netflix: Global Video Streaming
 
-### The Challenge
-- **Scale**: 200M+ subscribers globally
-- **Traffic**: 15% of global internet traffic  
-- **Latency**: <100ms video start time
-- **Availability**: 99.99% uptime during peak hours
+Netflix serves 200M+ subscribers with 99.99% uptime during 15% of global internet traffic.
 
-### Architecture Patterns Used
+### Complete Architecture
 
-#### Microservices at Scale
-```yaml
-services_count: 1000+
-deployment_frequency: 4000/day
-team_structure: 2_pizza_rule
-service_ownership: full_stack_teams
-```
-
-**Key Patterns**:
-- **Cell-based Architecture**: Isolate blast radius
-- **Chaos Engineering**: Netflix Chaos Monkey
-- **Circuit Breakers**: Hystrix library
-- **Bulkheads**: Service isolation
-
-#### Content Delivery Network
 ```mermaid
 graph TB
-    User[User] --> CDN[Edge Cache]
-    CDN --> Regional[Regional Cache]
-    Regional --> Origin[Origin Storage]
-    
-    subgraph "Global Distribution"
-        CDN1[US East Edge]
-        CDN2[US West Edge] 
-        CDN3[EU Edge]
-        CDN4[Asia Edge]
+    subgraph EdgePlane[Edge Plane - Global CDN]
+        CDN_US[US Edge - 150ms p99]
+        CDN_EU[EU Edge - 120ms p99]
+        CDN_ASIA[Asia Edge - 180ms p99]
+        AWS_CF[CloudFront - 45 locations]
     end
+
+    subgraph ServicePlane[Service Plane - Microservices]
+        API_GW[API Gateway - Kong]
+        USER_SVC[User Service - Java]
+        REC_SVC[Recommendation - Scala]
+        STREAM_SVC[Streaming Service - Go]
+        BILLING_SVC[Billing Service - Python]
+    end
+
+    subgraph StatePlane[State Plane - Data Layer]
+        CASSANDRA[(Cassandra - User Data)]
+        MYSQL[(MySQL - Billing)]
+        ES[(ElasticSearch - Search)]
+        S3[(S3 - Content)]
+    end
+
+    subgraph ControlPlane[Control Plane - Operations]
+        ATLAS[Atlas - Monitoring]
+        SPINNAKER[Spinnaker - Deployment]
+        EUREKA[Eureka - Discovery]
+        HYSTRIX[Hystrix - Circuit Breaker]
+    end
+
+    %% Request flow
+    USER[iPhone App] --> CDN_US
+    CDN_US --> API_GW
+    API_GW --> USER_SVC
+    API_GW --> REC_SVC
+    API_GW --> STREAM_SVC
+
+    %% Data connections
+    USER_SVC --> CASSANDRA
+    BILLING_SVC --> MYSQL
+    REC_SVC --> ES
+    STREAM_SVC --> S3
+
+    %% Control connections
+    USER_SVC --> EUREKA
+    API_GW --> HYSTRIX
+
+    %% Apply four-plane colors
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class CDN_US,CDN_EU,CDN_ASIA,AWS_CF edgeStyle
+    class API_GW,USER_SVC,REC_SVC,STREAM_SVC,BILLING_SVC serviceStyle
+    class CASSANDRA,MYSQL,ES,S3 stateStyle
+    class ATLAS,SPINNAKER,EUREKA,HYSTRIX controlStyle
 ```
 
-**Primitives Used**:
-- **P1 Partitioning**: Geographic content distribution
-- **P11 Caching**: Multi-tier caching strategy  
-- **P2 Replication**: Content replicated across regions
-- **P12 Load Shedding**: Drop quality during peak load
+### Global Content Distribution
 
-### Key Learnings
-1. **Embrace Failure**: Design for failure, not perfection
-2. **Automate Everything**: Chaos engineering prevents larger failures
-3. **Observe Everything**: Comprehensive monitoring and alerting
-4. **Culture Matters**: Blameless postmortems encourage learning
+```mermaid
+graph TB
+    subgraph ContentPipeline[Content Processing Pipeline]
+        STUDIO[Netflix Studios]
+        ENCODING[Encoding - AWS Elemental]
+        CDN_ORIGIN[CDN Origin - AWS S3]
+    end
+
+    subgraph GlobalCDN[Global CDN - Open Connect]
+        ISP1[Comcast ISP Cache - 10TB]
+        ISP2[Verizon ISP Cache - 8TB]
+        ISP3[AT&T ISP Cache - 12TB]
+        EDGE1[Netflix Edge - US East]
+        EDGE2[Netflix Edge - EU West]
+        EDGE3[Netflix Edge - Asia Pacific]
+    end
+
+    subgraph Metrics[Performance Metrics]
+        LATENCY[Video Start: <100ms p99]
+        REBUFFER[Rebuffer Rate: <0.5%]
+        QUALITY[4K Streams: 25% of traffic]
+        COST[CDN Cost: $0.02/GB delivered]
+    end
+
+    STUDIO --> ENCODING
+    ENCODING --> CDN_ORIGIN
+    CDN_ORIGIN --> EDGE1
+    CDN_ORIGIN --> EDGE2
+    CDN_ORIGIN --> EDGE3
+
+    EDGE1 --> ISP1
+    EDGE1 --> ISP2
+    EDGE2 --> ISP3
+
+    classDef contentStyle fill:#9966CC,stroke:#663399,color:#fff
+    classDef cdnStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef metricStyle fill:#FF6600,stroke:#CC3300,color:#fff
+
+    class STUDIO,ENCODING,CDN_ORIGIN contentStyle
+    class ISP1,ISP2,ISP3,EDGE1,EDGE2,EDGE3 cdnStyle
+    class LATENCY,REBUFFER,QUALITY,COST metricStyle
+```
+
+### Chaos Engineering Architecture
+
+```mermaid
+graph TB
+    subgraph ChaosTools[Chaos Engineering Tools]
+        MONKEY[Chaos Monkey - Instance Termination]
+        GORILLA[Chaos Gorilla - AZ Failures]
+        KONG[Chaos Kong - Region Failures]
+        LATENCY[Latency Monkey - Network Delays]
+    end
+
+    subgraph ProductionEnv[Production Environment]
+        AZ1[Availability Zone 1]
+        AZ2[Availability Zone 2]
+        AZ3[Availability Zone 3]
+        REGION_US[US Region]
+        REGION_EU[EU Region]
+    end
+
+    subgraph Monitoring[Monitoring & Response]
+        ALERT[PagerDuty Alerts]
+        RUNBOOK[Automated Runbooks]
+        ROLLBACK[Automated Rollback]
+        DASHBOARD[Real-time Dashboards]
+    end
+
+    MONKEY -.->|Random Instance Kill| AZ1
+    GORILLA -.->|Zone Failure| AZ2
+    KONG -.->|Region Failure| REGION_US
+    LATENCY -.->|Network Chaos| AZ3
+
+    AZ1 --> ALERT
+    AZ2 --> DASHBOARD
+    REGION_US --> RUNBOOK
+    AZ3 --> ROLLBACK
+
+    classDef chaosStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef prodStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef monitorStyle fill:#FF8800,stroke:#CC6600,color:#fff
+
+    class MONKEY,GORILLA,KONG,LATENCY chaosStyle
+    class AZ1,AZ2,AZ3,REGION_US,REGION_EU prodStyle
+    class ALERT,RUNBOOK,ROLLBACK,DASHBOARD monitorStyle
+```
+
+### Cost & Scale Metrics
+
+| Component | Technology | Scale | Cost/Month | SLA |
+|-----------|------------|--------|------------|-----|
+| CDN | Open Connect | 45 locations | $15M | 99.95% |
+| Compute | AWS EC2 | 100K+ instances | $25M | 99.9% |
+| Storage | AWS S3 | 100PB+ content | $5M | 99.99% |
+| Database | Cassandra | 1000+ nodes | $3M | 99.95% |
+| Monitoring | Atlas | 2M+ metrics/sec | $1M | 99.9% |
 
 ---
 

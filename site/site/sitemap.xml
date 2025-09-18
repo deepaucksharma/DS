@@ -2,130 +2,650 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ds-framework.dev/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/case-studies/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/case-studies/comparison-matrices/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/case-studies/data-collection-framework/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/case-studies/framework/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/case-studies/netflix/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/case-studies/uber/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/cascading-failure-prevention/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/cpu-spike-diagnosis/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/data-inconsistency-resolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/high-latency-investigation/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/memory-leak-detection/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/service-discovery-failures/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/slow-query-analysis/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/split-brain-recovery/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/throughput-degradation/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/diagrams/INCIDENT_RESPONSE_TEMPLATES/</loc>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/examples/case-studies/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/examples/implementation/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/examples/pitfalls/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/foundation/capabilities/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/foundation/guarantees/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/foundation/mechanisms/</loc>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/foundation/primitives/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/foundation/universal-laws/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/getting-started/concepts/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/getting-started/overview/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/getting-started/quick-start/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
-         <loc>https://ds-framework.dev/guarantees/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <loc>https://ds-framework.dev/guarantees/eventual-consistency/eventual-consistency-concept/</loc>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
-         <loc>https://ds-framework.dev/mechanisms/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <loc>https://ds-framework.dev/guarantees/eventual-consistency/eventual-consistency-conflicts/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/eventual-consistency/eventual-consistency-examples/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/eventual-consistency/eventual-consistency-implementation/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/eventual-consistency/eventual-consistency-metrics/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/eventual-consistency/eventual-consistency-patterns/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/exactly-once/exactly-once-concept/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/exactly-once/exactly-once-cost/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/exactly-once/exactly-once-failures/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/exactly-once/exactly-once-implementation/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/exactly-once/exactly-once-kafka/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/exactly-once/exactly-once-payment/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/linearizability/linearizability-concept/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/linearizability/linearizability-failures/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/linearizability/linearizability-implementation/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/linearizability/linearizability-performance/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/linearizability/linearizability-tradeoffs/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/guarantees/linearizability/linearizability-verification/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/aws-s3-2017/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/cloudflare-2019/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/fastly-2021/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/github-2018/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/netflix-dec-2023-outage/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/slack-2022/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/caching/caching-consistency/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/caching/caching-invalidation/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/caching/caching-memcached/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/caching/caching-patterns/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/caching/caching-redis/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/consensus/raft-algorithm/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/consensus/raft-debugging/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/consensus/raft-failures/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/consensus/raft-implementation/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/consensus/raft-performance/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/consensus/raft-vs-paxos/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/load-balancing/load-balancing-algorithms/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/load-balancing/load-balancing-failures/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/load-balancing/load-balancing-geo/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/load-balancing/load-balancing-health/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/load-balancing/load-balancing-layer4/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/load-balancing/load-balancing-layer7/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/partitioning/partitioning-cassandra/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/partitioning/partitioning-consistent-hash/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/partitioning/partitioning-hotspots/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/partitioning/partitioning-mongodb/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/partitioning/partitioning-resharding/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/partitioning/partitioning-strategies/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/replication/replication-conflicts/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/replication/replication-lag/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/replication/replication-mysql/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/replication/replication-postgres/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/replication/replication-strategies/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/mechanisms/replication/replication-topologies/</loc>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/patterns/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/patterns/decision-engine/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/patterns/mechanisms/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/patterns/micro-patterns/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/patterns/pattern-catalog/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/patterns/production-architecture/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/patterns/system-patterns/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/cassandra-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/grpc-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/kafka-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/mongodb-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/mysql-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/nats-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/postgresql-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/pulsar-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/rabbitmq-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/redis-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/sqs-sns-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/production/best-practices/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/production/proof-obligations/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/production/reality/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/reference/api/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/reference/glossary/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/reference/reading/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <lastmod>2025-09-18</lastmod>
     </url>
     <url>
-         <loc>https://ds-framework.dev/testing/visual-testing/</loc>
-         <lastmod>2025-09-17</lastmod>
+         <loc>https://ds-framework.dev/systems/amazon/architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/amazon/cost-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/amazon/failure-domains/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/amazon/novel-solutions/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/amazon/production-operations/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/amazon/request-flow/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/amazon/scale-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/amazon/storage-architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/cloudflare/architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/cloudflare/cost-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/cloudflare/failure-domains/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/cloudflare/novel-solutions/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/cloudflare/production-operations/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/cloudflare/request-flow/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/cloudflare/scale-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/cloudflare/storage-architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/discord/architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/discord/failure-domains/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/discord/request-flow/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/discord/storage-architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/google/architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/google/cost-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/google/failure-domains/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/google/request-flow/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/google/scale-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/google/storage-architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/netflix/architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/netflix/failure-domains/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/netflix/novel-solutions/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/netflix/production-operations/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/netflix/request-flow/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/netflix/scale-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/netflix/storage-architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/shopify/architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/shopify/cost-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/shopify/failure-domains/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/shopify/novel-solutions/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/shopify/production-operations/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/shopify/request-flow/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/shopify/scale-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/shopify/storage-architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/stripe/architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/stripe/cost-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/stripe/failure-domains/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/stripe/novel-solutions/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/stripe/production-operations/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/stripe/request-flow/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/stripe/scale-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/stripe/storage-architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/uber/architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/uber/cost-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/uber/failure-domains/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/uber/novel-solutions/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/uber/production-operations/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/uber/request-flow/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/uber/scale-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/uber/storage-architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
     </url>
 </urlset>
