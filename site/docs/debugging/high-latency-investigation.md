@@ -6,47 +6,128 @@ High latency in distributed systems manifests in multiple forms - from database 
 
 **Time to Resolution**: 15-45 minutes for basic cases, 2-4 hours for complex distributed issues
 
-## Decision Tree
+## Decision Tree - 4-Plane Architecture Debug Flow
 
 ```mermaid
 graph TD
-    A[High Latency Alert] --> B{Frontend or Backend?}
-    B -->|Frontend| C[Check CDN/Edge Latency]
-    B -->|Backend| D[Check Service Latency]
+    A[🚨 High Latency Alert<br/>SLO Breach: p99 > target] --> B{Debug Plane<br/>Analysis?}
 
-    C --> E[Examine Browser Network Tab]
-    C --> F[Check CDN Cache Hit Ratios]
+    B -->|Edge Layer| C[Edge Plane Debug<br/>CDN/WAF/Load Balancer<br/>⏱️ 2-5 min]
+    B -->|Service Layer| D[Service Plane Debug<br/>API Gateway/Microservices<br/>⏱️ 5-10 min]
+    B -->|Data Layer| E[State Plane Debug<br/>Database/Cache/Storage<br/>⏱️ 10-15 min]
+    B -->|Operations| F[Control Plane Debug<br/>Monitoring/Config/Deployment<br/>⏱️ 3-8 min]
 
-    D --> G{Database Query Time > 100ms?}
-    G -->|Yes| H[Database Query Analysis]
-    G -->|No| I[Service Processing Analysis]
+    C --> C1[🔍 Edge Investigation<br/>• CloudFlare cache hit ratio<br/>• ALB target response time<br/>• WAF rule latency]
 
-    H --> J[Query Plan Examination]
-    H --> K[Index Usage Check]
+    D --> D1[🔍 Service Investigation<br/>• API Gateway p99 latency<br/>• Thread pool exhaustion<br/>• Circuit breaker state]
 
-    I --> L[CPU/Memory Profiling]
-    I --> M[Network Latency Check]
+    E --> E1[🔍 State Investigation<br/>• Database slow queries<br/>• Cache miss storms<br/>• Connection pool status]
 
-    style A fill:#CC0000,stroke:#990000,color:#fff
-    style H fill:#FF8800,stroke:#CC6600,color:#fff
-    style I fill:#00AA00,stroke:#007700,color:#fff
+    F --> F1[🔍 Control Investigation<br/>• Recent deployments<br/>• Config changes<br/>• Monitoring gaps]
+
+    C1 --> G[🎯 Debugging Commands<br/>Execute based on plane]
+    D1 --> G
+    E1 --> G
+    F1 --> G
+
+    G --> H[📊 Metrics Collection<br/>Gather evidence]
+    H --> I[🔧 Resolution Action<br/>Apply targeted fix]
+
+    %% Apply 4-plane colors
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class A,C,C1 edgeStyle
+    class D,D1,G serviceStyle
+    class E,E1,H stateStyle
+    class F,F1,I controlStyle
 ```
 
-## Immediate Triage Commands (First 5 Minutes)
+## 4-Plane Emergency Commands (First 5 Minutes)
 
-### 1. Quick Latency Snapshot
+### 🔵 Edge Plane (0066CC) - Load Balancer & CDN Debug
 ```bash
-# Check current system load
-uptime
-iostat 1 5
+# AWS ALB metrics (replace with your LB ARN)
+aws cloudwatch get-metric-statistics --namespace AWS/ApplicationELB \
+  --metric-name TargetResponseTime --dimensions Name=LoadBalancer,Value=app/my-alb/1234567890123456 \
+  --start-time $(date -u -d '10 minutes ago' +%Y-%m-%dT%H:%M:%S) \
+  --end-time $(date -u +%Y-%m-%dT%H:%M:%S) --period 60 --statistics Average,Maximum
 
-# Network latency to dependencies
-ping -c 5 database-host.internal
-ping -c 5 redis-cluster.internal
-ping -c 5 api-gateway.internal
+# CloudFlare analytics (if using CF)
+curl -X GET "https://api.cloudflare.com/client/v4/zones/{zone_id}/analytics/dashboard" \
+  -H "Authorization: Bearer {api_token}" | jq '.result.timeseries[] | select(.since > (now - 600))'
 
-# Application metrics (assuming Prometheus)
-curl -s "http://localhost:9090/api/v1/query?query=histogram_quantile(0.99,http_request_duration_seconds_bucket)" | jq '.data.result[0].value[1]'
+# NGINX/HAProxy check (if self-hosted)
+curl -s http://localhost/nginx_status | grep -E "(Active|Reading|Writing|Waiting)"
+echo "show stat" | socat stdio /var/lib/haproxy/stats | head -10
+```
+
+### 🟢 Service Plane (00AA00) - Application & API Debug
+```bash
+# API Gateway latency (AWS)
+aws logs filter-log-events --log-group-name API-Gateway-Execution-Logs_{api_id}/{stage} \
+  --start-time $(date -d '10 minutes ago' +%s)000 \
+  --filter-pattern '[timestamp, id, ip, user, time > 100, ...]'
+
+# Java application thread dumps (if Java service)
+jstack $(pgrep java) > /tmp/threaddump_$(date +%s).txt && echo "Thread dump saved"
+jcmd $(pgrep java) GC.run_finalization && echo "GC triggered"
+
+# Spring Boot Actuator health
+curl -s http://localhost:8080/actuator/health | jq '.'
+curl -s http://localhost:8080/actuator/metrics/http.server.requests | jq '.measurements[] | select(.statistic == "MAX")'
+
+# Container resource usage (if containerized)
+docker stats --no-stream --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}"
+kubectl top pods --all-namespaces --sort-by cpu
+```
+
+### 🟠 State Plane (FF8800) - Database & Cache Debug
+```bash
+# PostgreSQL active queries and blocking
+psql -c "SELECT pid, now() - pg_stat_activity.query_start AS duration, query, state
+         FROM pg_stat_activity
+         WHERE (now() - pg_stat_activity.query_start) > interval '5 minutes';"
+
+psql -c "SELECT blocked_locks.pid AS blocked_pid, blocking_locks.pid AS blocking_pid,
+         blocked_activity.query AS blocked_statement, blocking_activity.query AS blocking_statement
+         FROM pg_catalog.pg_locks blocked_locks
+         JOIN pg_catalog.pg_stat_activity blocked_activity ON blocked_activity.pid = blocked_locks.pid
+         JOIN pg_catalog.pg_locks blocking_locks ON blocking_locks.locktype = blocked_locks.locktype
+         JOIN pg_catalog.pg_stat_activity blocking_activity ON blocking_activity.pid = blocking_locks.pid
+         WHERE NOT blocked_locks.granted;"
+
+# Redis performance check
+redis-cli --latency-history -i 1 | head -20
+redis-cli info stats | grep -E "(instantaneous_ops_per_sec|used_memory_human|connected_clients)"
+redis-cli slowlog get 10
+
+# MongoDB slow operations (if MongoDB)
+mongo --eval "db.runCommand({profile: 2, slowms: 100}); db.system.profile.find().limit(5).sort({ts:-1}).pretty()"
+
+# Cache hit ratios
+redis-cli info stats | awk -F: '/keyspace_hits|keyspace_misses/ {print $1 ": " $2}'
+```
+
+### 🔴 Control Plane (CC0000) - Monitoring & Operations Debug
+```bash
+# Recent deployments and config changes
+git log --oneline -10 --since="2 hours ago"
+kubectl get events --sort-by='.lastTimestamp' | head -20
+
+# System resource utilization
+uptime && free -h && df -h
+iostat 1 3 | tail -5
+vmstat 1 3 | tail -3
+
+# Prometheus/Grafana alerts (if using Prometheus)
+curl -s "http://prometheus:9090/api/v1/alerts" | jq '.data.alerts[] | select(.state == "firing")'
+
+# Application logs error surge
+tail -1000 /var/log/application.log | grep -E "(ERROR|FATAL|Exception)" | tail -20
+journalctl --since "10 minutes ago" --priority=err | tail -10
 ```
 
 ### 2. Database Quick Check
@@ -351,33 +432,106 @@ wrk -t12 -c400 -d30s --script=lua/latency-test.lua http://api.example.com/endpoi
 jmeter -n -t latency_test.jmx -l results.jtl -e -o report_folder
 ```
 
-## 3 AM Debugging Checklist
+## 🚨 3 AM Emergency Debugging Checklist
 
-When you're called at 3 AM for high latency issues:
+**Target Resolution Times**: P0 incidents < 15 minutes, P1 incidents < 45 minutes
 
-### First 2 Minutes
-- [ ] Check overall system load: `uptime && iostat 1 1`
-- [ ] Verify database connectivity: `pg_isready` or equivalent
-- [ ] Check recent deployments: `git log --oneline -5`
-- [ ] Look at error logs: `tail -100 /var/log/application.log | grep ERROR`
+### ⏱️ First 2 Minutes - Situation Assessment
+- [ ] **System Health Check**: `uptime && iostat 1 1`
+  - **Alert if**: Load average > 4.0 or iowait > 20%
+- [ ] **Database Connectivity**: `pg_isready -h $DB_HOST -p 5432`
+  - **Alert if**: Connection failed or response > 1s
+- [ ] **Recent Changes**: `git log --oneline -10 --since="2 hours ago"`
+  - **Alert if**: Any deployments in last 30 minutes
+- [ ] **Error Surge**: `grep -c ERROR /var/log/app.log | tail -5`
+  - **Alert if**: >100 errors in last 5 minutes
 
-### Minutes 2-5
-- [ ] Query current latency percentiles from monitoring
-- [ ] Identify if issue is widespread or isolated to specific endpoints
-- [ ] Check for ongoing database migrations or maintenance
-- [ ] Verify cache service health
+### ⏱️ Minutes 2-5 - 4-Plane Quick Triage
 
-### Minutes 5-15
-- [ ] Run distributed tracing query for recent slow requests
-- [ ] Check connection pool status
-- [ ] Examine recent database query performance changes
-- [ ] Review recent configuration changes
+#### 🔵 Edge Plane Health
+- [ ] **Load Balancer**: `aws elbv2 describe-target-health --target-group-arn $TG_ARN`
+  - **Alert if**: Any targets showing "unhealthy"
+- [ ] **CDN Cache Hit**: Check CloudFlare/CloudFront hit ratio
+  - **Alert if**: Hit ratio < 85% (normal: >90%)
 
-### If Still Debugging After 15 Minutes
-- [ ] Escalate to senior engineer or team lead
-- [ ] Consider rollback if recent deployment is suspected
-- [ ] Implement temporary circuit breakers if appropriate
-- [ ] Document findings for post-incident review
+#### 🟢 Service Plane Health
+- [ ] **API Latency**: `curl -w "Total: %{time_total}s\n" -s -o /dev/null $API_ENDPOINT`
+  - **Alert if**: Response time > 2 seconds
+- [ ] **Thread Pool**: `jstack $(pgrep java) | grep -c "java.lang.Thread.State: BLOCKED"`
+  - **Alert if**: >20 blocked threads
+
+#### 🟠 State Plane Health
+- [ ] **DB Slow Queries**: `psql -c "SELECT count(*) FROM pg_stat_activity WHERE state='active' AND query_start < now() - interval '30 seconds';"`
+  - **Alert if**: >5 long-running queries
+- [ ] **Cache Performance**: `redis-cli info stats | grep keyspace_hit`
+  - **Alert if**: Hit rate < 90%
+
+#### 🔴 Control Plane Health
+- [ ] **Monitoring Gaps**: Check if Prometheus/Grafana is responsive
+- [ ] **Resource Exhaustion**: `df -h | grep -E "(9[0-9]%|100%)"`
+  - **Alert if**: Any disk >90% full
+
+### ⏱️ Minutes 5-15 - Deep Investigation
+
+#### If Edge Plane Issues Detected:
+```bash
+# ALB target response times
+aws cloudwatch get-metric-statistics --namespace AWS/ApplicationELB \
+  --metric-name TargetResponseTime --start-time $(date -d '30 minutes ago' -Iseconds) \
+  --end-time $(date -Iseconds) --period 300 --statistics Maximum
+
+# Expected: <100ms p95, Alert if: >500ms
+```
+
+#### If Service Plane Issues Detected:
+```bash
+# Circuit breaker states
+curl -s http://localhost:8080/actuator/circuitbreakers | jq '.circuitBreakers[] | select(.state != "CLOSED")'
+
+# Thread dump analysis
+jstack $(pgrep java) | grep -A 5 -B 5 "BLOCKED\|WAITING"
+```
+
+#### If State Plane Issues Detected:
+```bash
+# Database lock analysis
+psql -c "SELECT pid, usename, query_start, query FROM pg_stat_activity WHERE state = 'active' ORDER BY query_start;"
+
+# Connection pool status
+curl -s http://localhost:8080/actuator/metrics/hikaricp.connections | jq '.measurements'
+```
+
+### ⏱️ After 15 Minutes - Escalation Actions
+
+#### Critical Escalation (P0 - Service Down)
+- [ ] **Immediate**: Page @incident-commander via PagerDuty
+- [ ] **War Room**: Bridge line: +1-XXX-XXX-XXXX, pin 12345
+- [ ] **Communication**: Update status page with initial findings
+- [ ] **Rollback Decision**: If deployment <2 hours ago, prepare rollback
+
+#### High Priority (P1 - Performance Degraded)
+- [ ] **Technical Lead**: Slack @tech-leads with investigation summary
+- [ ] **Monitoring**: Enable debug logging: `kubectl patch deployment app -p '{"spec":{"template":{"spec":{"containers":[{"name":"app","env":[{"name":"LOG_LEVEL","value":"DEBUG"}]}]}}}}'`
+- [ ] **Customer Impact**: Check error rates by customer tier
+
+### 📊 Key Thresholds for Escalation
+
+| Metric | Normal | Warning | Critical | Action |
+|--------|--------|---------|----------|---------|
+| API p99 Latency | <100ms | 100-500ms | >500ms | Immediate escalation |
+| Error Rate | <0.1% | 0.1-1% | >1% | Page on-call |
+| DB Connection Pool | <70% | 70-85% | >85% | Restart app pods |
+| Cache Hit Rate | >95% | 90-95% | <90% | Check cache warmth |
+| CPU Utilization | <70% | 70-85% | >85% | Scale out |
+| Memory Usage | <80% | 80-90% | >90% | Memory leak investigation |
+
+### 🔧 Common Quick Fixes (if safe to apply)
+
+1. **High CPU**: `kubectl scale deployment app --replicas=10`
+2. **Memory Pressure**: `kubectl delete pod -l app=myapp --force` (rolling restart)
+3. **DB Connections**: Restart connection pool: `curl -X POST http://localhost:8080/actuator/restart-db-pool`
+4. **Cache Miss Storm**: `redis-cli flushdb && ./warm-cache.sh`
+5. **Circuit Breaker Stuck**: `curl -X POST http://localhost:8080/actuator/circuitbreakers/reset`
 
 ## Metrics and SLOs
 

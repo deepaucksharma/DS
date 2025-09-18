@@ -4,45 +4,98 @@
 
 MySQL performance characteristics in production environments, covering InnoDB optimization, replication, partitioning, and threading models. Based on Uber's Schemaless implementation and other high-scale deployments.
 
-## InnoDB Buffer Pool Optimization
+## 4-Plane MySQL Architecture Performance Profile
 
-### Buffer Pool Architecture and Sizing
+### Complete MySQL Performance Stack
 
 ```mermaid
 graph TB
-    subgraph "InnoDB Buffer Pool Structure"
-        BP1[Buffer Pool Instance 1<br/>Size: 2GB<br/>Pages: 131,072<br/>LRU list length: 104,857]
+    subgraph EdgePlane[🔵 Edge Plane - Connection Management]
+        ProxySQL[ProxySQL<br/>Connection Pooling<br/>Read/Write Split<br/>Query Routing<br/>💰 $500/month]
 
-        BP2[Buffer Pool Instance 2<br/>Size: 2GB<br/>Pages: 131,072<br/>Free list length: 26,214]
+        HAProxy[HAProxy<br/>Load Balancing<br/>Health Checks<br/>Circuit Breaking<br/>💰 $200/month]
 
-        BP3[Buffer Pool Instance 8<br/>Size: 2GB<br/>Total pool: 16GB<br/>Hit ratio: 99.8%]
-
-        subgraph "Page Management"
-            LRU[LRU List<br/>Old pages: 3/8<br/>Young pages: 5/8<br/>Page age threshold: 1000ms]
-
-            FREE[Free List<br/>Available pages<br/>Background flushing<br/>Adaptive flushing enabled]
-
-            FLUSH[Flush List<br/>Dirty pages<br/>Checkpoint age<br/>Max dirty: 75%]
-        end
-
-        BP1 --> LRU
-        BP2 --> FREE
-        BP3 --> FLUSH
+        MaxScale[MariaDB MaxScale<br/>Connection Multiplexing<br/>Query Load Balancing<br/>Firewall Rules<br/>💰 $800/month]
     end
 
-    subgraph "Performance Impact"
-        P1[Buffer pool hit ratio<br/>Target: > 99%<br/>Achieved: 99.8%<br/>Physical reads: 2%]
+    subgraph ServicePlane[🟢 Service Plane - Query Processing]
+        QueryCache[Query Cache<br/>❌ DISABLED<br/>Reason: High Contention<br/>Replaced with Application Cache]
 
-        P2[Page flush rate<br/>Adaptive algorithm<br/>I/O capacity: 20,000 IOPS<br/>Dirty page limit: 12GB]
+        QueryParser[SQL Parser & Optimizer<br/>Cost-Based Optimization<br/>Index Selection<br/>Join Algorithms]
+
+        QueryExec[Query Execution Engine<br/>Thread Pool: 64 threads<br/>Memory: 256MB per thread<br/>Timeout: 30s]
     end
 
-    classDef poolStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef mgmtStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
+    subgraph StatePlane[🟠 State Plane - Storage & Buffer Management]
+        BufferPool[InnoDB Buffer Pool<br/>Size: 48GB (75% of RAM)<br/>Instances: 16<br/>Hit Ratio: 99.8%<br/>💰 $2,000/month]
 
-    class BP1,BP2,BP3 poolStyle
-    class LRU,FREE,FLUSH mgmtStyle
-    class P1,P2 perfStyle
+        Storage[Storage Engine<br/>InnoDB: 95% of tables<br/>MyISAM: 5% (read-only)<br/>NVMe SSD: 20,000 IOPS<br/>💰 $3,500/month]
+
+        Replication[Group Replication<br/>3-node cluster<br/>Strong consistency<br/>Auto-failover: 30s<br/>💰 $6,000/month]
+    end
+
+    subgraph ControlPlane[🔴 Control Plane - Monitoring & Operations]
+        PerfSchema[Performance Schema<br/>Query Analysis<br/>Lock Monitoring<br/>Resource Usage<br/>Storage: 1GB]
+
+        Monitoring[Prometheus + Grafana<br/>MySQL Exporter<br/>Real-time Metrics<br/>Alerting Rules<br/>💰 $300/month]
+
+        Backup[Backup & Recovery<br/>XtraBackup: Daily<br/>Binlog: Real-time<br/>RTO: 15 minutes<br/>💰 $800/month]
+    end
+
+    %% Connections
+    ProxySQL --> QueryParser
+    HAProxy --> QueryExec
+    QueryExec --> BufferPool
+    BufferPool --> Storage
+    Storage --> Replication
+    PerfSchema --> Monitoring
+    Monitoring --> Backup
+
+    %% Apply 4-plane colors
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class ProxySQL,HAProxy,MaxScale edgeStyle
+    class QueryCache,QueryParser,QueryExec serviceStyle
+    class BufferPool,Storage,Replication stateStyle
+    class PerfSchema,Monitoring,Backup controlStyle
+```
+
+### InnoDB Buffer Pool Optimization - Production Commands
+
+```bash
+# 🟠 State Plane Buffer Pool Analysis Commands
+# Check current buffer pool status
+mysql -e "SHOW ENGINE INNODB STATUS\G" | grep -A 20 "BUFFER POOL AND MEMORY"
+
+# Buffer pool hit ratio (target: >99%)
+mysql -e "SELECT
+  ROUND(100 - ((Innodb_buffer_pool_reads / Innodb_buffer_pool_read_requests) * 100), 2) AS hit_ratio
+  FROM (SELECT VARIABLE_VALUE AS Innodb_buffer_pool_reads FROM performance_schema.global_status WHERE VARIABLE_NAME = 'Innodb_buffer_pool_reads') r,
+       (SELECT VARIABLE_VALUE AS Innodb_buffer_pool_read_requests FROM performance_schema.global_status WHERE VARIABLE_NAME = 'Innodb_buffer_pool_read_requests') rr;"
+
+# Buffer pool utilization by instance
+mysql -e "SELECT pool_id, pool_size, free_buffers, database_pages, old_database_pages
+          FROM information_schema.INNODB_BUFFER_POOL_STATS
+          ORDER BY pool_id;"
+
+# Page flush rate monitoring (every 5 seconds)
+mysql -e "SELECT pages_made_dirty, pages_flushed,
+          (pages_made_dirty - pages_flushed) AS dirty_pages_backlog
+          FROM information_schema.INNODB_BUFFER_POOL_STATS;"
+
+# Buffer pool optimization recommendations
+mysql -e "SELECT
+  'innodb_buffer_pool_size' as parameter,
+  @@innodb_buffer_pool_size / 1024 / 1024 / 1024 as current_gb,
+  'Recommended: 75% of total RAM' as recommendation
+  UNION ALL
+  SELECT
+  'innodb_buffer_pool_instances' as parameter,
+  @@innodb_buffer_pool_instances as current_value,
+  'Recommended: 16 for 48GB+ buffer pool' as recommendation;"
 ```
 
 ### Buffer Pool Tuning Results - Uber Schemaless
@@ -409,13 +462,181 @@ graph TB
     class R1 resultStyle
 ```
 
+### 🚨 Production MySQL Performance Troubleshooting
+
+### 4-Plane Performance Bottleneck Commands
+
+#### 🔵 Edge Plane Performance Issues
+```bash
+# Connection pool analysis (ProxySQL/HAProxy)
+# ProxySQL connection stats
+mysql -h proxysql-admin -P6032 -uadmin -padmin -e "SELECT * FROM stats_mysql_connection_pool ORDER BY ConnUsed DESC;"
+
+# HAProxy connection metrics
+echo "show stat" | socat stdio /var/lib/haproxy/stats | grep mysql | awk -F, '{print $1,$5,$17,$18}'
+
+# Connection refused errors
+ss -tuln | grep :3306
+netstat -an | grep :3306 | grep -c ESTABLISHED
+```
+
+#### 🟢 Service Plane Performance Issues
+```bash
+# Thread pool saturation detection
+mysql -e "SELECT COUNT(*) as active_threads FROM performance_schema.threads WHERE PROCESSLIST_STATE IS NOT NULL;"
+
+# Query execution bottlenecks
+mysql -e "SELECT digest_text, count_star, avg_timer_wait/1000000000 as avg_seconds
+          FROM performance_schema.events_statements_summary_by_digest
+          WHERE avg_timer_wait > 1000000000 ORDER BY avg_timer_wait DESC LIMIT 10;"
+
+# Lock contention analysis
+mysql -e "SELECT object_schema, object_name, lock_type, lock_duration, lock_status
+          FROM performance_schema.metadata_locks WHERE lock_status = 'PENDING';"
+```
+
+#### 🟠 State Plane Performance Issues
+```bash
+# Buffer pool pressure indicators
+mysql -e "SELECT
+  pool_id,
+  (database_pages / pool_size) * 100 as utilization_pct,
+  free_buffers,
+  pages_made_dirty - pages_flushed as dirty_backlog
+  FROM information_schema.INNODB_BUFFER_POOL_STATS;"
+
+# I/O bottlenecks
+mysql -e "SELECT file_name, SUM(count_read) as reads, SUM(count_write) as writes,
+          SUM(sum_timer_wait)/1000000000 as total_seconds
+          FROM performance_schema.file_summary_by_instance
+          GROUP BY file_name ORDER BY total_seconds DESC LIMIT 10;"
+
+# Replication lag measurement
+mysql -e "SELECT
+  CHANNEL_NAME,
+  SERVICE_STATE,
+  LAST_ERROR_MESSAGE,
+  LAST_ERROR_TIMESTAMP
+  FROM performance_schema.replication_connection_status;"
+```
+
+#### 🔴 Control Plane Performance Issues
+```bash
+# Performance Schema overhead
+mysql -e "SELECT COUNT(*) as enabled_instruments FROM performance_schema.setup_instruments WHERE ENABLED='YES';"
+
+# Resource exhaustion alerts
+mysql -e "SELECT
+  'max_connections' as setting,
+  @@max_connections as max_value,
+  (SELECT COUNT(*) FROM performance_schema.threads WHERE PROCESSLIST_USER IS NOT NULL) as current_connections,
+  ROUND(((SELECT COUNT(*) FROM performance_schema.threads WHERE PROCESSLIST_USER IS NOT NULL) / @@max_connections) * 100, 2) as utilization_pct;"
+
+# Backup impact on performance
+mysqladmin processlist | grep -i backup
+mysql -e "SELECT EVENT_NAME, COUNT_STAR, SUM_TIMER_WAIT/1000000000 as seconds
+          FROM performance_schema.events_waits_summary_global_by_event_name
+          WHERE EVENT_NAME LIKE '%file%' ORDER BY seconds DESC LIMIT 5;"
+```
+
+### Performance Optimization Quick Wins
+
+#### Immediate Actions (< 5 minutes)
+1. **Kill Long-Running Queries**:
+   ```bash
+   mysql -e "SELECT concat('KILL ',id,';') FROM information_schema.processlist
+             WHERE command != 'Sleep' AND time > 300;"
+   ```
+
+2. **Flush Query Cache** (if enabled):
+   ```bash
+   mysql -e "FLUSH QUERY CACHE; RESET QUERY CACHE;"
+   ```
+
+3. **Check for Lock Waits**:
+   ```bash
+   mysql -e "SELECT r.trx_id waiting_trx_id, r.trx_mysql_thread_id waiting_thread,
+             r.trx_query waiting_query, b.trx_id blocking_trx_id,
+             b.trx_mysql_thread_id blocking_thread, b.trx_query blocking_query
+             FROM information_schema.innodb_lock_waits w
+             INNER JOIN information_schema.innodb_trx b ON b.trx_id = w.blocking_trx_id
+             INNER JOIN information_schema.innodb_trx r ON r.trx_id = w.requesting_trx_id;"
+   ```
+
+#### Medium-term Optimizations (< 30 minutes)
+1. **Enable Thread Pool** (MySQL 8.0+):
+   ```sql
+   INSTALL PLUGIN thread_pool SONAME 'thread_pool.so';
+   SET GLOBAL thread_pool_size = 16;
+   SET GLOBAL thread_pool_max_threads = 1000;
+   ```
+
+2. **Optimize Buffer Pool**:
+   ```sql
+   SET GLOBAL innodb_buffer_pool_dump_at_shutdown = ON;
+   SET GLOBAL innodb_buffer_pool_load_at_startup = ON;
+   ```
+
+3. **Adjust I/O Capacity**:
+   ```sql
+   SET GLOBAL innodb_io_capacity = 2000;
+   SET GLOBAL innodb_io_capacity_max = 4000;
+   ```
+
+### Critical Performance Thresholds
+
+| Metric | Healthy | Warning | Critical | Action |
+|--------|---------|---------|----------|---------|
+| Buffer Pool Hit Rate | >99% | 95-99% | <95% | Increase buffer pool size |
+| Active Connections | <70% max | 70-85% | >85% | Scale connection pool |
+| Query Response Time | <100ms | 100ms-1s | >1s | Optimize slow queries |
+| Replication Lag | <1s | 1-10s | >10s | Check master load |
+| Lock Wait Time | <100ms | 100ms-1s | >1s | Identify blocking queries |
+| I/O Utilization | <70% | 70-85% | >85% | Upgrade storage |
+
+### Cost-Performance Optimization Matrix
+
+#### Scale Point 1: < 10K QPS
+- **Instance**: db.t3.large ($150/month)
+- **Storage**: 100GB GP2 SSD ($10/month)
+- **Configuration**: Basic InnoDB settings
+- **Total Cost**: $160/month
+
+#### Scale Point 2: 10K-50K QPS
+- **Instance**: db.r5.xlarge ($450/month)
+- **Storage**: 500GB GP3 SSD ($60/month)
+- **Read Replicas**: 2x db.r5.large ($600/month)
+- **Configuration**: Optimized buffer pool, thread pool
+- **Total Cost**: $1,110/month
+
+#### Scale Point 3: > 50K QPS
+- **Instance**: db.r5.4xlarge ($1,800/month)
+- **Storage**: 2TB GP3 SSD ($240/month)
+- **Read Replicas**: 4x db.r5.2xlarge ($2,400/month)
+- **Sharding**: Multiple clusters
+- **Total Cost**: $4,440/month
+
 ### Critical Lessons Learned
 
 1. **Buffer Pool Sizing**: 75% of RAM is optimal for most workloads
+   - **Command**: `SELECT @@innodb_buffer_pool_size / (1024*1024*1024) as buffer_pool_gb;`
+   - **Monitor**: Buffer pool hit ratio >99%
+
 2. **Thread Pool**: Essential for high-concurrency applications (> 1000 connections)
+   - **Command**: `SHOW VARIABLES LIKE 'thread_pool%';`
+   - **Monitor**: Thread pool utilization <80%
+
 3. **Partitioning**: Mandatory for tables > 100GB or high-velocity time-series data
+   - **Command**: `SELECT table_name, partition_name, table_rows FROM information_schema.partitions WHERE table_schema='mydb';`
+   - **Monitor**: Query pruning effectiveness
+
 4. **Group Replication**: Adds 5-10ms latency but provides strong consistency
+   - **Command**: `SELECT * FROM performance_schema.replication_group_members;`
+   - **Monitor**: Group replication lag <1s
+
 5. **Connection Pooling**: Application-level pooling more effective than MySQL thread pool alone
+   - **Monitor**: Connection pool utilization <70%
+   - **Alert**: Connection refused errors
 
 **Performance Benchmarks**:
 - **Small Scale** (< 10K QPS): Single server, basic configuration
