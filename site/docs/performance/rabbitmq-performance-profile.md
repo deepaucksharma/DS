@@ -10,7 +10,7 @@ RabbitMQ performance characteristics in production environments, covering queue 
 
 ```mermaid
 graph TB
-    subgraph "Shallow Queue (< 1K messages)"
+    subgraph Shallow Queue (< 1K messages)
         SHALLOW1[Queue depth: 500 messages<br/>Memory usage: 50MB<br/>Enqueue rate: 10K msg/sec<br/>Dequeue rate: 10K msg/sec]
 
         SHALLOW2[Performance characteristics<br/>Latency p95: 2ms<br/>Memory overhead: Low<br/>Paging to disk: None<br/>Status: Optimal]
@@ -18,7 +18,7 @@ graph TB
         SHALLOW1 --> SHALLOW2
     end
 
-    subgraph "Medium Queue (1K - 100K messages)"
+    subgraph Medium Queue (1K - 100K messages)
         MEDIUM1[Queue depth: 50K messages<br/>Memory usage: 500MB<br/>Enqueue rate: 8K msg/sec<br/>Dequeue rate: 7K msg/sec]
 
         MEDIUM2[Performance characteristics<br/>Latency p95: 10ms<br/>Memory overhead: Medium<br/>Paging to disk: Minimal<br/>Status: Acceptable]
@@ -26,7 +26,7 @@ graph TB
         MEDIUM1 --> MEDIUM2
     end
 
-    subgraph "Deep Queue (> 100K messages)"
+    subgraph Deep Queue (> 100K messages)
         DEEP1[Queue depth: 1M messages<br/>Memory usage: 2GB<br/>Enqueue rate: 5K msg/sec<br/>Dequeue rate: 4K msg/sec]
 
         DEEP2[Performance characteristics<br/>Latency p95: 100ms<br/>Memory overhead: High<br/>Paging to disk: Aggressive<br/>Status: Degraded]
@@ -34,7 +34,7 @@ graph TB
         DEEP1 --> DEEP2
     end
 
-    subgraph "Critical Queue (> 1M messages)"
+    subgraph Critical Queue (> 1M messages)
         CRITICAL1[Queue depth: 10M messages<br/>Memory usage: 8GB<br/>Enqueue rate: 1K msg/sec<br/>Dequeue rate: 500 msg/sec]
 
         CRITICAL2[Performance characteristics<br/>Latency p95: 1000ms<br/>Memory overhead: Critical<br/>Paging to disk: Constant<br/>Status: System at risk]
@@ -57,7 +57,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Producer Flow Control"
+    subgraph Producer Flow Control
         PFC1[Connection blocked<br/>Trigger: Memory alarm<br/>Action: Stop accepting messages<br/>Recovery: Memory below threshold]
 
         PFC2[Publisher confirms<br/>Mode: Synchronous<br/>Impact: Reduced throughput<br/>Benefit: Backpressure signal]
@@ -67,7 +67,7 @@ graph TB
         PFC1 --> PFC2 --> PFC3
     end
 
-    subgraph "Consumer Scaling"
+    subgraph Consumer Scaling
         CS1[Auto-scaling consumers<br/>Metric: Queue depth<br/>Scale up: > 10K messages<br/>Scale down: < 1K messages]
 
         CS2[Prefetch optimization<br/>QoS: 100 messages<br/>Balance: Memory vs throughput<br/>Tuning: Consumer capability]
@@ -75,7 +75,7 @@ graph TB
         CS1 --> CS2
     end
 
-    subgraph "Queue Design Patterns"
+    subgraph Queue Design Patterns
         QDP1[Work queues<br/>Pattern: Competing consumers<br/>Depth management: Critical<br/>Scaling: Horizontal]
 
         QDP2[Topic exchanges<br/>Pattern: Pub/sub<br/>Depth management: Per subscriber<br/>Scaling: Queue-specific]
@@ -98,26 +98,26 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "3-Node RabbitMQ Cluster"
-        subgraph "Node 1 - Primary"
+    subgraph 3-Node RabbitMQ Cluster
+        subgraph Node 1 - Primary
             N1[Node rabbit@node1<br/>RAM usage: 4GB<br/>CPU usage: 60%<br/>Disk I/O: 200 IOPS]
 
             N1Q[Queues: 500<br/>Messages/sec: 20K<br/>Connections: 1000<br/>Role: Queue master]
         end
 
-        subgraph "Node 2 - Replica"
+        subgraph Node 2 - Replica
             N2[Node rabbit@node2<br/>RAM usage: 3GB<br/>CPU usage: 40%<br/>Disk I/O: 150 IOPS]
 
             N2Q[Queues: 300 (replicas)<br/>Messages/sec: 15K<br/>Connections: 800<br/>Role: Replica + new queues]
         end
 
-        subgraph "Node 3 - Replica"
+        subgraph Node 3 - Replica
             N3[Node rabbit@node3<br/>RAM usage: 3GB<br/>CPU usage: 40%<br/>Disk I/O: 150 IOPS]
 
             N3Q[Queues: 300 (replicas)<br/>Messages/sec: 15K<br/>Connections: 800<br/>Role: Replica + new queues]
         end
 
-        subgraph "Cluster Communication"
+        subgraph Cluster Communication
             COMM[Erlang distribution<br/>Port: 25672<br/>Heartbeat: 60s<br/>Network overhead: 50 Mbps]
         end
 
@@ -126,7 +126,7 @@ graph TB
         N3 <--> COMM
     end
 
-    subgraph "Performance Impact"
+    subgraph Performance Impact
         PI1[Replication overhead<br/>Network: 25% increase<br/>CPU: 15% increase<br/>Memory: 10% increase]
 
         PI2[Failover characteristics<br/>Detection time: 60 seconds<br/>Recovery time: 30 seconds<br/>Message loss: None (with confirms)]
@@ -147,7 +147,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Single Node Setup"
+    subgraph Single Node Setup
         SINGLE1[Node configuration<br/>RAM: 8GB<br/>CPU cores: 8<br/>Network: 1 Gbps]
 
         SINGLE2[Performance<br/>Messages/sec: 50K<br/>Latency p95: 5ms<br/>Max connections: 2000<br/>Availability: 99.5%]
@@ -155,7 +155,7 @@ graph LR
         SINGLE1 --> SINGLE2
     end
 
-    subgraph "3-Node Cluster"
+    subgraph 3-Node Cluster
         CLUSTER1[Cluster configuration<br/>RAM per node: 4GB<br/>CPU cores per node: 4<br/>Network per node: 1 Gbps]
 
         CLUSTER2[Performance<br/>Messages/sec: 40K total<br/>Latency p95: 8ms<br/>Max connections: 3000<br/>Availability: 99.9%]
@@ -163,7 +163,7 @@ graph LR
         CLUSTER1 --> CLUSTER2
     end
 
-    subgraph "Trade-off Analysis"
+    subgraph Trade-off Analysis
         TRADEOFF1[Clustering benefits<br/>• High availability<br/>• Load distribution<br/>• Horizontal scaling<br/>• Disaster recovery]
 
         TRADEOFF2[Clustering costs<br/>• 20% throughput reduction<br/>• 60% latency increase<br/>• Network overhead<br/>• Operational complexity]
@@ -185,7 +185,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Cluster Partition Scenario"
+    subgraph Cluster Partition Scenario
         BEFORE[Normal operation<br/>Nodes: 3 connected<br/>Queues: Replicated<br/>Messages: Flowing normally]
 
         PARTITION[Network partition<br/>Node 1: Isolated<br/>Nodes 2+3: Connected<br/>Split brain risk]
@@ -195,7 +195,7 @@ graph TB
         BEFORE --> PARTITION --> AFTER
     end
 
-    subgraph "Partition Modes"
+    subgraph Partition Modes
         MODE1[pause_minority (default)<br/>Minority nodes pause<br/>Majority continues<br/>CAP: Consistency + Partition tolerance]
 
         MODE2[ignore<br/>Both sides continue<br/>Split brain allowed<br/>CAP: Availability + Partition tolerance]
@@ -203,7 +203,7 @@ graph TB
         MODE3[autoheal<br/>Automatic healing<br/>Restart minority<br/>CAP: Eventual consistency]
     end
 
-    subgraph "Performance Impact"
+    subgraph Performance Impact
         PERF1[Partition detection: 60s<br/>Recovery time: 120s<br/>Message loss: None<br/>Downtime: Minority nodes only]
     end
 
@@ -222,7 +222,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Normal Queue Behavior"
+    subgraph Normal Queue Behavior
         NORMAL1[Message flow<br/>1. Receive message<br/>2. Store in RAM<br/>3. Optionally persist<br/>4. Deliver from RAM]
 
         NORMAL2[Memory usage pattern<br/>RAM per message: 1KB<br/>1M messages: 1GB RAM<br/>Paging threshold: 40% RAM<br/>Performance: High until paging]
@@ -230,7 +230,7 @@ graph TB
         NORMAL1 --> NORMAL2
     end
 
-    subgraph "Lazy Queue Behavior"
+    subgraph Lazy Queue Behavior
         LAZY1[Message flow<br/>1. Receive message<br/>2. Write to disk immediately<br/>3. Keep minimal RAM buffer<br/>4. Read from disk for delivery]
 
         LAZY2[Memory usage pattern<br/>RAM per message: 100 bytes<br/>1M messages: 100MB RAM<br/>Disk I/O: Always active<br/>Performance: Consistent]
@@ -238,7 +238,7 @@ graph TB
         LAZY1 --> LAZY2
     end
 
-    subgraph "Performance Characteristics"
+    subgraph Performance Characteristics
         PERF_NORMAL[Normal queue<br/>Throughput: 50K msg/sec (light)<br/>Throughput: 5K msg/sec (heavy)<br/>Memory: Variable<br/>Predictability: Poor]
 
         PERF_LAZY[Lazy queue<br/>Throughput: 20K msg/sec (consistent)<br/>Memory: Constant<br/>Disk I/O: Predictable<br/>Predictability: Excellent]
@@ -260,7 +260,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "High Throughput, Low Latency"
+    subgraph High Throughput, Low Latency
         HT_LL[Requirements<br/>• < 5ms latency<br/>• > 30K msg/sec<br/>• Predictable load<br/>• Sufficient RAM]
 
         HT_LL_REC[Recommendation: Normal<br/>Keep messages in RAM<br/>Avoid disk I/O overhead<br/>Scale RAM with load]
@@ -268,7 +268,7 @@ graph LR
         HT_LL --> HT_LL_REC
     end
 
-    subgraph "Large Queues, Memory Constrained"
+    subgraph Large Queues, Memory Constrained
         LQ_MC[Requirements<br/>• > 100K queued messages<br/>• Limited RAM<br/>• Acceptable latency trade-off<br/>• Predictable performance]
 
         LQ_MC_REC[Recommendation: Lazy<br/>Consistent memory usage<br/>Predictable performance<br/>Better resource utilization]
@@ -276,7 +276,7 @@ graph LR
         LQ_MC --> LQ_MC_REC
     end
 
-    subgraph "Variable Load Patterns"
+    subgraph Variable Load Patterns
         VLP[Requirements<br/>• Unpredictable bursts<br/>• Memory stability critical<br/>• Multiple queue priorities<br/>• Operational simplicity]
 
         VLP_REC[Recommendation: Lazy<br/>Stable memory footprint<br/>No paging surprises<br/>Easier capacity planning]
@@ -299,7 +299,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Auto-Acknowledge"
+    subgraph Auto-Acknowledge
         AUTO1[Message delivery<br/>1. Send to consumer<br/>2. Mark as delivered<br/>3. Remove from queue<br/>4. No confirmation needed]
 
         AUTO2[Performance characteristics<br/>Throughput: 100K msg/sec<br/>Latency p95: 1ms<br/>Memory usage: Minimal<br/>Reliability: At-most-once]
@@ -307,7 +307,7 @@ graph TB
         AUTO1 --> AUTO2
     end
 
-    subgraph "Manual Acknowledge"
+    subgraph Manual Acknowledge
         MANUAL1[Message delivery<br/>1. Send to consumer<br/>2. Wait for ack/nack<br/>3. Process acknowledgment<br/>4. Remove from queue]
 
         MANUAL2[Performance characteristics<br/>Throughput: 50K msg/sec<br/>Latency p95: 3ms<br/>Memory usage: Moderate<br/>Reliability: At-least-once]
@@ -315,7 +315,7 @@ graph TB
         MANUAL1 --> MANUAL2
     end
 
-    subgraph "Publisher Confirms"
+    subgraph Publisher Confirms
         PUB_CONFIRM1[Message publishing<br/>1. Send to exchange<br/>2. Route to queues<br/>3. Persist to disk<br/>4. Send confirmation]
 
         PUB_CONFIRM2[Performance characteristics<br/>Throughput: 20K msg/sec<br/>Latency p95: 10ms<br/>Memory usage: High<br/>Reliability: Guaranteed delivery]
@@ -323,7 +323,7 @@ graph TB
         PUB_CONFIRM1 --> PUB_CONFIRM2
     end
 
-    subgraph "Transactions"
+    subgraph Transactions
         TXN1[Transactional publishing<br/>1. Begin transaction<br/>2. Send messages<br/>3. Commit transaction<br/>4. Confirm all or none]
 
         TXN2[Performance characteristics<br/>Throughput: 5K msg/sec<br/>Latency p95: 50ms<br/>Memory usage: High<br/>Reliability: ACID properties]
@@ -346,7 +346,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Individual Acknowledgments"
+    subgraph Individual Acknowledgments
         INDIVIDUAL1[Ack pattern<br/>One ack per message<br/>Network calls: High<br/>CPU overhead: High]
 
         INDIVIDUAL2[Performance<br/>Throughput: 10K msg/sec<br/>Network utilization: 50%<br/>CPU usage: 40%<br/>Latency: 2ms]
@@ -354,7 +354,7 @@ graph LR
         INDIVIDUAL1 --> INDIVIDUAL2
     end
 
-    subgraph "Batched Acknowledgments"
+    subgraph Batched Acknowledgments
         BATCH1[Ack pattern<br/>Multiple ack enabled<br/>Batch size: 100 messages<br/>Network calls: Reduced]
 
         BATCH2[Performance<br/>Throughput: 40K msg/sec<br/>Network utilization: 20%<br/>CPU usage: 15%<br/>Latency: 5ms]
@@ -362,7 +362,7 @@ graph LR
         BATCH1 --> BATCH2
     end
 
-    subgraph "Optimized Batching"
+    subgraph Optimized Batching
         OPT_BATCH1[Ack pattern<br/>Dynamic batch size<br/>Time-based batching: 10ms<br/>Load-adaptive sizing]
 
         OPT_BATCH2[Performance<br/>Throughput: 60K msg/sec<br/>Network utilization: 15%<br/>CPU usage: 12%<br/>Latency: 8ms average]
@@ -385,8 +385,8 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Deliveroo Message Processing"
-        subgraph "Order Processing Flow"
+    subgraph Deliveroo Message Processing
+        subgraph Order Processing Flow
             ORDER[Order Service<br/>Publishes: Order events<br/>Volume: 100K orders/day<br/>Peak: 2K orders/hour]
 
             RESTAURANT[Restaurant Service<br/>Consumes: Order events<br/>Publishes: Prep updates<br/>SLA: < 30 seconds]
@@ -396,7 +396,7 @@ graph TB
             ORDER --> RESTAURANT --> DELIVERY
         end
 
-        subgraph "RabbitMQ Infrastructure"
+        subgraph RabbitMQ Infrastructure
             CLUSTER[3-Node Cluster<br/>Node size: 4GB RAM each<br/>Queue type: Lazy queues<br/>Replication: All queues]
 
             EXCHANGES[Topic exchanges<br/>order.* routing<br/>restaurant.* routing<br/>delivery.* routing]
@@ -407,7 +407,7 @@ graph TB
         end
     end
 
-    subgraph "Performance Achievements"
+    subgraph Performance Achievements
         PERF1[Message throughput: 50K msg/sec<br/>End-to-end latency: p95 < 5s<br/>Queue depth: avg 1K messages<br/>Availability: 99.95%]
 
         PERF2[Resource utilization<br/>CPU: 60% average<br/>Memory: 80% utilization<br/>Network: 100 Mbps<br/>Disk I/O: 500 IOPS]
@@ -427,11 +427,11 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Memory Management"
+    subgraph Memory Management
         MEM1[vm_memory_high_watermark: 0.6<br/>vm_memory_high_watermark_paging_ratio: 0.5<br/>disk_free_limit: 50GB<br/>Memory alarms trigger at 60%]
     end
 
-    subgraph "Queue Configuration"
+    subgraph Queue Configuration
         QUEUE1[Default queue type: lazy<br/>x-max-length: 100000<br/>x-message-ttl: 86400000<br/>x-expires: 1800000]
 
         QUEUE2[Consumer prefetch: 100<br/>Publisher confirms: enabled<br/>Manual acknowledgment: true<br/>Durable: true]
@@ -439,11 +439,11 @@ graph TB
         QUEUE1 --> QUEUE2
     end
 
-    subgraph "Clustering Configuration"
+    subgraph Clustering Configuration
         CLUSTER1[cluster_formation.peer_discovery_backend: rabbit_peer_discovery_k8s<br/>cluster_partition_handling: pause_minority<br/>heartbeat: 60<br/>net_ticktime: 60]
     end
 
-    subgraph "Performance Tuning"
+    subgraph Performance Tuning
         PERF1[tcp_listen_options.nodelay: true<br/>tcp_listen_options.sndbuf: 196608<br/>tcp_listen_options.recbuf: 196608<br/>collect_statistics_interval: 60000]
     end
 
@@ -462,7 +462,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Key Metrics"
+    subgraph Key Metrics
         METRICS1[Queue depth<br/>Alert: > 10K messages<br/>Critical: > 50K messages<br/>Action: Scale consumers]
 
         METRICS2[Memory usage<br/>Alert: > 70%<br/>Critical: > 85%<br/>Action: Flow control activation]
@@ -470,7 +470,7 @@ graph LR
         METRICS3[Message rates<br/>Publish rate: 1K/sec<br/>Consume rate: 1K/sec<br/>Monitor: Rate imbalance]
     end
 
-    subgraph "Performance Indicators"
+    subgraph Performance Indicators
         PI1[Consumer utilization<br/>Target: > 80%<br/>Scale trigger: < 60%<br/>Method: Consumer count adjustment]
 
         PI2[Connection count<br/>Limit: 1000 per node<br/>Alert: > 800<br/>Action: Connection pooling review]
@@ -478,7 +478,7 @@ graph LR
         PI3[Disk space<br/>Alert: < 20% free<br/>Critical: < 10% free<br/>Action: Log rotation, cleanup]
     end
 
-    subgraph "Alerting Actions"
+    subgraph Alerting Actions
         ACTIONS1[Auto-scaling<br/>Kubernetes HPA<br/>Based on queue depth<br/>Consumer pod scaling]
 
         ACTIONS2[Circuit breaker<br/>Producer flow control<br/>Prevent cascade failures<br/>Graceful degradation]
@@ -503,7 +503,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Queue Design"
+    subgraph Queue Design
         QD1[Use lazy queues for<br/>• Large message backlogs<br/>• Unpredictable load<br/>• Memory-constrained systems]
 
         QD2[Use normal queues for<br/>• Low-latency requirements<br/>• Predictable small loads<br/>• Abundant RAM available]
@@ -511,7 +511,7 @@ graph TB
         QD1 --> QD2
     end
 
-    subgraph "Consumer Optimization"
+    subgraph Consumer Optimization
         CO1[Prefetch sizing<br/>• High throughput: 100-1000<br/>• Low memory: 10-50<br/>• Balance throughput vs memory]
 
         CO2[Acknowledgment strategy<br/>• High reliability: Manual ack<br/>• High throughput: Auto ack<br/>• Batch acknowledgments when possible]
@@ -519,7 +519,7 @@ graph TB
         CO1 --> CO2
     end
 
-    subgraph "Infrastructure Sizing"
+    subgraph Infrastructure Sizing
         IS1[Single node sufficient for<br/>• < 10K msg/sec<br/>• < 99.5% availability requirement<br/>• Development/testing]
 
         IS2[Clustering required for<br/>• > 10K msg/sec<br/>• > 99.9% availability<br/>• Production workloads]

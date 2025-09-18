@@ -6,56 +6,56 @@ This diagram shows the complete user request traversal through Netflix's product
 
 ```mermaid
 graph TB
-    subgraph UserLayer["User Layer"]
-        Mobile["Netflix Mobile App<br/>━━━━━<br/>iOS/Android<br/>260M+ active users<br/>AVS 4.8+ rating"]
-        TV["Smart TV App<br/>━━━━━<br/>Samsung/LG/Roku<br/>70% of viewing hours<br/>WebOS/Tizen"]
-        Web["Web Browser<br/>━━━━━<br/>Chrome/Safari/Edge<br/>HTML5 Video<br/>MSE/EME"]
+    subgraph UserLayer[User Layer]
+        Mobile[Netflix Mobile App<br/>━━━━━<br/>iOS/Android<br/>260M+ active users<br/>AVS 4.8+ rating]
+        TV[Smart TV App<br/>━━━━━<br/>Samsung/LG/Roku<br/>70% of viewing hours<br/>WebOS/Tizen]
+        Web[Web Browser<br/>━━━━━<br/>Chrome/Safari/Edge<br/>HTML5 Video<br/>MSE/EME]
     end
 
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        OCA["Open Connect Appliance<br/>━━━━━<br/>18,000+ edge servers<br/>Cache Hit Rate: 95%<br/>Response Time: 8ms p50"]
+        OCA[Open Connect Appliance<br/>━━━━━<br/>18,000+ edge servers<br/>Cache Hit Rate: 95%<br/>Response Time: 8ms p50]
 
-        Zuul1["Zuul Gateway (Primary)<br/>━━━━━<br/>API Gateway Layer<br/>1M+ req/sec capacity<br/>p99: 150ms | p50: 45ms"]
+        Zuul1[Zuul Gateway (Primary)<br/>━━━━━<br/>API Gateway Layer<br/>1M+ req/sec capacity<br/>p99: 150ms | p50: 45ms]
 
-        Zuul2["Zuul Gateway (Fallback)<br/>━━━━━<br/>Secondary region<br/>500K req/sec capacity<br/>p99: 200ms | Failover: 2s"]
+        Zuul2[Zuul Gateway (Fallback)<br/>━━━━━<br/>Secondary region<br/>500K req/sec capacity<br/>p99: 200ms | Failover: 2s]
 
-        WAF["CloudFlare WAF<br/>━━━━━<br/>DDoS Protection<br/>Rate Limiting<br/>Bot Detection: 99.8%"]
+        WAF[CloudFlare WAF<br/>━━━━━<br/>DDoS Protection<br/>Rate Limiting<br/>Bot Detection: 99.8%]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        PlayAPI["Playback API<br/>━━━━━<br/>Video Stream Orchestration<br/>2M req/sec peak<br/>SLA: p99 < 50ms"]
+        PlayAPI[Playback API<br/>━━━━━<br/>Video Stream Orchestration<br/>2M req/sec peak<br/>SLA: p99 < 50ms]
 
-        UserAPI["User Profile API<br/>━━━━━<br/>Authentication & Profiles<br/>800K req/sec<br/>SLA: p99 < 100ms"]
+        UserAPI[User Profile API<br/>━━━━━<br/>Authentication & Profiles<br/>800K req/sec<br/>SLA: p99 < 100ms]
 
-        RecsAPI["Recommendations API<br/>━━━━━<br/>ML-driven suggestions<br/>1.5M req/sec<br/>SLA: p99 < 200ms"]
+        RecsAPI[Recommendations API<br/>━━━━━<br/>ML-driven suggestions<br/>1.5M req/sec<br/>SLA: p99 < 200ms]
 
-        SearchAPI["Search API<br/>━━━━━<br/>Content Discovery<br/>600K req/sec<br/>SLA: p99 < 150ms"]
+        SearchAPI[Search API<br/>━━━━━<br/>Content Discovery<br/>600K req/sec<br/>SLA: p99 < 150ms]
 
-        Falcor["Falcor GraphQL Gateway<br/>━━━━━<br/>Data Layer Orchestration<br/>800K req/sec<br/>SLA: p99 < 100ms"]
+        Falcor[Falcor GraphQL Gateway<br/>━━━━━<br/>Data Layer Orchestration<br/>800K req/sec<br/>SLA: p99 < 100ms]
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        EVCache["EVCache<br/>━━━━━<br/>L1 Cache Layer<br/>Hit Rate: 95%<br/>Response: 0.5ms p99"]
+        EVCache[EVCache<br/>━━━━━<br/>L1 Cache Layer<br/>Hit Rate: 95%<br/>Response: 0.5ms p99]
 
-        Cassandra["Cassandra Clusters<br/>━━━━━<br/>User Data & Metadata<br/>100PB total<br/>Read: 2ms p99"]
+        Cassandra[Cassandra Clusters<br/>━━━━━<br/>User Data & Metadata<br/>100PB total<br/>Read: 2ms p99]
 
-        ES["Elasticsearch<br/>━━━━━<br/>Content Search Index<br/>750B documents<br/>Query: 50ms p99"]
+        ES[Elasticsearch<br/>━━━━━<br/>Content Search Index<br/>750B documents<br/>Query: 50ms p99]
 
-        S3["AWS S3<br/>━━━━━<br/>Video Master Storage<br/>1 Exabyte<br/>GET: 100ms p99"]
+        S3[AWS S3<br/>━━━━━<br/>Video Master Storage<br/>1 Exabyte<br/>GET: 100ms p99]
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        Atlas["Atlas Monitoring<br/>━━━━━<br/>Real-time Metrics<br/>2.5M metrics/sec<br/>Alert Latency: 5s"]
+        Atlas[Atlas Monitoring<br/>━━━━━<br/>Real-time Metrics<br/>2.5M metrics/sec<br/>Alert Latency: 5s]
 
-        Mantis["Mantis Analytics<br/>━━━━━<br/>Stream Processing<br/>1T events/day<br/>Processing Lag: 100ms"]
+        Mantis[Mantis Analytics<br/>━━━━━<br/>Stream Processing<br/>1T events/day<br/>Processing Lag: 100ms]
     end
 
     %% Primary Request Flow - Happy Path

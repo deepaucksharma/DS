@@ -6,76 +6,76 @@ This diagram documents Netflix's complete storage architecture with all database
 
 ```mermaid
 graph TB
-    subgraph DataIngestion["Data Ingestion Layer"]
+    subgraph DataIngestion[Data Ingestion Layer]
         style DataIngestion fill:#E6F3FF,stroke:#3B82F6,color:#000
 
-        ViewingData["Viewing Events<br/>━━━━━<br/>500B events/day<br/>Real-time ingestion<br/>Kafka: 8M msg/sec"]
+        ViewingData[Viewing Events<br/>━━━━━<br/>500B events/day<br/>Real-time ingestion<br/>Kafka: 8M msg/sec]
 
-        ContentMeta["Content Metadata<br/>━━━━━<br/>Video masters<br/>Subtitles, artwork<br/>50TB/day ingestion"]
+        ContentMeta[Content Metadata<br/>━━━━━<br/>Video masters<br/>Subtitles, artwork<br/>50TB/day ingestion]
 
-        UserEvents["User Interactions<br/>━━━━━<br/>Search, ratings, browsing<br/>1T events/day<br/>Kinesis Streams"]
+        UserEvents[User Interactions<br/>━━━━━<br/>Search, ratings, browsing<br/>1T events/day<br/>Kinesis Streams]
     end
 
-    subgraph CachingLayer["L1 Caching Layer - Orange #F59E0B"]
+    subgraph CachingLayer[L1 Caching Layer - Orange #F59E0B]
         style CachingLayer fill:#F59E0B,stroke:#D97706,color:#fff
 
-        EVCache1["EVCache - Hot Data<br/>━━━━━<br/>50TB RAM total<br/>95% hit rate<br/>0.5ms p99 latency<br/>r6gd.16xlarge × 200"]
+        EVCache1[EVCache - Hot Data<br/>━━━━━<br/>50TB RAM total<br/>95% hit rate<br/>0.5ms p99 latency<br/>r6gd.16xlarge × 200]
 
-        EVCache2["EVCache - Warm Data<br/>━━━━━<br/>80TB RAM total<br/>88% hit rate<br/>1ms p99 latency<br/>r6gd.12xlarge × 150"]
+        EVCache2[EVCache - Warm Data<br/>━━━━━<br/>80TB RAM total<br/>88% hit rate<br/>1ms p99 latency<br/>r6gd.12xlarge × 150]
 
-        Redis["Redis Clusters<br/>━━━━━<br/>Session storage<br/>30TB memory<br/>0.3ms p99 latency<br/>r6g.8xlarge × 100"]
+        Redis[Redis Clusters<br/>━━━━━<br/>Session storage<br/>30TB memory<br/>0.3ms p99 latency<br/>r6g.8xlarge × 100]
     end
 
-    subgraph PrimaryStorage["Primary Storage - Orange #F59E0B"]
+    subgraph PrimaryStorage[Primary Storage - Orange #F59E0B]
         style PrimaryStorage fill:#F59E0B,stroke:#D97706,color:#fff
 
-        CassandraUser["Cassandra - User Data<br/>━━━━━<br/>3,000 nodes<br/>40PB data<br/>RF=3, Strong consistency<br/>i3en.24xlarge"]
+        CassandraUser[Cassandra - User Data<br/>━━━━━<br/>3,000 nodes<br/>40PB data<br/>RF=3, Strong consistency<br/>i3en.24xlarge]
 
-        CassandraContent["Cassandra - Content Metadata<br/>━━━━━<br/>2,000 nodes<br/>25PB data<br/>RF=3, Eventually consistent<br/>i3en.12xlarge"]
+        CassandraContent[Cassandra - Content Metadata<br/>━━━━━<br/>2,000 nodes<br/>25PB data<br/>RF=3, Eventually consistent<br/>i3en.12xlarge]
 
-        CassandraViewing["Cassandra - Viewing History<br/>━━━━━<br/>5,000 nodes<br/>35PB data<br/>RF=2, Write optimized<br/>i3en.24xlarge"]
+        CassandraViewing[Cassandra - Viewing History<br/>━━━━━<br/>5,000 nodes<br/>35PB data<br/>RF=2, Write optimized<br/>i3en.24xlarge]
 
-        DynamoDB["DynamoDB Global Tables<br/>━━━━━<br/>Real-time recommendations<br/>500TB provisioned<br/>Single-digit ms latency<br/>Multi-region active-active"]
+        DynamoDB[DynamoDB Global Tables<br/>━━━━━<br/>Real-time recommendations<br/>500TB provisioned<br/>Single-digit ms latency<br/>Multi-region active-active]
     end
 
-    subgraph SearchStorage["Search & Analytics - Orange #F59E0B"]
+    subgraph SearchStorage[Search & Analytics - Orange #F59E0B]
         style SearchStorage fill:#F59E0B,stroke:#D97706,color:#fff
 
-        ES1["Elasticsearch - Content Search<br/>━━━━━<br/>1,500 nodes<br/>8PB indexed data<br/>750B documents<br/>i3.8xlarge clusters"]
+        ES1[Elasticsearch - Content Search<br/>━━━━━<br/>1,500 nodes<br/>8PB indexed data<br/>750B documents<br/>i3.8xlarge clusters]
 
-        ES2["Elasticsearch - Logs<br/>━━━━━<br/>800 nodes<br/>3PB log data<br/>7-day retention<br/>d3en.2xlarge clusters"]
+        ES2[Elasticsearch - Logs<br/>━━━━━<br/>800 nodes<br/>3PB log data<br/>7-day retention<br/>d3en.2xlarge clusters]
 
-        Druid["Apache Druid<br/>━━━━━<br/>Real-time analytics<br/>100TB segments<br/>OLAP queries<br/>r5.12xlarge × 200"]
+        Druid[Apache Druid<br/>━━━━━<br/>Real-time analytics<br/>100TB segments<br/>OLAP queries<br/>r5.12xlarge × 200]
     end
 
-    subgraph ObjectStorage["Object Storage - Orange #F59E0B"]
+    subgraph ObjectStorage[Object Storage - Orange #F59E0B]
         style ObjectStorage fill:#F59E0B,stroke:#D97706,color:#fff
 
-        S3Video["S3 - Video Masters<br/>━━━━━<br/>800PB stored<br/>50M video files<br/>Glacier for archives<br/>Standard-IA transition"]
+        S3Video[S3 - Video Masters<br/>━━━━━<br/>800PB stored<br/>50M video files<br/>Glacier for archives<br/>Standard-IA transition]
 
-        S3Images["S3 - Images/Artwork<br/>━━━━━<br/>200PB stored<br/>500M image assets<br/>CloudFront integration<br/>Intelligent Tiering"]
+        S3Images[S3 - Images/Artwork<br/>━━━━━<br/>200PB stored<br/>500M image assets<br/>CloudFront integration<br/>Intelligent Tiering]
 
-        S3Logs["S3 - Log Archives<br/>━━━━━<br/>50PB compressed<br/>7-year retention<br/>Glacier Deep Archive<br/>LZ4 compression"]
+        S3Logs[S3 - Log Archives<br/>━━━━━<br/>50PB compressed<br/>7-year retention<br/>Glacier Deep Archive<br/>LZ4 compression]
     end
 
-    subgraph DataProcessing["Stream Processing - Green #10B981"]
+    subgraph DataProcessing[Stream Processing - Green #10B981]
         style DataProcessing fill:#10B981,stroke:#059669,color:#fff
 
-        Kafka["Apache Kafka<br/>━━━━━<br/>500 brokers<br/>100TB/day throughput<br/>7-day retention<br/>r5.8xlarge clusters"]
+        Kafka[Apache Kafka<br/>━━━━━<br/>500 brokers<br/>100TB/day throughput<br/>7-day retention<br/>r5.8xlarge clusters]
 
-        Flink["Apache Flink<br/>━━━━━<br/>Real-time aggregations<br/>2TB/hour processing<br/>Exactly-once semantics<br/>r5.4xlarge × 300"]
+        Flink[Apache Flink<br/>━━━━━<br/>Real-time aggregations<br/>2TB/hour processing<br/>Exactly-once semantics<br/>r5.4xlarge × 300]
 
-        Spark["Apache Spark<br/>━━━━━<br/>Batch ETL jobs<br/>10PB/day processing<br/>ML feature engineering<br/>r5.12xlarge × 1000"]
+        Spark[Apache Spark<br/>━━━━━<br/>Batch ETL jobs<br/>10PB/day processing<br/>ML feature engineering<br/>r5.12xlarge × 1000]
     end
 
-    subgraph BackupRecovery["Backup & Recovery - Red #8B5CF6"]
+    subgraph BackupRecovery[Backup & Recovery - Red #8B5CF6]
         style BackupRecovery fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        CassBackup["Cassandra Backups<br/>━━━━━<br/>Incremental snapshots<br/>Cross-region replication<br/>RPO: 15 minutes<br/>RTO: 4 hours"]
+        CassBackup[Cassandra Backups<br/>━━━━━<br/>Incremental snapshots<br/>Cross-region replication<br/>RPO: 15 minutes<br/>RTO: 4 hours]
 
-        S3CrossRegion["S3 Cross-Region Replication<br/>━━━━━<br/>3 geographic regions<br/>15-minute sync SLA<br/>99.999999999% durability<br/>Versioning enabled"]
+        S3CrossRegion[S3 Cross-Region Replication<br/>━━━━━<br/>3 geographic regions<br/>15-minute sync SLA<br/>99.999999999% durability<br/>Versioning enabled]
 
-        ESSnapshots["ES Snapshot Repository<br/>━━━━━<br/>Daily snapshots to S3<br/>30-day retention<br/>RPO: 24 hours<br/>RTO: 2 hours"]
+        ESSnapshots[ES Snapshot Repository<br/>━━━━━<br/>Daily snapshots to S3<br/>30-day retention<br/>RPO: 24 hours<br/>RTO: 2 hours]
     end
 
     %% Data Flow Connections

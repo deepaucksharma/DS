@@ -10,7 +10,7 @@ Apache Kafka performance characteristics in production environments, covering pa
 
 ```mermaid
 graph TB
-    subgraph "3 Partition Topic"
+    subgraph 3 Partition Topic
         P3_1[Partition 0<br/>Messages: 33%<br/>Consumer: A<br/>Throughput: 50K msg/sec]
 
         P3_2[Partition 1<br/>Messages: 33%<br/>Consumer: B<br/>Throughput: 50K msg/sec]
@@ -24,7 +24,7 @@ graph TB
         P3_3 --> P3_TOTAL
     end
 
-    subgraph "12 Partition Topic"
+    subgraph 12 Partition Topic
         P12_RANGE[Partitions 0-11<br/>Messages: ~8.3% each<br/>Consumers: 12<br/>Throughput: 600K msg/sec]
 
         P12_BENEFITS[Benefits<br/>• Higher parallelism<br/>• Better load distribution<br/>• Faster recovery<br/>• More consumer instances]
@@ -50,19 +50,19 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Under-partitioned (3 partitions)"
+    subgraph Under-partitioned (3 partitions)
         UP1[Topic throughput: 150K msg/sec<br/>Producer latency p95: 5ms<br/>Consumer lag: Minimal<br/>Rebalance time: 5 seconds]
 
         UP2[Limitations<br/>• Max 3 consumers<br/>• Limited parallelism<br/>• Single broker hotspot<br/>• Poor scalability]
     end
 
-    subgraph "Optimal partitioned (30 partitions)"
+    subgraph Optimal partitioned (30 partitions)
         OP1[Topic throughput: 1M msg/sec<br/>Producer latency p95: 2ms<br/>Consumer lag: Minimal<br/>Rebalance time: 30 seconds]
 
         OP2[Benefits<br/>• 30 consumer parallelism<br/>• Even broker distribution<br/>• Good performance<br/>• Manageable complexity]
     end
 
-    subgraph "Over-partitioned (300 partitions)"
+    subgraph Over-partitioned (300 partitions)
         OVP1[Topic throughput: 1.2M msg/sec<br/>Producer latency p95: 8ms<br/>Consumer lag: Variable<br/>Rebalance time: 5 minutes]
 
         OVP2[Problems<br/>• Rebalancing overhead<br/>• Memory pressure<br/>• File handle exhaustion<br/>• Operational complexity]
@@ -85,7 +85,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Round-Robin Partitioning"
+    subgraph Round-Robin Partitioning
         RR1[Message distribution<br/>Even across partitions<br/>Key: null<br/>Ordering: None]
 
         RR2[Performance<br/>Throughput: Maximum<br/>Load balance: Perfect<br/>Use case: High throughput logs]
@@ -93,7 +93,7 @@ graph TB
         RR1 --> RR2
     end
 
-    subgraph "Key-Based Partitioning"
+    subgraph Key-Based Partitioning
         KB1[Message distribution<br/>Hash(key) % partitions<br/>Key: user_id, device_id<br/>Ordering: Per key]
 
         KB2[Performance<br/>Throughput: Good<br/>Load balance: Variable<br/>Use case: User events, transactions]
@@ -101,7 +101,7 @@ graph TB
         KB1 --> KB2
     end
 
-    subgraph "Custom Partitioning"
+    subgraph Custom Partitioning
         CP1[Message distribution<br/>Business logic based<br/>Key: geographic region<br/>Ordering: Custom]
 
         CP2[Performance<br/>Throughput: Variable<br/>Load balance: Controlled<br/>Use case: Geographic sharding]
@@ -124,7 +124,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Small Batches (1KB)"
+    subgraph Small Batches (1KB)
         SB1[Batch size: 1KB<br/>Messages per batch: 1-2<br/>Network calls: High<br/>CPU overhead: High]
 
         SB2[Performance impact<br/>Latency p95: 2ms<br/>Throughput: 50K msg/sec<br/>Network utilization: 30%]
@@ -132,7 +132,7 @@ graph TB
         SB1 --> SB2
     end
 
-    subgraph "Medium Batches (16KB)"
+    subgraph Medium Batches (16KB)
         MB1[Batch size: 16KB<br/>Messages per batch: 10-20<br/>Network calls: Medium<br/>CPU overhead: Medium]
 
         MB2[Performance impact<br/>Latency p95: 5ms<br/>Throughput: 200K msg/sec<br/>Network utilization: 60%]
@@ -140,7 +140,7 @@ graph TB
         MB1 --> MB2
     end
 
-    subgraph "Large Batches (1MB)"
+    subgraph Large Batches (1MB)
         LB1[Batch size: 1MB<br/>Messages per batch: 500-1000<br/>Network calls: Low<br/>CPU overhead: Low]
 
         LB2[Performance impact<br/>Latency p95: 50ms<br/>Throughput: 1M msg/sec<br/>Network utilization: 95%]
@@ -148,7 +148,7 @@ graph TB
         LB1 --> LB2
     end
 
-    subgraph "Optimization Strategy"
+    subgraph Optimization Strategy
         OPT[Dynamic batching<br/>batch.size: 100KB<br/>linger.ms: 10<br/>Adaptive to load patterns]
 
         MB2 --> OPT
@@ -170,7 +170,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Low Latency Configuration"
+    subgraph Low Latency Configuration
         LL1[batch.size: 1024<br/>linger.ms: 0<br/>acks: 1<br/>compression.type: none]
 
         LL2[Results<br/>Latency p95: 1ms<br/>Throughput: 50K msg/sec<br/>CPU usage: High<br/>Network overhead: High]
@@ -178,7 +178,7 @@ graph LR
         LL1 --> LL2
     end
 
-    subgraph "High Throughput Configuration"
+    subgraph High Throughput Configuration
         HT1[batch.size: 1048576<br/>linger.ms: 100<br/>acks: 1<br/>compression.type: lz4]
 
         HT2[Results<br/>Latency p95: 100ms<br/>Throughput: 1M msg/sec<br/>CPU usage: Low<br/>Network overhead: Low]
@@ -186,7 +186,7 @@ graph LR
         HT1 --> HT2
     end
 
-    subgraph "Balanced Configuration"
+    subgraph Balanced Configuration
         BAL1[batch.size: 65536<br/>linger.ms: 10<br/>acks: all<br/>compression.type: snappy]
 
         BAL2[Results<br/>Latency p95: 15ms<br/>Throughput: 500K msg/sec<br/>CPU usage: Medium<br/>Durability: High]
@@ -209,7 +209,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Healthy Consumer Group"
+    subgraph Healthy Consumer Group
         H1[Consumer A<br/>Partition 0<br/>Current offset: 1000000<br/>High water mark: 1000005<br/>Lag: 5 messages]
 
         H2[Consumer B<br/>Partition 1<br/>Current offset: 999995<br/>High water mark: 1000000<br/>Lag: 5 messages]
@@ -223,7 +223,7 @@ graph TB
         H3 --> H_TOTAL
     end
 
-    subgraph "Lagging Consumer Group"
+    subgraph Lagging Consumer Group
         L1[Consumer A<br/>Partition 0<br/>Current offset: 900000<br/>High water mark: 1000000<br/>Lag: 100K messages]
 
         L2[Consumer B<br/>Partition 1<br/>Current offset: 950000<br/>High water mark: 1000000<br/>Lag: 50K messages]
@@ -250,7 +250,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Scaling Strategy"
+    subgraph Scaling Strategy
         SCALE1[Current: 3 consumers<br/>Lag: 170K messages<br/>Processing rate: 5K msg/sec<br/>Recovery time: 34 seconds]
 
         SCALE2[Add consumers<br/>New count: 6 consumers<br/>Processing rate: 10K msg/sec<br/>Recovery time: 17 seconds]
@@ -260,7 +260,7 @@ graph TB
         SCALE1 --> SCALE2 --> SCALE3
     end
 
-    subgraph "Configuration Tuning"
+    subgraph Configuration Tuning
         TUNE1[fetch.min.bytes: 1048576<br/>fetch.max.wait.ms: 100<br/>max.poll.records: 1000<br/>Batch processing optimization]
 
         TUNE2[session.timeout.ms: 30000<br/>heartbeat.interval.ms: 3000<br/>max.poll.interval.ms: 300000<br/>Rebalance optimization]
@@ -268,7 +268,7 @@ graph TB
         TUNE1 --> TUNE2
     end
 
-    subgraph "Application Optimization"
+    subgraph Application Optimization
         APP1[Batch processing<br/>Async processing<br/>Connection pooling<br/>Error handling improvement]
 
         APP2[Results<br/>Processing rate: +200%<br/>Lag recovery: 3x faster<br/>Resource efficiency: +50%]
@@ -291,7 +291,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "No Compression"
+    subgraph No Compression
         NONE1[Message size: 1KB<br/>Compression ratio: 1:1<br/>CPU usage: 0%<br/>Network bandwidth: 100%]
 
         NONE2[Performance<br/>Throughput: 1M msg/sec<br/>Latency p95: 2ms<br/>Broker CPU: 20%<br/>Network: 1 Gbps]
@@ -299,7 +299,7 @@ graph TB
         NONE1 --> NONE2
     end
 
-    subgraph "Snappy Compression"
+    subgraph Snappy Compression
         SNAPPY1[Message size: 400 bytes<br/>Compression ratio: 2.5:1<br/>CPU usage: 10%<br/>Network bandwidth: 40%]
 
         SNAPPY2[Performance<br/>Throughput: 800K msg/sec<br/>Latency p95: 3ms<br/>Broker CPU: 35%<br/>Network: 400 Mbps]
@@ -307,7 +307,7 @@ graph TB
         SNAPPY1 --> SNAPPY2
     end
 
-    subgraph "LZ4 Compression"
+    subgraph LZ4 Compression
         LZ4_1[Message size: 350 bytes<br/>Compression ratio: 2.9:1<br/>CPU usage: 8%<br/>Network bandwidth: 35%]
 
         LZ4_2[Performance<br/>Throughput: 850K msg/sec<br/>Latency p95: 2.5ms<br/>Broker CPU: 30%<br/>Network: 350 Mbps]
@@ -315,7 +315,7 @@ graph TB
         LZ4_1 --> LZ4_2
     end
 
-    subgraph "GZIP Compression"
+    subgraph GZIP Compression
         GZIP1[Message size: 250 bytes<br/>Compression ratio: 4:1<br/>CPU usage: 25%<br/>Network bandwidth: 25%]
 
         GZIP2[Performance<br/>Throughput: 400K msg/sec<br/>Latency p95: 8ms<br/>Broker CPU: 60%<br/>Network: 250 Mbps]
@@ -338,7 +338,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "High Throughput / Low Latency"
+    subgraph High Throughput / Low Latency
         HT_LL[Requirements<br/>• < 5ms latency<br/>• > 500K msg/sec<br/>• CPU resources available]
 
         HT_LL_REC[Recommendation: LZ4<br/>Best balance of compression<br/>and performance<br/>Low CPU overhead]
@@ -346,7 +346,7 @@ graph LR
         HT_LL --> HT_LL_REC
     end
 
-    subgraph "Network Constrained"
+    subgraph Network Constrained
         NET_CONST[Requirements<br/>• Limited bandwidth<br/>• Cost optimization<br/>• Acceptable latency increase]
 
         NET_CONST_REC[Recommendation: GZIP<br/>Maximum compression<br/>Lowest network usage<br/>Higher CPU cost acceptable]
@@ -354,7 +354,7 @@ graph LR
         NET_CONST --> NET_CONST_REC
     end
 
-    subgraph "CPU Constrained"
+    subgraph CPU Constrained
         CPU_CONST[Requirements<br/>• Limited CPU resources<br/>• Simple deployment<br/>• Maximum throughput]
 
         CPU_CONST_REC[Recommendation: None<br/>No compression overhead<br/>Maximum producer throughput<br/>Higher network usage]
@@ -362,7 +362,7 @@ graph LR
         CPU_CONST --> CPU_CONST_REC
     end
 
-    subgraph "Balanced Workload"
+    subgraph Balanced Workload
         BALANCED[Requirements<br/>• Good compression<br/>• Reasonable performance<br/>• Wide compatibility]
 
         BALANCED_REC[Recommendation: Snappy<br/>Good compression ratio<br/>Widely supported<br/>Moderate CPU usage]
@@ -383,8 +383,8 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "LinkedIn Kafka Deployment"
-        subgraph "Multiple Data Centers"
+    subgraph LinkedIn Kafka Deployment
+        subgraph Multiple Data Centers
             DC1[Data Center 1<br/>Clusters: 15<br/>Brokers: 500<br/>Topics: 10,000<br/>Daily volume: 2T messages]
 
             DC2[Data Center 2<br/>Clusters: 12<br/>Brokers: 400<br/>Topics: 8,000<br/>Daily volume: 1.5T messages]
@@ -392,7 +392,7 @@ graph TB
             DC3[Data Center 3<br/>Clusters: 20<br/>Brokers: 600<br/>Topics: 12,000<br/>Daily volume: 3.5T messages]
         end
 
-        subgraph "Cross-DC Replication"
+        subgraph Cross-DC Replication
             MIRROR[MirrorMaker 2.0<br/>Replication lag: < 100ms<br/>Bandwidth: 10 Gbps<br/>Compression: LZ4]
 
             DC1 <--> MIRROR
@@ -401,7 +401,7 @@ graph TB
         end
     end
 
-    subgraph "Performance Achievements"
+    subgraph Performance Achievements
         PERF1[Peak throughput: 20M msg/sec<br/>Average throughput: 80K msg/sec<br/>p99 latency: 10ms<br/>Availability: 99.99%]
 
         PERF2[Storage efficiency<br/>Total data: 2 PB/day<br/>Retention: 7 days<br/>Compression ratio: 3:1<br/>Cost per TB: $10/month]
@@ -420,7 +420,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Broker Configuration"
+    subgraph Broker Configuration
         BROKER1[num.network.threads: 32<br/>num.io.threads: 64<br/>socket.send.buffer.bytes: 102400<br/>socket.receive.buffer.bytes: 102400]
 
         BROKER2[num.replica.fetchers: 4<br/>replica.fetch.max.bytes: 1048576<br/>log.segment.bytes: 1073741824<br/>log.retention.hours: 168]
@@ -430,7 +430,7 @@ graph TB
         BROKER1 --> BROKER2 --> BROKER3
     end
 
-    subgraph "JVM Configuration"
+    subgraph JVM Configuration
         JVM1[Heap size: 6GB<br/>GC: G1 with low-latency tuning<br/>Max GC pause: 20ms<br/>Off-heap page cache: 10GB]
 
         JVM2[GC tuning parameters<br/>-XX:+UseG1GC<br/>-XX:MaxGCPauseMillis=20<br/>-XX:G1HeapRegionSize=16m]
@@ -438,7 +438,7 @@ graph TB
         JVM1 --> JVM2
     end
 
-    subgraph "Operating System"
+    subgraph Operating System
         OS1[File system: XFS<br/>Mount options: noatime,nodiratime<br/>Dirty ratio: 5%<br/>Swappiness: 1]
 
         OS2[Network tuning<br/>TCP window scaling: enabled<br/>TCP timestamp: enabled<br/>SO_REUSEPORT: enabled]
@@ -446,7 +446,7 @@ graph TB
         OS1 --> OS2
     end
 
-    subgraph "Hardware Specification"
+    subgraph Hardware Specification
         HW1[CPU: 24 cores Intel Xeon<br/>Memory: 64GB RAM<br/>Storage: 12 × 2TB NVMe SSD<br/>Network: 25 Gbps]
 
         HW2[Performance per broker<br/>Peak throughput: 40K msg/sec<br/>Sustained: 25K msg/sec<br/>Storage capacity: 20TB<br/>Network utilization: 80%]
@@ -469,7 +469,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Growth Phases"
+    subgraph Growth Phases
         PHASE1[2012: 100M messages/day<br/>Brokers: 50<br/>Use cases: Activity tracking<br/>Infrastructure: Basic setup]
 
         PHASE2[2015: 1T messages/day<br/>Brokers: 200<br/>Use cases: Real-time analytics<br/>Infrastructure: Multi-DC]
@@ -481,7 +481,7 @@ graph LR
         PHASE1 --> PHASE2 --> PHASE3 --> PHASE4
     end
 
-    subgraph "Key Optimizations"
+    subgraph Key Optimizations
         OPT1[2012-2015<br/>• Partition optimization<br/>• Compression adoption<br/>• Consumer group tuning]
 
         OPT2[2015-2018<br/>• Cross-DC replication<br/>• Hardware upgrades<br/>• JVM tuning]
@@ -502,19 +502,19 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Level 1: Configuration"
+    subgraph Level 1: Configuration
         L1[Producer batching<br/>Consumer fetch sizing<br/>Compression selection<br/>JVM tuning]
     end
 
-    subgraph "Level 2: Architecture"
+    subgraph Level 2: Architecture
         L2[Partition count optimization<br/>Topic design patterns<br/>Consumer group sizing<br/>Replication factor tuning]
     end
 
-    subgraph "Level 3: Infrastructure"
+    subgraph Level 3: Infrastructure
         L3[Hardware selection<br/>Network optimization<br/>Storage configuration<br/>Operating system tuning]
     end
 
-    subgraph "Level 4: Application"
+    subgraph Level 4: Application
         L4[Message schema design<br/>Batch processing patterns<br/>Error handling strategies<br/>Monitoring integration]
     end
 

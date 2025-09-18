@@ -8,62 +8,62 @@ Cloudflare operates one of the world's most complex distributed systems with 285
 
 ```mermaid
 graph TB
-    subgraph "Control Plane - Operations Command #8B5CF6"
-        subgraph "Deployment Systems"
+    subgraph Control Plane - Operations Command #8B5CF6
+        subgraph Deployment Systems
             QUICKSILVER[Quicksilver<br/>Global config distribution<br/>30-second propagation<br/>Atomic updates]
             EDGE_DEPLOY[Edge Deployment<br/>Gradual rollout system<br/>Canary testing<br/>Auto-rollback]
             CONFIG_API[Configuration API<br/>GitOps integration<br/>Version control<br/>Audit logging]
         end
 
-        subgraph "Monitoring & Alerting"
+        subgraph Monitoring & Alerting
             GRAFANA[Grafana Dashboards<br/>Real-time metrics<br/>Custom visualizations<br/>Multi-tenant views]
             PROMETHEUS[Prometheus Metrics<br/>Time-series data<br/>High cardinality<br/>Edge collection]
             PAGERDUTY[PagerDuty Integration<br/>Escalation policies<br/>Severity classification<br/>On-call rotation]
         end
 
-        subgraph "Incident Response"
+        subgraph Incident Response
             STATUS_PAGE[Status Page<br/>Real-time updates<br/>Component status<br/>Maintenance windows]
             WAR_ROOM[Virtual War Room<br/>Video conferencing<br/>Screen sharing<br/>Decision tracking]
             POSTMORTEM[Postmortem Process<br/>Blameless culture<br/>Action items<br/>Knowledge sharing]
         end
     end
 
-    subgraph "Service Plane - Operations Services #10B981"
-        subgraph "Automation Systems"
+    subgraph Service Plane - Operations Services #10B981
+        subgraph Automation Systems
             HEALING[Self-Healing<br/>Automatic remediation<br/>Circuit breakers<br/>Graceful degradation]
             SCALING[Auto-Scaling<br/>Load-based triggers<br/>Predictive scaling<br/>Resource optimization]
             FAILOVER[Automated Failover<br/>Health monitoring<br/>Traffic rerouting<br/>Service recovery]
         end
 
-        subgraph "Testing & Validation"
+        subgraph Testing & Validation
             CHAOS[Chaos Engineering<br/>Failure injection<br/>Resilience testing<br/>Blast radius validation]
             LOAD_TEST[Load Testing<br/>Synthetic traffic<br/>Capacity planning<br/>Performance validation]
             CANARY[Canary Deployment<br/>Progressive rollout<br/>A/B testing<br/>Risk mitigation]
         end
     end
 
-    subgraph "Edge Plane - Global Operations #3B82F6"
-        subgraph "285+ PoPs Worldwide"
+    subgraph Edge Plane - Global Operations #3B82F6
+        subgraph 285+ PoPs Worldwide
             HEALTH_CHECK[Health Monitoring<br/>Every 10 seconds<br/>Multi-protocol checks<br/>Dependency mapping]
             TRAFFIC_MGMT[Traffic Management<br/>Load distribution<br/>Capacity allocation<br/>Performance optimization]
             LOCAL_OPS[Local Operations<br/>On-site technicians<br/>Hardware maintenance<br/>Emergency response]
         end
 
-        subgraph "Network Operations"
+        subgraph Network Operations
             BGP_MGMT[BGP Management<br/>Route advertisements<br/>Prefix optimization<br/>Peering coordination]
             CAPACITY_PLAN[Capacity Planning<br/>Growth forecasting<br/>Hardware procurement<br/>Expansion planning]
             PERF_OPT[Performance Optimization<br/>Real-time tuning<br/>Algorithm updates<br/>Cache optimization]
         end
     end
 
-    subgraph "State Plane - Operations Data #F59E0B"
-        subgraph "Metrics & Logs"
+    subgraph State Plane - Operations Data #F59E0B
+        subgraph Metrics & Logs
             METRICS_DB[Metrics Database<br/>ClickHouse cluster<br/>100TB+ daily<br/>Real-time queries]
             LOG_STORAGE[Log Storage<br/>Elasticsearch cluster<br/>Structured logging<br/>Full-text search]
             TRACE_DATA[Trace Data<br/>Distributed tracing<br/>Request correlation<br/>Performance analysis]
         end
 
-        subgraph "Configuration Storage"
+        subgraph Configuration Storage
             CONFIG_STORE[Configuration Store<br/>Distributed database<br/>Version control<br/>Change tracking]
             RUNBOOK_DB[Runbook Database<br/>Procedure automation<br/>Decision trees<br/>Knowledge base]
             INCIDENT_DB[Incident Database<br/>Historical data<br/>Pattern analysis<br/>Trend identification]
@@ -109,7 +109,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Quicksilver Deployment Pipeline"
+    subgraph Quicksilver Deployment Pipeline
         DEV[Developer Commit<br/>Git repository<br/>Code review<br/>Automated tests]
         CI[CI/CD Pipeline<br/>Build validation<br/>Security scanning<br/>Artifact creation]
         STAGING[Staging Environment<br/>Full testing<br/>Performance validation<br/>Integration tests]
@@ -134,7 +134,7 @@ graph TB
     GRADUAL -.->|Performance degradation| STAGING
     GLOBAL -.->|System alerts| CANARY
 
-    subgraph "Deployment Metrics"
+    subgraph Deployment Metrics
         SPEED[Deployment Speed<br/>30 seconds global<br/>Zero-downtime<br/>Atomic operations]
         SAFETY[Safety Mechanisms<br/>Automatic rollback<br/>Circuit breakers<br/>Health checks]
         OBSERVABILITY[Observability<br/>Real-time metrics<br/>Error tracking<br/>Performance monitoring]
@@ -156,7 +156,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Configuration Lifecycle"
+    subgraph Configuration Lifecycle
         CONFIG_CHANGE[Configuration Change<br/>GitOps workflow<br/>Peer review<br/>Change approval]
 
         VALIDATION[Validation Pipeline<br/>Schema validation<br/>Dependency checks<br/>Impact analysis]
@@ -171,7 +171,7 @@ graph LR
     PROPAGATION --> APPLICATION
 
     %% Configuration types
-    subgraph "Configuration Types"
+    subgraph Configuration Types
         SECURITY[Security Rules<br/>WAF configurations<br/>DDoS thresholds<br/>Bot management]
 
         ROUTING[Routing Rules<br/>Traffic distribution<br/>Origin mappings<br/>Cache policies]
@@ -197,20 +197,20 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Monitoring Architecture"
-        subgraph "Data Collection (Edge)"
+    subgraph Monitoring Architecture
+        subgraph Data Collection (Edge)
             EDGE_METRICS[Edge Metrics<br/>Request latency<br/>Error rates<br/>Cache performance]
             SYSTEM_METRICS[System Metrics<br/>CPU utilization<br/>Memory usage<br/>Network traffic]
             APP_METRICS[Application Metrics<br/>Workers execution<br/>Database queries<br/>External API calls]
         end
 
-        subgraph "Data Aggregation"
+        subgraph Data Aggregation
             STREAM_PROC[Stream Processing<br/>Real-time aggregation<br/>Alerting rules<br/>Anomaly detection]
             TIME_SERIES[Time Series DB<br/>High-resolution data<br/>Long-term storage<br/>Query optimization]
             DASHBOARDS[Grafana Dashboards<br/>Real-time visualization<br/>Custom views<br/>Alerting integration]
         end
 
-        subgraph "Alerting System"
+        subgraph Alerting System
             ALERT_RULES[Alert Rules<br/>Threshold-based<br/>Anomaly detection<br/>Predictive alerts]
             NOTIFICATION[Notification Engine<br/>PagerDuty integration<br/>Slack alerts<br/>SMS/Email]
             ESCALATION[Escalation Policies<br/>On-call rotation<br/>Severity levels<br/>Auto-escalation]
@@ -240,7 +240,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Service Level Indicators"
+    subgraph Service Level Indicators
         AVAILABILITY[Availability<br/>99.99% target<br/>Uptime monitoring<br/>Service health]
 
         LATENCY[Latency<br/>p50: 10ms<br/>p99: 50ms<br/>Global measurement]
@@ -250,7 +250,7 @@ graph LR
         THROUGHPUT[Throughput<br/>50M+ req/sec<br/>Capacity utilization<br/>Growth trending]
     end
 
-    subgraph "Business Metrics"
+    subgraph Business Metrics
         CACHE_HIT[Cache Hit Rate<br/>96% global average<br/>Origin offload<br/>Cost optimization]
 
         ATTACK_BLOCK[Attack Blocking<br/>76M attacks/day<br/>DDoS mitigation<br/>Security effectiveness]
@@ -277,7 +277,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Incident Response Timeline"
+    subgraph Incident Response Timeline
         DETECTION[Incident Detection<br/>Automated alerts<br/>Customer reports<br/>Monitoring systems]
 
         TRIAGE[Initial Triage<br/>Severity assessment<br/>Impact evaluation<br/>Team notification]
@@ -305,7 +305,7 @@ graph TB
     INVESTIGATION -.->|Continuous| MITIGATION
     MITIGATION -.->|Monitoring| RECOVERY
 
-    subgraph "Response Times (SLA)"
+    subgraph Response Times (SLA)
         DETECT_TIME[Detection: <1 minute<br/>Automated monitoring<br/>Real-time alerts<br/>Customer feedback]
 
         RESPONSE_TIME[Response: <5 minutes<br/>On-call notification<br/>Team assembly<br/>Initial assessment]
@@ -344,20 +344,20 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Chaos Engineering Program"
-        subgraph "Failure Injection"
+    subgraph Chaos Engineering Program
+        subgraph Failure Injection
             SERVER_FAILURE[Server Failures<br/>Random shutdowns<br/>Hardware simulation<br/>Recovery testing]
             NETWORK_CHAOS[Network Chaos<br/>Latency injection<br/>Packet loss<br/>Partition simulation]
             SERVICE_OUTAGE[Service Outages<br/>Dependency failures<br/>Timeout simulation<br/>Circuit breaker testing]
         end
 
-        subgraph "Blast Radius Testing"
+        subgraph Blast Radius Testing
             POP_FAILURE[PoP Failures<br/>Entire location down<br/>Traffic rerouting<br/>Capacity validation]
             REGION_CHAOS[Regional Chaos<br/>Multi-PoP failures<br/>Cross-region failover<br/>Disaster scenarios]
             CUSTOMER_IMPACT[Customer Impact<br/>Service degradation<br/>SLA validation<br/>Recovery procedures]
         end
 
-        subgraph "Automated Recovery"
+        subgraph Automated Recovery
             DETECTION_VAL[Detection Validation<br/>Alert triggering<br/>Response time<br/>Accuracy testing]
             MITIGATION_VAL[Mitigation Validation<br/>Automatic remediation<br/>Rollback procedures<br/>Recovery speed]
             LEARNING[Learning System<br/>Failure patterns<br/>Improvement opportunities<br/>Runbook updates]
@@ -389,24 +389,24 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Global Operations Centers"
-        subgraph "San Francisco (Primary)"
+    subgraph Global Operations Centers
+        subgraph San Francisco (Primary)
             SF_NOC[San Francisco NOC<br/>Primary operations<br/>8 AM - 8 PM PST<br/>Tier 3 engineers]
             SF_ONCALL[On-Call Engineers<br/>24/7 availability<br/>Escalation procedures<br/>Remote access]
         end
 
-        subgraph "London (EMEA)"
+        subgraph London (EMEA)
             LON_NOC[London NOC<br/>EMEA operations<br/>8 AM - 8 PM GMT<br/>Regional expertise]
             LON_SUPPORT[EMEA Support<br/>Customer escalations<br/>Local partnerships<br/>Compliance team]
         end
 
-        subgraph "Singapore (APAC)"
+        subgraph Singapore (APAC)
             SIN_NOC[Singapore NOC<br/>APAC operations<br/>8 AM - 8 PM SGT<br/>Growth markets]
             SIN_EXPANSION[APAC Expansion<br/>New PoP deployment<br/>Partner relations<br/>Local operations]
         end
     end
 
-    subgraph "Specialized Teams"
+    subgraph Specialized Teams
         SECURITY_OPS[Security Operations<br/>Threat hunting<br/>Incident response<br/>Forensic analysis]
 
         NETWORK_OPS[Network Operations<br/>BGP management<br/>Peering coordination<br/>Capacity planning]

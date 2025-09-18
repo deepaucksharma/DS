@@ -8,61 +8,61 @@ Shopify's storage architecture handles 1.75+ million merchants with billions of 
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Data Access Layer #3B82F6"
-        subgraph "Application Cache Layer"
+    subgraph Edge Plane - Data Access Layer #3B82F6
+        subgraph Application Cache Layer
             REDIS_CLUSTER[Redis Clusters<br/>50+ instances<br/>Session + Cart storage<br/>Hot data caching]
             MEMCACHED[Memcached<br/>Fragment caching<br/>Query result cache<br/>Computed data]
             CDN_CACHE[CDN Edge Cache<br/>Static assets<br/>Product images<br/>Theme files]
         end
 
-        subgraph "Search & Analytics Cache"
+        subgraph Search & Analytics Cache
             ELASTIC_CACHE[Elasticsearch Cache<br/>Search results<br/>Faceted navigation<br/>Real-time indexing]
             ANALYTICS_CACHE[Analytics Cache<br/>Merchant dashboards<br/>Report data<br/>Aggregated metrics]
         end
     end
 
-    subgraph "Service Plane - Data Services #10B981"
-        subgraph "Data Access Layer"
+    subgraph Service Plane - Data Services #10B981
+        subgraph Data Access Layer
             VITESS_GATEWAY[VTGate (Vitess)<br/>Query routing<br/>Connection pooling<br/>Query optimization]
             READ_REPLICAS[Read Replica Router<br/>Load balancing<br/>Lag monitoring<br/>Failover logic]
             WRITE_ROUTER[Write Router<br/>Master selection<br/>Transaction coordination<br/>Consistency guarantees]
         end
 
-        subgraph "Search & Indexing"
+        subgraph Search & Indexing
             SEARCH_API[Search API<br/>Product search<br/>Autocomplete<br/>Filters & facets]
             INDEX_BUILDER[Index Builder<br/>Real-time indexing<br/>Elasticsearch sync<br/>Change data capture]
             ANALYTICS_API[Analytics API<br/>Merchant insights<br/>Sales reports<br/>Performance metrics]
         end
     end
 
-    subgraph "State Plane - Persistent Storage #F59E0B"
-        subgraph "Vitess Sharded MySQL (130+ Shards)"
-            subgraph "Product Shards (40 shards)"
+    subgraph State Plane - Persistent Storage #F59E0B
+        subgraph Vitess Sharded MySQL (130+ Shards)
+            subgraph Product Shards (40 shards)
                 PRODUCT_SHARD1[Product Shard 1<br/>MySQL 8.0<br/>SSD storage<br/>2 read replicas]
                 PRODUCT_SHARD2[Product Shard 2<br/>MySQL 8.0<br/>SSD storage<br/>2 read replicas]
                 PRODUCT_SHARDS[... 38 more shards<br/>Distributed by<br/>product_id hash]
             end
 
-            subgraph "Order Shards (40 shards)"
+            subgraph Order Shards (40 shards)
                 ORDER_SHARD1[Order Shard 1<br/>MySQL 8.0<br/>Transaction logs<br/>2 read replicas]
                 ORDER_SHARD2[Order Shard 2<br/>MySQL 8.0<br/>Transaction logs<br/>2 read replicas]
                 ORDER_SHARDS[... 38 more shards<br/>Distributed by<br/>shop_id hash]
             end
 
-            subgraph "Customer Shards (25 shards)"
+            subgraph Customer Shards (25 shards)
                 CUSTOMER_SHARD1[Customer Shard 1<br/>MySQL 8.0<br/>Profile data<br/>2 read replicas]
                 CUSTOMER_SHARD2[Customer Shard 2<br/>MySQL 8.0<br/>Profile data<br/>2 read replicas]
                 CUSTOMER_SHARDS[... 23 more shards<br/>Distributed by<br/>customer_id hash]
             end
 
-            subgraph "Shop Shards (25 shards)"
+            subgraph Shop Shards (25 shards)
                 SHOP_SHARD1[Shop Shard 1<br/>MySQL 8.0<br/>Merchant data<br/>2 read replicas]
                 SHOP_SHARD2[Shop Shard 2<br/>MySQL 8.0<br/>Merchant data<br/>2 read replicas]
                 SHOP_SHARDS[... 23 more shards<br/>Distributed by<br/>shop_id hash]
             end
         end
 
-        subgraph "Specialized Storage Systems"
+        subgraph Specialized Storage Systems
             ELASTICSEARCH[Elasticsearch Cluster<br/>Product search index<br/>50M+ products<br/>Real-time updates]
 
             KAFKA[Apache Kafka<br/>Event streaming<br/>Change data capture<br/>Microservice communication]
@@ -70,7 +70,7 @@ graph TB
             BLOB_STORAGE[Object Storage<br/>Product images<br/>Theme assets<br/>Document storage]
         end
 
-        subgraph "Analytics & Reporting"
+        subgraph Analytics & Reporting
             ANALYTICS_DB[Analytics Warehouse<br/>BigQuery/Redshift<br/>Historical data<br/>Business intelligence]
 
             AUDIT_LOGS[Audit Log Storage<br/>Compliance logs<br/>Change tracking<br/>Security events]
@@ -79,14 +79,14 @@ graph TB
         end
     end
 
-    subgraph "Control Plane - Storage Management #8B5CF6"
-        subgraph "Shard Management"
+    subgraph Control Plane - Storage Management #8B5CF6
+        subgraph Shard Management
             SHARD_MANAGER[Shard Manager<br/>Rebalancing<br/>Split operations<br/>Health monitoring]
             TOPOLOGY_MGR[Topology Manager<br/>Master/replica config<br/>Failover coordination<br/>Capacity planning]
             BACKUP_MGR[Backup Manager<br/>Automated backups<br/>Recovery procedures<br/>Compliance automation]
         end
 
-        subgraph "Performance Monitoring"
+        subgraph Performance Monitoring
             QUERY_ANALYZER[Query Analyzer<br/>Slow query detection<br/>Performance optimization<br/>Index recommendations]
             CAPACITY_MONITOR[Capacity Monitor<br/>Storage growth<br/>Performance metrics<br/>Scaling triggers]
             REPLICATION_MONITOR[Replication Monitor<br/>Lag detection<br/>Consistency checking<br/>Failover automation]
@@ -136,20 +136,20 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Vitess Sharding Strategy"
-        subgraph "VTGate Layer"
+    subgraph Vitess Sharding Strategy
+        subgraph VTGate Layer
             VTGATE1[VTGate Instance 1<br/>Query parsing<br/>Shard routing<br/>Connection pooling]
             VTGATE2[VTGate Instance 2<br/>Query parsing<br/>Shard routing<br/>Connection pooling]
             VTGATE3[VTGate Instance 3<br/>Query parsing<br/>Shard routing<br/>Connection pooling]
         end
 
-        subgraph "VTTablet Layer"
+        subgraph VTTablet Layer
             VTTABLET1[VTTablet 1<br/>MySQL wrapper<br/>Query execution<br/>Health monitoring]
             VTTABLET2[VTTablet 2<br/>MySQL wrapper<br/>Query execution<br/>Health monitoring]
             VTTABLET3[VTTablet 3<br/>MySQL wrapper<br/>Query execution<br/>Health monitoring]
         end
 
-        subgraph "MySQL Instances"
+        subgraph MySQL Instances
             MYSQL1[MySQL Master 1<br/>Primary writes<br/>Transaction logs<br/>Binlog replication]
             MYSQL2[MySQL Replica 1<br/>Read queries<br/>Async replication<br/>Backup source]
             MYSQL3[MySQL Replica 2<br/>Read queries<br/>Async replication<br/>Failover target]
@@ -183,25 +183,25 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Sharding Key Strategies"
-        subgraph "Product Shards (product_id)"
+    subgraph Sharding Key Strategies
+        subgraph Product Shards (product_id)
             PRODUCT_HASH[product_id % 40<br/>Even distribution<br/>Cross-shop products<br/>Search optimization]
         end
 
-        subgraph "Order Shards (shop_id)"
+        subgraph Order Shards (shop_id)
             ORDER_HASH[shop_id % 40<br/>Merchant isolation<br/>Transaction locality<br/>Reporting efficiency]
         end
 
-        subgraph "Customer Shards (customer_id)"
+        subgraph Customer Shards (customer_id)
             CUSTOMER_HASH[customer_id % 25<br/>User data locality<br/>Profile management<br/>Privacy compliance]
         end
 
-        subgraph "Shop Shards (shop_id)"
+        subgraph Shop Shards (shop_id)
             SHOP_HASH[shop_id % 25<br/>Merchant data<br/>Configuration<br/>App installations]
         end
     end
 
-    subgraph "Cross-Shard Challenges"
+    subgraph Cross-Shard Challenges
         JOINS[Cross-Shard Joins<br/>Application-level<br/>Multiple queries<br/>Data denormalization]
 
         TRANSACTIONS[Cross-Shard Transactions<br/>2-phase commit<br/>Saga pattern<br/>Eventual consistency]
@@ -227,20 +227,20 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Pod Architecture for Tenant Isolation"
-        subgraph "Pod A (10K merchants)"
+    subgraph Pod Architecture for Tenant Isolation
+        subgraph Pod A (10K merchants)
             POD_A_APP[Rails Application Pod A<br/>Dedicated resources<br/>Isolated workload<br/>Performance guarantees]
             POD_A_DB[Database Shards A<br/>Subset of shards<br/>Dedicated MySQL<br/>Isolated queries]
             POD_A_CACHE[Cache Cluster A<br/>Redis instances<br/>Tenant-specific data<br/>Memory isolation]
         end
 
-        subgraph "Pod B (10K merchants)"
+        subgraph Pod B (10K merchants)
             POD_B_APP[Rails Application Pod B<br/>Dedicated resources<br/>Isolated workload<br/>Performance guarantees]
             POD_B_DB[Database Shards B<br/>Subset of shards<br/>Dedicated MySQL<br/>Isolated queries]
             POD_B_CACHE[Cache Cluster B<br/>Redis instances<br/>Tenant-specific data<br/>Memory isolation]
         end
 
-        subgraph "Shared Infrastructure"
+        subgraph Shared Infrastructure
             SHARED_SEARCH[Shared Elasticsearch<br/>Global product search<br/>Cross-merchant features<br/>Aggregated analytics]
             SHARED_CDN[Shared CDN<br/>Static assets<br/>Theme files<br/>Product images]
             SHARED_STORAGE[Shared Object Storage<br/>Media files<br/>Backup storage<br/>Archive data]
@@ -275,24 +275,24 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Cache Hierarchy by Access Pattern"
-        subgraph "L1: Application Memory Cache"
+    subgraph Cache Hierarchy by Access Pattern
+        subgraph L1: Application Memory Cache
             RUBY_CACHE[Ruby Process Cache<br/>In-memory objects<br/>Request-scoped<br/>0.1ms access]
         end
 
-        subgraph "L2: Local Redis Cache"
+        subgraph L2: Local Redis Cache
             LOCAL_REDIS[Local Redis<br/>Same-AZ instances<br/>Hot data cache<br/>1-2ms access]
         end
 
-        subgraph "L3: Distributed Cache"
+        subgraph L3: Distributed Cache
             DISTRIBUTED_REDIS[Distributed Redis<br/>Multi-AZ cluster<br/>Session storage<br/>5-10ms access]
         end
 
-        subgraph "L4: Database Query Cache"
+        subgraph L4: Database Query Cache
             QUERY_CACHE[MySQL Query Cache<br/>Result set caching<br/>Table-level invalidation<br/>10-20ms if cached]
         end
 
-        subgraph "L5: CDN Edge Cache"
+        subgraph L5: CDN Edge Cache
             EDGE_CACHE[CDN Edge Cache<br/>Global distribution<br/>Static content<br/>50-200ms if miss]
         end
     end
@@ -303,7 +303,7 @@ graph TB
     DISTRIBUTED_REDIS --> QUERY_CACHE
     QUERY_CACHE --> EDGE_CACHE
 
-    subgraph "Cache Performance Metrics"
+    subgraph Cache Performance Metrics
         HIT_RATES[Cache Hit Rates<br/>L1: 60%<br/>L2: 85%<br/>L3: 95%<br/>L4: 70%<br/>L5: 90%]
 
         INVALIDATION_STRATEGY[Cache Invalidation<br/>Time-based TTL<br/>Event-driven purging<br/>Dependency tracking<br/>Smart warming]
@@ -340,7 +340,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Storage Growth Patterns"
+    subgraph Storage Growth Patterns
         PRODUCTS[Product Data Growth<br/>50M+ active products<br/>10% monthly growth<br/>Rich media content]
 
         ORDERS[Order Data Growth<br/>1B+ orders processed<br/>Linear with GMV<br/>7-year retention]
@@ -350,7 +350,7 @@ graph TB
         ANALYTICS[Analytics Data Growth<br/>Event tracking<br/>Exponential growth<br/>90-day hot storage]
     end
 
-    subgraph "Capacity Metrics"
+    subgraph Capacity Metrics
         CURRENT[Current Storage<br/>100TB+ transactional<br/>500TB+ analytics<br/>1PB+ media/backups]
 
         PROJECTED[Projected Growth<br/>200TB by 2025<br/>1PB analytics by 2025<br/>5PB total by 2025]
@@ -377,15 +377,15 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "ACID Transaction Handling"
-        subgraph "Single-Shard Transactions"
+    subgraph ACID Transaction Handling
+        subgraph Single-Shard Transactions
             ATOMIC[Atomic Operations<br/>MySQL ACID<br/>Row-level locking<br/>Rollback support]
             CONSISTENT[Consistency<br/>Foreign key constraints<br/>Check constraints<br/>Trigger validation]
             ISOLATED[Isolation<br/>Read committed<br/>Phantom read prevention<br/>Deadlock detection]
             DURABLE[Durability<br/>Binlog persistence<br/>Sync replication<br/>Point-in-time recovery]
         end
 
-        subgraph "Cross-Shard Scenarios"
+        subgraph Cross-Shard Scenarios
             SAGA[Saga Pattern<br/>Compensating transactions<br/>Order processing<br/>Eventual consistency]
             TWO_PHASE[2-Phase Commit<br/>Critical operations<br/>Payment processing<br/>Strong consistency]
             EVENTUAL[Eventual Consistency<br/>Analytics updates<br/>Search indexing<br/>Report generation]
@@ -398,7 +398,7 @@ graph TB
     ISOLATED --> EVENTUAL
     DURABLE --> EVENTUAL
 
-    subgraph "Consistency Challenges"
+    subgraph Consistency Challenges
         INVENTORY[Inventory Consistency<br/>Race conditions<br/>Oversell prevention<br/>Atomic decrements]
 
         PRICING[Pricing Consistency<br/>Currency conversion<br/>Tax calculation<br/>Promotional codes]
@@ -426,20 +426,20 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Backup Strategy"
-        subgraph "Database Backups"
+    subgraph Backup Strategy
+        subgraph Database Backups
             MYSQL_BACKUP[MySQL Backups<br/>Automated daily<br/>Point-in-time recovery<br/>Cross-region replication]
             BINLOG_BACKUP[Binlog Archival<br/>Continuous streaming<br/>Transaction replay<br/>Incremental recovery]
             SHARD_BACKUP[Per-Shard Backup<br/>Parallel processing<br/>Consistent snapshots<br/>Fast recovery]
         end
 
-        subgraph "Application Data"
+        subgraph Application Data
             REDIS_BACKUP[Redis Persistence<br/>RDB snapshots<br/>AOF logging<br/>Memory reconstruction]
             ELASTIC_BACKUP[Elasticsearch Snapshots<br/>Index backups<br/>Cluster state<br/>Search reconstruction]
             MEDIA_BACKUP[Media File Backup<br/>Object storage<br/>Multi-region replication<br/>Content delivery]
         end
 
-        subgraph "Recovery Procedures"
+        subgraph Recovery Procedures
             RTO[Recovery Time Objective<br/>Critical: 1 hour<br/>Important: 4 hours<br/>Standard: 24 hours]
             RPO[Recovery Point Objective<br/>Critical: 5 minutes<br/>Important: 1 hour<br/>Standard: 24 hours]
             TESTING[Disaster Recovery Testing<br/>Monthly drills<br/>Automated verification<br/>Failure simulation]

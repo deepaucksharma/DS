@@ -2,6 +2,7 @@
 mkdocs>=1.5.0
 mkdocs-material>=9.4.0
 mkdocs-mermaid2-plugin>=1.1.0
+mkdocs-panzoom-plugin>=0.1.0
 
 # Optional: For additional MkDocs features
 pymdownx-extensions>=10.0.0

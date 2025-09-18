@@ -6,62 +6,62 @@ This diagram shows Stripe's complete payment request flow from payment intent cr
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        Client["Client Application<br/>━━━━━<br/>Web/Mobile/Server<br/>Stripe.js SDK<br/>TLS 1.3<br/>mTLS for server"]
+        Client[Client Application<br/>━━━━━<br/>Web/Mobile/Server<br/>Stripe.js SDK<br/>TLS 1.3<br/>mTLS for server]
 
-        CloudFlare["Cloudflare Edge<br/>━━━━━<br/>Threat detection<br/>Rate limiting<br/>Request routing<br/>p95: 8ms"]
+        CloudFlare[Cloudflare Edge<br/>━━━━━<br/>Threat detection<br/>Rate limiting<br/>Request routing<br/>p95: 8ms]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        Kong["Kong API Gateway<br/>━━━━━<br/>Authentication<br/>Rate limiting: 5000/min<br/>Request validation<br/>p99: 25ms"]
+        Kong[Kong API Gateway<br/>━━━━━<br/>Authentication<br/>Rate limiting: 5000/min<br/>Request validation<br/>p99: 25ms]
 
-        PaymentIntent["Payment Intent API<br/>━━━━━<br/>Intent lifecycle mgmt<br/>Status transitions<br/>Ruby on Rails<br/>p99: 120ms"]
+        PaymentIntent[Payment Intent API<br/>━━━━━<br/>Intent lifecycle mgmt<br/>Status transitions<br/>Ruby on Rails<br/>p99: 120ms]
 
-        CardValidation["Card Validation<br/>━━━━━<br/>Luhn algorithm<br/>BIN lookup<br/>CVV validation<br/>p99: 15ms"]
+        CardValidation[Card Validation<br/>━━━━━<br/>Luhn algorithm<br/>BIN lookup<br/>CVV validation<br/>p99: 15ms]
 
-        FraudML["Radar ML Service<br/>━━━━━<br/>Real-time scoring<br/>400+ features<br/>TensorFlow<br/>p95: 15ms"]
+        FraudML[Radar ML Service<br/>━━━━━<br/>Real-time scoring<br/>400+ features<br/>TensorFlow<br/>p95: 15ms]
 
-        PaymentRouter["Payment Router<br/>━━━━━<br/>Acquirer selection<br/>Success rate optimization<br/>Retry logic<br/>p99: 50ms"]
+        PaymentRouter[Payment Router<br/>━━━━━<br/>Acquirer selection<br/>Success rate optimization<br/>Retry logic<br/>p99: 50ms]
 
-        WebhookDispatcher["Webhook Dispatcher<br/>━━━━━<br/>Async event delivery<br/>Exponential backoff<br/>Signature signing<br/>p95: 200ms"]
+        WebhookDispatcher[Webhook Dispatcher<br/>━━━━━<br/>Async event delivery<br/>Exponential backoff<br/>Signature signing<br/>p95: 200ms]
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        IdempotencyCache["Idempotency Cache<br/>━━━━━<br/>Redis Cluster<br/>24h key retention<br/>Sub-ms lookup<br/>99.9% hit rate"]
+        IdempotencyCache[Idempotency Cache<br/>━━━━━<br/>Redis Cluster<br/>24h key retention<br/>Sub-ms lookup<br/>99.9% hit rate]
 
-        PaymentDB["Payment Database<br/>━━━━━<br/>MongoDB Atlas<br/>Intent storage<br/>ACID transactions<br/>Multi-region"]
+        PaymentDB[Payment Database<br/>━━━━━<br/>MongoDB Atlas<br/>Intent storage<br/>ACID transactions<br/>Multi-region]
 
-        SessionStore["Session Store<br/>━━━━━<br/>Redis Enterprise<br/>15min TTL<br/>Customer context<br/>Payment state"]
+        SessionStore[Session Store<br/>━━━━━<br/>Redis Enterprise<br/>15min TTL<br/>Customer context<br/>Payment state]
 
-        AuditLog["Audit Log<br/>━━━━━<br/>S3 + DynamoDB<br/>Immutable records<br/>Compliance trail<br/>7-year retention"]
+        AuditLog[Audit Log<br/>━━━━━<br/>S3 + DynamoDB<br/>Immutable records<br/>Compliance trail<br/>7-year retention]
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        Monitoring["Real-time Monitoring<br/>━━━━━<br/>Datadog + Veneur<br/>Payment metrics<br/>SLA tracking<br/>Alert thresholds"]
+        Monitoring[Real-time Monitoring<br/>━━━━━<br/>Datadog + Veneur<br/>Payment metrics<br/>SLA tracking<br/>Alert thresholds]
 
-        CircuitBreaker["Circuit Breakers<br/>━━━━━<br/>Hystrix pattern<br/>Fail-fast design<br/>Auto-recovery<br/>Bulkhead isolation"]
+        CircuitBreaker[Circuit Breakers<br/>━━━━━<br/>Hystrix pattern<br/>Fail-fast design<br/>Auto-recovery<br/>Bulkhead isolation]
 
-        RateLimiter["Rate Limiter<br/>━━━━━<br/>Token bucket<br/>Per-customer limits<br/>DDoS protection<br/>Redis-backed"]
+        RateLimiter[Rate Limiter<br/>━━━━━<br/>Token bucket<br/>Per-customer limits<br/>DDoS protection<br/>Redis-backed]
     end
 
-    subgraph ExternalSystems["External Systems"]
+    subgraph ExternalSystems[External Systems]
         style ExternalSystems fill:#f9f9f9,stroke:#999,color:#333
 
-        Acquirer1["Visa/Mastercard<br/>━━━━━<br/>Primary acquirer<br/>p99: 180ms<br/>97% success rate"]
+        Acquirer1[Visa/Mastercard<br/>━━━━━<br/>Primary acquirer<br/>p99: 180ms<br/>97% success rate]
 
-        Acquirer2["Amex Direct<br/>━━━━━<br/>Direct connection<br/>p99: 150ms<br/>98% success rate"]
+        Acquirer2[Amex Direct<br/>━━━━━<br/>Direct connection<br/>p99: 150ms<br/>98% success rate]
 
-        AcquirerBackup["Backup Acquirers<br/>━━━━━<br/>Fallback routing<br/>p99: 250ms<br/>Emergency use"]
+        AcquirerBackup[Backup Acquirers<br/>━━━━━<br/>Fallback routing<br/>p99: 250ms<br/>Emergency use]
 
-        MerchantSystem["Merchant Webhook<br/>━━━━━<br/>Event notification<br/>Signed payload<br/>Retry logic"]
+        MerchantSystem[Merchant Webhook<br/>━━━━━<br/>Event notification<br/>Signed payload<br/>Retry logic]
     end
 
     %% Request flow sequence

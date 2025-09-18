@@ -6,7 +6,7 @@ Primitives are implementation building blocks that deliver capabilities. Instagr
 
 ```mermaid
 graph TB
-    subgraph StatePlane["State Plane - Data Primitives"]
+    subgraph StatePlane[State Plane - Data Primitives]
         P1[P1: Partitioning<br/>Split data across nodes]
         P2[P2: Replication<br/>Copy data for durability]
         P3[P3: Durable Log<br/>Append-only storage]
@@ -14,7 +14,7 @@ graph TB
         P14[P14: Write-Ahead Log<br/>Crash recovery]
     end
 
-    subgraph ServicePlane["Service Plane - Coordination Primitives"]
+    subgraph ServicePlane[Service Plane - Coordination Primitives]
         P5[P5: Consensus<br/>Distributed agreement]
         P6[P6: Causal Tracking<br/>Event ordering]
         P7[P7: Idempotency<br/>Safe retries]
@@ -22,14 +22,14 @@ graph TB
         P19[P19: Change Data Capture<br/>Event streaming]
     end
 
-    subgraph EdgePlane["Edge Plane - Performance Primitives"]
+    subgraph EdgePlane[Edge Plane - Performance Primitives]
         P11[P11: Caching<br/>Latency reduction]
         P15[P15: Bloom Filter<br/>Existence checks]
         P16[P16: Merkle Tree<br/>Data verification]
         P18[P18: Gossip Protocol<br/>Information spread]
     end
 
-    subgraph ControlPlane["Control Plane - Resilience Primitives"]
+    subgraph ControlPlane[Control Plane - Resilience Primitives]
         P9[P9: Circuit Breaker<br/>Failure isolation]
         P10[P10: Bulkheading<br/>Resource isolation]
         P12[P12: Load Shedding<br/>Overload protection]
@@ -53,25 +53,25 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph ScaleTriggers["Scale-Driven Triggers"]
-        P1T[">20K writes/sec<br/>OR >100GB data<br/>→ Partitioning"]
-        P2T["RPO <60s OR RTO <30s<br/>→ Replication"]
-        P11T["Read/Write ratio >10:1<br/>→ Caching"]
-        P10T["Multi-tenant system<br/>→ Bulkheading"]
+    subgraph ScaleTriggers[Scale-Driven Triggers]
+        P1T[>20K writes/sec<br/>OR >100GB data<br/>→ Partitioning]
+        P2T[RPO <60s OR RTO <30s<br/>→ Replication]
+        P11T[Read/Write ratio >10:1<br/>→ Caching]
+        P10T[Multi-tenant system<br/>→ Bulkheading]
     end
 
-    subgraph ReliabilityTriggers["Reliability-Driven Triggers"]
-        P5T["Distributed coordination<br/>→ Consensus"]
-        P8T["Network operations<br/>→ Retry Logic"]
-        P9T["Unreliable dependencies<br/>→ Circuit Breaker"]
-        P12T["Overload risk<br/>→ Load Shedding"]
+    subgraph ReliabilityTriggers[Reliability-Driven Triggers]
+        P5T[Distributed coordination<br/>→ Consensus]
+        P8T[Network operations<br/>→ Retry Logic]
+        P9T[Unreliable dependencies<br/>→ Circuit Breaker]
+        P12T[Overload risk<br/>→ Load Shedding]
     end
 
-    subgraph PerformanceTriggers["Performance-Driven Triggers"]
-        P4T["Query diversity >1K<br/>→ Specialized Index"]
-        P15T["Existence checks<br/>→ Bloom Filter"]
-        P7T["Any retry scenario<br/>→ Idempotency"]
-        P13T["High contention<br/>→ Sharded Locks"]
+    subgraph PerformanceTriggers[Performance-Driven Triggers]
+        P4T[Query diversity >1K<br/>→ Specialized Index]
+        P15T[Existence checks<br/>→ Bloom Filter]
+        P7T[Any retry scenario<br/>→ Idempotency]
+        P13T[High contention<br/>→ Sharded Locks]
     end
 
     %% Real examples
@@ -94,21 +94,21 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Netflix["Netflix Architecture"]
+    subgraph Netflix[Netflix Architecture]
         N1[P11: CDN Caching<br/>Edge locations]
         N2[P1: Content Partitioning<br/>Geographic shards]
         N3[P12: Load Shedding<br/>Video quality degradation]
         N4[P20: Feature Flags<br/>A/B testing]
     end
 
-    subgraph Uber["Uber Architecture"]
+    subgraph Uber[Uber Architecture]
         U1[P5: Consensus<br/>Driver assignment]
         U2[P1: Geo Partitioning<br/>City-based shards]
         U3[P6: Causal Tracking<br/>Ride state ordering]
         U4[P9: Circuit Breaker<br/>Maps API protection]
     end
 
-    subgraph Instagram["Instagram Architecture"]
+    subgraph Instagram[Instagram Architecture]
         I1[P1: Photo Partitioning<br/>User-based sharding]
         I2[P11: Feed Caching<br/>Redis clusters]
         I3[P19: CDC<br/>Activity streams]

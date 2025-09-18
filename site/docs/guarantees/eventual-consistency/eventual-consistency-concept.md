@@ -12,26 +12,26 @@ Eventual consistency is a weak consistency model where the system guarantees tha
 
 ```mermaid
 graph TB
-    subgraph EDGE["Edge Plane - Global Distribution"]
+    subgraph EDGE[Edge Plane - Global Distribution]
         CF[CloudFront CDN<br/>400+ edge locations<br/>p99: 50ms cache hit]
         R53[Route 53 DNS<br/>Geo-routing policies<br/>Health check: 30s]
         ALB[Application Load Balancer<br/>Cross-AZ failover<br/>Health check: 15s]
     end
 
-    subgraph SERVICE["Service Plane - API Gateway"]
+    subgraph SERVICE[Service Plane - API Gateway]
         APIGW[API Gateway<br/>Regional endpoints<br/>p99: 29ms response]
         SDK[DynamoDB SDK<br/>Auto-retry with backoff<br/>Exponential retry: 50ms-25s]
         AUTH[IAM/Cognito Auth<br/>JWT validation<br/>p99: 10ms]
     end
 
-    subgraph STATE["State Plane - Distributed Storage"]
+    subgraph STATE[State Plane - Distributed Storage]
         DDB1[DynamoDB us-east-1<br/>Multi-AZ active<br/>RCU/WCU: Auto-scaling]
         DDB2[DynamoDB eu-west-1<br/>Global table replica<br/>Cross-region: 800ms p99]
         DDB3[DynamoDB ap-south-1<br/>Global table replica<br/>Cross-region: 1.2s p99]
         STREAM[DynamoDB Streams<br/>Change data capture<br/>24-hour retention]
     end
 
-    subgraph CONTROL["Control Plane - Observability"]
+    subgraph CONTROL[Control Plane - Observability]
         CW[CloudWatch Metrics<br/>ConsumedRCU/WCU<br/>ItemCount, TableSize]
         XRAY[X-Ray Tracing<br/>Request flow tracking<br/>Latency breakdown]
         LAMBDA[Stream Processing<br/>Cross-region replication<br/>Conflict resolution]
@@ -129,25 +129,25 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph EDGE["Edge Plane - Content Delivery"]
+    subgraph EDGE[Edge Plane - Content Delivery]
         CDN1[Open Connect CDN<br/>15,000+ servers globally<br/>Cache hit ratio: 95%]
         CDN2[AWS CloudFront<br/>Backup CDN<br/>410+ PoPs worldwide]
         ORIGIN[Origin Servers<br/>S3 + EC2<br/>Multi-region active]
     end
 
-    subgraph SERVICE["Service Plane - Metadata Sync"]
+    subgraph SERVICE[Service Plane - Metadata Sync]
         METADATA[Metadata Service<br/>Cassandra cluster<br/>RF=3, CL=LOCAL_QUORUM]
         SYNC[Sync Manager<br/>Kafka-based events<br/>10M+ events/hour]
         CONFLICT[Conflict Resolution<br/>Last-writer-wins + CRDT<br/>Vector clock ordering]
     end
 
-    subgraph STATE["State Plane - Distributed Storage"]
+    subgraph STATE[State Plane - Distributed Storage]
         CASS1[Cassandra us-east-1<br/>100 nodes, 500TB<br/>RF=3, eventual consistency]
         CASS2[Cassandra eu-west-1<br/>80 nodes, 400TB<br/>Cross-DC replication: 200ms]
         CASS3[Cassandra ap-south-1<br/>60 nodes, 300TB<br/>Cross-DC replication: 500ms]
     end
 
-    subgraph CONTROL["Control Plane - Monitoring"]
+    subgraph CONTROL[Control Plane - Monitoring]
         METRICS[Convergence Metrics<br/>Replication lag tracking<br/>SLO: 99% < 1s]
         REPAIR[Anti-Entropy Repair<br/>Scheduled compaction<br/>Merkle tree validation]
         ALERT[Alerting System<br/>Lag > 5s triggers<br/>Auto-scaling response]
@@ -340,25 +340,25 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph EDGE["Edge Plane - Data Collection"]
+    subgraph EDGE[Edge Plane - Data Collection]
         SDK[Mobile/Driver SDKs<br/>Real-time telemetry<br/>1M+ events/second]
         PROXY[Envoy Proxy<br/>Service mesh metrics<br/>L7 observability]
         LB[Load Balancer<br/>Request flow tracking<br/>Health check status]
     end
 
-    subgraph SERVICE["Service Plane - Stream Processing"]
+    subgraph SERVICE[Service Plane - Stream Processing]
         KAFKA[Kafka Streams<br/>Event processing<br/>100GB/hour throughput]
         STORM[Apache Storm<br/>Real-time aggregation<br/>Sub-second latency]
         RULES[Alerting Rules Engine<br/>Complex event processing<br/>Anomaly detection]
     end
 
-    subgraph STATE["State Plane - Metrics Storage"]
+    subgraph STATE[State Plane - Metrics Storage]
         TSDB[Time Series DB (M3)<br/>High cardinality metrics<br/>7-day retention]
         CASS[Cassandra<br/>Raw event storage<br/>90-day retention]
         REDIS[Redis Cluster<br/>Real-time counters<br/>1-hour retention]
     end
 
-    subgraph CONTROL["Control Plane - Alerting"]
+    subgraph CONTROL[Control Plane - Alerting]
         DASH[Grafana Dashboards<br/>Real-time visualization<br/>P50/P95/P99 latencies]
         ALERT[PagerDuty Integration<br/>SLO violation alerts<br/>Escalation policies]
         RUNBOOK[Automated Remediation<br/>Auto-scaling triggers<br/>Circuit breaker controls]
@@ -497,22 +497,22 @@ Overall: 2/3 scenarios passed - Review failover procedures
 
 ```mermaid
 graph TB
-    subgraph COSTS["Infrastructure Costs"]
-        C1["Multi-region replication<br/>+300% storage costs<br/>$1.8M additional/year"]
-        C2["Cross-region bandwidth<br/>+500% network costs<br/>$456K additional/year"]
-        C3["Operations complexity<br/>+200% engineering cost<br/>$800K additional/year"]
+    subgraph COSTS[Infrastructure Costs]
+        C1[Multi-region replication<br/>+300% storage costs<br/>$1.8M additional/year]
+        C2[Cross-region bandwidth<br/>+500% network costs<br/>$456K additional/year]
+        C3[Operations complexity<br/>+200% engineering cost<br/>$800K additional/year]
     end
 
-    subgraph BENEFITS["Business Benefits"]
-        B1["Global user experience<br/>50ms vs 200ms latency<br/>+15% user engagement"]
-        B2["99.99% availability<br/>vs 99.9% single region<br/>$50M avoided downtime"]
-        B3["Disaster recovery<br/>RTO: 5min vs 4hr<br/>$100M business continuity"]
+    subgraph BENEFITS[Business Benefits]
+        B1[Global user experience<br/>50ms vs 200ms latency<br/>+15% user engagement]
+        B2[99.99% availability<br/>vs 99.9% single region<br/>$50M avoided downtime]
+        B3[Disaster recovery<br/>RTO: 5min vs 4hr<br/>$100M business continuity]
     end
 
-    subgraph ROI["Return on Investment"]
-        R1["Total additional cost<br/>$3.1M/year"]
-        R2["Total business value<br/>$150M+ risk mitigation"]
-        R3["ROI: 48x return<br/>Payback: 3 weeks"]
+    subgraph ROI[Return on Investment]
+        R1[Total additional cost<br/>$3.1M/year]
+        R2[Total business value<br/>$150M+ risk mitigation]
+        R3[ROI: 48x return<br/>Payback: 3 weeks]
     end
 
     C1 --> R1
@@ -540,25 +540,25 @@ graph TB
 
 ```mermaid
 flowchart TD
-    subgraph INCIDENT["Incident Timeline - DynamoDB Global Tables Lag"]
-        T1["14:00 UTC<br/>Increased write volume<br/>Black Friday traffic: 10x normal"]
-        T2["14:15 UTC<br/>Cross-region replication lag<br/>us-east-1 → eu-west-1: 30s"]
-        T3["14:30 UTC<br/>Lag continues growing<br/>Replication backlog: 5 minutes"]
-        T4["15:00 UTC<br/>Customer complaints<br/>EU users see stale inventory"]
-        T5["16:00 UTC<br/>AWS auto-scaling kicks in<br/>Additional replication capacity"]
-        T6["18:00 UTC<br/>Backlog cleared<br/>Normal replication resumed"]
+    subgraph INCIDENT[Incident Timeline - DynamoDB Global Tables Lag]
+        T1[14:00 UTC<br/>Increased write volume<br/>Black Friday traffic: 10x normal]
+        T2[14:15 UTC<br/>Cross-region replication lag<br/>us-east-1 → eu-west-1: 30s]
+        T3[14:30 UTC<br/>Lag continues growing<br/>Replication backlog: 5 minutes]
+        T4[15:00 UTC<br/>Customer complaints<br/>EU users see stale inventory]
+        T5[16:00 UTC<br/>AWS auto-scaling kicks in<br/>Additional replication capacity]
+        T6[18:00 UTC<br/>Backlog cleared<br/>Normal replication resumed]
     end
 
-    subgraph DETECTION["Detection Methods"]
-        M1["CloudWatch Alarm<br/>ReplicationMetrics.ReplicationLatency"]
-        M2["Customer support tickets<br/>Inventory discrepancies"]
-        M3["Application-level monitoring<br/>Cross-region read consistency checks"]
+    subgraph DETECTION[Detection Methods]
+        M1[CloudWatch Alarm<br/>ReplicationMetrics.ReplicationLatency]
+        M2[Customer support tickets<br/>Inventory discrepancies]
+        M3[Application-level monitoring<br/>Cross-region read consistency checks]
     end
 
-    subgraph MITIGATION["Mitigation Actions"]
-        R1["Temporary read routing<br/>Force strong consistency reads"]
-        R2["Inventory reservation system<br/>Pessimistic locking enabled"]
-        R3["Customer communication<br/>Proactive email notifications"]
+    subgraph MITIGATION[Mitigation Actions]
+        R1[Temporary read routing<br/>Force strong consistency reads]
+        R2[Inventory reservation system<br/>Pessimistic locking enabled]
+        R3[Customer communication<br/>Proactive email notifications]
     end
 
     T1 --> T2 --> T3 --> T4 --> T5 --> T6

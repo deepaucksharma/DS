@@ -8,29 +8,29 @@ Redis Cluster provides automatic data sharding across multiple Redis nodes while
 
 ```mermaid
 graph TB
-    subgraph "Redis Cluster Architecture"
-        subgraph "Hash Slots (16384 total)"
+    subgraph Redis Cluster Architecture
+        subgraph Hash Slots (16384 total)
             SLOTS[Hash Slot Distribution<br/>Node 1: slots 0-5460<br/>Node 2: slots 5461-10922<br/>Node 3: slots 10923-16383]
         end
 
-        subgraph "Master Nodes"
+        subgraph Master Nodes
             MASTER1[Master 1<br/>redis-m1:6379<br/>Slots: 0-5460<br/>Keys: ~33.3%]
             MASTER2[Master 2<br/>redis-m2:6379<br/>Slots: 5461-10922<br/>Keys: ~33.3%]
             MASTER3[Master 3<br/>redis-m3:6379<br/>Slots: 10923-16383<br/>Keys: ~33.3%]
         end
 
-        subgraph "Replica Nodes"
+        subgraph Replica Nodes
             REPLICA1[Replica 1<br/>redis-r1:6379<br/>Replicates Master 1]
             REPLICA2[Replica 2<br/>redis-r2:6379<br/>Replicates Master 2]
             REPLICA3[Replica 3<br/>redis-r3:6379<br/>Replicates Master 3]
         end
 
-        subgraph "Client Interaction"
+        subgraph Client Interaction
             CLIENT[Redis Client<br/>Cluster-aware<br/>Smart routing]
             REDIRECT[MOVED/ASK Redirects<br/>Automatic retries<br/>Slot mapping cache]
         end
 
-        subgraph "Cluster Management"
+        subgraph Cluster Management
             GOSSIP[Gossip Protocol<br/>Node discovery<br/>Health monitoring<br/>Failover coordination]
             ELECTION[Leader Election<br/>Automatic failover<br/>Split-brain prevention]
         end

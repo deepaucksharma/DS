@@ -6,97 +6,97 @@ This diagram represents Zoom's actual production architecture serving 300+ milli
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        GlobalCDN["Zoom Global CDN<br/>━━━━━<br/>5,000+ edge servers<br/>100+ countries<br/>Multi-cloud strategy<br/>Cost: $50M/month"]
+        GlobalCDN[Zoom Global CDN<br/>━━━━━<br/>5,000+ edge servers<br/>100+ countries<br/>Multi-cloud strategy<br/>Cost: $50M/month]
 
-        LoadBalancers["Global Load Balancers<br/>━━━━━<br/>Anycast DNS routing<br/>Health-check based<br/>Multi-region failover<br/>p99: 2ms routing"]
+        LoadBalancers[Global Load Balancers<br/>━━━━━<br/>Anycast DNS routing<br/>Health-check based<br/>Multi-region failover<br/>p99: 2ms routing]
 
-        EdgeGateways["Edge Gateway Cluster<br/>━━━━━<br/>Regional entry points<br/>TLS termination<br/>Connection pooling<br/>Request routing"]
+        EdgeGateways[Edge Gateway Cluster<br/>━━━━━<br/>Regional entry points<br/>TLS termination<br/>Connection pooling<br/>Request routing]
 
-        WebRTCGateways["WebRTC Gateways<br/>━━━━━<br/>Media session establishment<br/>STUN/TURN servers<br/>ICE candidate gathering<br/>NAT traversal: 99.9%"]
+        WebRTCGateways[WebRTC Gateways<br/>━━━━━<br/>Media session establishment<br/>STUN/TURN servers<br/>ICE candidate gathering<br/>NAT traversal: 99.9%]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        subgraph MeetingServices["Meeting Management Services"]
-            MeetingController["Meeting Controller<br/>━━━━━<br/>Session orchestration<br/>500K+ concurrent meetings<br/>Java/Spring Boot<br/>r5.12xlarge fleet"]
+        subgraph MeetingServices[Meeting Management Services]
+            MeetingController[Meeting Controller<br/>━━━━━<br/>Session orchestration<br/>500K+ concurrent meetings<br/>Java/Spring Boot<br/>r5.12xlarge fleet]
 
-            ParticipantManager["Participant Manager<br/>━━━━━<br/>User authentication<br/>Permission management<br/>Presence tracking<br/>Connection state: 300M users"]
+            ParticipantManager[Participant Manager<br/>━━━━━<br/>User authentication<br/>Permission management<br/>Presence tracking<br/>Connection state: 300M users]
 
-            SchedulingService["Scheduling Service<br/>━━━━━<br/>Calendar integration<br/>Recurring meetings<br/>Time zone handling<br/>API gateway integration"]
+            SchedulingService[Scheduling Service<br/>━━━━━<br/>Calendar integration<br/>Recurring meetings<br/>Time zone handling<br/>API gateway integration]
         end
 
-        subgraph MediaServices["Media Processing Services"]
-            MediaRouter["Media Router<br/>━━━━━<br/>SFU (Selective Forwarding)<br/>Video/audio routing<br/>Bandwidth optimization<br/>c5n.24xlarge fleet"]
+        subgraph MediaServices[Media Processing Services]
+            MediaRouter[Media Router<br/>━━━━━<br/>SFU (Selective Forwarding)<br/>Video/audio routing<br/>Bandwidth optimization<br/>c5n.24xlarge fleet]
 
-            TranscodingCluster["Transcoding Cluster<br/>━━━━━<br/>Real-time video transcoding<br/>Multiple resolution support<br/>GPU acceleration<br/>p3.8xlarge instances"]
+            TranscodingCluster[Transcoding Cluster<br/>━━━━━<br/>Real-time video transcoding<br/>Multiple resolution support<br/>GPU acceleration<br/>p3.8xlarge instances]
 
-            RecordingService["Recording Service<br/>━━━━━<br/>Cloud recording<br/>MP4 generation<br/>AI transcription<br/>Storage integration"]
+            RecordingService[Recording Service<br/>━━━━━<br/>Cloud recording<br/>MP4 generation<br/>AI transcription<br/>Storage integration]
 
-            ScreenShareService["Screen Share Service<br/>━━━━━<br/>Desktop capture<br/>Annotation support<br/>Remote control<br/>Low latency: <100ms"]
+            ScreenShareService[Screen Share Service<br/>━━━━━<br/>Desktop capture<br/>Annotation support<br/>Remote control<br/>Low latency: <100ms]
         end
 
-        subgraph AIServices["AI & Analytics Services"]
-            TranscriptionAI["Real-time Transcription<br/>━━━━━<br/>Speech-to-text<br/>Multi-language support<br/>Noise cancellation<br/>GPU clusters"]
+        subgraph AIServices[AI & Analytics Services]
+            TranscriptionAI[Real-time Transcription<br/>━━━━━<br/>Speech-to-text<br/>Multi-language support<br/>Noise cancellation<br/>GPU clusters]
 
-            BackgroundAI["Virtual Background AI<br/>━━━━━<br/>Real-time segmentation<br/>Edge AI processing<br/>GPU optimization<br/>CPU fallback"]
+            BackgroundAI[Virtual Background AI<br/>━━━━━<br/>Real-time segmentation<br/>Edge AI processing<br/>GPU optimization<br/>CPU fallback]
 
-            AnalyticsEngine["Meeting Analytics<br/>━━━━━<br/>Quality metrics<br/>Usage analytics<br/>Performance insights<br/>ML-driven optimization"]
+            AnalyticsEngine[Meeting Analytics<br/>━━━━━<br/>Quality metrics<br/>Usage analytics<br/>Performance insights<br/>ML-driven optimization]
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        subgraph DatabaseLayer["Database Infrastructure"]
-            PostgreSQLCluster["PostgreSQL Clusters<br/>━━━━━<br/>User/meeting metadata<br/>Multi-master setup<br/>10TB+ per cluster<br/>db.r6g.16xlarge"]
+        subgraph DatabaseLayer[Database Infrastructure]
+            PostgreSQLCluster[PostgreSQL Clusters<br/>━━━━━<br/>User/meeting metadata<br/>Multi-master setup<br/>10TB+ per cluster<br/>db.r6g.16xlarge]
 
-            CassandraCluster["Cassandra Clusters<br/>━━━━━<br/>Time-series metrics<br/>Call quality data<br/>100+ nodes per DC<br/>i3en.24xlarge"]
+            CassandraCluster[Cassandra Clusters<br/>━━━━━<br/>Time-series metrics<br/>Call quality data<br/>100+ nodes per DC<br/>i3en.24xlarge]
 
-            RedisCluster["Redis Clusters<br/>━━━━━<br/>Session management<br/>Real-time state<br/>Sub-ms latency<br/>r6gd.16xlarge"]
+            RedisCluster[Redis Clusters<br/>━━━━━<br/>Session management<br/>Real-time state<br/>Sub-ms latency<br/>r6gd.16xlarge]
         end
 
-        subgraph StorageLayer["Storage Infrastructure"]
-            S3ObjectStore["S3 Object Storage<br/>━━━━━<br/>Recording storage<br/>1 Exabyte+ stored<br/>Intelligent tiering<br/>Multi-region replication"]
+        subgraph StorageLayer[Storage Infrastructure]
+            S3ObjectStore[S3 Object Storage<br/>━━━━━<br/>Recording storage<br/>1 Exabyte+ stored<br/>Intelligent tiering<br/>Multi-region replication]
 
-            ElasticSearch["Elasticsearch<br/>━━━━━<br/>Meeting search<br/>Log aggregation<br/>Real-time indexing<br/>100TB+ indexed data"]
+            ElasticSearch[Elasticsearch<br/>━━━━━<br/>Meeting search<br/>Log aggregation<br/>Real-time indexing<br/>100TB+ indexed data]
 
-            CDNStorage["CDN Storage<br/>━━━━━<br/>Client downloads<br/>Static assets<br/>Multi-region sync<br/>Edge caching"]
+            CDNStorage[CDN Storage<br/>━━━━━<br/>Client downloads<br/>Static assets<br/>Multi-region sync<br/>Edge caching]
         end
 
-        subgraph MessageQueue["Event Streaming"]
-            KafkaCluster["Kafka Clusters<br/>━━━━━<br/>Meeting events<br/>100M+ events/day<br/>Real-time processing<br/>7-day retention"]
+        subgraph MessageQueue[Event Streaming]
+            KafkaCluster[Kafka Clusters<br/>━━━━━<br/>Meeting events<br/>100M+ events/day<br/>Real-time processing<br/>7-day retention]
 
-            PubSubSystem["Pub/Sub System<br/>━━━━━<br/>Real-time notifications<br/>Presence updates<br/>Meeting state changes<br/>WebSocket delivery"]
+            PubSubSystem[Pub/Sub System<br/>━━━━━<br/>Real-time notifications<br/>Presence updates<br/>Meeting state changes<br/>WebSocket delivery]
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        subgraph MonitoringInfra["Monitoring Infrastructure"]
-            PrometheusStack["Prometheus Stack<br/>━━━━━<br/>Metrics collection<br/>10M+ metrics/min<br/>Alert management<br/>Multi-DC federation"]
+        subgraph MonitoringInfra[Monitoring Infrastructure]
+            PrometheusStack[Prometheus Stack<br/>━━━━━<br/>Metrics collection<br/>10M+ metrics/min<br/>Alert management<br/>Multi-DC federation]
 
-            GrafanaCluster["Grafana Cluster<br/>━━━━━<br/>5,000+ dashboards<br/>Real-time visualization<br/>Executive reporting<br/>SLA monitoring"]
+            GrafanaCluster[Grafana Cluster<br/>━━━━━<br/>5,000+ dashboards<br/>Real-time visualization<br/>Executive reporting<br/>SLA monitoring]
 
-            ELKStack["ELK Stack<br/>━━━━━<br/>Centralized logging<br/>5TB+ daily logs<br/>Error correlation<br/>Performance analysis"]
+            ELKStack[ELK Stack<br/>━━━━━<br/>Centralized logging<br/>5TB+ daily logs<br/>Error correlation<br/>Performance analysis]
         end
 
-        subgraph DeploymentOps["Deployment Operations"]
-            KubernetesOrchestrator["Kubernetes<br/>━━━━━<br/>Container orchestration<br/>10,000+ pods<br/>Auto-scaling<br/>Multi-cloud deployment"]
+        subgraph DeploymentOps[Deployment Operations]
+            KubernetesOrchestrator[Kubernetes<br/>━━━━━<br/>Container orchestration<br/>10,000+ pods<br/>Auto-scaling<br/>Multi-cloud deployment]
 
-            CICDPipeline["CI/CD Pipeline<br/>━━━━━<br/>Jenkins + GitLab<br/>1,000+ deploys/day<br/>Canary deployments<br/>Automated rollback"]
+            CICDPipeline[CI/CD Pipeline<br/>━━━━━<br/>Jenkins + GitLab<br/>1,000+ deploys/day<br/>Canary deployments<br/>Automated rollback]
 
-            ConfigManagement["Config Management<br/>━━━━━<br/>Centralized config<br/>Feature flags<br/>A/B testing<br/>Runtime updates"]
+            ConfigManagement[Config Management<br/>━━━━━<br/>Centralized config<br/>Feature flags<br/>A/B testing<br/>Runtime updates]
         end
 
-        subgraph SecurityOps["Security Operations"]
-            SecurityMonitoring["Security Monitoring<br/>━━━━━<br/>SIEM integration<br/>Threat detection<br/>Compliance monitoring<br/>24/7 SOC"]
+        subgraph SecurityOps[Security Operations]
+            SecurityMonitoring[Security Monitoring<br/>━━━━━<br/>SIEM integration<br/>Threat detection<br/>Compliance monitoring<br/>24/7 SOC]
 
-            IdentityManagement["Identity Management<br/>━━━━━<br/>SSO integration<br/>Multi-factor auth<br/>SAML/OAuth support<br/>Enterprise directory"]
+            IdentityManagement[Identity Management<br/>━━━━━<br/>SSO integration<br/>Multi-factor auth<br/>SAML/OAuth support<br/>Enterprise directory]
         end
     end
 

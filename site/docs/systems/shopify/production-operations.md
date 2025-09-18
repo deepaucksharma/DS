@@ -8,62 +8,62 @@ Shopify operates one of the world's most complex e-commerce platforms, handling 
 
 ```mermaid
 graph TB
-    subgraph "Control Plane - Operations Command #8B5CF6"
-        subgraph "Deployment Systems"
+    subgraph Control Plane - Operations Command #8B5CF6
+        subgraph Deployment Systems
             SHIPIT[Shipit Platform<br/>Continuous deployment<br/>Gradual rollouts<br/>Feature flags]
             DEPLOY_PIPELINE[Deployment Pipeline<br/>Automated testing<br/>Quality gates<br/>Approval workflows]
             ROLLBACK_SYSTEM[Rollback System<br/>Automated detection<br/>Quick reversion<br/>Health monitoring]
         end
 
-        subgraph "Incident Management"
+        subgraph Incident Management
             WAR_ROOM[War Room<br/>Crisis coordination<br/>Expert assembly<br/>Real-time communication]
             INCIDENT_COMMANDER[Incident Commander<br/>Decision authority<br/>Communication lead<br/>Process coordination]
             STATUS_COMMS[Status Communications<br/>Merchant notifications<br/>Public status page<br/>Partner updates]
         end
 
-        subgraph "Change Management"
+        subgraph Change Management
             FEATURE_FLAGS[Feature Flags<br/>Progressive rollouts<br/>A/B testing<br/>Risk mitigation]
             CONFIG_MANAGEMENT[Configuration Management<br/>Environment consistency<br/>Secret management<br/>Audit trails]
             MAINTENANCE_WINDOWS[Maintenance Windows<br/>Planned changes<br/>Impact minimization<br/>Customer communication]
         end
     end
 
-    subgraph "Service Plane - Operations Services #10B981"
-        subgraph "Monitoring & Alerting"
+    subgraph Service Plane - Operations Services #10B981
+        subgraph Monitoring & Alerting
             METRICS_COLLECTION[Metrics Collection<br/>Application metrics<br/>Infrastructure metrics<br/>Business metrics]
             ALERT_MANAGEMENT[Alert Management<br/>Intelligent routing<br/>Escalation policies<br/>Noise reduction]
             DASHBOARD_SYSTEM[Dashboard System<br/>Real-time visibility<br/>Custom views<br/>Mobile access]
         end
 
-        subgraph "Automation & Orchestration"
+        subgraph Automation & Orchestration
             RUNBOOK_AUTOMATION[Runbook Automation<br/>Self-healing systems<br/>Automated remediation<br/>Process execution]
             CAPACITY_MANAGEMENT[Capacity Management<br/>Auto-scaling<br/>Resource planning<br/>Performance optimization]
             CHAOS_ENGINEERING[Chaos Engineering<br/>Failure injection<br/>Resilience testing<br/>System validation]
         end
     end
 
-    subgraph "Edge Plane - Global Operations #3B82F6"
-        subgraph "Regional Operations Centers"
+    subgraph Edge Plane - Global Operations #3B82F6
+        subgraph Regional Operations Centers
             NA_OPS[North America OPS<br/>Primary operations<br/>24/7 coverage<br/>Tier 3 engineers]
             EU_OPS[Europe Operations<br/>EMEA coverage<br/>Local compliance<br/>Regional expertise]
             APAC_OPS[APAC Operations<br/>Asia Pacific<br/>Growth markets<br/>Time zone coverage]
         end
 
-        subgraph "On-Call Management"
+        subgraph On-Call Management
             ON_CALL_ROTATION[On-Call Rotation<br/>24/7 coverage<br/>Expertise matching<br/>Workload balancing]
             ESCALATION_TREE[Escalation Tree<br/>Severity-based routing<br/>Executive involvement<br/>Partner coordination]
             RESPONSE_TEAMS[Response Teams<br/>Subject matter experts<br/>Cross-functional teams<br/>Rapid assembly]
         end
     end
 
-    subgraph "State Plane - Operations Data #F59E0B"
-        subgraph "Observability Data"
+    subgraph State Plane - Operations Data #F59E0B
+        subgraph Observability Data
             METRICS_DB[Metrics Database<br/>Time-series data<br/>High-resolution storage<br/>Long-term retention]
             LOG_AGGREGATION[Log Aggregation<br/>Centralized logging<br/>Structured data<br/>Search capabilities]
             TRACE_STORAGE[Trace Storage<br/>Distributed tracing<br/>Request correlation<br/>Performance analysis]
         end
 
-        subgraph "Operations Knowledge"
+        subgraph Operations Knowledge
             RUNBOOK_DB[Runbook Database<br/>Procedure automation<br/>Knowledge capture<br/>Decision trees]
             INCIDENT_HISTORY[Incident History<br/>Post-mortem data<br/>Pattern analysis<br/>Learning system]
             CAPACITY_DATA[Capacity Data<br/>Usage patterns<br/>Growth trends<br/>Planning models]
@@ -108,7 +108,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Shipit Deployment Flow"
+    subgraph Shipit Deployment Flow
         DEV_COMMIT[Developer Commit<br/>Git repository<br/>Pull request<br/>Code review]
 
         CI_PIPELINE[CI Pipeline<br/>Automated tests<br/>Security scans<br/>Quality gates]
@@ -140,7 +140,7 @@ graph TB
     GRADUAL_ROLLOUT -.->|Error spike| CANARY_RELEASE
     PRODUCTION_DEPLOY -.->|Critical issue| DEPLOY_APPROVAL
 
-    subgraph "Deployment Safety"
+    subgraph Deployment Safety
         HEALTH_CHECKS[Health Checks<br/>Response time<br/>Error rates<br/>Business metrics]
 
         CIRCUIT_BREAKERS[Circuit Breakers<br/>Service protection<br/>Cascading failure prevention<br/>Automatic isolation]
@@ -167,7 +167,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Deployment Performance"
+    subgraph Deployment Performance
         FREQUENCY[Deployment Frequency<br/>50+ deploys/day<br/>Small batch sizes<br/>Reduced risk]
 
         LEAD_TIME[Lead Time<br/>30 minutes avg<br/>Commit to production<br/>Fast feedback]
@@ -177,7 +177,7 @@ graph LR
         SUCCESS_RATE[Success Rate<br/>99.9% deployments<br/>Quality gates<br/>Preventive measures]
     end
 
-    subgraph "Quality Metrics"
+    subgraph Quality Metrics
         CHANGE_FAILURE[Change Failure Rate<br/><0.1% of deploys<br/>Rigorous testing<br/>Quality processes]
 
         ROLLBACK_RATE[Rollback Rate<br/><1% of deploys<br/>Effective testing<br/>Risk mitigation]
@@ -204,20 +204,20 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Black Friday Command Center"
-        subgraph "War Room Setup"
+    subgraph Black Friday Command Center
+        subgraph War Room Setup
             COMMAND_CENTER[Command Center<br/>Physical war room<br/>Multiple screens<br/>Real-time dashboards]
             EXPERT_TEAMS[Expert Teams<br/>Subject matter experts<br/>Cross-functional teams<br/>24/7 coverage]
             COMMUNICATION_HUB[Communication Hub<br/>Slack channels<br/>Video conferencing<br/>Status broadcasts]
         end
 
-        subgraph "Monitoring Systems"
+        subgraph Monitoring Systems
             REAL_TIME_METRICS[Real-time Metrics<br/>GMV tracking<br/>Request rates<br/>Error monitoring]
             BUSINESS_DASHBOARDS[Business Dashboards<br/>Conversion rates<br/>Merchant health<br/>Customer impact]
             INFRASTRUCTURE_STATUS[Infrastructure Status<br/>System health<br/>Capacity utilization<br/>Performance metrics]
         end
 
-        subgraph "Response Capabilities"
+        subgraph Response Capabilities
             RAPID_SCALING[Rapid Scaling<br/>Traffic surge response<br/>Capacity expansion<br/>Resource allocation]
             TRAFFIC_SHAPING[Traffic Shaping<br/>Queue management<br/>Priority systems<br/>Load distribution]
             EMERGENCY_PROCEDURES[Emergency Procedures<br/>Incident escalation<br/>Communication plans<br/>Recovery actions]
@@ -233,7 +233,7 @@ graph TB
     BUSINESS_DASHBOARDS --> TRAFFIC_SHAPING
     INFRASTRUCTURE_STATUS --> EMERGENCY_PROCEDURES
 
-    subgraph "Black Friday 2023 Results"
+    subgraph Black Friday 2023 Results
         GMV_RECORD[GMV Record<br/>$9.3B weekend<br/>4.1M requests/minute<br/>11,700 orders/minute]
 
         UPTIME_SUCCESS[Uptime Success<br/>99.99% availability<br/>4 minutes planned<br/>Zero customer impact]
@@ -261,7 +261,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Peak Event Traffic Management"
+    subgraph Peak Event Traffic Management
         TRAFFIC_PREDICTION[Traffic Prediction<br/>ML-based forecasting<br/>Historical patterns<br/>External factors]
 
         CAPACITY_PLANNING[Capacity Planning<br/>Infrastructure scaling<br/>Database preparation<br/>CDN optimization]
@@ -282,7 +282,7 @@ graph TB
     PRIORITY_ROUTING --> LOAD_SHEDDING
     LOAD_SHEDDING --> PERFORMANCE_MONITORING
 
-    subgraph "Black Friday Traffic Handling"
+    subgraph Black Friday Traffic Handling
         BASELINE_10K[Baseline: 10,500 RPS<br/>Normal operations<br/>Standard capacity<br/>Regular monitoring]
 
         RAMPUP_25K[Ramp-up: 25,000 RPS<br/>Early November<br/>Capacity doubling<br/>Enhanced monitoring]
@@ -311,7 +311,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Incident Response Timeline"
+    subgraph Incident Response Timeline
         DETECTION[Incident Detection<br/>Automated monitoring<br/>Customer reports<br/>Partner alerts]
 
         CLASSIFICATION[Severity Classification<br/>P0: Total outage<br/>P1: Major degradation<br/>P2: Partial impact]
@@ -342,7 +342,7 @@ graph TB
     ROOT_CAUSE -.->|Continuous| COMMUNICATION
     MITIGATION -.->|Regular updates| COMMUNICATION
 
-    subgraph "Response Time SLAs"
+    subgraph Response Time SLAs
         P0_RESPONSE[P0 Critical<br/>Detection: 1 min<br/>Response: 5 min<br/>Resolution: 60 min]
 
         P1_RESPONSE[P1 High<br/>Detection: 5 min<br/>Response: 15 min<br/>Resolution: 4 hours]
@@ -366,7 +366,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Communication Channels"
+    subgraph Communication Channels
         STATUS_PAGE[Public Status Page<br/>Real-time updates<br/>Service status<br/>Incident timeline]
 
         MERCHANT_NOTIFICATIONS[Merchant Notifications<br/>In-app messages<br/>Email alerts<br/>SMS updates]
@@ -378,7 +378,7 @@ graph TB
         MEDIA_RELATIONS[Media Relations<br/>Press statements<br/>Social media<br/>Customer support]
     end
 
-    subgraph "Communication Triggers"
+    subgraph Communication Triggers
         AUTOMATED_ALERTS[Automated Alerts<br/>Monitoring systems<br/>Threshold breaches<br/>Health checks]
 
         HUMAN_ESCALATION[Human Escalation<br/>Manual assessment<br/>Customer impact<br/>Business judgment]
@@ -409,20 +409,20 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Monitoring Architecture"
-        subgraph "Application Monitoring"
+    subgraph Monitoring Architecture
+        subgraph Application Monitoring
             APM[Application Performance<br/>Request tracing<br/>Error tracking<br/>Performance profiling]
             BUSINESS_METRICS[Business Metrics<br/>GMV tracking<br/>Conversion rates<br/>Order completion]
             USER_EXPERIENCE[User Experience<br/>Page load times<br/>Checkout funnel<br/>Error rates]
         end
 
-        subgraph "Infrastructure Monitoring"
+        subgraph Infrastructure Monitoring
             SYSTEM_METRICS[System Metrics<br/>CPU, memory, disk<br/>Network performance<br/>Container health]
             DATABASE_METRICS[Database Metrics<br/>Query performance<br/>Connection pools<br/>Replication lag]
             CACHE_METRICS[Cache Metrics<br/>Hit rates<br/>Memory usage<br/>Eviction rates]
         end
 
-        subgraph "External Monitoring"
+        subgraph External Monitoring
             THIRD_PARTY[Third-party Services<br/>Payment processors<br/>CDN performance<br/>API endpoints]
             SYNTHETIC_TESTS[Synthetic Testing<br/>End-to-end flows<br/>Global monitoring<br/>Uptime checks]
             REAL_USER[Real User Monitoring<br/>Browser performance<br/>Mobile experience<br/>Geographic data]
@@ -438,7 +438,7 @@ graph TB
     DATABASE_METRICS --> SYNTHETIC_TESTS
     CACHE_METRICS --> REAL_USER
 
-    subgraph "Alert Management"
+    subgraph Alert Management
         INTELLIGENT_ALERTING[Intelligent Alerting<br/>ML-based thresholds<br/>Anomaly detection<br/>Noise reduction]
 
         ESCALATION_POLICIES[Escalation Policies<br/>Severity-based routing<br/>Time-based escalation<br/>Team rotations]
@@ -468,7 +468,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Operations Leadership"
+    subgraph Operations Leadership
         VP_OPS[VP of Operations<br/>Global operations<br/>Strategic direction<br/>Executive reporting]
 
         DIR_INFRA[Director Infrastructure<br/>Platform reliability<br/>Capacity planning<br/>Architecture decisions]
@@ -476,25 +476,25 @@ graph TB
         DIR_SECURITY[Director Security<br/>Threat detection<br/>Incident response<br/>Compliance oversight]
     end
 
-    subgraph "Regional Operations Teams"
-        subgraph "North America (Primary)"
+    subgraph Regional Operations Teams
+        subgraph North America (Primary)
             NA_INFRA[Infrastructure Team<br/>12 engineers<br/>Platform operations<br/>Database management]
             NA_SECURITY[Security Team<br/>8 engineers<br/>Threat hunting<br/>Incident response]
             NA_ON_CALL[On-Call Team<br/>24/7 coverage<br/>Tier 2/3 support<br/>Escalation handling]
         end
 
-        subgraph "Europe/EMEA"
+        subgraph Europe/EMEA
             EU_INFRA[EMEA Infrastructure<br/>6 engineers<br/>Regional support<br/>Compliance focus]
             EU_SECURITY[EMEA Security<br/>4 engineers<br/>Regional threats<br/>GDPR compliance]
         end
 
-        subgraph "Asia Pacific"
+        subgraph Asia Pacific
             APAC_INFRA[APAC Infrastructure<br/>4 engineers<br/>Growth markets<br/>Local partnerships]
             APAC_SUPPORT[APAC Support<br/>Customer success<br/>Merchant escalations<br/>Partner relations]
         end
     end
 
-    subgraph "Specialized Teams"
+    subgraph Specialized Teams
         DATA_TEAM[Data Platform Team<br/>Analytics infrastructure<br/>Data pipeline<br/>Business intelligence]
 
         AUTOMATION_TEAM[Automation Team<br/>Infrastructure as code<br/>CI/CD pipelines<br/>Process automation]

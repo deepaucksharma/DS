@@ -6,50 +6,50 @@ This diagram represents Netflix's actual production architecture serving 260+ mi
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        CDN["Open Connect CDN<br/>━━━━━<br/>18,000+ Edge Servers<br/>175+ Countries<br/>200Tbps Peak Bandwidth<br/>Cost: $40M/month"]
+        CDN[Open Connect CDN<br/>━━━━━<br/>18,000+ Edge Servers<br/>175+ Countries<br/>200Tbps Peak Bandwidth<br/>Cost: $40M/month]
 
-        AWSCF["AWS CloudFront<br/>━━━━━<br/>Backup CDN<br/>450+ PoPs<br/>Cost: $8M/month"]
+        AWSCF[AWS CloudFront<br/>━━━━━<br/>Backup CDN<br/>450+ PoPs<br/>Cost: $8M/month]
 
-        Zuul["Zuul API Gateway<br/>━━━━━<br/>1M+ req/sec<br/>p99: 150ms<br/>Circuit Breaking<br/>c5n.9xlarge fleet"]
+        Zuul[Zuul API Gateway<br/>━━━━━<br/>1M+ req/sec<br/>p99: 150ms<br/>Circuit Breaking<br/>c5n.9xlarge fleet]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        PlayAPI["Playback API<br/>━━━━━<br/>2M req/sec peak<br/>Java 17, 500 instances<br/>r6i.8xlarge<br/>p99: 50ms"]
+        PlayAPI[Playback API<br/>━━━━━<br/>2M req/sec peak<br/>Java 17, 500 instances<br/>r6i.8xlarge<br/>p99: 50ms]
 
-        Hermes["Hermes Event Router<br/>━━━━━<br/>8M events/sec<br/>150B events/day<br/>Kafka backbone<br/>m5n.24xlarge"]
+        Hermes[Hermes Event Router<br/>━━━━━<br/>8M events/sec<br/>150B events/day<br/>Kafka backbone<br/>m5n.24xlarge]
 
-        Falcor["Falcor Gateway<br/>━━━━━<br/>GraphQL Layer<br/>800K req/sec<br/>Node.js cluster<br/>c5.4xlarge"]
+        Falcor[Falcor Gateway<br/>━━━━━<br/>GraphQL Layer<br/>800K req/sec<br/>Node.js cluster<br/>c5.4xlarge]
 
-        VideoService["Video Metadata Service<br/>━━━━━<br/>3M req/sec<br/>80TB catalog data<br/>Java Spring Boot<br/>r5.12xlarge"]
+        VideoService[Video Metadata Service<br/>━━━━━<br/>3M req/sec<br/>80TB catalog data<br/>Java Spring Boot<br/>r5.12xlarge]
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        EVCache["EVCache<br/>━━━━━<br/>30 trillion req/day<br/>180TB RAM total<br/>Memcached clusters<br/>r6gd.16xlarge"]
+        EVCache[EVCache<br/>━━━━━<br/>30 trillion req/day<br/>180TB RAM total<br/>Memcached clusters<br/>r6gd.16xlarge]
 
-        Cassandra["Cassandra Fleet<br/>━━━━━<br/>10,000+ nodes<br/>100PB data<br/>6 global regions<br/>i3en.24xlarge<br/>Cost: $15M/month"]
+        Cassandra[Cassandra Fleet<br/>━━━━━<br/>10,000+ nodes<br/>100PB data<br/>6 global regions<br/>i3en.24xlarge<br/>Cost: $15M/month]
 
-        S3Storage["AWS S3<br/>━━━━━<br/>1 Exabyte stored<br/>Video masters<br/>$20M/month"]
+        S3Storage[AWS S3<br/>━━━━━<br/>1 Exabyte stored<br/>Video masters<br/>$20M/month]
 
-        ES["Elasticsearch<br/>━━━━━<br/>3,500 nodes<br/>15PB indexed<br/>750B documents<br/>i3.8xlarge"]
+        ES[Elasticsearch<br/>━━━━━<br/>3,500 nodes<br/>15PB indexed<br/>750B documents<br/>i3.8xlarge]
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        Spinnaker["Spinnaker<br/>━━━━━<br/>10K deployments/day<br/>Multi-region orchestration<br/>Blue-green & Canary"]
+        Spinnaker[Spinnaker<br/>━━━━━<br/>10K deployments/day<br/>Multi-region orchestration<br/>Blue-green & Canary]
 
-        Atlas["Atlas Metrics<br/>━━━━━<br/>2.5M metrics/sec<br/>1.3B time series<br/>7-day retention<br/>m5.12xlarge fleet"]
+        Atlas[Atlas Metrics<br/>━━━━━<br/>2.5M metrics/sec<br/>1.3B time series<br/>7-day retention<br/>m5.12xlarge fleet]
 
-        Mantis["Mantis Stream Processing<br/>━━━━━<br/>Real-time analytics<br/>1T events/day<br/>Flink-based<br/>r5.24xlarge"]
+        Mantis[Mantis Stream Processing<br/>━━━━━<br/>Real-time analytics<br/>1T events/day<br/>Flink-based<br/>r5.24xlarge]
 
-        ChAP["Chaos Platform (ChAP)<br/>━━━━━<br/>1000+ experiments/day<br/>Chaos Monkey Suite<br/>Automated resilience"]
+        ChAP[Chaos Platform (ChAP)<br/>━━━━━<br/>1000+ experiments/day<br/>Chaos Monkey Suite<br/>Automated resilience]
     end
 
     %% Connections with real metrics

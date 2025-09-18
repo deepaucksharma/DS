@@ -43,33 +43,33 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #3B82F6"
+    subgraph Edge Plane - Blue #3B82F6
         MOBILE[Coinbase Mobile App<br/>68M+ Users]
         WEB[Coinbase Web Platform<br/>Trading Interface]
         PRO[Coinbase Pro<br/>Advanced Trading]
     end
 
-    subgraph "Service Plane - Green #10B981"
+    subgraph Service Plane - Green #10B981
         TRADING[Trading Engine<br/>Order Matching<br/>OVERLOADED]
         WALLET[Wallet Service<br/>Balance Management]
         PRICE[Price Service<br/>Market Data Feed]
         KYC[KYC Service<br/>User Verification]
     end
 
-    subgraph "State Plane - Orange #F59E0B"
+    subgraph State Plane - Orange #F59E0B
         ORDERS[(Order Database<br/>PostgreSQL<br/>60x Normal Load)]
         BALANCES[(Balance Database<br/>User Accounts)]
         BLOCKCHAIN[(Blockchain State<br/>Crypto Networks)]
         CACHE[(Redis Cache<br/>Price Data)]
     end
 
-    subgraph "Control Plane - Red #8B5CF6"
+    subgraph Control Plane - Red #8B5CF6
         MONITORING[DataDog Monitoring<br/>System Metrics]
         RISK[Risk Management<br/>Trading Limits]
         COMPLIANCE[Compliance Engine<br/>Regulatory Rules]
     end
 
-    subgraph "External Crypto Infrastructure"
+    subgraph External Crypto Infrastructure
         BITCOIN[Bitcoin Network<br/>BTC Transactions]
         ETHEREUM[Ethereum Network<br/>ETH Transactions]
         BANKS[Banking Partners<br/>Fiat Settlement]

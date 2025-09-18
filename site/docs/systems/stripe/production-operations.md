@@ -6,95 +6,95 @@ This diagram shows Stripe's production operations infrastructure supporting 99.9
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        CDNMonitoring["CDN Health Monitoring<br/>━━━━━<br/>Cloudflare analytics<br/>Edge performance<br/>Global latency tracking<br/>DDoS event detection"]
+        CDNMonitoring[CDN Health Monitoring<br/>━━━━━<br/>Cloudflare analytics<br/>Edge performance<br/>Global latency tracking<br/>DDoS event detection]
 
-        LoadBalancerHealth["Load Balancer Health<br/>━━━━━<br/>AWS ALB monitoring<br/>Target group health<br/>Request distribution<br/>Failover detection"]
+        LoadBalancerHealth[Load Balancer Health<br/>━━━━━<br/>AWS ALB monitoring<br/>Target group health<br/>Request distribution<br/>Failover detection]
 
-        SSLCertMonitoring["SSL Certificate Monitor<br/>━━━━━<br/>Auto-renewal alerts<br/>Certificate expiry<br/>Chain validation<br/>Security scanning"]
+        SSLCertMonitoring[SSL Certificate Monitor<br/>━━━━━<br/>Auto-renewal alerts<br/>Certificate expiry<br/>Chain validation<br/>Security scanning]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        subgraph DeploymentPipeline["Deployment Pipeline - Zero Downtime"]
-            GitOpsController["GitOps Controller<br/>━━━━━<br/>ArgoCD deployment<br/>Git webhook triggers<br/>Automated rollbacks<br/>Canary deployments"]
+        subgraph DeploymentPipeline[Deployment Pipeline - Zero Downtime]
+            GitOpsController[GitOps Controller<br/>━━━━━<br/>ArgoCD deployment<br/>Git webhook triggers<br/>Automated rollbacks<br/>Canary deployments]
 
-            BlueGreenOrch["Blue-Green Orchestrator<br/>━━━━━<br/>Traffic switching<br/>Health validation<br/>Rollback automation<br/>Database migrations"]
+            BlueGreenOrch[Blue-Green Orchestrator<br/>━━━━━<br/>Traffic switching<br/>Health validation<br/>Rollback automation<br/>Database migrations]
 
-            CanaryManager["Canary Manager<br/>━━━━━<br/>Progressive rollouts<br/>Error rate monitoring<br/>Automatic promotion<br/>Statistical validation"]
+            CanaryManager[Canary Manager<br/>━━━━━<br/>Progressive rollouts<br/>Error rate monitoring<br/>Automatic promotion<br/>Statistical validation]
         end
 
-        subgraph TestingFramework["Testing & Validation"]
-            SmokeTests["Smoke Test Suite<br/>━━━━━<br/>API health checks<br/>Payment flow tests<br/>Database connectivity<br/>External service checks"]
+        subgraph TestingFramework[Testing & Validation]
+            SmokeTests[Smoke Test Suite<br/>━━━━━<br/>API health checks<br/>Payment flow tests<br/>Database connectivity<br/>External service checks]
 
-            LoadTesting["Load Testing<br/>━━━━━<br/>Performance validation<br/>Capacity testing<br/>Stress testing<br/>Chaos engineering"]
+            LoadTesting[Load Testing<br/>━━━━━<br/>Performance validation<br/>Capacity testing<br/>Stress testing<br/>Chaos engineering]
 
-            SecurityScanning["Security Scanning<br/>━━━━━<br/>SAST/DAST scanning<br/>Dependency checks<br/>Container scanning<br/>PCI compliance"]
+            SecurityScanning[Security Scanning<br/>━━━━━<br/>SAST/DAST scanning<br/>Dependency checks<br/>Container scanning<br/>PCI compliance]
         end
 
-        subgraph IncidentResponse["Incident Response System"]
-            PagerDuty["PagerDuty Integration<br/>━━━━━<br/>Alert escalation<br/>On-call rotation<br/>Incident coordination<br/>Status page updates"]
+        subgraph IncidentResponse[Incident Response System]
+            PagerDuty[PagerDuty Integration<br/>━━━━━<br/>Alert escalation<br/>On-call rotation<br/>Incident coordination<br/>Status page updates]
 
-            RunbookAutomation["Runbook Automation<br/>━━━━━<br/>Automated remediation<br/>Self-healing systems<br/>Diagnostic scripts<br/>Recovery procedures"]
+            RunbookAutomation[Runbook Automation<br/>━━━━━<br/>Automated remediation<br/>Self-healing systems<br/>Diagnostic scripts<br/>Recovery procedures]
 
-            IncidentCommander["Incident Commander<br/>━━━━━<br/>Incident coordination<br/>Communication hub<br/>Stakeholder updates<br/>Post-mortem tracking"]
+            IncidentCommander[Incident Commander<br/>━━━━━<br/>Incident coordination<br/>Communication hub<br/>Stakeholder updates<br/>Post-mortem tracking]
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        subgraph MonitoringData["Monitoring Data Store"]
-            MetricsDB["Metrics Database<br/>━━━━━<br/>InfluxDB cluster<br/>1B+ metrics/day<br/>7-day retention<br/>Real-time ingestion"]
+        subgraph MonitoringData[Monitoring Data Store]
+            MetricsDB[Metrics Database<br/>━━━━━<br/>InfluxDB cluster<br/>1B+ metrics/day<br/>7-day retention<br/>Real-time ingestion]
 
-            LogsStorage["Logs Storage<br/>━━━━━<br/>Elasticsearch cluster<br/>500GB/day logs<br/>30-day retention<br/>Full-text search"]
+            LogsStorage[Logs Storage<br/>━━━━━<br/>Elasticsearch cluster<br/>500GB/day logs<br/>30-day retention<br/>Full-text search]
 
-            TracingData["Distributed Tracing<br/>━━━━━<br/>Jaeger storage<br/>Request correlation<br/>Performance analysis<br/>Dependency mapping"]
+            TracingData[Distributed Tracing<br/>━━━━━<br/>Jaeger storage<br/>Request correlation<br/>Performance analysis<br/>Dependency mapping]
         end
 
-        subgraph ConfigurationManagement["Configuration & Secrets"]
-            ConfigStore["Configuration Store<br/>━━━━━<br/>HashiCorp Consul<br/>Feature flags<br/>Environment configs<br/>Dynamic updates"]
+        subgraph ConfigurationManagement[Configuration & Secrets]
+            ConfigStore[Configuration Store<br/>━━━━━<br/>HashiCorp Consul<br/>Feature flags<br/>Environment configs<br/>Dynamic updates]
 
-            SecretsManager["Secrets Management<br/>━━━━━<br/>AWS Secrets Manager<br/>Key rotation<br/>Access auditing<br/>Encryption at rest"]
+            SecretsManager[Secrets Management<br/>━━━━━<br/>AWS Secrets Manager<br/>Key rotation<br/>Access auditing<br/>Encryption at rest]
 
-            PolicyEngine["Policy Engine<br/>━━━━━<br/>Open Policy Agent<br/>Access control<br/>Compliance rules<br/>Audit trails"]
+            PolicyEngine[Policy Engine<br/>━━━━━<br/>Open Policy Agent<br/>Access control<br/>Compliance rules<br/>Audit trails]
         end
 
-        subgraph BackupRecovery["Backup & Recovery"]
-            BackupStorage["Backup Storage<br/>━━━━━<br/>Cross-region S3<br/>Point-in-time recovery<br/>Encrypted backups<br/>Compliance retention"]
+        subgraph BackupRecovery[Backup & Recovery]
+            BackupStorage[Backup Storage<br/>━━━━━<br/>Cross-region S3<br/>Point-in-time recovery<br/>Encrypted backups<br/>Compliance retention]
 
-            DisasterRecovery["Disaster Recovery<br/>━━━━━<br/>Multi-region failover<br/>RTO: 4 hours<br/>RPO: 15 minutes<br/>Automated testing"]
+            DisasterRecovery[Disaster Recovery<br/>━━━━━<br/>Multi-region failover<br/>RTO: 4 hours<br/>RPO: 15 minutes<br/>Automated testing]
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        subgraph ObservabilityStack["Observability Stack"]
-            DatadogAPM["Datadog APM<br/>━━━━━<br/>Application monitoring<br/>Request tracing<br/>Error tracking<br/>Performance profiling"]
+        subgraph ObservabilityStack[Observability Stack]
+            DatadogAPM[Datadog APM<br/>━━━━━<br/>Application monitoring<br/>Request tracing<br/>Error tracking<br/>Performance profiling]
 
-            PrometheusMetrics["Prometheus Metrics<br/>━━━━━<br/>Infrastructure metrics<br/>Custom metrics<br/>Alert rules<br/>Service discovery"]
+            PrometheusMetrics[Prometheus Metrics<br/>━━━━━<br/>Infrastructure metrics<br/>Custom metrics<br/>Alert rules<br/>Service discovery]
 
-            GrafanaViz["Grafana Dashboards<br/>━━━━━<br/>Visual monitoring<br/>Custom dashboards<br/>Alert notifications<br/>Team workspaces"]
+            GrafanaViz[Grafana Dashboards<br/>━━━━━<br/>Visual monitoring<br/>Custom dashboards<br/>Alert notifications<br/>Team workspaces]
         end
 
-        subgraph ComplianceAutomation["PCI Compliance Automation"]
-            VulnerabilityScanning["Vulnerability Scanner<br/>━━━━━<br/>Automated scanning<br/>CVE monitoring<br/>Risk assessment<br/>Remediation tracking"]
+        subgraph ComplianceAutomation[PCI Compliance Automation]
+            VulnerabilityScanning[Vulnerability Scanner<br/>━━━━━<br/>Automated scanning<br/>CVE monitoring<br/>Risk assessment<br/>Remediation tracking]
 
-            ComplianceReporting["Compliance Reports<br/>━━━━━<br/>PCI DSS validation<br/>SOX compliance<br/>GDPR auditing<br/>Automated evidence"]
+            ComplianceReporting[Compliance Reports<br/>━━━━━<br/>PCI DSS validation<br/>SOX compliance<br/>GDPR auditing<br/>Automated evidence]
 
-            AccessAuditing["Access Auditing<br/>━━━━━<br/>User activity logs<br/>Permission tracking<br/>Privilege escalation<br/>Compliance alerts"]
+            AccessAuditing[Access Auditing<br/>━━━━━<br/>User activity logs<br/>Permission tracking<br/>Privilege escalation<br/>Compliance alerts]
         end
 
-        subgraph CapacityManagement["Capacity Management"]
-            CapacityPlanning["Capacity Planning<br/>━━━━━<br/>Growth forecasting<br/>Resource modeling<br/>Cost optimization<br/>Performance tuning"]
+        subgraph CapacityManagement[Capacity Management]
+            CapacityPlanning[Capacity Planning<br/>━━━━━<br/>Growth forecasting<br/>Resource modeling<br/>Cost optimization<br/>Performance tuning]
 
-            AutoScaling["Auto Scaling<br/>━━━━━<br/>Predictive scaling<br/>Load-based scaling<br/>Schedule-based scaling<br/>Custom metrics"]
+            AutoScaling[Auto Scaling<br/>━━━━━<br/>Predictive scaling<br/>Load-based scaling<br/>Schedule-based scaling<br/>Custom metrics]
 
-            ResourceOptimization["Resource Optimization<br/>━━━━━<br/>Right-sizing analysis<br/>Unused resource detection<br/>Cost allocation<br/>Efficiency tracking"]
+            ResourceOptimization[Resource Optimization<br/>━━━━━<br/>Right-sizing analysis<br/>Unused resource detection<br/>Cost allocation<br/>Efficiency tracking]
         end
     end
 

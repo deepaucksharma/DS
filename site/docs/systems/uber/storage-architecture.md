@@ -6,70 +6,70 @@ This diagram shows Uber's complete storage architecture supporting 25M trips/day
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        AppCache["Client-Side Cache<br/>━━━━━<br/>Mobile app caching<br/>User preferences<br/>Offline capability<br/>5-minute TTL"]
+        AppCache[Client-Side Cache<br/>━━━━━<br/>Mobile app caching<br/>User preferences<br/>Offline capability<br/>5-minute TTL]
 
-        CDNCache["CDN Edge Cache<br/>━━━━━<br/>Static map tiles<br/>Driver photos<br/>99% hit rate<br/>24-hour TTL"]
+        CDNCache[CDN Edge Cache<br/>━━━━━<br/>Static map tiles<br/>Driver photos<br/>99% hit rate<br/>24-hour TTL]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        WriteAPI["Write API Layer<br/>━━━━━<br/>Transaction coordination<br/>Consistency guarantees<br/>Rate limiting<br/>1M writes/sec"]
+        WriteAPI[Write API Layer<br/>━━━━━<br/>Transaction coordination<br/>Consistency guarantees<br/>Rate limiting<br/>1M writes/sec]
 
-        ReadAPI["Read API Layer<br/>━━━━━<br/>Query optimization<br/>Read replicas<br/>Caching strategy<br/>5M reads/sec"]
+        ReadAPI[Read API Layer<br/>━━━━━<br/>Query optimization<br/>Read replicas<br/>Caching strategy<br/>5M reads/sec]
 
-        StreamProcessor["Stream Processor<br/>━━━━━<br/>Kafka consumers<br/>Real-time ETL<br/>50M events/sec<br/>Apache Flink"]
+        StreamProcessor[Stream Processor<br/>━━━━━<br/>Kafka consumers<br/>Real-time ETL<br/>50M events/sec<br/>Apache Flink]
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        subgraph SchemalessCluster["Schemaless (MySQL Abstraction Layer)"]
-            SchemalessWriter["Schemaless Writer<br/>━━━━━<br/>MySQL 8.0 clusters<br/>10,000+ shards<br/>ACID transactions<br/>100TB active data"]
+        subgraph SchemalessCluster[Schemaless (MySQL Abstraction Layer)]
+            SchemalessWriter[Schemaless Writer<br/>━━━━━<br/>MySQL 8.0 clusters<br/>10,000+ shards<br/>ACID transactions<br/>100TB active data]
 
-            SchemalessReader["Schemaless Readers<br/>━━━━━<br/>Read replicas<br/>Eventual consistency<br/>Lag: 50ms p99<br/>300TB total"]
+            SchemalessReader[Schemaless Readers<br/>━━━━━<br/>Read replicas<br/>Eventual consistency<br/>Lag: 50ms p99<br/>300TB total]
         end
 
-        subgraph CassandraCluster["Cassandra Geo-Distributed Cluster"]
-            CassandraUS["Cassandra US<br/>━━━━━<br/>200 nodes<br/>5PB location data<br/>RF=3, LOCAL_QUORUM<br/>Consistency: Strong"]
+        subgraph CassandraCluster[Cassandra Geo-Distributed Cluster]
+            CassandraUS[Cassandra US<br/>━━━━━<br/>200 nodes<br/>5PB location data<br/>RF=3, LOCAL_QUORUM<br/>Consistency: Strong]
 
-            CassandraEU["Cassandra EU<br/>━━━━━<br/>150 nodes<br/>3PB location data<br/>RF=3, LOCAL_QUORUM<br/>Cross-DC replication"]
+            CassandraEU[Cassandra EU<br/>━━━━━<br/>150 nodes<br/>3PB location data<br/>RF=3, LOCAL_QUORUM<br/>Cross-DC replication]
 
-            CassandraAPAC["Cassandra APAC<br/>━━━━━<br/>250 nodes<br/>8PB location data<br/>RF=3, LOCAL_QUORUM<br/>Highest volume"]
+            CassandraAPAC[Cassandra APAC<br/>━━━━━<br/>250 nodes<br/>8PB location data<br/>RF=3, LOCAL_QUORUM<br/>Highest volume]
         end
 
-        subgraph RedisCluster["Redis Distributed Cache"]
-            RedisHot["Redis Hot Cache<br/>━━━━━<br/>Active driver states<br/>100TB RAM total<br/>TTL: 30 seconds<br/>50M ops/sec"]
+        subgraph RedisCluster[Redis Distributed Cache]
+            RedisHot[Redis Hot Cache<br/>━━━━━<br/>Active driver states<br/>100TB RAM total<br/>TTL: 30 seconds<br/>50M ops/sec]
 
-            RedisSession["Redis Sessions<br/>━━━━━<br/>User sessions<br/>JWT tokens<br/>10TB memory<br/>TTL: 24 hours"]
+            RedisSession[Redis Sessions<br/>━━━━━<br/>User sessions<br/>JWT tokens<br/>10TB memory<br/>TTL: 24 hours]
         end
 
-        subgraph AnalyticsStore["Analytics & Data Lake"]
-            Hadoop["Hadoop HDFS<br/>━━━━━<br/>Historical trip data<br/>10EB storage<br/>3-year retention<br/>Parquet format"]
+        subgraph AnalyticsStore[Analytics & Data Lake]
+            Hadoop[Hadoop HDFS<br/>━━━━━<br/>Historical trip data<br/>10EB storage<br/>3-year retention<br/>Parquet format]
 
-            Hive["Hive Metastore<br/>━━━━━<br/>Query optimization<br/>Partition pruning<br/>1000+ tables<br/>Daily ETL jobs"]
+            Hive[Hive Metastore<br/>━━━━━<br/>Query optimization<br/>Partition pruning<br/>1000+ tables<br/>Daily ETL jobs]
 
-            Presto["Presto Query Engine<br/>━━━━━<br/>Interactive analytics<br/>100TB/day scanned<br/>Sub-second queries<br/>MPP processing"]
+            Presto[Presto Query Engine<br/>━━━━━<br/>Interactive analytics<br/>100TB/day scanned<br/>Sub-second queries<br/>MPP processing]
         end
 
-        subgraph Docstore["Docstore (Custom Document DB)"]
-            DocstoreUS["Docstore US<br/>━━━━━<br/>MongoDB-compatible<br/>Auto-sharding<br/>50TB documents<br/>JSON storage"]
+        subgraph Docstore[Docstore (Custom Document DB)]
+            DocstoreUS[Docstore US<br/>━━━━━<br/>MongoDB-compatible<br/>Auto-sharding<br/>50TB documents<br/>JSON storage]
 
-            DocstoreBackup["Docstore Backup<br/>━━━━━<br/>Cross-region replication<br/>Point-in-time recovery<br/>99.99% durability"]
+            DocstoreBackup[Docstore Backup<br/>━━━━━<br/>Cross-region replication<br/>Point-in-time recovery<br/>99.99% durability]
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        BackupService["Backup Orchestrator<br/>━━━━━<br/>Automated backups<br/>Cross-region replication<br/>RPO: 15 minutes<br/>RTO: 2 hours"]
+        BackupService[Backup Orchestrator<br/>━━━━━<br/>Automated backups<br/>Cross-region replication<br/>RPO: 15 minutes<br/>RTO: 2 hours]
 
-        ReplicationMonitor["Replication Monitor<br/>━━━━━<br/>Lag monitoring<br/>Consistency checks<br/>Auto-failover<br/>M3 metrics"]
+        ReplicationMonitor[Replication Monitor<br/>━━━━━<br/>Lag monitoring<br/>Consistency checks<br/>Auto-failover<br/>M3 metrics]
 
-        ShardManager["Shard Manager<br/>━━━━━<br/>Auto-sharding<br/>Rebalancing<br/>Split/merge operations<br/>Zero-downtime"]
+        ShardManager[Shard Manager<br/>━━━━━<br/>Auto-sharding<br/>Rebalancing<br/>Split/merge operations<br/>Zero-downtime]
     end
 
     %% Write Path - Strong Consistency

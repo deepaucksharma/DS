@@ -8,33 +8,33 @@ Shopify's architecture is designed to handle massive traffic spikes (100,000+ RP
 
 ```mermaid
 graph TB
-    subgraph "Global Failure Domains"
-        subgraph "Tier 1: Regional Failures #8B5CF6"
+    subgraph Global Failure Domains
+        subgraph Tier 1: Regional Failures #8B5CF6
             REGION_NA[North America<br/>Primary region<br/>60% of traffic<br/>Core infrastructure]
             REGION_EU[Europe/EMEA<br/>Secondary region<br/>25% of traffic<br/>Compliance center]
             REGION_APAC[Asia Pacific<br/>Growth region<br/>15% of traffic<br/>Expansion focus]
         end
 
-        subgraph "Tier 2: Pod Failures #F59E0B"
+        subgraph Tier 2: Pod Failures #F59E0B
             POD_A[Pod A<br/>10K merchants<br/>Dedicated resources<br/>Isolated blast radius]
             POD_B[Pod B<br/>10K merchants<br/>Dedicated resources<br/>Isolated blast radius]
             POD_PLUS[Shopify Plus Pod<br/>Enterprise merchants<br/>Premium SLA<br/>Enhanced isolation]
         end
 
-        subgraph "Tier 3: Service Failures #FFCC00"
+        subgraph Tier 3: Service Failures #FFCC00
             STOREFRONT_FAIL[Storefront Service<br/>Theme rendering<br/>Product display<br/>Customer impact]
             CHECKOUT_FAIL[Checkout Service<br/>Payment processing<br/>Order completion<br/>Revenue impact]
             ADMIN_FAIL[Admin Service<br/>Merchant tools<br/>Inventory management<br/>Operations impact]
         end
 
-        subgraph "Tier 4: Infrastructure Failures #FFFF99"
+        subgraph Tier 4: Infrastructure Failures #FFFF99
             DB_SHARD_FAIL[Database Shard<br/>Subset of merchants<br/>Data isolation<br/>Limited blast radius]
             CACHE_FAIL[Cache Cluster<br/>Performance degradation<br/>Database load increase<br/>Latency impact]
             CDN_FAIL[CDN Edge Failure<br/>Geographic impact<br/>Asset delivery<br/>Performance degradation]
         end
     end
 
-    subgraph "Cascading Failure Prevention #10B981"
+    subgraph Cascading Failure Prevention #10B981
         CIRCUIT_BREAKERS[Circuit Breakers<br/>Service protection<br/>Fail-fast behavior<br/>Graceful degradation]
         RATE_LIMITING[Rate Limiting<br/>Traffic shaping<br/>DoS protection<br/>Fair resource allocation]
         BULKHEADS[Bulkhead Isolation<br/>Resource partitioning<br/>Tenant isolation<br/>Blast radius containment]
@@ -72,7 +72,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Black Friday 2019 Flash Sale Incident"
+    subgraph Black Friday 2019 Flash Sale Incident
         FLASH_SALE[Flash Sale Launch<br/>10:00 AM EST<br/>Limited inventory<br/>High-demand product]
 
         TRAFFIC_SPIKE[Traffic Spike<br/>50x normal traffic<br/>100K+ concurrent users<br/>Single product page]
@@ -83,13 +83,13 @@ graph TB
 
         MITIGATION[Emergency Mitigation<br/>Traffic throttling<br/>Queue system activation<br/>Inventory freeze]
 
-        subgraph "Root Causes"
+        subgraph Root Causes
             DB_CONTENTION[Database Contention<br/>Row-level locking<br/>Hot partition<br/>Deadlock cascades]
             CACHE_INVALIDATION[Cache Invalidation<br/>Inventory cache miss<br/>Database overload<br/>Amplification effect]
             PAYMENT_BACKLOG[Payment Backlog<br/>Processor overload<br/>Timeout increases<br/>Retry storms]
         end
 
-        subgraph "Impact Assessment"
+        subgraph Impact Assessment
             REVENUE_LOSS[Revenue Impact<br/>$2M+ lost sales<br/>15-minute duration<br/>Customer complaints]
             MERCHANT_IMPACT[Merchant Impact<br/>500+ affected stores<br/>Reputation damage<br/>Compensation claims]
             SYSTEM_RECOVERY[Recovery Time<br/>30 minutes full recovery<br/>Queue processing<br/>Normal operations]
@@ -129,7 +129,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Database Shard Outage - March 2021"
+    subgraph Database Shard Outage - March 2021
         MAINTENANCE[Planned Maintenance<br/>MySQL version upgrade<br/>Non-peak hours<br/>Shard 42 (orders)]
 
         UPGRADE_FAILURE[Upgrade Failure<br/>Schema migration error<br/>Table corruption<br/>Rollback attempted]
@@ -140,13 +140,13 @@ graph TB
 
         RECOVERY_PLAN[Recovery Execution<br/>Emergency rollback<br/>Manual data repair<br/>Service restoration]
 
-        subgraph "Technical Details"
+        subgraph Technical Details
             SCHEMA_CORRUPTION[Schema Corruption<br/>Migration script bug<br/>Index inconsistency<br/>Data integrity issues]
             REPLICA_LAG[Replica Lag<br/>10-minute delay<br/>Read inconsistency<br/>Application confusion]
             CONNECTION_POOL[Connection Pool Exhaustion<br/>Retry amplification<br/>Circuit breaker activation<br/>Service degradation]
         end
 
-        subgraph "Resolution Metrics"
+        subgraph Resolution Metrics
             DETECTION_TIME[Detection: 3 minutes<br/>Automated alerts<br/>Customer reports<br/>Health check failures]
             RESPONSE_TIME[Response: 8 minutes<br/>War room activation<br/>Expert assembly<br/>Decision making]
             RESOLUTION_TIME[Resolution: 45 minutes<br/>Data restoration<br/>Service validation<br/>Normal operations]
@@ -188,8 +188,8 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Pod-Based Merchant Isolation"
-        subgraph "Pod Failure Scenarios"
+    subgraph Pod-Based Merchant Isolation
+        subgraph Pod Failure Scenarios
             POD_HARDWARE[Hardware Failure<br/>Server rack outage<br/>10K merchants affected<br/>1-2% total impact]
 
             POD_SOFTWARE[Software Bug<br/>Application deployment<br/>Code regression<br/>Isolated to pod]
@@ -199,7 +199,7 @@ graph TB
             POD_OVERLOAD[Traffic Overload<br/>Viral merchant<br/>Resource exhaustion<br/>Other pods unaffected]
         end
 
-        subgraph "Isolation Mechanisms"
+        subgraph Isolation Mechanisms
             RESOURCE_LIMITS[Resource Limits<br/>CPU/Memory quotas<br/>Database connections<br/>Network bandwidth]
 
             TRAFFIC_ROUTING[Traffic Routing<br/>Pod-aware load balancing<br/>Sticky sessions<br/>Graceful failover]
@@ -209,7 +209,7 @@ graph TB
             MONITORING_SEP[Monitoring Separation<br/>Pod-specific dashboards<br/>Independent alerting<br/>Isolated metrics]
         end
 
-        subgraph "Failover Procedures"
+        subgraph Failover Procedures
             POD_EVACUATION[Pod Evacuation<br/>Traffic redirection<br/>Merchant migration<br/>Graceful shutdown]
 
             EMERGENCY_SCALING[Emergency Scaling<br/>Additional pod creation<br/>Load distribution<br/>Capacity expansion]
@@ -280,20 +280,20 @@ stateDiagram-v2
 
 ```mermaid
 graph TB
-    subgraph "Service Fallback Strategies"
-        subgraph "Storefront Fallbacks"
+    subgraph Service Fallback Strategies
+        subgraph Storefront Fallbacks
             PRODUCT_CACHE[Product Cache<br/>Last known good data<br/>30-minute TTL<br/>Essential info only]
             STATIC_PAGES[Static Pages<br/>Pre-rendered HTML<br/>Basic functionality<br/>Maintenance mode]
             CDN_FALLBACK[CDN Fallback<br/>Cached assets<br/>Theme files<br/>Product images]
         end
 
-        subgraph "Checkout Fallbacks"
+        subgraph Checkout Fallbacks
             SIMPLE_CHECKOUT[Simplified Checkout<br/>Minimal steps<br/>Basic payment only<br/>Reduced features]
             PAYMENT_QUEUE[Payment Queue<br/>Asynchronous processing<br/>Delayed confirmation<br/>Retry mechanism]
             OFFLINE_MODE[Offline Mode<br/>Store and forward<br/>Manual processing<br/>Customer notification]
         end
 
-        subgraph "Admin Fallbacks"
+        subgraph Admin Fallbacks
             READ_ONLY[Read-Only Mode<br/>View-only access<br/>Essential operations<br/>Data protection]
             CRITICAL_ONLY[Critical Operations<br/>Order fulfillment<br/>Customer service<br/>Financial transactions]
             MOBILE_APP[Mobile App Fallback<br/>Essential features<br/>Simplified interface<br/>Core functionality]
@@ -335,23 +335,23 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Geographic Failure Isolation"
-        subgraph "North America (Primary)"
+    subgraph Geographic Failure Isolation
+        subgraph North America (Primary)
             NA_PRIMARY[Primary Data Center<br/>60% of traffic<br/>Core services<br/>Payment processing]
             NA_SECONDARY[Secondary DC<br/>Failover capability<br/>Read replicas<br/>Backup processing]
         end
 
-        subgraph "Europe/EMEA"
+        subgraph Europe/EMEA
             EU_DATACENTER[EU Data Center<br/>25% of traffic<br/>GDPR compliance<br/>Local processing]
             EU_BACKUP[EU Backup<br/>Data sovereignty<br/>Disaster recovery<br/>Regional failover]
         end
 
-        subgraph "Asia Pacific"
+        subgraph Asia Pacific
             APAC_DATACENTER[APAC Data Center<br/>15% of traffic<br/>Growth markets<br/>Local compliance]
             APAC_EDGE[APAC Edge<br/>CDN PoPs<br/>Content delivery<br/>Performance optimization]
         end
 
-        subgraph "Cross-Region Failover"
+        subgraph Cross-Region Failover
             GLOBAL_DNS[Global DNS<br/>Health-based routing<br/>Automatic failover<br/>Traffic direction]
             DATA_SYNC[Data Synchronization<br/>Cross-region replication<br/>Consistency management<br/>Conflict resolution]
             COMPLIANCE[Compliance Engine<br/>Data residency<br/>Regional regulations<br/>Privacy controls]
@@ -388,7 +388,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Incident Response Timeline"
+    subgraph Incident Response Timeline
         DETECTION[Incident Detection<br/>Automated monitoring<br/>Customer reports<br/>Partner alerts]
 
         SEVERITY[Severity Assessment<br/>Impact evaluation<br/>Merchant count<br/>Revenue impact]
@@ -419,7 +419,7 @@ graph TB
     INVESTIGATION -.->|Continuous| COMMUNICATION
     MITIGATION -.->|Updates| COMMUNICATION
 
-    subgraph "Response Time SLAs"
+    subgraph Response Time SLAs
         P0_SLA[P0 (Critical)<br/>Detection: 1 min<br/>Response: 5 min<br/>Mitigation: 15 min]
 
         P1_SLA[P1 (High)<br/>Detection: 5 min<br/>Response: 15 min<br/>Mitigation: 60 min]
@@ -445,7 +445,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Black Friday Failure Preparation"
+    subgraph Black Friday Failure Preparation
         CAPACITY_PLANNING[Capacity Planning<br/>10x traffic capacity<br/>Database scaling<br/>Payment processor prep]
 
         LOAD_TESTING[Load Testing<br/>Synthetic traffic<br/>Failure scenarios<br/>Breaking point analysis]
@@ -466,7 +466,7 @@ graph TB
     PAYMENT_REDUNDANCY --> MONITORING_ENHANCED
     MONITORING_ENHANCED --> ROLLBACK_PLANS
 
-    subgraph "Success Metrics 2023"
+    subgraph Success Metrics 2023
         UPTIME_BF[Uptime: 99.99%<br/>4 minutes downtime<br/>Planned maintenance<br/>Zero customer impact]
 
         PERFORMANCE_BF[Performance: 150ms p95<br/>Maintained during peak<br/>Queue system effective<br/>Payment success: 99.7%]

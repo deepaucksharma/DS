@@ -48,33 +48,33 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Physical Infrastructure Layer"
+    subgraph Physical Infrastructure Layer
         POWER[Primary Power Grid<br/>Utility Connection]
         UPS[UPS Systems<br/>Backup Power]
         COOLING[Cooling System<br/>HVAC Units<br/>PRIMARY FAILURE]
         GENERATOR[Backup Generators<br/>Emergency Power]
     end
 
-    subgraph "Edge Plane - Blue #3B82F6"
+    subgraph Edge Plane - Blue #3B82F6
         LB[Oracle Load Balancer<br/>Traffic Distribution]
         CDN[Oracle CDN<br/>Content Delivery]
         DNS[Oracle DNS Service<br/>Domain Resolution]
     end
 
-    subgraph "Service Plane - Green #10B981"
+    subgraph Service Plane - Green #10B981
         COMPUTE[OCI Compute<br/>Virtual Machines]
         CONTAINER[Container Engine<br/>Kubernetes Service]
         FUNCTIONS[Oracle Functions<br/>Serverless Compute]
     end
 
-    subgraph "State Plane - Orange #F59E0B"
+    subgraph State Plane - Orange #F59E0B
         AUTONOMOUS[(Autonomous Database<br/>Oracle's Flagship)]
         OBJECT[(Object Storage<br/>Blob Storage)]
         BLOCK[(Block Storage<br/>Persistent Volumes)]
         MYSQL[(MySQL Database<br/>Managed Service)]
     end
 
-    subgraph "Control Plane - Red #8B5CF6"
+    subgraph Control Plane - Red #8B5CF6
         CONSOLE[OCI Console<br/>Management Interface]
         API[OCI REST API<br/>Control Interface]
         MONITOR[OCI Monitoring<br/>Observability Stack]
@@ -157,7 +157,7 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph "Emergency Response Timeline"
+    subgraph Emergency Response Timeline
         A[08:23 AM<br/>Temperature >85°C<br/>First server shutdowns]
         B[08:30 AM<br/>Multiple racks offline<br/>Thermal protection triggered]
         C[08:37 AM<br/>Storage arrays shutdown<br/>Data protection mode]
@@ -387,7 +387,7 @@ oci db autonomous-database list --compartment-id <OCID>
 
 ```mermaid
 graph TB
-    subgraph "NEW: N+3 Cooling Architecture"
+    subgraph NEW: N+3 Cooling Architecture
         COOL1[Primary Cooling Zone<br/>Full capacity]
         COOL2[Secondary Cooling Zone<br/>Full capacity]
         COOL3[Tertiary Cooling Zone<br/>Full capacity]
@@ -395,13 +395,13 @@ graph TB
         COOL5[Backup Cooling<br/>Liquid immersion]
     end
 
-    subgraph "NEW: Predictive Monitoring"
+    subgraph NEW: Predictive Monitoring
         PREDICT[AI Temperature Prediction<br/>30-minute forecast]
         AUTO[Automated Workload Migration<br/>Heat-based scheduling]
         ALERT[Multi-channel Alerting<br/>Physical team dispatch]
     end
 
-    subgraph "NEW: Graceful Degradation"
+    subgraph NEW: Graceful Degradation
         MIGRATE[Workload Migration<br/>Temperature-triggered]
         THROTTLE[Dynamic Throttling<br/>Performance vs temperature]
         SHUTDOWN[Staged Shutdown<br/>Data preservation priority]

@@ -6,54 +6,54 @@ This diagram represents Uber's actual production architecture serving 25+ millio
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        CDN["Global CDN<br/>━━━━━<br/>3,000+ Edge Servers<br/>70+ Countries<br/>50Tbps Peak Bandwidth<br/>Cost: $25M/month"]
+        CDN[Global CDN<br/>━━━━━<br/>3,000+ Edge Servers<br/>70+ Countries<br/>50Tbps Peak Bandwidth<br/>Cost: $25M/month]
 
-        LB["HAProxy Load Balancers<br/>━━━━━<br/>2M req/sec peak<br/>500K concurrent connections<br/>p99: 5ms<br/>c5n.18xlarge fleet"]
+        LB[HAProxy Load Balancers<br/>━━━━━<br/>2M req/sec peak<br/>500K concurrent connections<br/>p99: 5ms<br/>c5n.18xlarge fleet]
 
-        Gateway["API Gateway<br/>━━━━━<br/>Go-based<br/>1.5M req/sec<br/>Circuit Breaking<br/>Rate Limiting"]
+        Gateway[API Gateway<br/>━━━━━<br/>Go-based<br/>1.5M req/sec<br/>Circuit Breaking<br/>Rate Limiting]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        Matching["DISCO Matching Engine<br/>━━━━━<br/>200K matches/sec<br/>H3 Spatial Indexing<br/>Go microservice<br/>c5.24xlarge fleet<br/>Cost: $15M/month"]
+        Matching[DISCO Matching Engine<br/>━━━━━<br/>200K matches/sec<br/>H3 Spatial Indexing<br/>Go microservice<br/>c5.24xlarge fleet<br/>Cost: $15M/month]
 
-        Supply["Supply Service<br/>━━━━━<br/>5M driver locations/min<br/>Real-time positioning<br/>Java Spring Boot<br/>r5.12xlarge"]
+        Supply[Supply Service<br/>━━━━━<br/>5M driver locations/min<br/>Real-time positioning<br/>Java Spring Boot<br/>r5.12xlarge]
 
-        Demand["Demand Service<br/>━━━━━<br/>1M ride requests/min<br/>ETA calculations<br/>Python/Go hybrid<br/>c5.9xlarge"]
+        Demand[Demand Service<br/>━━━━━<br/>1M ride requests/min<br/>ETA calculations<br/>Python/Go hybrid<br/>c5.9xlarge]
 
-        Pricing["Surge Pricing Engine<br/>━━━━━<br/>Dynamic pricing<br/>ML-driven algorithms<br/>500K calculations/sec<br/>r5.24xlarge"]
+        Pricing[Surge Pricing Engine<br/>━━━━━<br/>Dynamic pricing<br/>ML-driven algorithms<br/>500K calculations/sec<br/>r5.24xlarge]
 
-        Maps["Maps & Routing<br/>━━━━━<br/>Gauss ETA Service<br/>100M route calculations/day<br/>C++ optimization engine<br/>c5n.24xlarge"]
+        Maps[Maps & Routing<br/>━━━━━<br/>Gauss ETA Service<br/>100M route calculations/day<br/>C++ optimization engine<br/>c5n.24xlarge]
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        Schemaless["Schemaless (MySQL)<br/>━━━━━<br/>10,000+ shards<br/>100TB+ active data<br/>MySQL 8.0 clusters<br/>db.r6gd.16xlarge<br/>Cost: $30M/month"]
+        Schemaless[Schemaless (MySQL)<br/>━━━━━<br/>10,000+ shards<br/>100TB+ active data<br/>MySQL 8.0 clusters<br/>db.r6gd.16xlarge<br/>Cost: $30M/month]
 
-        Cassandra["Location Store<br/>━━━━━<br/>Cassandra clusters<br/>500+ nodes<br/>20PB geo data<br/>i3en.24xlarge<br/>Cost: $12M/month"]
+        Cassandra[Location Store<br/>━━━━━<br/>Cassandra clusters<br/>500+ nodes<br/>20PB geo data<br/>i3en.24xlarge<br/>Cost: $12M/month]
 
-        Redis["Redis Clusters<br/>━━━━━<br/>Hot cache layer<br/>100TB RAM total<br/>Driver states<br/>r6gd.16xlarge<br/>Cost: $8M/month"]
+        Redis[Redis Clusters<br/>━━━━━<br/>Hot cache layer<br/>100TB RAM total<br/>Driver states<br/>r6gd.16xlarge<br/>Cost: $8M/month]
 
-        Kafka["Kafka Infrastructure<br/>━━━━━<br/>50M events/sec<br/>500+ topics<br/>90-day retention<br/>i3en.12xlarge"]
+        Kafka[Kafka Infrastructure<br/>━━━━━<br/>50M events/sec<br/>500+ topics<br/>90-day retention<br/>i3en.12xlarge]
 
-        Analytics["Analytics Store<br/>━━━━━<br/>Hadoop/Hive/Spark<br/>10EB historical data<br/>Presto queries<br/>i3en.24xlarge fleet"]
+        Analytics[Analytics Store<br/>━━━━━<br/>Hadoop/Hive/Spark<br/>10EB historical data<br/>Presto queries<br/>i3en.24xlarge fleet]
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        uDeploy["uDeploy<br/>━━━━━<br/>10K deployments/week<br/>Cell-based rollouts<br/>Go-based orchestration"]
+        uDeploy[uDeploy<br/>━━━━━<br/>10K deployments/week<br/>Cell-based rollouts<br/>Go-based orchestration]
 
-        M3["M3 Metrics Platform<br/>━━━━━<br/>10M metrics/sec<br/>Real-time monitoring<br/>Time series DB<br/>m5.24xlarge fleet"]
+        M3[M3 Metrics Platform<br/>━━━━━<br/>10M metrics/sec<br/>Real-time monitoring<br/>Time series DB<br/>m5.24xlarge fleet]
 
-        Cadence["Cadence Workflows<br/>━━━━━<br/>100K workflows/min<br/>Distributed orchestration<br/>Go-based engine<br/>c5.12xlarge"]
+        Cadence[Cadence Workflows<br/>━━━━━<br/>100K workflows/min<br/>Distributed orchestration<br/>Go-based engine<br/>c5.12xlarge]
 
-        ObsStack["Observability Stack<br/>━━━━━<br/>Jaeger tracing<br/>1B spans/day<br/>Alert routing<br/>ELK stack"]
+        ObsStack[Observability Stack<br/>━━━━━<br/>Jaeger tracing<br/>1B spans/day<br/>Alert routing<br/>ELK stack]
     end
 
     %% Connections with real metrics

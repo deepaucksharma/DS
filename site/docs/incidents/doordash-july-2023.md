@@ -18,14 +18,14 @@
 
 ```mermaid
 graph TB
-    subgraph "DoorDash Platform"
+    subgraph DoorDash Platform
         ORDERS[Order Management<br/>Customer Orders]
         DRIVERS[Driver App<br/>Delivery Management]
         TRACKING[Location Tracking<br/>GPS Service<br/>FAILED]
         ROUTING[Route Optimization<br/>Delivery Planning]
     end
 
-    subgraph "Location Infrastructure"
+    subgraph Location Infrastructure
         GPS[GPS Service<br/>Location Data<br/>PRIMARY FAILURE]
         MAPS[Mapping Service<br/>Route Calculation]
         GEOFENCE[Geofencing<br/>Delivery Zones]

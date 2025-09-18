@@ -664,21 +664,21 @@ Uber_RabbitMQ_Architecture:
 
 ```mermaid
 graph TB
-    subgraph "LinkedIn Kafka Architecture - 7 Trillion Messages/Day"
-        subgraph EdgePlane["Edge Plane"]
+    subgraph LinkedIn Kafka Architecture - 7 Trillion Messages/Day
+        subgraph EdgePlane[Edge Plane]
             API[LinkedIn API<br/>REST + GraphQL<br/>2M QPS peak]
             MOBILE[Mobile Apps<br/>300M+ users<br/>Real-time updates]
         end
 
-        subgraph ServicePlane["Service Plane"]
+        subgraph ServicePlane[Service Plane]
             PRODUCER1[Profile Service<br/>Kafka Producer<br/>50K msgs/sec]
             PRODUCER2[Feed Service<br/>Kafka Producer<br/>200K msgs/sec]
             PRODUCER3[Messaging Service<br/>Kafka Producer<br/>100K msgs/sec]
             PRODUCER4[Activity Service<br/>Kafka Producer<br/>300K msgs/sec]
         end
 
-        subgraph StatePlane["State Plane"]
-            subgraph "Kafka Cluster 1 (Activity Streams)"
+        subgraph StatePlane[State Plane]
+            subgraph Kafka Cluster 1 (Activity Streams)
                 KAFKA1[Kafka Broker 1<br/>r5d.4xlarge<br/>16 cores, 128GB]
                 KAFKA2[Kafka Broker 2<br/>r5d.4xlarge<br/>16 cores, 128GB]
                 KAFKA3[Kafka Broker 3<br/>r5d.4xlarge<br/>16 cores, 128GB]
@@ -686,7 +686,7 @@ graph TB
                 KAFKA5[Kafka Broker 5<br/>r5d.4xlarge<br/>16 cores, 128GB]
             end
 
-            subgraph "Kafka Cluster 2 (Real-time Analytics)"
+            subgraph Kafka Cluster 2 (Real-time Analytics)
                 KAFKA6[Kafka Broker 6<br/>i3.2xlarge<br/>8 cores, 64GB]
                 KAFKA7[Kafka Broker 7<br/>i3.2xlarge<br/>8 cores, 64GB]
                 KAFKA8[Kafka Broker 8<br/>i3.2xlarge<br/>8 cores, 64GB]
@@ -695,13 +695,13 @@ graph TB
             ZK[ZooKeeper Ensemble<br/>5 nodes<br/>m5.large]
         end
 
-        subgraph ControlPlane["Control Plane"]
+        subgraph ControlPlane[Control Plane]
             SCHEMA[Schema Registry<br/>Avro schemas<br/>Version management]
             CONNECT[Kafka Connect<br/>ETL pipelines<br/>50+ connectors]
             MONITOR[Kafka Manager<br/>Cluster monitoring<br/>JMX metrics]
         end
 
-        subgraph "Consumers"
+        subgraph Consumers
             SEARCH[Search Indexing<br/>1000 partitions<br/>100 consumers]
             RECS[Recommendations<br/>500 partitions<br/>200 consumers]
             ANALYTICS[Real-time Analytics<br/>2000 partitions<br/>500 consumers]

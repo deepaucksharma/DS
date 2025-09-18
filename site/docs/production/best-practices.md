@@ -8,26 +8,26 @@ Every production system will fail. Design for graceful degradation from day one.
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - CDN & Load Balancers"]
-        CDN["CDN<br/>p99: 15ms"]
-        LB["Load Balancer<br/>99.99% uptime"]
+    subgraph EdgePlane[Edge Plane - CDN & Load Balancers]
+        CDN[CDN<br/>p99: 15ms]
+        LB[Load Balancer<br/>99.99% uptime]
     end
 
-    subgraph ServicePlane["Service Plane - Business Logic"]
-        API["API Gateway<br/>Circuit Breaker: 5s timeout"]
-        MS1["Recommendation Service<br/>Fallback: Popular Items"]
-        MS2["Catalog Service<br/>Cache Hit: 95%"]
+    subgraph ServicePlane[Service Plane - Business Logic]
+        API[API Gateway<br/>Circuit Breaker: 5s timeout]
+        MS1[Recommendation Service<br/>Fallback: Popular Items]
+        MS2[Catalog Service<br/>Cache Hit: 95%]
     end
 
-    subgraph StatePlane["State Plane - Data & Cache"]
+    subgraph StatePlane[State Plane - Data & Cache]
         CACHE[("Redis Cache<br/>TTL: 300s")]
         DB[("Primary DB<br/>p99: 10ms")]
         REPLICA[("Read Replica<br/>Lag: <100ms")]
     end
 
-    subgraph ControlPlane["Control Plane - Monitoring"]
-        MON["Prometheus<br/>Scrape: 15s"]
-        ALERT["AlertManager<br/>MTTR: 2min"]
+    subgraph ControlPlane[Control Plane - Monitoring]
+        MON[Prometheus<br/>Scrape: 15s]
+        ALERT[AlertManager<br/>MTTR: 2min]
     end
 
     CDN --> LB
@@ -70,24 +70,24 @@ Choose the weakest consistency model that satisfies business requirements.
 
 ```mermaid
 flowchart TD
-    subgraph EdgePlane["Edge Plane - User Interface"]
-        WEB["Web Client"]
-        MOBILE["Mobile App"]
+    subgraph EdgePlane[Edge Plane - User Interface]
+        WEB[Web Client]
+        MOBILE[Mobile App]
     end
 
-    subgraph ServicePlane["Service Plane - Business Logic"]
-        SOCIAL["Social Service<br/>Eventual Consistency<br/>p99: 50ms"]
-        BANK["Payment Service<br/>Strong Consistency<br/>p99: 200ms"]
+    subgraph ServicePlane[Service Plane - Business Logic]
+        SOCIAL[Social Service<br/>Eventual Consistency<br/>p99: 50ms]
+        BANK[Payment Service<br/>Strong Consistency<br/>p99: 200ms]
     end
 
-    subgraph StatePlane["State Plane - Data Storage"]
+    subgraph StatePlane[State Plane - Data Storage]
         FEED_DB[("Feed DB<br/>Write: Async<br/>Cost: $50/month")]
-        EVENT_STREAM["Kafka<br/>Lag: <10ms<br/>Throughput: 100K/sec"]
+        EVENT_STREAM[Kafka<br/>Lag: <10ms<br/>Throughput: 100K/sec]
         PAYMENT_DB[("Payment DB<br/>ACID Transactions<br/>Cost: $500/month")]
     end
 
-    subgraph ControlPlane["Control Plane - Monitoring"]
-        METRICS["Consistency Lag Monitor<br/>Alert: >1s lag"]
+    subgraph ControlPlane[Control Plane - Monitoring]
+        METRICS[Consistency Lag Monitor<br/>Alert: >1s lag]
     end
 
     WEB --> SOCIAL
@@ -126,18 +126,18 @@ Stateless services enable horizontal scaling and zero-downtime deployments.
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Traffic Distribution"]
-        ALB["Application Load Balancer<br/>Session Affinity: None<br/>Health Check: /health"]
+    subgraph EdgePlane[Edge Plane - Traffic Distribution]
+        ALB[Application Load Balancer<br/>Session Affinity: None<br/>Health Check: /health]
     end
 
-    subgraph ServicePlane["Service Plane - Compute"]
-        SVC1["Service Instance 1<br/>Memory: 2GB<br/>CPU: 1 vCPU"]
-        SVC2["Service Instance 2<br/>Memory: 2GB<br/>CPU: 1 vCPU"]
-        SVC3["Service Instance 3<br/>Memory: 2GB<br/>CPU: 1 vCPU"]
-        ASG["Auto Scaling Group<br/>Min: 3, Max: 20<br/>Scale Metric: CPU > 70%"]
+    subgraph ServicePlane[Service Plane - Compute]
+        SVC1[Service Instance 1<br/>Memory: 2GB<br/>CPU: 1 vCPU]
+        SVC2[Service Instance 2<br/>Memory: 2GB<br/>CPU: 1 vCPU]
+        SVC3[Service Instance 3<br/>Memory: 2GB<br/>CPU: 1 vCPU]
+        ASG[Auto Scaling Group<br/>Min: 3, Max: 20<br/>Scale Metric: CPU > 70%]
     end
 
-    subgraph StatePlane["State Plane - External State"]
+    subgraph StatePlane[State Plane - External State]
         REDIS[("Session Store<br/>Redis Cluster<br/>TTL: 30min")]
         DB[("Database<br/>Connection Pool: 20<br/>p99: 10ms")]
         S3[("File Storage<br/>S3 Bucket<br/>11 9s durability")]
@@ -185,24 +185,24 @@ Golden Signals monitoring with actionable alerts and automated response.
 
 ```mermaid
 flowchart TD
-    subgraph EdgePlane["Edge Plane - Data Collection"]
-        AGENTS["Monitoring Agents<br/>Collection Rate: 15s<br/>Overhead: <1% CPU"]
+    subgraph EdgePlane[Edge Plane - Data Collection]
+        AGENTS[Monitoring Agents<br/>Collection Rate: 15s<br/>Overhead: <1% CPU]
     end
 
-    subgraph ServicePlane["Service Plane - Applications"]
-        APP1["Service A<br/>RPS: 10,000<br/>p99: 50ms"]
-        APP2["Service B<br/>RPS: 5,000<br/>p99: 100ms"]
+    subgraph ServicePlane[Service Plane - Applications]
+        APP1[Service A<br/>RPS: 10,000<br/>p99: 50ms]
+        APP2[Service B<br/>RPS: 5,000<br/>p99: 100ms]
     end
 
-    subgraph StatePlane["State Plane - Metrics Storage"]
+    subgraph StatePlane[State Plane - Metrics Storage]
         PROM[("Prometheus<br/>Retention: 30 days<br/>Storage: 100GB")]
-        GRAFANA["Grafana<br/>Dashboards: 50<br/>Users: 200"]
+        GRAFANA[Grafana<br/>Dashboards: 50<br/>Users: 200]
     end
 
-    subgraph ControlPlane["Control Plane - Alerting"]
-        ALERTS["AlertManager<br/>MTTR: 2 min<br/>False Positive Rate: <1%"]
-        PAGER["PagerDuty<br/>Escalation: 5→15→30 min<br/>Ack Rate: 95%"]
-        RUNBOOK["Runbook Automation<br/>Auto-remediation: 60%<br/>Success Rate: 85%"]
+    subgraph ControlPlane[Control Plane - Alerting]
+        ALERTS[AlertManager<br/>MTTR: 2 min<br/>False Positive Rate: <1%]
+        PAGER[PagerDuty<br/>Escalation: 5→15→30 min<br/>Ack Rate: 95%]
+        RUNBOOK[Runbook Automation<br/>Auto-remediation: 60%<br/>Success Rate: 85%]
     end
 
     APP1 --> AGENTS
@@ -242,25 +242,25 @@ Blue-green deployments with automated rollback and progressive feature rollout.
 
 ```mermaid
 flowchart LR
-    subgraph EdgePlane["Edge Plane - Traffic Control"]
-        LB["Load Balancer<br/>Traffic Split: 100/0<br/>Health Check: 30s"]
+    subgraph EdgePlane[Edge Plane - Traffic Control]
+        LB[Load Balancer<br/>Traffic Split: 100/0<br/>Health Check: 30s]
     end
 
-    subgraph ServicePlane["Service Plane - Environment Management"]
-        BLUE["Blue Environment<br/>Version: v1.2.3<br/>Health: ✓"]
-        GREEN["Green Environment<br/>Version: v1.2.4<br/>Health: Testing"]
-        FLAGS["Feature Flags<br/>Rollout: 0→1→5→25→100%<br/>Rollback: <30s"]
+    subgraph ServicePlane[Service Plane - Environment Management]
+        BLUE[Blue Environment<br/>Version: v1.2.3<br/>Health: ✓]
+        GREEN[Green Environment<br/>Version: v1.2.4<br/>Health: Testing]
+        FLAGS[Feature Flags<br/>Rollout: 0→1→5→25→100%<br/>Rollback: <30s]
     end
 
-    subgraph StatePlane["State Plane - Shared Resources"]
+    subgraph StatePlane[State Plane - Shared Resources]
         DB[("Shared Database<br/>Migration: Compatible<br/>Rollback: Safe")]
         CACHE[("Shared Cache<br/>Key Versioning<br/>TTL: 5min")]
     end
 
-    subgraph ControlPlane["Control Plane - Automation"]
-        CI["CI/CD Pipeline<br/>Tests: 95% Pass<br/>Duration: 12min"]
-        SMOKE["Smoke Tests<br/>Critical Paths: 20<br/>Success: 100%"]
-        MONITOR["Regression Detection<br/>SLO Breach: Auto-rollback<br/>MTTR: 3min"]
+    subgraph ControlPlane[Control Plane - Automation]
+        CI[CI/CD Pipeline<br/>Tests: 95% Pass<br/>Duration: 12min]
+        SMOKE[Smoke Tests<br/>Critical Paths: 20<br/>Success: 100%]
+        MONITOR[Regression Detection<br/>SLO Breach: Auto-rollback<br/>MTTR: 3min]
     end
 
     LB --> BLUE
@@ -304,27 +304,27 @@ Structured response process with automated triage and escalation paths.
 
 ```mermaid
 flowchart TD
-    subgraph EdgePlane["Edge Plane - Detection"]
-        ALERT["Alert Fires<br/>Detection: <2min<br/>False Positive: <1%"]
-        TRIAGE["Auto Triage<br/>Severity Classification<br/>Runbook Selection"]
+    subgraph EdgePlane[Edge Plane - Detection]
+        ALERT[Alert Fires<br/>Detection: <2min<br/>False Positive: <1%]
+        TRIAGE[Auto Triage<br/>Severity Classification<br/>Runbook Selection]
     end
 
-    subgraph ServicePlane["Service Plane - Response Team"]
-        ONCALL["On-Call Engineer<br/>Ack Time: <5min<br/>Resolution Rate: 80%"]
-        SENIOR["Senior Engineer<br/>Escalation: +15min<br/>Complex Issues"]
-        INCIDENT["Incident Commander<br/>Major Incidents<br/>Communication"]
+    subgraph ServicePlane[Service Plane - Response Team]
+        ONCALL[On-Call Engineer<br/>Ack Time: <5min<br/>Resolution Rate: 80%]
+        SENIOR[Senior Engineer<br/>Escalation: +15min<br/>Complex Issues]
+        INCIDENT[Incident Commander<br/>Major Incidents<br/>Communication]
     end
 
-    subgraph StatePlane["State Plane - Information Systems"]
+    subgraph StatePlane[State Plane - Information Systems]
         LOGS[("Log Aggregation<br/>Retention: 90 days<br/>Search: <1s")]
         METRICS[("Metrics Store<br/>Resolution: 15s<br/>History: 1 year")]
         RUNBOOK[("Runbook Database<br/>Procedures: 150<br/>Success Rate: 85%")]
     end
 
-    subgraph ControlPlane["Control Plane - Automation"]
-        AUTO["Auto-remediation<br/>Success Rate: 60%<br/>Safe Actions Only"]
-        COMM["Status Page<br/>Update: Auto<br/>Customer Notification"]
-        POST["Post-mortem<br/>Template: Standard<br/>Follow-up: 100%"]
+    subgraph ControlPlane[Control Plane - Automation]
+        AUTO[Auto-remediation<br/>Success Rate: 60%<br/>Safe Actions Only]
+        COMM[Status Page<br/>Update: Auto<br/>Customer Notification]
+        POST[Post-mortem<br/>Template: Standard<br/>Follow-up: 100%]
     end
 
     ALERT --> TRIAGE
@@ -366,23 +366,23 @@ Multi-layer caching with intelligent invalidation and cost optimization.
 
 ```mermaid
 flowchart TB
-    subgraph EdgePlane["Edge Plane - CDN Layer"]
-        CDN["CloudFlare CDN<br/>Hit Rate: 95%<br/>TTL: 1 hour<br/>Cost: $200/month"]
+    subgraph EdgePlane[Edge Plane - CDN Layer]
+        CDN[CloudFlare CDN<br/>Hit Rate: 95%<br/>TTL: 1 hour<br/>Cost: $200/month]
     end
 
-    subgraph ServicePlane["Service Plane - Application Cache"]
-        L1["L1 Cache (In-Memory)<br/>Hit Rate: 80%<br/>TTL: 5 min<br/>Size: 1GB per instance"]
-        APP["Application Servers<br/>Cache Lookups: 10,000/sec<br/>p99: 1ms"]
+    subgraph ServicePlane[Service Plane - Application Cache]
+        L1[L1 Cache (In-Memory)<br/>Hit Rate: 80%<br/>TTL: 5 min<br/>Size: 1GB per instance]
+        APP[Application Servers<br/>Cache Lookups: 10,000/sec<br/>p99: 1ms]
     end
 
-    subgraph StatePlane["State Plane - Distributed Cache"]
+    subgraph StatePlane[State Plane - Distributed Cache]
         L2[("L2 Cache (Redis)<br/>Hit Rate: 60%<br/>TTL: 30 min<br/>Cost: $500/month")]
         DB[("Primary Database<br/>Queries: 1,000/sec<br/>p99: 15ms<br/>Cost: $2,000/month")]
     end
 
-    subgraph ControlPlane["Control Plane - Cache Management"]
-        INVALID["Cache Invalidation<br/>Events: 500/sec<br/>Propagation: <100ms"]
-        MONITOR["Cache Metrics<br/>Miss Rate Alerts<br/>Performance Tracking"]
+    subgraph ControlPlane[Control Plane - Cache Management]
+        INVALID[Cache Invalidation<br/>Events: 500/sec<br/>Propagation: <100ms]
+        MONITOR[Cache Metrics<br/>Miss Rate Alerts<br/>Performance Tracking]
     end
 
     CDN --> APP

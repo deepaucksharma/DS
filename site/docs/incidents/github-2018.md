@@ -17,68 +17,68 @@
 
 ```mermaid
 graph TB
-    subgraph Detection["T+0: Detection Phase - 16:27 UTC"]
+    subgraph Detection[T+0: Detection Phase - 16:27 UTC]
         style Detection fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
-        Start["16:27:00<br/>━━━━━<br/>Routine Maintenance<br/>Network configuration<br/>East Coast data center<br/>43-second partition"]
+        Start[16:27:00<br/>━━━━━<br/>Routine Maintenance<br/>Network configuration<br/>East Coast data center<br/>43-second partition]
 
-        Alert1["16:27:43<br/>━━━━━<br/>MySQL Failover<br/>Primary DB unreachable<br/>Orchestrator triggers<br/>automatic failover"]
+        Alert1[16:27:43<br/>━━━━━<br/>MySQL Failover<br/>Primary DB unreachable<br/>Orchestrator triggers<br/>automatic failover]
 
-        Alert2["16:28:15<br/>━━━━━<br/>Split-Brain Detected<br/>Two MySQL primaries<br/>East: still serving writes<br/>West: promoted replica"]
+        Alert2[16:28:15<br/>━━━━━<br/>Split-Brain Detected<br/>Two MySQL primaries<br/>East: still serving writes<br/>West: promoted replica]
     end
 
-    subgraph Diagnosis["T+1hr: Diagnosis Phase"]
+    subgraph Diagnosis[T+1hr: Diagnosis Phase]
         style Diagnosis fill:#FFF5E5,stroke:#F59E0B,color:#000
 
-        Incident["17:30:00<br/>━━━━━<br/>Major Incident<br/>SEV-1 declared<br/>Database inconsistency<br/>User-facing impact"]
+        Incident[17:30:00<br/>━━━━━<br/>Major Incident<br/>SEV-1 declared<br/>Database inconsistency<br/>User-facing impact]
 
-        RootCause["18:45:00<br/>━━━━━<br/>Root Cause Analysis<br/>Network partition caused<br/>MySQL split-brain<br/>Data written to both primaries"]
+        RootCause[18:45:00<br/>━━━━━<br/>Root Cause Analysis<br/>Network partition caused<br/>MySQL split-brain<br/>Data written to both primaries]
 
-        DataAnalysis["20:15:00<br/>━━━━━<br/>Data Consistency Check<br/>Identified affected records<br/>~6 hours of dual writes<br/>User data divergence"]
+        DataAnalysis[20:15:00<br/>━━━━━<br/>Data Consistency Check<br/>Identified affected records<br/>~6 hours of dual writes<br/>User data divergence]
     end
 
-    subgraph Mitigation["T+8hr: Mitigation Phase"]
+    subgraph Mitigation[T+8hr: Mitigation Phase]
         style Mitigation fill:#FFFFE5,stroke:#CCCC00,color:#000
 
-        ReadOnly["00:30:00<br/>━━━━━<br/>Read-Only Mode<br/>Platform in maintenance<br/>Stop all write operations<br/>Prevent further divergence"]
+        ReadOnly[00:30:00<br/>━━━━━<br/>Read-Only Mode<br/>Platform in maintenance<br/>Stop all write operations<br/>Prevent further divergence]
 
-        DataMerge["02:00:00<br/>━━━━━<br/>Data Reconciliation<br/>Manual merge process<br/>Conflict resolution<br/>Priority: user data"]
+        DataMerge[02:00:00<br/>━━━━━<br/>Data Reconciliation<br/>Manual merge process<br/>Conflict resolution<br/>Priority: user data]
 
-        Validation["08:00:00<br/>━━━━━<br/>Data Validation<br/>Integrity checks running<br/>User acceptance testing<br/>Incremental verification"]
+        Validation[08:00:00<br/>━━━━━<br/>Data Validation<br/>Integrity checks running<br/>User acceptance testing<br/>Incremental verification]
     end
 
-    subgraph Recovery["T+20hr: Recovery Phase"]
+    subgraph Recovery[T+20hr: Recovery Phase]
         style Recovery fill:#E5FFE5,stroke:#10B981,color:#000
 
-        PartialRestore["12:00:00<br/>━━━━━<br/>Partial Service<br/>Read operations enabled<br/>Git clone/pull working<br/>Web UI read-only"]
+        PartialRestore[12:00:00<br/>━━━━━<br/>Partial Service<br/>Read operations enabled<br/>Git clone/pull working<br/>Web UI read-only]
 
-        FullRestore["15:30:00<br/>━━━━━<br/>Write Operations<br/>Git push enabled<br/>Issue creation working<br/>API writes restored"]
+        FullRestore[15:30:00<br/>━━━━━<br/>Write Operations<br/>Git push enabled<br/>Issue creation working<br/>API writes restored]
 
-        Complete["16:38:00<br/>━━━━━<br/>Full Recovery<br/>All services operational<br/>Webhook backlog processing<br/>Incident closed"]
+        Complete[16:38:00<br/>━━━━━<br/>Full Recovery<br/>All services operational<br/>Webhook backlog processing<br/>Incident closed]
     end
 
     %% Database Architecture During Incident
-    subgraph Database["MySQL Split-Brain Architecture"]
+    subgraph Database[MySQL Split-Brain Architecture]
         style Database fill:#F0F0F0,stroke:#666666,color:#000
 
-        EastPrimary["East Primary<br/>━━━━━<br/>🔄 Still accepting writes<br/>Users: 40% of traffic<br/>Data: Set A (6hrs)"]
+        EastPrimary[East Primary<br/>━━━━━<br/>🔄 Still accepting writes<br/>Users: 40% of traffic<br/>Data: Set A (6hrs)]
 
-        WestPrimary["West Primary<br/>━━━━━<br/>🔄 Promoted replica<br/>Users: 60% of traffic<br/>Data: Set B (6hrs)"]
+        WestPrimary[West Primary<br/>━━━━━<br/>🔄 Promoted replica<br/>Users: 60% of traffic<br/>Data: Set B (6hrs)]
 
-        DataConflict["Data Conflicts<br/>━━━━━<br/>⚠️ Repository pushes<br/>⚠️ Issue comments<br/>⚠️ User profiles<br/>⚠️ Webhook events"]
+        DataConflict[Data Conflicts<br/>━━━━━<br/>⚠️ Repository pushes<br/>⚠️ Issue comments<br/>⚠️ User profiles<br/>⚠️ Webhook events]
     end
 
     %% Service Impact
-    subgraph Services["Service Impact Analysis"]
+    subgraph Services[Service Impact Analysis]
         style Services fill:#F0F0F0,stroke:#666666,color:#000
 
-        GitOperations["Git Operations<br/>━━━━━<br/>⚠️ Push conflicts<br/>⚠️ Repository state<br/>⚠️ Branch protection"]
+        GitOperations[Git Operations<br/>━━━━━<br/>⚠️ Push conflicts<br/>⚠️ Repository state<br/>⚠️ Branch protection]
 
-        WebInterface["Web Interface<br/>━━━━━<br/>⚠️ Inconsistent data views<br/>⚠️ 500 errors intermittent<br/>⚠️ User confusion"]
+        WebInterface[Web Interface<br/>━━━━━<br/>⚠️ Inconsistent data views<br/>⚠️ 500 errors intermittent<br/>⚠️ User confusion]
 
-        APIServices["API Services<br/>━━━━━<br/>⚠️ REST API timeouts<br/>⚠️ GraphQL failures<br/>⚠️ Webhook delays"]
+        APIServices[API Services<br/>━━━━━<br/>⚠️ REST API timeouts<br/>⚠️ GraphQL failures<br/>⚠️ Webhook delays]
 
-        Enterprise["GitHub Enterprise<br/>━━━━━<br/>⚠️ SAML auth issues<br/>⚠️ Audit log gaps<br/>⚠️ Backup failures"]
+        Enterprise[GitHub Enterprise<br/>━━━━━<br/>⚠️ SAML auth issues<br/>⚠️ Audit log gaps<br/>⚠️ Backup failures]
     end
 
     %% Flow connections
@@ -215,30 +215,30 @@ ORDER BY conflicts DESC;"
 
 ```mermaid
 graph TB
-    subgraph Normal["Normal Operation - Before Incident"]
-        EastPrimaryNormal["East Primary MySQL<br/>Read/Write Operations<br/>Binary Log Position: 12345"]
-        WestReplicaNormal["West Replica MySQL<br/>Read-Only Operations<br/>Replicating from East"]
+    subgraph Normal[Normal Operation - Before Incident]
+        EastPrimaryNormal[East Primary MySQL<br/>Read/Write Operations<br/>Binary Log Position: 12345]
+        WestReplicaNormal[West Replica MySQL<br/>Read-Only Operations<br/>Replicating from East]
 
         EastPrimaryNormal -->|"Replication Stream"| WestReplicaNormal
     end
 
-    subgraph Partition["During Network Partition - Split Brain"]
-        EastPrimaryPartition["East Primary MySQL<br/>✅ Still Primary<br/>📝 Users writing data A<br/>Log Position: 12345→15432"]
-        WestPrimaryPartition["West Promoted Primary<br/>🔄 Promoted by Orchestrator<br/>📝 Users writing data B<br/>Log Position: 12345→18765"]
+    subgraph Partition[During Network Partition - Split Brain]
+        EastPrimaryPartition[East Primary MySQL<br/>✅ Still Primary<br/>📝 Users writing data A<br/>Log Position: 12345→15432]
+        WestPrimaryPartition[West Promoted Primary<br/>🔄 Promoted by Orchestrator<br/>📝 Users writing data B<br/>Log Position: 12345→18765]
 
-        NetworkIssue["❌ Network Partition<br/>43 seconds<br/>Orchestrator timeout: 30s"]
+        NetworkIssue[❌ Network Partition<br/>43 seconds<br/>Orchestrator timeout: 30s]
 
         EastPrimaryPartition -.->|"Connection Lost"| NetworkIssue
         NetworkIssue -.->|"Connection Lost"| WestPrimaryPartition
     end
 
-    subgraph Recovery["Data Reconciliation Process"]
-        DataSetA["Data Set A (East)<br/>6 hours of writes<br/>12,847 repositories<br/>45,123 commits"]
-        DataSetB["Data Set B (West)<br/>6 hours of writes<br/>18,923 repositories<br/>67,891 commits"]
+    subgraph Recovery[Data Reconciliation Process]
+        DataSetA[Data Set A (East)<br/>6 hours of writes<br/>12,847 repositories<br/>45,123 commits]
+        DataSetB[Data Set B (West)<br/>6 hours of writes<br/>18,923 repositories<br/>67,891 commits]
 
-        ConflictResolution["Conflict Resolution<br/>🔍 Compare timestamps<br/>🔍 User intent analysis<br/>🔍 Data priority rules"]
+        ConflictResolution[Conflict Resolution<br/>🔍 Compare timestamps<br/>🔍 User intent analysis<br/>🔍 Data priority rules]
 
-        MergedData["Merged Dataset<br/>✅ All valid data preserved<br/>✅ Conflicts resolved<br/>✅ Consistency restored"]
+        MergedData[Merged Dataset<br/>✅ All valid data preserved<br/>✅ Conflicts resolved<br/>✅ Consistency restored]
 
         DataSetA --> ConflictResolution
         DataSetB --> ConflictResolution
@@ -332,26 +332,26 @@ automation_improvements:
 ### Enhanced MySQL Topology - 4-Plane Architecture
 ```mermaid
 graph TB
-    subgraph Enhanced["New Consensus-Based 4-Plane Architecture"]
-        subgraph Edge["Edge Plane #3B82F6"]
-            GitHubLB["GitHub Load Balancer<br/>HAProxy cluster<br/>Connection routing"]
+    subgraph Enhanced[New Consensus-Based 4-Plane Architecture]
+        subgraph Edge[Edge Plane #3B82F6]
+            GitHubLB[GitHub Load Balancer<br/>HAProxy cluster<br/>Connection routing]
         end
 
-        subgraph Service["Service Plane #10B981"]
-            GitHubApp["GitHub Application<br/>Ruby on Rails<br/>Database connections"]
-            API["GitHub API<br/>REST/GraphQL<br/>Request validation"]
+        subgraph Service[Service Plane #10B981]
+            GitHubApp[GitHub Application<br/>Ruby on Rails<br/>Database connections]
+            API[GitHub API<br/>REST/GraphQL<br/>Request validation]
         end
 
-        subgraph State["State Plane #F59E0B"]
-            EastPrimary["East Primary MySQL<br/>Active Master<br/>GTID: Enabled"]
-            WestReplica1["West Replica 1<br/>Semi-Sync Standby<br/>Read operations"]
-            WestReplica2["West Replica 2<br/>Semi-Sync Standby<br/>Backup operations"]
+        subgraph State[State Plane #F59E0B]
+            EastPrimary[East Primary MySQL<br/>Active Master<br/>GTID: Enabled]
+            WestReplica1[West Replica 1<br/>Semi-Sync Standby<br/>Read operations]
+            WestReplica2[West Replica 2<br/>Semi-Sync Standby<br/>Backup operations]
         end
 
-        subgraph Control["Control Plane #8B5CF6"]
-            Orchestrator["Orchestrator Cluster<br/>3-Node Consensus<br/>Failover Decisions"]
-            PartitionDetector["Partition Detector<br/>Cross-DC monitoring<br/>15s alert threshold"]
-            Monitoring["Enhanced Monitoring<br/>Split-brain detection<br/>Automated alerts"]
+        subgraph Control[Control Plane #8B5CF6]
+            Orchestrator[Orchestrator Cluster<br/>3-Node Consensus<br/>Failover Decisions]
+            PartitionDetector[Partition Detector<br/>Cross-DC monitoring<br/>15s alert threshold]
+            Monitoring[Enhanced Monitoring<br/>Split-brain detection<br/>Automated alerts]
         end
 
         GitHubLB --> GitHubApp

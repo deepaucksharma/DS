@@ -36,7 +36,7 @@
 
 ```mermaid
 graph TB
-    subgraph "Current MySQL Architecture"
+    subgraph Current MySQL Architecture
         APP[Applications<br/>Java/Python/PHP<br/>JDBC/PyMySQL connections]
         
         PROXY[ProxySQL<br/>Connection pooling<br/>Query routing<br/>8,000 connections]
@@ -60,7 +60,7 @@ graph TB
     MASTER --> BACKUP
 
     %% Current performance metrics
-    subgraph "Current State Metrics"
+    subgraph Current State Metrics
         PERF[Peak Load: 50,000 QPS<br/>Avg Latency: 15ms p95<br/>Monthly Cost: $12,000<br/>Storage: 2TB growing 200GB/month]
     end
 
@@ -89,8 +89,8 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "MySQL Workload Patterns"
-        subgraph "Read Workload (80%)"
+    subgraph MySQL Workload Patterns
+        subgraph Read Workload (80%)
             READ_SIMPLE[Simple Selects<br/>40% of queries<br/>Primary key lookups<br/>Avg: 2ms]
             
             READ_COMPLEX[Complex Joins<br/>25% of queries<br/>Multi-table aggregations<br/>Avg: 25ms]
@@ -98,13 +98,13 @@ graph TB
             READ_ANALYTICS[Analytics Queries<br/>15% of queries<br/>Large table scans<br/>Avg: 2000ms]
         end
         
-        subgraph "Write Workload (20%)"
+        subgraph Write Workload (20%)
             WRITE_OLTP[OLTP Transactions<br/>15% of queries<br/>INSERT/UPDATE/DELETE<br/>Avg: 5ms]
             
             WRITE_BATCH[Batch Operations<br/>5% of queries<br/>Bulk data loads<br/>Avg: 30000ms]
         end
         
-        subgraph "Peak Patterns"
+        subgraph Peak Patterns
             PEAK_HOURS[Peak Hours: 9AM-5PM EST<br/>3x normal load<br/>Business hours traffic]
             
             SEASONAL[Seasonal Spikes<br/>Black Friday, Holiday<br/>10x normal load<br/>Ticket sales events]
@@ -131,12 +131,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Aurora MySQL Cluster Architecture"
-        subgraph "Application Layer"
+    subgraph Aurora MySQL Cluster Architecture
+        subgraph Application Layer
             APP[Applications<br/>Updated connection strings<br/>Aurora endpoints]
         end
         
-        subgraph "Aurora Endpoints"
+        subgraph Aurora Endpoints
             WRITER[Writer Endpoint<br/>aurora-cluster.cluster-xyz.us-east-1.rds.amazonaws.com<br/>Always points to primary]
             
             READER[Reader Endpoint<br/>aurora-cluster.cluster-ro-xyz.us-east-1.rds.amazonaws.com<br/>Load balanced reads]
@@ -144,7 +144,7 @@ graph TB
             CUSTOM[Custom Endpoints<br/>analytics-aurora.cluster-custom-xyz.us-east-1.rds.amazonaws.com<br/>Specific instance targeting]
         end
         
-        subgraph "Aurora Cluster"
+        subgraph Aurora Cluster
             PRIMARY[Primary Instance<br/>db.r6g.4xlarge<br/>16 vCPU, 128GB RAM<br/>Write operations]
             
             REPLICA1[Aurora Replica 1<br/>db.r6g.2xlarge<br/>8 vCPU, 64GB RAM<br/>Read scaling]
@@ -154,11 +154,11 @@ graph TB
             REPLICA3[Aurora Replica 3<br/>db.r6g.xlarge<br/>4 vCPU, 32GB RAM<br/>Failover target]
         end
         
-        subgraph "Aurora Storage"
+        subgraph Aurora Storage
             STORAGE[Aurora Storage<br/>Auto-scaling 10GB to 128TB<br/>6-way replication<br/>Cross-AZ automatically]
         end
         
-        subgraph "Backup & Recovery"
+        subgraph Backup & Recovery
             BACKTRACK[Backtrack<br/>72-hour point-in-time<br/>No performance impact<br/>Instant rollback]
             
             CLONE[Aurora Cloning<br/>Fast database clones<br/>Copy-on-write<br/>Dev/test environments]
@@ -252,20 +252,20 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph "Read Replica Promotion Method"
-        subgraph "Phase 1: Create Aurora Read Replica"
+    subgraph Read Replica Promotion Method
+        subgraph Phase 1: Create Aurora Read Replica
             MYSQL_MASTER[(MySQL Master<br/>Source database<br/>Continues serving writes)]
             
             AURORA_REPLICA[(Aurora Read Replica<br/>Cross-engine replica<br/>MySQL → Aurora)]
         end
         
-        subgraph "Phase 2: Monitor Replication"
+        subgraph Phase 2: Monitor Replication
             LAG[Replication Lag Monitor<br/>CloudWatch metrics<br/>Target: <1 second]
             
             VALIDATION[Data Validation<br/>Checksum comparison<br/>Automated testing]
         end
         
-        subgraph "Phase 3: Promote Aurora Replica"
+        subgraph Phase 3: Promote Aurora Replica
             PROMOTE[Promote Aurora Replica<br/>Break replication<br/>Becomes independent cluster]
             
             SWITCH[Application Switch<br/>Update connection strings<br/>DNS failover]
@@ -279,7 +279,7 @@ graph TB
     PROMOTE --> SWITCH
 
     %% Timeline indicators
-    subgraph "Timeline"
+    subgraph Timeline
         T1[Week 1-2: Setup replica]
         T2[Week 3-4: Monitor and validate]
         T3[Week 5: Promotion cutover]
@@ -461,8 +461,8 @@ SET GLOBAL aurora_read_replica_read_committed = 1;  -- Read committed on replica
 
 ```mermaid
 graph TB
-    subgraph "Aurora Performance Monitoring"
-        subgraph "Native AWS Metrics"
+    subgraph Aurora Performance Monitoring
+        subgraph Native AWS Metrics
             CW[CloudWatch Metrics<br/>DatabaseConnections<br/>CPUUtilization<br/>ReadLatency/WriteLatency]
             
             PI[Performance Insights<br/>Top SQL statements<br/>Wait event analysis<br/>Database load monitoring]
@@ -470,19 +470,19 @@ graph TB
             ENHANCED[Enhanced Monitoring<br/>OS-level metrics<br/>50+ metrics at 1-sec granularity<br/>Process and thread info]
         end
         
-        subgraph "Custom Monitoring"
+        subgraph Custom Monitoring
             CUSTOM[Custom CloudWatch Metrics<br/>Business KPIs<br/>Application-specific metrics<br/>Query pattern analysis]
             
             LOGS[Aurora Logs<br/>Slow query log<br/>Error log<br/>General log]
         end
         
-        subgraph "Alerting"
+        subgraph Alerting
             ALARMS[CloudWatch Alarms<br/>CPU > 80%<br/>Connections > 3000<br/>Replica lag > 5s]
             
             SNS[SNS Notifications<br/>PagerDuty integration<br/>Slack alerts<br/>Email notifications]
         end
         
-        subgraph "Dashboards"
+        subgraph Dashboards
             GRAFANA[Grafana Dashboard<br/>Real-time metrics<br/>Historical trends<br/>Performance correlation]
             
             DATADOG[DataDog APM<br/>Application performance<br/>Database correlation<br/>Distributed tracing]
@@ -528,8 +528,8 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Cost Analysis: MySQL vs Aurora"
-        subgraph "Current MySQL Costs (Monthly)"
+    subgraph Cost Analysis: MySQL vs Aurora
+        subgraph Current MySQL Costs (Monthly)
             EC2_COST[EC2 Instances<br/>Primary: db.r5.4xlarge $1,200<br/>2x Replicas: db.r5.2xlarge $1,600<br/>Total: $2,800]
             
             EBS_COST[EBS Storage<br/>2TB gp3 SSD: $200<br/>20,000 IOPS: $1,300<br/>Snapshots: $100<br/>Total: $1,600]
@@ -539,7 +539,7 @@ graph TB
             MYSQL_TOTAL[MySQL Total<br/>$4,650/month<br/>+ operational overhead]
         end
         
-        subgraph "Aurora Costs (Monthly)"
+        subgraph Aurora Costs (Monthly)
             AURORA_COMPUTE[Aurora Instances<br/>Primary: db.r6g.4xlarge $800<br/>3x Replicas: db.r6g.2xlarge $1,200<br/>Total: $2,000]
             
             AURORA_STORAGE[Aurora Storage<br/>2TB storage: $200<br/>20M I/O requests: $2,000<br/>Backup: $0 (included)<br/>Total: $2,200]
@@ -549,7 +549,7 @@ graph TB
             AURORA_TOTAL[Aurora Total<br/>$4,350/month<br/>-6% vs MySQL]
         end
         
-        subgraph "Optimization Opportunities"
+        subgraph Optimization Opportunities
             RI[Reserved Instances<br/>1-year term: -30%<br/>3-year term: -50%<br/>$2,175/month with 3yr RI]
             
             RIGHT_SIZE[Right-sizing<br/>Monitor actual usage<br/>Potential 20% reduction<br/>$3,480/month optimized]

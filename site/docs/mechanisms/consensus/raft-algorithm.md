@@ -141,7 +141,7 @@ raft_config:
 
 ```mermaid
 graph TB
-    subgraph "Raft Safety Guarantees"
+    subgraph Raft Safety Guarantees
         LE[Leader Election Safety]
         LAS[Leader Append-Only Safety]
         LM[Log Matching Property]
@@ -149,15 +149,15 @@ graph TB
         SM[State Machine Safety]
     end
 
-    LE --> |"At most one leader per term"| LE_DESC["• Only candidate with majority votes becomes leader<br/>• Split votes trigger new election<br/>• Higher term always wins"]
+    LE --> |"At most one leader per term"| LE_DESC[• Only candidate with majority votes becomes leader<br/>• Split votes trigger new election<br/>• Higher term always wins]
 
-    LAS --> |"Leaders never overwrite log entries"| LAS_DESC["• Leaders only append new entries<br/>• Never delete or modify existing entries<br/>• Committed entries are permanent"]
+    LAS --> |"Leaders never overwrite log entries"| LAS_DESC[• Leaders only append new entries<br/>• Never delete or modify existing entries<br/>• Committed entries are permanent]
 
-    LM --> |"Matching entries are identical"| LM_DESC["• Same index + term → same command<br/>• All preceding entries are identical<br/>• Consistency check on AppendEntries"]
+    LM --> |"Matching entries are identical"| LM_DESC[• Same index + term → same command<br/>• All preceding entries are identical<br/>• Consistency check on AppendEntries]
 
-    LCS --> |"All committed entries are in new leader logs"| LCS_DESC["• Election restriction ensures this<br/>• Candidate must have all committed entries<br/>• Voters reject outdated candidates"]
+    LCS --> |"All committed entries are in new leader logs"| LCS_DESC[• Election restriction ensures this<br/>• Candidate must have all committed entries<br/>• Voters reject outdated candidates]
 
-    SM --> |"Applied entries are identical on all nodes"| SM_DESC["• Only committed entries are applied<br/>• Deterministic state machine<br/>• Same sequence produces same state"]
+    SM --> |"Applied entries are identical on all nodes"| SM_DESC[• Only committed entries are applied<br/>• Deterministic state machine<br/>• Same sequence produces same state]
 
     %% Apply control plane color for safety properties
     classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
@@ -168,18 +168,18 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Key Raft Metrics"
+    subgraph Key Raft Metrics
         TPS[Transactions/sec]
         LAT[Commit Latency p99]
         LEF[Leader Election Frequency]
         LRF[Log Replication Factor]
     end
 
-    subgraph "Typical Production Values"
-        TPS_VAL["10,000-50,000 TPS<br/>(etcd: ~10k, Consul: ~5k)"]
-        LAT_VAL["1-10ms p99<br/>(LAN: 1-3ms, WAN: 5-10ms)"]
-        LEF_VAL["< 1 per day<br/>(Healthy: 0, Issues: > 10/day)"]
-        LRF_VAL["3-5 replicas<br/>(Odd numbers only)"]
+    subgraph Typical Production Values
+        TPS_VAL[10,000-50,000 TPS<br/>(etcd: ~10k, Consul: ~5k)]
+        LAT_VAL[1-10ms p99<br/>(LAN: 1-3ms, WAN: 5-10ms)]
+        LEF_VAL[< 1 per day<br/>(Healthy: 0, Issues: > 10/day)]
+        LRF_VAL[3-5 replicas<br/>(Odd numbers only)]
     end
 
     TPS --> TPS_VAL

@@ -6,82 +6,82 @@ This diagram shows Stripe's architecture evolution from processing $0 in 2010 to
 
 ```mermaid
 graph TB
-    subgraph Scale2010["2010-2011: The Beginning - 50 payments/day"]
+    subgraph Scale2010[2010-2011: The Beginning - 50 payments/day]
         style Scale2010 fill:#e6f3ff,stroke:#3B82F6,color:#333
 
-        Heroku2010["Heroku Dyno<br/>━━━━━<br/>Ruby on Rails<br/>Single instance<br/>SQLite database<br/>$0/month infrastructure"]
+        Heroku2010[Heroku Dyno<br/>━━━━━<br/>Ruby on Rails<br/>Single instance<br/>SQLite database<br/>$0/month infrastructure]
 
-        PayPal2010["PayPal Integration<br/>━━━━━<br/>Third-party processor<br/>Limited customization<br/>High fees (3.9%+)<br/>Manual reconciliation"]
+        PayPal2010[PayPal Integration<br/>━━━━━<br/>Third-party processor<br/>Limited customization<br/>High fees (3.9%+)<br/>Manual reconciliation]
     end
 
-    subgraph Scale2012["2012-2013: Early Growth - 1K payments/day"]
+    subgraph Scale2012[2012-2013: Early Growth - 1K payments/day]
         style Scale2012 fill:#e6ffe6,stroke:#10B981,color:#333
 
-        AWS2012["AWS EC2 m1.small<br/>━━━━━<br/>Single Rails app<br/>PostgreSQL RDS<br/>Manual scaling<br/>$500/month infrastructure"]
+        AWS2012[AWS EC2 m1.small<br/>━━━━━<br/>Single Rails app<br/>PostgreSQL RDS<br/>Manual scaling<br/>$500/month infrastructure]
 
-        Balanced2012["Balanced Payments<br/>━━━━━<br/>Credit card processing<br/>ACH bank transfers<br/>Lower fees (2.9%)<br/>API integration"]
+        Balanced2012[Balanced Payments<br/>━━━━━<br/>Credit card processing<br/>ACH bank transfers<br/>Lower fees (2.9%)<br/>API integration]
 
-        Redis2012["Redis Cache<br/>━━━━━<br/>Session storage<br/>API rate limiting<br/>Single instance<br/>No persistence"]
+        Redis2012[Redis Cache<br/>━━━━━<br/>Session storage<br/>API rate limiting<br/>Single instance<br/>No persistence]
     end
 
-    subgraph Scale2014["2014-2015: Product-Market Fit - 10K payments/day"]
+    subgraph Scale2014[2014-2015: Product-Market Fit - 10K payments/day]
         style Scale2014 fill:#ffe6e6,stroke:#8B5CF6,color:#333
 
-        LoadBalancer2014["ELB Load Balancer<br/>━━━━━<br/>Multi-instance Rails<br/>Auto-scaling groups<br/>Health checks<br/>$2K/month infrastructure"]
+        LoadBalancer2014[ELB Load Balancer<br/>━━━━━<br/>Multi-instance Rails<br/>Auto-scaling groups<br/>Health checks<br/>$2K/month infrastructure]
 
-        Postgres2014["PostgreSQL RDS<br/>━━━━━<br/>db.m3.large<br/>Read replicas<br/>Automated backups<br/>Connection pooling"]
+        Postgres2014[PostgreSQL RDS<br/>━━━━━<br/>db.m3.large<br/>Read replicas<br/>Automated backups<br/>Connection pooling]
 
-        Stripe2014["Direct Processing<br/>━━━━━<br/>Acquirer relationships<br/>Visa/Mastercard<br/>2.9% + 30¢<br/>Real-time authorization"]
+        Stripe2014[Direct Processing<br/>━━━━━<br/>Acquirer relationships<br/>Visa/Mastercard<br/>2.9% + 30¢<br/>Real-time authorization]
 
-        Celery2014["Celery Task Queue<br/>━━━━━<br/>Async processing<br/>Webhook delivery<br/>Report generation<br/>Redis backend"]
+        Celery2014[Celery Task Queue<br/>━━━━━<br/>Async processing<br/>Webhook delivery<br/>Report generation<br/>Redis backend]
     end
 
-    subgraph Scale2016["2016-2017: International Expansion - 100K payments/day"]
+    subgraph Scale2016[2016-2017: International Expansion - 100K payments/day]
         style Scale2016 fill:#fff0e6,stroke:#F59E0B,color:#333
 
-        Kong2016["Kong API Gateway<br/>━━━━━<br/>Rate limiting<br/>Authentication<br/>Request validation<br/>Multi-region routing"]
+        Kong2016[Kong API Gateway<br/>━━━━━<br/>Rate limiting<br/>Authentication<br/>Request validation<br/>Multi-region routing]
 
-        MongoDB2016["MongoDB Cluster<br/>━━━━━<br/>Document storage<br/>Horizontal sharding<br/>Geographic distribution<br/>$50K/month storage"]
+        MongoDB2016[MongoDB Cluster<br/>━━━━━<br/>Document storage<br/>Horizontal sharding<br/>Geographic distribution<br/>$50K/month storage]
 
-        Microservices2016["Microservices SOA<br/>━━━━━<br/>Payment intents<br/>Customer service<br/>Subscription service<br/>Fraud detection"]
+        Microservices2016[Microservices SOA<br/>━━━━━<br/>Payment intents<br/>Customer service<br/>Subscription service<br/>Fraud detection]
 
-        ML2016["Basic Fraud ML<br/>━━━━━<br/>Logistic regression<br/>10 features<br/>Batch scoring<br/>Daily model updates"]
+        ML2016[Basic Fraud ML<br/>━━━━━<br/>Logistic regression<br/>10 features<br/>Batch scoring<br/>Daily model updates]
     end
 
-    subgraph Scale2018["2018-2019: Rapid Growth - 1M payments/day"]
+    subgraph Scale2018[2018-2019: Rapid Growth - 1M payments/day]
         style Scale2018 fill:#f0e6ff,stroke:#9900CC,color:#333
 
-        Kubernetes2018["Kubernetes EKS<br/>━━━━━<br/>Container orchestration<br/>Auto-scaling<br/>Blue-green deployments<br/>Multi-AZ deployment"]
+        Kubernetes2018[Kubernetes EKS<br/>━━━━━<br/>Container orchestration<br/>Auto-scaling<br/>Blue-green deployments<br/>Multi-AZ deployment]
 
-        MongoDB2018["MongoDB Atlas<br/>━━━━━<br/>M300 instances<br/>50TB data<br/>Cross-region replication<br/>$500K/month managed"]
+        MongoDB2018[MongoDB Atlas<br/>━━━━━<br/>M300 instances<br/>50TB data<br/>Cross-region replication<br/>$500K/month managed]
 
-        Radar2018["Radar ML Platform<br/>━━━━━<br/>TensorFlow serving<br/>150+ features<br/>Real-time scoring<br/>GPU instances"]
+        Radar2018[Radar ML Platform<br/>━━━━━<br/>TensorFlow serving<br/>150+ features<br/>Real-time scoring<br/>GPU instances]
 
-        Redis2018["Redis Enterprise<br/>━━━━━<br/>Clustered deployment<br/>High availability<br/>20TB cache<br/>Sub-millisecond access"]
+        Redis2018[Redis Enterprise<br/>━━━━━<br/>Clustered deployment<br/>High availability<br/>20TB cache<br/>Sub-millisecond access]
     end
 
-    subgraph Scale2020["2020-2021: COVID Surge - 5M payments/day"]
+    subgraph Scale2020[2020-2021: COVID Surge - 5M payments/day]
         style Scale2020 fill:#e6f9ff,stroke:#0099CC,color:#333
 
-        CDN2020["Cloudflare CDN<br/>━━━━━<br/>Global edge network<br/>DDoS protection<br/>WAF security<br/>$1M/month CDN"]
+        CDN2020[Cloudflare CDN<br/>━━━━━<br/>Global edge network<br/>DDoS protection<br/>WAF security<br/>$1M/month CDN]
 
-        MongoDB2020["MongoDB M700<br/>━━━━━<br/>100TB payment data<br/>Multi-region clusters<br/>Point-in-time recovery<br/>$5M/month managed"]
+        MongoDB2020[MongoDB M700<br/>━━━━━<br/>100TB payment data<br/>Multi-region clusters<br/>Point-in-time recovery<br/>$5M/month managed]
 
-        Analytics2020["Analytics Stack<br/>━━━━━<br/>ClickHouse OLAP<br/>Real-time dashboards<br/>Merchant reporting<br/>Data science platform"]
+        Analytics2020[Analytics Stack<br/>━━━━━<br/>ClickHouse OLAP<br/>Real-time dashboards<br/>Merchant reporting<br/>Data science platform]
 
-        Connect2020["Stripe Connect<br/>━━━━━<br/>Marketplace payments<br/>Multi-party transactions<br/>Platform revenue splits<br/>Express accounts"]
+        Connect2020[Stripe Connect<br/>━━━━━<br/>Marketplace payments<br/>Multi-party transactions<br/>Platform revenue splits<br/>Express accounts]
     end
 
-    subgraph Scale2024["2024: Current Scale - 10M+ payments/day"]
+    subgraph Scale2024[2024: Current Scale - 10M+ payments/day]
         style Scale2024 fill:#ffe6f9,stroke:#CC0066,color:#333
 
-        EdgeNetwork2024["Global Edge Network<br/>━━━━━<br/>6 regions active<br/>330+ PoPs (Cloudflare)<br/>99.999% availability<br/>$25M/month infrastructure"]
+        EdgeNetwork2024[Global Edge Network<br/>━━━━━<br/>6 regions active<br/>330+ PoPs (Cloudflare)<br/>99.999% availability<br/>$25M/month infrastructure]
 
-        PaymentInfra2024["Payment Infrastructure<br/>━━━━━<br/>$1T+ annual volume<br/>600M+ API calls/day<br/>400+ acquirer routes<br/>Multi-currency support"]
+        PaymentInfra2024[Payment Infrastructure<br/>━━━━━<br/>$1T+ annual volume<br/>600M+ API calls/day<br/>400+ acquirer routes<br/>Multi-currency support]
 
-        AI2024["AI-Powered Platform<br/>━━━━━<br/>GPT fraud detection<br/>Dynamic routing ML<br/>Revenue optimization<br/>Predictive analytics"]
+        AI2024[AI-Powered Platform<br/>━━━━━<br/>GPT fraud detection<br/>Dynamic routing ML<br/>Revenue optimization<br/>Predictive analytics]
 
-        Compliance2024["Global Compliance<br/>━━━━━<br/>PCI DSS Level 1<br/>GDPR compliance<br/>195 countries<br/>Automated reporting"]
+        Compliance2024[Global Compliance<br/>━━━━━<br/>PCI DSS Level 1<br/>GDPR compliance<br/>195 countries<br/>Automated reporting]
     end
 
     %% Evolution arrows showing key transitions

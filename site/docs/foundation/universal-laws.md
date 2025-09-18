@@ -6,7 +6,7 @@ These mathematical laws govern all distributed systems and cannot be violated. N
 
 ```mermaid
 graph TB
-    subgraph CAP["CAP Theorem: Choose 2 of 3"]
+    subgraph CAP[CAP Theorem: Choose 2 of 3]
         C[Consistency<br/>All nodes see same data]
         A[Availability<br/>System stays operational]
         P[Partition Tolerance<br/>Network failures handled]
@@ -16,10 +16,10 @@ graph TB
         P --- C
     end
 
-    subgraph PACELC["PACELC: The Full Picture"]
-        PC["Partition: Consistency<br/>Else: Consistency<br/>Example: Spanner"]
-        PA["Partition: Availability<br/>Else: Availability<br/>Example: Cassandra"]
-        PL["Partition: Availability<br/>Else: Latency<br/>Example: DynamoDB"]
+    subgraph PACELC[PACELC: The Full Picture]
+        PC[Partition: Consistency<br/>Else: Consistency<br/>Example: Spanner]
+        PA[Partition: Availability<br/>Else: Availability<br/>Example: Cassandra]
+        PL[Partition: Availability<br/>Else: Latency<br/>Example: DynamoDB]
     end
 
     CAP --> PACELC
@@ -43,25 +43,25 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Scaling["Scaling Reality"]
-        Little["Little's Law<br/>L = λW<br/>10K RPS × 100ms = 1000 threads"]
-        Universal["Universal Scalability<br/>Optimal ~20 nodes<br/>Then diminishing returns"]
-        Amdahl["Amdahl's Law<br/>5% serial = 20x max speedup<br/>Despite infinite parallelism"]
+    subgraph Scaling[Scaling Reality]
+        Little[Little's Law<br/>L = λW<br/>10K RPS × 100ms = 1000 threads]
+        Universal[Universal Scalability<br/>Optimal ~20 nodes<br/>Then diminishing returns]
+        Amdahl[Amdahl's Law<br/>5% serial = 20x max speedup<br/>Despite infinite parallelism]
     end
 
-    subgraph Queuing["Queueing Theory"]
-        Safe["ρ < 70%<br/>Safe Zone"]
-        Danger["ρ > 70%<br/>Latency Explosion"]
-        Death["ρ > 90%<br/>System Death"]
+    subgraph Queuing[Queueing Theory]
+        Safe[ρ < 70%<br/>Safe Zone]
+        Danger[ρ > 70%<br/>Latency Explosion]
+        Death[ρ > 90%<br/>System Death]
 
         Safe --> Danger
         Danger --> Death
     end
 
-    subgraph Examples["Production Examples"]
-        Netflix["Netflix: 70% CPU utilization ceiling"]
-        Uber["Uber: 20-node optimal clusters"]
-        Discord["Discord: Thread pool sizing"]
+    subgraph Examples[Production Examples]
+        Netflix[Netflix: 70% CPU utilization ceiling]
+        Uber[Uber: 20-node optimal clusters]
+        Discord[Discord: Thread pool sizing]
     end
 
     Little --> Netflix
@@ -82,7 +82,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Conway["Conway's Law"]
+    subgraph Conway[Conway's Law]
         Team1[Team 1<br/>Auth Service]
         Team2[Team 2<br/>User Service]
         Team3[Team 3<br/>Payment Service]
@@ -93,18 +93,18 @@ graph LR
         Team3 --- Team4
     end
 
-    subgraph Brooks["Brooks's Law"]
-        Small["2-Pizza Teams<br/>High Velocity"]
-        Large["Large Teams<br/>Communication Overhead"]
+    subgraph Brooks[Brooks's Law]
+        Small[2-Pizza Teams<br/>High Velocity]
+        Large[Large Teams<br/>Communication Overhead]
 
         Small --> |"Adding people"| Large
         Large --> |"Makes project later"| Delay[Project Delay]
     end
 
-    subgraph Examples["Real Examples"]
-        Amazon["Amazon: 2-pizza rule"]
-        Netflix["Netflix: Service ownership"]
-        Spotify["Spotify: Squad model"]
+    subgraph Examples[Real Examples]
+        Amazon[Amazon: 2-pizza rule]
+        Netflix[Netflix: Service ownership]
+        Spotify[Spotify: Squad model]
     end
 
     Conway --> Amazon

@@ -49,8 +49,8 @@ Where:
 
 ```mermaid
 graph TB
-    subgraph "Database Storage Capacity Model"
-        subgraph "Data Growth Components"
+    subgraph Database Storage Capacity Model
+        subgraph Data Growth Components
             BASE_DATA[Base Data Size<br/>Current: 2TB<br/>Row size × Record count<br/>Includes all tables]
             
             INDEXES[Index Storage<br/>20-40% of data size<br/>B-tree: 25% overhead<br/>Bitmap: 5-15% overhead]
@@ -60,7 +60,7 @@ graph TB
             LOG_FILES[Transaction Logs<br/>WAL files: 5-15%<br/>Retention period<br/>Point-in-time recovery]
         end
         
-        subgraph "Growth Projections"
+        subgraph Growth Projections
             LINEAR[Linear Growth<br/>Fixed GB/month<br/>Predictable workloads<br/>Example: 100GB/month]
             
             EXPONENTIAL[Exponential Growth<br/>User base scaling<br/>Network effects<br/>Example: 20% monthly]
@@ -68,7 +68,7 @@ graph TB
             SEASONAL[Seasonal Patterns<br/>Business cycles<br/>Holiday spikes<br/>Example: 3x during peaks]
         end
         
-        subgraph "Capacity Calculation"
+        subgraph Capacity Calculation
             REQUIRED[Required Storage<br/>(Base + Indexes + Temp + Logs)<br/>× Growth Factor<br/>× Safety Buffer (1.5x)]
             
             PROVISIONED[Provisioned Storage<br/>Account for:<br/>- Storage type limitations<br/>- Performance requirements<br/>- Cost optimization]
@@ -569,8 +569,8 @@ for rec in recommendations['recommendations']:
 
 ```mermaid
 graph TB
-    subgraph "MySQL InnoDB Capacity Planning"
-        subgraph "Buffer Pool Sizing"
+    subgraph MySQL InnoDB Capacity Planning
+        subgraph Buffer Pool Sizing
             BUFFER_POOL[InnoDB Buffer Pool<br/>Target: 70-80% of RAM<br/>Formula: Available RAM × 0.75<br/>Minimum: 128MB]
             
             DATA_CACHE[Data Page Caching<br/>Hot data in memory<br/>Working set analysis<br/>Cache hit ratio > 99%]
@@ -578,13 +578,13 @@ graph TB
             INDEX_CACHE[Index Caching<br/>B-tree nodes in memory<br/>Primary + secondary indexes<br/>Query plan optimization]
         end
         
-        subgraph "Connection Management"
+        subgraph Connection Management
             MAX_CONN[Max Connections<br/>Formula: Available RAM / 12MB<br/>Typical range: 100-4000<br/>Monitor thread cache hit rate]
             
             THREAD_CACHE[Thread Cache<br/>Size: max_connections / 3<br/>Reuse connection threads<br/>Reduce thread creation overhead]
         end
         
-        subgraph "Storage Engine Tuning"
+        subgraph Storage Engine Tuning
             LOG_FILE[InnoDB Log Files<br/>Size: 25% of buffer pool<br/>Checkpoint frequency<br/>Write performance impact]
             
             PAGE_SIZE[Page Size<br/>Default: 16KB<br/>Large pages for OLAP: 32KB/64KB<br/>Small pages for OLTP: 4KB/8KB]
@@ -873,8 +873,8 @@ for rec in cassandra_summary['recommendations']:
 
 ```mermaid
 graph TB
-    subgraph "Database Health Monitoring Framework"
-        subgraph "Performance Metrics"
+    subgraph Database Health Monitoring Framework
+        subgraph Performance Metrics
             QPS[Queries Per Second<br/>Normal: 1K-10K<br/>Alert: >90% of capacity<br/>Critical: >95% of capacity]
             
             LATENCY[Query Latency<br/>Target: <100ms p95<br/>Alert: >200ms p95<br/>Critical: >500ms p95]
@@ -882,7 +882,7 @@ graph TB
             CONN[Active Connections<br/>Monitor: Current vs Max<br/>Alert: >80% of max<br/>Critical: >95% of max]
         end
         
-        subgraph "Resource Utilization"
+        subgraph Resource Utilization
             CPU[CPU Utilization<br/>Normal: <70%<br/>Alert: >80%<br/>Critical: >90%]
             
             MEMORY[Memory Usage<br/>Buffer pool utilization<br/>Alert: >85%<br/>Critical: >95%]
@@ -890,7 +890,7 @@ graph TB
             DISK[Disk Utilization<br/>Space: <80% full<br/>IOPS: <80% capacity<br/>I/O wait: <20%]
         end
         
-        subgraph "Database-Specific Metrics"
+        subgraph Database-Specific Metrics
             DEADLOCKS[Deadlocks<br/>PostgreSQL: deadlock_timeout<br/>MySQL: innodb_deadlock_detect<br/>Alert: >10/hour]
             
             REPLICATION[Replication Lag<br/>Target: <1 second<br/>Alert: >5 seconds<br/>Critical: >30 seconds]
@@ -898,7 +898,7 @@ graph TB
             CACHE_HIT[Cache Hit Ratio<br/>Target: >99%<br/>Alert: <95%<br/>Critical: <90%]
         end
         
-        subgraph "Alerting Thresholds"
+        subgraph Alerting Thresholds
             WARNING[Warning Level<br/>- Performance degradation<br/>- Resource pressure<br/>- Capacity planning needed]
             
             CRITICAL[Critical Level<br/>- Service impact imminent<br/>- Immediate action required<br/>- Potential downtime risk]

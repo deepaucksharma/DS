@@ -89,11 +89,19 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/comparisons/aws-vs-gcp-vs-azure/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/comparisons/kafka-vs-kinesis-vs-pulsar/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/comparisons/kafka-vs-kinesis/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/comparisons/mongodb-vs-cassandra/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -105,7 +113,23 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/comparisons/rest-vs-graphql-vs-grpc/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/costs/airbnb-infrastructure-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/costs/cloudflare-infrastructure-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/costs/dropbox-infrastructure-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/costs/github-infrastructure-breakdown/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -114,6 +138,14 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/costs/netflix-infrastructure-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/costs/pinterest-infrastructure-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/costs/slack-infrastructure-breakdown/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -857,11 +889,27 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/scaling/discord-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/scaling/discord-scale-journey/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/scaling/instagram-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/scaling/reddit-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/scaling/shopify-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/scaling/twitter-evolution/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>

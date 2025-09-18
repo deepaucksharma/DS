@@ -6,52 +6,52 @@ This diagram represents Stripe's actual production architecture processing $1+ t
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        CloudFlare["Cloudflare CDN<br/>━━━━━<br/>330+ PoPs globally<br/>DDoS protection<br/>TLS termination<br/>Cost: $2M/month"]
+        CloudFlare[Cloudflare CDN<br/>━━━━━<br/>330+ PoPs globally<br/>DDoS protection<br/>TLS termination<br/>Cost: $2M/month]
 
-        ALB["AWS ALB<br/>━━━━━<br/>Regional load balancing<br/>6 global regions<br/>99.99% SLA<br/>Cost: $800K/month"]
+        ALB[AWS ALB<br/>━━━━━<br/>Regional load balancing<br/>6 global regions<br/>99.99% SLA<br/>Cost: $800K/month]
 
-        WAF["Cloudflare WAF<br/>━━━━━<br/>50M+ attack blocks/day<br/>Custom rulesets<br/>Bot management<br/>Cost: $500K/month"]
+        WAF[Cloudflare WAF<br/>━━━━━<br/>50M+ attack blocks/day<br/>Custom rulesets<br/>Bot management<br/>Cost: $500K/month]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        APIGateway["Kong API Gateway<br/>━━━━━<br/>600M+ req/day<br/>Rate limiting: 5000/min<br/>JWT validation<br/>c5.2xlarge fleet"]
+        APIGateway[Kong API Gateway<br/>━━━━━<br/>600M+ req/day<br/>Rate limiting: 5000/min<br/>JWT validation<br/>c5.2xlarge fleet]
 
-        PaymentAPI["Payment Intent API<br/>━━━━━<br/>10M payments/day<br/>Ruby on Rails<br/>p99: 120ms<br/>r5.4xlarge × 200"]
+        PaymentAPI[Payment Intent API<br/>━━━━━<br/>10M payments/day<br/>Ruby on Rails<br/>p99: 120ms<br/>r5.4xlarge × 200]
 
-        IdempotencyService["Idempotency Service<br/>━━━━━<br/>100% duplicate prevention<br/>24h key retention<br/>Rust/Redis<br/>r6g.xlarge × 50"]
+        IdempotencyService[Idempotency Service<br/>━━━━━<br/>100% duplicate prevention<br/>24h key retention<br/>Rust/Redis<br/>r6g.xlarge × 50]
 
-        WebhookService["Webhook Service<br/>━━━━━<br/>8M webhooks/day<br/>Exponential backoff<br/>Go microservice<br/>c5.large × 100"]
+        WebhookService[Webhook Service<br/>━━━━━<br/>8M webhooks/day<br/>Exponential backoff<br/>Go microservice<br/>c5.large × 100]
 
-        FraudDetection["Radar ML Service<br/>━━━━━<br/>Real-time scoring<br/>TensorFlow/Python<br/>p95: 15ms<br/>p3.2xlarge × 20"]
+        FraudDetection[Radar ML Service<br/>━━━━━<br/>Real-time scoring<br/>TensorFlow/Python<br/>p95: 15ms<br/>p3.2xlarge × 20]
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        MongoDB["MongoDB Atlas<br/>━━━━━<br/>100TB payment data<br/>M700 instances<br/>Multi-region replication<br/>Cost: $8M/month"]
+        MongoDB[MongoDB Atlas<br/>━━━━━<br/>100TB payment data<br/>M700 instances<br/>Multi-region replication<br/>Cost: $8M/month]
 
-        Redis["Redis Enterprise<br/>━━━━━<br/>50TB cache<br/>Idempotency keys<br/>Session storage<br/>r6gd.8xlarge × 30"]
+        Redis[Redis Enterprise<br/>━━━━━<br/>50TB cache<br/>Idempotency keys<br/>Session storage<br/>r6gd.8xlarge × 30]
 
-        Analytics["Analytics PostgreSQL<br/>━━━━━<br/>Historical payment data<br/>50TB warehouse<br/>db.r6g.12xlarge × 10<br/>Cost: $200K/month"]
+        Analytics[Analytics PostgreSQL<br/>━━━━━<br/>Historical payment data<br/>50TB warehouse<br/>db.r6g.12xlarge × 10<br/>Cost: $200K/month]
 
-        S3Compliance["S3 Compliance Archive<br/>━━━━━<br/>PCI/SOX storage<br/>500TB archives<br/>7-year retention<br/>Cost: $50K/month"]
+        S3Compliance[S3 Compliance Archive<br/>━━━━━<br/>PCI/SOX storage<br/>500TB archives<br/>7-year retention<br/>Cost: $50K/month]
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        Datadog["Datadog Monitoring<br/>━━━━━<br/>1M+ metrics/min<br/>Custom dashboards<br/>PagerDuty integration<br/>Cost: $500K/month"]
+        Datadog[Datadog Monitoring<br/>━━━━━<br/>1M+ metrics/min<br/>Custom dashboards<br/>PagerDuty integration<br/>Cost: $500K/month]
 
-        Veneur["Veneur Metrics<br/>━━━━━<br/>Stripe's DogStatsD<br/>High-frequency metrics<br/>Go implementation<br/>c5.xlarge × 20"]
+        Veneur[Veneur Metrics<br/>━━━━━<br/>Stripe's DogStatsD<br/>High-frequency metrics<br/>Go implementation<br/>c5.xlarge × 20]
 
-        PaymentRouter["Payment Router<br/>━━━━━<br/>400+ acquirer routes<br/>Intelligent routing<br/>Success rate optimization<br/>m5.2xlarge × 15"]
+        PaymentRouter[Payment Router<br/>━━━━━<br/>400+ acquirer routes<br/>Intelligent routing<br/>Success rate optimization<br/>m5.2xlarge × 15]
 
-        Terraform["Infrastructure as Code<br/>━━━━━<br/>2000+ resources<br/>Multi-region deployment<br/>GitOps workflow<br/>Atlantis automation"]
+        Terraform[Infrastructure as Code<br/>━━━━━<br/>2000+ resources<br/>Multi-region deployment<br/>GitOps workflow<br/>Atlantis automation]
     end
 
     %% Connections with real metrics

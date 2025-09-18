@@ -8,20 +8,20 @@ Database replication strategies determine how data consistency, availability, an
 
 ```mermaid
 graph TB
-    subgraph "Replication Strategy Trade-offs"
-        subgraph "Synchronous Replication"
-            SYNC_CONS["Strong Consistency<br/>✅ Immediate consistency<br/>❌ Higher latency<br/>❌ Reduced availability"]
-            SYNC_PERF["Performance Impact<br/>Latency: 2x-5x higher<br/>Throughput: 50-80% of async"]
+    subgraph Replication Strategy Trade-offs
+        subgraph Synchronous Replication
+            SYNC_CONS[Strong Consistency<br/>✅ Immediate consistency<br/>❌ Higher latency<br/>❌ Reduced availability]
+            SYNC_PERF[Performance Impact<br/>Latency: 2x-5x higher<br/>Throughput: 50-80% of async]
         end
 
-        subgraph "Asynchronous Replication"
-            ASYNC_CONS["Eventual Consistency<br/>✅ High performance<br/>✅ High availability<br/>❌ Potential data loss"]
-            ASYNC_PERF["Performance Benefit<br/>Latency: Minimal impact<br/>Throughput: Near single-node"]
+        subgraph Asynchronous Replication
+            ASYNC_CONS[Eventual Consistency<br/>✅ High performance<br/>✅ High availability<br/>❌ Potential data loss]
+            ASYNC_PERF[Performance Benefit<br/>Latency: Minimal impact<br/>Throughput: Near single-node]
         end
 
-        subgraph "Semi-Synchronous Replication"
-            SEMI_CONS["Balanced Approach<br/>✅ Durability guarantee<br/>✅ Reasonable performance<br/>⚠️ Complex configuration"]
-            SEMI_PERF["Performance Balance<br/>Latency: 1.5x-2x higher<br/>Throughput: 70-90% of async"]
+        subgraph Semi-Synchronous Replication
+            SEMI_CONS[Balanced Approach<br/>✅ Durability guarantee<br/>✅ Reasonable performance<br/>⚠️ Complex configuration]
+            SEMI_PERF[Performance Balance<br/>Latency: 1.5x-2x higher<br/>Throughput: 70-90% of async]
         end
     end
 
@@ -190,28 +190,28 @@ SET GLOBAL rpl_semi_sync_master_timeout = 1000; -- 1 second
 
 ```mermaid
 graph LR
-    subgraph "Performance Comparison (3-node cluster)"
-        subgraph "Synchronous"
-            SYNC_TPS["5,000 TPS"]
-            SYNC_LAT["15ms p99"]
-            SYNC_AVAIL["99.9% (fails if any replica down)"]
+    subgraph Performance Comparison (3-node cluster)
+        subgraph Synchronous
+            SYNC_TPS[5,000 TPS]
+            SYNC_LAT[15ms p99]
+            SYNC_AVAIL[99.9% (fails if any replica down)]
         end
 
-        subgraph "Semi-Synchronous"
-            SEMI_TPS["8,000 TPS"]
-            SEMI_LAT["8ms p99"]
-            SEMI_AVAIL["99.95% (tolerates 1 replica down)"]
+        subgraph Semi-Synchronous
+            SEMI_TPS[8,000 TPS]
+            SEMI_LAT[8ms p99]
+            SEMI_AVAIL[99.95% (tolerates 1 replica down)]
         end
 
-        subgraph "Asynchronous"
-            ASYNC_TPS["12,000 TPS"]
-            ASYNC_LAT["3ms p99"]
-            ASYNC_AVAIL["99.99% (primary only dependency)"]
+        subgraph Asynchronous
+            ASYNC_TPS[12,000 TPS]
+            ASYNC_LAT[3ms p99]
+            ASYNC_AVAIL[99.99% (primary only dependency)]
         end
 
-        subgraph "Trade-off Analysis"
-            CONSISTENCY["Data Loss Risk<br/>Sync: 0<br/>Semi-sync: Minimal<br/>Async: Up to RPO"]
-            PERFORMANCE["Performance Impact<br/>Sync: Highest<br/>Semi-sync: Moderate<br/>Async: Minimal"]
+        subgraph Trade-off Analysis
+            CONSISTENCY[Data Loss Risk<br/>Sync: 0<br/>Semi-sync: Minimal<br/>Async: Up to RPO]
+            PERFORMANCE[Performance Impact<br/>Sync: Highest<br/>Semi-sync: Moderate<br/>Async: Minimal]
         end
     end
 
@@ -282,29 +282,29 @@ use_case_patterns:
 
 ```mermaid
 graph TB
-    subgraph "Replication Failure Scenarios"
-        subgraph "Synchronous Failures"
-            SYNC_FAIL["Secondary Down"]
-            SYNC_EFFECT["Write Blocking"]
-            SYNC_RECOVERY["Wait or Timeout"]
+    subgraph Replication Failure Scenarios
+        subgraph Synchronous Failures
+            SYNC_FAIL[Secondary Down]
+            SYNC_EFFECT[Write Blocking]
+            SYNC_RECOVERY[Wait or Timeout]
         end
 
-        subgraph "Semi-Sync Failures"
-            SEMI_FAIL["Some Secondaries Down"]
-            SEMI_EFFECT["Degraded Performance"]
-            SEMI_RECOVERY["Fallback to Async"]
+        subgraph Semi-Sync Failures
+            SEMI_FAIL[Some Secondaries Down]
+            SEMI_EFFECT[Degraded Performance]
+            SEMI_RECOVERY[Fallback to Async]
         end
 
-        subgraph "Async Failures"
-            ASYNC_FAIL["Secondary Down"]
-            ASYNC_EFFECT["No Impact on Writes"]
-            ASYNC_RECOVERY["Catchup When Available"]
+        subgraph Async Failures
+            ASYNC_FAIL[Secondary Down]
+            ASYNC_EFFECT[No Impact on Writes]
+            ASYNC_RECOVERY[Catchup When Available]
         end
 
-        subgraph "Network Partition"
-            PARTITION["Primary Isolated"]
-            SPLIT_BRAIN["Split-Brain Risk"]
-            FENCING["Fencing Required"]
+        subgraph Network Partition
+            PARTITION[Primary Isolated]
+            SPLIT_BRAIN[Split-Brain Risk]
+            FENCING[Fencing Required]
         end
     end
 

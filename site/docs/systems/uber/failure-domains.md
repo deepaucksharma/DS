@@ -6,62 +6,62 @@ This diagram shows Uber's failure domains and blast radius for each component, i
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        MobileApps["Mobile Apps<br/>━━━━━<br/>Failure Impact: HIGH<br/>Blast Radius: Global<br/>Mitigation: App stores<br/>Recovery: 24-48 hours"]
+        MobileApps[Mobile Apps<br/>━━━━━<br/>Failure Impact: HIGH<br/>Blast Radius: Global<br/>Mitigation: App stores<br/>Recovery: 24-48 hours]
 
-        CDN["Global CDN<br/>━━━━━<br/>Failure Impact: MEDIUM<br/>Blast Radius: Regional<br/>Mitigation: Multi-CDN<br/>Recovery: 15 minutes"]
+        CDN[Global CDN<br/>━━━━━<br/>Failure Impact: MEDIUM<br/>Blast Radius: Regional<br/>Mitigation: Multi-CDN<br/>Recovery: 15 minutes]
 
-        LoadBalancer["Load Balancers<br/>━━━━━<br/>Failure Impact: HIGH<br/>Blast Radius: Region<br/>Mitigation: Auto-failover<br/>Recovery: 30 seconds"]
+        LoadBalancer[Load Balancers<br/>━━━━━<br/>Failure Impact: HIGH<br/>Blast Radius: Region<br/>Mitigation: Auto-failover<br/>Recovery: 30 seconds]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        subgraph CriticalServices["Critical Path Services"]
-            MatchingEngine["DISCO Matching<br/>━━━━━<br/>⚠️ SINGLE POINT OF FAILURE<br/>Blast Radius: City-wide<br/>Recovery: 2-5 minutes<br/>Fallback: Manual dispatch"]
+        subgraph CriticalServices[Critical Path Services]
+            MatchingEngine[DISCO Matching<br/>━━━━━<br/>⚠️ SINGLE POINT OF FAILURE<br/>Blast Radius: City-wide<br/>Recovery: 2-5 minutes<br/>Fallback: Manual dispatch]
 
-            LocationService["Location Service<br/>━━━━━<br/>Failure Impact: HIGH<br/>Blast Radius: Regional<br/>Circuit Breaker: 60s timeout<br/>Fallback: Last known location"]
+            LocationService[Location Service<br/>━━━━━<br/>Failure Impact: HIGH<br/>Blast Radius: Regional<br/>Circuit Breaker: 60s timeout<br/>Fallback: Last known location]
 
-            ETAService["Gauss ETA Service<br/>━━━━━<br/>Failure Impact: MEDIUM<br/>Blast Radius: City<br/>Circuit Breaker: 100ms timeout<br/>Fallback: Historical averages"]
+            ETAService[Gauss ETA Service<br/>━━━━━<br/>Failure Impact: MEDIUM<br/>Blast Radius: City<br/>Circuit Breaker: 100ms timeout<br/>Fallback: Historical averages]
         end
 
-        subgraph NonCriticalServices["Non-Critical Services"]
-            PricingService["Surge Pricing<br/>━━━━━<br/>Failure Impact: MEDIUM<br/>Blast Radius: City<br/>Circuit Breaker: 50ms timeout<br/>Fallback: Base pricing"]
+        subgraph NonCriticalServices[Non-Critical Services]
+            PricingService[Surge Pricing<br/>━━━━━<br/>Failure Impact: MEDIUM<br/>Blast Radius: City<br/>Circuit Breaker: 50ms timeout<br/>Fallback: Base pricing]
 
-            NotificationService["Push Notifications<br/>━━━━━<br/>Failure Impact: LOW<br/>Blast Radius: Feature-level<br/>Circuit Breaker: 500ms timeout<br/>Fallback: In-app notifications"]
+            NotificationService[Push Notifications<br/>━━━━━<br/>Failure Impact: LOW<br/>Blast Radius: Feature-level<br/>Circuit Breaker: 500ms timeout<br/>Fallback: In-app notifications]
 
-            AnalyticsService["Analytics Pipeline<br/>━━━━━<br/>Failure Impact: LOW<br/>Blast Radius: Internal only<br/>Circuit Breaker: N/A<br/>Fallback: Batch processing"]
+            AnalyticsService[Analytics Pipeline<br/>━━━━━<br/>Failure Impact: LOW<br/>Blast Radius: Internal only<br/>Circuit Breaker: N/A<br/>Fallback: Batch processing]
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        subgraph CriticalData["Critical Data Stores"]
-            SchemalessDB["Schemaless DB<br/>━━━━━<br/>⚠️ CRITICAL DEPENDENCY<br/>Blast Radius: Multi-city<br/>Recovery: 30 minutes<br/>Backup: Read replicas"]
+        subgraph CriticalData[Critical Data Stores]
+            SchemalessDB[Schemaless DB<br/>━━━━━<br/>⚠️ CRITICAL DEPENDENCY<br/>Blast Radius: Multi-city<br/>Recovery: 30 minutes<br/>Backup: Read replicas]
 
-            LocationCache["Redis Location Cache<br/>━━━━━<br/>Failure Impact: HIGH<br/>Blast Radius: Regional<br/>Recovery: 5 minutes<br/>Backup: Cassandra rebuild"]
+            LocationCache[Redis Location Cache<br/>━━━━━<br/>Failure Impact: HIGH<br/>Blast Radius: Regional<br/>Recovery: 5 minutes<br/>Backup: Cassandra rebuild]
 
-            CassandraCluster["Cassandra Cluster<br/>━━━━━<br/>Failure Impact: MEDIUM<br/>Blast Radius: Regional<br/>Recovery: 10 minutes<br/>Backup: Cross-DC replication"]
+            CassandraCluster[Cassandra Cluster<br/>━━━━━<br/>Failure Impact: MEDIUM<br/>Blast Radius: Regional<br/>Recovery: 10 minutes<br/>Backup: Cross-DC replication]
         end
 
-        subgraph RegionalData["Regional Data Stores"]
-            PaymentDB["Payment Database<br/>━━━━━<br/>⚠️ REGULATED SYSTEM<br/>Blast Radius: Country<br/>Recovery: 15 minutes<br/>Backup: Hot standby"]
+        subgraph RegionalData[Regional Data Stores]
+            PaymentDB[Payment Database<br/>━━━━━<br/>⚠️ REGULATED SYSTEM<br/>Blast Radius: Country<br/>Recovery: 15 minutes<br/>Backup: Hot standby]
 
-            UserProfileDB["User Profiles<br/>━━━━━<br/>Failure Impact: MEDIUM<br/>Blast Radius: Global feature<br/>Recovery: 5 minutes<br/>Backup: Multi-region"]
+            UserProfileDB[User Profiles<br/>━━━━━<br/>Failure Impact: MEDIUM<br/>Blast Radius: Global feature<br/>Recovery: 5 minutes<br/>Backup: Multi-region]
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        CircuitBreakers["Circuit Breaker Mesh<br/>━━━━━<br/>Auto-isolation<br/>Failure detection: 3 errors<br/>Recovery probe: 30s<br/>Half-open timeout: 60s"]
+        CircuitBreakers[Circuit Breaker Mesh<br/>━━━━━<br/>Auto-isolation<br/>Failure detection: 3 errors<br/>Recovery probe: 30s<br/>Half-open timeout: 60s]
 
-        HealthChecks["Health Check System<br/>━━━━━<br/>Endpoint monitoring<br/>Deep health validation<br/>Auto-traffic routing<br/>5-second intervals"]
+        HealthChecks[Health Check System<br/>━━━━━<br/>Endpoint monitoring<br/>Deep health validation<br/>Auto-traffic routing<br/>5-second intervals]
 
-        FailoverController["Failover Controller<br/>━━━━━<br/>Regional traffic shifting<br/>Database promotion<br/>Cache invalidation<br/>Automated runbooks"]
+        FailoverController[Failover Controller<br/>━━━━━<br/>Regional traffic shifting<br/>Database promotion<br/>Cache invalidation<br/>Automated runbooks]
     end
 
     %% Failure Propagation Paths (Critical)

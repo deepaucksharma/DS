@@ -18,14 +18,14 @@
 
 ```mermaid
 graph TB
-    subgraph "PayPal Payment Network"
+    subgraph PayPal Payment Network
         CHECKOUT[PayPal Checkout<br/>Payment Processing]
         WALLET[PayPal Wallet<br/>Account Management]
         MERCHANT[Merchant Services<br/>Business Payments]
         API[PayPal API<br/>Developer Integration]
     end
 
-    subgraph "Infrastructure Layer"
+    subgraph Infrastructure Layer
         DNS[DNS Service<br/>Domain Resolution<br/>CONFIGURATION ERROR]
         CDN[Content Delivery<br/>Global Distribution]
         LOADBALANCER[Load Balancers<br/>Traffic Distribution]

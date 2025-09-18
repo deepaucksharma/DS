@@ -6,26 +6,26 @@ This diagram shows Uber's architectural evolution from a single-city monolith (2
 
 ```mermaid
 graph TB
-    subgraph Scale2010["2010: MVP - 1 City (San Francisco)"]
+    subgraph Scale2010[2010: MVP - 1 City (San Francisco)]
         style Scale2010 fill:#e1f5fe,stroke:#0277bd,color:#000
 
-        MonolithApp["Rails Monolith<br/>━━━━━<br/>Single server<br/>PostgreSQL<br/>100 trips/day<br/>$500/month AWS"]
+        MonolithApp[Rails Monolith<br/>━━━━━<br/>Single server<br/>PostgreSQL<br/>100 trips/day<br/>$500/month AWS]
 
-        SingleDB["PostgreSQL<br/>━━━━━<br/>Single instance<br/>10GB data<br/>All tables"]
+        SingleDB[PostgreSQL<br/>━━━━━<br/>Single instance<br/>10GB data<br/>All tables]
 
         MonolithApp --> SingleDB
     end
 
-    subgraph Scale2012["2012: Multi-City - 10 Cities"]
+    subgraph Scale2012[2012: Multi-City - 10 Cities]
         style Scale2012 fill:#f3e5f5,stroke:#7b1fa2,color:#000
 
-        LoadBalancer2012["HAProxy<br/>━━━━━<br/>Single LB<br/>500 req/sec"]
+        LoadBalancer2012[HAProxy<br/>━━━━━<br/>Single LB<br/>500 req/sec]
 
-        RailsCluster["Rails App Cluster<br/>━━━━━<br/>5 servers<br/>10K trips/day<br/>$5K/month"]
+        RailsCluster[Rails App Cluster<br/>━━━━━<br/>5 servers<br/>10K trips/day<br/>$5K/month]
 
-        MySQLMaster["MySQL Master<br/>━━━━━<br/>100GB data<br/>Read/Write"]
+        MySQLMaster[MySQL Master<br/>━━━━━<br/>100GB data<br/>Read/Write]
 
-        MySQLReplica["MySQL Replica<br/>━━━━━<br/>Read queries<br/>Replication lag"]
+        MySQLReplica[MySQL Replica<br/>━━━━━<br/>Read queries<br/>Replication lag]
 
         LoadBalancer2012 --> RailsCluster
         RailsCluster --> MySQLMaster
@@ -33,22 +33,22 @@ graph TB
         MySQLMaster --> MySQLReplica
     end
 
-    subgraph Scale2014["2014: National Scale - 100 Cities"]
+    subgraph Scale2014[2014: National Scale - 100 Cities]
         style Scale2014 fill:#fff3e0,stroke:#f57c00,color:#000
 
-        LB2014["Load Balancer<br/>━━━━━<br/>Multi-region<br/>50K req/sec"]
+        LB2014[Load Balancer<br/>━━━━━<br/>Multi-region<br/>50K req/sec]
 
-        APIGateway2014["API Gateway<br/>━━━━━<br/>Service routing<br/>Rate limiting"]
+        APIGateway2014[API Gateway<br/>━━━━━<br/>Service routing<br/>Rate limiting]
 
-        UserService["User Service<br/>━━━━━<br/>Go microservice<br/>User management"]
+        UserService[User Service<br/>━━━━━<br/>Go microservice<br/>User management]
 
-        TripService["Trip Service<br/>━━━━━<br/>Core business logic<br/>Trip lifecycle"]
+        TripService[Trip Service<br/>━━━━━<br/>Core business logic<br/>Trip lifecycle]
 
-        LocationService2014["Location Service<br/>━━━━━<br/>Real-time tracking<br/>100K updates/min"]
+        LocationService2014[Location Service<br/>━━━━━<br/>Real-time tracking<br/>100K updates/min]
 
-        ShardedMySQL["Sharded MySQL<br/>━━━━━<br/>100 shards<br/>10TB total<br/>Manual sharding"]
+        ShardedMySQL[Sharded MySQL<br/>━━━━━<br/>100 shards<br/>10TB total<br/>Manual sharding]
 
-        Redis2014["Redis Cluster<br/>━━━━━<br/>Session cache<br/>Location cache<br/>1TB memory"]
+        Redis2014[Redis Cluster<br/>━━━━━<br/>Session cache<br/>Location cache<br/>1TB memory]
 
         LB2014 --> APIGateway2014
         APIGateway2014 --> UserService
@@ -59,18 +59,18 @@ graph TB
         LocationService2014 --> Redis2014
     end
 
-    subgraph Scale2016["2016: Global Expansion - 1,000 Cities"]
+    subgraph Scale2016[2016: Global Expansion - 1,000 Cities]
         style Scale2016 fill:#f1f8e9,stroke:#388e3c,color:#000
 
-        GlobalCDN["Global CDN<br/>━━━━━<br/>CloudFront<br/>Multi-region"]
+        GlobalCDN[Global CDN<br/>━━━━━<br/>CloudFront<br/>Multi-region]
 
-        SchemalessV1["Schemaless v1<br/>━━━━━<br/>MySQL abstraction<br/>1,000 shards<br/>Auto-sharding"]
+        SchemalessV1[Schemaless v1<br/>━━━━━<br/>MySQL abstraction<br/>1,000 shards<br/>Auto-sharding]
 
-        MatchingV1["Matching Engine v1<br/>━━━━━<br/>Simple geo-queries<br/>PostgreSQL PostGIS<br/>100 matches/sec"]
+        MatchingV1[Matching Engine v1<br/>━━━━━<br/>Simple geo-queries<br/>PostgreSQL PostGIS<br/>100 matches/sec]
 
-        CassandraV1["Cassandra v1<br/>━━━━━<br/>Location data<br/>Time series<br/>100 nodes"]
+        CassandraV1[Cassandra v1<br/>━━━━━<br/>Location data<br/>Time series<br/>100 nodes]
 
-        KafkaV1["Kafka<br/>━━━━━<br/>Event streaming<br/>10 topics<br/>1M events/sec"]
+        KafkaV1[Kafka<br/>━━━━━<br/>Event streaming<br/>10 topics<br/>1M events/sec]
 
         GlobalCDN --> SchemalessV1
         MatchingV1 --> CassandraV1
@@ -78,48 +78,48 @@ graph TB
         TripService --> KafkaV1
     end
 
-    subgraph Scale2018["2018: Machine Learning Era - 3,000 Cities"]
+    subgraph Scale2018[2018: Machine Learning Era - 3,000 Cities]
         style Scale2018 fill:#fde7f3,stroke:#c2185b,color:#000
 
-        DISCO_V1["DISCO v1<br/>━━━━━<br/>Supply-demand matching<br/>Basic H3 indexing<br/>1K matches/sec"]
+        DISCO_V1[DISCO v1<br/>━━━━━<br/>Supply-demand matching<br/>Basic H3 indexing<br/>1K matches/sec]
 
-        MLPlatform["ML Platform<br/>━━━━━<br/>Michelangelo<br/>Feature store<br/>Model serving"]
+        MLPlatform[ML Platform<br/>━━━━━<br/>Michelangelo<br/>Feature store<br/>Model serving]
 
-        BigData2018["Hadoop + Spark<br/>━━━━━<br/>1PB data lake<br/>ETL pipelines<br/>Batch ML training"]
+        BigData2018[Hadoop + Spark<br/>━━━━━<br/>1PB data lake<br/>ETL pipelines<br/>Batch ML training]
 
-        Schemaless2018["Schemaless v2<br/>━━━━━<br/>5,000 shards<br/>Cross-region replication<br/>Eventual consistency"]
+        Schemaless2018[Schemaless v2<br/>━━━━━<br/>5,000 shards<br/>Cross-region replication<br/>Eventual consistency]
 
         DISCO_V1 --> MLPlatform
         MLPlatform --> BigData2018
         DISCO_V1 --> Schemaless2018
     end
 
-    subgraph Scale2020["2020: Pandemic Adaptation - 5,000 Cities"]
+    subgraph Scale2020[2020: Pandemic Adaptation - 5,000 Cities]
         style Scale2020 fill:#ffebee,stroke:#d32f2f,color:#000
 
-        DISCO_V2["DISCO v2<br/>━━━━━<br/>Advanced H3 spatial<br/>Real-time optimization<br/>10K matches/sec"]
+        DISCO_V2[DISCO v2<br/>━━━━━<br/>Advanced H3 spatial<br/>Real-time optimization<br/>10K matches/sec]
 
-        EdgeCompute["Edge Computing<br/>━━━━━<br/>Regional processing<br/>Reduced latency<br/>AWS Wavelength"]
+        EdgeCompute[Edge Computing<br/>━━━━━<br/>Regional processing<br/>Reduced latency<br/>AWS Wavelength]
 
-        StreamProcessing["Real-time ML<br/>━━━━━<br/>Kafka Streams<br/>Online learning<br/>Sub-second inference"]
+        StreamProcessing[Real-time ML<br/>━━━━━<br/>Kafka Streams<br/>Online learning<br/>Sub-second inference]
 
-        CassandraV2["Cassandra v2<br/>━━━━━<br/>500 nodes<br/>Multi-DC replication<br/>5PB location data"]
+        CassandraV2[Cassandra v2<br/>━━━━━<br/>500 nodes<br/>Multi-DC replication<br/>5PB location data]
 
         DISCO_V2 --> EdgeCompute
         StreamProcessing --> CassandraV2
         DISCO_V2 --> StreamProcessing
     end
 
-    subgraph Scale2024["2024: Global Platform - 10,000+ Cities"]
+    subgraph Scale2024[2024: Global Platform - 10,000+ Cities]
         style Scale2024 fill:#e8f5e8,stroke:#2e7d32,color:#000
 
-        DISCO_V3["DISCO v3<br/>━━━━━<br/>200K matches/sec<br/>Global optimization<br/>Multi-modal transport"]
+        DISCO_V3[DISCO v3<br/>━━━━━<br/>200K matches/sec<br/>Global optimization<br/>Multi-modal transport]
 
-        M3Platform["M3 Metrics<br/>━━━━━<br/>10M metrics/sec<br/>Real-time monitoring<br/>Custom time-series DB"]
+        M3Platform[M3 Metrics<br/>━━━━━<br/>10M metrics/sec<br/>Real-time monitoring<br/>Custom time-series DB]
 
-        DocStore2024["DocStore<br/>━━━━━<br/>MongoDB-compatible<br/>Auto-sharding<br/>Flexible schema"]
+        DocStore2024[DocStore<br/>━━━━━<br/>MongoDB-compatible<br/>Auto-sharding<br/>Flexible schema]
 
-        Schemaless2024["Schemaless v3<br/>━━━━━<br/>10,000+ shards<br/>Global distribution<br/>Strong consistency"]
+        Schemaless2024[Schemaless v3<br/>━━━━━<br/>10,000+ shards<br/>Global distribution<br/>Strong consistency]
 
         DISCO_V3 --> M3Platform
         DISCO_V3 --> DocStore2024

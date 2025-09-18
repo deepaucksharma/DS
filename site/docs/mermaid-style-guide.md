@@ -22,29 +22,29 @@ This style guide demonstrates the new Mermaid design system with interactive zoo
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["🌐 Edge Plane - CDN & Security"]
-        CDN["CDN/CloudFlare<br/>📊 500 Gbps<br/>💰 $5K/month"]
-        WAF["WAF Rules<br/>🛡️ 10K rules<br/>⚡ <1ms"]
-        LB["Load Balancer<br/>ALB<br/>🎯 10ms p99"]
+    subgraph EdgePlane[🌐 Edge Plane - CDN & Security]
+        CDN[CDN/CloudFlare<br/>📊 500 Gbps<br/>💰 $5K/month]
+        WAF[WAF Rules<br/>🛡️ 10K rules<br/>⚡ <1ms]
+        LB[Load Balancer<br/>ALB<br/>🎯 10ms p99]
     end
 
-    subgraph ServicePlane["⚙️ Service Plane - Business Logic"]
-        API["API Gateway<br/>Kong 3.4<br/>🔐 OAuth2/JWT"]
-        MESH["Service Mesh<br/>Istio 1.19<br/>🔄 mTLS"]
-        SVC1["Order Service<br/>Java 17<br/>📦 50 pods"]
-        SVC2["Payment Service<br/>Go 1.21<br/>💳 PCI DSS"]
+    subgraph ServicePlane[⚙️ Service Plane - Business Logic]
+        API[API Gateway<br/>Kong 3.4<br/>🔐 OAuth2/JWT]
+        MESH[Service Mesh<br/>Istio 1.19<br/>🔄 mTLS]
+        SVC1[Order Service<br/>Java 17<br/>📦 50 pods]
+        SVC2[Payment Service<br/>Go 1.21<br/>💳 PCI DSS]
     end
 
-    subgraph StatePlane["💾 State Plane - Data Layer"]
+    subgraph StatePlane[💾 State Plane - Data Layer]
         DB[("PostgreSQL 16<br/>💽 10TB<br/>📈 5K TPS")]
         CACHE[("Redis 7.2<br/>⚡ 1ms p50<br/>💰 $2K/month")]
         QUEUE[("Kafka 3.6<br/>📬 1M msg/s<br/>💾 7 days")]
     end
 
-    subgraph ControlPlane["🎛️ Control Plane - Operations"]
-        MON["Prometheus<br/>📊 10K metrics/s<br/>💾 30d retention"]
-        LOG["ELK Stack<br/>📝 1TB/day<br/>🔍 Full-text search"]
-        TRACE["Jaeger<br/>🔗 100K traces/s<br/>⏱️ p99 tracking"]
+    subgraph ControlPlane[🎛️ Control Plane - Operations]
+        MON[Prometheus<br/>📊 10K metrics/s<br/>💾 30d retention]
+        LOG[ELK Stack<br/>📝 1TB/day<br/>🔍 Full-text search]
+        TRACE[Jaeger<br/>🔗 100K traces/s<br/>⏱️ p99 tracking]
     end
 
     CDN --> WAF
@@ -204,13 +204,13 @@ pie title Monthly Infrastructure Costs ($250K Total)
 
 ```mermaid
 graph LR
-    subgraph "Phase 1: Startup (0-10K users)"
+    subgraph Phase 1: Startup (0-10K users)
         A1[Monolith<br/>1 Server<br/>$100/mo]
         A2[MySQL<br/>Single DB<br/>1GB]
         A1 --> A2
     end
 
-    subgraph "Phase 2: Growth (10K-100K users)"
+    subgraph Phase 2: Growth (10K-100K users)
         B1[3 App Servers<br/>Load Balanced<br/>$1K/mo]
         B2[MySQL Primary<br/>Read Replica<br/>100GB]
         B3[Redis Cache<br/>2GB<br/>$200/mo]
@@ -218,7 +218,7 @@ graph LR
         B1 --> B3
     end
 
-    subgraph "Phase 3: Scale (100K-1M users)"
+    subgraph Phase 3: Scale (100K-1M users)
         C1[Microservices<br/>20 Services<br/>$10K/mo]
         C2[PostgreSQL<br/>Sharded<br/>1TB]
         C3[Redis Cluster<br/>32GB<br/>$2K/mo]
@@ -228,7 +228,7 @@ graph LR
         C1 --> C4
     end
 
-    subgraph "Phase 4: Enterprise (1M+ users)"
+    subgraph Phase 4: Enterprise (1M+ users)
         D1[200 Microservices<br/>Multi-region<br/>$100K/mo]
         D2[Multi-DB<br/>Postgres+Cassandra<br/>50TB]
         D3[Redis Clusters<br/>500GB RAM<br/>$20K/mo]
@@ -343,8 +343,8 @@ gantt
 ### 1. Always Use Production Metrics
 ```mermaid
 graph LR
-    Bad["Service<br/>High Performance"]
-    Good["Service<br/>p99: 45ms<br/>10K req/s<br/>$2K/month"]
+    Bad[Service<br/>High Performance]
+    Good[Service<br/>p99: 45ms<br/>10K req/s<br/>$2K/month]
 
     Bad -.->|❌ Vague| X[Don't Use]
     Good -.->|✅ Specific| Y[Do Use]
@@ -368,9 +368,9 @@ graph TB
 ```mermaid
 graph LR
     subgraph Monthly Costs
-        Compute["EC2<br/>m5.xlarge x10<br/>💰 $1,400"]
-        Storage["S3<br/>10TB<br/>💰 $230"]
-        Network["CloudFront<br/>1TB transfer<br/>💰 $85"]
+        Compute[EC2<br/>m5.xlarge x10<br/>💰 $1,400]
+        Storage[S3<br/>10TB<br/>💰 $230]
+        Network[CloudFront<br/>1TB transfer<br/>💰 $85]
     end
 ```
 

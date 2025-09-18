@@ -8,23 +8,23 @@ Hotspots occur when certain partitions receive disproportionately high traffic, 
 
 ```mermaid
 graph TB
-    subgraph "Hotspot Categories"
-        subgraph "Data Hotspots"
+    subgraph Hotspot Categories
+        subgraph Data Hotspots
             DATA_SIZE[Size Hotspots<br/>• Large objects<br/>• Uneven data distribution<br/>• Partition size imbalance<br/>Example: Celebrity user profiles]
             DATA_ACCESS[Access Hotspots<br/>• Frequently accessed keys<br/>• Trending content<br/>• Popular resources<br/>Example: Viral social media posts]
         end
 
-        subgraph "Temporal Hotspots"
+        subgraph Temporal Hotspots
             TIME_BURST[Burst Hotspots<br/>• Traffic spikes<br/>• Flash sales<br/>• Breaking news<br/>Example: Product launches]
             TIME_PATTERN[Pattern Hotspots<br/>• Time zone effects<br/>• Daily peaks<br/>• Seasonal patterns<br/>Example: Business hours traffic]
         end
 
-        subgraph "Geographic Hotspots"
+        subgraph Geographic Hotspots
             GEO_REGION[Regional Hotspots<br/>• Geographic concentration<br/>• Cultural events<br/>• Local outages<br/>Example: Regional blackouts]
             GEO_AFFINITY[Affinity Hotspots<br/>• User clustering<br/>• Data locality<br/>• Network proximity<br/>Example: Gaming servers]
         end
 
-        subgraph "Operational Hotspots"
+        subgraph Operational Hotspots
             OP_KEY[Key Hotspots<br/>• Sequential keys<br/>• Monotonic IDs<br/>• Auto-incrementing<br/>Example: timestamp-based keys]
             OP_HASH[Hash Hotspots<br/>• Poor hash distribution<br/>• Hash collisions<br/>• Skewed partitioning<br/>Example: biased hash functions]
         end
@@ -564,26 +564,26 @@ if __name__ == "__main__":
 
 ```mermaid
 graph TB
-    subgraph "Hotspot Mitigation Strategies"
-        subgraph "Read Hotspot Mitigation"
+    subgraph Hotspot Mitigation Strategies
+        subgraph Read Hotspot Mitigation
             READ_CACHE[Add Caching Layer<br/>• Redis/Memcached<br/>• CDN for static content<br/>• Application-level cache]
             READ_REPLICA[Add Read Replicas<br/>• Database read replicas<br/>• Geo-distributed replicas<br/>• Load balancer updates]
             READ_THROTTLE[Implement Rate Limiting<br/>• Per-client limits<br/>• Global rate limiting<br/>• Circuit breaker pattern]
         end
 
-        subgraph "Write Hotspot Mitigation"
+        subgraph Write Hotspot Mitigation
             WRITE_SPLIT[Partition Splitting<br/>• Key range redistribution<br/>• Hash space division<br/>• Online migration]
             WRITE_BUFFER[Write Buffering<br/>• Async write queues<br/>• Batch processing<br/>• Write-behind caching]
             WRITE_SHARD[Micro-Sharding<br/>• Sub-partition creation<br/>• Virtual node increase<br/>• Load redistribution]
         end
 
-        subgraph "Size Hotspot Mitigation"
+        subgraph Size Hotspot Mitigation
             SIZE_ARCHIVE[Data Archiving<br/>• Cold storage migration<br/>• Retention policy enforcement<br/>• Compression techniques]
             SIZE_SPLIT[Partition Split<br/>• Range-based splitting<br/>• Size-based splitting<br/>• Intelligent key distribution]
             SIZE_COMPRESS[Data Compression<br/>• Algorithm optimization<br/>• Format changes<br/>• Deduplication]
         end
 
-        subgraph "Emergency Measures"
+        subgraph Emergency Measures
             EMERGENCY_SHED[Load Shedding<br/>• Drop non-critical requests<br/>• Prioritize core functions<br/>• Graceful degradation]
             EMERGENCY_FAILOVER[Failover<br/>• Switch to backup systems<br/>• Regional failover<br/>• Emergency scaling]
             EMERGENCY_THROTTLE[Aggressive Throttling<br/>• Severe rate limits<br/>• Client blocking<br/>• Queue backpressure]

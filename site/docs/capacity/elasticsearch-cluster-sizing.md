@@ -275,25 +275,25 @@ Netflix_Elasticsearch_Cluster:
 
 ```mermaid
 graph TB
-    subgraph "Uber Elasticsearch Architecture"
-        subgraph EdgePlane["Edge Plane"]
+    subgraph Uber Elasticsearch Architecture
+        subgraph EdgePlane[Edge Plane]
             LB[Load Balancer<br/>nginx: 50K req/s]
             CDN[CDN Cache<br/>Location queries]
         end
 
-        subgraph ServicePlane["Service Plane"]
+        subgraph ServicePlane[Service Plane]
             API[Search API<br/>Go service: 5K QPS]
             COORD[Coordinating Nodes<br/>r5.xlarge x3<br/>8GB heap each]
         end
 
-        subgraph StatePlane["State Plane"]
-            subgraph "Hot Data (7 days)"
+        subgraph StatePlane[State Plane]
+            subgraph Hot Data (7 days)
                 ES1[ES Data Node 1<br/>i3.2xlarge<br/>200GB index]
                 ES2[ES Data Node 2<br/>i3.2xlarge<br/>200GB index]
                 ES3[ES Data Node 3<br/>i3.2xlarge<br/>200GB index]
             end
 
-            subgraph "Warm Data (30 days)"
+            subgraph Warm Data (30 days)
                 ES4[ES Data Node 4<br/>r5d.xlarge<br/>500GB index]
                 ES5[ES Data Node 5<br/>r5d.xlarge<br/>500GB index]
             end
@@ -301,7 +301,7 @@ graph TB
             MASTER[(Master Nodes<br/>m5.large x3<br/>Cluster state)]
         end
 
-        subgraph ControlPlane["Control Plane"]
+        subgraph ControlPlane[Control Plane]
             MON[Prometheus<br/>Cluster metrics]
             ALERT[AlertManager<br/>SLA monitoring]
             KIBANA[Kibana<br/>Operations dashboard]

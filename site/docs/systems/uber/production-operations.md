@@ -6,77 +6,77 @@ This diagram shows Uber's complete production operations including uDeploy deplo
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        GlobalDNS["Global DNS<br/>━━━━━<br/>Route53 + CloudFlare<br/>Health-based routing<br/>TTL: 60 seconds<br/>Failover: 30 seconds"]
+        GlobalDNS[Global DNS<br/>━━━━━<br/>Route53 + CloudFlare<br/>Health-based routing<br/>TTL: 60 seconds<br/>Failover: 30 seconds]
 
-        TrafficSplitter["Traffic Splitter<br/>━━━━━<br/>A/B testing platform<br/>Feature flag integration<br/>Canary deployments<br/>1% → 10% → 100%"]
+        TrafficSplitter[Traffic Splitter<br/>━━━━━<br/>A/B testing platform<br/>Feature flag integration<br/>Canary deployments<br/>1% → 10% → 100%]
 
-        HealthChecks["Edge Health Checks<br/>━━━━━<br/>Deep health validation<br/>5-second intervals<br/>Multi-region probes<br/>Auto-traffic routing"]
+        HealthChecks[Edge Health Checks<br/>━━━━━<br/>Deep health validation<br/>5-second intervals<br/>Multi-region probes<br/>Auto-traffic routing]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        subgraph CellA["Cell A (US-West-2a)"]
-            ServiceA["Matching Service<br/>━━━━━<br/>100 instances<br/>c5.24xlarge<br/>Kubernetes pods<br/>Version: v2.47.3"]
+        subgraph CellA[Cell A (US-West-2a)]
+            ServiceA[Matching Service<br/>━━━━━<br/>100 instances<br/>c5.24xlarge<br/>Kubernetes pods<br/>Version: v2.47.3]
 
-            GatewayA["API Gateway<br/>━━━━━<br/>Load balancer<br/>Rate limiting<br/>Circuit breakers"]
+            GatewayA[API Gateway<br/>━━━━━<br/>Load balancer<br/>Rate limiting<br/>Circuit breakers]
         end
 
-        subgraph CellB["Cell B (US-West-2b)"]
-            ServiceB["Matching Service<br/>━━━━━<br/>100 instances<br/>c5.24xlarge<br/>Kubernetes pods<br/>Version: v2.47.2"]
+        subgraph CellB[Cell B (US-West-2b)]
+            ServiceB[Matching Service<br/>━━━━━<br/>100 instances<br/>c5.24xlarge<br/>Kubernetes pods<br/>Version: v2.47.2]
 
-            GatewayB["API Gateway<br/>━━━━━<br/>Load balancer<br/>Rate limiting<br/>Circuit breakers"]
+            GatewayB[API Gateway<br/>━━━━━<br/>Load balancer<br/>Rate limiting<br/>Circuit breakers]
         end
 
-        subgraph CellC["Cell C (US-East-1a)"]
-            ServiceC["Matching Service<br/>━━━━━<br/>100 instances<br/>c5.24xlarge<br/>Kubernetes pods<br/>Version: v2.47.3"]
+        subgraph CellC[Cell C (US-East-1a)]
+            ServiceC[Matching Service<br/>━━━━━<br/>100 instances<br/>c5.24xlarge<br/>Kubernetes pods<br/>Version: v2.47.3]
 
-            GatewayC["API Gateway<br/>━━━━━<br/>Load balancer<br/>Rate limiting<br/>Circuit breakers"]
+            GatewayC[API Gateway<br/>━━━━━<br/>Load balancer<br/>Rate limiting<br/>Circuit breakers]
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        ConfigService["Configuration Service<br/>━━━━━<br/>Real-time config updates<br/>Feature flag management<br/>Circuit breaker settings<br/>A/B test parameters"]
+        ConfigService[Configuration Service<br/>━━━━━<br/>Real-time config updates<br/>Feature flag management<br/>Circuit breaker settings<br/>A/B test parameters]
 
-        SecretManager["Secret Manager<br/>━━━━━<br/>HashiCorp Vault<br/>Auto-rotation<br/>Encrypted at rest<br/>Audit logging"]
+        SecretManager[Secret Manager<br/>━━━━━<br/>HashiCorp Vault<br/>Auto-rotation<br/>Encrypted at rest<br/>Audit logging]
 
-        ServiceRegistry["Service Registry<br/>━━━━━<br/>Consul + etcd<br/>Health monitoring<br/>Service discovery<br/>Load balancer config"]
+        ServiceRegistry[Service Registry<br/>━━━━━<br/>Consul + etcd<br/>Health monitoring<br/>Service discovery<br/>Load balancer config]
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        subgraph DeploymentPipeline["uDeploy - Deployment Pipeline"]
-            GitLab["GitLab CI/CD<br/>━━━━━<br/>Source control<br/>Merge requests<br/>Automated testing<br/>Security scanning"]
+        subgraph DeploymentPipeline[uDeploy - Deployment Pipeline]
+            GitLab[GitLab CI/CD<br/>━━━━━<br/>Source control<br/>Merge requests<br/>Automated testing<br/>Security scanning]
 
-            BuildSystem["Build System<br/>━━━━━<br/>Docker image builds<br/>Multi-arch support<br/>Vulnerability scanning<br/>Artifact registry"]
+            BuildSystem[Build System<br/>━━━━━<br/>Docker image builds<br/>Multi-arch support<br/>Vulnerability scanning<br/>Artifact registry]
 
-            uDeploy["uDeploy Orchestrator<br/>━━━━━<br/>🏆 UBER'S DEPLOYMENT SYSTEM<br/>10K+ deployments/week<br/>Cell-based rollouts<br/>Automated rollbacks"]
+            uDeploy[uDeploy Orchestrator<br/>━━━━━<br/>🏆 UBER'S DEPLOYMENT SYSTEM<br/>10K+ deployments/week<br/>Cell-based rollouts<br/>Automated rollbacks]
 
-            TestingSuite["Testing Suite<br/>━━━━━<br/>Unit tests: 100K+<br/>Integration tests: 10K+<br/>Load tests: 1K+<br/>Chaos tests: 100+"]
+            TestingSuite[Testing Suite<br/>━━━━━<br/>Unit tests: 100K+<br/>Integration tests: 10K+<br/>Load tests: 1K+<br/>Chaos tests: 100+]
         end
 
-        subgraph ObservabilityStack["Observability Stack"]
-            M3Stack["M3 Metrics Platform<br/>━━━━━<br/>10M metrics/second<br/>Real-time dashboards<br/>Custom time-series DB<br/>Query federation"]
+        subgraph ObservabilityStack[Observability Stack]
+            M3Stack[M3 Metrics Platform<br/>━━━━━<br/>10M metrics/second<br/>Real-time dashboards<br/>Custom time-series DB<br/>Query federation]
 
-            LoggingStack["Logging Platform<br/>━━━━━<br/>ELK Stack + Kafka<br/>1TB logs/day<br/>Real-time indexing<br/>Log correlation"]
+            LoggingStack[Logging Platform<br/>━━━━━<br/>ELK Stack + Kafka<br/>1TB logs/day<br/>Real-time indexing<br/>Log correlation]
 
-            TracingStack["Distributed Tracing<br/>━━━━━<br/>Jaeger + OpenTelemetry<br/>1B spans/day<br/>Request correlation<br/>Performance analysis"]
+            TracingStack[Distributed Tracing<br/>━━━━━<br/>Jaeger + OpenTelemetry<br/>1B spans/day<br/>Request correlation<br/>Performance analysis]
 
-            AlertManager["Alert Manager<br/>━━━━━<br/>PagerDuty integration<br/>Escalation policies<br/>Alert correlation<br/>Noise reduction"]
+            AlertManager[Alert Manager<br/>━━━━━<br/>PagerDuty integration<br/>Escalation policies<br/>Alert correlation<br/>Noise reduction]
         end
 
-        subgraph ChaosEngineering["Chaos Engineering"]
-            ChaosPlatform["Chaos Platform<br/>━━━━━<br/>Automated chaos tests<br/>Failure injection<br/>Blast radius control<br/>Recovery validation"]
+        subgraph ChaosEngineering[Chaos Engineering]
+            ChaosPlatform[Chaos Platform<br/>━━━━━<br/>Automated chaos tests<br/>Failure injection<br/>Blast radius control<br/>Recovery validation]
 
-            ChaosMonkey["Chaos Monkey<br/>━━━━━<br/>Random instance termination<br/>Daily experiments<br/>Service resilience<br/>Auto-remediation"]
+            ChaosMonkey[Chaos Monkey<br/>━━━━━<br/>Random instance termination<br/>Daily experiments<br/>Service resilience<br/>Auto-remediation]
 
-            ChaosKong["Chaos Kong<br/>━━━━━<br/>Availability zone failures<br/>Weekly experiments<br/>Regional failover<br/>Data consistency"]
+            ChaosKong[Chaos Kong<br/>━━━━━<br/>Availability zone failures<br/>Weekly experiments<br/>Regional failover<br/>Data consistency]
         end
     end
 

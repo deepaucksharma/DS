@@ -8,73 +8,73 @@ Shopify powers 1.75+ million merchants globally, processing $235+ billion in gro
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
-        subgraph "Global Edge Network"
+        subgraph Global Edge Network
             CDN[Shopify CDN<br/>CloudFlare + Custom<br/>Static assets<br/>300+ locations]
             EDGE_LB[Edge Load Balancers<br/>Geographic routing<br/>SSL termination<br/>DDoS protection]
             WAF[Web Application Firewall<br/>Bot protection<br/>Rate limiting<br/>Attack mitigation]
         end
 
-        subgraph "Geographic Distribution"
+        subgraph Geographic Distribution
             NA_EDGE[North America<br/>Primary region<br/>60% of traffic]
             EU_EDGE[Europe/EMEA<br/>Secondary region<br/>25% of traffic]
             APAC_EDGE[Asia Pacific<br/>Growing region<br/>15% of traffic]
         end
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
-        subgraph "Core Application Stack"
+        subgraph Core Application Stack
             STOREFRONT[Storefront Renderer<br/>Liquid templating<br/>Theme engine<br/>Mobile-first design]
             CHECKOUT[Checkout Engine<br/>6-step process<br/>Payment optimization<br/>Conversion focus]
             ADMIN[Admin Dashboard<br/>Merchant tools<br/>Analytics<br/>Inventory management]
         end
 
-        subgraph "Platform Services"
+        subgraph Platform Services
             API_GATEWAY[API Gateway<br/>REST + GraphQL<br/>Rate limiting<br/>Authentication]
             PAYMENTS[Payments Platform<br/>Shop Pay<br/>Multiple processors<br/>Global currencies]
             FULFILLMENT[Fulfillment Network<br/>Inventory tracking<br/>Shipping calculations<br/>Order management]
         end
 
-        subgraph "Developer Platform"
+        subgraph Developer Platform
             APP_PLATFORM[App Platform<br/>10K+ apps<br/>Marketplace<br/>Revenue sharing]
             WEBHOOKS[Webhook System<br/>Event-driven<br/>Reliable delivery<br/>Retry mechanisms]
             PLUS_APIS[Shopify Plus APIs<br/>Enterprise features<br/>Launchpad<br/>Flow automation]
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
-        subgraph "Primary Databases (Vitess Sharded)"
+        subgraph Primary Databases (Vitess Sharded)
             VITESS[Vitess MySQL Cluster<br/>130+ shards<br/>Horizontal scaling<br/>Online schema changes]
             PRODUCTS_DB[Product Catalog<br/>50M+ products<br/>Variant management<br/>Search indexing]
             ORDERS_DB[Order Database<br/>1B+ orders<br/>Transaction logs<br/>Financial records]
             CUSTOMERS_DB[Customer Database<br/>100M+ customers<br/>Profile management<br/>Privacy compliance]
         end
 
-        subgraph "Caching & Session Storage"
+        subgraph Caching & Session Storage
             REDIS[Redis Clusters<br/>Session storage<br/>Cart persistence<br/>Real-time data]
             MEMCACHED[Memcached<br/>Fragment caching<br/>Query results<br/>Computed data]
             ELASTICSEARCH[Elasticsearch<br/>Product search<br/>Analytics<br/>Log aggregation]
         end
 
-        subgraph "Event Streaming & Analytics"
+        subgraph Event Streaming & Analytics
             KAFKA[Apache Kafka<br/>Event streaming<br/>Real-time data<br/>Microservice communication]
             ANALYTICS_DB[Analytics Warehouse<br/>BigQuery/Redshift<br/>Business intelligence<br/>Merchant insights]
             AUDIT_LOGS[Audit Logs<br/>Compliance tracking<br/>Change history<br/>Security monitoring]
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
-        subgraph "Deployment & Configuration"
+        subgraph Deployment & Configuration
             SHIPIT[Shipit Deploy System<br/>Continuous deployment<br/>Feature flags<br/>Gradual rollouts]
             CONFIG_MGMT[Configuration Management<br/>Environment-specific<br/>Secret management<br/>Feature toggles]
             MONITORING[Monitoring Stack<br/>Metrics collection<br/>Alerting<br/>Observability]
         end
 
-        subgraph "Security & Compliance"
+        subgraph Security & Compliance
             SECURITY_CENTER[Security Operations<br/>Threat detection<br/>Incident response<br/>Vulnerability management]
             COMPLIANCE[Compliance Engine<br/>PCI DSS<br/>GDPR/CCPA<br/>SOX controls]
             FRAUD_DETECTION[Fraud Detection<br/>ML-based scoring<br/>Risk assessment<br/>Transaction monitoring]
@@ -136,20 +136,20 @@ Shopify uses a "pod" architecture where each group of merchants is isolated into
 
 ```mermaid
 graph TB
-    subgraph "Pod Architecture (Tenant Isolation)"
-        subgraph "Pod A (10K merchants)"
+    subgraph Pod Architecture (Tenant Isolation)
+        subgraph Pod A (10K merchants)
             APP_A[Application Servers<br/>Ruby on Rails<br/>Dedicated resources]
             DB_A[Database Shard<br/>MySQL cluster<br/>Vitess coordination]
             CACHE_A[Cache Layer<br/>Redis/Memcached<br/>Pod-specific data]
         end
 
-        subgraph "Pod B (10K merchants)"
+        subgraph Pod B (10K merchants)
             APP_B[Application Servers<br/>Ruby on Rails<br/>Dedicated resources]
             DB_B[Database Shard<br/>MySQL cluster<br/>Vitess coordination]
             CACHE_B[Cache Layer<br/>Redis/Memcached<br/>Pod-specific data]
         end
 
-        subgraph "Shared Services"
+        subgraph Shared Services
             SHARED_CDN[Global CDN<br/>Static assets<br/>Shared across pods]
             SHARED_PAYMENTS[Payment Services<br/>PCI compliance<br/>Shared processors]
             SHARED_ANALYTICS[Analytics Platform<br/>Cross-pod insights<br/>Business intelligence]
@@ -180,22 +180,22 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Vitess Sharded MySQL Architecture"
+    subgraph Vitess Sharded MySQL Architecture
         VTGATE[VTGate<br/>Query router<br/>Connection pooling<br/>Query optimization]
 
-        subgraph "Shard 1-40 (Products)"
+        subgraph Shard 1-40 (Products)
             SHARD1[Product Shard 1<br/>MySQL master<br/>2 read replicas<br/>SSD storage]
             SHARD2[Product Shard 2<br/>MySQL master<br/>2 read replicas<br/>SSD storage]
             SHARD_ETC[... Shards 3-40<br/>Distributed by<br/>product_id hash]
         end
 
-        subgraph "Shard 41-80 (Orders)"
+        subgraph Shard 41-80 (Orders)
             SHARD41[Order Shard 1<br/>MySQL master<br/>2 read replicas<br/>Transaction logs]
             SHARD42[Order Shard 2<br/>MySQL master<br/>2 read replicas<br/>Transaction logs]
             SHARD_ETC2[... Shards 42-80<br/>Distributed by<br/>shop_id hash]
         end
 
-        subgraph "Shard 81-130 (Customers)"
+        subgraph Shard 81-130 (Customers)
             SHARD81[Customer Shard 1<br/>MySQL master<br/>2 read replicas<br/>Profile data]
             SHARD82[Customer Shard 2<br/>MySQL master<br/>2 read replicas<br/>Profile data]
             SHARD_ETC3[... Shards 82-130<br/>Distributed by<br/>customer_id hash]

@@ -51,32 +51,32 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #3B82F6"
+    subgraph Edge Plane - Blue #3B82F6
         EDGE1[CloudFront Edge<br/>Global CDN]
         EDGE2[Route 53<br/>DNS Service]
         WAF[AWS WAF<br/>Web Firewall]
     end
 
-    subgraph "Service Plane - Green #10B981"
+    subgraph Service Plane - Green #10B981
         ELB[Elastic Load Balancer<br/>Application Gateway]
         API[API Gateway<br/>REST/GraphQL]
         LAMBDA[Lambda Functions<br/>Serverless Compute]
     end
 
-    subgraph "State Plane - Orange #F59E0B"
+    subgraph State Plane - Orange #F59E0B
         KINESIS[(Kinesis Data Streams<br/>Real-time Analytics<br/>PRIMARY FAILURE)]
         DDB[(DynamoDB<br/>NoSQL Database)]
         S3[(S3 Storage<br/>Object Store)]
         RDS[(RDS MySQL<br/>Relational DB)]
     end
 
-    subgraph "Control Plane - Red #8B5CF6"
+    subgraph Control Plane - Red #8B5CF6
         CW[CloudWatch<br/>Monitoring Service]
         EC2[EC2 Control API<br/>Virtual Machines]
         IAM[Identity Access Mgmt<br/>Authentication]
     end
 
-    subgraph "Network Infrastructure"
+    subgraph Network Infrastructure
         NET1[Primary Network Device<br/>US-East-1a<br/>HARDWARE FAILURE]
         NET2[Secondary Network Device<br/>US-East-1b]
         NET3[Backup Network Device<br/>US-East-1c]
@@ -152,7 +152,7 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph "Dependency Chain Collapse"
+    subgraph Dependency Chain Collapse
         A[11:15 EST<br/>Kinesis streams fail<br/>0% data processing]
         B[11:30 EST<br/>CloudWatch blind<br/>No telemetry]
         C[11:45 EST<br/>Auto-scaling broken<br/>Cannot scale services]
@@ -367,7 +367,7 @@ curl -s https://api.robinhood.com/health | jq '.database_connected'
 
 ```mermaid
 graph TB
-    subgraph "NEW: N+2 Network Redundancy"
+    subgraph NEW: N+2 Network Redundancy
         NET1[Primary Device<br/>Full capacity]
         NET2[Secondary Device<br/>Full capacity]
         NET3[Tertiary Device<br/>Full capacity]
@@ -376,7 +376,7 @@ graph TB
         MONITOR[Independent Monitor<br/>Hardware health]
     end
 
-    subgraph "NEW: Multi-Region Kinesis"
+    subgraph NEW: Multi-Region Kinesis
         KIN1[Kinesis East-1<br/>Primary processing]
         KIN2[Kinesis West-2<br/>Hot standby]
         KIN3[Kinesis EU-West<br/>Geo-redundancy]

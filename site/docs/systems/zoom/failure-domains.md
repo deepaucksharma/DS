@@ -6,78 +6,78 @@ This diagram maps the blast radius of each component failure, cascading failure 
 
 ```mermaid
 graph TB
-    subgraph BlastRadius1["Blast Radius: Edge Infrastructure Failure"]
+    subgraph BlastRadius1[Blast Radius: Edge Infrastructure Failure]
         style BlastRadius1 fill:#FFE6E6,stroke:#8B5CF6,color:#000
 
-        CDNFailure["CDN Edge Failure<br/>━━━━━<br/>Blast Radius: 5-20% regional users<br/>Geography: Single region/country<br/>Cascade Probability: 10%<br/>MTTR: 5 minutes"]
+        CDNFailure[CDN Edge Failure<br/>━━━━━<br/>Blast Radius: 5-20% regional users<br/>Geography: Single region/country<br/>Cascade Probability: 10%<br/>MTTR: 5 minutes]
 
-        DNSFailure["DNS Resolution Failure<br/>━━━━━<br/>Blast Radius: 100% of region<br/>Duration: 2-10 minutes<br/>Last Incident: June 2024<br/>Auto-mitigation: Anycast"]
+        DNSFailure[DNS Resolution Failure<br/>━━━━━<br/>Blast Radius: 100% of region<br/>Duration: 2-10 minutes<br/>Last Incident: June 2024<br/>Auto-mitigation: Anycast]
 
-        WebRTCGWFailure["WebRTC Gateway Overload<br/>━━━━━<br/>Blast Radius: 30-50% connections<br/>Cascade to: Media routing<br/>Connection timeout: 30s<br/>Last: August 2024"]
+        WebRTCGWFailure[WebRTC Gateway Overload<br/>━━━━━<br/>Blast Radius: 30-50% connections<br/>Cascade to: Media routing<br/>Connection timeout: 30s<br/>Last: August 2024]
 
-        LoadBalancerFailure["Load Balancer Failure<br/>━━━━━<br/>Blast Radius: 25% regional traffic<br/>Health check detection: 10s<br/>Failover time: 15s<br/>Cross-AZ redundancy"]
+        LoadBalancerFailure[Load Balancer Failure<br/>━━━━━<br/>Blast Radius: 25% regional traffic<br/>Health check detection: 10s<br/>Failover time: 15s<br/>Cross-AZ redundancy]
     end
 
-    subgraph BlastRadius2["Blast Radius: Service Layer Failure"]
+    subgraph BlastRadius2[Blast Radius: Service Layer Failure]
         style BlastRadius2 fill:#FFECB3,stroke:#F59E0B,color:#000
 
-        AuthServiceFailure["Authentication Service Down<br/>━━━━━<br/>Blast Radius: ALL new joins<br/>Existing meetings: Continue<br/>SSO dependency failure<br/>Circuit breaker: 10s timeout"]
+        AuthServiceFailure[Authentication Service Down<br/>━━━━━<br/>Blast Radius: ALL new joins<br/>Existing meetings: Continue<br/>SSO dependency failure<br/>Circuit breaker: 10s timeout]
 
-        MeetingControllerFailure["Meeting Controller Failure<br/>━━━━━<br/>Blast Radius: New meeting starts<br/>Active meetings: Protected<br/>Session state in Redis<br/>Graceful degradation"]
+        MeetingControllerFailure[Meeting Controller Failure<br/>━━━━━<br/>Blast Radius: New meeting starts<br/>Active meetings: Protected<br/>Session state in Redis<br/>Graceful degradation]
 
-        MediaRouterFailure["Media Router (SFU) Failure<br/>━━━━━<br/>Blast Radius: 1000+ concurrent users<br/>Fallback: P2P mesh mode<br/>Quality degradation: Expected<br/>Auto-recovery: 30s"]
+        MediaRouterFailure[Media Router (SFU) Failure<br/>━━━━━<br/>Blast Radius: 1000+ concurrent users<br/>Fallback: P2P mesh mode<br/>Quality degradation: Expected<br/>Auto-recovery: 30s]
 
-        TranscodingFailure["Transcoding Cluster Down<br/>━━━━━<br/>Blast Radius: HD video features<br/>Fallback: Direct stream routing<br/>Quality impact: 720p max<br/>GPU dependency"]
+        TranscodingFailure[Transcoding Cluster Down<br/>━━━━━<br/>Blast Radius: HD video features<br/>Fallback: Direct stream routing<br/>Quality impact: 720p max<br/>GPU dependency]
 
-        AIServiceFailure["AI Services Outage<br/>━━━━━<br/>Blast Radius: Transcription/Background<br/>Core meeting: Unaffected<br/>Feature degradation only<br/>Optional service design"]
+        AIServiceFailure[AI Services Outage<br/>━━━━━<br/>Blast Radius: Transcription/Background<br/>Core meeting: Unaffected<br/>Feature degradation only<br/>Optional service design]
     end
 
-    subgraph BlastRadius3["Blast Radius: Data Layer Failure"]
+    subgraph BlastRadius3[Blast Radius: Data Layer Failure]
         style BlastRadius3 fill:#E8F5E8,stroke:#10B981,color:#000
 
-        PostgreSQLFailure["PostgreSQL Cluster Failure<br/>━━━━━<br/>Blast Radius: Meeting metadata<br/>Read replicas: 3 per cluster<br/>Failover time: 30s<br/>Data loss: Zero (WAL)"]
+        PostgreSQLFailure[PostgreSQL Cluster Failure<br/>━━━━━<br/>Blast Radius: Meeting metadata<br/>Read replicas: 3 per cluster<br/>Failover time: 30s<br/>Data loss: Zero (WAL)]
 
-        RedisFailure["Redis Session Store Down<br/>━━━━━<br/>Blast Radius: Active sessions<br/>Fallback: Database sessions<br/>Performance impact: +200ms<br/>Auto-recreation possible"]
+        RedisFailure[Redis Session Store Down<br/>━━━━━<br/>Blast Radius: Active sessions<br/>Fallback: Database sessions<br/>Performance impact: +200ms<br/>Auto-recreation possible]
 
-        S3Failure["Object Storage Outage<br/>━━━━━<br/>Blast Radius: Recording/playback<br/>Live meetings: Unaffected<br/>Multi-region replication<br/>Recovery: Automatic"]
+        S3Failure[Object Storage Outage<br/>━━━━━<br/>Blast Radius: Recording/playback<br/>Live meetings: Unaffected<br/>Multi-region replication<br/>Recovery: Automatic]
 
-        CassandraFailure["Metrics DB Failure<br/>━━━━━<br/>Blast Radius: Analytics/monitoring<br/>Core functionality: Protected<br/>Temporary blind operation<br/>Data buffer: 4 hours"]
+        CassandraFailure[Metrics DB Failure<br/>━━━━━<br/>Blast Radius: Analytics/monitoring<br/>Core functionality: Protected<br/>Temporary blind operation<br/>Data buffer: 4 hours]
     end
 
-    subgraph BlastRadius4["Blast Radius: Infrastructure Failure"]
+    subgraph BlastRadius4[Blast Radius: Infrastructure Failure]
         style BlastRadius4 fill:#E3F2FD,stroke:#3B82F6,color:#000
 
-        K8sClusterFailure["Kubernetes Cluster Failure<br/>━━━━━<br/>Blast Radius: Regional services<br/>Multi-cluster deployment<br/>Pod migration: 60s<br/>Stateful services protected"]
+        K8sClusterFailure[Kubernetes Cluster Failure<br/>━━━━━<br/>Blast Radius: Regional services<br/>Multi-cluster deployment<br/>Pod migration: 60s<br/>Stateful services protected]
 
-        NetworkPartition["Network Partition<br/>━━━━━<br/>Blast Radius: Cross-region traffic<br/>Detection time: 15s<br/>Rerouting: Automatic<br/>BGP convergence time"]
+        NetworkPartition[Network Partition<br/>━━━━━<br/>Blast Radius: Cross-region traffic<br/>Detection time: 15s<br/>Rerouting: Automatic<br/>BGP convergence time]
 
-        DataCenterFailure["Data Center Outage<br/>━━━━━<br/>Blast Radius: Regional capacity<br/>Traffic failover: 2 minutes<br/>Cross-DC replication<br/>Service restoration: 15 min"]
+        DataCenterFailure[Data Center Outage<br/>━━━━━<br/>Blast Radius: Regional capacity<br/>Traffic failover: 2 minutes<br/>Cross-DC replication<br/>Service restoration: 15 min]
 
-        SecurityIncident["Security Incident<br/>━━━━━<br/>Blast Radius: Potential full system<br/>Kill switch: 30s activation<br/>Incident response: 5 min<br/>Forensic analysis required"]
+        SecurityIncident[Security Incident<br/>━━━━━<br/>Blast Radius: Potential full system<br/>Kill switch: 30s activation<br/>Incident response: 5 min<br/>Forensic analysis required]
     end
 
-    subgraph CircuitBreakers["Circuit Breaker Locations"]
+    subgraph CircuitBreakers[Circuit Breaker Locations]
         style CircuitBreakers fill:#F3E5F5,stroke:#9C27B0,color:#000
 
-        AuthCircuitBreaker["Auth Service Breaker<br/>━━━━━<br/>Failure Threshold: 50%<br/>Window: 60 seconds<br/>Sleep Window: 30 seconds<br/>Timeout: 10 seconds"]
+        AuthCircuitBreaker[Auth Service Breaker<br/>━━━━━<br/>Failure Threshold: 50%<br/>Window: 60 seconds<br/>Sleep Window: 30 seconds<br/>Timeout: 10 seconds]
 
-        DatabaseCircuitBreaker["Database Circuit Breaker<br/>━━━━━<br/>Failure Threshold: 30%<br/>Connection timeout: 5s<br/>Retry attempts: 3<br/>Exponential backoff"]
+        DatabaseCircuitBreaker[Database Circuit Breaker<br/>━━━━━<br/>Failure Threshold: 30%<br/>Connection timeout: 5s<br/>Retry attempts: 3<br/>Exponential backoff]
 
-        MediaCircuitBreaker["Media Service Breaker<br/>━━━━━<br/>Failure Threshold: 40%<br/>Quality threshold: 60%<br/>Fallback: Audio-only<br/>Recovery test: 15s intervals"]
+        MediaCircuitBreaker[Media Service Breaker<br/>━━━━━<br/>Failure Threshold: 40%<br/>Quality threshold: 60%<br/>Fallback: Audio-only<br/>Recovery test: 15s intervals]
 
-        AICircuitBreaker["AI Service Breaker<br/>━━━━━<br/>Failure Threshold: 70%<br/>Graceful degradation<br/>Feature disabling<br/>No meeting impact"]
+        AICircuitBreaker[AI Service Breaker<br/>━━━━━<br/>Failure Threshold: 70%<br/>Graceful degradation<br/>Feature disabling<br/>No meeting impact]
     end
 
-    subgraph IsolationBoundaries["Isolation Boundaries"]
+    subgraph IsolationBoundaries[Isolation Boundaries]
         style IsolationBoundaries fill:#E8EAF6,stroke:#3F51B5,color:#000
 
-        RegionalIsolation["Regional Isolation<br/>━━━━━<br/>18 global regions<br/>Traffic: Geographic routing<br/>Failover: DNS + 2 minutes<br/>Data: Multi-region sync"]
+        RegionalIsolation[Regional Isolation<br/>━━━━━<br/>18 global regions<br/>Traffic: Geographic routing<br/>Failover: DNS + 2 minutes<br/>Data: Multi-region sync]
 
-        AZIsolation["Availability Zone Isolation<br/>━━━━━<br/>3+ AZs per region minimum<br/>Load balancer distribution<br/>Auto-scaling per AZ<br/>Independent failure domains"]
+        AZIsolation[Availability Zone Isolation<br/>━━━━━<br/>3+ AZs per region minimum<br/>Load balancer distribution<br/>Auto-scaling per AZ<br/>Independent failure domains]
 
-        ServiceIsolation["Service Isolation<br/>━━━━━<br/>Microservice boundaries<br/>Independent deployments<br/>Resource isolation<br/>Kubernetes namespaces"]
+        ServiceIsolation[Service Isolation<br/>━━━━━<br/>Microservice boundaries<br/>Independent deployments<br/>Resource isolation<br/>Kubernetes namespaces]
 
-        TenantIsolation["Tenant Isolation<br/>━━━━━<br/>Enterprise customer isolation<br/>Dedicated infrastructure<br/>Security boundaries<br/>Performance guarantees"]
+        TenantIsolation[Tenant Isolation<br/>━━━━━<br/>Enterprise customer isolation<br/>Dedicated infrastructure<br/>Security boundaries<br/>Performance guarantees]
     end
 
     %% Cascading Failure Paths with Probabilities

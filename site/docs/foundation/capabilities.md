@@ -6,7 +6,7 @@ Capabilities define what guarantees a distributed system provides. Netflix needs
 
 ```mermaid
 graph TB
-    subgraph Consistency["Consistency Guarantees"]
+    subgraph Consistency[Consistency Guarantees]
         LW[LinearizableWrite]
         ST[SerializableTransaction]
         RYW[ReadYourWrites]
@@ -15,27 +15,27 @@ graph TB
         EC[EventualConsistency]
     end
 
-    subgraph Order["Ordering Guarantees"]
+    subgraph Order[Ordering Guarantees]
         PKO[PerKeyOrder]
         CO[CausalOrder]
         TO[TotalOrder]
     end
 
-    subgraph Durability["Durability Guarantees"]
+    subgraph Durability[Durability Guarantees]
         DW[DurableWrite]
         EOE[ExactlyOnceEffect]
         ALOD[AtLeastOnceDelivery]
         AMOD[AtMostOnceDelivery]
     end
 
-    subgraph Performance["Performance Guarantees"]
+    subgraph Performance[Performance Guarantees]
         SMR[SubMillisecondRead]
         PT[PredictableTail]
         ES[ElasticScale]
         CT[ConstantTime]
     end
 
-    subgraph Availability["Availability Guarantees"]
+    subgraph Availability[Availability Guarantees]
         HA[HighAvailability]
         FT[FaultTolerance]
         GD[GracefulDegradation]
@@ -57,16 +57,16 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph CAP["CAP Theorem Trade-offs"]
-        CP["Consistency + Partition Tolerance<br/>Banks, Financial Systems"]
-        AP["Availability + Partition Tolerance<br/>Social Media, Gaming"]
-        CA["Consistency + Availability<br/>Single Datacenter Only"]
+    subgraph CAP[CAP Theorem Trade-offs]
+        CP[Consistency + Partition Tolerance<br/>Banks, Financial Systems]
+        AP[Availability + Partition Tolerance<br/>Social Media, Gaming]
+        CA[Consistency + Availability<br/>Single Datacenter Only]
     end
 
-    subgraph PACELC["PACELC Extension"]
-        PC["Partition: Consistency<br/>Else: Consistency<br/>Example: Spanner"]
-        PA["Partition: Availability<br/>Else: Availability<br/>Example: Cassandra"]
-        PL["Partition: Availability<br/>Else: Latency<br/>Example: DynamoDB"]
+    subgraph PACELC[PACELC Extension]
+        PC[Partition: Consistency<br/>Else: Consistency<br/>Example: Spanner]
+        PA[Partition: Availability<br/>Else: Availability<br/>Example: Cassandra]
+        PL[Partition: Availability<br/>Else: Latency<br/>Example: DynamoDB]
     end
 
     CP --> PC
@@ -87,28 +87,28 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Financial["Financial Systems"]
+    subgraph Financial[Financial Systems]
         F1[LinearizableWrite]
         F2[SerializableTransaction]
         F3[DurableWrite]
         F4[FullAuditTrail]
     end
 
-    subgraph Social["Social Media"]
+    subgraph Social[Social Media]
         S1[EventualConsistency]
         S2[ElasticScale]
         S3[HighAvailability]
         S4[BoundedStaleness]
     end
 
-    subgraph Gaming["Real-time Gaming"]
+    subgraph Gaming[Real-time Gaming]
         G1[SubMillisecondRead]
         G2[PredictableTail]
         G3[ElasticScale]
         G4[PerKeyOrder]
     end
 
-    subgraph Analytics["Big Data Analytics"]
+    subgraph Analytics[Big Data Analytics]
         A1[HorizontalScale]
         A2[ElasticCapacity]
         A3[FullAuditTrail]

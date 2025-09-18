@@ -7,7 +7,7 @@ LinkedIn created Apache Kafka in 2011, migrated their entire data infrastructure
 
 ```mermaid
 graph TB
-    subgraph "LinkedIn's Data Pipeline Hell (2010)"
+    subgraph LinkedIn's Data Pipeline Hell (2010)
         subgraph Sources[14 Data Sources]
             DB1[(Oracle DB)]
             DB2[(MySQL)]
@@ -83,7 +83,7 @@ initial_benchmarks = {
 ### First Production Deployment
 ```mermaid
 graph LR
-    subgraph "Kafka 0.7 at LinkedIn (2011)"
+    subgraph Kafka 0.7 at LinkedIn (2011)
         subgraph Producers[Producers]
             APP1[Profile Service]
             APP2[Connection Service]
@@ -128,7 +128,7 @@ Initial Production Metrics:
 ### Replacing Point-to-Point Pipelines
 ```mermaid
 graph TB
-    subgraph "Before: Point-to-Point Mess"
+    subgraph Before: Point-to-Point Mess
         subgraph Legacy[93 Custom Pipelines]
             L1[Oracle → Hadoop]
             L2[MySQL → Search]
@@ -137,7 +137,7 @@ graph TB
         end
     end
 
-    subgraph "After: Kafka Central Hub"
+    subgraph After: Kafka Central Hub
         subgraph EdgePlane[Edge - Data Sources]
             SRC1[Oracle]
             SRC2[MySQL]
@@ -227,10 +227,10 @@ class KafkaConnect:
 
     def create_connector(self, config):
         return {
-            "name": config["name"],
-            "connector.class": config["connector"],
+            "name": config[name],
+            "connector.class": config[connector],
             "tasks.max": config.get("parallelism", 1),
-            "topics": config["topics"],
+            "topics": config[topics],
 
             # Automatic features
             "offset_management": "automatic",
@@ -279,19 +279,19 @@ public class KafkaStreamsPageViewCounter {
 ### Infrastructure Evolution
 ```mermaid
 graph TB
-    subgraph "2017: 1 Trillion Messages/Day"
+    subgraph 2017: 1 Trillion Messages/Day
         K2017[Kafka 0.11<br/>600 Brokers<br/>1PB Storage]
     end
 
-    subgraph "2018: 2 Trillion Messages/Day"
+    subgraph 2018: 2 Trillion Messages/Day
         K2018[Kafka 1.0<br/>1,300 Brokers<br/>2PB Storage]
     end
 
-    subgraph "2019: 4 Trillion Messages/Day"
+    subgraph 2019: 4 Trillion Messages/Day
         K2019[Kafka 2.0<br/>2,000 Brokers<br/>4PB Storage]
     end
 
-    subgraph "2020: 7 Trillion Messages/Day"
+    subgraph 2020: 7 Trillion Messages/Day
         K2020[Kafka 2.6<br/>4,000 Brokers<br/>10PB Storage]
     end
 
@@ -306,7 +306,7 @@ graph TB
 ### Multi-Region Architecture
 ```mermaid
 graph TB
-    subgraph "Global Kafka Deployment"
+    subgraph Global Kafka Deployment
         subgraph USWest[US West]
             UW[1000 Brokers<br/>2T msgs/day]
         end
@@ -481,7 +481,7 @@ class KafkaMigrationPlaybook:
 ### Monitoring Stack
 ```mermaid
 graph TB
-    subgraph "Kafka Monitoring at LinkedIn"
+    subgraph Kafka Monitoring at LinkedIn
         subgraph Metrics[Metrics Collection]
             JMX[JMX Metrics<br/>1M metrics/sec]
             CUSTOM[Custom Metrics<br/>100K/sec]
@@ -556,14 +556,14 @@ common_incidents:
 ### Industry Adoption
 ```mermaid
 graph LR
-    subgraph "Companies Using Kafka (2024)"
+    subgraph Companies Using Kafka (2024)
         TECH[Tech Giants<br/>Netflix, Uber, Twitter]
         FINANCE[Financial<br/>Goldman, JPMorgan]
         RETAIL[Retail<br/>Walmart, Target]
         MEDIA[Media<br/>NYTimes, Netflix]
     end
 
-    subgraph "Use Cases Enabled"
+    subgraph Use Cases Enabled
         UC1[Event Streaming]
         UC2[CDC/Data Integration]
         UC3[Microservices Comm]

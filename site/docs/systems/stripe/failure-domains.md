@@ -6,109 +6,109 @@ This diagram shows Stripe's failure domain boundaries and blast radius containme
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        subgraph CloudFlareDomain["Cloudflare Domain - Global"]
-            CF_US["Cloudflare US<br/>━━━━━<br/>150+ PoPs<br/>Auto-failover<br/>DDoS protection<br/>Blast radius: US traffic"]
+        subgraph CloudFlareDomain[Cloudflare Domain - Global]
+            CF_US[Cloudflare US<br/>━━━━━<br/>150+ PoPs<br/>Auto-failover<br/>DDoS protection<br/>Blast radius: US traffic]
 
-            CF_EU["Cloudflare EU<br/>━━━━━<br/>80+ PoPs<br/>GDPR compliance<br/>Regional routing<br/>Blast radius: EU traffic"]
+            CF_EU[Cloudflare EU<br/>━━━━━<br/>80+ PoPs<br/>GDPR compliance<br/>Regional routing<br/>Blast radius: EU traffic]
 
-            CF_APAC["Cloudflare APAC<br/>━━━━━<br/>100+ PoPs<br/>Singapore primary<br/>China-friendly<br/>Blast radius: APAC traffic"]
+            CF_APAC[Cloudflare APAC<br/>━━━━━<br/>100+ PoPs<br/>Singapore primary<br/>China-friendly<br/>Blast radius: APAC traffic]
         end
 
-        subgraph ALBDomain["AWS ALB Domain - Regional"]
-            ALB_East["ALB us-east-1<br/>━━━━━<br/>Primary region<br/>60% traffic<br/>Multi-AZ deployment<br/>Blast radius: East Coast"]
+        subgraph ALBDomain[AWS ALB Domain - Regional]
+            ALB_East[ALB us-east-1<br/>━━━━━<br/>Primary region<br/>60% traffic<br/>Multi-AZ deployment<br/>Blast radius: East Coast]
 
-            ALB_West["ALB us-west-2<br/>━━━━━<br/>Secondary region<br/>25% traffic<br/>Failover ready<br/>Blast radius: West Coast"]
+            ALB_West[ALB us-west-2<br/>━━━━━<br/>Secondary region<br/>25% traffic<br/>Failover ready<br/>Blast radius: West Coast]
 
-            ALB_EU["ALB eu-west-1<br/>━━━━━<br/>GDPR region<br/>15% traffic<br/>Data residency<br/>Blast radius: European operations"]
+            ALB_EU[ALB eu-west-1<br/>━━━━━<br/>GDPR region<br/>15% traffic<br/>Data residency<br/>Blast radius: European operations]
         end
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        subgraph APIDomain["API Service Domain"]
-            API_Primary["Payment API Primary<br/>━━━━━<br/>us-east-1 deployment<br/>200 instances<br/>Circuit breakers enabled<br/>Blast radius: 60% payment volume"]
+        subgraph APIDomain[API Service Domain]
+            API_Primary[Payment API Primary<br/>━━━━━<br/>us-east-1 deployment<br/>200 instances<br/>Circuit breakers enabled<br/>Blast radius: 60% payment volume]
 
-            API_Secondary["Payment API Secondary<br/>━━━━━<br/>us-west-2 standby<br/>100 instances<br/>Hot failover<br/>Blast radius: 25% payment volume"]
+            API_Secondary[Payment API Secondary<br/>━━━━━<br/>us-west-2 standby<br/>100 instances<br/>Hot failover<br/>Blast radius: 25% payment volume]
 
-            API_EU["Payment API EU<br/>━━━━━<br/>eu-west-1 deployment<br/>50 instances<br/>Data locality<br/>Blast radius: 15% payment volume"]
+            API_EU[Payment API EU<br/>━━━━━<br/>eu-west-1 deployment<br/>50 instances<br/>Data locality<br/>Blast radius: 15% payment volume]
         end
 
-        subgraph FraudDomain["Fraud Detection Domain"]
-            Fraud_ML["Radar ML Primary<br/>━━━━━<br/>TensorFlow serving<br/>GPU instances<br/>Real-time scoring<br/>Blast radius: Fraud detection disabled"]
+        subgraph FraudDomain[Fraud Detection Domain]
+            Fraud_ML[Radar ML Primary<br/>━━━━━<br/>TensorFlow serving<br/>GPU instances<br/>Real-time scoring<br/>Blast radius: Fraud detection disabled]
 
-            Fraud_Rules["Rule Engine Fallback<br/>━━━━━<br/>Deterministic scoring<br/>CPU instances<br/>Basic fraud rules<br/>Blast radius: Degraded fraud protection"]
+            Fraud_Rules[Rule Engine Fallback<br/>━━━━━<br/>Deterministic scoring<br/>CPU instances<br/>Basic fraud rules<br/>Blast radius: Degraded fraud protection]
         end
 
-        subgraph WebhookDomain["Webhook Domain - Isolated"]
-            Webhook_Primary["Webhook Service<br/>━━━━━<br/>100 instances<br/>SQS queues<br/>Exponential backoff<br/>Blast radius: Event delivery delays"]
+        subgraph WebhookDomain[Webhook Domain - Isolated]
+            Webhook_Primary[Webhook Service<br/>━━━━━<br/>100 instances<br/>SQS queues<br/>Exponential backoff<br/>Blast radius: Event delivery delays]
 
-            Webhook_DLQ["Dead Letter Queue<br/>━━━━━<br/>Failed webhook storage<br/>72-hour retention<br/>Manual replay<br/>Blast radius: Event loss prevention"]
+            Webhook_DLQ[Dead Letter Queue<br/>━━━━━<br/>Failed webhook storage<br/>72-hour retention<br/>Manual replay<br/>Blast radius: Event loss prevention]
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        subgraph DatabaseDomain["Database Domain - ACID Boundary"]
-            Mongo_Primary["MongoDB Primary<br/>━━━━━<br/>us-east-1 cluster<br/>M700 instances<br/>Synchronous replication<br/>Blast radius: Payment writes blocked"]
+        subgraph DatabaseDomain[Database Domain - ACID Boundary]
+            Mongo_Primary[MongoDB Primary<br/>━━━━━<br/>us-east-1 cluster<br/>M700 instances<br/>Synchronous replication<br/>Blast radius: Payment writes blocked]
 
-            Mongo_Secondary["MongoDB Secondary<br/>━━━━━<br/>us-west-2 replica<br/>Read-only failover<br/>Auto-promotion<br/>Blast radius: Eventual consistency"]
+            Mongo_Secondary[MongoDB Secondary<br/>━━━━━<br/>us-west-2 replica<br/>Read-only failover<br/>Auto-promotion<br/>Blast radius: Eventual consistency]
 
-            Mongo_Analytics["MongoDB Analytics<br/>━━━━━<br/>us-east-1 replica<br/>Dedicated for reporting<br/>Async replication<br/>Blast radius: Reporting delays"]
+            Mongo_Analytics[MongoDB Analytics<br/>━━━━━<br/>us-east-1 replica<br/>Dedicated for reporting<br/>Async replication<br/>Blast radius: Reporting delays]
         end
 
-        subgraph CacheDomain["Cache Domain - Performance Buffer"]
-            Redis_Session["Redis Session Cache<br/>━━━━━<br/>us-east-1 cluster<br/>Session storage<br/>15-minute TTL<br/>Blast radius: Re-authentication required"]
+        subgraph CacheDomain[Cache Domain - Performance Buffer]
+            Redis_Session[Redis Session Cache<br/>━━━━━<br/>us-east-1 cluster<br/>Session storage<br/>15-minute TTL<br/>Blast radius: Re-authentication required]
 
-            Redis_Idempotency["Redis Idempotency<br/>━━━━━<br/>Distributed cluster<br/>24-hour TTL<br/>Consistent hashing<br/>Blast radius: Duplicate prevention disabled"]
+            Redis_Idempotency[Redis Idempotency<br/>━━━━━<br/>Distributed cluster<br/>24-hour TTL<br/>Consistent hashing<br/>Blast radius: Duplicate prevention disabled]
 
-            Redis_RateLimit["Redis Rate Limiter<br/>━━━━━<br/>Token bucket state<br/>Per-customer limits<br/>Circuit breaker<br/>Blast radius: Rate limiting disabled"]
+            Redis_RateLimit[Redis Rate Limiter<br/>━━━━━<br/>Token bucket state<br/>Per-customer limits<br/>Circuit breaker<br/>Blast radius: Rate limiting disabled]
         end
 
-        subgraph StorageDomain["Storage Domain - Compliance Boundary"]
-            S3_Primary["S3 Primary us-east-1<br/>━━━━━<br/>500TB compliance data<br/>Cross-region replication<br/>99.999999999% durability<br/>Blast radius: Audit trail disabled"]
+        subgraph StorageDomain[Storage Domain - Compliance Boundary]
+            S3_Primary[S3 Primary us-east-1<br/>━━━━━<br/>500TB compliance data<br/>Cross-region replication<br/>99.999999999% durability<br/>Blast radius: Audit trail disabled]
 
-            S3_Backup["S3 Backup eu-west-1<br/>━━━━━<br/>Cross-region replica<br/>Disaster recovery<br/>4-hour RTO<br/>Blast radius: DR capability"]
+            S3_Backup[S3 Backup eu-west-1<br/>━━━━━<br/>Cross-region replica<br/>Disaster recovery<br/>4-hour RTO<br/>Blast radius: DR capability]
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        subgraph MonitoringDomain["Monitoring Domain"]
-            Datadog_Primary["Datadog Primary<br/>━━━━━<br/>Real-time monitoring<br/>1M+ metrics/min<br/>Alert routing<br/>Blast radius: Observability blind spot"]
+        subgraph MonitoringDomain[Monitoring Domain]
+            Datadog_Primary[Datadog Primary<br/>━━━━━<br/>Real-time monitoring<br/>1M+ metrics/min<br/>Alert routing<br/>Blast radius: Observability blind spot]
 
-            PagerDuty["PagerDuty<br/>━━━━━<br/>Incident routing<br/>Escalation policies<br/>SMS/Phone backup<br/>Blast radius: Alert delivery delays"]
+            PagerDuty[PagerDuty<br/>━━━━━<br/>Incident routing<br/>Escalation policies<br/>SMS/Phone backup<br/>Blast radius: Alert delivery delays]
         end
 
-        subgraph CircuitBreakerDomain["Circuit Breaker Domain"]
-            CB_Payment["Payment CB<br/>━━━━━<br/>5 failures trigger<br/>30-second timeout<br/>Half-open recovery<br/>Blast radius: Payment requests rejected"]
+        subgraph CircuitBreakerDomain[Circuit Breaker Domain]
+            CB_Payment[Payment CB<br/>━━━━━<br/>5 failures trigger<br/>30-second timeout<br/>Half-open recovery<br/>Blast radius: Payment requests rejected]
 
-            CB_Database["Database CB<br/>━━━━━<br/>3 failures trigger<br/>10-second timeout<br/>Exponential backoff<br/>Blast radius: Database queries blocked"]
+            CB_Database[Database CB<br/>━━━━━<br/>3 failures trigger<br/>10-second timeout<br/>Exponential backoff<br/>Blast radius: Database queries blocked]
 
-            CB_Acquirer["Acquirer CB<br/>━━━━━<br/>Per-acquirer limits<br/>Intelligent routing<br/>Backup providers<br/>Blast radius: Single acquirer failure"]
+            CB_Acquirer[Acquirer CB<br/>━━━━━<br/>Per-acquirer limits<br/>Intelligent routing<br/>Backup providers<br/>Blast radius: Single acquirer failure]
         end
     end
 
-    subgraph ExternalDependencies["External Dependencies - Third-Party Risk"]
+    subgraph ExternalDependencies[External Dependencies - Third-Party Risk]
         style ExternalDependencies fill:#f9f9f9,stroke:#999,color:#333
 
-        subgraph AcquirerDomain["Acquirer Domain"]
-            Visa_Network["Visa Network<br/>━━━━━<br/>Primary acquirer<br/>97% success rate<br/>180ms avg latency<br/>Blast radius: 45% payment volume"]
+        subgraph AcquirerDomain[Acquirer Domain]
+            Visa_Network[Visa Network<br/>━━━━━<br/>Primary acquirer<br/>97% success rate<br/>180ms avg latency<br/>Blast radius: 45% payment volume]
 
-            Mastercard_Network["Mastercard Network<br/>━━━━━<br/>Secondary acquirer<br/>96% success rate<br/>200ms avg latency<br/>Blast radius: 30% payment volume"]
+            Mastercard_Network[Mastercard Network<br/>━━━━━<br/>Secondary acquirer<br/>96% success rate<br/>200ms avg latency<br/>Blast radius: 30% payment volume]
 
-            Amex_Direct["Amex Direct<br/>━━━━━<br/>Direct connection<br/>98% success rate<br/>150ms avg latency<br/>Blast radius: 8% payment volume"]
+            Amex_Direct[Amex Direct<br/>━━━━━<br/>Direct connection<br/>98% success rate<br/>150ms avg latency<br/>Blast radius: 8% payment volume]
         end
 
-        subgraph BankingDomain["Banking Infrastructure"]
-            Fed_ACH["Federal Reserve ACH<br/>━━━━━<br/>US bank transfers<br/>1-3 business days<br/>99.9% reliability<br/>Blast radius: US ACH payments"]
+        subgraph BankingDomain[Banking Infrastructure]
+            Fed_ACH[Federal Reserve ACH<br/>━━━━━<br/>US bank transfers<br/>1-3 business days<br/>99.9% reliability<br/>Blast radius: US ACH payments]
 
-            SWIFT_Network["SWIFT Network<br/>━━━━━<br/>International transfers<br/>1-5 business days<br/>99.95% reliability<br/>Blast radius: International payments"]
+            SWIFT_Network[SWIFT Network<br/>━━━━━<br/>International transfers<br/>1-5 business days<br/>99.95% reliability<br/>Blast radius: International payments]
         end
     end
 

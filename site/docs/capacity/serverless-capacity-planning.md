@@ -901,17 +901,17 @@ Netflix_Serverless_Architecture:
 
 ```mermaid
 graph TB
-    subgraph "Airbnb Serverless Data Processing Pipeline"
-        subgraph EdgePlane["Edge Plane"]
+    subgraph Airbnb Serverless Data Processing Pipeline
+        subgraph EdgePlane[Edge Plane]
             API[Airbnb API<br/>REST endpoints<br/>100K RPS peak]
             MOBILE[Mobile Apps<br/>iOS/Android<br/>Real-time events]
             WEB[Web Application<br/>React SPA<br/>User interactions]
         end
 
-        subgraph ServicePlane["Service Plane"]
+        subgraph ServicePlane[Service Plane]
             GATEWAY[API Gateway<br/>Request routing<br/>Rate limiting: 10K RPS]
 
-            subgraph "Lambda Functions"
+            subgraph Lambda Functions
                 AUTH[Auth Function<br/>256MB, 200ms avg<br/>2M invocations/day]
                 SEARCH[Search Function<br/>1024MB, 500ms avg<br/>5M invocations/day]
                 BOOKING[Booking Function<br/>512MB, 800ms avg<br/>500K invocations/day]
@@ -920,20 +920,20 @@ graph TB
             end
         end
 
-        subgraph StatePlane["State Plane"]
+        subgraph StatePlane[State Plane]
             DYNAMO[(DynamoDB<br/>User profiles<br/>Booking data)]
             RDS[(RDS Aurora<br/>Listing data<br/>Read replicas)]
             S3[(S3 Storage<br/>Images, documents<br/>Data lake)]
             REDIS[(ElastiCache<br/>Session cache<br/>Search cache)]
         end
 
-        subgraph ControlPlane["Control Plane"]
+        subgraph ControlPlane[Control Plane]
             CW[CloudWatch<br/>Function metrics<br/>Custom dashboards]
             XRAY[X-Ray<br/>Distributed tracing<br/>Performance analysis]
             CODE[CodePipeline<br/>CI/CD automation<br/>Blue/green deployment]
         end
 
-        subgraph "Event Processing"
+        subgraph Event Processing
             SQS[SQS Queues<br/>Async processing<br/>Dead letter queues]
             SNS[SNS Topics<br/>Event fanout<br/>Multi-subscriber]
             KINESIS[Kinesis Streams<br/>Real-time analytics<br/>User behavior]

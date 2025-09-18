@@ -154,19 +154,19 @@ When multiple nodes believe they are the leader simultaneously.
 
 ```mermaid
 graph TB
-    subgraph "Split-Brain Scenario"
-        subgraph "Partition A"
+    subgraph Split-Brain Scenario
+        subgraph Partition A
             N1[Node 1 - LEADER<br/>Term: 5<br/>Serving writes: ❌]
             N2[Node 2 - FOLLOWER<br/>Term: 5<br/>Last seen leader: 30s ago]
         end
 
-        subgraph "Partition B"
+        subgraph Partition B
             N3[Node 3 - LEADER<br/>Term: 6<br/>Serving writes: ✅]
             N4[Node 4 - FOLLOWER<br/>Term: 6<br/>Replicating normally]
             N5[Node 5 - FOLLOWER<br/>Term: 6<br/>Replicating normally]
         end
 
-        subgraph "Detection Metrics"
+        subgraph Detection Metrics
             METRIC1[Multiple leaders reporting]
             METRIC2[Different terms across partitions]
             METRIC3[Write success rate < 100%]
@@ -261,21 +261,21 @@ When followers fall behind the leader in log replication.
 
 ```mermaid
 graph LR
-    subgraph "Log Replication Status"
-        subgraph "Leader (Node 1)"
-            L_LOG["Log Entries: 1000<br/>Committed: 995<br/>Applied: 995"]
+    subgraph Log Replication Status
+        subgraph Leader (Node 1)
+            L_LOG[Log Entries: 1000<br/>Committed: 995<br/>Applied: 995]
         end
 
-        subgraph "Healthy Follower (Node 2)"
-            F1_LOG["Log Entries: 999<br/>Committed: 995<br/>Applied: 995<br/>Lag: 1 entry"]
+        subgraph Healthy Follower (Node 2)
+            F1_LOG[Log Entries: 999<br/>Committed: 995<br/>Applied: 995<br/>Lag: 1 entry]
         end
 
-        subgraph "Lagging Follower (Node 3)"
-            F2_LOG["Log Entries: 950<br/>Committed: 945<br/>Applied: 940<br/>Lag: 50 entries"]
+        subgraph Lagging Follower (Node 3)
+            F2_LOG[Log Entries: 950<br/>Committed: 945<br/>Applied: 940<br/>Lag: 50 entries]
         end
 
-        subgraph "Problematic Follower (Node 4)"
-            F3_LOG["Log Entries: 800<br/>Committed: 795<br/>Applied: 790<br/>Lag: 200 entries"]
+        subgraph Problematic Follower (Node 4)
+            F3_LOG[Log Entries: 800<br/>Committed: 795<br/>Applied: 790<br/>Lag: 200 entries]
         end
     end
 
@@ -380,28 +380,28 @@ Sudden drops in Raft consensus performance.
 
 ```mermaid
 graph TB
-    subgraph "Performance Degradation Analysis"
-        subgraph "Symptoms"
+    subgraph Performance Degradation Analysis
+        subgraph Symptoms
             HIGH_LAT[High Commit Latency<br/>p99 >100ms]
             LOW_TPS[Low Throughput<br/><1000 TPS]
             TIMEOUTS[Client Timeouts<br/>>5% error rate]
         end
 
-        subgraph "Root Causes"
+        subgraph Root Causes
             DISK_SLOW[Slow Disk I/O<br/>fsync >50ms]
             NET_ISSUE[Network Issues<br/>Packet loss >1%]
             CPU_HIGH[High CPU Usage<br/>>80% sustained]
             MEM_PRESS[Memory Pressure<br/>Frequent GC]
         end
 
-        subgraph "Diagnostic Actions"
+        subgraph Diagnostic Actions
             CHECK_IO[iostat -x 1]
             CHECK_NET[iftop, tcpdump]
             CHECK_CPU[top, perf]
             CHECK_MEM[free, GC logs]
         end
 
-        subgraph "Recovery Actions"
+        subgraph Recovery Actions
             SCALE_UP[Scale up resources]
             TUNE_PARAMS[Tune Raft parameters]
             OPTIMIZE[Optimize application]

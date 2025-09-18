@@ -8,8 +8,8 @@ Consistent hashing solves the problem of minimizing data movement when nodes are
 
 ```mermaid
 graph TB
-    subgraph "Traditional Hashing Issues"
-        subgraph "Initial State (4 nodes)"
+    subgraph Traditional Hashing Issues
+        subgraph Initial State (4 nodes)
             HASH_INIT[Hash Function: hash(key) % 4]
             NODE0_INIT[Node 0: Keys 0,4,8,12,16...]
             NODE1_INIT[Node 1: Keys 1,5,9,13,17...]
@@ -17,12 +17,12 @@ graph TB
             NODE3_INIT[Node 3: Keys 3,7,11,15,19...]
         end
 
-        subgraph "After Adding Node (5 nodes)"
+        subgraph After Adding Node (5 nodes)
             HASH_NEW[Hash Function: hash(key) % 5]
             PROBLEM[Problem: Most keys need to move!<br/>Key 4: Node 0 → Node 4<br/>Key 5: Node 1 → Node 0<br/>Key 6: Node 2 → Node 1<br/>Key 7: Node 3 → Node 2<br/>~80% of data moves!]
         end
 
-        subgraph "Impact"
+        subgraph Impact
             IMPACT[Massive Data Movement<br/>• Cache invalidation<br/>• Network bandwidth saturation<br/>• Temporary unavailability<br/>• Poor user experience]
         end
     end
@@ -53,8 +53,8 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Consistent Hash Ring"
-        subgraph "Hash Ring (0 to 2^32-1)"
+    subgraph Consistent Hash Ring
+        subgraph Hash Ring (0 to 2^32-1)
             RING[Hash Ring<br/>360° circle<br/>0 to 4,294,967,295]
 
             NODE_A[Node A<br/>Hash: 1,000,000,000<br/>Owns: 750M - 1B]
@@ -67,7 +67,7 @@ graph LR
             KEY3[Key: "user:789"<br/>Hash: 500,000,000<br/>→ Node D]
         end
 
-        subgraph "Clockwise Assignment"
+        subgraph Clockwise Assignment
             RULE[Assignment Rule:<br/>Key belongs to first node<br/>clockwise from key's position]
         end
     end
@@ -127,22 +127,22 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph "Virtual Nodes for Load Balancing"
-        subgraph "Physical Nodes"
+    subgraph Virtual Nodes for Load Balancing
+        subgraph Physical Nodes
             PHYS_A[Physical Node A<br/>4 virtual nodes<br/>A1, A2, A3, A4]
             PHYS_B[Physical Node B<br/>4 virtual nodes<br/>B1, B2, B3, B4]
             PHYS_C[Physical Node C<br/>4 virtual nodes<br/>C1, C2, C3, C4]
         end
 
-        subgraph "Hash Ring with Virtual Nodes"
+        subgraph Hash Ring with Virtual Nodes
             VRING[Hash Ring Positions<br/>A1: 200M, A2: 800M, A3: 1.5B, A4: 3.2B<br/>B1: 100M, B2: 1.2B, B3: 2.8B, B4: 3.9B<br/>C1: 400M, C2: 1.8B, C3: 2.2B, C4: 3.5B]
         end
 
-        subgraph "Benefits"
+        subgraph Benefits
             BENEFITS[Virtual Node Benefits<br/>✅ Better load distribution<br/>✅ Faster rebalancing<br/>✅ Reduced hotspots<br/>✅ Granular data movement]
         end
 
-        subgraph "Configuration"
+        subgraph Configuration
             CONFIG[Typical Configuration<br/>• 64-256 virtual nodes per physical node<br/>• Higher VNode count = better balance<br/>• Trade-off: Memory vs balance]
         end
     end
@@ -473,20 +473,20 @@ if __name__ == "__main__":
 
 ```mermaid
 graph TB
-    subgraph "Consistent Hash Rebalancing Approaches"
-        subgraph "Immediate Rebalancing"
+    subgraph Consistent Hash Rebalancing Approaches
+        subgraph Immediate Rebalancing
             IMMEDIATE[Immediate Migration<br/>✅ Fast consistency<br/>❌ High network load<br/>❌ Potential service impact<br/>Use: Small datasets, maintenance windows]
         end
 
-        subgraph "Gradual Rebalancing"
+        subgraph Gradual Rebalancing
             GRADUAL[Gradual Migration<br/>✅ Low impact on service<br/>✅ Bandwidth throttling<br/>❌ Temporary inconsistency<br/>Use: Large datasets, live systems]
         end
 
-        subgraph "Lazy Rebalancing"
+        subgraph Lazy Rebalancing
             LAZY[Lazy Migration<br/>✅ Zero immediate impact<br/>✅ Migration on access<br/>❌ Longer inconsistency<br/>Use: Cache systems, non-critical data]
         end
 
-        subgraph "Hybrid Approach"
+        subgraph Hybrid Approach
             HYBRID[Hybrid Strategy<br/>• Critical data: Immediate<br/>• Bulk data: Gradual<br/>• Cache data: Lazy<br/>• Best of all approaches]
         end
     end

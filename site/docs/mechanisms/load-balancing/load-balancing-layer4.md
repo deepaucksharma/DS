@@ -923,7 +923,7 @@ class Layer4Monitor:
 
     def print_connection_event(self, cpu, data, size):
         """Handle connection events from eBPF"""
-        event = self.bpf["connection_events"].event(data)
+        event = self.bpf[connection_events].event(data)
 
         src_ip = socket.inet_ntoa(struct.pack("I", event.src_ip))
         dst_ip = socket.inet_ntoa(struct.pack("I", event.dst_ip))
@@ -950,7 +950,7 @@ class Layer4Monitor:
     def start_monitoring(self):
         """Start the monitoring loop"""
         # Set up event callback
-        self.bpf["connection_events"].open_perf_buffer(self.print_connection_event)
+        self.bpf[connection_events].open_perf_buffer(self.print_connection_event)
 
         print("Monitoring Layer 4 connections (Ctrl+C to stop)...")
 

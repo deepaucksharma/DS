@@ -36,27 +36,27 @@
 
 ```mermaid
 graph TB
-    subgraph "On-Premise Data Center"
+    subgraph On-Premise Data Center
         USER[Users: 50K employees<br/>External: 5M customers]
 
-        subgraph "Network Layer"
+        subgraph Network Layer
             FW[Cisco ASA Firewall<br/>10Gbps throughput]
             LB[F5 Load Balancers<br/>20Gbps capacity]
             SW[Core Switches<br/>Cisco Nexus 9000]
         end
 
-        subgraph "Compute Layer"
+        subgraph Compute Layer
             WEB[Web Servers<br/>20x Dell R740<br/>32 cores, 128GB RAM each]
             APP[App Servers<br/>40x HP DL380<br/>24 cores, 64GB RAM each]
             DB_SRV[DB Servers<br/>4x Dell R940<br/>80 cores, 1TB RAM each]
         end
 
-        subgraph "Storage Layer"
+        subgraph Storage Layer
             SAN[NetApp SAN<br/>500TB usable<br/>15K RPM SAS drives]
             NAS[Dell NAS<br/>200TB capacity<br/>File shares]
         end
 
-        subgraph "Database Layer"
+        subgraph Database Layer
             ORACLE[(Oracle RAC<br/>12c Enterprise<br/>50TB data)]
             MSSQL[(SQL Server<br/>2019 Enterprise<br/>20TB data)]
         end
@@ -74,7 +74,7 @@ graph TB
     APP --> NAS
 
     %% Current state costs
-    subgraph "Current Costs"
+    subgraph Current Costs
         COST[Total: $2M/month<br/>Hardware: $800K<br/>Software licenses: $600K<br/>Operations: $400K<br/>Facilities: $200K]
     end
 
@@ -109,13 +109,13 @@ Keep on-premise for compliance/latency requirements
 
 ```mermaid
 graph TB
-    subgraph "Lift and Shift Migration"
-        subgraph "On-Premise"
+    subgraph Lift and Shift Migration
+        subgraph On-Premise
             VM1[VM: RHEL 7<br/>8 vCPU, 32GB RAM<br/>Web Server]
             VM2[VM: Windows 2019<br/>16 vCPU, 64GB RAM<br/>App Server]
         end
 
-        subgraph "AWS Target"
+        subgraph AWS Target
             EC2_1[EC2: m5.2xlarge<br/>8 vCPU, 32GB RAM<br/>RHEL 7 AMI<br/>$280/month]
             EC2_2[EC2: m5.4xlarge<br/>16 vCPU, 64GB RAM<br/>Windows 2019 AMI<br/>$560/month]
         end
@@ -138,13 +138,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Replatform Migration"
-        subgraph "On-Premise"
+    subgraph Replatform Migration
+        subgraph On-Premise
             OLD_DB[(Oracle RAC<br/>12c Enterprise<br/>50TB<br/>$200K/year license)]
             OLD_APP[Java EE App<br/>WebLogic 12c<br/>Monolithic<br/>$50K/year license]
         end
 
-        subgraph "AWS Managed Services"
+        subgraph AWS Managed Services
             RDS[(Amazon RDS<br/>Oracle Enterprise<br/>db.r5.12xlarge<br/>$8K/month)]
             ECS[Amazon ECS<br/>Java Spring Boot<br/>Containerized<br/>$2K/month]
             ALB[Application Load Balancer<br/>$25/month]
@@ -175,21 +175,21 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Refactor Migration"
-        subgraph "Legacy Monolith"
+    subgraph Refactor Migration
+        subgraph Legacy Monolith
             MONO[Monolithic Java App<br/>Single database<br/>Manual scaling]
         end
 
-        subgraph "Cloud-Native Architecture"
+        subgraph Cloud-Native Architecture
             API[API Gateway<br/>$3.50/million calls]
 
-            subgraph "Microservices"
+            subgraph Microservices
                 USER_SVC[User Service<br/>Lambda<br/>$0.20/million requests]
                 ORDER_SVC[Order Service<br/>ECS Fargate<br/>$50/month]
                 PAYMENT_SVC[Payment Service<br/>Lambda<br/>$0.20/million requests]
             end
 
-            subgraph "Managed Data"
+            subgraph Managed Data
                 DYNAMO[(DynamoDB<br/>On-demand<br/>$1.25/million reads)]
                 S3[(S3<br/>Standard<br/>$0.023/GB)]
                 SQS[SQS<br/>$0.40/million requests]
@@ -233,35 +233,35 @@ Complete rewrite using cloud-native services and modern architectures.
 
 ```mermaid
 graph TB
-    subgraph "On-Premise Data Center"
+    subgraph On-Premise Data Center
         CORP[Corporate Network<br/>10.0.0.0/8]
         FW_PREM[Firewall<br/>Palo Alto PA-5260]
         RTR[BGP Router<br/>Cisco ASR 9000]
     end
 
-    subgraph "AWS Cloud"
-        subgraph "Transit Gateway Hub"
+    subgraph AWS Cloud
+        subgraph Transit Gateway Hub
             TGW[Transit Gateway<br/>$50/month<br/>50Gbps capacity]
         end
 
-        subgraph "Production VPC"
+        subgraph Production VPC
             PROD_VPC[Production VPC<br/>10.1.0.0/16]
             PROD_SUB[Private Subnets<br/>10.1.1.0/24<br/>10.1.2.0/24]
         end
 
-        subgraph "Staging VPC"
+        subgraph Staging VPC
             STAGE_VPC[Staging VPC<br/>10.2.0.0/16]
             STAGE_SUB[Private Subnets<br/>10.2.1.0/24<br/>10.2.2.0/24]
         end
 
-        subgraph "Shared Services VPC"
+        subgraph Shared Services VPC
             SHARED_VPC[Shared Services VPC<br/>10.3.0.0/16]
             AD[Active Directory<br/>Domain Controllers]
             DNS[Route 53 Resolver<br/>$0.125/million queries]
         end
     end
 
-    subgraph "Connectivity Options"
+    subgraph Connectivity Options
         DX[AWS Direct Connect<br/>10Gbps Dedicated<br/>$1,728/month]
         VPN[Site-to-Site VPN<br/>Backup connection<br/>$36/month]
     end
@@ -343,25 +343,25 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Foundation Phase"
-        subgraph "Identity & Access"
+    subgraph Foundation Phase
+        subgraph Identity & Access
             SSO[AWS SSO<br/>Active Directory Federation<br/>10,000 users<br/>$2/user/month]
             IAM[IAM Roles & Policies<br/>Least privilege access<br/>Cross-account roles]
         end
 
-        subgraph "Security"
+        subgraph Security
             GUARD[GuardDuty<br/>Threat detection<br/>$0.10/GB analyzed]
             CONFIG[AWS Config<br/>Compliance monitoring<br/>$0.003/configuration item]
             CLOUD[CloudTrail<br/>Audit logging<br/>$2/100,000 events]
         end
 
-        subgraph "Networking"
+        subgraph Networking
             TGW[Transit Gateway<br/>Multi-VPC connectivity]
             DX[Direct Connect<br/>10Gbps dedicated]
             DNS53[Route 53<br/>DNS resolution<br/>$0.50/hosted zone]
         end
 
-        subgraph "Monitoring"
+        subgraph Monitoring
             CW[CloudWatch<br/>Metrics & Logs<br/>$0.30/GB ingested]
             XRAY[X-Ray<br/>Distributed tracing<br/>$5/million traces]
         end
@@ -395,26 +395,26 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Dev/Test Migration"
-        subgraph "Development"
+    subgraph Dev/Test Migration
+        subgraph Development
             DEV_VPC[Dev VPC<br/>10.10.0.0/16]
             DEV_EC2[EC2 Instances<br/>t3.medium<br/>$30/month each]
             DEV_RDS[(RDS PostgreSQL<br/>db.t3.micro<br/>$20/month)]
         end
 
-        subgraph "Testing"
+        subgraph Testing
             TEST_VPC[Test VPC<br/>10.20.0.0/16]
             TEST_EC2[EC2 Instances<br/>t3.large<br/>$60/month each]
             TEST_RDS[(RDS PostgreSQL<br/>db.t3.small<br/>$40/month)]
         end
 
-        subgraph "CI/CD"
+        subgraph CI/CD
             CODEBUILD[CodeBuild<br/>$0.005/build minute]
             CODEPIPELINE[CodePipeline<br/>$1/active pipeline]
             CODECOMMIT[CodeCommit<br/>$1/user/month]
         end
 
-        subgraph "Artifact Storage"
+        subgraph Artifact Storage
             ECR[Elastic Container Registry<br/>$0.10/GB/month]
             S3_ARTIFACTS[S3 Artifacts<br/>$0.023/GB/month]
         end
@@ -452,21 +452,21 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Production Migration Waves"
-        subgraph "Wave 3A: Web Tier"
+    subgraph Production Migration Waves
+        subgraph Wave 3A: Web Tier
             WEB_OLD[On-Prem Web Servers<br/>20x Dell R740]
             ALB[Application Load Balancer<br/>$25/month]
             ASG[Auto Scaling Group<br/>20-50 instances<br/>m5.xlarge]
             WEB_NEW[EC2 Web Servers<br/>$140/month each]
         end
 
-        subgraph "Wave 3B: App Tier"
+        subgraph Wave 3B: App Tier
             APP_OLD[On-Prem App Servers<br/>40x HP DL380]
             NLB[Network Load Balancer<br/>$20/month]
             ECS[ECS Fargate<br/>40 services<br/>$80/month each]
         end
 
-        subgraph "Wave 3C: Database Tier"
+        subgraph Wave 3C: Database Tier
             ORACLE_OLD[(Oracle RAC<br/>On-premise)]
             RDS_ORACLE[(RDS Oracle<br/>db.r5.12xlarge<br/>$6,000/month)]
 
@@ -502,23 +502,23 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "DMS Migration Architecture"
-        subgraph "Source"
+    subgraph DMS Migration Architecture
+        subgraph Source
             SRC_DB[(Source Database<br/>Oracle 12c<br/>50TB<br/>On-premise)]
             SRC_LOGS[Transaction Logs<br/>Archive log mode<br/>CDC enabled]
         end
 
-        subgraph "Migration Infrastructure"
+        subgraph Migration Infrastructure
             DMS_INST[DMS Replication Instance<br/>dms.c5.4xlarge<br/>$1,000/month]
             DMS_TASK[Migration Tasks<br/>Full load + CDC<br/>Parallel threads: 8]
         end
 
-        subgraph "Target"
+        subgraph Target
             TGT_DB[(Target Database<br/>RDS Oracle<br/>50TB<br/>Multi-AZ)]
             TGT_LOGS[CloudWatch Logs<br/>Migration monitoring]
         end
 
-        subgraph "Validation"
+        subgraph Validation
             VALID[Data Validation<br/>AWS SCT<br/>Schema Conversion]
             METRICS[Migration Metrics<br/>Latency: <100ms<br/>Throughput: 10MB/s]
         end
@@ -588,14 +588,14 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph "Cost Comparison Analysis"
-        subgraph "On-Premise (Current)"
+    subgraph Cost Comparison Analysis
+        subgraph On-Premise (Current)
             CAPEX[Capital Expenses<br/>Hardware: $5M every 4 years<br/>Software: $2M annually<br/>Facilities: $500K/year]
             OPEX[Operational Expenses<br/>Staff: $1.2M/year<br/>Utilities: $300K/year<br/>Maintenance: $600K/year]
             TOTAL_PREM[Total: $24M/year<br/>Average: $2M/month]
         end
 
-        subgraph "AWS Cloud (Target)"
+        subgraph AWS Cloud (Target)
             COMPUTE[Compute Costs<br/>EC2: $800K/year<br/>ECS/Fargate: $400K/year<br/>Lambda: $100K/year]
             STORAGE[Storage Costs<br/>EBS: $200K/year<br/>S3: $150K/year<br/>RDS: $600K/year]
             NETWORK[Network Costs<br/>Data Transfer: $300K/year<br/>Direct Connect: $20K/year<br/>Load Balancers: $15K/year]
@@ -649,26 +649,26 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Cloud Security Architecture"
-        subgraph "Identity & Access"
+    subgraph Cloud Security Architecture
+        subgraph Identity & Access
             SSO[AWS SSO<br/>SAML 2.0 integration<br/>MFA required]
             IAM[IAM Policies<br/>Least privilege<br/>Resource-based access]
             SECRETS[Secrets Manager<br/>Database credentials<br/>API keys rotation]
         end
 
-        subgraph "Network Security"
+        subgraph Network Security
             VPC[VPC Security Groups<br/>Stateful firewall<br/>Port-based rules]
             NACL[NACLs<br/>Stateless firewall<br/>Subnet-level control]
             WAF[AWS WAF<br/>Application firewall<br/>OWASP Top 10 protection]
         end
 
-        subgraph "Data Protection"
+        subgraph Data Protection
             KMS[AWS KMS<br/>Envelope encryption<br/>Customer managed keys]
             CERT[Certificate Manager<br/>SSL/TLS certificates<br/>Auto-renewal]
             ENCRYPT[Encryption at Rest<br/>EBS, RDS, S3<br/>256-bit AES]
         end
 
-        subgraph "Monitoring & Compliance"
+        subgraph Monitoring & Compliance
             GUARD[GuardDuty<br/>Threat detection<br/>ML-based anomalies]
             CONFIG[Config Rules<br/>Compliance monitoring<br/>Remediation actions]
             INSPECTOR[Inspector<br/>Vulnerability assessment<br/>Agent-based scanning]
@@ -710,20 +710,20 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Disaster Recovery Architecture"
-        subgraph "Primary Region (us-east-1)"
+    subgraph Disaster Recovery Architecture
+        subgraph Primary Region (us-east-1)
             PROD[Production Environment<br/>Active-Active<br/>Full capacity]
             RDS_PRIMARY[(RDS Multi-AZ<br/>Sync replica<br/>RPO: 0 seconds)]
             S3_PRIMARY[S3 Bucket<br/>Cross-region replication<br/>99.999999999% durability]
         end
 
-        subgraph "DR Region (us-west-2)"
+        subgraph DR Region (us-west-2)
             DR[DR Environment<br/>Warm standby<br/>50% capacity]
             RDS_DR[(RDS Read Replica<br/>Async replica<br/>RPO: 5 minutes)]
             S3_DR[S3 Bucket<br/>Versioning enabled<br/>Cross-region sync]
         end
 
-        subgraph "Backup Strategy"
+        subgraph Backup Strategy
             BACKUP[AWS Backup<br/>Cross-region backups<br/>35-day retention]
             GLACIER[S3 Glacier<br/>Long-term archival<br/>7-year retention]
         end
@@ -761,23 +761,23 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Performance Monitoring Stack"
-        subgraph "Application Layer"
+    subgraph Performance Monitoring Stack
+        subgraph Application Layer
             XRAY[AWS X-Ray<br/>Distributed tracing<br/>Request latency analysis]
             CW_APP[CloudWatch Application Insights<br/>Anomaly detection<br/>Performance patterns]
         end
 
-        subgraph "Infrastructure Layer"
+        subgraph Infrastructure Layer
             CW_INFRA[CloudWatch Metrics<br/>CPU, Memory, Network<br/>Custom business metrics]
             PERF[Performance Insights<br/>Database performance<br/>Query optimization]
         end
 
-        subgraph "User Experience"
+        subgraph User Experience
             RUM[CloudWatch RUM<br/>Real user monitoring<br/>Page load times]
             SYNTH[CloudWatch Synthetics<br/>API monitoring<br/>Uptime checks]
         end
 
-        subgraph "Alerting"
+        subgraph Alerting
             ALARM[CloudWatch Alarms<br/>Threshold-based<br/>Anomaly detection]
             SNS[SNS Notifications<br/>PagerDuty integration<br/>Escalation policies]
         end
@@ -838,18 +838,18 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Risk Assessment Matrix"
-        subgraph "High Impact, High Probability"
+    subgraph Risk Assessment Matrix
+        subgraph High Impact, High Probability
             DATA_LOSS[Data Loss During Migration<br/>Mitigation: Dual-write pattern<br/>Rollback: Point-in-time recovery]
             PERF_DEG[Performance Degradation<br/>Mitigation: Load testing<br/>Rollback: Traffic routing]
         end
 
-        subgraph "High Impact, Low Probability"
+        subgraph High Impact, Low Probability
             SEC_BREACH[Security Breach<br/>Mitigation: Zero-trust architecture<br/>Response: Incident response plan]
             VENDOR_LOCK[Vendor Lock-in<br/>Mitigation: Multi-cloud strategy<br/>Alternative: Container adoption]
         end
 
-        subgraph "Low Impact, High Probability"
+        subgraph Low Impact, High Probability
             COST_OVERRUN[Cost Overruns<br/>Mitigation: Budget monitoring<br/>Control: Monthly reviews]
             TIMELINE[Timeline Delays<br/>Mitigation: Phased approach<br/>Buffer: 20% time buffer]
         end

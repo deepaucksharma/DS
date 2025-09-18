@@ -17,77 +17,77 @@
 
 ```mermaid
 graph TB
-    subgraph Detection["T+0: Detection Phase - 13:42 UTC"]
+    subgraph Detection[T+0: Detection Phase - 13:42 UTC]
         style Detection fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
-        Start["13:42:00<br/>━━━━━<br/>WAF Rule Deployment<br/>New regex pattern<br/>.*(?:(?:\\r\\n)?[ \\t])*<br/>Customer XSS protection"]
+        Start[13:42:00<br/>━━━━━<br/>WAF Rule Deployment<br/>New regex pattern<br/>.*(?:(?:\\r\\n)?[ \\t])*<br/>Customer XSS protection]
 
-        Alert1["13:42:15<br/>━━━━━<br/>CPU Spike Alerts<br/>PoP-SJC: CPU 98%<br/>PoP-LAX: CPU 97%<br/>PoP-DFW: CPU 96%"]
+        Alert1[13:42:15<br/>━━━━━<br/>CPU Spike Alerts<br/>PoP-SJC: CPU 98%<br/>PoP-LAX: CPU 97%<br/>PoP-DFW: CPU 96%]
 
-        Alert2["13:42:45<br/>━━━━━<br/>Global Impact<br/>180 PoPs affected<br/>Traffic drop: 47%<br/>HTTP 502/504 errors"]
+        Alert2[13:42:45<br/>━━━━━<br/>Global Impact<br/>180 PoPs affected<br/>Traffic drop: 47%<br/>HTTP 502/504 errors]
     end
 
-    subgraph Diagnosis["T+3min: Diagnosis Phase"]
+    subgraph Diagnosis[T+3min: Diagnosis Phase]
         style Diagnosis fill:#FFF5E5,stroke:#F59E0B,color:#000
 
-        Incident["13:45:00<br/>━━━━━<br/>Major Incident<br/>SEV-0 declared<br/>Global traffic loss<br/>Customer escalations"]
+        Incident[13:45:00<br/>━━━━━<br/>Major Incident<br/>SEV-0 declared<br/>Global traffic loss<br/>Customer escalations]
 
-        RootCause["13:47:30<br/>━━━━━<br/>Regex Analysis<br/>Backtracking identified<br/>.*(?:(?:\\r\\n)?[ \\t])*<br/>Catastrophic complexity"]
+        RootCause[13:47:30<br/>━━━━━<br/>Regex Analysis<br/>Backtracking identified<br/>.*(?:(?:\\r\\n)?[ \\t])*<br/>Catastrophic complexity]
 
-        RegexIssue["13:49:00<br/>━━━━━<br/>Pattern Problem<br/>Exponential time growth<br/>O(2^n) complexity<br/>CPU exhaustion"]
+        RegexIssue[13:49:00<br/>━━━━━<br/>Pattern Problem<br/>Exponential time growth<br/>O(2^n) complexity<br/>CPU exhaustion]
     end
 
-    subgraph Mitigation["T+8min: Mitigation Phase"]
+    subgraph Mitigation[T+8min: Mitigation Phase]
         style Mitigation fill:#FFFFE5,stroke:#CCCC00,color:#000
 
-        Disable["13:50:00<br/>━━━━━<br/>Kill Switch<br/>WAF rule disabled<br/>Pushed to all PoPs<br/>Emergency override"]
+        Disable[13:50:00<br/>━━━━━<br/>Kill Switch<br/>WAF rule disabled<br/>Pushed to all PoPs<br/>Emergency override]
 
-        Recovery1["13:52:00<br/>━━━━━<br/>CPU Normalization<br/>Load average dropping<br/>Response times improving<br/>Error rates declining"]
+        Recovery1[13:52:00<br/>━━━━━<br/>CPU Normalization<br/>Load average dropping<br/>Response times improving<br/>Error rates declining]
 
-        Recovery2["13:58:00<br/>━━━━━<br/>Traffic Recovery<br/>Request processing normal<br/>80% capacity restored<br/>PoP health green"]
+        Recovery2[13:58:00<br/>━━━━━<br/>Traffic Recovery<br/>Request processing normal<br/>80% capacity restored<br/>PoP health green]
     end
 
-    subgraph Recovery["T+15min: Recovery Phase"]
+    subgraph Recovery[T+15min: Recovery Phase]
         style Recovery fill:#E5FFE5,stroke:#10B981,color:#000
 
-        FullTraffic["14:05:00<br/>━━━━━<br/>Complete Recovery<br/>All PoPs operational<br/>Traffic: 100% normal<br/>Performance restored"]
+        FullTraffic[14:05:00<br/>━━━━━<br/>Complete Recovery<br/>All PoPs operational<br/>Traffic: 100% normal<br/>Performance restored]
 
-        Validation["14:08:00<br/>━━━━━<br/>Service Validation<br/>End-to-end testing<br/>Customer verification<br/>Monitoring normal"]
+        Validation[14:08:00<br/>━━━━━<br/>Service Validation<br/>End-to-end testing<br/>Customer verification<br/>Monitoring normal]
 
-        PostMortem["14:12:00<br/>━━━━━<br/>Incident Closed<br/>Post-mortem scheduled<br/>Regex review process<br/>Customer communication"]
+        PostMortem[14:12:00<br/>━━━━━<br/>Incident Closed<br/>Post-mortem scheduled<br/>Regex review process<br/>Customer communication]
     end
 
     %% Regex Performance Analysis
-    subgraph RegexAnalysis["Regex Backtracking Analysis"]
+    subgraph RegexAnalysis[Regex Backtracking Analysis]
         style RegexAnalysis fill:#F0F0F0,stroke:#666666,color:#000
 
-        BadRegex["Bad Regex Pattern<br/>━━━━━<br/>.*(?:(?:\\r\\n)?[ \\t])*<br/>🔥 Catastrophic backtracking<br/>⏱️ Exponential time O(2^n)"]
+        BadRegex[Bad Regex Pattern<br/>━━━━━<br/>.*(?:(?:\\r\\n)?[ \\t])*<br/>🔥 Catastrophic backtracking<br/>⏱️ Exponential time O(2^n)]
 
-        InputString["Malicious Input<br/>━━━━━<br/>Long string with spaces<br/>Triggers worst-case<br/>20KB payload → 30s CPU"]
+        InputString[Malicious Input<br/>━━━━━<br/>Long string with spaces<br/>Triggers worst-case<br/>20KB payload → 30s CPU]
 
-        CPUExhaustion["CPU Exhaustion<br/>━━━━━<br/>98% CPU across PoPs<br/>Request queue backup<br/>HTTP timeouts"]
+        CPUExhaustion[CPU Exhaustion<br/>━━━━━<br/>98% CPU across PoPs<br/>Request queue backup<br/>HTTP timeouts]
     end
 
     %% Global PoP Impact
-    subgraph GlobalImpact["Global PoP Network Impact"]
+    subgraph GlobalImpact[Global PoP Network Impact]
         style GlobalImpact fill:#F0F0F0,stroke:#666666,color:#000
 
-        Americas["Americas PoPs<br/>━━━━━<br/>❌ 52 PoPs affected<br/>Major: LAX, DFW, JFK<br/>Traffic: -60%"]
+        Americas[Americas PoPs<br/>━━━━━<br/>❌ 52 PoPs affected<br/>Major: LAX, DFW, JFK<br/>Traffic: -60%]
 
-        Europe["Europe PoPs<br/>━━━━━<br/>❌ 67 PoPs affected<br/>Major: LHR, FRA, AMS<br/>Traffic: -45%"]
+        Europe[Europe PoPs<br/>━━━━━<br/>❌ 67 PoPs affected<br/>Major: LHR, FRA, AMS<br/>Traffic: -45%]
 
-        AsiaPac["Asia-Pacific PoPs<br/>━━━━━<br/>❌ 61 PoPs affected<br/>Major: NRT, SIN, SYD<br/>Traffic: -40%"]
+        AsiaPac[Asia-Pacific PoPs<br/>━━━━━<br/>❌ 61 PoPs affected<br/>Major: NRT, SIN, SYD<br/>Traffic: -40%]
     end
 
     %% Customer Impact
-    subgraph CustomerImpact["Customer Service Impact"]
+    subgraph CustomerImpact[Customer Service Impact]
         style CustomerImpact fill:#FFE0E0,stroke:#7C3AED,color:#000
 
-        WebsitesDown["Major Websites<br/>━━━━━<br/>❌ Discord: 100% down<br/>❌ Shopify: 85% down<br/>❌ Medium: 90% down"]
+        WebsitesDown[Major Websites<br/>━━━━━<br/>❌ Discord: 100% down<br/>❌ Shopify: 85% down<br/>❌ Medium: 90% down]
 
-        APIServices["API Services<br/>━━━━━<br/>❌ REST APIs timing out<br/>❌ CDN cache misses<br/>❌ SSL handshake failures"]
+        APIServices[API Services<br/>━━━━━<br/>❌ REST APIs timing out<br/>❌ CDN cache misses<br/>❌ SSL handshake failures]
 
-        EndUsers["End Users<br/>━━━━━<br/>❌ 4.9M users affected<br/>❌ Page load failures<br/>❌ Mobile app errors"]
+        EndUsers[End Users<br/>━━━━━<br/>❌ 4.9M users affected<br/>❌ Page load failures<br/>❌ Mobile app errors]
     end
 
     %% Flow connections
@@ -210,32 +210,32 @@ echo "GET /api/test                    HTTP/1.1" | \
 
 ```mermaid
 graph TB
-    subgraph RegexComparison["Regex Pattern Comparison"]
+    subgraph RegexComparison[Regex Pattern Comparison]
 
-        subgraph GoodRegex["✅ Good Pattern (Fixed)"]
-            GoodPattern["^.*?(?:\\r\\n|[ \\t])*$<br/>━━━━━<br/>🚀 Linear time O(n)<br/>⚡ Possessive quantifiers<br/>✅ No backtracking"]
+        subgraph GoodRegex[✅ Good Pattern (Fixed)]
+            GoodPattern[^.*?(?:\\r\\n|[ \\t])*$<br/>━━━━━<br/>🚀 Linear time O(n)<br/>⚡ Possessive quantifiers<br/>✅ No backtracking]
 
-            GoodInput["Sample Input (20KB)<br/>Processing time: 2ms<br/>CPU impact: 0.1%"]
+            GoodInput[Sample Input (20KB)<br/>Processing time: 2ms<br/>CPU impact: 0.1%]
 
-            GoodPerformance["Performance: Excellent<br/>Memory: 1KB<br/>Regex steps: 20,000"]
+            GoodPerformance[Performance: Excellent<br/>Memory: 1KB<br/>Regex steps: 20,000]
         end
 
-        subgraph BadRegex["❌ Bad Pattern (Original)"]
-            BadPattern[".*(?:(?:\\r\\n)?[ \\t])*<br/>━━━━━<br/>🔥 Exponential time O(2^n)<br/>⏱️ Catastrophic backtracking<br/>❌ Nested quantifiers"]
+        subgraph BadRegex[❌ Bad Pattern (Original)]
+            BadPattern[.*(?:(?:\\r\\n)?[ \\t])*<br/>━━━━━<br/>🔥 Exponential time O(2^n)<br/>⏱️ Catastrophic backtracking<br/>❌ Nested quantifiers]
 
-            BadInput["Sample Input (20KB)<br/>Processing time: 30s<br/>CPU impact: 100%"]
+            BadInput[Sample Input (20KB)<br/>Processing time: 30s<br/>CPU impact: 100%]
 
-            BadPerformance["Performance: Catastrophic<br/>Memory: 500MB<br/>Regex steps: 2.1B"]
+            BadPerformance[Performance: Catastrophic<br/>Memory: 500MB<br/>Regex steps: 2.1B]
         end
     end
 
-    subgraph BacktrackingExample["Backtracking Visualization"]
-        Input["Input: 'GET /api        HTTP/1.1'<br/>(note: multiple spaces)"]
+    subgraph BacktrackingExample[Backtracking Visualization]
+        Input[Input: 'GET /api        HTTP/1.1'<br/>(note: multiple spaces)]
 
-        Step1["Step 1: .* matches entire string<br/>Position at end"]
-        Step2["Step 2: (?:(?:\\r\\n)?[ \\t])* fails<br/>Backtrack one character"]
-        Step3["Step 3: Try again, fails<br/>Backtrack again"]
-        StepN["Step N: Exponential attempts<br/>2^n possibilities"]
+        Step1[Step 1: .* matches entire string<br/>Position at end]
+        Step2[Step 2: (?:(?:\\r\\n)?[ \\t])* fails<br/>Backtrack one character]
+        Step3[Step 3: Try again, fails<br/>Backtrack again]
+        StepN[Step N: Exponential attempts<br/>2^n possibilities]
 
         Input --> Step1
         Step1 --> Step2

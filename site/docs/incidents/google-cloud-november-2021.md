@@ -48,32 +48,32 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #3B82F6"
+    subgraph Edge Plane - Blue #3B82F6
         EDGE1[Google Front End<br/>Global Load Balancer]
         CDN[Google Global Cache<br/>Content Delivery]
         DNS[Google Public DNS<br/>8.8.8.8 / 8.8.4.4]
     end
 
-    subgraph "Service Plane - Green #10B981"
+    subgraph Service Plane - Green #10B981
         GFE[Google Front End<br/>Ingress Controller]
         BORG[Borg Scheduler<br/>Container Orchestration]
         RPC[gRPC Services<br/>Internal Communications]
     end
 
-    subgraph "State Plane - Orange #F59E0B"
+    subgraph State Plane - Orange #F59E0B
         SPANNER[(Spanner Database<br/>Global Distribution<br/>Strong Consistency)]
         BIGTABLE[(BigTable<br/>NoSQL Wide Column)]
         GCS[(Google Cloud Storage<br/>Object Storage)]
         COLOSSUS[(Colossus<br/>Distributed File System)]
     end
 
-    subgraph "Control Plane - Red #8B5CF6"
+    subgraph Control Plane - Red #8B5CF6
         CONFIG[Configuration Service<br/>CRITICAL FAILURE POINT]
         MONITORING[Stackdriver<br/>Monitoring & Logging]
         IAM[Identity & Access Mgmt<br/>Authentication Service]
     end
 
-    subgraph "Jupiter Network Fabric"
+    subgraph Jupiter Network Fabric
         JUPITER1[Jupiter Router<br/>Core Network<br/>Primary Failure]
         JUPITER2[Jupiter Router<br/>Backup Network]
         JUPITER3[Jupiter Router<br/>Emergency Network]
@@ -148,7 +148,7 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph "Service Failure Timeline"
+    subgraph Service Failure Timeline
         A[15:00 UTC<br/>YouTube videos fail<br/>Cannot load content]
         B[15:05 UTC<br/>Gmail login issues<br/>Authentication timeouts]
         C[15:10 UTC<br/>Google Search degraded<br/>Slow response times]
@@ -373,14 +373,14 @@ gcloud compute health-checks list
 
 ```mermaid
 graph TB
-    subgraph "NEW: Multi-Layer Config Validation"
+    subgraph NEW: Multi-Layer Config Validation
         VALIDATE1[Syntax Validator<br/>Parse configuration]
         VALIDATE2[Routing Simulator<br/>Test path validity]
         VALIDATE3[Load Simulator<br/>Verify traffic flow]
         VALIDATE4[Rollback Validator<br/>Ensure safe fallback]
     end
 
-    subgraph "NEW: Staged Network Deployment"
+    subgraph NEW: Staged Network Deployment
         STAGE1[Test Environment<br/>1% synthetic traffic]
         STAGE2[Canary Region<br/>5% real traffic]
         STAGE3[Regional Rollout<br/>25% traffic per region]

@@ -12,24 +12,24 @@ Linearizability is the strongest consistency model in distributed systems. It gu
 
 ```mermaid
 graph TB
-    subgraph EDGE["Edge Plane - Global Distribution"]
+    subgraph EDGE[Edge Plane - Global Distribution]
         CDN[CloudFlare CDN<br/>200+ PoPs<br/>p99: 15ms]
         LB[Google Cloud LB<br/>Cross-region<br/>99.95% SLA]
     end
 
-    subgraph SERVICE["Service Plane - Consensus Layer"]
+    subgraph SERVICE[Service Plane - Consensus Layer]
         API[Spanner API<br/>gRPC Interface<br/>p99: 50ms]
         COORD[Paxos Coordinators<br/>5 replicas per group<br/>Leader election: 1-3s]
         TXN[Transaction Manager<br/>2PC + Paxos<br/>Serializable isolation]
     end
 
-    subgraph STATE["State Plane - Distributed Storage"]
+    subgraph STATE[State Plane - Distributed Storage]
         SHARD1[Shard Group 1<br/>3 zones × 5 replicas<br/>Data: 1-10GB]
         SHARD2[Shard Group 2<br/>3 zones × 5 replicas<br/>Data: 1-10GB]
         TS[TrueTime Servers<br/>GPS + Atomic clocks<br/>Uncertainty: 1-7ms]
     end
 
-    subgraph CONTROL["Control Plane - Monitoring"]
+    subgraph CONTROL[Control Plane - Monitoring]
         MON[Stackdriver Monitoring<br/>Operation latency tracking<br/>Linearizability verification]
         ALERT[Alerting System<br/>SLO violation detection<br/>Auto-failover triggers]
     end
@@ -106,24 +106,24 @@ All clients observe the same order of operations.
 
 ```mermaid
 graph TB
-    subgraph EDGE["Edge Plane - Test Infrastructure"]
+    subgraph EDGE[Edge Plane - Test Infrastructure]
         LB[HAProxy Load Balancer<br/>Round-robin to test nodes<br/>Health check: 1s]
         PROXY[Test Proxy<br/>Fault injection<br/>Network partition sim]
     end
 
-    subgraph SERVICE["Service Plane - Test Orchestration"]
+    subgraph SERVICE[Service Plane - Test Orchestration]
         JEPSEN[Jepsen Controller<br/>Clojure test framework<br/>Operation generation]
         NEMESIS[Nemesis Component<br/>Chaos injection<br/>Partition/kill nodes]
         CLIENT[Test Clients × 50<br/>Concurrent operations<br/>1000 ops/sec]
     end
 
-    subgraph STATE["State Plane - Target System"]
+    subgraph STATE[State Plane - Target System]
         NODE1[CockroachDB Node 1<br/>Raft leader<br/>Memory: 8GB]
         NODE2[CockroachDB Node 2<br/>Raft follower<br/>Memory: 8GB]
         NODE3[CockroachDB Node 3<br/>Raft follower<br/>Memory: 8GB]
     end
 
-    subgraph CONTROL["Control Plane - Validation"]
+    subgraph CONTROL[Control Plane - Validation]
         CHECKER[Linearizability Checker<br/>Knossos algorithm<br/>History validation]
         REPORTER[Test Reporter<br/>Violation detection<br/>Timeline analysis]
     end
@@ -166,22 +166,22 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EDGE["Edge Plane - Infrastructure Costs"]
+    subgraph EDGE[Edge Plane - Infrastructure Costs]
         INFRA[Additional Infrastructure<br/>+200% servers for replicas<br/>$50K/month → $150K/month]
         NET[Network costs<br/>Cross-region traffic<br/>+300% bandwidth costs]
     end
 
-    subgraph SERVICE["Service Plane - Operational Costs"]
+    subgraph SERVICE[Service Plane - Operational Costs]
         DEV[Development complexity<br/>6 months → 18 months<br/>$500K → $1.5M project]
         OPS[Operations overhead<br/>24/7 consensus monitoring<br/>+2 FTE engineers]
     end
 
-    subgraph STATE["State Plane - Performance Trade-offs"]
+    subgraph STATE[State Plane - Performance Trade-offs]
         LAT[Latency impact<br/>p99: 10ms → 60ms<br/>User conversion: -5%]
         THR[Throughput reduction<br/>100K TPS → 20K TPS<br/>80% capacity loss]
     end
 
-    subgraph CONTROL["Control Plane - Business Value"]
+    subgraph CONTROL[Control Plane - Business Value]
         BUG[Data consistency bugs<br/>50 bugs/year → 2 bugs/year<br/>$2M saved in incidents]
         COMP[Compliance benefits<br/>SOX/PCI requirements<br/>$500K audit savings]
     end
@@ -210,25 +210,25 @@ graph TB
 
 ```mermaid
 flowchart TD
-    subgraph INCIDENT["Incident Timeline - CockroachDB Linearizability Violation"]
-        T1["09:15 UTC<br/>Network partition<br/>us-east ↔ us-west"]
-        T2["09:16 UTC<br/>Two Raft leaders<br/>Split-brain condition"]
-        T3["09:30 UTC<br/>Inconsistent writes<br/>Orders lost"]
-        T4["10:00 UTC<br/>Detection via monitoring<br/>Linearizability test failed"]
-        T5["10:15 UTC<br/>Manual intervention<br/>Kill minority partition"]
-        T6["10:30 UTC<br/>Raft re-election<br/>Single leader restored"]
+    subgraph INCIDENT[Incident Timeline - CockroachDB Linearizability Violation]
+        T1[09:15 UTC<br/>Network partition<br/>us-east ↔ us-west]
+        T2[09:16 UTC<br/>Two Raft leaders<br/>Split-brain condition]
+        T3[09:30 UTC<br/>Inconsistent writes<br/>Orders lost]
+        T4[10:00 UTC<br/>Detection via monitoring<br/>Linearizability test failed]
+        T5[10:15 UTC<br/>Manual intervention<br/>Kill minority partition]
+        T6[10:30 UTC<br/>Raft re-election<br/>Single leader restored]
     end
 
-    subgraph DETECTION["Detection Methods"]
-        M1["Jepsen test failure<br/>History validation"]
-        M2["Inconsistent reads<br/>Same key, different values"]
-        M3["Raft leader count > 1<br/>Split-brain alert"]
+    subgraph DETECTION[Detection Methods]
+        M1[Jepsen test failure<br/>History validation]
+        M2[Inconsistent reads<br/>Same key, different values]
+        M3[Raft leader count > 1<br/>Split-brain alert]
     end
 
-    subgraph RECOVERY["Recovery Actions"]
-        R1["Identify minority partition<br/>Lower replica count"]
-        R2["Force leader election<br/>Kill minority leader"]
-        R3["Data reconciliation<br/>Last-write-wins policy"]
+    subgraph RECOVERY[Recovery Actions]
+        R1[Identify minority partition<br/>Lower replica count]
+        R2[Force leader election<br/>Kill minority leader]
+        R3[Data reconciliation<br/>Last-write-wins policy]
     end
 
     T1 --> T2 --> T3 --> T4 --> T5 --> T6

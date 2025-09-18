@@ -10,24 +10,24 @@ HikariCP connection pool optimization from Uber's trip matching service - reduci
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Load Balancers"
+    subgraph Edge Plane - Load Balancers
         ALB[AWS ALB<br/>Multi-AZ deployment<br/>Health checks: 5s interval]
         NLB[Network Load Balancer<br/>Ultra-low latency<br/>Connection draining]
     end
 
-    subgraph "Service Plane - Application Servers"
+    subgraph Service Plane - Application Servers
         UberApp[Uber Trip Service<br/>Spring Boot 2.7<br/>500 instances across 3 AZs]
         MatchingService[Matching Engine<br/>Real-time algorithms<br/>Sub-second response SLA]
         PricingService[Pricing Service<br/>Dynamic pricing logic<br/>High throughput required]
     end
 
-    subgraph "State Plane - Database Layer"
+    subgraph State Plane - Database Layer
         HikariPool[HikariCP Pool<br/>Optimized configuration<br/>Pool size: 20 per instance]
         PostgresWriter[(PostgreSQL Writer<br/>RDS db.r6g.4xlarge<br/>Max connections: 5000)]
         PostgresReader[(PostgreSQL Readers (3)<br/>RDS read replicas<br/>Max connections: 2000 each)]
     end
 
-    subgraph "Control Plane - Monitoring"
+    subgraph Control Plane - Monitoring
         CloudWatch[CloudWatch Metrics<br/>Connection pool stats]
         DataDog[DataDog APM<br/>Query performance tracking]
         PagerDuty[PagerDuty Alerts<br/>Connection pool exhaustion]
@@ -59,27 +59,27 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Before Optimization - High Contention"
+    subgraph Before Optimization - High Contention
         Config1[HikariCP Configuration<br/>Pool size: 50<br/>maxLifetime: 30min<br/>connectionTimeout: 30s<br/>idleTimeout: 10min]
         Config1 --> Problem1[High Connection Count<br/>500 instances × 50 = 25,000<br/>Database max: 5,000<br/>Connection refused errors]
         Config1 --> Problem2[Long Wait Times<br/>p50: 15ms<br/>p99: 45ms<br/>Timeout rate: 2.3%]
         Config1 --> Problem3[Resource Waste<br/>Idle connections: 60%<br/>Memory overhead: 2.5GB<br/>Poor utilization]
     end
 
-    subgraph "After Optimization - Low Contention"
+    subgraph After Optimization - Low Contention
         Config2[HikariCP Configuration<br/>Pool size: 20<br/>maxLifetime: 20min<br/>connectionTimeout: 5s<br/>idleTimeout: 5min]
         Config2 --> Solution1[Optimal Connection Count<br/>500 instances × 20 = 10,000<br/>Writer: 5,000 + Readers: 6,000<br/>Perfect capacity planning]
         Config2 --> Solution2[Fast Acquisition<br/>p50: 0.3ms<br/>p99: 2ms<br/>Timeout rate: 0.01%]
         Config2 --> Solution3[Resource Efficiency<br/>Idle connections: 15%<br/>Memory overhead: 800MB<br/>Optimal utilization]
     end
 
-    subgraph "Pool Sizing Formula Application"
+    subgraph Pool Sizing Formula Application
         Formula[HikariCP Formula:<br/>pool_size = Tn × (Cm - 1) + 1<br/>Where Tn = threads, Cm = connections]
         Formula --> Calculation[Uber Calculation:<br/>Threads per instance: 200<br/>Concurrent DB ops: 10%<br/>pool_size = 200 × 0.1 = 20]
         Formula --> Validation[Load Testing Results:<br/>Size 15: 98.5% success<br/>Size 20: 99.99% success<br/>Size 25: Same performance, higher cost]
     end
 
-    subgraph "Connection Lifecycle Management"
+    subgraph Connection Lifecycle Management
         Lifecycle[Connection States] --> Active[Active (30%)<br/>Currently executing queries<br/>Average duration: 8ms]
         Lifecycle --> Idle[Idle (15%)<br/>Available in pool<br/>Ready for immediate use]
         Lifecycle --> Validation[Validation (5%)<br/>Health check in progress<br/>Every 30 seconds]
@@ -106,26 +106,26 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Connection Routing Strategy"
+    subgraph Connection Routing Strategy
         Request[Incoming Request<br/>Trip matching query] --> Router[Smart Router<br/>@Transactional analysis<br/>Query pattern recognition]
         Router --> ReadOnly[Read-Only Query<br/>SELECT operations<br/>Historical data lookup<br/>Route to replicas]
         Router --> ReadWrite[Read-Write Query<br/>INSERT/UPDATE operations<br/>Real-time trip data<br/>Route to primary]
     end
 
-    subgraph "Read Pool Configuration"
+    subgraph Read Pool Configuration
         ReadPool[HikariCP Read Pool<br/>Size: 15 per instance<br/>Target: 3 read replicas<br/>Total: 7,500 connections]
         ReadPool --> Replica1[Replica 1 (US-East-1a)<br/>2,500 connections<br/>Query types: trip history<br/>Average latency: 12ms]
         ReadPool --> Replica2[Replica 2 (US-East-1b)<br/>2,500 connections<br/>Query types: user profiles<br/>Average latency: 11ms]
         ReadPool --> Replica3[Replica 3 (US-East-1c)<br/>2,500 connections<br/>Query types: driver locations<br/>Average latency: 13ms]
     end
 
-    subgraph "Write Pool Configuration"
+    subgraph Write Pool Configuration
         WritePool[HikariCP Write Pool<br/>Size: 5 per instance<br/>Target: Primary database<br/>Total: 2,500 connections]
         WritePool --> Primary[PostgreSQL Primary<br/>All write operations<br/>Real-time trip updates<br/>Average latency: 8ms]
         Primary --> Replication[Streaming Replication<br/>Lag: 50-100ms<br/>Asynchronous<br/>High availability]
     end
 
-    subgraph "Intelligent Load Balancing"
+    subgraph Intelligent Load Balancing
         Health[Health Check Monitor<br/>Every 10 seconds<br/>Response time tracking<br/>Error rate monitoring]
         Health --> Weight[Dynamic Weights<br/>Replica 1: 35% (fastest)<br/>Replica 2: 33% (normal)<br/>Replica 3: 32% (slowest)]
         Weight --> Circuit[Circuit Breaker<br/>Failure threshold: 5%<br/>Recovery time: 30s<br/>Fallback to other replicas]
@@ -151,25 +151,25 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Leak Detection System"
+    subgraph Leak Detection System
         Monitor[Connection Monitor<br/>Tracks all checkouts<br/>30-second leak threshold<br/>Stack trace capture]
         Monitor --> Leak1[Detected Leak<br/>Connection held >30s<br/>Thread: uber-matching-42<br/>Source: TripMatchingService.java:145]
         Monitor --> Leak2[Leak Pattern<br/>Weekly analysis<br/>Common leak sources<br/>Automated remediation]
     end
 
-    subgraph "Prevention Mechanisms"
+    subgraph Prevention Mechanisms
         Timeout[Connection Timeout<br/>maxLifetime: 20 minutes<br/>Forced eviction<br/>Prevent eternal connections]
         Timeout --> Validation[Connection Validation<br/>isValid() check<br/>Before each use<br/>Detect broken connections]
         Validation --> AutoEvict[Auto-Eviction<br/>Idle timeout: 5 minutes<br/>Health check failures<br/>Database maintenance windows]
     end
 
-    subgraph "Monitoring Dashboard"
+    subgraph Monitoring Dashboard
         Dashboard[HikariCP Metrics<br/>Real-time monitoring<br/>Connection pool health<br/>Performance trends]
         Dashboard --> Metrics[Key Metrics:<br/>- Pool usage: 85-95%<br/>- Wait time: <2ms p99<br/>- Active connections: 4,800<br/>- Failed validations: <0.1%]
         Dashboard --> Alerts[Alert Conditions:<br/>- Pool exhaustion: >95%<br/>- High wait times: >5ms<br/>- Connection leaks: >10<br/>- Validation failures: >1%]
     end
 
-    subgraph "Automated Recovery"
+    subgraph Automated Recovery
         Recovery[Recovery Actions<br/>Triggered by alerts<br/>Automatic remediation<br/>Minimize downtime]
         Recovery --> PoolReset[Pool Reset<br/>Graceful connection drain<br/>30-second timeout<br/>New pool initialization]
         Recovery --> Scale[Auto-scaling<br/>Temporary pool size increase<br/>+50% for 10 minutes<br/>Handle traffic spikes]
@@ -196,7 +196,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Connection Pool Parameters"
+    subgraph Connection Pool Parameters
         Params[HikariCP Parameters<br/>Scientifically optimized<br/>Based on 6-month analysis]
         Params --> Size[poolSize: 20<br/>Based on thread analysis<br/>200 threads × 10% DB = 20<br/>Validated through load testing]
         Params --> Timeout[connectionTimeout: 5000ms<br/>Reduced from 30s<br/>Fail fast approach<br/>Better error handling]
@@ -204,19 +204,19 @@ graph TB
         Params --> IdleTime[idleTimeout: 300000ms (5min)<br/>Release unused connections<br/>Reduce database load<br/>Optimal memory usage]
     end
 
-    subgraph "Validation and Health Checks"
+    subgraph Validation and Health Checks
         Health2[Health Check Configuration] --> TestQuery[connectionTestQuery: SELECT 1<br/>Fast validation query<br/>1ms execution time<br/>Minimal database impact]
         Health2 --> TestOnBorrow[validateOnBorrow: false<br/>Disable expensive checks<br/>Trust pool management<br/>Better performance]
         Health2 --> TestInterval[validationTimeout: 5000ms<br/>Quick health validation<br/>Prevent hanging<br/>Fail fast on issues]
     end
 
-    subgraph "Performance Optimizations"
+    subgraph Performance Optimizations
         Perf[Performance Settings] --> LeakDetect[leakDetectionThreshold: 30000ms<br/>30-second leak detection<br/>Stack trace capture<br/>Proactive monitoring]
         Perf --> PrepStmt[cachePrepStmts: true<br/>Statement caching enabled<br/>maxPrepStmtCount: 250<br/>prepStmtCacheSize: 256KB]
         Perf --> ServerPrep[useServerPrepStmts: true<br/>Server-side preparation<br/>Better performance<br/>Reduced network traffic]
     end
 
-    subgraph "Database-Specific Tuning"
+    subgraph Database-Specific Tuning
         DBTune[PostgreSQL Optimizations] --> SSL[sslmode: require<br/>Security enabled<br/>Certificate validation<br/>Encrypted connections]
         DBTune --> Apps[ApplicationName: uber-trip-service<br/>Connection identification<br/>Monitoring support<br/>Troubleshooting aid]
         DBTune --> Charset[characterEncoding: UTF-8<br/>Unicode support<br/>International characters<br/>Consistent encoding]

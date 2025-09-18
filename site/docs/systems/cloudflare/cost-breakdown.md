@@ -8,7 +8,7 @@ Cloudflare operates one of the world's largest infrastructure networks with an e
 
 ```mermaid
 graph TB
-    subgraph "Revenue Streams #10B981"
+    subgraph Revenue Streams #10B981
         PLAN_FREE[Free Plan<br/>0M+ users<br/>Loss leader]
         PLAN_PRO[Pro Plan<br/>$20/month<br/>Small business]
         PLAN_BIZ[Business Plan<br/>$200/month<br/>Mid-market]
@@ -19,31 +19,31 @@ graph TB
         TOTAL_REV[Total Revenue<br/>$1.3B annually<br/>Growth: 37% YoY]
     end
 
-    subgraph "Infrastructure Costs #F59E0B"
-        subgraph "Network Costs (60%)"
+    subgraph Infrastructure Costs #F59E0B
+        subgraph Network Costs (60%)
             BANDWIDTH[Bandwidth: $240M<br/>100+ Tbps capacity<br/>Transit + Peering]
             FIBER[Fiber/Connectivity: $40M<br/>Private network<br/>10K+ miles]
         end
 
-        subgraph "Hardware Costs (25%)"
+        subgraph Hardware Costs (25%)
             SERVERS[Servers: $60M<br/>200K+ servers<br/>3-4 year refresh]
             STORAGE[Storage: $20M<br/>100TB SSD/PoP<br/>Enterprise SSDs]
             NETWORK_HW[Network Hardware: $20M<br/>Switches/Routers<br/>High-end gear]
         end
 
-        subgraph "Facilities Costs (10%)"
+        subgraph Facilities Costs (10%)
             COLOCATION[Colocation: $25M<br/>285+ facilities<br/>Power + Space]
             POWER[Power: $15M<br/>50MW+ global<br/>Green energy focus]
         end
 
-        subgraph "Operational Costs (5%)"
+        subgraph Operational Costs (5%)
             PERSONNEL[Operations: $10M<br/>24/7 NOC<br/>Global teams]
             MONITORING[Monitoring: $5M<br/>Tools + licenses<br/>Observability stack]
             INSURANCE[Insurance: $5M<br/>Cyber liability<br/>D&O coverage]
         end
     end
 
-    subgraph "Cost Per Service Unit #3B82F6"
+    subgraph Cost Per Service Unit #3B82F6
         CDN_COST[CDN: $0.0001/GB<br/>95%+ cache hit<br/>Edge optimization]
         DNS_COST[DNS: $0.000001/query<br/>1.8T queries/day<br/>Anycast efficiency]
         WORKERS_COST[Workers: $0.0001/request<br/>V8 isolate efficiency<br/>Sub-ms startup]
@@ -88,21 +88,21 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Annual Infrastructure Spend: $400M+"
-        subgraph "Network Infrastructure (65%)"
+    subgraph Annual Infrastructure Spend: $400M+
+        subgraph Network Infrastructure (65%)
             TRANSIT[Transit Bandwidth<br/>$150M annually<br/>Multiple Tier-1 providers]
             PEERING[Peering Costs<br/>$50M annually<br/>IX fees + cross-connects]
             PRIVATE[Private Network<br/>$40M annually<br/>Dark fiber + wavelengths]
             SUBSEA[Subsea Cables<br/>$40M annually<br/>Consortium investments]
         end
 
-        subgraph "Compute Infrastructure (25%)"
+        subgraph Compute Infrastructure (25%)
             SERVER_CAPEX[Server CapEx<br/>$60M annually<br/>50K+ units/year]
             SERVER_REFRESH[Refresh Cycle<br/>$20M annually<br/>Legacy replacements]
             ACCELERATORS[GPU/AI Hardware<br/>$20M annually<br/>Edge AI capability]
         end
 
-        subgraph "Facility Costs (10%)"
+        subgraph Facility Costs (10%)
             COLO_FEES[Colocation Fees<br/>$15M annually<br/>285+ locations]
             POWER_COST[Power & Cooling<br/>$15M annually<br/>50MW+ consumption]
             CONSTRUCTION[New PoP Build<br/>$10M annually<br/>50+ new locations]
@@ -134,7 +134,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Cost Per Request Journey"
+    subgraph Cost Per Request Journey
         Y2010[2010: $0.001<br/>nginx + hardware LBs<br/>Low utilization]
         Y2015[2015: $0.0001<br/>Custom stack<br/>Better efficiency]
         Y2020[2020: $0.00001<br/>Rust + Workers<br/>Edge optimization]
@@ -150,7 +150,7 @@ graph LR
     Y2015 -.->|90% cost reduction| Y2020
     Y2020 -.->|90% cost reduction| Y2024
 
-    subgraph "Cost Drivers"
+    subgraph Cost Drivers
         VOLUME[Request Volume<br/>50M+ req/sec<br/>Economies of scale]
         EFFICIENCY[Software Efficiency<br/>Custom Rust stack<br/>Zero-copy networking]
         UTILIZATION[Hardware Utilization<br/>95%+ server efficiency<br/>Dynamic load balancing]
@@ -189,20 +189,20 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Product Economics"
-        subgraph "High Margin (80%+)"
+    subgraph Product Economics
+        subgraph High Margin (80%+)
             WORKERS[Workers Platform<br/>$0.50/1M requests<br/>Margin: 85%<br/>Growth: 200% YoY]
             R2[R2 Storage<br/>$0.015/GB/month<br/>Margin: 80%<br/>No egress fees]
             ZERO_TRUST[Zero Trust<br/>$3/user/month<br/>Margin: 90%<br/>Enterprise focus]
         end
 
-        subgraph "Medium Margin (60-80%)"
+        subgraph Medium Margin (60-80%)
             CDN[CDN Services<br/>Included in plans<br/>Margin: 75%<br/>Core platform]
             DNS[DNS Services<br/>1.1.1.1 + Enterprise<br/>Margin: 70%<br/>Volume play]
             SECURITY[Security Services<br/>WAF + DDoS + Bot<br/>Margin: 65%<br/>Threat intel]
         end
 
-        subgraph "Investment (40-60%)"
+        subgraph Investment (40-60%)
             WARP[WARP Consumer<br/>$12.99/month<br/>Margin: 40%<br/>Market expansion]
             STREAM[Stream Platform<br/>$1/1K minutes<br/>Margin: 50%<br/>Video growth]
             MAGIC[Magic Network<br/>Custom pricing<br/>Margin: 60%<br/>Enterprise WAN]
@@ -231,7 +231,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Server Optimization"
+    subgraph Server Optimization
         CUSTOM[Custom Servers<br/>Designed for workload<br/>30% cost reduction]
         CPU[AMD EPYC CPUs<br/>High core count<br/>Better $/core ratio]
         MEMORY[DDR4 Memory<br/>32-128GB/server<br/>Optimized for cache]
@@ -244,7 +244,7 @@ graph TB
         CUSTOM --> NETWORK
     end
 
-    subgraph "Software Optimization"
+    subgraph Software Optimization
         RUST[Rust Codebase<br/>Zero-cost abstractions<br/>Memory safety]
         KERNEL[Kernel Bypass<br/>DPDK + io_uring<br/>40% performance gain]
         CACHE[Intelligent Caching<br/>ML-based prediction<br/>97% hit rate]
@@ -273,14 +273,14 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Traffic Engineering"
+    subgraph Traffic Engineering
         PEERING[Strategic Peering<br/>50% cost reduction<br/>500+ networks]
         CACHING[Edge Caching<br/>95%+ hit rate<br/>Origin offload]
         ROUTING[Intelligent Routing<br/>Argo smart routing<br/>Cost + performance]
         COMPRESSION_NET[Traffic Compression<br/>Automatic optimization<br/>Bandwidth efficiency]
     end
 
-    subgraph "Capacity Planning"
+    subgraph Capacity Planning
         FORECASTING[Demand Forecasting<br/>ML-based prediction<br/>95% accuracy]
         RIGHTSIZING[Circuit Rightsizing<br/>Just-in-time capacity<br/>15% cost savings]
         BURSTABLE[Burstable Bandwidth<br/>Pay for 95th percentile<br/>Flexible capacity]
@@ -307,14 +307,14 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Unit Economics"
+    subgraph Unit Economics
         ARPU[ARPU: $105/month<br/>Average revenue per user<br/>Growing 25% YoY]
         GROSS_MARGIN[Gross Margin: 78%<br/>Industry leading<br/>Scale advantages]
         CUSTOMER_CAC[CAC: $1,200 avg<br/>Customer acquisition<br/>Improving efficiency]
         CUSTOMER_LTV[LTV: $25,000 avg<br/>High retention<br/>Land & expand]
     end
 
-    subgraph "Operational Metrics"
+    subgraph Operational Metrics
         UTILIZATION[Server Utilization: 95%<br/>Industry best<br/>Dynamic allocation]
         EFFICIENCY[Cost/Request: $0.000001<br/>1000x improvement<br/>Since 2010]
         CAPACITY[Capacity Factor: 65%<br/>Peak vs average<br/>Growth buffer]
@@ -358,14 +358,14 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "2027 Cost Projections"
+    subgraph 2027 Cost Projections
         REVENUE_PROJ[Revenue: $3B<br/>130% growth<br/>Platform dominance]
         INFRA_PROJ[Infrastructure: $800M<br/>100% growth<br/>Linear scaling]
         MARGIN_PROJ[Gross Margin: 82%<br/>4% improvement<br/>Scale benefits]
         EFFICIENCY_PROJ[Cost/Request: $0.0000005<br/>50% reduction<br/>AI optimization]
     end
 
-    subgraph "Investment Areas"
+    subgraph Investment Areas
         AI_INFRA[AI Infrastructure<br/>$100M investment<br/>GPU acceleration]
         QUANTUM[Quantum Preparation<br/>$50M investment<br/>Future-proofing]
         SUSTAINABILITY[Green Energy<br/>$75M investment<br/>100% renewable]

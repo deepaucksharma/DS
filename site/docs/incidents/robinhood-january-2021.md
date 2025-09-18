@@ -48,33 +48,33 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #3B82F6"
+    subgraph Edge Plane - Blue #3B82F6
         MOBILE[Robinhood Mobile App<br/>13M+ Users]
         WEB[Robinhood Web Platform<br/>Trading Interface]
         API[Robinhood API<br/>Third-party Access]
     end
 
-    subgraph "Service Plane - Green #10B981"
+    subgraph Service Plane - Green #10B981
         TRADING[Trading Service<br/>Order Processing]
         PORTFOLIO[Portfolio Service<br/>Position Management]
         MARKET[Market Data Service<br/>Real-time Quotes]
         EXECUTION[Execution Service<br/>Order Routing]
     end
 
-    subgraph "State Plane - Orange #F59E0B"
+    subgraph State Plane - Orange #F59E0B
         POSITIONS[(User Positions DB<br/>PostgreSQL)]
         ORDERS[(Order History DB<br/>Time Series)]
         ACCOUNTS[(Account Data<br/>User Balances)]
         CLEARING[(Clearing Records<br/>Settlement Data)]
     end
 
-    subgraph "Control Plane - Red #8B5CF6"
+    subgraph Control Plane - Red #8B5CF6
         RISK[Risk Management<br/>Position Limits]
         COMPLIANCE[Compliance Engine<br/>Regulatory Rules]
         MONITORING[Trading Monitoring<br/>System Health]
     end
 
-    subgraph "External Financial Infrastructure"
+    subgraph External Financial Infrastructure
         DTCC[DTCC Clearing<br/>Settlement System<br/>LIQUIDITY CRISIS]
         NSCC[NSCC<br/>Central Counterparty]
         BANKS[Backing Banks<br/>Credit Lines]
@@ -152,7 +152,7 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph "Market Open Crisis"
+    subgraph Market Open Crisis
         A[09:30 EST<br/>Market opens<br/>GME halted on RH]
         B[09:35 EST<br/>User confusion<br/>\"App broken?\"]
         C[09:45 EST<br/>Social media explosion<br/>\"Market manipulation!\"]
@@ -358,19 +358,19 @@ psql -d trading -c "
 
 ```mermaid
 graph TB
-    subgraph "NEW: Enhanced Capital Requirements"
+    subgraph NEW: Enhanced Capital Requirements
         CAPITAL1[Minimum Capital<br/>$1B for major brokers]
         CAPITAL2[Stress Testing<br/>Monthly volatility scenarios]
         CAPITAL3[Emergency Funding<br/>Pre-arranged credit lines]
     end
 
-    subgraph "NEW: Clearing House Reforms"
+    subgraph NEW: Clearing House Reforms
         CLEAR1[Graduated Deposits<br/>Less extreme increases]
         CLEAR2[Real-time Monitoring<br/>Hourly risk assessment]
         CLEAR3[Alternative Clearing<br/>Multiple clearing options]
     end
 
-    subgraph "NEW: Regulatory Oversight"
+    subgraph NEW: Regulatory Oversight
         REG1[Position Reporting<br/>Real-time to regulators]
         REG2[Restriction Disclosure<br/>Clear user communication]
         REG3[Systemic Risk Monitoring<br/>Cross-broker coordination]

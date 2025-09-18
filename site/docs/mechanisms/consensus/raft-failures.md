@@ -59,8 +59,8 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph "Network Partition Scenario"
-        subgraph "Minority Partition (2 nodes)"
+    subgraph Network Partition Scenario
+        subgraph Minority Partition (2 nodes)
             N1[Node 1 - Former Leader]
             N2[Node 2 - Follower]
 
@@ -68,7 +68,7 @@ graph TB
             N2 -.-> WAIT[Wait for Leader]
         end
 
-        subgraph "Majority Partition (3 nodes)"
+        subgraph Majority Partition (3 nodes)
             N3[Node 3 - New Leader]
             N4[Node 4 - Follower]
             N5[Node 5 - Follower]
@@ -78,7 +78,7 @@ graph TB
             N5 --> REPLICATE
         end
 
-        subgraph "Client Impact"
+        subgraph Client Impact
             C1[Clients to Minority]
             C2[Clients to Majority]
 
@@ -236,20 +236,20 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph "Disk Failure Scenario"
-        subgraph "Before Failure"
+    subgraph Disk Failure Scenario
+        subgraph Before Failure
             HEALTHY[Normal Operations]
             WAL_WRITE[WAL Writes Successful]
             STATE_APPLY[State Machine Updates]
         end
 
-        subgraph "Failure Detection"
+        subgraph Failure Detection
             DISK_FULL[Disk 95% Full]
             WAL_FAIL[WAL Write Fails]
             FSYNC_TIMEOUT[fsync() Timeout]
         end
 
-        subgraph "Recovery Actions"
+        subgraph Recovery Actions
             STEP_DOWN[Leader Steps Down]
             READ_ONLY[Enter Read-Only Mode]
             ALERT[Alert Operations Team]
@@ -257,7 +257,7 @@ graph TB
             DISK_EXPAND[Expand Disk Space]
         end
 
-        subgraph "Prevention"
+        subgraph Prevention
             MONITORING[Disk Space Monitoring]
             ROTATION[Log Rotation Policy]
             SNAPSHOTS[Regular Snapshots]

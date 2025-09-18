@@ -6,80 +6,80 @@ This diagram represents Discord's actual production architecture serving 200+ mi
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        CloudFlareEdge["Cloudflare Edge<br/>━━━━━<br/>200+ global PoPs<br/>WebSocket termination<br/>DDoS protection<br/>Cost: $5M/month"]
+        CloudFlareEdge[Cloudflare Edge<br/>━━━━━<br/>200+ global PoPs<br/>WebSocket termination<br/>DDoS protection<br/>Cost: $5M/month]
 
-        VoiceEdge["Voice Edge Servers<br/>━━━━━<br/>1000+ RTC edge nodes<br/>WebRTC termination<br/>Opus codec support<br/>P2P mesh optimization"]
+        VoiceEdge[Voice Edge Servers<br/>━━━━━<br/>1000+ RTC edge nodes<br/>WebRTC termination<br/>Opus codec support<br/>P2P mesh optimization]
 
-        CDNContent["Media CDN<br/>━━━━━<br/>Image/video delivery<br/>Avatar caching<br/>Emoji serving<br/>20TB/day transfer"]
+        CDNContent[Media CDN<br/>━━━━━<br/>Image/video delivery<br/>Avatar caching<br/>Emoji serving<br/>20TB/day transfer]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        subgraph GatewayLayer["WebSocket Gateway Layer"]
-            Gateway["Discord Gateway<br/>━━━━━<br/>WebSocket connections<br/>200M+ concurrent WS<br/>Elixir/Phoenix<br/>Auto-scaling to 50k pods"]
+        subgraph GatewayLayer[WebSocket Gateway Layer]
+            Gateway[Discord Gateway<br/>━━━━━<br/>WebSocket connections<br/>200M+ concurrent WS<br/>Elixir/Phoenix<br/>Auto-scaling to 50k pods]
 
-            ShardCoordinator["Shard Coordinator<br/>━━━━━<br/>Guild distribution<br/>Load balancing<br/>Connection routing<br/>Failover management"]
+            ShardCoordinator[Shard Coordinator<br/>━━━━━<br/>Guild distribution<br/>Load balancing<br/>Connection routing<br/>Failover management]
         end
 
-        subgraph CoreServices["Core Message Services"]
-            MessageRouter["Message Router<br/>━━━━━<br/>14B+ messages/day<br/>Real-time fanout<br/>Channel permissions<br/>Rust implementation"]
+        subgraph CoreServices[Core Message Services]
+            MessageRouter[Message Router<br/>━━━━━<br/>14B+ messages/day<br/>Real-time fanout<br/>Channel permissions<br/>Rust implementation]
 
-            UserService["User Service<br/>━━━━━<br/>200M+ user profiles<br/>Friend relationships<br/>Presence tracking<br/>Python/FastAPI"]
+            UserService[User Service<br/>━━━━━<br/>200M+ user profiles<br/>Friend relationships<br/>Presence tracking<br/>Python/FastAPI]
 
-            GuildService["Guild Service<br/>━━━━━<br/>20M+ servers/guilds<br/>Permission management<br/>Role-based access<br/>Go microservice"]
+            GuildService[Guild Service<br/>━━━━━<br/>20M+ servers/guilds<br/>Permission management<br/>Role-based access<br/>Go microservice]
         end
 
-        subgraph VoiceServices["Voice Infrastructure"]
-            VoiceService["Voice Service<br/>━━━━━<br/>4M+ concurrent voice<br/>Voice state management<br/>Channel orchestration<br/>Elixir OTP"]
+        subgraph VoiceServices[Voice Infrastructure]
+            VoiceService[Voice Service<br/>━━━━━<br/>4M+ concurrent voice<br/>Voice state management<br/>Channel orchestration<br/>Elixir OTP]
 
-            MediaProxy["Media Proxy<br/>━━━━━<br/>Voice packet routing<br/>Jitter buffering<br/>Bandwidth optimization<br/>C++ UDP handling"]
+            MediaProxy[Media Proxy<br/>━━━━━<br/>Voice packet routing<br/>Jitter buffering<br/>Bandwidth optimization<br/>C++ UDP handling]
 
-            MusicBot["Music Bot Infrastructure<br/>━━━━━<br/>YouTube/Spotify streaming<br/>Audio processing<br/>Queue management<br/>Python + FFmpeg"]
+            MusicBot[Music Bot Infrastructure<br/>━━━━━<br/>YouTube/Spotify streaming<br/>Audio processing<br/>Queue management<br/>Python + FFmpeg]
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        subgraph MessageStorage["Message Storage"]
-            ScyllaDB["ScyllaDB Cluster<br/>━━━━━<br/>12 trillion messages<br/>C++ performance<br/>800+ nodes globally<br/>Cost: $15M/month"]
+        subgraph MessageStorage[Message Storage]
+            ScyllaDB[ScyllaDB Cluster<br/>━━━━━<br/>12 trillion messages<br/>C++ performance<br/>800+ nodes globally<br/>Cost: $15M/month]
 
-            CassandraLegacy["Cassandra (Legacy)<br/>━━━━━<br/>Hot migration to Scylla<br/>6 trillion messages<br/>Gradual decommission<br/>Performance bottleneck"]
+            CassandraLegacy[Cassandra (Legacy)<br/>━━━━━<br/>Hot migration to Scylla<br/>6 trillion messages<br/>Gradual decommission<br/>Performance bottleneck]
         end
 
-        subgraph CachingLayer["Caching & Sessions"]
-            RedisCluster["Redis Cluster<br/>━━━━━<br/>200M+ active sessions<br/>Message caching<br/>Presence data<br/>Sub-ms latency"]
+        subgraph CachingLayer[Caching & Sessions]
+            RedisCluster[Redis Cluster<br/>━━━━━<br/>200M+ active sessions<br/>Message caching<br/>Presence data<br/>Sub-ms latency]
 
-            MemcachedGuilds["Guild Cache<br/>━━━━━<br/>Memcached clusters<br/>Permission caching<br/>Role hierarchies<br/>Channel metadata"]
+            MemcachedGuilds[Guild Cache<br/>━━━━━<br/>Memcached clusters<br/>Permission caching<br/>Role hierarchies<br/>Channel metadata]
         end
 
-        subgraph MediaStorage["Media & Content Storage"]
-            GCPStorage["Google Cloud Storage<br/>━━━━━<br/>500TB+ media files<br/>Image/video/audio<br/>CDN origin<br/>Cost: $8M/month"]
+        subgraph MediaStorage[Media & Content Storage]
+            GCPStorage[Google Cloud Storage<br/>━━━━━<br/>500TB+ media files<br/>Image/video/audio<br/>CDN origin<br/>Cost: $8M/month]
 
-            ElasticsearchLogs["Elasticsearch<br/>━━━━━<br/>Search indexing<br/>Message history<br/>100TB indexed<br/>7-day retention"]
+            ElasticsearchLogs[Elasticsearch<br/>━━━━━<br/>Search indexing<br/>Message history<br/>100TB indexed<br/>7-day retention]
         end
 
-        subgraph VoiceStorage["Voice Infrastructure Data"]
-            VoiceStateDB["Voice State DB<br/>━━━━━<br/>PostgreSQL cluster<br/>Voice sessions<br/>Channel states<br/>Connection metadata"]
+        subgraph VoiceStorage[Voice Infrastructure Data]
+            VoiceStateDB[Voice State DB<br/>━━━━━<br/>PostgreSQL cluster<br/>Voice sessions<br/>Channel states<br/>Connection metadata]
 
-            MetricsDB["Voice Metrics<br/>━━━━━<br/>InfluxDB time-series<br/>Call quality metrics<br/>Latency tracking<br/>Performance analytics"]
+            MetricsDB[Voice Metrics<br/>━━━━━<br/>InfluxDB time-series<br/>Call quality metrics<br/>Latency tracking<br/>Performance analytics]
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        MonitoringStack["Monitoring Stack<br/>━━━━━<br/>Datadog + Prometheus<br/>1M+ metrics/minute<br/>Real-time dashboards<br/>Cost: $2M/month"]
+        MonitoringStack[Monitoring Stack<br/>━━━━━<br/>Datadog + Prometheus<br/>1M+ metrics/minute<br/>Real-time dashboards<br/>Cost: $2M/month]
 
-        LoggingPipeline["Logging Pipeline<br/>━━━━━<br/>1TB+ logs/day<br/>ELK stack<br/>Real-time processing<br/>Anomaly detection"]
+        LoggingPipeline[Logging Pipeline<br/>━━━━━<br/>1TB+ logs/day<br/>ELK stack<br/>Real-time processing<br/>Anomaly detection]
 
-        DeploymentSystem["Deployment System<br/>━━━━━<br/>Kubernetes operators<br/>Blue-green deploys<br/>Canary releases<br/>Auto-rollback"]
+        DeploymentSystem[Deployment System<br/>━━━━━<br/>Kubernetes operators<br/>Blue-green deploys<br/>Canary releases<br/>Auto-rollback]
 
-        ConfigManagement["Config Management<br/>━━━━━<br/>Feature flags<br/>A/B testing<br/>Runtime configs<br/>Emergency switches"]
+        ConfigManagement[Config Management<br/>━━━━━<br/>Feature flags<br/>A/B testing<br/>Runtime configs<br/>Emergency switches]
     end
 
     %% Connection flows with metrics

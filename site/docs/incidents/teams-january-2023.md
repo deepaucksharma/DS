@@ -18,13 +18,13 @@
 
 ```mermaid
 graph TB
-    subgraph "Certificate Infrastructure"
+    subgraph Certificate Infrastructure
         CERT[SSL Certificate<br/>Authentication Service<br/>EXPIRED]
         CA[Certificate Authority<br/>Issuing Service]
         RENEWAL[Auto-Renewal System<br/>Certificate Management<br/>FAILED]
     end
 
-    subgraph "Teams Services"
+    subgraph Teams Services
         MEETINGS[Teams Meetings<br/>Video Conferencing]
         CHAT[Teams Chat<br/>Messaging Service]
         CALLING[Teams Calling<br/>Voice Communication]

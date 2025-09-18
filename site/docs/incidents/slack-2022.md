@@ -17,81 +17,81 @@
 
 ```mermaid
 graph TB
-    subgraph Detection["T+0: Detection Phase - 14:15 UTC"]
+    subgraph Detection[T+0: Detection Phase - 14:15 UTC]
         style Detection fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
-        Start["14:15:00<br/>━━━━━<br/>Return from Holiday<br/>Post-holiday traffic surge<br/>Users returning to work<br/>3x normal login volume"]
+        Start[14:15:00<br/>━━━━━<br/>Return from Holiday<br/>Post-holiday traffic surge<br/>Users returning to work<br/>3x normal login volume]
 
-        Alert1["14:16:30<br/>━━━━━<br/>Connection Timeouts<br/>AWS Transit Gateway<br/>Packet loss: 15%<br/>Connection queue full"]
+        Alert1[14:16:30<br/>━━━━━<br/>Connection Timeouts<br/>AWS Transit Gateway<br/>Packet loss: 15%<br/>Connection queue full]
 
-        Alert2["14:18:00<br/>━━━━━<br/>Workspace Load Failures<br/>Users unable to connect<br/>Message delivery delays<br/>Real-time sync broken"]
+        Alert2[14:18:00<br/>━━━━━<br/>Workspace Load Failures<br/>Users unable to connect<br/>Message delivery delays<br/>Real-time sync broken]
     end
 
-    subgraph Diagnosis["T+30min: Diagnosis Phase"]
+    subgraph Diagnosis[T+30min: Diagnosis Phase]
         style Diagnosis fill:#FFF5E5,stroke:#F59E0B,color:#000
 
-        Incident["14:45:00<br/>━━━━━<br/>Major Incident<br/>SEV-1 declared<br/>Cross-region traffic<br/>Gateway bottleneck"]
+        Incident[14:45:00<br/>━━━━━<br/>Major Incident<br/>SEV-1 declared<br/>Cross-region traffic<br/>Gateway bottleneck]
 
-        RootCause["15:20:00<br/>━━━━━<br/>Transit Gateway Limit<br/>Bandwidth: 50Gbps cap<br/>Current usage: 52Gbps<br/>Queue overflow detected"]
+        RootCause[15:20:00<br/>━━━━━<br/>Transit Gateway Limit<br/>Bandwidth: 50Gbps cap<br/>Current usage: 52Gbps<br/>Queue overflow detected]
 
-        Architecture["15:45:00<br/>━━━━━<br/>Architecture Analysis<br/>Single TGW dependency<br/>All regions route through<br/>US-East-1 gateway"]
+        Architecture[15:45:00<br/>━━━━━<br/>Architecture Analysis<br/>Single TGW dependency<br/>All regions route through<br/>US-East-1 gateway]
     end
 
-    subgraph Mitigation["T+2hr: Mitigation Phase"]
+    subgraph Mitigation[T+2hr: Mitigation Phase]
         style Mitigation fill:#FFFFE5,stroke:#CCCC00,color:#000
 
-        Emergency["16:30:00<br/>━━━━━<br/>Emergency Scaling<br/>AWS Support engaged<br/>TGW capacity increase<br/>50Gbps → 100Gbps"]
+        Emergency[16:30:00<br/>━━━━━<br/>Emergency Scaling<br/>AWS Support engaged<br/>TGW capacity increase<br/>50Gbps → 100Gbps]
 
-        TrafficShed["17:15:00<br/>━━━━━<br/>Traffic Shedding<br/>Disable non-essential<br/>Background sync paused<br/>File uploads queued"]
+        TrafficShed[17:15:00<br/>━━━━━<br/>Traffic Shedding<br/>Disable non-essential<br/>Background sync paused<br/>File uploads queued]
 
-        Regional["18:00:00<br/>━━━━━<br/>Regional Failover<br/>Route EU traffic direct<br/>Asia-Pacific rerouted<br/>Load distribution"]
+        Regional[18:00:00<br/>━━━━━<br/>Regional Failover<br/>Route EU traffic direct<br/>Asia-Pacific rerouted<br/>Load distribution]
     end
 
-    subgraph Recovery["T+4hr: Recovery Phase"]
+    subgraph Recovery[T+4hr: Recovery Phase]
         style Recovery fill:#E5FFE5,stroke:#10B981,color:#000
 
-        Partial["18:45:00<br/>━━━━━<br/>Partial Recovery<br/>Workspace connections<br/>70% success rate<br/>Message sync resuming"]
+        Partial[18:45:00<br/>━━━━━<br/>Partial Recovery<br/>Workspace connections<br/>70% success rate<br/>Message sync resuming]
 
-        Services["19:30:00<br/>━━━━━<br/>Service Restoration<br/>File uploads enabled<br/>Real-time sync working<br/>Search functionality back"]
+        Services[19:30:00<br/>━━━━━<br/>Service Restoration<br/>File uploads enabled<br/>Real-time sync working<br/>Search functionality back]
 
-        Complete["20:02:00<br/>━━━━━<br/>Full Recovery<br/>All services operational<br/>Performance normalized<br/>Monitoring stable"]
+        Complete[20:02:00<br/>━━━━━<br/>Full Recovery<br/>All services operational<br/>Performance normalized<br/>Monitoring stable]
     end
 
     %% AWS Transit Gateway Architecture
-    subgraph TGWArchitecture["AWS Transit Gateway Bottleneck"]
+    subgraph TGWArchitecture[AWS Transit Gateway Bottleneck]
         style TGWArchitecture fill:#F0F0F0,stroke:#666666,color:#000
 
-        USEast1["US-East-1 TGW<br/>━━━━━<br/>🔥 50Gbps capacity limit<br/>⚠️ 52Gbps traffic demand<br/>❌ Queue overflow"]
+        USEast1[US-East-1 TGW<br/>━━━━━<br/>🔥 50Gbps capacity limit<br/>⚠️ 52Gbps traffic demand<br/>❌ Queue overflow]
 
-        EuropeTraffic["Europe → US Traffic<br/>━━━━━<br/>🌍 5M users<br/>📊 15Gbps normal<br/>📈 22Gbps surge"]
+        EuropeTraffic[Europe → US Traffic<br/>━━━━━<br/>🌍 5M users<br/>📊 15Gbps normal<br/>📈 22Gbps surge]
 
-        AsiaTraffic["Asia → US Traffic<br/>━━━━━<br/>🌏 3M users<br/>📊 12Gbps normal<br/>📈 18Gbps surge"]
+        AsiaTraffic[Asia → US Traffic<br/>━━━━━<br/>🌏 3M users<br/>📊 12Gbps normal<br/>📈 18Gbps surge]
 
-        USTraffic["US Internal Traffic<br/>━━━━━<br/>🇺🇸 7M users<br/>📊 18Gbps normal<br/>📈 25Gbps surge"]
+        USTraffic[US Internal Traffic<br/>━━━━━<br/>🇺🇸 7M users<br/>📊 18Gbps normal<br/>📈 25Gbps surge]
     end
 
     %% Service Impact Analysis
-    subgraph ServiceImpact["Service Impact Analysis"]
+    subgraph ServiceImpact[Service Impact Analysis]
         style ServiceImpact fill:#F0F0F0,stroke:#666666,color:#000
 
-        WorkspaceAccess["Workspace Access<br/>━━━━━<br/>❌ 40% connection failures<br/>⏱️ 30s timeout<br/>🔄 Retry storms"]
+        WorkspaceAccess[Workspace Access<br/>━━━━━<br/>❌ 40% connection failures<br/>⏱️ 30s timeout<br/>🔄 Retry storms]
 
-        MessageDelivery["Message Delivery<br/>━━━━━<br/>⚠️ 5-15 minute delays<br/>📱 Mobile sync broken<br/>💬 Real-time chat offline"]
+        MessageDelivery[Message Delivery<br/>━━━━━<br/>⚠️ 5-15 minute delays<br/>📱 Mobile sync broken<br/>💬 Real-time chat offline]
 
-        FileSharing["File Sharing<br/>━━━━━<br/>❌ Upload failures<br/>❌ Download timeouts<br/>📎 Attachment access issues"]
+        FileSharing[File Sharing<br/>━━━━━<br/>❌ Upload failures<br/>❌ Download timeouts<br/>📎 Attachment access issues]
 
-        Search["Search Service<br/>━━━━━<br/>⚠️ Index lag 20 minutes<br/>❌ Query timeouts<br/>🔍 Results incomplete"]
+        Search[Search Service<br/>━━━━━<br/>⚠️ Index lag 20 minutes<br/>❌ Query timeouts<br/>🔍 Results incomplete]
     end
 
     %% User Experience Impact
-    subgraph UserImpact["User Experience Impact"]
+    subgraph UserImpact[User Experience Impact]
         style UserImpact fill:#FFE0E0,stroke:#7C3AED,color:#000
 
-        EnterpriseUsers["Enterprise Users<br/>━━━━━<br/>❌ 8M users affected<br/>💼 Productivity loss<br/>📞 Phone calls surge"]
+        EnterpriseUsers[Enterprise Users<br/>━━━━━<br/>❌ 8M users affected<br/>💼 Productivity loss<br/>📞 Phone calls surge]
 
-        RemoteWorkers["Remote Workers<br/>━━━━━<br/>❌ Critical communication<br/>🏠 Work from home impact<br/>⏰ Post-holiday return"]
+        RemoteWorkers[Remote Workers<br/>━━━━━<br/>❌ Critical communication<br/>🏠 Work from home impact<br/>⏰ Post-holiday return]
 
-        Integrations["Third-party Apps<br/>━━━━━<br/>❌ API timeouts<br/>❌ Bot failures<br/>🔌 Webhook delays"]
+        Integrations[Third-party Apps<br/>━━━━━<br/>❌ API timeouts<br/>❌ Bot failures<br/>🔌 Webhook delays]
     end
 
     %% Flow connections
@@ -222,42 +222,42 @@ aws cloudwatch get-metric-statistics \
 
 ```mermaid
 graph TB
-    subgraph BeforeIncident["Before Incident - Architecture Bottleneck"]
+    subgraph BeforeIncident[Before Incident - Architecture Bottleneck]
         style BeforeIncident fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
-        USEastTGW["US-East-1 TGW<br/>Central Hub<br/>50 Gbps limit"]
+        USEastTGW[US-East-1 TGW<br/>Central Hub<br/>50 Gbps limit]
 
-        EuropeVPCs["Europe VPCs<br/>5 regions<br/>Normal: 15 Gbps"]
-        AsiaVPCs["Asia VPCs<br/>3 regions<br/>Normal: 12 Gbps"]
-        USVPCs["US VPCs<br/>4 regions<br/>Normal: 18 Gbps"]
+        EuropeVPCs[Europe VPCs<br/>5 regions<br/>Normal: 15 Gbps]
+        AsiaVPCs[Asia VPCs<br/>3 regions<br/>Normal: 12 Gbps]
+        USVPCs[US VPCs<br/>4 regions<br/>Normal: 18 Gbps]
 
         EuropeVPCs -->|"All traffic"| USEastTGW
         AsiaVPCs -->|"All traffic"| USEastTGW
         USVPCs -->|"All traffic"| USEastTGW
     end
 
-    subgraph DuringIncident["During Incident - Capacity Exceeded"]
+    subgraph DuringIncident[During Incident - Capacity Exceeded]
         style DuringIncident fill:#FFF5E5,stroke:#F59E0B,color:#000
 
-        OverloadedTGW["US-East-1 TGW<br/>🔥 OVERLOADED<br/>52 Gbps demand<br/>50 Gbps limit"]
+        OverloadedTGW[US-East-1 TGW<br/>🔥 OVERLOADED<br/>52 Gbps demand<br/>50 Gbps limit]
 
-        SurgeEurope["Europe Traffic Surge<br/>Holiday return<br/>Surge: 22 Gbps"]
-        SurgeAsia["Asia Traffic Surge<br/>Business hours overlap<br/>Surge: 18 Gbps"]
-        SurgeUS["US Traffic Surge<br/>Back to work<br/>Surge: 25 Gbps"]
+        SurgeEurope[Europe Traffic Surge<br/>Holiday return<br/>Surge: 22 Gbps]
+        SurgeAsia[Asia Traffic Surge<br/>Business hours overlap<br/>Surge: 18 Gbps]
+        SurgeUS[US Traffic Surge<br/>Back to work<br/>Surge: 25 Gbps]
 
         SurgeEurope -->|"Overload"| OverloadedTGW
         SurgeAsia -->|"Overload"| OverloadedTGW
         SurgeUS -->|"Overload"| OverloadedTGW
     end
 
-    subgraph AfterFix["After Fix - Distributed Architecture"]
+    subgraph AfterFix[After Fix - Distributed Architecture]
         style AfterFix fill:#E5FFE5,stroke:#10B981,color:#000
 
-        ScaledTGW["US-East-1 TGW<br/>✅ 100 Gbps capacity<br/>Regional TGWs added"]
+        ScaledTGW[US-East-1 TGW<br/>✅ 100 Gbps capacity<br/>Regional TGWs added]
 
-        EuropeDirectTGW["Europe Regional TGW<br/>Direct connections<br/>50 Gbps capacity"]
-        AsiaDirectTGW["Asia Regional TGW<br/>Direct connections<br/>50 Gbps capacity"]
-        USRegionalTGW["US Regional TGWs<br/>Distributed load<br/>Multiple gateways"]
+        EuropeDirectTGW[Europe Regional TGW<br/>Direct connections<br/>50 Gbps capacity]
+        AsiaDirectTGW[Asia Regional TGW<br/>Direct connections<br/>50 Gbps capacity]
+        USRegionalTGW[US Regional TGWs<br/>Distributed load<br/>Multiple gateways]
 
         EuropeDirectTGW -.->|"Backup only"| ScaledTGW
         AsiaDirectTGW -.->|"Backup only"| ScaledTGW
@@ -388,24 +388,24 @@ emergency_procedures:
 ### Holiday Return Traffic Surge
 ```mermaid
 graph TB
-    subgraph TimelineAnalysis["Traffic Timeline Analysis"]
+    subgraph TimelineAnalysis[Traffic Timeline Analysis]
 
-        subgraph PreHoliday["Dec 23, 2021 - Normal"]
-            PreTraffic["Normal Traffic<br/>35 Gbps total<br/>Even distribution"]
+        subgraph PreHoliday[Dec 23, 2021 - Normal]
+            PreTraffic[Normal Traffic<br/>35 Gbps total<br/>Even distribution]
         end
 
-        subgraph HolidayPeriod["Dec 24-Jan 3 - Holiday"]
-            LowTraffic["Low Traffic<br/>8-12 Gbps<br/>Skeleton crews"]
+        subgraph HolidayPeriod[Dec 24-Jan 3 - Holiday]
+            LowTraffic[Low Traffic<br/>8-12 Gbps<br/>Skeleton crews]
         end
 
-        subgraph ReturnDay["Jan 4, 2022 - Return"]
-            SurgeTraffic["Traffic Surge<br/>52 Gbps peak<br/>3x normal volume"]
+        subgraph ReturnDay[Jan 4, 2022 - Return]
+            SurgeTraffic[Traffic Surge<br/>52 Gbps peak<br/>3x normal volume]
         end
 
-        subgraph Breakdown["Traffic Breakdown"]
-            LoginSurge["User Logins<br/>12M users in 2 hours<br/>Normal: 12M over 24h"]
-            FileSynce["File Sync Backlog<br/>2 weeks of changes<br/>10TB sync queue"]
-            MessageLoad["Message Loading<br/>Holiday message history<br/>Database query spike"]
+        subgraph Breakdown[Traffic Breakdown]
+            LoginSurge[User Logins<br/>12M users in 2 hours<br/>Normal: 12M over 24h]
+            FileSynce[File Sync Backlog<br/>2 weeks of changes<br/>10TB sync queue]
+            MessageLoad[Message Loading<br/>Holiday message history<br/>Database query spike]
         end
     end
 

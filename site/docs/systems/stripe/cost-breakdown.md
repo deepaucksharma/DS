@@ -6,62 +6,62 @@ This diagram shows Stripe's complete infrastructure cost breakdown for processin
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6 - $3.5M/month"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6 - $3.5M/month]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        CloudflareCDN["Cloudflare CDN<br/>━━━━━<br/>$2.5M/month<br/>330+ PoPs globally<br/>200TB/month transfer<br/>$0.004 per API call"]
+        CloudflareCDN[Cloudflare CDN<br/>━━━━━<br/>$2.5M/month<br/>330+ PoPs globally<br/>200TB/month transfer<br/>$0.004 per API call]
 
-        WAFSecurity["WAF + Security<br/>━━━━━<br/>$800K/month<br/>50M+ attacks blocked<br/>Bot management<br/>$0.0013 per request"]
+        WAFSecurity[WAF + Security<br/>━━━━━<br/>$800K/month<br/>50M+ attacks blocked<br/>Bot management<br/>$0.0013 per request]
 
-        LoadBalancing["AWS Load Balancing<br/>━━━━━<br/>$200K/month<br/>Regional ALBs<br/>Health checking<br/>$0.0003 per request"]
+        LoadBalancing[AWS Load Balancing<br/>━━━━━<br/>$200K/month<br/>Regional ALBs<br/>Health checking<br/>$0.0003 per request]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981 - $8M/month"]
+    subgraph ServicePlane[Service Plane - Green #10B981 - $8M/month]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        ComputeInstances["EC2 Compute Fleet<br/>━━━━━<br/>$4.5M/month<br/>2000+ instances<br/>Mixed instance types<br/>65% reserved, 35% on-demand"]
+        ComputeInstances[EC2 Compute Fleet<br/>━━━━━<br/>$4.5M/month<br/>2000+ instances<br/>Mixed instance types<br/>65% reserved, 35% on-demand]
 
-        ContainerOrch["EKS + Fargate<br/>━━━━━<br/>$1.2M/month<br/>Kubernetes orchestration<br/>Auto-scaling enabled<br/>Pod density optimization"]
+        ContainerOrch[EKS + Fargate<br/>━━━━━<br/>$1.2M/month<br/>Kubernetes orchestration<br/>Auto-scaling enabled<br/>Pod density optimization]
 
-        APIGateway["Kong + API Gateway<br/>━━━━━<br/>$300K/month<br/>Request routing<br/>Rate limiting<br/>Authentication"]
+        APIGateway[Kong + API Gateway<br/>━━━━━<br/>$300K/month<br/>Request routing<br/>Rate limiting<br/>Authentication]
 
-        MLInference["ML Inference (Radar)<br/>━━━━━<br/>$1.5M/month<br/>GPU instances (p3.2xlarge)<br/>TensorFlow serving<br/>Auto-scaling models"]
+        MLInference[ML Inference (Radar)<br/>━━━━━<br/>$1.5M/month<br/>GPU instances (p3.2xlarge)<br/>TensorFlow serving<br/>Auto-scaling models]
 
-        WebhookService["Webhook Infrastructure<br/>━━━━━<br/>$500K/month<br/>8M webhooks/day<br/>SQS queues<br/>Retry mechanisms"]
+        WebhookService[Webhook Infrastructure<br/>━━━━━<br/>$500K/month<br/>8M webhooks/day<br/>SQS queues<br/>Retry mechanisms]
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B - $10.5M/month"]
+    subgraph StatePlane[State Plane - Orange #F59E0B - $10.5M/month]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        MongoDBAtlas["MongoDB Atlas<br/>━━━━━<br/>$8.2M/month<br/>M700 clusters<br/>100TB payment data<br/>Multi-region replication"]
+        MongoDBAtlas[MongoDB Atlas<br/>━━━━━<br/>$8.2M/month<br/>M700 clusters<br/>100TB payment data<br/>Multi-region replication]
 
-        RedisEnterprise["Redis Enterprise<br/>━━━━━<br/>$1.8M/month<br/>50TB cache layer<br/>Sub-ms latency<br/>High availability"]
+        RedisEnterprise[Redis Enterprise<br/>━━━━━<br/>$1.8M/month<br/>50TB cache layer<br/>Sub-ms latency<br/>High availability]
 
-        AnalyticsDB["Analytics Storage<br/>━━━━━<br/>$300K/month<br/>PostgreSQL + ClickHouse<br/>50TB historical data<br/>Real-time queries"]
+        AnalyticsDB[Analytics Storage<br/>━━━━━<br/>$300K/month<br/>PostgreSQL + ClickHouse<br/>50TB historical data<br/>Real-time queries]
 
-        S3Storage["S3 Compliance Storage<br/>━━━━━<br/>$200K/month<br/>500TB archives<br/>7-year retention<br/>Lifecycle policies"]
+        S3Storage[S3 Compliance Storage<br/>━━━━━<br/>$200K/month<br/>500TB archives<br/>7-year retention<br/>Lifecycle policies]
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6 - $3M/month"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6 - $3M/month]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        Monitoring["Monitoring Stack<br/>━━━━━<br/>$1.5M/month<br/>Datadog enterprise<br/>1M+ metrics/min<br/>Custom dashboards"]
+        Monitoring[Monitoring Stack<br/>━━━━━<br/>$1.5M/month<br/>Datadog enterprise<br/>1M+ metrics/min<br/>Custom dashboards]
 
-        LoggingELK["Logging Infrastructure<br/>━━━━━<br/>$800K/month<br/>Elasticsearch cluster<br/>500GB/day logs<br/>7-day retention"]
+        LoggingELK[Logging Infrastructure<br/>━━━━━<br/>$800K/month<br/>Elasticsearch cluster<br/>500GB/day logs<br/>7-day retention]
 
-        BackupDR["Backup & DR<br/>━━━━━<br/>$400K/month<br/>Cross-region replication<br/>Point-in-time recovery<br/>Compliance archiving"]
+        BackupDR[Backup & DR<br/>━━━━━<br/>$400K/month<br/>Cross-region replication<br/>Point-in-time recovery<br/>Compliance archiving]
 
-        SecurityCompliance["Security & Compliance<br/>━━━━━<br/>$300K/month<br/>PCI DSS auditing<br/>Vulnerability scanning<br/>Compliance reporting"]
+        SecurityCompliance[Security & Compliance<br/>━━━━━<br/>$300K/month<br/>PCI DSS auditing<br/>Vulnerability scanning<br/>Compliance reporting]
     end
 
-    subgraph ExternalCosts["External Services & Third-Party - $2M/month"]
+    subgraph ExternalCosts[External Services & Third-Party - $2M/month]
         style ExternalCosts fill:#f9f9f9,stroke:#999,color:#333
 
-        AcquirerFees["Acquirer Processing<br/>━━━━━<br/>$1.2M/month<br/>Network fees<br/>Authorization costs<br/>Settlement fees"]
+        AcquirerFees[Acquirer Processing<br/>━━━━━<br/>$1.2M/month<br/>Network fees<br/>Authorization costs<br/>Settlement fees]
 
-        ThirdPartyAPIs["Third-party APIs<br/>━━━━━<br/>$500K/month<br/>Identity verification<br/>Fraud data feeds<br/>Currency conversion"]
+        ThirdPartyAPIs[Third-party APIs<br/>━━━━━<br/>$500K/month<br/>Identity verification<br/>Fraud data feeds<br/>Currency conversion]
 
-        SoftwareLicenses["Software Licenses<br/>━━━━━<br/>$300K/month<br/>Enterprise software<br/>Development tools<br/>Security tools"]
+        SoftwareLicenses[Software Licenses<br/>━━━━━<br/>$300K/month<br/>Enterprise software<br/>Development tools<br/>Security tools]
     end
 
     %% Cost flow connections

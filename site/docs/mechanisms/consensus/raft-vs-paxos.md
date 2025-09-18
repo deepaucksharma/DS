@@ -8,32 +8,32 @@ Understanding the fundamental differences between Raft and Paxos is crucial for 
 
 ```mermaid
 graph TB
-    subgraph "Raft Approach"
-        subgraph "Raft Phases"
+    subgraph Raft Approach
+        subgraph Raft Phases
             R_LEADER[Leader Election]
             R_REPLICATION[Log Replication]
             R_SAFETY[Safety Rules]
         end
 
-        subgraph "Raft Characteristics"
-            R_SIMPLE["Simple to understand"]
-            R_STRONG["Strong leader model"]
-            R_SEQUENCE["Sequential log entries"]
+        subgraph Raft Characteristics
+            R_SIMPLE[Simple to understand]
+            R_STRONG[Strong leader model]
+            R_SEQUENCE[Sequential log entries]
         end
     end
 
-    subgraph "Paxos Approach"
-        subgraph "Paxos Phases"
+    subgraph Paxos Approach
+        subgraph Paxos Phases
             P_PREPARE[Prepare Phase]
             P_PROMISE[Promise Phase]
             P_ACCEPT[Accept Phase]
             P_LEARN[Learn Phase]
         end
 
-        subgraph "Paxos Characteristics"
-            P_COMPLEX["More complex"]
-            P_SYMMETRIC["Symmetric roles"]
-            P_INDEPENDENT["Independent proposals"]
+        subgraph Paxos Characteristics
+            P_COMPLEX[More complex]
+            P_SYMMETRIC[Symmetric roles]
+            P_INDEPENDENT[Independent proposals]
         end
     end
 
@@ -138,30 +138,30 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph "Performance Comparison (3-node cluster)"
-        subgraph "Raft Performance"
-            R_TPS["15,000 TPS"]
-            R_LAT["2-5ms p99"]
-            R_CPU["30% CPU avg"]
-            R_NET["100 MB/s"]
+    subgraph Performance Comparison (3-node cluster)
+        subgraph Raft Performance
+            R_TPS[15,000 TPS]
+            R_LAT[2-5ms p99]
+            R_CPU[30% CPU avg]
+            R_NET[100 MB/s]
         end
 
-        subgraph "Multi-Paxos Performance"
-            MP_TPS["12,000 TPS"]
-            MP_LAT["3-8ms p99"]
-            MP_CPU["40% CPU avg"]
-            MP_NET["150 MB/s"]
+        subgraph Multi-Paxos Performance
+            MP_TPS[12,000 TPS]
+            MP_LAT[3-8ms p99]
+            MP_CPU[40% CPU avg]
+            MP_NET[150 MB/s]
         end
 
-        subgraph "Basic Paxos Performance"
-            BP_TPS["6,000 TPS"]
-            BP_LAT["5-15ms p99"]
-            BP_CPU["50% CPU avg"]
-            BP_NET["200 MB/s"]
+        subgraph Basic Paxos Performance
+            BP_TPS[6,000 TPS]
+            BP_LAT[5-15ms p99]
+            BP_CPU[50% CPU avg]
+            BP_NET[200 MB/s]
         end
 
-        subgraph "Key Factors"
-            FACTORS["• Leader election overhead<br/>• Message complexity<br/>• CPU for consensus logic<br/>• Network message count"]
+        subgraph Key Factors
+            FACTORS[• Leader election overhead<br/>• Message complexity<br/>• CPU for consensus logic<br/>• Network message count]
         end
     end
 
@@ -179,25 +179,25 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Implementation Complexity Analysis"
-        subgraph "Raft Implementation"
-            R_LINES["~3,000 LOC"]
-            R_BUGS["Lower bug density"]
-            R_TEST["Easier to test"]
-            R_DEBUG["Simpler debugging"]
-            R_VERIFY["Formal verification easier"]
+    subgraph Implementation Complexity Analysis
+        subgraph Raft Implementation
+            R_LINES[~3,000 LOC]
+            R_BUGS[Lower bug density]
+            R_TEST[Easier to test]
+            R_DEBUG[Simpler debugging]
+            R_VERIFY[Formal verification easier]
         end
 
-        subgraph "Paxos Implementation"
-            P_LINES["~5,000 LOC"]
-            P_BUGS["Higher bug density"]
-            P_TEST["Complex test scenarios"]
-            P_DEBUG["Harder debugging"]
-            P_VERIFY["Complex verification"]
+        subgraph Paxos Implementation
+            P_LINES[~5,000 LOC]
+            P_BUGS[Higher bug density]
+            P_TEST[Complex test scenarios]
+            P_DEBUG[Harder debugging]
+            P_VERIFY[Complex verification]
         end
 
-        subgraph "Common Implementation Issues"
-            ISSUES["• Configuration changes<br/>• Failure detection<br/>• Network partitions<br/>• Performance optimization<br/>• State machine coupling"]
+        subgraph Common Implementation Issues
+            ISSUES[• Configuration changes<br/>• Failure detection<br/>• Network partitions<br/>• Performance optimization<br/>• State machine coupling]
         end
     end
 
@@ -297,14 +297,14 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph "Raft Configuration Change"
-        subgraph "Phase 1: Joint Consensus"
+    subgraph Raft Configuration Change
+        subgraph Phase 1: Joint Consensus
             OLD_CONFIG[Old Configuration<br/>Nodes: A, B, C]
             NEW_CONFIG[New Configuration<br/>Nodes: A, B, C, D, E]
             JOINT[Joint Consensus<br/>Both configs active]
         end
 
-        subgraph "Phase 2: New Configuration"
+        subgraph Phase 2: New Configuration
             TRANSITION[Transition Complete]
             FINAL[Final Configuration<br/>Nodes: A, B, C, D, E]
         end
@@ -324,17 +324,17 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Paxos Reconfiguration"
-        subgraph "Challenges"
+    subgraph Paxos Reconfiguration
+        subgraph Challenges
             COORD[Need coordination service]
             GLOBAL[Global knowledge required]
             ATOMIC[Atomic membership change]
         end
 
-        subgraph "Solutions"
-            VERTICAL["Vertical Paxos<br/>(separate reconfiguration)"]
-            ALPHA["Alpha protocol<br/>(auxiliary master)"]
-            DYNAMIC["Dynamic Paxos<br/>(complex state machine)"]
+        subgraph Solutions
+            VERTICAL[Vertical Paxos<br/>(separate reconfiguration)]
+            ALPHA[Alpha protocol<br/>(auxiliary master)]
+            DYNAMIC[Dynamic Paxos<br/>(complex state machine)]
         end
     end
 
@@ -351,27 +351,27 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Decision Matrix"
-        subgraph "Choose Raft When"
-            R_SIMPLE_REQ["Simplicity is priority"]
-            R_STRONG_LEAD["Strong leadership model fits"]
-            R_FAST_DEV["Fast development needed"]
-            R_MAINTENANCE["Easy maintenance required"]
-            R_EDUCATION["Team learning curve matters"]
+    subgraph Decision Matrix
+        subgraph Choose Raft When
+            R_SIMPLE_REQ[Simplicity is priority]
+            R_STRONG_LEAD[Strong leadership model fits]
+            R_FAST_DEV[Fast development needed]
+            R_MAINTENANCE[Easy maintenance required]
+            R_EDUCATION[Team learning curve matters]
         end
 
-        subgraph "Choose Paxos When"
-            P_SYMMETRIC["Symmetric roles needed"]
-            P_INDEPENDENT["Independent proposals required"]
-            P_RESEARCH["Research/academic context"]
-            P_SPECIALIZED["Specialized variants needed"]
-            P_EXISTING["Existing Paxos infrastructure"]
+        subgraph Choose Paxos When
+            P_SYMMETRIC[Symmetric roles needed]
+            P_INDEPENDENT[Independent proposals required]
+            P_RESEARCH[Research/academic context]
+            P_SPECIALIZED[Specialized variants needed]
+            P_EXISTING[Existing Paxos infrastructure]
         end
 
-        subgraph "Neutral Factors"
-            PERFORMANCE["Performance (similar)"]
-            CORRECTNESS["Correctness (both proven)"]
-            FAULT_TOL["Fault tolerance (equivalent)"]
+        subgraph Neutral Factors
+            PERFORMANCE[Performance (similar)]
+            CORRECTNESS[Correctness (both proven)]
+            FAULT_TOL[Fault tolerance (equivalent)]
         end
     end
 

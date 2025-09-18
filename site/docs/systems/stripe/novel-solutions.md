@@ -6,78 +6,78 @@ This diagram showcases Stripe's breakthrough architectural innovations that revo
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        IdempotencyEdge["Edge Idempotency Cache<br/>━━━━━<br/>Cloudflare Workers<br/>Sub-millisecond check<br/>99.99% cache hit rate<br/>Global key distribution"]
+        IdempotencyEdge[Edge Idempotency Cache<br/>━━━━━<br/>Cloudflare Workers<br/>Sub-millisecond check<br/>99.99% cache hit rate<br/>Global key distribution]
 
-        RateLimitingEdge["Distributed Rate Limiting<br/>━━━━━<br/>Token bucket algorithm<br/>Redis sliding window<br/>Per-customer quotas<br/>DDoS protection"]
+        RateLimitingEdge[Distributed Rate Limiting<br/>━━━━━<br/>Token bucket algorithm<br/>Redis sliding window<br/>Per-customer quotas<br/>DDoS protection]
 
-        RequestDedup["Request Deduplication<br/>━━━━━<br/>Content-based hashing<br/>300ms window detection<br/>Browser retry handling<br/>Network duplicate prevention"]
+        RequestDedup[Request Deduplication<br/>━━━━━<br/>Content-based hashing<br/>300ms window detection<br/>Browser retry handling<br/>Network duplicate prevention]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        subgraph IdempotencySystem["Idempotency Innovation - 100% Duplicate Prevention"]
-            IdempotencyOrchestrator["Idempotency Orchestrator<br/>━━━━━<br/>24-hour key lifecycle<br/>Consistent hashing<br/>Distributed locks<br/>Conflict resolution"]
+        subgraph IdempotencySystem[Idempotency Innovation - 100% Duplicate Prevention]
+            IdempotencyOrchestrator[Idempotency Orchestrator<br/>━━━━━<br/>24-hour key lifecycle<br/>Consistent hashing<br/>Distributed locks<br/>Conflict resolution]
 
-            KeyDistribution["Key Distribution Engine<br/>━━━━━<br/>SHA-256 hashing<br/>Ring partitioning<br/>Replica consistency<br/>Auto-rebalancing"]
+            KeyDistribution[Key Distribution Engine<br/>━━━━━<br/>SHA-256 hashing<br/>Ring partitioning<br/>Replica consistency<br/>Auto-rebalancing]
 
-            ConflictResolver["Conflict Resolver<br/>━━━━━<br/>Compare-and-swap<br/>Vector clocks<br/>Causal ordering<br/>Deterministic outcomes"]
+            ConflictResolver[Conflict Resolver<br/>━━━━━<br/>Compare-and-swap<br/>Vector clocks<br/>Causal ordering<br/>Deterministic outcomes]
         end
 
-        subgraph IntelligentRouting["Intelligent Payment Routing - ML Optimization"]
-            RoutingEngine["ML Routing Engine<br/>━━━━━<br/>Real-time optimization<br/>400+ features<br/>15-minute retraining<br/>A/B testing framework"]
+        subgraph IntelligentRouting[Intelligent Payment Routing - ML Optimization]
+            RoutingEngine[ML Routing Engine<br/>━━━━━<br/>Real-time optimization<br/>400+ features<br/>15-minute retraining<br/>A/B testing framework]
 
-            SuccessPredictor["Success Rate Predictor<br/>━━━━━<br/>Gradient boosting<br/>Time-series features<br/>Regional patterns<br/>BIN intelligence"]
+            SuccessPredictor[Success Rate Predictor<br/>━━━━━<br/>Gradient boosting<br/>Time-series features<br/>Regional patterns<br/>BIN intelligence]
 
-            CostOptimizer["Cost Optimizer<br/>━━━━━<br/>Multi-objective function<br/>Latency vs cost trade-off<br/>Acquirer fee optimization<br/>Currency optimization"]
+            CostOptimizer[Cost Optimizer<br/>━━━━━<br/>Multi-objective function<br/>Latency vs cost trade-off<br/>Acquirer fee optimization<br/>Currency optimization]
         end
 
-        subgraph SigmaEngine["Sigma Analytics Engine - SQL at Scale"]
-            QueryPlanner["Distributed Query Planner<br/>━━━━━<br/>Cost-based optimization<br/>Parallel execution<br/>Index selection<br/>Join optimization"]
+        subgraph SigmaEngine[Sigma Analytics Engine - SQL at Scale]
+            QueryPlanner[Distributed Query Planner<br/>━━━━━<br/>Cost-based optimization<br/>Parallel execution<br/>Index selection<br/>Join optimization]
 
-            DataVirtualization["Data Virtualization Layer<br/>━━━━━<br/>Cross-database queries<br/>Real-time aggregation<br/>Schema evolution<br/>Security boundaries"]
+            DataVirtualization[Data Virtualization Layer<br/>━━━━━<br/>Cross-database queries<br/>Real-time aggregation<br/>Schema evolution<br/>Security boundaries]
 
-            CacheIntelligence["Intelligent Query Cache<br/>━━━━━<br/>Semantic caching<br/>Result materialization<br/>Incremental updates<br/>TTL optimization"]
+            CacheIntelligence[Intelligent Query Cache<br/>━━━━━<br/>Semantic caching<br/>Result materialization<br/>Incremental updates<br/>TTL optimization]
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        subgraph IdempotencyStorage["Idempotency Storage Layer"]
-            ShardedRedis["Sharded Redis Cluster<br/>━━━━━<br/>Consistent hashing<br/>50 billion keys daily<br/>24-hour TTL<br/>Cross-region replication"]
+        subgraph IdempotencyStorage[Idempotency Storage Layer]
+            ShardedRedis[Sharded Redis Cluster<br/>━━━━━<br/>Consistent hashing<br/>50 billion keys daily<br/>24-hour TTL<br/>Cross-region replication]
 
-            BackupStorage["Backup Key Storage<br/>━━━━━<br/>DynamoDB fallback<br/>Conflict detection<br/>Audit trail<br/>Compliance logging"]
+            BackupStorage[Backup Key Storage<br/>━━━━━<br/>DynamoDB fallback<br/>Conflict detection<br/>Audit trail<br/>Compliance logging]
         end
 
-        subgraph RoutingData["Routing Intelligence Data"]
-            FeatureStore["ML Feature Store<br/>━━━━━<br/>Real-time features<br/>Historical patterns<br/>A/B test data<br/>Performance metrics"]
+        subgraph RoutingData[Routing Intelligence Data]
+            FeatureStore[ML Feature Store<br/>━━━━━<br/>Real-time features<br/>Historical patterns<br/>A/B test data<br/>Performance metrics]
 
-            ModelRegistry["Model Registry<br/>━━━━━<br/>Version management<br/>A/B testing<br/>Rollback capability<br/>Performance tracking"]
+            ModelRegistry[Model Registry<br/>━━━━━<br/>Version management<br/>A/B testing<br/>Rollback capability<br/>Performance tracking]
 
-            AcquirerDB["Acquirer Intelligence DB<br/>━━━━━<br/>Success rates by BIN<br/>Latency patterns<br/>Cost structures<br/>Regional preferences"]
+            AcquirerDB[Acquirer Intelligence DB<br/>━━━━━<br/>Success rates by BIN<br/>Latency patterns<br/>Cost structures<br/>Regional preferences]
         end
 
-        subgraph SigmaData["Sigma Data Layer"]
-            TimeSeriesDB["Time-series Database<br/>━━━━━<br/>InfluxDB cluster<br/>Billion points/day<br/>Compression 20:1<br/>Real-time ingestion"]
+        subgraph SigmaData[Sigma Data Layer]
+            TimeSeriesDB[Time-series Database<br/>━━━━━<br/>InfluxDB cluster<br/>Billion points/day<br/>Compression 20:1<br/>Real-time ingestion]
 
-            OLAPCubes["OLAP Cubes<br/>━━━━━<br/>Pre-aggregated data<br/>Multi-dimensional<br/>Sub-second queries<br/>Automatic refresh"]
+            OLAPCubes[OLAP Cubes<br/>━━━━━<br/>Pre-aggregated data<br/>Multi-dimensional<br/>Sub-second queries<br/>Automatic refresh]
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        IdempotencyMonitor["Idempotency Monitor<br/>━━━━━<br/>Duplicate rate tracking<br/>Key collision detection<br/>Performance metrics<br/>SLA monitoring"]
+        IdempotencyMonitor[Idempotency Monitor<br/>━━━━━<br/>Duplicate rate tracking<br/>Key collision detection<br/>Performance metrics<br/>SLA monitoring]
 
-        RoutingOptimizer["Routing Optimizer<br/>━━━━━<br/>Success rate tracking<br/>Cost monitoring<br/>Latency analysis<br/>Model performance"]
+        RoutingOptimizer[Routing Optimizer<br/>━━━━━<br/>Success rate tracking<br/>Cost monitoring<br/>Latency analysis<br/>Model performance]
 
-        SigmaGovernance["Sigma Governance<br/>━━━━━<br/>Query cost limits<br/>Resource quotas<br/>Access control<br/>Data lineage"]
+        SigmaGovernance[Sigma Governance<br/>━━━━━<br/>Query cost limits<br/>Resource quotas<br/>Access control<br/>Data lineage]
 
-        ExperimentFramework["Experiment Framework<br/>━━━━━<br/>A/B test orchestration<br/>Statistical significance<br/>Automated rollbacks<br/>Impact measurement"]
+        ExperimentFramework[Experiment Framework<br/>━━━━━<br/>A/B test orchestration<br/>Statistical significance<br/>Automated rollbacks<br/>Impact measurement]
     end
 
     %% Idempotency flow

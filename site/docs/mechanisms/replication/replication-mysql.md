@@ -8,28 +8,28 @@ MySQL Group Replication provides virtually synchronous multi-master replication 
 
 ```mermaid
 graph TB
-    subgraph "MySQL Group Replication Cluster"
-        subgraph "Primary Node (Writer)"
+    subgraph MySQL Group Replication Cluster
+        subgraph Primary Node (Writer)
             PRIMARY[MySQL Primary<br/>- Accepts writes<br/>- Conflict detection<br/>- Transaction certification]
             GCS_PRIMARY[Group Communication System<br/>- Paxos consensus<br/>- Failure detection<br/>- View changes]
         end
 
-        subgraph "Secondary Node 1 (Reader)"
+        subgraph Secondary Node 1 (Reader)
             SECONDARY1[MySQL Secondary 1<br/>- Read-only<br/>- Applies certified txns<br/>- Standby for primary]
             GCS_SEC1[Group Communication System<br/>- Consensus participant<br/>- View member]
         end
 
-        subgraph "Secondary Node 2 (Reader)"
+        subgraph Secondary Node 2 (Reader)
             SECONDARY2[MySQL Secondary 2<br/>- Read-only<br/>- Applies certified txns<br/>- Standby for primary]
             GCS_SEC2[Group Communication System<br/>- Consensus participant<br/>- View member]
         end
 
-        subgraph "Distributed Components"
+        subgraph Distributed Components
             REPLICATION_STREAM[Replication Stream<br/>- Transaction propagation<br/>- Conflict detection<br/>- Certification process]
             CONSENSUS[Consensus Protocol<br/>- Paxos-based<br/>- View management<br/>- Failure detection]
         end
 
-        subgraph "Clients"
+        subgraph Clients
             WRITE_CLIENTS[Write Applications]
             READ_CLIENTS[Read Applications]
         end

@@ -10,7 +10,7 @@ Apache Cassandra performance characteristics in production environments, coverin
 
 ```mermaid
 graph TB
-    subgraph "STCS Compaction Process"
+    subgraph STCS Compaction Process
         STCS1[L0: 4 SSTables<br/>Size: 100MB each<br/>Age: Recent writes<br/>Overlap: High]
 
         STCS2[L1: 1 SSTable<br/>Size: 400MB<br/>Age: 1 hour<br/>Overlap: Medium]
@@ -22,7 +22,7 @@ graph TB
         STCS1 --> STCS2 --> STCS3 --> STCS4
     end
 
-    subgraph "STCS Performance"
+    subgraph STCS Performance
         STCS_PERF1[Write amplification: 3x<br/>Read amplification: 4x<br/>Space amplification: 2x<br/>Compaction I/O: High bursts]
 
         STCS_PERF2[Best for: Write-heavy<br/>Worst for: Read-heavy<br/>Space efficiency: Poor<br/>Operational complexity: Low]
@@ -39,7 +39,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "LCS Compaction Process"
+    subgraph LCS Compaction Process
         LCS1[L0: 4 SSTables<br/>Size: 100MB each<br/>Overlap: Allowed<br/>Compaction trigger: 4 files]
 
         LCS2[L1: 10 SSTables<br/>Size: 100MB each<br/>Overlap: None<br/>Total size: 1GB]
@@ -53,7 +53,7 @@ graph TB
         LCS3 --> LCS4
     end
 
-    subgraph "LCS Performance"
+    subgraph LCS Performance
         LCS_PERF1[Write amplification: 10x<br/>Read amplification: 1x<br/>Space amplification: 1.1x<br/>Compaction I/O: Steady]
 
         LCS_PERF2[Best for: Read-heavy<br/>Worst for: Write-heavy<br/>Space efficiency: Excellent<br/>Operational complexity: High]
@@ -70,7 +70,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "TWCS Time Windows"
+    subgraph TWCS Time Windows
         TW1[Window 1: Last hour<br/>SSTables: 4<br/>Size: 400MB<br/>Compaction: Active]
 
         TW2[Window 2: Hour -2<br/>SSTables: 1<br/>Size: 400MB<br/>Compaction: Complete]
@@ -79,7 +79,7 @@ graph TB
 
         TW4[Window 4+: Older<br/>SSTables: 1 each<br/>Size: 400MB each<br/>Compaction: Rare]
 
-        subgraph "Time-based Optimization"
+        subgraph Time-based Optimization
             TTL[TTL Expiration<br/>Whole SSTable deletion<br/>No compaction needed<br/>Instant space reclamation]
         end
 
@@ -87,7 +87,7 @@ graph TB
         TW4 --> TTL
     end
 
-    subgraph "TWCS Performance"
+    subgraph TWCS Performance
         TWCS_PERF1[Write amplification: 2x<br/>Read amplification: 2x<br/>Space amplification: 1.5x<br/>TTL efficiency: Excellent]
 
         TWCS_PERF2[Best for: Time-series<br/>Optimal for: TTL data<br/>Space efficiency: Good<br/>Query patterns: Time-range]
@@ -106,7 +106,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Write-Heavy Workload"
+    subgraph Write-Heavy Workload
         WH1[STCS Performance<br/>Throughput: 100K ops/sec<br/>Latency p99: 10ms<br/>Compaction overhead: 15%]
 
         WH2[LCS Performance<br/>Throughput: 40K ops/sec<br/>Latency p99: 25ms<br/>Compaction overhead: 40%]
@@ -114,7 +114,7 @@ graph LR
         WH3[TWCS Performance<br/>Throughput: 90K ops/sec<br/>Latency p99: 12ms<br/>Compaction overhead: 10%]
     end
 
-    subgraph "Read-Heavy Workload"
+    subgraph Read-Heavy Workload
         RH1[STCS Performance<br/>Throughput: 20K ops/sec<br/>Latency p99: 50ms<br/>SSTables scanned: 4-8]
 
         RH2[LCS Performance<br/>Throughput: 80K ops/sec<br/>Latency p99: 5ms<br/>SSTables scanned: 1-2]
@@ -137,7 +137,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Write Operations"
+    subgraph Write Operations
         W1[Consistency Level: ONE<br/>Replicas required: 1<br/>Latency p99: 2ms<br/>Durability: Weak]
 
         W2[Consistency Level: QUORUM<br/>Replicas required: 2 of 3<br/>Latency p99: 8ms<br/>Durability: Strong]
@@ -147,7 +147,7 @@ graph TB
         W4[Consistency Level: LOCAL_QUORUM<br/>Replicas required: 2 of 3 local<br/>Latency p99: 5ms<br/>Durability: Datacenter-strong]
     end
 
-    subgraph "Read Operations"
+    subgraph Read Operations
         R1[Consistency Level: ONE<br/>Replicas consulted: 1<br/>Latency p99: 1ms<br/>Consistency: Eventual]
 
         R2[Consistency Level: QUORUM<br/>Replicas consulted: 2<br/>Latency p99: 6ms<br/>Consistency: Strong]
@@ -155,7 +155,7 @@ graph TB
         R3[Consistency Level: ALL<br/>Replicas consulted: 3<br/>Latency p99: 20ms<br/>Consistency: Strongest]
     end
 
-    subgraph "Availability Impact"
+    subgraph Availability Impact
         A1[Node failures tolerated<br/>CL=ONE: 2 nodes can fail<br/>CL=QUORUM: 1 node can fail<br/>CL=ALL: 0 nodes can fail]
     end
 
@@ -174,7 +174,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Read Repair Process"
+    subgraph Read Repair Process
         RR1[Client read request<br/>CL = QUORUM<br/>2 replicas consulted<br/>Timestamp comparison]
 
         RR2[Replica A response<br/>Value: user_email = old@example.com<br/>Timestamp: 1000]
@@ -189,7 +189,7 @@ graph TB
         RR3 --> RR4
     end
 
-    subgraph "Anti-Entropy (Repair)"
+    subgraph Anti-Entropy (Repair)
         AE1[Scheduled repair<br/>Frequency: Weekly<br/>Resource intensive<br/>Cluster-wide operation]
 
         AE2[Incremental repair<br/>Only changed data<br/>Reduced I/O impact<br/>Faster completion]
@@ -214,7 +214,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Cassandra Ring - 6 Nodes"
+    subgraph Cassandra Ring - 6 Nodes
         N1[Node 1<br/>Token range: 0 - 166<br/>Virtual nodes: 256<br/>Data: 500GB]
 
         N2[Node 2<br/>Token range: 167 - 333<br/>Virtual nodes: 256<br/>Data: 480GB]
@@ -230,7 +230,7 @@ graph TB
         N1 --> N2 --> N3 --> N4 --> N5 --> N6 --> N1
     end
 
-    subgraph "Replication Strategy"
+    subgraph Replication Strategy
         RF[Replication Factor: 3<br/>Strategy: NetworkTopologyStrategy<br/>DC1: 3 replicas<br/>Consistency: QUORUM]
 
         RF --> N1
@@ -249,13 +249,13 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Before: 6 Nodes"
+    subgraph Before: 6 Nodes
         B1[Node 1: 500GB<br/>Token ownership: 16.67%<br/>Load distribution: Even]
         B2[Node 2: 480GB<br/>Token ownership: 16.67%<br/>Load distribution: Even]
         B3[Nodes 3-6: ~500GB each<br/>Total data: 3000GB<br/>Average per node: 500GB]
     end
 
-    subgraph "During Rebalancing"
+    subgraph During Rebalancing
         D1[New Node 7 joins<br/>Token ranges reallocated<br/>Data streaming begins<br/>Performance impact starts]
 
         D2[Data movement<br/>~430GB streamed to Node 7<br/>Network utilization: 70%<br/>Cluster performance: -25%]
@@ -263,7 +263,7 @@ graph LR
         D3[Duration: 4-6 hours<br/>Compaction triggered<br/>Disk I/O increased<br/>CPU usage elevated]
     end
 
-    subgraph "After: 7 Nodes"
+    subgraph After: 7 Nodes
         A1[Node 1-7: ~430GB each<br/>Token ownership: 14.28%<br/>Load distribution: Rebalanced]
 
         A2[Performance recovery<br/>Throughput restored<br/>Latency normalized<br/>Cluster capacity increased]
@@ -286,19 +286,19 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Traditional Token Assignment"
+    subgraph Traditional Token Assignment
         T1[1 token per node<br/>Manual token assignment<br/>Uneven data distribution<br/>Hotspots common]
 
         T2[Rebalancing challenges<br/>Manual intervention<br/>Longer streaming times<br/>Complex operations]
     end
 
-    subgraph "Virtual Nodes (vnodes)"
+    subgraph Virtual Nodes (vnodes)
         V1[256 vnodes per node<br/>Automatic token assignment<br/>Even data distribution<br/>Reduced hotspots]
 
         V2[Rebalancing benefits<br/>Faster convergence<br/>Better load distribution<br/>Automatic optimization]
     end
 
-    subgraph "Performance Comparison"
+    subgraph Performance Comparison
         P1[Traditional approach<br/>Rebalance time: 8-12 hours<br/>Manual intervention: Required<br/>Data distribution: ±20%]
 
         P2[vnodes approach<br/>Rebalance time: 4-6 hours<br/>Manual intervention: None<br/>Data distribution: ±5%]
@@ -324,7 +324,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Optimal Time-Series Schema"
+    subgraph Optimal Time-Series Schema
         TS1[Table: sensor_data<br/>Partition key: sensor_id, date<br/>Clustering key: timestamp<br/>TTL: 30 days]
 
         TS2[Partition sizing<br/>Size per partition: 100MB<br/>Rows per partition: 100K<br/>Time span: 1 day]
@@ -334,7 +334,7 @@ graph TB
         TS1 --> TS2 --> TS3
     end
 
-    subgraph "Anti-patterns"
+    subgraph Anti-patterns
         AP1[Single partition<br/>All data in one partition<br/>Hotspot creation<br/>Poor performance]
 
         AP2[Wide partitions<br/>Partition size: >1GB<br/>Query timeouts<br/>Compaction issues]
@@ -353,7 +353,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Efficient Queries"
+    subgraph Efficient Queries
         EQ1[SELECT * FROM sensor_data<br/>WHERE sensor_id = 'temp_01'<br/>AND date = '2024-01-15'<br/>AND timestamp >= '2024-01-15 10:00']
 
         EQ2[Query performance<br/>Partition hit: 1<br/>Rows scanned: 1000<br/>Latency p95: 5ms]
@@ -361,7 +361,7 @@ graph LR
         EQ1 --> EQ2
     end
 
-    subgraph "Inefficient Queries"
+    subgraph Inefficient Queries
         IQ1[SELECT * FROM sensor_data<br/>WHERE timestamp >= '2024-01-15 10:00'<br/>ALLOW FILTERING]
 
         IQ2[Query performance<br/>Partitions hit: ALL<br/>Rows scanned: 1M+<br/>Latency p95: 5000ms]
@@ -369,7 +369,7 @@ graph LR
         IQ1 --> IQ2
     end
 
-    subgraph "Optimization Strategies"
+    subgraph Optimization Strategies
         OS1[Materialized views<br/>Pre-aggregated data<br/>Different partition keys<br/>Query-specific optimization]
 
         OS2[Secondary indexes<br/>SASI indexes<br/>Custom index types<br/>Selective filtering]
@@ -393,16 +393,16 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Netflix Global Deployment"
-        subgraph "US-East-1"
+    subgraph Netflix Global Deployment
+        subgraph US-East-1
             USE1[Cassandra Cluster<br/>Nodes: 300<br/>Instance type: i3.2xlarge<br/>Total capacity: 600TB]
         end
 
-        subgraph "US-West-2"
+        subgraph US-West-2
             USW2[Cassandra Cluster<br/>Nodes: 200<br/>Instance type: i3.2xlarge<br/>Total capacity: 400TB]
         end
 
-        subgraph "EU-West-1"
+        subgraph EU-West-1
             EUW1[Cassandra Cluster<br/>Nodes: 150<br/>Instance type: i3.2xlarge<br/>Total capacity: 300TB]
         end
 
@@ -411,13 +411,13 @@ graph TB
         EUW1 <--> USE1
     end
 
-    subgraph "Workload Characteristics"
+    subgraph Workload Characteristics
         WC1[Write throughput: 1M ops/sec<br/>Read throughput: 500K ops/sec<br/>Data ingestion: 10TB/day<br/>Use cases: Viewing history, recommendations]
 
         WC2[Consistency levels<br/>Writes: LOCAL_QUORUM<br/>Reads: LOCAL_ONE<br/>Cross-DC: Eventual consistency]
     end
 
-    subgraph "Performance Optimizations"
+    subgraph Performance Optimizations
         PO1[JVM tuning: G1GC<br/>Heap size: 24GB<br/>Off-heap cache: 16GB<br/>Compaction: Custom strategy]
 
         PO2[Hardware optimization<br/>Local NVMe SSDs<br/>25Gbps networking<br/>Dedicated compaction nodes]
@@ -436,25 +436,25 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "JVM Configuration"
+    subgraph JVM Configuration
         JVM1[Heap size: 24GB<br/>GC: G1 with low-latency<br/>NewRatio: 1<br/>GCTimeRatio: 9]
 
         JVM2[Off-heap settings<br/>Row cache: 8GB<br/>Key cache: 2GB<br/>Counter cache: 1GB]
     end
 
-    subgraph "Cassandra Configuration"
+    subgraph Cassandra Configuration
         CASS1[concurrent_writes: 128<br/>concurrent_reads: 128<br/>commitlog_segment_size: 64MB<br/>memtable_heap_space: 2GB]
 
         CASS2[compaction_throughput: 64MB/s<br/>stream_throughput_outbound: 400Mbps<br/>read_request_timeout: 10000ms<br/>write_request_timeout: 5000ms]
     end
 
-    subgraph "Hardware Optimization"
+    subgraph Hardware Optimization
         HW1[Instance: i3.2xlarge<br/>vCPUs: 8<br/>Memory: 61GB<br/>NVMe SSD: 1.9TB]
 
         HW2[Network: 25 Gbps<br/>EBS optimized: Yes<br/>Placement group: Cluster<br/>NUMA topology: Optimized]
     end
 
-    subgraph "Performance Results"
+    subgraph Performance Results
         PERF1[Write latency p95: 3ms<br/>Read latency p95: 2ms<br/>Throughput per node: 3.3K ops/sec<br/>Total cluster: 1M ops/sec]
     end
 
@@ -480,7 +480,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Evolution Phases"
+    subgraph Evolution Phases
         P1[Phase 1: 10K ops/sec<br/>Single datacenter<br/>50 nodes<br/>Basic configuration]
 
         P2[Phase 2: 100K ops/sec<br/>Multi-datacenter<br/>150 nodes<br/>Tuned JVM and compaction]
@@ -492,7 +492,7 @@ graph LR
         P1 --> P2 --> P3 --> P4
     end
 
-    subgraph "Key Optimizations"
+    subgraph Key Optimizations
         O1[10K → 100K<br/>• Multi-DC replication<br/>• JVM tuning<br/>• Compaction optimization]
 
         O2[100K → 500K<br/>• Hardware upgrade<br/>• Custom monitoring<br/>• Operational automation]

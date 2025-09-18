@@ -6,70 +6,70 @@ This diagram shows Discord's complete message flow from user input to delivery, 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        ClientApp["Discord Client<br/>━━━━━<br/>Web/Mobile/Desktop<br/>WebSocket connection<br/>Message composition<br/>Rate limiting client"]
+        ClientApp[Discord Client<br/>━━━━━<br/>Web/Mobile/Desktop<br/>WebSocket connection<br/>Message composition<br/>Rate limiting client]
 
-        CloudflareEdge["Cloudflare Edge<br/>━━━━━<br/>WebSocket termination<br/>DDoS protection<br/>Request routing<br/>p95: 8ms"]
+        CloudflareEdge[Cloudflare Edge<br/>━━━━━<br/>WebSocket termination<br/>DDoS protection<br/>Request routing<br/>p95: 8ms]
 
-        LoadBalancer["Discord Load Balancer<br/>━━━━━<br/>Connection affinity<br/>Health checking<br/>Failover routing<br/>Shard distribution"]
+        LoadBalancer[Discord Load Balancer<br/>━━━━━<br/>Connection affinity<br/>Health checking<br/>Failover routing<br/>Shard distribution]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        Gateway["Discord Gateway<br/>━━━━━<br/>WebSocket handler<br/>200M+ connections<br/>Elixir GenServer<br/>Per-connection process"]
+        Gateway[Discord Gateway<br/>━━━━━<br/>WebSocket handler<br/>200M+ connections<br/>Elixir GenServer<br/>Per-connection process]
 
-        MessageValidator["Message Validator<br/>━━━━━<br/>Content validation<br/>Spam detection<br/>Rate limiting<br/>Permission checking"]
+        MessageValidator[Message Validator<br/>━━━━━<br/>Content validation<br/>Spam detection<br/>Rate limiting<br/>Permission checking]
 
-        PermissionEngine["Permission Engine<br/>━━━━━<br/>Role-based access<br/>Channel permissions<br/>User roles<br/>Override hierarchy"]
+        PermissionEngine[Permission Engine<br/>━━━━━<br/>Role-based access<br/>Channel permissions<br/>User roles<br/>Override hierarchy]
 
-        MessageRouter["Message Router<br/>━━━━━<br/>Fanout orchestration<br/>Guild member lookup<br/>Delivery optimization<br/>Rust implementation"]
+        MessageRouter[Message Router<br/>━━━━━<br/>Fanout orchestration<br/>Guild member lookup<br/>Delivery optimization<br/>Rust implementation]
 
-        FanoutService["Fanout Service<br/>━━━━━<br/>Batch message delivery<br/>Connection grouping<br/>Priority queues<br/>Backpressure handling"]
+        FanoutService[Fanout Service<br/>━━━━━<br/>Batch message delivery<br/>Connection grouping<br/>Priority queues<br/>Backpressure handling]
 
-        NotificationService["Notification Service<br/>━━━━━<br/>Push notifications<br/>Mobile delivery<br/>Email notifications<br/>Webhook dispatch"]
+        NotificationService[Notification Service<br/>━━━━━<br/>Push notifications<br/>Mobile delivery<br/>Email notifications<br/>Webhook dispatch]
 
-        BotService["Bot Service<br/>━━━━━<br/>Bot message handling<br/>Command processing<br/>API rate limiting<br/>Webhook delivery"]
+        BotService[Bot Service<br/>━━━━━<br/>Bot message handling<br/>Command processing<br/>API rate limiting<br/>Webhook delivery]
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        UserCache["User Session Cache<br/>━━━━━<br/>Redis cluster<br/>200M+ active sessions<br/>Connection state<br/>Presence data"]
+        UserCache[User Session Cache<br/>━━━━━<br/>Redis cluster<br/>200M+ active sessions<br/>Connection state<br/>Presence data]
 
-        PermissionCache["Permission Cache<br/>━━━━━<br/>Memcached cluster<br/>Role hierarchies<br/>Channel permissions<br/>Guild member roles"]
+        PermissionCache[Permission Cache<br/>━━━━━<br/>Memcached cluster<br/>Role hierarchies<br/>Channel permissions<br/>Guild member roles]
 
-        MessageDB["Message Database<br/>━━━━━<br/>ScyllaDB cluster<br/>12 trillion messages<br/>Partitioned by channel<br/>p99: 50ms writes"]
+        MessageDB[Message Database<br/>━━━━━<br/>ScyllaDB cluster<br/>12 trillion messages<br/>Partitioned by channel<br/>p99: 50ms writes]
 
-        GuildCache["Guild Cache<br/>━━━━━<br/>Redis cluster<br/>Guild metadata<br/>Member lists<br/>Channel structure"]
+        GuildCache[Guild Cache<br/>━━━━━<br/>Redis cluster<br/>Guild metadata<br/>Member lists<br/>Channel structure]
 
-        MessageQueue["Message Queue<br/>━━━━━<br/>Apache Kafka<br/>Message ordering<br/>Delivery guarantees<br/>Replay capability"]
+        MessageQueue[Message Queue<br/>━━━━━<br/>Apache Kafka<br/>Message ordering<br/>Delivery guarantees<br/>Replay capability]
 
-        SearchIndex["Search Index<br/>━━━━━<br/>Elasticsearch<br/>Message history<br/>Full-text search<br/>Async indexing"]
+        SearchIndex[Search Index<br/>━━━━━<br/>Elasticsearch<br/>Message history<br/>Full-text search<br/>Async indexing]
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        RateLimiter["Rate Limiter<br/>━━━━━<br/>Token bucket algorithm<br/>Per-user limits<br/>Guild-based limits<br/>Anti-spam protection"]
+        RateLimiter[Rate Limiter<br/>━━━━━<br/>Token bucket algorithm<br/>Per-user limits<br/>Guild-based limits<br/>Anti-spam protection]
 
-        MetricsCollector["Metrics Collector<br/>━━━━━<br/>Message throughput<br/>Delivery latency<br/>Error rates<br/>Performance monitoring"]
+        MetricsCollector[Metrics Collector<br/>━━━━━<br/>Message throughput<br/>Delivery latency<br/>Error rates<br/>Performance monitoring]
 
-        CircuitBreaker["Circuit Breaker<br/>━━━━━<br/>Service protection<br/>Cascade prevention<br/>Auto-recovery<br/>Degraded mode"]
+        CircuitBreaker[Circuit Breaker<br/>━━━━━<br/>Service protection<br/>Cascade prevention<br/>Auto-recovery<br/>Degraded mode]
 
-        AuditLogger["Audit Logger<br/>━━━━━<br/>Message logs<br/>Moderation actions<br/>User actions<br/>Compliance tracking"]
+        AuditLogger[Audit Logger<br/>━━━━━<br/>Message logs<br/>Moderation actions<br/>User actions<br/>Compliance tracking]
     end
 
-    subgraph ExternalServices["External Services"]
+    subgraph ExternalServices[External Services]
         style ExternalServices fill:#f9f9f9,stroke:#999,color:#333
 
-        PushProvider["Push Notification<br/>━━━━━<br/>APNs (iOS)<br/>FCM (Android)<br/>Web Push<br/>Delivery tracking"]
+        PushProvider[Push Notification<br/>━━━━━<br/>APNs (iOS)<br/>FCM (Android)<br/>Web Push<br/>Delivery tracking]
 
-        WebhookTargets["Webhook Targets<br/>━━━━━<br/>External APIs<br/>Bot integrations<br/>Third-party services<br/>Retry logic"]
+        WebhookTargets[Webhook Targets<br/>━━━━━<br/>External APIs<br/>Bot integrations<br/>Third-party services<br/>Retry logic]
 
-        CDNMedia["Media CDN<br/>━━━━━<br/>Image/video delivery<br/>Attachment serving<br/>Avatar caching<br/>Thumbnail generation"]
+        CDNMedia[Media CDN<br/>━━━━━<br/>Image/video delivery<br/>Attachment serving<br/>Avatar caching<br/>Thumbnail generation]
     end
 
     %% Message flow sequence

@@ -6,86 +6,86 @@ This diagram shows Discord's architectural evolution from a gaming chat app in 2
 
 ```mermaid
 graph TB
-    subgraph Scale2015["2015: Gaming Chat App - 1M users"]
+    subgraph Scale2015[2015: Gaming Chat App - 1M users]
         style Scale2015 fill:#e6f3ff,stroke:#3B82F6,color:#333
 
-        SimpleNodeJS["Node.js Backend<br/>━━━━━<br/>Single server<br/>Socket.io WebSockets<br/>PostgreSQL database<br/>$1K/month infrastructure"]
+        SimpleNodeJS[Node.js Backend<br/>━━━━━<br/>Single server<br/>Socket.io WebSockets<br/>PostgreSQL database<br/>$1K/month infrastructure]
 
-        MongoDB2015["MongoDB<br/>━━━━━<br/>Message storage<br/>Single instance<br/>No replication<br/>10GB data"]
+        MongoDB2015[MongoDB<br/>━━━━━<br/>Message storage<br/>Single instance<br/>No replication<br/>10GB data]
 
-        Redis2015["Redis Cache<br/>━━━━━<br/>Session storage<br/>Single instance<br/>Basic caching<br/>1GB memory"]
+        Redis2015[Redis Cache<br/>━━━━━<br/>Session storage<br/>Single instance<br/>Basic caching<br/>1GB memory]
     end
 
-    subgraph Scale2016["2016: Rapid Growth - 10M users"]
+    subgraph Scale2016[2016: Rapid Growth - 10M users]
         style Scale2016 fill:#e6ffe6,stroke:#10B981,color:#333
 
-        NodeCluster["Node.js Cluster<br/>━━━━━<br/>5 server instances<br/>Load balancer<br/>Sticky sessions<br/>$10K/month infrastructure"]
+        NodeCluster[Node.js Cluster<br/>━━━━━<br/>5 server instances<br/>Load balancer<br/>Sticky sessions<br/>$10K/month infrastructure]
 
-        MongoDB2016["MongoDB Replica Set<br/>━━━━━<br/>Primary + 2 replicas<br/>Automatic failover<br/>100GB data<br/>Performance issues"]
+        MongoDB2016[MongoDB Replica Set<br/>━━━━━<br/>Primary + 2 replicas<br/>Automatic failover<br/>100GB data<br/>Performance issues]
 
-        RedisCluster2016["Redis Cluster<br/>━━━━━<br/>3-node cluster<br/>Session distribution<br/>Cache scaling<br/>10GB memory"]
+        RedisCluster2016[Redis Cluster<br/>━━━━━<br/>3-node cluster<br/>Session distribution<br/>Cache scaling<br/>10GB memory]
 
-        CDN2016["Basic CDN<br/>━━━━━<br/>CloudFlare free<br/>Static assets<br/>Image caching<br/>Global distribution"]
+        CDN2016[Basic CDN<br/>━━━━━<br/>CloudFlare free<br/>Static assets<br/>Image caching<br/>Global distribution]
     end
 
-    subgraph Scale2017["2017: Voice Launch - 25M users"]
+    subgraph Scale2017[2017: Voice Launch - 25M users]
         style Scale2017 fill:#ffe6e6,stroke:#8B5CF6,color:#333
 
-        ElixirTransition["Elixir/Phoenix<br/>━━━━━<br/>Actor model<br/>Fault tolerance<br/>Massive concurrency<br/>Gateway rewrite"]
+        ElixirTransition[Elixir/Phoenix<br/>━━━━━<br/>Actor model<br/>Fault tolerance<br/>Massive concurrency<br/>Gateway rewrite]
 
-        VoiceInfra2017["Voice Infrastructure<br/>━━━━━<br/>WebRTC servers<br/>50 voice regions<br/>Opus codec<br/>Custom UDP handling"]
+        VoiceInfra2017[Voice Infrastructure<br/>━━━━━<br/>WebRTC servers<br/>50 voice regions<br/>Opus codec<br/>Custom UDP handling]
 
-        Cassandra2017["Cassandra Cluster<br/>━━━━━<br/>MongoDB replacement<br/>6-node cluster<br/>Horizontal scaling<br/>1TB messages"]
+        Cassandra2017[Cassandra Cluster<br/>━━━━━<br/>MongoDB replacement<br/>6-node cluster<br/>Horizontal scaling<br/>1TB messages]
 
-        RustServices["Rust Services<br/>━━━━━<br/>Performance critical<br/>Memory safety<br/>Go replacement<br/>Low-level optimization"]
+        RustServices[Rust Services<br/>━━━━━<br/>Performance critical<br/>Memory safety<br/>Go replacement<br/>Low-level optimization]
     end
 
-    subgraph Scale2018["2018: Community Platform - 50M users"]
+    subgraph Scale2018[2018: Community Platform - 50M users]
         style Scale2018 fill:#fff0e6,stroke:#F59E0B,color:#333
 
-        MicroservicesArch["Microservices SOA<br/>━━━━━<br/>50+ services<br/>Domain boundaries<br/>Independent scaling<br/>Team autonomy"]
+        MicroservicesArch[Microservices SOA<br/>━━━━━<br/>50+ services<br/>Domain boundaries<br/>Independent scaling<br/>Team autonomy]
 
-        CassandraScale["Cassandra (100 nodes)<br/>━━━━━<br/>Multi-datacenter<br/>5TB messages<br/>Performance struggles<br/>Operational complexity"]
+        CassandraScale[Cassandra (100 nodes)<br/>━━━━━<br/>Multi-datacenter<br/>5TB messages<br/>Performance struggles<br/>Operational complexity]
 
-        KubernetesEarly["Kubernetes Early<br/>━━━━━<br/>Container orchestration<br/>Auto-scaling<br/>Service discovery<br/>Deployment automation"]
+        KubernetesEarly[Kubernetes Early<br/>━━━━━<br/>Container orchestration<br/>Auto-scaling<br/>Service discovery<br/>Deployment automation]
 
-        RedisEnterprise2018["Redis Enterprise<br/>━━━━━<br/>Multi-tier caching<br/>High availability<br/>50GB cache<br/>Sub-ms latency"]
+        RedisEnterprise2018[Redis Enterprise<br/>━━━━━<br/>Multi-tier caching<br/>High availability<br/>50GB cache<br/>Sub-ms latency]
     end
 
-    subgraph Scale2019["2019: Mainstream Adoption - 100M users"]
+    subgraph Scale2019[2019: Mainstream Adoption - 100M users]
         style Scale2019 fill:#f0e6ff,stroke:#9900CC,color:#333
 
-        ElixirMature["Elixir at Scale<br/>━━━━━<br/>11M concurrent users<br/>GenServer patterns<br/>OTP supervision<br/>Hot code swapping"]
+        ElixirMature[Elixir at Scale<br/>━━━━━<br/>11M concurrent users<br/>GenServer patterns<br/>OTP supervision<br/>Hot code swapping]
 
-        VoiceOptimized["Voice Optimization<br/>━━━━━<br/>500+ edge locations<br/>P2P optimization<br/>Adaptive bitrate<br/>Jitter buffering"]
+        VoiceOptimized[Voice Optimization<br/>━━━━━<br/>500+ edge locations<br/>P2P optimization<br/>Adaptive bitrate<br/>Jitter buffering]
 
-        CassandraStruggles["Cassandra Issues<br/>━━━━━<br/>200+ nodes<br/>GC pressure<br/>Operational nightmares<br/>Performance degradation"]
+        CassandraStruggles[Cassandra Issues<br/>━━━━━<br/>200+ nodes<br/>GC pressure<br/>Operational nightmares<br/>Performance degradation]
 
-        SearchElastic["Elasticsearch<br/>━━━━━<br/>Message search<br/>20-node cluster<br/>Real-time indexing<br/>Full-text search"]
+        SearchElastic[Elasticsearch<br/>━━━━━<br/>Message search<br/>20-node cluster<br/>Real-time indexing<br/>Full-text search]
     end
 
-    subgraph Scale2020["2020: COVID Surge - 150M users"]
+    subgraph Scale2020[2020: COVID Surge - 150M users]
         style Scale2020 fill:#e6f9ff,stroke:#0099CC,color:#333
 
-        ScyllaDBMigration["ScyllaDB Migration<br/>━━━━━<br/>C++ performance<br/>Cassandra compatibility<br/>10x faster<br/>90% cost reduction"]
+        ScyllaDBMigration[ScyllaDB Migration<br/>━━━━━<br/>C++ performance<br/>Cassandra compatibility<br/>10x faster<br/>90% cost reduction]
 
-        VoiceGlobal["Global Voice Network<br/>━━━━━<br/>1000+ edge nodes<br/>WebRTC optimization<br/>Low-latency routing<br/>2M+ concurrent voice"]
+        VoiceGlobal[Global Voice Network<br/>━━━━━<br/>1000+ edge nodes<br/>WebRTC optimization<br/>Low-latency routing<br/>2M+ concurrent voice]
 
-        KubernetesScale["Kubernetes at Scale<br/>━━━━━<br/>10K+ pods<br/>Multi-cluster<br/>GitOps deployment<br/>Chaos engineering"]
+        KubernetesScale[Kubernetes at Scale<br/>━━━━━<br/>10K+ pods<br/>Multi-cluster<br/>GitOps deployment<br/>Chaos engineering]
 
-        Analytics2020["Analytics Platform<br/>━━━━━<br/>BigQuery warehouse<br/>Real-time dashboards<br/>ML/AI features<br/>Business intelligence"]
+        Analytics2020[Analytics Platform<br/>━━━━━<br/>BigQuery warehouse<br/>Real-time dashboards<br/>ML/AI features<br/>Business intelligence]
     end
 
-    subgraph Scale2024["2024: Communications Platform - 200M+ users"]
+    subgraph Scale2024[2024: Communications Platform - 200M+ users]
         style Scale2024 fill:#ffe6f9,stroke:#CC0066,color:#333
 
-        ScyllaAtScale["ScyllaDB at Scale<br/>━━━━━<br/>800+ nodes globally<br/>12T+ messages<br/>Multi-region<br/>Sub-50ms latency"]
+        ScyllaAtScale[ScyllaDB at Scale<br/>━━━━━<br/>800+ nodes globally<br/>12T+ messages<br/>Multi-region<br/>Sub-50ms latency]
 
-        VoiceEvolution["Voice Evolution<br/>━━━━━<br/>4M+ concurrent<br/>AI noise suppression<br/>Krisp integration<br/>HD voice quality"]
+        VoiceEvolution[Voice Evolution<br/>━━━━━<br/>4M+ concurrent<br/>AI noise suppression<br/>Krisp integration<br/>HD voice quality]
 
-        EdgeComputing["Edge Computing<br/>━━━━━<br/>Global edge network<br/>Message routing<br/>Voice processing<br/>Sub-100ms delivery"]
+        EdgeComputing[Edge Computing<br/>━━━━━<br/>Global edge network<br/>Message routing<br/>Voice processing<br/>Sub-100ms delivery]
 
-        AIFeatures["AI/ML Platform<br/>━━━━━<br/>Content moderation<br/>Recommendation engine<br/>Voice transcription<br/>Smart notifications"]
+        AIFeatures[AI/ML Platform<br/>━━━━━<br/>Content moderation<br/>Recommendation engine<br/>Voice transcription<br/>Smart notifications]
     end
 
     %% Evolution arrows showing key transitions

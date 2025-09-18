@@ -48,33 +48,33 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #3B82F6"
+    subgraph Edge Plane - Blue #3B82F6
         API[Stripe API Gateway<br/>Payment Endpoints]
         WEBHOOK[Webhook Service<br/>Event Delivery]
         DASHBOARD[Stripe Dashboard<br/>Merchant Interface]
     end
 
-    subgraph "Service Plane - Green #10B981"
+    subgraph Service Plane - Green #10B981
         PAYMENT[Payment Processing<br/>Core Transaction Engine]
         CHARGE[Charge Service<br/>Card Processing]
         TRANSFER[Transfer Service<br/>Payout Processing]
         CONNECT[Connect Service<br/>Platform Payments]
     end
 
-    subgraph "State Plane - Orange #F59E0B"
+    subgraph State Plane - Orange #F59E0B
         POSTGRES[(PostgreSQL Cluster<br/>Transaction Records<br/>CONNECTION CRISIS)]
         REDIS[(Redis Cluster<br/>Session Cache)]
         KAFKA[(Kafka Streams<br/>Event Processing)]
         VAULT[(Vault Database<br/>Sensitive Data)]
     end
 
-    subgraph "Control Plane - Red #8B5CF6"
+    subgraph Control Plane - Red #8B5CF6
         MONITORING[DataDog Monitoring<br/>System Metrics]
         CONFIG[Configuration Service<br/>Feature Flags]
         SCHEDULER[Job Scheduler<br/>Async Processing]
     end
 
-    subgraph "External Financial Network"
+    subgraph External Financial Network
         VISA[Visa Network<br/>Card Processor]
         MASTERCARD[Mastercard Network<br/>Card Processor]
         ACH[ACH Network<br/>Bank Transfers]
@@ -153,7 +153,7 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph "Connection Crisis Timeline"
+    subgraph Connection Crisis Timeline
         A[14:28 UTC<br/>Payment API errors<br/>Database timeouts]
         B[14:35 UTC<br/>Webhook delivery fails<br/>Event processing stops]
         C[14:42 UTC<br/>Dashboard unusable<br/>Merchants cannot see data]
@@ -412,21 +412,21 @@ curl -I https://dashboard.stripe.com/login
 
 ```mermaid
 graph TB
-    subgraph "NEW: Distributed Connection Management"
+    subgraph NEW: Distributed Connection Management
         POOL1[Connection Pool 1<br/>Primary payments - 1000 max]
         POOL2[Connection Pool 2<br/>Webhooks - 500 max]
         POOL3[Connection Pool 3<br/>Dashboard - 300 max]
         MONITOR[Pool Monitor<br/>Real-time alerts]
     end
 
-    subgraph "NEW: Database Scaling"
+    subgraph NEW: Database Scaling
         PRIMARY[Primary DB<br/>Writes only]
         REPLICA1[Read Replica 1<br/>Analytics queries]
         REPLICA2[Read Replica 2<br/>Dashboard data]
         REPLICA3[Read Replica 3<br/>Webhook data]
     end
 
-    subgraph "NEW: Circuit Breakers"
+    subgraph NEW: Circuit Breakers
         BREAKER1[Payment Circuit Breaker<br/>Fail fast on DB issues]
         QUEUE[Async Queue<br/>Offline payment processing]
         RETRY[Smart Retry Logic<br/>Exponential backoff]

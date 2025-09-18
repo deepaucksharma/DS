@@ -6,64 +6,64 @@ This diagram shows Stripe's complete storage architecture managing 100TB+ of pay
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        CDNCache["Cloudflare Cache<br/>━━━━━<br/>Static assets<br/>API responses (30s TTL)<br/>330+ PoPs<br/>99% cache hit rate"]
+        CDNCache[Cloudflare Cache<br/>━━━━━<br/>Static assets<br/>API responses (30s TTL)<br/>330+ PoPs<br/>99% cache hit rate]
 
-        ReadReplicas["Read Replicas<br/>━━━━━<br/>Regional distribution<br/>Eventually consistent<br/><100ms replication lag<br/>Read-only queries"]
+        ReadReplicas[Read Replicas<br/>━━━━━<br/>Regional distribution<br/>Eventually consistent<br/><100ms replication lag<br/>Read-only queries]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        PaymentAPI["Payment API<br/>━━━━━<br/>Transactional operations<br/>ACID requirements<br/>Strong consistency<br/>Write coordination"]
+        PaymentAPI[Payment API<br/>━━━━━<br/>Transactional operations<br/>ACID requirements<br/>Strong consistency<br/>Write coordination]
 
-        AnalyticsAPI["Analytics API<br/>━━━━━<br/>Reporting queries<br/>Eventual consistency OK<br/>Complex aggregations<br/>Dashboard serving"]
+        AnalyticsAPI[Analytics API<br/>━━━━━<br/>Reporting queries<br/>Eventual consistency OK<br/>Complex aggregations<br/>Dashboard serving]
 
-        BackupOrchestrator["Backup Orchestrator<br/>━━━━━<br/>Continuous backups<br/>Cross-region replication<br/>Point-in-time recovery<br/>Compliance archiving"]
+        BackupOrchestrator[Backup Orchestrator<br/>━━━━━<br/>Continuous backups<br/>Cross-region replication<br/>Point-in-time recovery<br/>Compliance archiving]
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        subgraph PrimaryCluster["Primary Payment Storage - Strong Consistency"]
-            MongoDB["MongoDB Atlas M700<br/>━━━━━<br/>Payment intents & customers<br/>100TB active data<br/>Multi-document transactions<br/>Primary: us-east-1"]
+        subgraph PrimaryCluster[Primary Payment Storage - Strong Consistency]
+            MongoDB[MongoDB Atlas M700<br/>━━━━━<br/>Payment intents & customers<br/>100TB active data<br/>Multi-document transactions<br/>Primary: us-east-1]
 
-            MongoSecondary["MongoDB Secondary<br/>━━━━━<br/>Synchronous replication<br/>Automatic failover<br/>Read preference: secondary<br/>Replica: us-west-2"]
+            MongoSecondary[MongoDB Secondary<br/>━━━━━<br/>Synchronous replication<br/>Automatic failover<br/>Read preference: secondary<br/>Replica: us-west-2]
         end
 
-        subgraph CacheLayer["Cache Layer - Sub-second Access"]
-            RedisCluster["Redis Enterprise<br/>━━━━━<br/>50TB distributed cache<br/>Idempotency keys<br/>Session storage<br/>Customer context"]
+        subgraph CacheLayer[Cache Layer - Sub-second Access]
+            RedisCluster[Redis Enterprise<br/>━━━━━<br/>50TB distributed cache<br/>Idempotency keys<br/>Session storage<br/>Customer context]
 
-            RedisIdempotency["Idempotency Redis<br/>━━━━━<br/>24-hour key retention<br/>99.999% availability<br/>Consistent hashing<br/>Auto-expiry"]
+            RedisIdempotency[Idempotency Redis<br/>━━━━━<br/>24-hour key retention<br/>99.999% availability<br/>Consistent hashing<br/>Auto-expiry]
         end
 
-        subgraph AnalyticsStore["Analytics Storage - Eventual Consistency"]
-            PostgresAnalytics["PostgreSQL Analytics<br/>━━━━━<br/>50TB historical data<br/>Time-series partitioning<br/>Columnar indexes<br/>Read replicas: 5"]
+        subgraph AnalyticsStore[Analytics Storage - Eventual Consistency]
+            PostgresAnalytics[PostgreSQL Analytics<br/>━━━━━<br/>50TB historical data<br/>Time-series partitioning<br/>Columnar indexes<br/>Read replicas: 5]
 
-            ClickHouse["ClickHouse OLAP<br/>━━━━━<br/>Real-time analytics<br/>100B+ events<br/>Compression: 10:1<br/>Query: p99 < 100ms"]
+            ClickHouse[ClickHouse OLAP<br/>━━━━━<br/>Real-time analytics<br/>100B+ events<br/>Compression: 10:1<br/>Query: p99 < 100ms]
         end
 
-        subgraph ComplianceStorage["Compliance Storage - Immutable"]
-            S3Primary["S3 Primary Archive<br/>━━━━━<br/>500TB compliance data<br/>7-year retention<br/>Glacier transitions<br/>Cross-region replication"]
+        subgraph ComplianceStorage[Compliance Storage - Immutable]
+            S3Primary[S3 Primary Archive<br/>━━━━━<br/>500TB compliance data<br/>7-year retention<br/>Glacier transitions<br/>Cross-region replication]
 
-            S3Backup["S3 Cross-Region<br/>━━━━━<br/>Disaster recovery<br/>eu-west-1 replica<br/>Versioning enabled<br/>MFA delete protection"]
+            S3Backup[S3 Cross-Region<br/>━━━━━<br/>Disaster recovery<br/>eu-west-1 replica<br/>Versioning enabled<br/>MFA delete protection]
         end
 
-        subgraph SearchIndex["Search & Discovery"]
-            Elasticsearch["Elasticsearch<br/>━━━━━<br/>Transaction search<br/>15TB indexed data<br/>7-day retention<br/>Custom analyzers"]
+        subgraph SearchIndex[Search & Discovery]
+            Elasticsearch[Elasticsearch<br/>━━━━━<br/>Transaction search<br/>15TB indexed data<br/>7-day retention<br/>Custom analyzers]
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        BackupMonitor["Backup Monitoring<br/>━━━━━<br/>RPO: 15 minutes<br/>RTO: 4 hours<br/>Automated testing<br/>Compliance verification"]
+        BackupMonitor[Backup Monitoring<br/>━━━━━<br/>RPO: 15 minutes<br/>RTO: 4 hours<br/>Automated testing<br/>Compliance verification]
 
-        ReplicationMonitor["Replication Monitor<br/>━━━━━<br/>Lag monitoring<br/>Consistency checks<br/>Automatic alerts<br/>Failover triggers"]
+        ReplicationMonitor[Replication Monitor<br/>━━━━━<br/>Lag monitoring<br/>Consistency checks<br/>Automatic alerts<br/>Failover triggers]
 
-        StorageMetrics["Storage Metrics<br/>━━━━━<br/>Capacity planning<br/>Performance monitoring<br/>Cost optimization<br/>Growth projections"]
+        StorageMetrics[Storage Metrics<br/>━━━━━<br/>Capacity planning<br/>Performance monitoring<br/>Cost optimization<br/>Growth projections]
     end
 
     %% Data flow connections

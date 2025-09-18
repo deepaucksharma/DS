@@ -20,27 +20,27 @@
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #3B82F6"
+    subgraph Edge Plane - Blue #3B82F6
         CLIENT[Zoom Clients<br/>Desktop & Mobile]
         WEB[Web Browser<br/>Zoom Web App]
         PHONE[Phone Dial-in<br/>Audio-only Access]
     end
 
-    subgraph "Service Plane - Green #10B981"
+    subgraph Service Plane - Green #10B981
         MEETINGS[Meeting Service<br/>Room Management<br/>OVERLOADED]
         VIDEO[Video Processing<br/>Stream Management]
         AUDIO[Audio Processing<br/>Voice Optimization]
         RECORDING[Recording Service<br/>Session Capture]
     end
 
-    subgraph "State Plane - Orange #F59E0B"
+    subgraph State Plane - Orange #F59E0B
         SESSIONS[(Active Sessions<br/>Meeting State)]
         USERS[(User Database<br/>Account Management)]
         RECORDINGS[(Recording Storage<br/>Video Files)]
         ANALYTICS[(Usage Analytics<br/>Performance Data)]
     end
 
-    subgraph "Control Plane - Red #8B5CF6"
+    subgraph Control Plane - Red #8B5CF6
         MONITORING[System Monitoring<br/>Capacity Metrics]
         AUTOSCALE[Auto-scaling<br/>Server Management]
         LOADBALANCE[Load Balancer<br/>Traffic Distribution]

@@ -349,10 +349,10 @@ class IdempotencyService:
         record_data = json.loads(data)
         return IdempotencyRecord(
             key=key,
-            state=OperationState(record_data["state"]),
-            result=json.loads(record_data["result"]) if record_data["result"] else None,
-            created_at=record_data["created_at"],
-            updated_at=record_data["updated_at"]
+            state=OperationState(record_data[state]),
+            result=json.loads(record_data[result]) if record_data[result] else None,
+            created_at=record_data[created_at],
+            updated_at=record_data[updated_at]
         )
 
     async def update_state(self, key: str, state: OperationState):
@@ -406,11 +406,11 @@ class OrderService:
 
         async def order_operation():
             # Calculate total
-            total = sum(item["price"] * item["quantity"] for item in cart_items)
+            total = sum(item[price] * item[quantity] for item in cart_items)
 
             # Reserve inventory
             for item in cart_items:
-                await self.reserve_inventory(item["product_id"], item["quantity"])
+                await self.reserve_inventory(item[product_id], item[quantity])
 
             # Process payment
             payment_result = await self.process_payment(user_id, total, payment_method)
@@ -419,12 +419,12 @@ class OrderService:
             order = await self.create_order_record(user_id, cart_items, total, payment_result)
 
             # Send confirmation email
-            await self.send_order_confirmation(user_id, order["order_id"])
+            await self.send_order_confirmation(user_id, order[order_id])
 
             return {
-                "order_id": order["order_id"],
+                "order_id": order[order_id],
                 "total": total,
-                "payment_id": payment_result["payment_id"],
+                "payment_id": payment_result[payment_id],
                 "status": "confirmed"
             }
 
@@ -652,14 +652,14 @@ class IdempotencyTester:
 
         # First call
         result1 = await self.service.execute_idempotent(key, operation)
-        assert result1["status"] == "success"
-        assert result1["result"] == expected_result
+        assert result1[status] == "success"
+        assert result1[result] == expected_result
 
         # Second call with same key
         result2 = await self.service.execute_idempotent(key, operation)
-        assert result2["status"] == "success"
-        assert result2["result"] == expected_result
-        assert result2["cached"] == True
+        assert result2[status] == "success"
+        assert result2[result] == expected_result
+        assert result2[cached] == True
 
     async def test_concurrent_requests(self):
         """Test concurrent requests with same idempotency key"""
@@ -683,7 +683,7 @@ class IdempotencyTester:
         # All results should be identical
         first_result = results[0]["result"]
         for result in results:
-            assert result["result"] == first_result
+            assert result[result] == first_result
 
         # Operation should only be called once
         assert call_count == 1
@@ -697,13 +697,13 @@ class IdempotencyTester:
 
         # First call - should fail
         result1 = await self.service.execute_idempotent(key, failing_operation)
-        assert result1["status"] == "failed"
-        assert "ValueError" in result1["error"]["type"]
+        assert result1[status] == "failed"
+        assert "ValueError" in result1[error]["type"]
 
         # Second call - should return cached failure
         result2 = await self.service.execute_idempotent(key, failing_operation)
-        assert result2["status"] == "failed"
-        assert result2["cached"] == True
+        assert result2[status] == "failed"
+        assert result2[cached] == True
 
     async def test_timeout_handling(self):
         """Test timeout scenarios"""
@@ -717,7 +717,7 @@ class IdempotencyTester:
         result = await self.service.execute_idempotent(
             key, slow_operation, timeout_seconds=1
         )
-        assert result["status"] == "timeout"
+        assert result[status] == "timeout"
 
     async def test_race_condition_handling(self):
         """Test race condition between multiple processes"""
@@ -743,7 +743,7 @@ class IdempotencyTester:
         # All results should be identical
         first_result = results[0]["result"]
         for result in results:
-            assert result["result"] == first_result
+            assert result[result] == first_result
 
     async def test_key_expiration(self):
         """Test TTL and key expiration"""
@@ -763,7 +763,7 @@ class IdempotencyTester:
         # Should create new operation after expiration
         result2 = await self.service.execute_idempotent(key, operation)
 
-        assert result1["result"] != result2["result"]
+        assert result1[result] != result2[result]
         assert not result2.get("cached", False)
 
 # Run tests

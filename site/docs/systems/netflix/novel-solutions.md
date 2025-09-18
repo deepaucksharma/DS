@@ -6,78 +6,78 @@ This diagram showcases Netflix's groundbreaking innovations: Chaos Engineering, 
 
 ```mermaid
 graph TB
-    subgraph ChaosEngineering["Chaos Engineering - Simian Army Suite"]
+    subgraph ChaosEngineering[Chaos Engineering - Simian Army Suite]
         style ChaosEngineering fill:#FFE6E6,stroke:#8B5CF6,color:#000
 
-        ChaosMonkey["Chaos Monkey<br/>━━━━━<br/>Random instance termination<br/>1,000+ terminations/day<br/>Production chaos testing<br/>Patent: US9,317,404"]
+        ChaosMonkey[Chaos Monkey<br/>━━━━━<br/>Random instance termination<br/>1,000+ terminations/day<br/>Production chaos testing<br/>Patent: US9,317,404]
 
-        ChaosKong["Chaos Kong<br/>━━━━━<br/>Entire region failures<br/>Quarterly exercises<br/>Multi-AZ resilience testing<br/>Recovery time: < 10 minutes"]
+        ChaosKong[Chaos Kong<br/>━━━━━<br/>Entire region failures<br/>Quarterly exercises<br/>Multi-AZ resilience testing<br/>Recovery time: < 10 minutes]
 
-        Latency["Latency Monkey<br/>━━━━━<br/>Network latency injection<br/>Simulates slow dependencies<br/>Timeout tuning validation<br/>Real-world conditions"]
+        Latency[Latency Monkey<br/>━━━━━<br/>Network latency injection<br/>Simulates slow dependencies<br/>Timeout tuning validation<br/>Real-world conditions]
 
-        Security["Security Monkey<br/>━━━━━<br/>Configuration auditing<br/>Security policy enforcement<br/>AWS resource scanning<br/>Compliance automation"]
+        Security[Security Monkey<br/>━━━━━<br/>Configuration auditing<br/>Security policy enforcement<br/>AWS resource scanning<br/>Compliance automation]
 
-        Conformity["Conformity Monkey<br/>━━━━━<br/>Best practice enforcement<br/>Auto-scaling validation<br/>Instance type optimization<br/>Cost efficiency checks"]
+        Conformity[Conformity Monkey<br/>━━━━━<br/>Best practice enforcement<br/>Auto-scaling validation<br/>Instance type optimization<br/>Cost efficiency checks]
     end
 
-    subgraph AdaptiveBitrate["Adaptive Bitrate Streaming (ABR)"]
+    subgraph AdaptiveBitrate[Adaptive Bitrate Streaming (ABR)]
         style AdaptiveBitrate fill:#E8F5E8,stroke:#10B981,color:#000
 
-        ClientBuffer["Client Buffer Analysis<br/>━━━━━<br/>Real-time buffer monitoring<br/>2-second measurement windows<br/>Bandwidth estimation<br/>Quality decision engine"]
+        ClientBuffer[Client Buffer Analysis<br/>━━━━━<br/>Real-time buffer monitoring<br/>2-second measurement windows<br/>Bandwidth estimation<br/>Quality decision engine]
 
-        BitrateSelection["Bitrate Selection Algorithm<br/>━━━━━<br/>12 quality levels available<br/>240p to 4K/8K support<br/>ML-driven optimization<br/>User experience focus"]
+        BitrateSelection[Bitrate Selection Algorithm<br/>━━━━━<br/>12 quality levels available<br/>240p to 4K/8K support<br/>ML-driven optimization<br/>User experience focus]
 
-        NetworkAdaptation["Network Adaptation<br/>━━━━━<br/>Bandwidth prediction<br/>Congestion detection<br/>Quality ramping strategy<br/>Smooth transitions only"]
+        NetworkAdaptation[Network Adaptation<br/>━━━━━<br/>Bandwidth prediction<br/>Congestion detection<br/>Quality ramping strategy<br/>Smooth transitions only]
 
-        QualityOptimization["Video Quality Optimization<br/>━━━━━<br/>Per-title encoding<br/>Content-aware bitrates<br/>Perceptual quality metrics<br/>50% bandwidth savings"]
+        QualityOptimization[Video Quality Optimization<br/>━━━━━<br/>Per-title encoding<br/>Content-aware bitrates<br/>Perceptual quality metrics<br/>50% bandwidth savings]
     end
 
-    subgraph OpenConnect["Open Connect CDN Architecture"]
+    subgraph OpenConnect[Open Connect CDN Architecture]
         style OpenConnect fill:#E3F2FD,stroke:#3B82F6,color:#000
 
-        GlobalPOP["18,000+ Points of Presence<br/>━━━━━<br/>175+ countries deployed<br/>ISP partnerships<br/>Free edge server program<br/>95% traffic served locally"]
+        GlobalPOP[18,000+ Points of Presence<br/>━━━━━<br/>175+ countries deployed<br/>ISP partnerships<br/>Free edge server program<br/>95% traffic served locally]
 
-        ContentPlacement["Intelligent Content Placement<br/>━━━━━<br/>Predictive pre-positioning<br/>Popularity algorithms<br/>Regional preferences<br/>Storage: 200TB per server"]
+        ContentPlacement[Intelligent Content Placement<br/>━━━━━<br/>Predictive pre-positioning<br/>Popularity algorithms<br/>Regional preferences<br/>Storage: 200TB per server]
 
-        LoadBalancing["Global Load Balancing<br/>━━━━━<br/>Anycast BGP routing<br/>Real-time server health<br/>Geographic optimization<br/>Sub-10ms routing decisions"]
+        LoadBalancing[Global Load Balancing<br/>━━━━━<br/>Anycast BGP routing<br/>Real-time server health<br/>Geographic optimization<br/>Sub-10ms routing decisions]
 
-        HardwareOptimized["Custom Hardware Design<br/>━━━━━<br/>SSD-optimized servers<br/>40Gbps network interfaces<br/>NVME storage arrays<br/>Power efficiency: 50% better"]
+        HardwareOptimized[Custom Hardware Design<br/>━━━━━<br/>SSD-optimized servers<br/>40Gbps network interfaces<br/>NVME storage arrays<br/>Power efficiency: 50% better]
     end
 
-    subgraph CosmosEncoding["Cosmos Video Platform"]
+    subgraph CosmosEncoding[Cosmos Video Platform]
         style CosmosEncoding fill:#FFF3E0,stroke:#F59E0B,color:#000
 
-        EncodingPipeline["Massive Encoding Pipeline<br/>━━━━━<br/>100,000+ EC2 instances<br/>Per-title optimization<br/>Multiple codec support<br/>AV1/HEVC/H.264"]
+        EncodingPipeline[Massive Encoding Pipeline<br/>━━━━━<br/>100,000+ EC2 instances<br/>Per-title optimization<br/>Multiple codec support<br/>AV1/HEVC/H.264]
 
-        MLOptimization["ML-Driven Optimization<br/>━━━━━<br/>Content analysis algorithms<br/>Perceptual quality prediction<br/>Bitrate recommendation<br/>30% encoding efficiency"]
+        MLOptimization[ML-Driven Optimization<br/>━━━━━<br/>Content analysis algorithms<br/>Perceptual quality prediction<br/>Bitrate recommendation<br/>30% encoding efficiency]
 
-        GlobalDistribution["Global Content Distribution<br/>━━━━━<br/>Multi-region encoding<br/>6 encoding facilities<br/>Petabyte-scale workflows<br/>24-hour global pipeline"]
+        GlobalDistribution[Global Content Distribution<br/>━━━━━<br/>Multi-region encoding<br/>6 encoding facilities<br/>Petabyte-scale workflows<br/>24-hour global pipeline]
 
-        QualityControl["Automated Quality Control<br/>━━━━━<br/>Visual quality assessment<br/>Audio sync validation<br/>Subtitle accuracy check<br/>99.97% success rate"]
+        QualityControl[Automated Quality Control<br/>━━━━━<br/>Visual quality assessment<br/>Audio sync validation<br/>Subtitle accuracy check<br/>99.97% success rate]
     end
 
-    subgraph MachineLearning["ML Innovation Platform"]
+    subgraph MachineLearning[ML Innovation Platform]
         style MachineLearning fill:#F3E5F5,stroke:#9C27B0,color:#000
 
-        RecommendationML["Recommendation Algorithms<br/>━━━━━<br/>500+ ML models in production<br/>Real-time personalization<br/>A/B testing framework<br/>Collaborative filtering"]
+        RecommendationML[Recommendation Algorithms<br/>━━━━━<br/>500+ ML models in production<br/>Real-time personalization<br/>A/B testing framework<br/>Collaborative filtering]
 
-        ContentCreation["AI-Assisted Content Creation<br/>━━━━━<br/>Script analysis algorithms<br/>Thumbnail optimization<br/>Trailer generation<br/>Localization automation"]
+        ContentCreation[AI-Assisted Content Creation<br/>━━━━━<br/>Script analysis algorithms<br/>Thumbnail optimization<br/>Trailer generation<br/>Localization automation]
 
-        InfrastructureML["Infrastructure ML<br/>━━━━━<br/>Predictive auto-scaling<br/>Capacity planning models<br/>Anomaly detection<br/>Cost optimization AI"]
+        InfrastructureML[Infrastructure ML<br/>━━━━━<br/>Predictive auto-scaling<br/>Capacity planning models<br/>Anomaly detection<br/>Cost optimization AI]
 
-        ViewingML["Viewing Experience ML<br/>━━━━━<br/>Quality prediction models<br/>Bandwidth optimization<br/>Device-specific tuning<br/>User behavior analysis"]
+        ViewingML[Viewing Experience ML<br/>━━━━━<br/>Quality prediction models<br/>Bandwidth optimization<br/>Device-specific tuning<br/>User behavior analysis]
     end
 
-    subgraph OSPlatform["Open Source Platform"]
+    subgraph OSPlatform[Open Source Platform]
         style OSPlatform fill:#E1F5FE,stroke:#00BCD4,color:#000
 
-        NetflixOSS["Netflix OSS Stack<br/>━━━━━<br/>20+ major open source projects<br/>Industry standard adoption<br/>Community: 100,000+ users<br/>GitHub stars: 500,000+"]
+        NetflixOSS[Netflix OSS Stack<br/>━━━━━<br/>20+ major open source projects<br/>Industry standard adoption<br/>Community: 100,000+ users<br/>GitHub stars: 500,000+]
 
-        Microservices["Microservices Ecosystem<br/>━━━━━<br/>Eureka: Service discovery<br/>Ribbon: Load balancing<br/>Hystrix: Circuit breakers<br/>Zuul: API gateway"]
+        Microservices[Microservices Ecosystem<br/>━━━━━<br/>Eureka: Service discovery<br/>Ribbon: Load balancing<br/>Hystrix: Circuit breakers<br/>Zuul: API gateway]
 
-        DataPlatform["Data Platform OSS<br/>━━━━━<br/>Atlas: Metrics platform<br/>Mantis: Stream processing<br/>Hollow: In-memory datasets<br/>Metacat: Data discovery"]
+        DataPlatform[Data Platform OSS<br/>━━━━━<br/>Atlas: Metrics platform<br/>Mantis: Stream processing<br/>Hollow: In-memory datasets<br/>Metacat: Data discovery]
 
-        DevOps["DevOps & Reliability<br/>━━━━━<br/>Spinnaker: Deployment<br/>Chaos engineering tools<br/>SimianArmy: Resilience<br/>Asgard: Cloud management"]
+        DevOps[DevOps & Reliability<br/>━━━━━<br/>Spinnaker: Deployment<br/>Chaos engineering tools<br/>SimianArmy: Resilience<br/>Asgard: Cloud management]
     end
 
     %% Innovation Flow Connections

@@ -36,7 +36,7 @@
 
 ```mermaid
 graph TB
-    subgraph "Monolith Assessment"
+    subgraph Monolith Assessment
         USER[Users: 10M DAU]
         LB[Load Balancer<br/>nginx 1.20]
         MON[Monolith<br/>Rails 7.0<br/>4GB RAM, 8 vCPU<br/>20 instances]
@@ -118,18 +118,18 @@ Extract services with minimal database dependencies first.
 
 ```mermaid
 graph TB
-    subgraph "Phase 1: Edge Services"
+    subgraph Phase 1: Edge Services
         USER[Users]
         LB[Load Balancer]
 
-        subgraph "New Services"
+        subgraph New Services
             AUTH[Authentication Service<br/>Node.js 18<br/>JWT tokens<br/>$2K/month]
             NOTIF[Notification Service<br/>Python 3.11<br/>SQS + SNS<br/>$1.5K/month]
         end
 
         MON[Monolith<br/>Reduced scope<br/>$8K/month]
 
-        subgraph "Shared Data"
+        subgraph Shared Data
             DB[(PostgreSQL<br/>$3K/month)]
             CACHE[(Redis<br/>$800/month)]
         end
@@ -167,12 +167,12 @@ Extract core business logic with database decomposition.
 
 ```mermaid
 graph TB
-    subgraph "Phase 2: Core Services"
+    subgraph Phase 2: Core Services
         USER[Users: 15M DAU]
         CDN[CloudFlare CDN<br/>$500/month]
         LB[Load Balancer<br/>$300/month]
 
-        subgraph "Service Mesh"
+        subgraph Service Mesh
             AUTH[Auth Service<br/>$2K/month]
             USER_SVC[User Service<br/>Go 1.21<br/>$3K/month]
             ORDER_SVC[Order Service<br/>Java 17<br/>$5K/month]
@@ -182,7 +182,7 @@ graph TB
 
         MON[Monolith Residual<br/>Reports & Admin<br/>$2K/month]
 
-        subgraph "Decomposed Data Layer"
+        subgraph Decomposed Data Layer
             USER_DB[(User DB<br/>PostgreSQL<br/>$1K/month)]
             ORDER_DB[(Order DB<br/>PostgreSQL<br/>$2K/month)]
             PRODUCT_DB[(Product DB<br/>PostgreSQL<br/>$1.5K/month)]
@@ -229,16 +229,16 @@ Add platform services for observability, security, and operations.
 
 ```mermaid
 graph TB
-    subgraph "Phase 3: Platform Services"
+    subgraph Phase 3: Platform Services
         USER[Users: 20M DAU]
 
-        subgraph "Edge Plane"
+        subgraph Edge Plane
             CDN[CloudFlare CDN]
             WAF[Web Application Firewall]
             LB[Kong API Gateway<br/>Rate limiting: 1000 RPS<br/>Circuit breaker: 50% failure]
         end
 
-        subgraph "Service Plane"
+        subgraph Service Plane
             AUTH[Auth Service<br/>p99: 10ms]
             USER_SVC[User Service<br/>p99: 15ms]
             ORDER_SVC[Order Service<br/>p99: 25ms]
@@ -247,14 +247,14 @@ graph TB
             SEARCH_SVC[Search Service<br/>Elasticsearch<br/>p99: 50ms]
         end
 
-        subgraph "Platform Services"
+        subgraph Platform Services
             METRICS[Metrics Service<br/>Prometheus<br/>DataDog APM]
             LOGGING[Logging Service<br/>ELK Stack]
             TRACING[Tracing Service<br/>Jaeger]
             CONFIG[Config Service<br/>Consul]
         end
 
-        subgraph "Data Plane"
+        subgraph Data Plane
             KAFKA[Kafka Cluster<br/>Event Streaming<br/>1M events/sec]
             USER_DB[(User DB)]
             ORDER_DB[(Order DB)]
@@ -346,10 +346,10 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph "Migration Phase"
+    subgraph Migration Phase
         APP[Application]
 
-        subgraph "Data Layer"
+        subgraph Data Layer
             OLD_DB[(Monolith DB<br/>Source of Truth)]
             NEW_DB[(Service DB<br/>Shadow Copy)]
         end
@@ -445,7 +445,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Migration Risks"
+    subgraph Migration Risks
         PERF[Performance Degradation<br/>Mitigation: Load testing<br/>Rollback: Feature flags]
 
         DATA[Data Inconsistency<br/>Mitigation: Dual-write pattern<br/>Rollback: Master-slave failover]
@@ -522,22 +522,22 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Observability Stack"
-        subgraph "Metrics"
+    subgraph Observability Stack
+        subgraph Metrics
             PROM[Prometheus<br/>Service metrics<br/>Business metrics]
             GRAFANA[Grafana<br/>Service dashboards<br/>SLA monitoring]
         end
 
-        subgraph "Logging"
+        subgraph Logging
             FLUENTD[FluentD<br/>Log aggregation]
             ELK[ELK Stack<br/>Centralized search]
         end
 
-        subgraph "Tracing"
+        subgraph Tracing
             JAEGER[Jaeger<br/>Distributed tracing<br/>Request flow]
         end
 
-        subgraph "Alerting"
+        subgraph Alerting
             ALERTS[AlertManager<br/>PagerDuty integration<br/>Slack notifications]
         end
     end

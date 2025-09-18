@@ -6,80 +6,80 @@ This diagram shows the complete user request traversal through Zoom's production
 
 ```mermaid
 graph TB
-    subgraph UserLayer["User Layer - 300M+ Daily Participants"]
-        DesktopClient["Zoom Desktop App<br/>━━━━━<br/>Windows/Mac/Linux<br/>150M+ daily users<br/>Native WebRTC"]
+    subgraph UserLayer[User Layer - 300M+ Daily Participants]
+        DesktopClient[Zoom Desktop App<br/>━━━━━<br/>Windows/Mac/Linux<br/>150M+ daily users<br/>Native WebRTC]
 
-        MobileClient["Zoom Mobile App<br/>━━━━━<br/>iOS/Android<br/>120M+ daily users<br/>Optimized for battery"]
+        MobileClient[Zoom Mobile App<br/>━━━━━<br/>iOS/Android<br/>120M+ daily users<br/>Optimized for battery]
 
-        WebClient["Zoom Web Client<br/>━━━━━<br/>Browser-based<br/>30M+ daily users<br/>WebRTC in browser"]
+        WebClient[Zoom Web Client<br/>━━━━━<br/>Browser-based<br/>30M+ daily users<br/>WebRTC in browser]
 
-        PhoneDialIn["Phone Dial-in<br/>━━━━━<br/>PSTN bridge<br/>Global phone numbers<br/>Audio-only fallback"]
+        PhoneDialIn[Phone Dial-in<br/>━━━━━<br/>PSTN bridge<br/>Global phone numbers<br/>Audio-only fallback]
     end
 
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        GlobalDNS["Global DNS<br/>━━━━━<br/>Anycast routing<br/>Geo-location aware<br/>p99: 5ms resolution<br/>99.99% availability"]
+        GlobalDNS[Global DNS<br/>━━━━━<br/>Anycast routing<br/>Geo-location aware<br/>p99: 5ms resolution<br/>99.99% availability]
 
-        CDNEdge["CDN Edge Servers<br/>━━━━━<br/>5,000+ global servers<br/>Client downloads<br/>Static assets<br/>Cache hit: 95%"]
+        CDNEdge[CDN Edge Servers<br/>━━━━━<br/>5,000+ global servers<br/>Client downloads<br/>Static assets<br/>Cache hit: 95%]
 
-        EdgeLB["Edge Load Balancer<br/>━━━━━<br/>Regional entry points<br/>Health check routing<br/>TLS termination<br/>Connection pooling"]
+        EdgeLB[Edge Load Balancer<br/>━━━━━<br/>Regional entry points<br/>Health check routing<br/>TLS termination<br/>Connection pooling]
 
-        WebRTCGW["WebRTC Gateway<br/>━━━━━<br/>STUN/TURN servers<br/>ICE candidate gathering<br/>NAT traversal: 99.9%<br/>Media negotiation"]
+        WebRTCGW[WebRTC Gateway<br/>━━━━━<br/>STUN/TURN servers<br/>ICE candidate gathering<br/>NAT traversal: 99.9%<br/>Media negotiation]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        subgraph AuthenticationLayer["Authentication Layer"]
-            AuthService["Authentication Service<br/>━━━━━<br/>SSO integration<br/>OAuth 2.0 + SAML<br/>MFA support<br/>p99: 100ms response"]
+        subgraph AuthenticationLayer[Authentication Layer]
+            AuthService[Authentication Service<br/>━━━━━<br/>SSO integration<br/>OAuth 2.0 + SAML<br/>MFA support<br/>p99: 100ms response]
 
-            SessionManager["Session Manager<br/>━━━━━<br/>JWT token validation<br/>Session state tracking<br/>Multi-device support<br/>1M+ concurrent sessions"]
+            SessionManager[Session Manager<br/>━━━━━<br/>JWT token validation<br/>Session state tracking<br/>Multi-device support<br/>1M+ concurrent sessions]
         end
 
-        subgraph MeetingOrchestration["Meeting Orchestration"]
-            MeetingJoinAPI["Meeting Join API<br/>━━━━━<br/>Join request processing<br/>Capacity checking<br/>Participant limits<br/>p99: 200ms response"]
+        subgraph MeetingOrchestration[Meeting Orchestration]
+            MeetingJoinAPI[Meeting Join API<br/>━━━━━<br/>Join request processing<br/>Capacity checking<br/>Participant limits<br/>p99: 200ms response]
 
-            MeetingController["Meeting Controller<br/>━━━━━<br/>Session orchestration<br/>500K+ active meetings<br/>State management<br/>Participant coordination"]
+            MeetingController[Meeting Controller<br/>━━━━━<br/>Session orchestration<br/>500K+ active meetings<br/>State management<br/>Participant coordination]
 
-            PermissionEngine["Permission Engine<br/>━━━━━<br/>Host/participant roles<br/>Feature access control<br/>Waiting room logic<br/>Real-time updates"]
+            PermissionEngine[Permission Engine<br/>━━━━━<br/>Host/participant roles<br/>Feature access control<br/>Waiting room logic<br/>Real-time updates]
         end
 
-        subgraph MediaInfrastructure["Media Infrastructure"]
-            MediaRouter["Media Router (SFU)<br/>━━━━━<br/>Selective Forwarding Unit<br/>Bandwidth optimization<br/>Quality adaptation<br/>Multi-stream support"]
+        subgraph MediaInfrastructure[Media Infrastructure]
+            MediaRouter[Media Router (SFU)<br/>━━━━━<br/>Selective Forwarding Unit<br/>Bandwidth optimization<br/>Quality adaptation<br/>Multi-stream support]
 
-            TranscodingEngine["Transcoding Engine<br/>━━━━━<br/>Real-time transcoding<br/>Multiple resolutions<br/>GPU acceleration<br/>p99: 50ms latency"]
+            TranscodingEngine[Transcoding Engine<br/>━━━━━<br/>Real-time transcoding<br/>Multiple resolutions<br/>GPU acceleration<br/>p99: 50ms latency]
 
-            RecordingOrchestrator["Recording Orchestrator<br/>━━━━━<br/>Cloud recording start<br/>Storage allocation<br/>Real-time processing<br/>Metadata generation"]
+            RecordingOrchestrator[Recording Orchestrator<br/>━━━━━<br/>Cloud recording start<br/>Storage allocation<br/>Real-time processing<br/>Metadata generation]
         end
 
-        subgraph AIServices["AI Services"]
-            TranscriptionService["Real-time Transcription<br/>━━━━━<br/>Speech-to-text<br/>Multiple languages<br/>GPU clusters<br/>p99: 500ms delay"]
+        subgraph AIServices[AI Services]
+            TranscriptionService[Real-time Transcription<br/>━━━━━<br/>Speech-to-text<br/>Multiple languages<br/>GPU clusters<br/>p99: 500ms delay]
 
-            BackgroundService["Virtual Background<br/>━━━━━<br/>Real-time segmentation<br/>Edge AI processing<br/>GPU optimization<br/>p99: 16ms (60fps)"]
+            BackgroundService[Virtual Background<br/>━━━━━<br/>Real-time segmentation<br/>Edge AI processing<br/>GPU optimization<br/>p99: 16ms (60fps)]
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        UserDB["User Database<br/>━━━━━<br/>PostgreSQL clusters<br/>User profiles & settings<br/>Meeting preferences<br/>p99: 10ms read"]
+        UserDB[User Database<br/>━━━━━<br/>PostgreSQL clusters<br/>User profiles & settings<br/>Meeting preferences<br/>p99: 10ms read]
 
-        MeetingDB["Meeting Database<br/>━━━━━<br/>PostgreSQL clusters<br/>Meeting metadata<br/>Scheduling data<br/>Participant lists"]
+        MeetingDB[Meeting Database<br/>━━━━━<br/>PostgreSQL clusters<br/>Meeting metadata<br/>Scheduling data<br/>Participant lists]
 
-        SessionCache["Session Cache<br/>━━━━━<br/>Redis clusters<br/>Active sessions<br/>Real-time state<br/>p99: 1ms access"]
+        SessionCache[Session Cache<br/>━━━━━<br/>Redis clusters<br/>Active sessions<br/>Real-time state<br/>p99: 1ms access]
 
-        MediaStorage["Media Storage<br/>━━━━━<br/>S3 compatible<br/>Recording storage<br/>1EB+ capacity<br/>Intelligent tiering"]
+        MediaStorage[Media Storage<br/>━━━━━<br/>S3 compatible<br/>Recording storage<br/>1EB+ capacity<br/>Intelligent tiering]
 
-        MetricsDB["Metrics Database<br/>━━━━━<br/>Cassandra clusters<br/>Call quality data<br/>Performance metrics<br/>Time-series data"]
+        MetricsDB[Metrics Database<br/>━━━━━<br/>Cassandra clusters<br/>Call quality data<br/>Performance metrics<br/>Time-series data]
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        QualityMonitoring["Quality Monitoring<br/>━━━━━<br/>Real-time QoS tracking<br/>Network diagnostics<br/>Performance alerts<br/>SLA monitoring"]
+        QualityMonitoring[Quality Monitoring<br/>━━━━━<br/>Real-time QoS tracking<br/>Network diagnostics<br/>Performance alerts<br/>SLA monitoring]
 
-        LoadBalancer["Global Load Balancer<br/>━━━━━<br/>Traffic distribution<br/>Health checking<br/>Failover logic<br/>Capacity awareness"]
+        LoadBalancer[Global Load Balancer<br/>━━━━━<br/>Traffic distribution<br/>Health checking<br/>Failover logic<br/>Capacity awareness]
     end
 
     %% Primary Meeting Join Flow - Happy Path

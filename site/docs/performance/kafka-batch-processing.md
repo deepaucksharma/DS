@@ -10,24 +10,24 @@ Apache Kafka batch processing optimization from LinkedIn's data streaming platfo
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Data Ingestion"
+    subgraph Edge Plane - Data Ingestion
         DataSources[Data Sources<br/>LinkedIn Platform Events<br/>User activity streams<br/>System metrics]
         LoadBalancer[Load Balancer<br/>HAProxy with Kafka-aware routing<br/>Connection pooling<br/>Health checking]
     end
 
-    subgraph "Service Plane - Kafka Cluster"
+    subgraph Service Plane - Kafka Cluster
         Brokers[Kafka Brokers<br/>12 brokers per DC<br/>Replication factor: 3<br/>180 total brokers]
         ZooKeeper[ZooKeeper Ensemble<br/>5 nodes per DC<br/>Coordination service<br/>Metadata management]
         Producers[Kafka Producers<br/>Async batch processing<br/>Compression enabled<br/>Idempotent delivery]
     end
 
-    subgraph "State Plane - Storage Optimization"
+    subgraph State Plane - Storage Optimization
         LogSegments[Log Segments<br/>1GB segment size<br/>RAID-10 storage<br/>XFS filesystem]
         PageCache[OS Page Cache<br/>Zero-copy transfers<br/>Memory-mapped files<br/>Sequential I/O optimization]
         Replication[Cross-DC Replication<br/>Mirror Maker 2.0<br/>Eventual consistency<br/>Disaster recovery]
     end
 
-    subgraph "Control Plane - Performance Management"
+    subgraph Control Plane - Performance Management
         MetricsCollection[JMX Metrics Collection<br/>Kafka metrics<br/>System performance<br/>Business KPIs]
         Monitoring[Prometheus + Grafana<br/>Real-time dashboards<br/>Alerting system<br/>Capacity planning]
         Optimization[Auto-tuning System<br/>Dynamic configuration<br/>Performance adaptation<br/>ML-based optimization]
@@ -61,28 +61,28 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Individual Message Processing - Before"
+    subgraph Individual Message Processing - Before
         IndividualMsg[Individual Message Sending<br/>One message per request<br/>High network overhead<br/>Poor CPU utilization]
         IndividualMsg --> SingleSend[Send Message 1<br/>Network RTT: 2ms<br/>Serialization: 0.5ms<br/>Total: 2.5ms per msg]
         IndividualMsg --> WaitAck[Wait for Acknowledgment<br/>Broker processing: 1ms<br/>Network return: 2ms<br/>Total latency: 5.5ms]
         IndividualMsg --> Throughput1[Throughput Calculation<br/>1 / 5.5ms = 182 msg/sec<br/>50K msg/sec = 275 connections<br/>High resource usage]
     end
 
-    subgraph "Batch Processing - After"
+    subgraph Batch Processing - After
         BatchProcessing[Batch Processing<br/>Multiple messages per request<br/>Optimized network usage<br/>High CPU efficiency]
         BatchProcessing --> BatchSend[Send Batch (1000 msgs)<br/>Network RTT: 2ms<br/>Serialization: 5ms<br/>Total: 7ms per batch]
         BatchProcessing --> BatchAck[Wait for Batch Ack<br/>Broker processing: 3ms<br/>Network return: 2ms<br/>Total latency: 12ms]
         BatchProcessing --> Throughput2[Throughput Calculation<br/>1000 msgs / 12ms = 83K msg/sec<br/>2M msg/sec = 24 connections<br/>Low resource usage]
     end
 
-    subgraph "Batch Configuration Optimization"
+    subgraph Batch Configuration Optimization
         BatchConfig[Batch Configuration<br/>Producer-level settings<br/>Workload-optimized<br/>Performance vs latency tradeoff]
         BatchConfig --> BatchSize[batch.size = 100KB<br/>Accumulate up to 100KB<br/>Higher throughput<br/>Increased latency tolerance]
         BatchConfig --> LingerMs[linger.ms = 5<br/>Wait 5ms for more messages<br/>Better batching<br/>Slight latency increase]
         BatchConfig --> CompressionType[compression.type = lz4<br/>Fast compression<br/>70% size reduction<br/>CPU vs bandwidth tradeoff]
     end
 
-    subgraph "Memory Buffer Management"
+    subgraph Memory Buffer Management
         MemoryBuffer[Memory Buffer Pool<br/>Producer buffer management<br/>Batch accumulation<br/>Memory efficiency]
         MemoryBuffer --> BufferMemory[buffer.memory = 128MB<br/>Total producer memory<br/>Backpressure when full<br/>Flow control mechanism]
         MemoryBuffer --> RecordAccumulator[Record Accumulator<br/>Per-partition batching<br/>Memory pool allocation<br/>Efficient serialization]
@@ -109,26 +109,26 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Broker I/O - Before"
+    subgraph Broker I/O - Before
         SyncIO[Synchronous I/O<br/>Block on each write<br/>Sequential processing<br/>Low concurrent throughput]
         SyncIO --> IndividualWrite[Individual Writes<br/>Write each message<br/>fsync() per message<br/>High I/O wait time]
         SyncIO --> DiskBottleneck[Disk Bottleneck<br/>IOPS limited<br/>High seek times<br/>Poor utilization]
     end
 
-    subgraph "Broker I/O - After"
+    subgraph Broker I/O - After
         AsyncIO[Asynchronous I/O<br/>Batch writes<br/>Parallel processing<br/>High concurrent throughput]
         AsyncIO --> BatchWrite[Batch Writes<br/>Group multiple messages<br/>Single fsync() per batch<br/>Low I/O wait time]
         AsyncIO --> ZeroCopy[Zero-Copy Transfer<br/>sendfile() system call<br/>Kernel-to-socket direct<br/>No userspace copying]
     end
 
-    subgraph "Log Segment Optimization"
+    subgraph Log Segment Optimization
         LogOptimization[Log Segment Strategy<br/>Efficient disk layout<br/>Sequential write patterns<br/>Optimal segment sizing]
         LogOptimization --> SegmentSize[segment.bytes = 1GB<br/>Large segments<br/>Fewer file handles<br/>Better compression]
         LogOptimization --> SegmentRoll[segment.ms = 7 days<br/>Time-based rolling<br/>Predictable cleanup<br/>Storage optimization]
         LogOptimization --> IndexStrategy[Index Optimization<br/>Sparse indexing<br/>Memory-efficient<br/>Fast random access]
     end
 
-    subgraph "OS and Filesystem Tuning"
+    subgraph OS and Filesystem Tuning
         OSOptimization[Operating System Tuning<br/>Kernel-level optimizations<br/>I/O scheduler tuning<br/>Memory management]
         OSOptimization --> PageCacheOpt[Page Cache Optimization<br/>vm.dirty_ratio = 5<br/>vm.dirty_background_ratio = 2<br/>Controlled write-back]
         OSOptimization --> FileSystem[XFS Filesystem<br/>log.flush.interval.ms = 1000<br/>Delayed allocation<br/>Extent-based allocation]
@@ -155,28 +155,28 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Sequential Consumer Processing - Before"
+    subgraph Sequential Consumer Processing - Before
         SequentialConsumer[Sequential Processing<br/>Single-threaded consumer<br/>Process one message at a time<br/>Low throughput]
         SequentialConsumer --> FetchOne[Fetch Single Message<br/>min.fetch.bytes = 1<br/>max.fetch.wait.ms = 500<br/>High fetch frequency]
         SequentialConsumer --> ProcessOne[Process Message<br/>Business logic execution<br/>Database operations<br/>Blocking I/O operations]
         SequentialConsumer --> CommitOne[Commit Offset<br/>Auto-commit after each<br/>enable.auto.commit = true<br/>auto.commit.interval.ms = 5000]
     end
 
-    subgraph "Batch Consumer Processing - After"
+    subgraph Batch Consumer Processing - After
         BatchConsumer[Batch Processing<br/>Multi-threaded consumer<br/>Parallel message processing<br/>High throughput]
         BatchConsumer --> FetchBatch[Fetch Large Batches<br/>min.fetch.bytes = 100KB<br/>max.fetch.bytes = 50MB<br/>fetch.max.wait.ms = 10]
         BatchConsumer --> ProcessBatch[Process Batch<br/>Thread pool execution<br/>Async database operations<br/>Non-blocking I/O]
         BatchConsumer --> CommitBatch[Batch Offset Commit<br/>Manual commit control<br/>enable.auto.commit = false<br/>Commit after batch completion]
     end
 
-    subgraph "Consumer Group Scaling Strategy"
+    subgraph Consumer Group Scaling Strategy
         ConsumerScaling[Consumer Group Scaling<br/>Partition-based parallelism<br/>Dynamic consumer management<br/>Load balancing]
         ConsumerScaling --> PartitionAssignment[Partition Assignment<br/>partition.assignment.strategy<br/>RoundRobin / Range / Sticky<br/>Optimal load distribution]
         ConsumerScaling --> ConsumerInstances[Consumer Instances<br/>One consumer per partition<br/>Max parallelism = partitions<br/>Scale based on lag]
         ConsumerScaling --> Rebalancing[Consumer Rebalancing<br/>session.timeout.ms = 30000<br/>heartbeat.interval.ms = 3000<br/>max.poll.interval.ms = 300000]
     end
 
-    subgraph "Processing Pipeline Optimization"
+    subgraph Processing Pipeline Optimization
         ProcessingPipeline[Processing Pipeline<br/>Async processing pattern<br/>Backpressure handling<br/>Error recovery]
         ProcessingPipeline --> ThreadPool[Thread Pool Executor<br/>Fixed pool size: 20<br/>Queue capacity: 1000<br/>Rejection policy: CallerRuns]
         ProcessingPipeline --> AsyncProcessing[Async Processing<br/>CompletableFuture chains<br/>Non-blocking operations<br/>Parallel execution]
@@ -203,28 +203,28 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Network Protocol Optimization"
+    subgraph Network Protocol Optimization
         NetworkOpt[Network Optimization<br/>Protocol tuning<br/>Connection management<br/>Bandwidth efficiency]
         NetworkOpt --> TCPOptimization[TCP Optimization<br/>TCP window scaling<br/>TCP_NODELAY enabled<br/>Keep-alive settings]
         NetworkOpt --> ConnectionPooling[Connection Pooling<br/>connections.max.idle.ms = 540000<br/>Persistent connections<br/>Connection reuse]
         NetworkOpt --> RequestPipelining[Request Pipelining<br/>max.in.flight.requests = 5<br/>Parallel requests<br/>Higher throughput]
     end
 
-    subgraph "Compression Strategy"
+    subgraph Compression Strategy
         CompressionStrategy[Compression Strategy<br/>Algorithm selection<br/>CPU vs bandwidth tradeoff<br/>Compression ratio optimization]
         CompressionStrategy --> LZ4Compression[LZ4 Compression<br/>compression.type = lz4<br/>Fast compression/decompression<br/>70% size reduction]
         CompressionStrategy --> CompressionBatch[Batch-Level Compression<br/>Compress entire batches<br/>Better compression ratios<br/>Reduced CPU per message]
         CompressionStrategy --> AdaptiveCompression[Adaptive Compression<br/>Message size based<br/>Small messages: no compression<br/>Large messages: compression]
     end
 
-    subgraph "Message Serialization Optimization"
+    subgraph Message Serialization Optimization
         SerializationOpt[Serialization Optimization<br/>Efficient data formats<br/>Schema evolution<br/>Performance optimization]
         SerializationOpt --> AvroSerialization[Avro Serialization<br/>Schema registry integration<br/>Compact binary format<br/>Schema evolution support]
         SerializationOpt --> ProtobufSerialization[Protocol Buffers<br/>Faster than JSON<br/>Smaller payload size<br/>Strong typing]
         SerializationOpt --> SerializationPool[Serializer Pool<br/>Object reuse<br/>Reduced GC pressure<br/>Better performance]
     end
 
-    subgraph "Bandwidth Utilization"
+    subgraph Bandwidth Utilization
         BandwidthOpt[Bandwidth Optimization<br/>Network efficiency<br/>Cost optimization<br/>Performance improvement]
         BandwidthOpt --> BatchSizeOptimal[Optimal Batch Sizing<br/>batch.size = 100KB<br/>Network packet efficiency<br/>MTU optimization]
         BandwidthOpt --> CompressionRatio[Compression Effectiveness<br/>Original: 500MB/sec<br/>Compressed: 150MB/sec<br/>70% bandwidth savings]

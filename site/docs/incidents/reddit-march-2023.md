@@ -18,14 +18,14 @@
 
 ```mermaid
 graph TB
-    subgraph "Reddit Platform"
+    subgraph Reddit Platform
         POSTS[Post Submission<br/>Content Creation]
         COMMENTS[Comment System<br/>Discussion Threads]
         VOTING[Voting System<br/>Upvote/Downvote]
         SUBREDDITS[Subreddits<br/>Community Management]
     end
 
-    subgraph "Database Layer"
+    subgraph Database Layer
         MIGRATION[Database Migration<br/>Schema Update<br/>FAILED]
         POSTS_DB[(Posts Database<br/>Content Storage<br/>CORRUPTED)]
         USERS_DB[(Users Database<br/>Account Data)]

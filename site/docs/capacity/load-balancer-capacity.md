@@ -501,36 +501,36 @@ Cloudflare_Load_Balancer_Architecture:
 
 ```mermaid
 graph TB
-    subgraph "AWS ALB Architecture - 1M+ RPS"
-        subgraph EdgePlane["Edge Plane"]
+    subgraph AWS ALB Architecture - 1M+ RPS
+        subgraph EdgePlane[Edge Plane]
             CF[CloudFront CDN<br/>Edge Locations: 400+<br/>Cache Hit: 90%]
             R53[Route 53<br/>DNS Load Balancing<br/>Health Check: 30s]
         end
 
-        subgraph ServicePlane["Service Plane"]
+        subgraph ServicePlane[Service Plane]
             ALB1[ALB us-east-1<br/>c5n.18xlarge equivalent<br/>500K RPS capacity]
             ALB2[ALB us-west-2<br/>c5n.18xlarge equivalent<br/>300K RPS capacity]
             ALB3[ALB eu-west-1<br/>c5n.12xlarge equivalent<br/>200K RPS capacity]
         end
 
-        subgraph StatePlane["State Plane"]
-            subgraph "US East Targets"
+        subgraph StatePlane[State Plane]
+            subgraph US East Targets
                 TG1[Target Group 1<br/>50 instances<br/>c5.2xlarge]
                 TG2[Target Group 2<br/>30 instances<br/>c5.4xlarge]
             end
 
-            subgraph "US West Targets"
+            subgraph US West Targets
                 TG3[Target Group 3<br/>30 instances<br/>c5.2xlarge]
                 TG4[Target Group 4<br/>20 instances<br/>c5.4xlarge]
             end
 
-            subgraph "EU West Targets"
+            subgraph EU West Targets
                 TG5[Target Group 5<br/>20 instances<br/>c5.2xlarge]
                 TG6[Target Group 6<br/>15 instances<br/>c5.4xlarge]
             end
         end
 
-        subgraph ControlPlane["Control Plane"]
+        subgraph ControlPlane[Control Plane]
             CW[CloudWatch<br/>ALB Metrics<br/>5-minute granularity]
             AUTO[Auto Scaling<br/>Target tracking<br/>70% CPU threshold]
             WAF[AWS WAF<br/>DDoS protection<br/>Rate limiting]
@@ -1059,10 +1059,10 @@ def generate_load_balancer_alerts(config):
     alerts.extend([
         {
             'name': 'LoadBalancerHighLatency',
-            'condition': f'load_balancer_response_time_p95 > {config["latency_threshold_ms"]}',
+            'condition': f'load_balancer_response_time_p95 > {config[latency_threshold_ms]}',
             'severity': 'warning',
             'duration': '5m',
-            'description': f'LB latency >P95 {config["latency_threshold_ms"]}ms',
+            'description': f'LB latency >P95 {config[latency_threshold_ms]}ms',
             'runbook': 'Check backend health and capacity'
         },
         {
@@ -1075,10 +1075,10 @@ def generate_load_balancer_alerts(config):
         },
         {
             'name': 'LoadBalancerCapacityHigh',
-            'condition': f'load_balancer_rps / load_balancer_capacity > {config["capacity_threshold"]}',
+            'condition': f'load_balancer_rps / load_balancer_capacity > {config[capacity_threshold]}',
             'severity': 'warning',
             'duration': '10m',
-            'description': f'LB capacity >{config["capacity_threshold"]*100}%',
+            'description': f'LB capacity >{config[capacity_threshold]*100}%',
             'runbook': 'Scale up load balancer capacity'
         }
     ])

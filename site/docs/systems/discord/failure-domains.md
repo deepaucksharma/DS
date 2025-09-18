@@ -6,115 +6,115 @@ This diagram shows Discord's failure domain boundaries and blast radius containm
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        subgraph GlobalEdgeDomain["Global Edge Domain"]
-            CloudFlare_US["Cloudflare US<br/>━━━━━<br/>100+ PoPs<br/>45% traffic<br/>WebSocket termination<br/>Blast radius: US users"]
+        subgraph GlobalEdgeDomain[Global Edge Domain]
+            CloudFlare_US[Cloudflare US<br/>━━━━━<br/>100+ PoPs<br/>45% traffic<br/>WebSocket termination<br/>Blast radius: US users]
 
-            CloudFlare_EU["Cloudflare EU<br/>━━━━━<br/>50+ PoPs<br/>30% traffic<br/>GDPR compliance<br/>Blast radius: EU users"]
+            CloudFlare_EU[Cloudflare EU<br/>━━━━━<br/>50+ PoPs<br/>30% traffic<br/>GDPR compliance<br/>Blast radius: EU users]
 
-            CloudFlare_APAC["Cloudflare APAC<br/>━━━━━<br/>30+ PoPs<br/>20% traffic<br/>High latency region<br/>Blast radius: APAC users"]
+            CloudFlare_APAC[Cloudflare APAC<br/>━━━━━<br/>30+ PoPs<br/>20% traffic<br/>High latency region<br/>Blast radius: APAC users]
         end
 
-        subgraph VoiceEdgeDomain["Voice Edge Domain"]
-            VoiceEdge_US["Voice Edge US<br/>━━━━━<br/>500+ RTC nodes<br/>WebRTC termination<br/>P2P coordination<br/>Blast radius: US voice calls"]
+        subgraph VoiceEdgeDomain[Voice Edge Domain]
+            VoiceEdge_US[Voice Edge US<br/>━━━━━<br/>500+ RTC nodes<br/>WebRTC termination<br/>P2P coordination<br/>Blast radius: US voice calls]
 
-            VoiceEdge_EU["Voice Edge EU<br/>━━━━━<br/>200+ RTC nodes<br/>Regional routing<br/>Data residency<br/>Blast radius: EU voice calls"]
+            VoiceEdge_EU[Voice Edge EU<br/>━━━━━<br/>200+ RTC nodes<br/>Regional routing<br/>Data residency<br/>Blast radius: EU voice calls]
 
-            VoiceEdge_Global["Voice Edge Global<br/>━━━━━<br/>300+ RTC nodes<br/>Backup routing<br/>Failover capability<br/>Blast radius: Global voice backup"]
+            VoiceEdge_Global[Voice Edge Global<br/>━━━━━<br/>300+ RTC nodes<br/>Backup routing<br/>Failover capability<br/>Blast radius: Global voice backup]
         end
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        subgraph GatewayDomain["Gateway Domain - Connection Boundary"]
-            Gateway_Primary["Gateway Primary<br/>━━━━━<br/>100M+ connections<br/>us-east-1 cluster<br/>Elixir/Phoenix<br/>Blast radius: 50% users"]
+        subgraph GatewayDomain[Gateway Domain - Connection Boundary]
+            Gateway_Primary[Gateway Primary<br/>━━━━━<br/>100M+ connections<br/>us-east-1 cluster<br/>Elixir/Phoenix<br/>Blast radius: 50% users]
 
-            Gateway_Secondary["Gateway Secondary<br/>━━━━━<br/>75M+ connections<br/>us-west-2 cluster<br/>Failover ready<br/>Blast radius: 37.5% users"]
+            Gateway_Secondary[Gateway Secondary<br/>━━━━━<br/>75M+ connections<br/>us-west-2 cluster<br/>Failover ready<br/>Blast radius: 37.5% users]
 
-            Gateway_EU["Gateway EU<br/>━━━━━<br/>25M+ connections<br/>eu-west-1 cluster<br/>Regional isolation<br/>Blast radius: 12.5% users"]
+            Gateway_EU[Gateway EU<br/>━━━━━<br/>25M+ connections<br/>eu-west-1 cluster<br/>Regional isolation<br/>Blast radius: 12.5% users]
         end
 
-        subgraph MessageDomain["Message Processing Domain"]
-            MessageRouter_Primary["Message Router 1<br/>━━━━━<br/>Rust implementation<br/>Shards 0-999<br/>7B+ messages/day<br/>Blast radius: Small guilds"]
+        subgraph MessageDomain[Message Processing Domain]
+            MessageRouter_Primary[Message Router 1<br/>━━━━━<br/>Rust implementation<br/>Shards 0-999<br/>7B+ messages/day<br/>Blast radius: Small guilds]
 
-            MessageRouter_Large["Message Router 2<br/>━━━━━<br/>Large guild handler<br/>Shards 1000-1999<br/>7B+ messages/day<br/>Blast radius: Large guilds"]
+            MessageRouter_Large[Message Router 2<br/>━━━━━<br/>Large guild handler<br/>Shards 1000-1999<br/>7B+ messages/day<br/>Blast radius: Large guilds]
 
-            MessageRouter_Backup["Message Router Backup<br/>━━━━━<br/>Emergency failover<br/>All shards capable<br/>Reduced capacity<br/>Blast radius: Degraded performance"]
+            MessageRouter_Backup[Message Router Backup<br/>━━━━━<br/>Emergency failover<br/>All shards capable<br/>Reduced capacity<br/>Blast radius: Degraded performance]
         end
 
-        subgraph VoiceDomain["Voice Service Domain"]
-            VoiceService_US["Voice Service US<br/>━━━━━<br/>2M+ concurrent<br/>Channel coordination<br/>Media routing<br/>Blast radius: US voice channels"]
+        subgraph VoiceDomain[Voice Service Domain]
+            VoiceService_US[Voice Service US<br/>━━━━━<br/>2M+ concurrent<br/>Channel coordination<br/>Media routing<br/>Blast radius: US voice channels]
 
-            VoiceService_EU["Voice Service EU<br/>━━━━━<br/>1M+ concurrent<br/>GDPR compliance<br/>Regional processing<br/>Blast radius: EU voice channels"]
+            VoiceService_EU[Voice Service EU<br/>━━━━━<br/>1M+ concurrent<br/>GDPR compliance<br/>Regional processing<br/>Blast radius: EU voice channels]
 
-            VoiceService_Backup["Voice Backup<br/>━━━━━<br/>1M+ concurrent<br/>Cross-region failover<br/>Degraded quality<br/>Blast radius: Quality impact"]
+            VoiceService_Backup[Voice Backup<br/>━━━━━<br/>1M+ concurrent<br/>Cross-region failover<br/>Degraded quality<br/>Blast radius: Quality impact]
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        subgraph DatabaseDomain["Database Domain - Consistency Boundary"]
-            ScyllaDB_Primary["ScyllaDB Primary<br/>━━━━━<br/>us-east-1 cluster<br/>400 nodes<br/>6T+ messages<br/>Blast radius: Message persistence"]
+        subgraph DatabaseDomain[Database Domain - Consistency Boundary]
+            ScyllaDB_Primary[ScyllaDB Primary<br/>━━━━━<br/>us-east-1 cluster<br/>400 nodes<br/>6T+ messages<br/>Blast radius: Message persistence]
 
-            ScyllaDB_Secondary["ScyllaDB Secondary<br/>━━━━━<br/>us-west-2 cluster<br/>250 nodes<br/>Read replicas<br/>Blast radius: Read degradation"]
+            ScyllaDB_Secondary[ScyllaDB Secondary<br/>━━━━━<br/>us-west-2 cluster<br/>250 nodes<br/>Read replicas<br/>Blast radius: Read degradation]
 
-            ScyllaDB_EU["ScyllaDB EU<br/>━━━━━<br/>eu-west-1 cluster<br/>150 nodes<br/>GDPR compliance<br/>Blast radius: EU data access"]
+            ScyllaDB_EU[ScyllaDB EU<br/>━━━━━<br/>eu-west-1 cluster<br/>150 nodes<br/>GDPR compliance<br/>Blast radius: EU data access]
         end
 
-        subgraph CacheDomain["Cache Domain - Performance Buffer"]
-            Redis_Sessions["Redis Sessions<br/>━━━━━<br/>User session cache<br/>200M+ sessions<br/>15-min TTL<br/>Blast radius: Re-authentication"]
+        subgraph CacheDomain[Cache Domain - Performance Buffer]
+            Redis_Sessions[Redis Sessions<br/>━━━━━<br/>User session cache<br/>200M+ sessions<br/>15-min TTL<br/>Blast radius: Re-authentication]
 
-            Redis_Messages["Redis Messages<br/>━━━━━<br/>Hot message cache<br/>Recent messages<br/>1-hour TTL<br/>Blast radius: Cache miss latency"]
+            Redis_Messages[Redis Messages<br/>━━━━━<br/>Hot message cache<br/>Recent messages<br/>1-hour TTL<br/>Blast radius: Cache miss latency]
 
-            Memcached_Guilds["Memcached Guilds<br/>━━━━━<br/>Guild metadata<br/>Permission cache<br/>30-min TTL<br/>Blast radius: Permission lookup delay"]
+            Memcached_Guilds[Memcached Guilds<br/>━━━━━<br/>Guild metadata<br/>Permission cache<br/>30-min TTL<br/>Blast radius: Permission lookup delay]
         end
 
-        subgraph SearchDomain["Search Domain - Isolated"]
-            Elasticsearch_Primary["Elasticsearch Primary<br/>━━━━━<br/>Message search<br/>100TB indexed<br/>7-day retention<br/>Blast radius: Search unavailable"]
+        subgraph SearchDomain[Search Domain - Isolated]
+            Elasticsearch_Primary[Elasticsearch Primary<br/>━━━━━<br/>Message search<br/>100TB indexed<br/>7-day retention<br/>Blast radius: Search unavailable]
 
-            Elasticsearch_Backup["Elasticsearch Backup<br/>━━━━━<br/>Cross-region replica<br/>Read-only access<br/>4-hour lag<br/>Blast radius: Stale search results"]
+            Elasticsearch_Backup[Elasticsearch Backup<br/>━━━━━<br/>Cross-region replica<br/>Read-only access<br/>4-hour lag<br/>Blast radius: Stale search results]
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        subgraph MonitoringDomain["Monitoring Domain"]
-            Monitoring_Primary["Datadog Primary<br/>━━━━━<br/>Real-time monitoring<br/>1M+ metrics/min<br/>Alert routing<br/>Blast radius: Observability blind spot"]
+        subgraph MonitoringDomain[Monitoring Domain]
+            Monitoring_Primary[Datadog Primary<br/>━━━━━<br/>Real-time monitoring<br/>1M+ metrics/min<br/>Alert routing<br/>Blast radius: Observability blind spot]
 
-            Monitoring_Backup["Monitoring Backup<br/>━━━━━<br/>Prometheus fallback<br/>Basic metrics<br/>Limited dashboards<br/>Blast radius: Reduced visibility"]
+            Monitoring_Backup[Monitoring Backup<br/>━━━━━<br/>Prometheus fallback<br/>Basic metrics<br/>Limited dashboards<br/>Blast radius: Reduced visibility]
         end
 
-        subgraph ConfigDomain["Configuration Domain"]
-            ConfigService["Config Service<br/>━━━━━<br/>Feature flags<br/>Runtime config<br/>A/B test control<br/>Blast radius: Feature rollbacks"]
+        subgraph ConfigDomain[Configuration Domain]
+            ConfigService[Config Service<br/>━━━━━<br/>Feature flags<br/>Runtime config<br/>A/B test control<br/>Blast radius: Feature rollbacks]
 
-            EmergencyConfig["Emergency Config<br/>━━━━━<br/>Circuit breaker<br/>Kill switches<br/>Rate limiters<br/>Blast radius: Service isolation"]
+            EmergencyConfig[Emergency Config<br/>━━━━━<br/>Circuit breaker<br/>Kill switches<br/>Rate limiters<br/>Blast radius: Service isolation]
         end
 
-        subgraph DeploymentDomain["Deployment Domain"]
-            K8s_Primary["Kubernetes Primary<br/>━━━━━<br/>us-east-1 control plane<br/>50k+ pods<br/>Auto-scaling<br/>Blast radius: Primary region"]
+        subgraph DeploymentDomain[Deployment Domain]
+            K8s_Primary[Kubernetes Primary<br/>━━━━━<br/>us-east-1 control plane<br/>50k+ pods<br/>Auto-scaling<br/>Blast radius: Primary region]
 
-            K8s_Secondary["Kubernetes Secondary<br/>━━━━━<br/>us-west-2 control plane<br/>30k+ pods<br/>Failover ready<br/>Blast radius: Secondary region"]
+            K8s_Secondary[Kubernetes Secondary<br/>━━━━━<br/>us-west-2 control plane<br/>30k+ pods<br/>Failover ready<br/>Blast radius: Secondary region]
         end
     end
 
-    subgraph ExternalDependencies["External Dependencies - Third-Party Risk"]
+    subgraph ExternalDependencies[External Dependencies - Third-Party Risk]
         style ExternalDependencies fill:#f9f9f9,stroke:#999,color:#333
 
-        subgraph CDNDomain["CDN Provider Domain"]
-            CloudFlare_Global["Cloudflare Global<br/>━━━━━<br/>Primary CDN<br/>200+ PoPs<br/>99.9% availability<br/>Blast radius: Global edge outage"]
+        subgraph CDNDomain[CDN Provider Domain]
+            CloudFlare_Global[Cloudflare Global<br/>━━━━━<br/>Primary CDN<br/>200+ PoPs<br/>99.9% availability<br/>Blast radius: Global edge outage]
 
-            GCP_CDN["Google Cloud CDN<br/>━━━━━<br/>Backup CDN<br/>Media delivery<br/>Storage integration<br/>Blast radius: Media delivery"]
+            GCP_CDN[Google Cloud CDN<br/>━━━━━<br/>Backup CDN<br/>Media delivery<br/>Storage integration<br/>Blast radius: Media delivery]
         end
 
-        subgraph CloudProviderDomain["Cloud Provider Domain"]
-            GCP_Primary["Google Cloud Primary<br/>━━━━━<br/>us-central1 region<br/>Core infrastructure<br/>99.95% SLA<br/>Blast radius: Primary cloud region"]
+        subgraph CloudProviderDomain[Cloud Provider Domain]
+            GCP_Primary[Google Cloud Primary<br/>━━━━━<br/>us-central1 region<br/>Core infrastructure<br/>99.95% SLA<br/>Blast radius: Primary cloud region]
 
-            AWS_Secondary["AWS Secondary<br/>━━━━━<br/>us-east-1 region<br/>Backup infrastructure<br/>Multi-cloud strategy<br/>Blast radius: Secondary cloud"]
+            AWS_Secondary[AWS Secondary<br/>━━━━━<br/>us-east-1 region<br/>Backup infrastructure<br/>Multi-cloud strategy<br/>Blast radius: Secondary cloud]
         end
     end
 
@@ -442,26 +442,26 @@ async def comprehensive_health_check():
     # Database connectivity
     try:
         await scylla_client.execute("SELECT now() FROM system.local")
-        health_status["components"]["database"] = "healthy"
+        health_status[components]["database"] = "healthy"
     except Exception as e:
-        health_status["components"]["database"] = f"unhealthy: {e}"
-        health_status["overall"] = "degraded"
+        health_status[components]["database"] = f"unhealthy: {e}"
+        health_status[overall] = "degraded"
 
     # Cache connectivity
     try:
         await redis_client.ping()
-        health_status["components"]["cache"] = "healthy"
+        health_status[components]["cache"] = "healthy"
     except Exception as e:
-        health_status["components"]["cache"] = f"unhealthy: {e}"
-        health_status["overall"] = "degraded"
+        health_status[components]["cache"] = f"unhealthy: {e}"
+        health_status[overall] = "degraded"
 
     # External service dependencies
     try:
         response = await httpx.get("https://api.discord.com/health", timeout=5.0)
-        health_status["components"]["external"] = "healthy"
+        health_status[components]["external"] = "healthy"
     except Exception as e:
-        health_status["components"]["external"] = f"unhealthy: {e}"
-        health_status["overall"] = "degraded"
+        health_status[components]["external"] = f"unhealthy: {e}"
+        health_status[overall] = "degraded"
 
     return health_status
 ```

@@ -530,31 +530,31 @@ Twitter_Redis_Architecture:
 
 ```mermaid
 graph TB
-    subgraph "Instagram Redis Architecture"
-        subgraph EdgePlane["Edge Plane"]
+    subgraph Instagram Redis Architecture
+        subgraph EdgePlane[Edge Plane]
             CDN[CDN Cache<br/>Static assets only]
             LB[Load Balancer<br/>HAProxy: 2M conn/sec]
         end
 
-        subgraph ServicePlane["Service Plane"]
+        subgraph ServicePlane[Service Plane]
             API[Instagram API<br/>Python/Django: 100K QPS]
             AUTH[Auth Service<br/>Session validation]
         end
 
-        subgraph StatePlane["State Plane"]
-            subgraph "Session Cluster (Primary)"
+        subgraph StatePlane[State Plane]
+            subgraph Session Cluster (Primary)
                 REDIS1[Redis Node 1<br/>r6g.4xlarge<br/>128GB memory]
                 REDIS2[Redis Node 2<br/>r6g.4xlarge<br/>128GB memory]
                 REDIS3[Redis Node 3<br/>r6g.4xlarge<br/>128GB memory]
                 REDIS4[Redis Node 4<br/>r6g.4xlarge<br/>128GB memory]
             end
 
-            subgraph "Profile Cache"
+            subgraph Profile Cache
                 PROFILE1[Profile Cache 1<br/>r6g.2xlarge<br/>64GB memory]
                 PROFILE2[Profile Cache 2<br/>r6g.2xlarge<br/>64GB memory]
             end
 
-            subgraph "Feed Cache"
+            subgraph Feed Cache
                 FEED1[Feed Cache 1<br/>r6g.8xlarge<br/>256GB memory]
                 FEED2[Feed Cache 2<br/>r6g.8xlarge<br/>256GB memory]
             end
@@ -562,7 +562,7 @@ graph TB
             DB[(Primary Database<br/>MySQL shards)]
         end
 
-        subgraph ControlPlane["Control Plane"]
+        subgraph ControlPlane[Control Plane]
             MON[Redis Monitoring<br/>Prometheus + Grafana]
             ALERT[Alerting<br/>PagerDuty integration]
             BACKUP[Backup Service<br/>RDB snapshots]

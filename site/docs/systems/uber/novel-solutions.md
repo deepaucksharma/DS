@@ -6,44 +6,44 @@ This diagram showcases Uber's unique engineering innovations that solved problem
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        GeoHashing["H3 Hexagonal Indexing<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Uber's spatial index system<br/>Replaced lat/lng with hierarchical hex<br/>15 resolution levels<br/>Patent: US10,083,607"]
+        GeoHashing[H3 Hexagonal Indexing<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Uber's spatial index system<br/>Replaced lat/lng with hierarchical hex<br/>15 resolution levels<br/>Patent: US10,083,607]
 
-        EdgeOptimization["Edge Optimization<br/>━━━━━<br/>Regional request routing<br/>Geo-aware load balancing<br/>Based on H3 regions<br/>Sub-10ms routing decisions"]
+        EdgeOptimization[Edge Optimization<br/>━━━━━<br/>Regional request routing<br/>Geo-aware load balancing<br/>Based on H3 regions<br/>Sub-10ms routing decisions]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        Ringpop["Ringpop<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Gossip-based service discovery<br/>Consistent hash ring<br/>Self-healing membership<br/>Node.js + Go libraries<br/>Open sourced 2015"]
+        Ringpop[Ringpop<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Gossip-based service discovery<br/>Consistent hash ring<br/>Self-healing membership<br/>Node.js + Go libraries<br/>Open sourced 2015]
 
-        Cadence["Cadence Workflow Engine<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Distributed workflow orchestration<br/>Fault-tolerant state machines<br/>100K+ workflows/minute<br/>Event sourcing architecture<br/>Open sourced 2017"]
+        Cadence[Cadence Workflow Engine<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Distributed workflow orchestration<br/>Fault-tolerant state machines<br/>100K+ workflows/minute<br/>Event sourcing architecture<br/>Open sourced 2017]
 
-        DISCO["DISCO Matching Engine<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Supply-demand optimization<br/>H3-based spatial clustering<br/>Real-time ML inference<br/>Multi-objective optimization"]
+        DISCO[DISCO Matching Engine<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Supply-demand optimization<br/>H3-based spatial clustering<br/>Real-time ML inference<br/>Multi-objective optimization]
 
-        Michelangelo["Michelangelo ML Platform<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>End-to-end ML lifecycle<br/>Feature store + model serving<br/>AutoML capabilities<br/>A/B testing integration"]
+        Michelangelo[Michelangelo ML Platform<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>End-to-end ML lifecycle<br/>Feature store + model serving<br/>AutoML capabilities<br/>A/B testing integration]
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        Schemaless["Schemaless<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>MySQL abstraction layer<br/>Automatic sharding<br/>Multi-region replication<br/>Transparent scaling<br/>Handles 10K+ shards"]
+        Schemaless[Schemaless<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>MySQL abstraction layer<br/>Automatic sharding<br/>Multi-region replication<br/>Transparent scaling<br/>Handles 10K+ shards]
 
-        DocStore["DocStore<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Document database<br/>MongoDB-compatible API<br/>Automatic sharding<br/>ACID transactions<br/>Built for rapid iteration"]
+        DocStore[DocStore<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Document database<br/>MongoDB-compatible API<br/>Automatic sharding<br/>ACID transactions<br/>Built for rapid iteration]
 
-        AresDB["AresDB<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>GPU-powered analytics<br/>Real-time OLAP<br/>Columnar storage<br/>CUDA acceleration<br/>Open sourced 2019"]
+        AresDB[AresDB<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>GPU-powered analytics<br/>Real-time OLAP<br/>Columnar storage<br/>CUDA acceleration<br/>Open sourced 2019]
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        M3["M3 Metrics Platform<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Distributed time series DB<br/>High cardinality support<br/>10M+ metrics/second<br/>Query federation<br/>Open sourced 2018"]
+        M3[M3 Metrics Platform<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Distributed time series DB<br/>High cardinality support<br/>10M+ metrics/second<br/>Query federation<br/>Open sourced 2018]
 
-        Peloton["Peloton<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Unified resource scheduler<br/>Replaces Apache Mesos<br/>Job placement optimization<br/>Multi-tenant isolation<br/>Batch + service workloads"]
+        Peloton[Peloton<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Unified resource scheduler<br/>Replaces Apache Mesos<br/>Job placement optimization<br/>Multi-tenant isolation<br/>Batch + service workloads]
 
-        TChannel["TChannel<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>High-performance RPC<br/>Connection multiplexing<br/>Request routing<br/>Hyperbahn service mesh<br/>Languages: Go, Java, Python"]
+        TChannel[TChannel<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>High-performance RPC<br/>Connection multiplexing<br/>Request routing<br/>Hyperbahn service mesh<br/>Languages: Go, Java, Python]
     end
 
     %% Innovation Flow Connections

@@ -6,64 +6,64 @@ This diagram maps the blast radius of each component failure, cascading failure 
 
 ```mermaid
 graph TB
-    subgraph BlastRadius1["Blast Radius: Edge Failure"]
+    subgraph BlastRadius1[Blast Radius: Edge Failure]
         style BlastRadius1 fill:#FFE6E6,stroke:#8B5CF6,color:#000
 
-        OCAFail["Open Connect Failure<br/>━━━━━<br/>Blast Radius: 5-15% users<br/>Geography: Regional<br/>Cascade Probability: 15%<br/>MTTR: 10 minutes"]
+        OCAFail[Open Connect Failure<br/>━━━━━<br/>Blast Radius: 5-15% users<br/>Geography: Regional<br/>Cascade Probability: 15%<br/>MTTR: 10 minutes]
 
-        CloudFlareFail["CloudFlare DDoS<br/>━━━━━<br/>Blast Radius: 2-8% users<br/>Duration: 5-30 minutes<br/>Last Incident: July 2024<br/>Auto-mitigation: 2 minutes"]
+        CloudFlareFail[CloudFlare DDoS<br/>━━━━━<br/>Blast Radius: 2-8% users<br/>Duration: 5-30 minutes<br/>Last Incident: July 2024<br/>Auto-mitigation: 2 minutes]
 
-        ZuulFail["Zuul Gateway Overload<br/>━━━━━<br/>Blast Radius: 25-40% requests<br/>Cascade to: Service plane<br/>Circuit Breaker: 5s timeout<br/>Last: March 2024"]
+        ZuulFail[Zuul Gateway Overload<br/>━━━━━<br/>Blast Radius: 25-40% requests<br/>Cascade to: Service plane<br/>Circuit Breaker: 5s timeout<br/>Last: March 2024]
     end
 
-    subgraph BlastRadius2["Blast Radius: Service Plane"]
+    subgraph BlastRadius2[Blast Radius: Service Plane]
         style BlastRadius2 fill:#FFECB3,stroke:#F59E0B,color:#000
 
-        PlayAPIFail["Playback API Failure<br/>━━━━━<br/>Blast Radius: ALL video requests<br/>Cascade: Recommendation degradation<br/>Circuit Breaker: Hystrix<br/>Timeout: 3 seconds"]
+        PlayAPIFail[Playback API Failure<br/>━━━━━<br/>Blast Radius: ALL video requests<br/>Cascade: Recommendation degradation<br/>Circuit Breaker: Hystrix<br/>Timeout: 3 seconds]
 
-        RecommendationFail["ML Recommendation Down<br/>━━━━━<br/>Blast Radius: Browse experience<br/>Fallback: Popular content<br/>Degraded Experience: 30%<br/>User Impact: Low"]
+        RecommendationFail[ML Recommendation Down<br/>━━━━━<br/>Blast Radius: Browse experience<br/>Fallback: Popular content<br/>Degraded Experience: 30%<br/>User Impact: Low]
 
-        SearchFail["Search Service Failure<br/>━━━━━<br/>Blast Radius: Content discovery<br/>Fallback: Cached results<br/>Stale Data: < 1 hour<br/>MTTR: 15 minutes"]
+        SearchFail[Search Service Failure<br/>━━━━━<br/>Blast Radius: Content discovery<br/>Fallback: Cached results<br/>Stale Data: < 1 hour<br/>MTTR: 15 minutes]
     end
 
-    subgraph BlastRadius3["Blast Radius: Data Plane"]
+    subgraph BlastRadius3[Blast Radius: Data Plane]
         style BlastRadius3 fill:#E8F5E8,stroke:#10B981,color:#000
 
-        CassandraFail["Cassandra Cluster Failure<br/>━━━━━<br/>Blast Radius: User profiles<br/>RF=3 Protection<br/>Node Failure: 0% impact<br/>AZ Failure: 5% degradation"]
+        CassandraFail[Cassandra Cluster Failure<br/>━━━━━<br/>Blast Radius: User profiles<br/>RF=3 Protection<br/>Node Failure: 0% impact<br/>AZ Failure: 5% degradation]
 
-        EVCacheFail["EVCache Cluster Down<br/>━━━━━<br/>Blast Radius: +50ms latency<br/>Fallback: Direct DB reads<br/>Performance Degradation<br/>Auto-recovery: 2 minutes"]
+        EVCacheFail[EVCache Cluster Down<br/>━━━━━<br/>Blast Radius: +50ms latency<br/>Fallback: Direct DB reads<br/>Performance Degradation<br/>Auto-recovery: 2 minutes]
 
-        DynamoDBFail["DynamoDB Throttling<br/>━━━━━<br/>Blast Radius: Real-time features<br/>Auto-scaling lag: 2 minutes<br/>Queue backlog tolerance<br/>Data loss: Zero"]
+        DynamoDBFail[DynamoDB Throttling<br/>━━━━━<br/>Blast Radius: Real-time features<br/>Auto-scaling lag: 2 minutes<br/>Queue backlog tolerance<br/>Data loss: Zero]
     end
 
-    subgraph BlastRadius4["Blast Radius: Control Plane"]
+    subgraph BlastRadius4[Blast Radius: Control Plane]
         style BlastRadius4 fill:#E3F2FD,stroke:#3B82F6,color:#000
 
-        SpinnakerFail["Spinnaker Deployment Halt<br/>━━━━━<br/>Blast Radius: New deployments<br/>Rollback capability intact<br/>Production: Stable<br/>Development: Blocked"]
+        SpinnakerFail[Spinnaker Deployment Halt<br/>━━━━━<br/>Blast Radius: New deployments<br/>Rollback capability intact<br/>Production: Stable<br/>Development: Blocked]
 
-        AtlasFail["Atlas Monitoring Down<br/>━━━━━<br/>Blast Radius: Observability<br/>Blind deployment risk<br/>Backup: CloudWatch<br/>Manual procedures: 4 hours"]
+        AtlasFail[Atlas Monitoring Down<br/>━━━━━<br/>Blast Radius: Observability<br/>Blind deployment risk<br/>Backup: CloudWatch<br/>Manual procedures: 4 hours]
 
-        ChaosFail["Chaos Engineering Bug<br/>━━━━━<br/>Blast Radius: Accidental outage<br/>Kill Switch: 30 seconds<br/>Actual Incident: Feb 2024<br/>Impact: 12 minutes"]
+        ChaosFail[Chaos Engineering Bug<br/>━━━━━<br/>Blast Radius: Accidental outage<br/>Kill Switch: 30 seconds<br/>Actual Incident: Feb 2024<br/>Impact: 12 minutes]
     end
 
-    subgraph CircuitBreakers["Circuit Breaker Locations"]
+    subgraph CircuitBreakers[Circuit Breaker Locations]
         style CircuitBreakers fill:#F3E5F5,stroke:#9C27B0,color:#000
 
-        HystrixPlay["Hystrix - Playback API<br/>━━━━━<br/>Failure Threshold: 50%<br/>Window: 10 seconds<br/>Sleep Window: 5 seconds<br/>Timeout: 3 seconds"]
+        HystrixPlay[Hystrix - Playback API<br/>━━━━━<br/>Failure Threshold: 50%<br/>Window: 10 seconds<br/>Sleep Window: 5 seconds<br/>Timeout: 3 seconds]
 
-        ResilientRecs["Resilience4j - Recommendations<br/>━━━━━<br/>Failure Threshold: 60%<br/>Ring Buffer: 100 calls<br/>Wait Duration: 30 seconds<br/>Slow Call Threshold: 2s"]
+        ResilientRecs[Resilience4j - Recommendations<br/>━━━━━<br/>Failure Threshold: 60%<br/>Ring Buffer: 100 calls<br/>Wait Duration: 30 seconds<br/>Slow Call Threshold: 2s]
 
-        ZuulBreaker["Zuul Circuit Breaker<br/>━━━━━<br/>Per-route configuration<br/>Error Threshold: 5 per 10s<br/>Trip Duration: 30 seconds<br/>Half-Open: 3 test requests"]
+        ZuulBreaker[Zuul Circuit Breaker<br/>━━━━━<br/>Per-route configuration<br/>Error Threshold: 5 per 10s<br/>Trip Duration: 30 seconds<br/>Half-Open: 3 test requests]
     end
 
-    subgraph IsolationBoundaries["Isolation Boundaries"]
+    subgraph IsolationBoundaries[Isolation Boundaries]
         style IsolationBoundaries fill:#E8EAF6,stroke:#3F51B5,color:#000
 
-        RegionIsolation["Regional Isolation<br/>━━━━━<br/>6 AWS Regions<br/>Traffic: 50% US, 30% EU, 20% Asia<br/>Failover: DNS + 30 seconds<br/>Data: Multi-region tables"]
+        RegionIsolation[Regional Isolation<br/>━━━━━<br/>6 AWS Regions<br/>Traffic: 50% US, 30% EU, 20% Asia<br/>Failover: DNS + 30 seconds<br/>Data: Multi-region tables]
 
-        AZIsolation["Availability Zone Isolation<br/>━━━━━<br/>3 AZs per region minimum<br/>Load balancer health checks<br/>Auto-scaling groups<br/>EBS snapshots per AZ"]
+        AZIsolation[Availability Zone Isolation<br/>━━━━━<br/>3 AZs per region minimum<br/>Load balancer health checks<br/>Auto-scaling groups<br/>EBS snapshots per AZ]
 
-        ServiceIsolation["Service Isolation<br/>━━━━━<br/>Microservice boundaries<br/>Independent deployments<br/>Bulkhead pattern<br/>Thread pool isolation"]
+        ServiceIsolation[Service Isolation<br/>━━━━━<br/>Microservice boundaries<br/>Independent deployments<br/>Bulkhead pattern<br/>Thread pool isolation]
     end
 
     %% Cascading Failure Paths

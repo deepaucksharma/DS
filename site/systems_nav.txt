@@ -1,0 +1,131 @@
+Systems Architecture:
+    - Netflix:
+      - Complete Architecture: systems/netflix/architecture.md
+      - Request Flow: systems/netflix/request-flow.md
+      - Storage Architecture: systems/netflix/storage-architecture.md
+      - Failure Domains: systems/netflix/failure-domains.md
+      - Scale Evolution: systems/netflix/scale-evolution.md
+      - Cost Breakdown: systems/netflix/cost-breakdown.md
+      - Novel Solutions: systems/netflix/novel-solutions.md
+      - Production Operations: systems/netflix/production-operations.md
+    - Uber:
+      - Complete Architecture: systems/uber/architecture.md
+      - Request Flow: systems/uber/request-flow.md
+      - Storage Architecture: systems/uber/storage-architecture.md
+      - Failure Domains: systems/uber/failure-domains.md
+      - Scale Evolution: systems/uber/scale-evolution.md
+      - Cost Breakdown: systems/uber/cost-breakdown.md
+      - Novel Solutions: systems/uber/novel-solutions.md
+      - Production Operations: systems/uber/production-operations.md
+    - Amazon:
+      - Complete Architecture: systems/amazon/architecture.md
+      - Request Flow: systems/amazon/request-flow.md
+      - Storage Architecture: systems/amazon/storage-architecture.md
+      - Failure Domains: systems/amazon/failure-domains.md
+      - Scale Evolution: systems/amazon/scale-evolution.md
+      - Cost Breakdown: systems/amazon/cost-breakdown.md
+      - Novel Solutions: systems/amazon/novel-solutions.md
+      - Production Operations: systems/amazon/production-operations.md
+    - Google:
+      - Complete Architecture: systems/google/architecture.md
+      - Request Flow: systems/google/request-flow.md
+      - Storage Architecture: systems/google/storage-architecture.md
+      - Failure Domains: systems/google/failure-domains.md
+      - Scale Evolution: systems/google/scale-evolution.md
+      - Cost Breakdown: systems/google/cost-breakdown.md
+      - Novel Solutions: systems/google/novel-solutions.md
+      - Production Operations: systems/google/production-operations.md
+    - Meta:
+      - Complete Architecture: systems/meta/architecture.md
+      - Request Flow: systems/meta/request-flow.md
+      - Storage Architecture: systems/meta/storage-architecture.md
+      - Failure Domains: systems/meta/failure-domains.md
+      - Scale Evolution: systems/meta/scale-evolution.md
+      - Cost Breakdown: systems/meta/cost-breakdown.md
+      - Novel Solutions: systems/meta/novel-solutions.md
+      - Production Operations: systems/meta/production-operations.md
+    - LinkedIn:
+      - Complete Architecture: systems/linkedin/architecture.md
+      - Request Flow: systems/linkedin/request-flow.md
+      - Storage Architecture: systems/linkedin/storage-architecture.md
+      - Failure Domains: systems/linkedin/failure-domains.md
+      - Scale Evolution: systems/linkedin/scale-evolution.md
+      - Cost Breakdown: systems/linkedin/cost-breakdown.md
+      - Novel Solutions: systems/linkedin/novel-solutions.md
+      - Production Operations: systems/linkedin/production-operations.md
+    - Stripe:
+      - Complete Architecture: systems/stripe/architecture.md
+      - Request Flow: systems/stripe/request-flow.md
+      - Storage Architecture: systems/stripe/storage-architecture.md
+      - Failure Domains: systems/stripe/failure-domains.md
+      - Scale Evolution: systems/stripe/scale-evolution.md
+      - Cost Breakdown: systems/stripe/cost-breakdown.md
+      - Novel Solutions: systems/stripe/novel-solutions.md
+      - Production Operations: systems/stripe/production-operations.md
+    - Spotify:
+      - Complete Architecture: systems/spotify/architecture.md
+      - Request Flow: systems/spotify/request-flow.md
+      - Storage Architecture: systems/spotify/storage-architecture.md
+      - Failure Domains: systems/spotify/failure-domains.md
+      - Scale Evolution: systems/spotify/scale-evolution.md
+      - Cost Breakdown: systems/spotify/cost-breakdown.md
+      - Novel Solutions: systems/spotify/novel-solutions.md
+      - Production Operations: systems/spotify/production-operations.md
+    - Airbnb:
+      - Complete Architecture: systems/airbnb/architecture.md
+      - Request Flow: systems/airbnb/request-flow.md
+      - Storage Architecture: systems/airbnb/storage-architecture.md
+      - Failure Domains: systems/airbnb/failure-domains.md
+      - Scale Evolution: systems/airbnb/scale-evolution.md
+      - Cost Breakdown: systems/airbnb/cost-breakdown.md
+      - Novel Solutions: systems/airbnb/novel-solutions.md
+      - Production Operations: systems/airbnb/production-operations.md
+    - Discord:
+      - Complete Architecture: systems/discord/architecture.md
+      - Request Flow: systems/discord/request-flow.md
+      - Storage Architecture: systems/discord/storage-architecture.md
+      - Failure Domains: systems/discord/failure-domains.md
+      - Scale Evolution: systems/discord/scale-evolution.md
+      - Cost Breakdown: systems/discord/cost-breakdown.md
+      - Novel Solutions: systems/discord/novel-solutions.md
+      - Production Operations: systems/discord/production-operations.md
+    - Cloudflare:
+      - Complete Architecture: systems/cloudflare/architecture.md
+      - Request Flow: systems/cloudflare/request-flow.md
+      - Storage Architecture: systems/cloudflare/storage-architecture.md
+      - Failure Domains: systems/cloudflare/failure-domains.md
+      - Scale Evolution: systems/cloudflare/scale-evolution.md
+      - Cost Breakdown: systems/cloudflare/cost-breakdown.md
+      - Novel Solutions: systems/cloudflare/novel-solutions.md
+      - Production Operations: systems/cloudflare/production-operations.md
+    - Shopify:
+      - Complete Architecture: systems/shopify/architecture.md
+      - Request Flow: systems/shopify/request-flow.md
+      - Storage Architecture: systems/shopify/storage-architecture.md
+      - Failure Domains: systems/shopify/failure-domains.md
+      - Scale Evolution: systems/shopify/scale-evolution.md
+      - Cost Breakdown: systems/shopify/cost-breakdown.md
+      - Novel Solutions: systems/shopify/novel-solutions.md
+      - Production Operations: systems/shopify/production-operations.md
+    - Twitter:
+      - Complete Architecture: systems/twitter/architecture.md
+      - Request Flow: systems/twitter/request-flow.md
+      - Storage Architecture: systems/twitter/storage-architecture.md
+      - Failure Domains: systems/twitter/failure-domains.md
+      - Scale Evolution: systems/twitter/scale-evolution.md
+      - Cost Breakdown: systems/twitter/cost-breakdown.md
+      - Novel Solutions: systems/twitter/novel-solutions.md
+      - Production Operations: systems/twitter/production-operations.md
+    - Microsoft:
+      - Complete Architecture: systems/microsoft/architecture.md
+      - Request Flow: systems/microsoft/request-flow.md
+      - Storage Architecture: systems/microsoft/storage-architecture.md
+      - Failure Domains: systems/microsoft/failure-domains.md
+      - Scale Evolution: systems/microsoft/scale-evolution.md
+      - Cost Breakdown: systems/microsoft/cost-breakdown.md
+      - Novel Solutions: systems/microsoft/novel-solutions.md
+      - Production Operations: systems/microsoft/production-operations.md
+    - Zoom:
+      - Complete Architecture: systems/zoom/architecture.md
+      - Request Flow: systems/zoom/request-flow.md
+      - Failure Domains: systems/zoom/failure-domains.md

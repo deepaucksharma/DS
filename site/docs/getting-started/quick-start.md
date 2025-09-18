@@ -37,26 +37,26 @@ Design a production URL shortener in 15 minutes using the Atlas Framework.
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - CDN & Load Balancing"]
-        CDN["CloudFlare CDN<br/>285 POPs globally<br/>p99: 12ms cache hit"]
-        ALB["AWS ALB<br/>50K RPS capacity<br/>health checks every 5s"]
+    subgraph EdgePlane[Edge Plane - CDN & Load Balancing]
+        CDN[CloudFlare CDN<br/>285 POPs globally<br/>p99: 12ms cache hit]
+        ALB[AWS ALB<br/>50K RPS capacity<br/>health checks every 5s]
     end
 
-    subgraph ServicePlane["Service Plane - URL Processing"]
-        API["API Gateway<br/>Kong 3.4<br/>rate limit: 1K/min"]
-        APP["URL Service<br/>Go 1.21, 8 instances<br/>p99: 15ms"]
+    subgraph ServicePlane[Service Plane - URL Processing]
+        API[API Gateway<br/>Kong 3.4<br/>rate limit: 1K/min]
+        APP[URL Service<br/>Go 1.21, 8 instances<br/>p99: 15ms]
     end
 
-    subgraph StatePlane["State Plane - Data Storage"]
-        REDIS["Redis Cluster<br/>6 nodes, 64GB RAM<br/>p99: 0.8ms"]
+    subgraph StatePlane[State Plane - Data Storage]
+        REDIS[Redis Cluster<br/>6 nodes, 64GB RAM<br/>p99: 0.8ms]
         PG1[("PostgreSQL 15<br/>Shard 1: A-H<br/>db.r6g.xlarge")]
         PG2[("PostgreSQL 15<br/>Shard 2: I-P<br/>db.r6g.xlarge")]
         PG3[("PostgreSQL 15<br/>Shard 3: Q-Z<br/>db.r6g.xlarge")]
     end
 
-    subgraph ControlPlane["Control Plane - Monitoring"]
-        MON["DataDog APM<br/>100K metrics/min<br/>real-time alerts"]
-        LOGS["CloudWatch Logs<br/>1TB/day ingestion<br/>7-day retention"]
+    subgraph ControlPlane[Control Plane - Monitoring]
+        MON[DataDog APM<br/>100K metrics/min<br/>real-time alerts]
+        LOGS[CloudWatch Logs<br/>1TB/day ingestion<br/>7-day retention]
     end
 
     CDN --> ALB
@@ -106,24 +106,24 @@ graph TB
 
 ```mermaid
 flowchart LR
-    subgraph Throughput["Throughput Analysis"]
-        CACHE["Redis Cluster<br/>250K ops/sec<br/>6 nodes × 40K"]
-        DB["PostgreSQL Shards<br/>80K ops/sec<br/>16 × 5K/shard"]
-        APP["Go Services<br/>120K ops/sec<br/>8 × 15K/instance"]
+    subgraph Throughput[Throughput Analysis]
+        CACHE[Redis Cluster<br/>250K ops/sec<br/>6 nodes × 40K]
+        DB[PostgreSQL Shards<br/>80K ops/sec<br/>16 × 5K/shard]
+        APP[Go Services<br/>120K ops/sec<br/>8 × 15K/instance]
     end
 
-    subgraph Latency["Latency Budget"]
-        CDN_LAT["CDN: 12ms<br/>cache hit"]
-        ALB_LAT["ALB: 2ms<br/>health routing"]
-        APP_LAT["App: 15ms<br/>business logic"]
-        CACHE_LAT["Cache: 0.8ms<br/>90% hit rate"]
-        DB_LAT["DB: 25ms<br/>10% cache miss"]
+    subgraph Latency[Latency Budget]
+        CDN_LAT[CDN: 12ms<br/>cache hit]
+        ALB_LAT[ALB: 2ms<br/>health routing]
+        APP_LAT[App: 15ms<br/>business logic]
+        CACHE_LAT[Cache: 0.8ms<br/>90% hit rate]
+        DB_LAT[DB: 25ms<br/>10% cache miss]
     end
 
-    subgraph Result["Validation Results"]
-        THRU_OK["✅ Throughput<br/>250K > 11K required"]
-        LAT_OK["✅ Latency<br/>p99: 32ms < 100ms"]
-        AVAIL_OK["✅ Availability<br/>99.95% > 99.9%"]
+    subgraph Result[Validation Results]
+        THRU_OK[✅ Throughput<br/>250K > 11K required]
+        LAT_OK[✅ Latency<br/>p99: 32ms < 100ms]
+        AVAIL_OK[✅ Availability<br/>99.95% > 99.9%]
     end
 
     CACHE --> THRU_OK

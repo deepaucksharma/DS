@@ -8,20 +8,20 @@ Caching patterns determine how data flows between applications, caches, and data
 
 ```mermaid
 graph TB
-    subgraph "Caching Patterns Overview"
-        subgraph "Cache-Aside (Lazy Loading)"
+    subgraph Caching Patterns Overview
+        subgraph Cache-Aside (Lazy Loading)
             ASIDE[Cache-Aside Pattern<br/>✅ Simple to implement<br/>✅ Fault tolerant<br/>❌ Cache miss penalty<br/>❌ Potential stale data]
         end
 
-        subgraph "Cache-Through (Write-Through)"
+        subgraph Cache-Through (Write-Through)
             THROUGH[Write-Through Pattern<br/>✅ Data consistency<br/>✅ Simplified reads<br/>❌ Write latency<br/>❌ Unnecessary caching]
         end
 
-        subgraph "Write-Behind (Write-Back)"
+        subgraph Write-Behind (Write-Back)
             BEHIND[Write-Behind Pattern<br/>✅ Low write latency<br/>✅ High throughput<br/>❌ Data loss risk<br/>❌ Complex implementation]
         end
 
-        subgraph "Refresh-Ahead"
+        subgraph Refresh-Ahead
             REFRESH[Refresh-Ahead Pattern<br/>✅ Predictable performance<br/>✅ Proactive updates<br/>❌ Resource overhead<br/>❌ Complex logic]
         end
     end

@@ -6,74 +6,74 @@ This diagram shows Discord's complete storage architecture managing 12+ trillion
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        CDNCache["CDN Cache Layer<br/>━━━━━<br/>Cloudflare + GCP CDN<br/>Media file caching<br/>Avatar/emoji cache<br/>99% hit rate"]
+        CDNCache[CDN Cache Layer<br/>━━━━━<br/>Cloudflare + GCP CDN<br/>Media file caching<br/>Avatar/emoji cache<br/>99% hit rate]
 
-        RegionalCache["Regional Cache<br/>━━━━━<br/>Geographic distribution<br/>Message cache<br/>Guild metadata<br/>Sub-50ms latency"]
+        RegionalCache[Regional Cache<br/>━━━━━<br/>Geographic distribution<br/>Message cache<br/>Guild metadata<br/>Sub-50ms latency]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        CacheOrchestrator["Cache Orchestrator<br/>━━━━━<br/>Multi-tier coordination<br/>Cache invalidation<br/>Consistency management<br/>Hit ratio optimization"]
+        CacheOrchestrator[Cache Orchestrator<br/>━━━━━<br/>Multi-tier coordination<br/>Cache invalidation<br/>Consistency management<br/>Hit ratio optimization]
 
-        DataAccessLayer["Data Access Layer<br/>━━━━━<br/>Query routing<br/>Connection pooling<br/>Load balancing<br/>Circuit breakers"]
+        DataAccessLayer[Data Access Layer<br/>━━━━━<br/>Query routing<br/>Connection pooling<br/>Load balancing<br/>Circuit breakers]
 
-        MigrationManager["Migration Manager<br/>━━━━━<br/>Cassandra → ScyllaDB<br/>Zero-downtime migration<br/>Data consistency<br/>Performance validation"]
+        MigrationManager[Migration Manager<br/>━━━━━<br/>Cassandra → ScyllaDB<br/>Zero-downtime migration<br/>Data consistency<br/>Performance validation]
 
-        SearchCoordinator["Search Coordinator<br/>━━━━━<br/>Elasticsearch routing<br/>Index management<br/>Query optimization<br/>Real-time indexing"]
+        SearchCoordinator[Search Coordinator<br/>━━━━━<br/>Elasticsearch routing<br/>Index management<br/>Query optimization<br/>Real-time indexing]
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        subgraph MessageStorage["Message Storage - Primary"]
-            ScyllaCluster["ScyllaDB Cluster<br/>━━━━━<br/>12T+ messages stored<br/>800+ nodes globally<br/>C++ performance<br/>10x faster than Cassandra"]
+        subgraph MessageStorage[Message Storage - Primary]
+            ScyllaCluster[ScyllaDB Cluster<br/>━━━━━<br/>12T+ messages stored<br/>800+ nodes globally<br/>C++ performance<br/>10x faster than Cassandra]
 
-            ScyllaReplicas["ScyllaDB Replicas<br/>━━━━━<br/>RF=3 replication<br/>Cross-datacenter<br/>Automatic failover<br/>Consistent hashing"]
+            ScyllaReplicas[ScyllaDB Replicas<br/>━━━━━<br/>RF=3 replication<br/>Cross-datacenter<br/>Automatic failover<br/>Consistent hashing]
         end
 
-        subgraph LegacyStorage["Legacy Storage - Migration"]
-            CassandraCluster["Cassandra Cluster<br/>━━━━━<br/>Legacy messages<br/>6T+ messages<br/>Being migrated<br/>Read-only mode"]
+        subgraph LegacyStorage[Legacy Storage - Migration]
+            CassandraCluster[Cassandra Cluster<br/>━━━━━<br/>Legacy messages<br/>6T+ messages<br/>Being migrated<br/>Read-only mode]
 
-            MigrationQueue["Migration Queue<br/>━━━━━<br/>Kafka-based pipeline<br/>Batch processing<br/>Consistency validation<br/>Progress tracking"]
+            MigrationQueue[Migration Queue<br/>━━━━━<br/>Kafka-based pipeline<br/>Batch processing<br/>Consistency validation<br/>Progress tracking]
         end
 
-        subgraph CacheLayer["Multi-Tier Cache Layer"]
-            L1Cache["L1 Cache - Redis<br/>━━━━━<br/>Hot message cache<br/>200M+ sessions<br/>Sub-ms latency<br/>Memory optimized"]
+        subgraph CacheLayer[Multi-Tier Cache Layer]
+            L1Cache[L1 Cache - Redis<br/>━━━━━<br/>Hot message cache<br/>200M+ sessions<br/>Sub-ms latency<br/>Memory optimized]
 
-            L2Cache["L2 Cache - Memcached<br/>━━━━━<br/>Guild metadata<br/>Permission cache<br/>Channel info<br/>Distributed hash"]
+            L2Cache[L2 Cache - Memcached<br/>━━━━━<br/>Guild metadata<br/>Permission cache<br/>Channel info<br/>Distributed hash]
 
-            L3Cache["L3 Cache - Application<br/>━━━━━<br/>In-memory cache<br/>Connection state<br/>User sessions<br/>Process-local data"]
+            L3Cache[L3 Cache - Application<br/>━━━━━<br/>In-memory cache<br/>Connection state<br/>User sessions<br/>Process-local data]
         end
 
-        subgraph AnalyticsStorage["Analytics & Search"]
-            ElasticsearchCluster["Elasticsearch<br/>━━━━━<br/>Message search index<br/>100TB+ indexed<br/>7-day retention<br/>Full-text search"]
+        subgraph AnalyticsStorage[Analytics & Search]
+            ElasticsearchCluster[Elasticsearch<br/>━━━━━<br/>Message search index<br/>100TB+ indexed<br/>7-day retention<br/>Full-text search]
 
-            AnalyticsDB["Analytics Database<br/>━━━━━<br/>BigQuery warehouse<br/>Historical analytics<br/>User engagement<br/>Business metrics"]
+            AnalyticsDB[Analytics Database<br/>━━━━━<br/>BigQuery warehouse<br/>Historical analytics<br/>User engagement<br/>Business metrics]
 
-            MetricsStore["Metrics Store<br/>━━━━━<br/>InfluxDB cluster<br/>Performance metrics<br/>System monitoring<br/>Real-time dashboards"]
+            MetricsStore[Metrics Store<br/>━━━━━<br/>InfluxDB cluster<br/>Performance metrics<br/>System monitoring<br/>Real-time dashboards]
         end
 
-        subgraph MediaStorage["Media & Content Storage"]
-            GCPStorage["Google Cloud Storage<br/>━━━━━<br/>500TB+ media files<br/>Images, videos, files<br/>Multi-region replication<br/>Lifecycle management"]
+        subgraph MediaStorage[Media & Content Storage]
+            GCPStorage[Google Cloud Storage<br/>━━━━━<br/>500TB+ media files<br/>Images, videos, files<br/>Multi-region replication<br/>Lifecycle management]
 
-            AttachmentCache["Attachment Cache<br/>━━━━━<br/>Recent file cache<br/>Fast retrieval<br/>CDN integration<br/>Automatic expiry"]
+            AttachmentCache[Attachment Cache<br/>━━━━━<br/>Recent file cache<br/>Fast retrieval<br/>CDN integration<br/>Automatic expiry]
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        StorageMonitoring["Storage Monitoring<br/>━━━━━<br/>Performance tracking<br/>Capacity monitoring<br/>Health checks<br/>Alert management"]
+        StorageMonitoring[Storage Monitoring<br/>━━━━━<br/>Performance tracking<br/>Capacity monitoring<br/>Health checks<br/>Alert management]
 
-        BackupOrchestrator["Backup Orchestrator<br/>━━━━━<br/>Continuous backups<br/>Point-in-time recovery<br/>Cross-region replication<br/>Disaster recovery"]
+        BackupOrchestrator[Backup Orchestrator<br/>━━━━━<br/>Continuous backups<br/>Point-in-time recovery<br/>Cross-region replication<br/>Disaster recovery]
 
-        ConsistencyChecker["Consistency Checker<br/>━━━━━<br/>Data validation<br/>Repair operations<br/>Conflict resolution<br/>Integrity monitoring"]
+        ConsistencyChecker[Consistency Checker<br/>━━━━━<br/>Data validation<br/>Repair operations<br/>Conflict resolution<br/>Integrity monitoring]
 
-        CapacityPlanner["Capacity Planner<br/>━━━━━<br/>Growth forecasting<br/>Resource allocation<br/>Cost optimization<br/>Performance modeling"]
+        CapacityPlanner[Capacity Planner<br/>━━━━━<br/>Growth forecasting<br/>Resource allocation<br/>Cost optimization<br/>Performance modeling]
     end
 
     %% Data flow connections

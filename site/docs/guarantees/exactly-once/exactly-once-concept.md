@@ -10,26 +10,26 @@ Exactly-once delivery is one of the most challenging guarantees in distributed s
 
 ```mermaid
 graph TB
-    subgraph EDGE["Edge Plane - Global Distribution"]
+    subgraph EDGE[Edge Plane - Global Distribution]
         CDN[Stripe Edge Network<br/>50+ PoPs globally<br/>p99: 30ms SSL termination]
         WAF[Cloudflare WAF<br/>DDoS protection<br/>Rate limiting: 1000/sec]
         LB[HAProxy Load Balancer<br/>Weighted round-robin<br/>Health check: 5s]
     end
 
-    subgraph SERVICE["Service Plane - Payment Processing"]
+    subgraph SERVICE[Service Plane - Payment Processing]
         API[Stripe API Gateway<br/>Idempotency key validation<br/>p99: 150ms response]
         FRAUD[Fraud Detection<br/>ML-based scoring<br/>p99: 50ms decision]
         ORCHESTRATOR[Payment Orchestrator<br/>Multi-step coordination<br/>Saga pattern implementation]
     end
 
-    subgraph STATE["State Plane - Transactional Storage"]
+    subgraph STATE[State Plane - Transactional Storage]
         POSTGRES[PostgreSQL Primary<br/>ACID transactions<br/>Serializable isolation]
         REPLICA[PostgreSQL Replicas × 3<br/>Read scaling<br/>Async replication: 10ms]
         KAFKA[Kafka Event Store<br/>Exactly-once semantics<br/>Transactional producer]
         CACHE[Redis Cluster<br/>Idempotency cache<br/>TTL: 24 hours]
     end
 
-    subgraph CONTROL["Control Plane - Observability"]
+    subgraph CONTROL[Control Plane - Observability]
         METRICS[DataDog Metrics<br/>Duplicate rate tracking<br/>SLO: < 0.001%]
         TRACES[Jaeger Tracing<br/>End-to-end visibility<br/>Payment journey tracking]
         ALERTS[PagerDuty Alerts<br/>Duplicate payment detection<br/>Critical: > 0.01% rate]
@@ -215,27 +215,27 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph EDGE["Edge Plane - Customer Interface"]
+    subgraph EDGE[Edge Plane - Customer Interface]
         APP[Amazon Mobile App<br/>310M+ active users<br/>p99: 100ms page load]
         WEB[Amazon Website<br/>CloudFront CDN<br/>400+ edge locations]
         API[Order API Gateway<br/>Multi-region deployment<br/>Rate limit: 100/sec/user]
     end
 
-    subgraph SERVICE["Service Plane - Order Orchestration"]
+    subgraph SERVICE[Service Plane - Order Orchestration]
         CART[Shopping Cart Service<br/>DynamoDB sessions<br/>Idempotency: cart_id + timestamp]
         PRICING[Pricing Service<br/>Real-time calculation<br/>p99: 50ms response]
         INVENTORY[Inventory Service<br/>Reserve-then-commit<br/>ACID transactions]
         PAYMENT[Payment Service<br/>Stripe + Amazon Pay<br/>Idempotency keys required]
     end
 
-    subgraph STATE["State Plane - Transactional Storage"]
+    subgraph STATE[State Plane - Transactional Storage]
         ORDERS[Orders DB (Aurora)<br/>Multi-AZ, read replicas<br/>Serializable isolation]
         PAYMENTS[Payments DB (Aurora)<br/>Encrypted at rest<br/>Cross-region backup]
         FULFILLMENT[Fulfillment DB<br/>Warehouse management<br/>Eventually consistent]
         EVENTS[Kinesis Event Stream<br/>Order state changes<br/>Exactly-once processing]
     end
 
-    subgraph CONTROL["Control Plane - Operations"]
+    subgraph CONTROL[Control Plane - Operations]
         MONITOR[CloudWatch Metrics<br/>Duplicate order rate<br/>SLO: < 0.001%]
         XRAY[X-Ray Tracing<br/>End-to-end visibility<br/>Order journey tracking]
         ALARM[CloudWatch Alarms<br/>Auto-scaling triggers<br/>Error rate thresholds]
@@ -439,24 +439,24 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EDGE["Edge Plane - Infrastructure Costs"]
-        INFRA["Additional Infrastructure<br/>+50% Redis for idempotency<br/>+30% database storage<br/>Cost: $200K/month extra"]
-        NET["Network overhead<br/>+20% bandwidth usage<br/>Coordination traffic<br/>Cost: $50K/month extra"]
+    subgraph EDGE[Edge Plane - Infrastructure Costs]
+        INFRA[Additional Infrastructure<br/>+50% Redis for idempotency<br/>+30% database storage<br/>Cost: $200K/month extra]
+        NET[Network overhead<br/>+20% bandwidth usage<br/>Coordination traffic<br/>Cost: $50K/month extra]
     end
 
-    subgraph SERVICE["Service Plane - Operational Costs"]
-        DEV["Development complexity<br/>12 months → 18 months<br/>+50% engineering cost<br/>Cost: $2M additional"]
-        TEST["Testing complexity<br/>2x failure scenarios<br/>Chaos engineering<br/>Cost: $500K/year"]
+    subgraph SERVICE[Service Plane - Operational Costs]
+        DEV[Development complexity<br/>12 months → 18 months<br/>+50% engineering cost<br/>Cost: $2M additional]
+        TEST[Testing complexity<br/>2x failure scenarios<br/>Chaos engineering<br/>Cost: $500K/year]
     end
 
-    subgraph STATE["State Plane - Performance Impact"]
-        LAT["Latency increase<br/>p99: 50ms → 150ms<br/>User experience impact<br/>Revenue: -2% conversion"]
-        THR["Throughput reduction<br/>100K TPS → 60K TPS<br/>40% capacity loss<br/>Cost: $1M in scaling"]
+    subgraph STATE[State Plane - Performance Impact]
+        LAT[Latency increase<br/>p99: 50ms → 150ms<br/>User experience impact<br/>Revenue: -2% conversion]
+        THR[Throughput reduction<br/>100K TPS → 60K TPS<br/>40% capacity loss<br/>Cost: $1M in scaling]
     end
 
-    subgraph CONTROL["Control Plane - Business Value"]
-        PREVENT["Duplicate prevention<br/>$50M/year saved<br/>No double charges<br/>Customer trust: +15%"]
-        COMPLIANCE["Regulatory compliance<br/>SOX, PCI requirements<br/>Audit pass rate: 100%<br/>Value: $10M risk mitigation"]
+    subgraph CONTROL[Control Plane - Business Value]
+        PREVENT[Duplicate prevention<br/>$50M/year saved<br/>No double charges<br/>Customer trust: +15%]
+        COMPLIANCE[Regulatory compliance<br/>SOX, PCI requirements<br/>Audit pass rate: 100%<br/>Value: $10M risk mitigation]
     end
 
     INFRA -.->|"ROI calculation"| PREVENT
@@ -528,25 +528,25 @@ graph TB
 
 ```mermaid
 flowchart TD
-    subgraph INCIDENT["Incident Timeline - Stripe Duplicate Payments"]
-        T1["14:00 UTC<br/>Database connection pool exhaustion<br/>PostgreSQL max_connections reached"]
-        T2["14:05 UTC<br/>Idempotency checks failing<br/>Redis cluster degraded"]
-        T3["14:15 UTC<br/>Payment retries without dedup<br/>Client-side retry logic triggered"]
-        T4["14:30 UTC<br/>Customer complaints surge<br/>Duplicate charges detected"]
-        T5["15:00 UTC<br/>Emergency scaling<br/>Additional database capacity"]
-        T6["16:00 UTC<br/>Full recovery<br/>Idempotency restored"]
+    subgraph INCIDENT[Incident Timeline - Stripe Duplicate Payments]
+        T1[14:00 UTC<br/>Database connection pool exhaustion<br/>PostgreSQL max_connections reached]
+        T2[14:05 UTC<br/>Idempotency checks failing<br/>Redis cluster degraded]
+        T3[14:15 UTC<br/>Payment retries without dedup<br/>Client-side retry logic triggered]
+        T4[14:30 UTC<br/>Customer complaints surge<br/>Duplicate charges detected]
+        T5[15:00 UTC<br/>Emergency scaling<br/>Additional database capacity]
+        T6[16:00 UTC<br/>Full recovery<br/>Idempotency restored]
     end
 
-    subgraph DETECTION["Detection & Monitoring"]
-        M1["Datadog alert<br/>duplicate_payment_rate > 0.01%"]
-        M2["Customer support tickets<br/>+500% volume increase"]
-        M3["Internal fraud detection<br/>Unusual payment patterns"]
+    subgraph DETECTION[Detection & Monitoring]
+        M1[Datadog alert<br/>duplicate_payment_rate > 0.01%]
+        M2[Customer support tickets<br/>+500% volume increase]
+        M3[Internal fraud detection<br/>Unusual payment patterns]
     end
 
-    subgraph MITIGATION["Emergency Response"]
-        R1["Payment processing halt<br/>Stop new transactions"]
-        R2["Duplicate identification<br/>Query payment database"]
-        R3["Automatic refunds<br/>$50M in refunds processed"]
+    subgraph MITIGATION[Emergency Response]
+        R1[Payment processing halt<br/>Stop new transactions]
+        R2[Duplicate identification<br/>Query payment database]
+        R3[Automatic refunds<br/>$50M in refunds processed]
     end
 
     T1 --> T2 --> T3 --> T4 --> T5 --> T6

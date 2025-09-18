@@ -4,11 +4,11 @@
 
 ```mermaid
 graph TB
-    subgraph Current["Current Colors"]
-        E1["Edge Plane<br/>#3B82F6"]
-        S1["Service Plane<br/>#10B981"]
-        ST1["State Plane<br/>#F59E0B"]
-        C1["Control Plane<br/>#8B5CF6"]
+    subgraph Current[Current Colors]
+        E1[Edge Plane<br/>#3B82F6]
+        S1[Service Plane<br/>#10B981]
+        ST1[State Plane<br/>#F59E0B]
+        C1[Control Plane<br/>#8B5CF6]
     end
 
     style E1 fill:#3B82F6,color:#fff
@@ -29,11 +29,11 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Modern["Modern Professional"]
-        E2["Edge Plane<br/>#4A90E2"]
-        S2["Service Plane<br/>#7ED321"]
-        ST2["State Plane<br/>#F5A623"]
-        C2["Control Plane<br/>#BD10E0"]
+    subgraph Modern[Modern Professional]
+        E2[Edge Plane<br/>#4A90E2]
+        S2[Service Plane<br/>#7ED321]
+        ST2[State Plane<br/>#F5A623]
+        C2[Control Plane<br/>#BD10E0]
     end
 
     style E2 fill:#4A90E2,color:#fff
@@ -54,11 +54,11 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Tailwind["Tailwind CSS Palette"]
-        E3["Edge Plane<br/>#3B82F6"]
-        S3["Service Plane<br/>#10B981"]
-        ST3["State Plane<br/>#F59E0B"]
-        C3["Control Plane<br/>#8B5CF6"]
+    subgraph Tailwind[Tailwind CSS Palette]
+        E3[Edge Plane<br/>#3B82F6]
+        S3[Service Plane<br/>#10B981]
+        ST3[State Plane<br/>#F59E0B]
+        C3[Control Plane<br/>#8B5CF6]
     end
 
     style E3 fill:#3B82F6,color:#fff
@@ -79,11 +79,11 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph GitHub["Developer Friendly"]
-        E4["Edge Plane<br/>#0969DA"]
-        S4["Service Plane<br/>#1F883D"]
-        ST4["State Plane<br/>#FB8500"]
-        C4["Control Plane<br/>#A333C8"]
+    subgraph GitHub[Developer Friendly]
+        E4[Edge Plane<br/>#0969DA]
+        S4[Service Plane<br/>#1F883D]
+        ST4[State Plane<br/>#FB8500]
+        C4[Control Plane<br/>#A333C8]
     end
 
     style E4 fill:#0969DA,color:#fff
@@ -104,11 +104,11 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Subtle["Subtle Professional"]
-        E5["Edge Plane<br/>#5E6AD2"]
-        S5["Service Plane<br/>#26B5CE"]
-        ST5["State Plane<br/>#F2C94C"]
-        C5["Control Plane<br/>#953FAB"]
+    subgraph Subtle[Subtle Professional]
+        E5[Edge Plane<br/>#5E6AD2]
+        S5[Service Plane<br/>#26B5CE]
+        ST5[State Plane<br/>#F2C94C]
+        C5[Control Plane<br/>#953FAB]
     end
 
     style E5 fill:#5E6AD2,color:#fff
@@ -129,11 +129,11 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Vercel["Minimalist Modern"]
-        E6["Edge Plane<br/>#000000"]
-        S6["Service Plane<br/>#0070F3"]
-        ST6["State Plane<br/>#F5A623"]
-        C6["Control Plane<br/>#7928CA"]
+    subgraph Vercel[Minimalist Modern]
+        E6[Edge Plane<br/>#000000]
+        S6[Service Plane<br/>#0070F3]
+        ST6[State Plane<br/>#F5A623]
+        C6[Control Plane<br/>#7928CA]
     end
 
     style E6 fill:#000000,color:#fff
@@ -156,11 +156,11 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph DarkMode["Optimized for Dark Mode"]
-        E7["Edge Plane<br/>#64B5F6"]
-        S7["Service Plane<br/>#4FC3F7"]
-        ST7["State Plane<br/>#FFB74D"]
-        C7["Control Plane<br/>#BA68C8"]
+    subgraph DarkMode[Optimized for Dark Mode]
+        E7[Edge Plane<br/>#64B5F6]
+        S7[Service Plane<br/>#4FC3F7]
+        ST7[State Plane<br/>#FFB74D]
+        C7[Control Plane<br/>#BA68C8]
     end
 
     style E7 fill:#64B5F6,color:#000
@@ -217,24 +217,24 @@ Based on aesthetics, accessibility, and usability, I recommend **Option 2: Tailw
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["🌐 Edge Plane"]
-        CDN["CDN<br/>CloudFlare<br/>📊 500 Gbps"]
-        LB["Load Balancer<br/>⚡ 10ms p99"]
+    subgraph EdgePlane[🌐 Edge Plane]
+        CDN[CDN<br/>CloudFlare<br/>📊 500 Gbps]
+        LB[Load Balancer<br/>⚡ 10ms p99]
     end
 
-    subgraph ServicePlane["⚙️ Service Plane"]
-        API["API Gateway<br/>🔐 OAuth2"]
-        SVC["Services<br/>📦 200 pods"]
+    subgraph ServicePlane[⚙️ Service Plane]
+        API[API Gateway<br/>🔐 OAuth2]
+        SVC[Services<br/>📦 200 pods]
     end
 
-    subgraph StatePlane["💾 State Plane"]
+    subgraph StatePlane[💾 State Plane]
         DB[("PostgreSQL<br/>💽 10TB")]
         CACHE[("Redis<br/>⚡ 1ms")]
     end
 
-    subgraph ControlPlane["🎛️ Control Plane"]
-        MON["Monitoring<br/>📈 10k metrics/s"]
-        LOG["Logging<br/>📝 1TB/day"]
+    subgraph ControlPlane[🎛️ Control Plane]
+        MON[Monitoring<br/>📈 10k metrics/s]
+        LOG[Logging<br/>📝 1TB/day]
     end
 
     CDN --> LB --> API --> SVC

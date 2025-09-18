@@ -6,52 +6,52 @@ This diagram shows the complete request flow for Uber's ride matching system, fr
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        RiderApp["Rider Mobile App<br/>━━━━━<br/>iOS/Android<br/>130M MAU<br/>Real-time location<br/>WebSocket connection"]
+        RiderApp[Rider Mobile App<br/>━━━━━<br/>iOS/Android<br/>130M MAU<br/>Real-time location<br/>WebSocket connection]
 
-        DriverApp["Driver Mobile App<br/>━━━━━<br/>5M active drivers<br/>Location updates: 5/sec<br/>Background location<br/>Push notifications"]
+        DriverApp[Driver Mobile App<br/>━━━━━<br/>5M active drivers<br/>Location updates: 5/sec<br/>Background location<br/>Push notifications]
 
-        CDN["Global CDN<br/>━━━━━<br/>Static assets<br/>Map tiles cached<br/>99.9% cache hit<br/>p50: 15ms"]
+        CDN[Global CDN<br/>━━━━━<br/>Static assets<br/>Map tiles cached<br/>99.9% cache hit<br/>p50: 15ms]
 
-        LB["Load Balancer<br/>━━━━━<br/>HAProxy clusters<br/>Geo-aware routing<br/>Health checks<br/>p99: 5ms"]
+        LB[Load Balancer<br/>━━━━━<br/>HAProxy clusters<br/>Geo-aware routing<br/>Health checks<br/>p99: 5ms]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        AuthGW["Auth Gateway<br/>━━━━━<br/>JWT validation<br/>Rate limiting<br/>1M req/sec<br/>p99: 50ms"]
+        AuthGW[Auth Gateway<br/>━━━━━<br/>JWT validation<br/>Rate limiting<br/>1M req/sec<br/>p99: 50ms]
 
-        LocationSvc["Location Service<br/>━━━━━<br/>Real-time tracking<br/>H3 indexing<br/>Geo-fencing<br/>p99: 10ms"]
+        LocationSvc[Location Service<br/>━━━━━<br/>Real-time tracking<br/>H3 indexing<br/>Geo-fencing<br/>p99: 10ms]
 
-        Gauss["Gauss ETA Service<br/>━━━━━<br/>Route calculation<br/>100M routes/day<br/>Traffic integration<br/>p99: 100ms"]
+        Gauss[Gauss ETA Service<br/>━━━━━<br/>Route calculation<br/>100M routes/day<br/>Traffic integration<br/>p99: 100ms]
 
-        DISCO["DISCO Matching<br/>━━━━━<br/>Supply-demand matching<br/>200K matches/sec<br/>H3 spatial algorithm<br/>p99: 1.5s"]
+        DISCO[DISCO Matching<br/>━━━━━<br/>Supply-demand matching<br/>200K matches/sec<br/>H3 spatial algorithm<br/>p99: 1.5s]
 
-        Pricing["Surge Pricing<br/>━━━━━<br/>Dynamic pricing ML<br/>Real-time calculation<br/>500K prices/sec<br/>p99: 50ms"]
+        Pricing[Surge Pricing<br/>━━━━━<br/>Dynamic pricing ML<br/>Real-time calculation<br/>500K prices/sec<br/>p99: 50ms]
 
-        Dispatch["Dispatch Service<br/>━━━━━<br/>Driver assignment<br/>Push notifications<br/>Trip state machine<br/>p99: 200ms"]
+        Dispatch[Dispatch Service<br/>━━━━━<br/>Driver assignment<br/>Push notifications<br/>Trip state machine<br/>p99: 200ms]
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        GeoCache["Geo Cache (Redis)<br/>━━━━━<br/>Hot driver locations<br/>50TB geo data<br/>TTL: 30 seconds<br/>p99: 1ms"]
+        GeoCache[Geo Cache (Redis)<br/>━━━━━<br/>Hot driver locations<br/>50TB geo data<br/>TTL: 30 seconds<br/>p99: 1ms]
 
-        UserDB["User Database<br/>━━━━━<br/>Schemaless MySQL<br/>Profile & preferences<br/>100M+ users<br/>p99: 5ms"]
+        UserDB[User Database<br/>━━━━━<br/>Schemaless MySQL<br/>Profile & preferences<br/>100M+ users<br/>p99: 5ms]
 
-        TripDB["Trip Database<br/>━━━━━<br/>Active trip states<br/>Real-time updates<br/>Cassandra cluster<br/>p99: 10ms"]
+        TripDB[Trip Database<br/>━━━━━<br/>Active trip states<br/>Real-time updates<br/>Cassandra cluster<br/>p99: 10ms]
 
-        MapData["Map Data Store<br/>━━━━━<br/>Road networks<br/>Traffic patterns<br/>Route optimization<br/>PostgreSQL + PostGIS"]
+        MapData[Map Data Store<br/>━━━━━<br/>Road networks<br/>Traffic patterns<br/>Route optimization<br/>PostgreSQL + PostGIS]
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        Metrics["M3 Metrics<br/>━━━━━<br/>Real-time monitoring<br/>Latency tracking<br/>SLO alerting"]
+        Metrics[M3 Metrics<br/>━━━━━<br/>Real-time monitoring<br/>Latency tracking<br/>SLO alerting]
 
-        Circuit["Circuit Breakers<br/>━━━━━<br/>Fallback mechanisms<br/>Graceful degradation<br/>Auto-recovery"]
+        Circuit[Circuit Breakers<br/>━━━━━<br/>Fallback mechanisms<br/>Graceful degradation<br/>Auto-recovery]
     end
 
     %% Request Flow - The Golden Path

@@ -6,82 +6,82 @@ This diagram shows Netflix's architectural evolution from 1K users (2007) to 260
 
 ```mermaid
 graph TB
-    subgraph Scale1K["2007-2008: 1K Users - Single Server Era"]
+    subgraph Scale1K[2007-2008: 1K Users - Single Server Era]
         style Scale1K fill:#E3F2FD,stroke:#3B82F6,color:#000
 
-        Single["Single Rails Server<br/>━━━━━<br/>1x m1.large EC2<br/>MySQL 5.0 on same server<br/>$500/month AWS<br/>DVD-by-mail + streaming pilot"]
+        Single[Single Rails Server<br/>━━━━━<br/>1x m1.large EC2<br/>MySQL 5.0 on same server<br/>$500/month AWS<br/>DVD-by-mail + streaming pilot]
 
-        SingleDB["MySQL Database<br/>━━━━━<br/>User accounts + ratings<br/>10GB data total<br/>Local disk storage<br/>Daily backups to S3"]
+        SingleDB[MySQL Database<br/>━━━━━<br/>User accounts + ratings<br/>10GB data total<br/>Local disk storage<br/>Daily backups to S3]
     end
 
-    subgraph Scale10K["2008-2009: 10K Users - Database Separation"]
+    subgraph Scale10K[2008-2009: 10K Users - Database Separation]
         style Scale10K fill:#E8F5E8,stroke:#10B981,color:#000
 
-        WebServer["Rails Web Servers<br/>━━━━━<br/>3x m1.large instances<br/>ELB load balancer<br/>$2,000/month<br/>First scaling crisis"]
+        WebServer[Rails Web Servers<br/>━━━━━<br/>3x m1.large instances<br/>ELB load balancer<br/>$2,000/month<br/>First scaling crisis]
 
-        MySQLSeparate["MySQL Separate Server<br/>━━━━━<br/>m1.xlarge RDS<br/>100GB storage<br/>Read replicas added<br/>First database bottleneck"]
+        MySQLSeparate[MySQL Separate Server<br/>━━━━━<br/>m1.xlarge RDS<br/>100GB storage<br/>Read replicas added<br/>First database bottleneck]
 
-        Crisis1["🚨 Crisis: Single DB overload<br/>━━━━━<br/>Issue: Connection pool exhaustion<br/>Solution: Read replicas + caching<br/>Duration: 6 hours downtime<br/>Users lost: ~500"]
+        Crisis1[🚨 Crisis: Single DB overload<br/>━━━━━<br/>Issue: Connection pool exhaustion<br/>Solution: Read replicas + caching<br/>Duration: 6 hours downtime<br/>Users lost: ~500]
     end
 
-    subgraph Scale100K["2009-2010: 100K Users - CDN Introduction"]
+    subgraph Scale100K[2009-2010: 100K Users - CDN Introduction]
         style Scale100K fill:#FFF3E0,stroke:#F59E0B,color:#000
 
-        WebTier["Rails Application Tier<br/>━━━━━<br/>10x m1.large instances<br/>Auto Scaling Groups<br/>$8,000/month compute<br/>Memcached layer added"]
+        WebTier[Rails Application Tier<br/>━━━━━<br/>10x m1.large instances<br/>Auto Scaling Groups<br/>$8,000/month compute<br/>Memcached layer added]
 
-        MySQLCluster["MySQL Master/Slave<br/>━━━━━<br/>1 master + 3 read replicas<br/>500GB total data<br/>First sharding attempts<br/>Query optimization"]
+        MySQLCluster[MySQL Master/Slave<br/>━━━━━<br/>1 master + 3 read replicas<br/>500GB total data<br/>First sharding attempts<br/>Query optimization]
 
-        CloudFront["CloudFront CDN<br/>━━━━━<br/>Video streaming launch<br/>50TB/month bandwidth<br/>$15,000/month CDN<br/>Watch Instantly feature"]
+        CloudFront[CloudFront CDN<br/>━━━━━<br/>Video streaming launch<br/>50TB/month bandwidth<br/>$15,000/month CDN<br/>Watch Instantly feature]
 
-        Crisis2["🚨 Crisis: MySQL master failure<br/>━━━━━<br/>Issue: Single point of failure<br/>Solution: Multi-AZ RDS setup<br/>Duration: 4 hours recovery<br/>Revenue impact: $50K"]
+        Crisis2[🚨 Crisis: MySQL master failure<br/>━━━━━<br/>Issue: Single point of failure<br/>Solution: Multi-AZ RDS setup<br/>Duration: 4 hours recovery<br/>Revenue impact: $50K]
     end
 
-    subgraph Scale1M["2010-2012: 1M Users - Cloud Migration"]
+    subgraph Scale1M[2010-2012: 1M Users - Cloud Migration]
         style Scale1M fill:#F3E5F5,stroke:#9C27B0,color:#000
 
-        ServiceSOA["Service-Oriented Architecture<br/>━━━━━<br/>50+ microservices<br/>Java Spring framework<br/>$50,000/month compute<br/>Netflix API launch"]
+        ServiceSOA[Service-Oriented Architecture<br/>━━━━━<br/>50+ microservices<br/>Java Spring framework<br/>$50,000/month compute<br/>Netflix API launch]
 
-        Cassandra1["Cassandra Cluster (Early)<br/>━━━━━<br/>12 nodes, RF=3<br/>5TB data storage<br/>User preferences<br/>Learning NoSQL operations"]
+        Cassandra1[Cassandra Cluster (Early)<br/>━━━━━<br/>12 nodes, RF=3<br/>5TB data storage<br/>User preferences<br/>Learning NoSQL operations]
 
-        CDNExpand["Multi-CDN Strategy<br/>━━━━━<br/>CloudFront + Akamai<br/>500TB/month bandwidth<br/>$80,000/month CDN<br/>International expansion"]
+        CDNExpand[Multi-CDN Strategy<br/>━━━━━<br/>CloudFront + Akamai<br/>500TB/month bandwidth<br/>$80,000/month CDN<br/>International expansion]
 
-        Crisis3["🚨 Crisis: SOA service discovery<br/>━━━━━<br/>Issue: Service mesh complexity<br/>Solution: Eureka service registry<br/>Duration: 2 weeks of instability<br/>Engineering effort: 50 engineers"]
+        Crisis3[🚨 Crisis: SOA service discovery<br/>━━━━━<br/>Issue: Service mesh complexity<br/>Solution: Eureka service registry<br/>Duration: 2 weeks of instability<br/>Engineering effort: 50 engineers]
     end
 
-    subgraph Scale10M["2012-2015: 10M Users - Open Source Era"]
+    subgraph Scale10M[2012-2015: 10M Users - Open Source Era]
         style Scale10M fill:#E1F5FE,stroke:#00BCD4,color:#000
 
-        Microservices["600+ Microservices<br/>━━━━━<br/>Java + Node.js services<br/>1,000+ EC2 instances<br/>$500,000/month compute<br/>Zuul gateway deployed"]
+        Microservices[600+ Microservices<br/>━━━━━<br/>Java + Node.js services<br/>1,000+ EC2 instances<br/>$500,000/month compute<br/>Zuul gateway deployed]
 
-        CassandraScale["Cassandra Production<br/>━━━━━<br/>200+ nodes across regions<br/>50TB data storage<br/>User data + metadata<br/>Multi-region replication"]
+        CassandraScale[Cassandra Production<br/>━━━━━<br/>200+ nodes across regions<br/>50TB data storage<br/>User data + metadata<br/>Multi-region replication]
 
-        OpenConnect["Open Connect CDN<br/>━━━━━<br/>1,000 edge servers<br/>Own CDN infrastructure<br/>5PB/month bandwidth<br/>$2M/month infrastructure"]
+        OpenConnect[Open Connect CDN<br/>━━━━━<br/>1,000 edge servers<br/>Own CDN infrastructure<br/>5PB/month bandwidth<br/>$2M/month infrastructure]
 
-        Crisis4["🚨 Crisis: Eureka overload<br/>━━━━━<br/>Issue: Service registry failure<br/>Solution: Eureka clustering<br/>Duration: Christmas Day outage<br/>Impact: 5M angry customers"]
+        Crisis4[🚨 Crisis: Eureka overload<br/>━━━━━<br/>Issue: Service registry failure<br/>Solution: Eureka clustering<br/>Duration: Christmas Day outage<br/>Impact: 5M angry customers]
     end
 
-    subgraph Scale100M["2015-2020: 100M Users - Global Platform"]
+    subgraph Scale100M[2015-2020: 100M Users - Global Platform]
         style Scale100M fill:#FCE4EC,stroke:#E91E63,color:#000
 
-        GlobalMicro["2,000+ Microservices<br/>━━━━━<br/>Multi-language platform<br/>10,000+ EC2 instances<br/>$25M/month compute<br/>Global deployment"]
+        GlobalMicro[2,000+ Microservices<br/>━━━━━<br/>Multi-language platform<br/>10,000+ EC2 instances<br/>$25M/month compute<br/>Global deployment]
 
-        CassandraMassive["Cassandra Mega-Clusters<br/>━━━━━<br/>2,000+ nodes globally<br/>500TB data storage<br/>6 global regions<br/>Advanced operations"]
+        CassandraMassive[Cassandra Mega-Clusters<br/>━━━━━<br/>2,000+ nodes globally<br/>500TB data storage<br/>6 global regions<br/>Advanced operations]
 
-        OpenConnectGlobal["Global Open Connect<br/>━━━━━<br/>10,000+ edge servers<br/>175+ countries<br/>50PB/month bandwidth<br/>$20M/month CDN"]
+        OpenConnectGlobal[Global Open Connect<br/>━━━━━<br/>10,000+ edge servers<br/>175+ countries<br/>50PB/month bandwidth<br/>$20M/month CDN]
 
-        Crisis5["🚨 Crisis: Great Reconnect<br/>━━━━━<br/>Issue: Regional AWS outage<br/>Solution: Multi-cloud strategy<br/>Duration: 3 hours partial outage<br/>Users affected: 40M+"]
+        Crisis5[🚨 Crisis: Great Reconnect<br/>━━━━━<br/>Issue: Regional AWS outage<br/>Solution: Multi-cloud strategy<br/>Duration: 3 hours partial outage<br/>Users affected: 40M+]
     end
 
-    subgraph Scale260M["2020-2024: 260M Users - Streaming Domination"]
+    subgraph Scale260M[2020-2024: 260M Users - Streaming Domination]
         style Scale260M fill:#FFEBEE,stroke:#F44336,color:#000
 
-        HyperScale["5,000+ Microservices<br/>━━━━━<br/>Multi-cloud deployment<br/>100,000+ compute instances<br/>$125M/month infrastructure<br/>AI/ML everywhere"]
+        HyperScale[5,000+ Microservices<br/>━━━━━<br/>Multi-cloud deployment<br/>100,000+ compute instances<br/>$125M/month infrastructure<br/>AI/ML everywhere]
 
-        ExabyteStorage["Exabyte-Scale Storage<br/>━━━━━<br/>10,000+ Cassandra nodes<br/>100PB+ data storage<br/>1 Exabyte S3 storage<br/>Advanced automation"]
+        ExabyteStorage[Exabyte-Scale Storage<br/>━━━━━<br/>10,000+ Cassandra nodes<br/>100PB+ data storage<br/>1 Exabyte S3 storage<br/>Advanced automation]
 
-        OpenConnectDominate["Open Connect Domination<br/>━━━━━<br/>18,000+ edge servers<br/>200Tbps peak bandwidth<br/>95% traffic served at edge<br/>$40M/month CDN"]
+        OpenConnectDominate[Open Connect Domination<br/>━━━━━<br/>18,000+ edge servers<br/>200Tbps peak bandwidth<br/>95% traffic served at edge<br/>$40M/month CDN]
 
-        Crisis6["🚨 Crisis: Pandemic surge<br/>━━━━━<br/>Issue: 300% traffic increase<br/>Solution: Emergency scaling<br/>Duration: Sustained 6 months<br/>Infrastructure: 3x capacity"]
+        Crisis6[🚨 Crisis: Pandemic surge<br/>━━━━━<br/>Issue: 300% traffic increase<br/>Solution: Emergency scaling<br/>Duration: Sustained 6 months<br/>Infrastructure: 3x capacity]
     end
 
     %% Evolution connections showing progression

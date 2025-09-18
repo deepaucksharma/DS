@@ -6,62 +6,62 @@ This diagram shows Discord's complete infrastructure cost breakdown for serving 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6 - $15M/month"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6 - $15M/month]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        CloudFlareCDN["Cloudflare CDN<br/>━━━━━<br/>$5M/month<br/>200+ PoPs globally<br/>WebSocket optimization<br/>$0.08 per GB transfer"]
+        CloudFlareCDN[Cloudflare CDN<br/>━━━━━<br/>$5M/month<br/>200+ PoPs globally<br/>WebSocket optimization<br/>$0.08 per GB transfer]
 
-        VoiceEdgeNetwork["Voice Edge Network<br/>━━━━━<br/>$8M/month<br/>1000+ RTC nodes<br/>Custom hardware<br/>WebRTC termination"]
+        VoiceEdgeNetwork[Voice Edge Network<br/>━━━━━<br/>$8M/month<br/>1000+ RTC nodes<br/>Custom hardware<br/>WebRTC termination]
 
-        MediaCDN["Media CDN<br/>━━━━━<br/>$2M/month<br/>Image/video delivery<br/>500TB/month transfer<br/>GCP CDN integration"]
+        MediaCDN[Media CDN<br/>━━━━━<br/>$2M/month<br/>Image/video delivery<br/>500TB/month transfer<br/>GCP CDN integration]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981 - $25M/month"]
+    subgraph ServicePlane[Service Plane - Green #10B981 - $25M/month]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        ComputeInfrastructure["Compute Infrastructure<br/>━━━━━<br/>$18M/month<br/>Kubernetes clusters<br/>50K+ pods<br/>Multi-cloud deployment"]
+        ComputeInfrastructure[Compute Infrastructure<br/>━━━━━<br/>$18M/month<br/>Kubernetes clusters<br/>50K+ pods<br/>Multi-cloud deployment]
 
-        GatewayServices["Gateway Services<br/>━━━━━<br/>$4M/month<br/>Elixir/Phoenix servers<br/>200M+ WebSocket connections<br/>Auto-scaling pods"]
+        GatewayServices[Gateway Services<br/>━━━━━<br/>$4M/month<br/>Elixir/Phoenix servers<br/>200M+ WebSocket connections<br/>Auto-scaling pods]
 
-        VoiceProcessing["Voice Processing<br/>━━━━━<br/>$2M/month<br/>Media servers<br/>Audio processing<br/>Transcoding services"]
+        VoiceProcessing[Voice Processing<br/>━━━━━<br/>$2M/month<br/>Media servers<br/>Audio processing<br/>Transcoding services]
 
-        MessageRouting["Message Routing<br/>━━━━━<br/>$1M/month<br/>Rust microservices<br/>High-performance routing<br/>14B+ messages/day"]
+        MessageRouting[Message Routing<br/>━━━━━<br/>$1M/month<br/>Rust microservices<br/>High-performance routing<br/>14B+ messages/day]
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B - $30M/month"]
+    subgraph StatePlane[State Plane - Orange #F59E0B - $30M/month]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        ScyllaDBCluster["ScyllaDB Cluster<br/>━━━━━<br/>$15M/month<br/>800+ nodes globally<br/>12T+ messages<br/>90% cost reduction vs Cassandra"]
+        ScyllaDBCluster[ScyllaDB Cluster<br/>━━━━━<br/>$15M/month<br/>800+ nodes globally<br/>12T+ messages<br/>90% cost reduction vs Cassandra]
 
-        CacheInfrastructure["Cache Infrastructure<br/>━━━━━<br/>$8M/month<br/>Redis Enterprise<br/>Multi-tier caching<br/>200M+ sessions"]
+        CacheInfrastructure[Cache Infrastructure<br/>━━━━━<br/>$8M/month<br/>Redis Enterprise<br/>Multi-tier caching<br/>200M+ sessions]
 
-        MediaStorage["Media Storage<br/>━━━━━<br/>$5M/month<br/>Google Cloud Storage<br/>500TB+ files<br/>Lifecycle management"]
+        MediaStorage[Media Storage<br/>━━━━━<br/>$5M/month<br/>Google Cloud Storage<br/>500TB+ files<br/>Lifecycle management]
 
-        SearchStorage["Search & Analytics<br/>━━━━━<br/>$2M/month<br/>Elasticsearch cluster<br/>BigQuery warehouse<br/>100TB+ indexed"]
+        SearchStorage[Search & Analytics<br/>━━━━━<br/>$2M/month<br/>Elasticsearch cluster<br/>BigQuery warehouse<br/>100TB+ indexed]
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6 - $10M/month"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6 - $10M/month]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        MonitoringStack["Monitoring Infrastructure<br/>━━━━━<br/>$4M/month<br/>Datadog enterprise<br/>Prometheus clusters<br/>1TB+ metrics/day"]
+        MonitoringStack[Monitoring Infrastructure<br/>━━━━━<br/>$4M/month<br/>Datadog enterprise<br/>Prometheus clusters<br/>1TB+ metrics/day]
 
-        LoggingPipeline["Logging Pipeline<br/>━━━━━<br/>$3M/month<br/>ELK stack<br/>1TB+ logs/day<br/>Real-time processing"]
+        LoggingPipeline[Logging Pipeline<br/>━━━━━<br/>$3M/month<br/>ELK stack<br/>1TB+ logs/day<br/>Real-time processing]
 
-        DeploymentInfra["Deployment Infrastructure<br/>━━━━━<br/>$2M/month<br/>CI/CD pipelines<br/>GitOps workflows<br/>Multi-region deployment"]
+        DeploymentInfra[Deployment Infrastructure<br/>━━━━━<br/>$2M/month<br/>CI/CD pipelines<br/>GitOps workflows<br/>Multi-region deployment]
 
-        SecurityCompliance["Security & Compliance<br/>━━━━━<br/>$1M/month<br/>Vulnerability scanning<br/>Compliance monitoring<br/>Audit logging"]
+        SecurityCompliance[Security & Compliance<br/>━━━━━<br/>$1M/month<br/>Vulnerability scanning<br/>Compliance monitoring<br/>Audit logging]
     end
 
-    subgraph ExternalCosts["External Services & Third-Party - $8M/month"]
+    subgraph ExternalCosts[External Services & Third-Party - $8M/month]
         style ExternalCosts fill:#f9f9f9,stroke:#999,color:#333
 
-        ThirdPartyAPIs["Third-party APIs<br/>━━━━━<br/>$3M/month<br/>Identity providers<br/>Payment processing<br/>Content moderation"]
+        ThirdPartyAPIs[Third-party APIs<br/>━━━━━<br/>$3M/month<br/>Identity providers<br/>Payment processing<br/>Content moderation]
 
-        SoftwareLicenses["Software Licenses<br/>━━━━━<br/>$2M/month<br/>Enterprise tools<br/>Development software<br/>Security solutions"]
+        SoftwareLicenses[Software Licenses<br/>━━━━━<br/>$2M/month<br/>Enterprise tools<br/>Development software<br/>Security solutions]
 
-        ProfessionalServices["Professional Services<br/>━━━━━<br/>$2M/month<br/>Consulting<br/>Support contracts<br/>Training programs"]
+        ProfessionalServices[Professional Services<br/>━━━━━<br/>$2M/month<br/>Consulting<br/>Support contracts<br/>Training programs]
 
-        NetworkTransfer["Network Transfer<br/>━━━━━<br/>$1M/month<br/>Cross-region traffic<br/>Egress charges<br/>Private connections"]
+        NetworkTransfer[Network Transfer<br/>━━━━━<br/>$1M/month<br/>Cross-region traffic<br/>Egress charges<br/>Private connections]
     end
 
     %% Cost flow connections

@@ -7,7 +7,7 @@ Complete infrastructure cost analysis from Airbnb's 2024 operations serving 150M
 
 ```mermaid
 graph TB
-    subgraph "Monthly Infrastructure: $85M"
+    subgraph Monthly Infrastructure: $85M
         subgraph EdgePlane[Edge Plane - $18M/month]
             CDN[Cloudflare Enterprise<br/>$8M/month<br/>500TB/day]
             LB[ALB/NLB Fleet<br/>$3M/month<br/>50 regions]
@@ -56,7 +56,7 @@ graph TB
 ### Search Infrastructure: $12M/month
 ```mermaid
 graph LR
-    subgraph "Search Service Costs"
+    subgraph Search Service Costs
         ES[Elasticsearch<br/>300 nodes<br/>$4M/month]
         ML1[Ranking ML<br/>100 GPUs<br/>$3M/month]
         CACHE1[Redis Cache<br/>50TB<br/>$2M/month]
@@ -139,14 +139,14 @@ cost_per_image_view = 0.002  # $0.002 per image served
 ### Machine Learning Platform: $7M/month
 ```mermaid
 graph TB
-    subgraph "ML Infrastructure Stack"
-        subgraph Training["Training - $4M/month"]
+    subgraph ML Infrastructure Stack
+        subgraph Training[Training - $4M/month]
             GPU1[P4d Instances<br/>100 GPUs<br/>$2M/month]
             SAGE[SageMaker<br/>$1M/month]
             DATA[Data Pipeline<br/>$1M/month]
         end
 
-        subgraph Inference["Inference - $3M/month"]
+        subgraph Inference[Inference - $3M/month]
             GPU2[G4dn Instances<br/>500 GPUs<br/>$1.5M/month]
             ENDP[Endpoints<br/>$1M/month]
             CACHE2[Model Cache<br/>$500K/month]
@@ -245,7 +245,7 @@ cost_savings = "$15M/month"  # From reduced DB scaling
 
 ```mermaid
 graph LR
-    subgraph "Global Infrastructure Distribution"
+    subgraph Global Infrastructure Distribution
         US[US Regions<br/>$40M/month<br/>47%]
         EU[EU Regions<br/>$25M/month<br/>29%]
         ASIA[Asia Regions<br/>$15M/month<br/>18%]
@@ -332,7 +332,7 @@ additional_reduction = "15%"
 
 ```mermaid
 graph TB
-    subgraph "Unit Economics"
+    subgraph Unit Economics
         USERS[150M Active Users]
         COST[Infrastructure: $85M/month]
 

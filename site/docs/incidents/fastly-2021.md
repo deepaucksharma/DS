@@ -17,81 +17,81 @@
 
 ```mermaid
 graph TB
-    subgraph Detection["T+0: Detection Phase - 09:47 UTC"]
+    subgraph Detection[T+0: Detection Phase - 09:47 UTC]
         style Detection fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
-        Start["09:47:00<br/>━━━━━<br/>Config Change<br/>Customer service config<br/>Invalid service setting<br/>Edge compute deployment"]
+        Start[09:47:00<br/>━━━━━<br/>Config Change<br/>Customer service config<br/>Invalid service setting<br/>Edge compute deployment]
 
-        Alert1["09:47:15<br/>━━━━━<br/>Edge Nodes Crash<br/>Global PoP failures<br/>Service compilation error<br/>Varnish processes exit"]
+        Alert1[09:47:15<br/>━━━━━<br/>Edge Nodes Crash<br/>Global PoP failures<br/>Service compilation error<br/>Varnish processes exit]
 
-        Alert2["09:47:45<br/>━━━━━<br/>Global Impact<br/>85% of PoPs offline<br/>Reddit, Amazon, CNN down<br/>HTTP 503 errors"]
+        Alert2[09:47:45<br/>━━━━━<br/>Global Impact<br/>85% of PoPs offline<br/>Reddit, Amazon, CNN down<br/>HTTP 503 errors]
     end
 
-    subgraph Diagnosis["T+5min: Diagnosis Phase"]
+    subgraph Diagnosis[T+5min: Diagnosis Phase]
         style Diagnosis fill:#FFF5E5,stroke:#F59E0B,color:#000
 
-        Incident["09:52:00<br/>━━━━━<br/>Major Incident<br/>SEV-0 declared<br/>Global service disruption<br/>Customer escalations"]
+        Incident[09:52:00<br/>━━━━━<br/>Major Incident<br/>SEV-0 declared<br/>Global service disruption<br/>Customer escalations]
 
-        ConfigTrace["09:55:30<br/>━━━━━<br/>Config Investigation<br/>Recent deployments traced<br/>Customer X config change<br/>Invalid setting identified"]
+        ConfigTrace[09:55:30<br/>━━━━━<br/>Config Investigation<br/>Recent deployments traced<br/>Customer X config change<br/>Invalid setting identified]
 
-        RootCause["09:58:00<br/>━━━━━<br/>Software Bug Found<br/>Config validation failure<br/>Edge compute compiler<br/>Crash on invalid input"]
+        RootCause[09:58:00<br/>━━━━━<br/>Software Bug Found<br/>Config validation failure<br/>Edge compute compiler<br/>Crash on invalid input]
     end
 
-    subgraph Mitigation["T+12min: Mitigation Phase"]
+    subgraph Mitigation[T+12min: Mitigation Phase]
         style Mitigation fill:#FFFFE5,stroke:#CCCC00,color:#000
 
-        GlobalDisable["09:59:00<br/>━━━━━<br/>Global Config Disable<br/>Edge compute feature off<br/>Emergency override<br/>Service rollback"]
+        GlobalDisable[09:59:00<br/>━━━━━<br/>Global Config Disable<br/>Edge compute feature off<br/>Emergency override<br/>Service rollback]
 
-        Recovery1["10:05:00<br/>━━━━━<br/>PoP Recovery Start<br/>Varnish processes restart<br/>Cache warming begins<br/>Traffic restoration"]
+        Recovery1[10:05:00<br/>━━━━━<br/>PoP Recovery Start<br/>Varnish processes restart<br/>Cache warming begins<br/>Traffic restoration]
 
-        CacheRebuild["10:15:00<br/>━━━━━<br/>Cache Rebuilding<br/>Cold cache performance<br/>Origin server load spike<br/>Content propagation"]
+        CacheRebuild[10:15:00<br/>━━━━━<br/>Cache Rebuilding<br/>Cold cache performance<br/>Origin server load spike<br/>Content propagation]
     end
 
-    subgraph Recovery["T+25min: Recovery Phase"]
+    subgraph Recovery[T+25min: Recovery Phase]
         style Recovery fill:#E5FFE5,stroke:#10B981,color:#000
 
-        TrafficNormal["10:20:00<br/>━━━━━<br/>Traffic Normalizing<br/>95% of sites accessible<br/>Cache hit rate improving<br/>Performance stabilizing"]
+        TrafficNormal[10:20:00<br/>━━━━━<br/>Traffic Normalizing<br/>95% of sites accessible<br/>Cache hit rate improving<br/>Performance stabilizing]
 
-        ServiceValidation["10:30:00<br/>━━━━━<br/>Service Validation<br/>End-to-end testing<br/>Customer verification<br/>Monitoring normalized"]
+        ServiceValidation[10:30:00<br/>━━━━━<br/>Service Validation<br/>End-to-end testing<br/>Customer verification<br/>Monitoring normalized]
 
-        Complete["10:36:00<br/>━━━━━<br/>Full Recovery<br/>All PoPs operational<br/>Cache performance normal<br/>Incident closed"]
+        Complete[10:36:00<br/>━━━━━<br/>Full Recovery<br/>All PoPs operational<br/>Cache performance normal<br/>Incident closed]
     end
 
     %% CDN Architecture Impact
-    subgraph CDNImpact["Global CDN Network Impact"]
+    subgraph CDNImpact[Global CDN Network Impact]
         style CDNImpact fill:#F0F0F0,stroke:#666666,color:#000
 
-        NorthAmerica["North America PoPs<br/>━━━━━<br/>❌ 47/52 PoPs offline<br/>Major: SJC, LAX, DFW<br/>Traffic: redirected"]
+        NorthAmerica[North America PoPs<br/>━━━━━<br/>❌ 47/52 PoPs offline<br/>Major: SJC, LAX, DFW<br/>Traffic: redirected]
 
-        Europe["Europe PoPs<br/>━━━━━<br/>❌ 23/28 PoPs offline<br/>Major: LHR, FRA, AMS<br/>Origin overload"]
+        Europe[Europe PoPs<br/>━━━━━<br/>❌ 23/28 PoPs offline<br/>Major: LHR, FRA, AMS<br/>Origin overload]
 
-        AsiaPacific["Asia-Pacific PoPs<br/>━━━━━<br/>❌ 18/22 PoPs offline<br/>Major: NRT, SIN, SYD<br/>Latency spike"]
+        AsiaPacific[Asia-Pacific PoPs<br/>━━━━━<br/>❌ 18/22 PoPs offline<br/>Major: NRT, SIN, SYD<br/>Latency spike]
 
-        OriginServers["Origin Servers<br/>━━━━━<br/>🔥 10x traffic spike<br/>Cache bypass flood<br/>Response time degraded"]
+        OriginServers[Origin Servers<br/>━━━━━<br/>🔥 10x traffic spike<br/>Cache bypass flood<br/>Response time degraded]
     end
 
     %% Major Site Impact
-    subgraph SiteImpact["Major Website Impact"]
+    subgraph SiteImpact[Major Website Impact]
         style SiteImpact fill:#FFE0E0,stroke:#7C3AED,color:#000
 
-        NewsMedia["News & Media<br/>━━━━━<br/>❌ CNN, BBC, Guardian<br/>❌ Twitch streaming<br/>❌ Spotify music"]
+        NewsMedia[News & Media<br/>━━━━━<br/>❌ CNN, BBC, Guardian<br/>❌ Twitch streaming<br/>❌ Spotify music]
 
-        Ecommerce["E-commerce<br/>━━━━━<br/>❌ Amazon (partial)<br/>❌ Target, Costco<br/>💰 Revenue loss: $25M/hr"]
+        Ecommerce[E-commerce<br/>━━━━━<br/>❌ Amazon (partial)<br/>❌ Target, Costco<br/>💰 Revenue loss: $25M/hr]
 
-        SocialPlatforms["Social Platforms<br/>━━━━━<br/>❌ Reddit completely down<br/>❌ Pinterest images<br/>❌ Stack Overflow"]
+        SocialPlatforms[Social Platforms<br/>━━━━━<br/>❌ Reddit completely down<br/>❌ Pinterest images<br/>❌ Stack Overflow]
 
-        Government["Government Sites<br/>━━━━━<br/>❌ gov.uk portal<br/>❌ Various .gov sites<br/>🏛️ Public service impact"]
+        Government[Government Sites<br/>━━━━━<br/>❌ gov.uk portal<br/>❌ Various .gov sites<br/>🏛️ Public service impact]
     end
 
     %% Software Bug Analysis
-    subgraph BugAnalysis["Software Bug Analysis"]
+    subgraph BugAnalysis[Software Bug Analysis]
         style BugAnalysis fill:#F0F0F0,stroke:#666666,color:#000
 
-        InvalidConfig["Invalid Config<br/>━━━━━<br/>Customer service setting<br/>Edge compute feature<br/>Malformed VCL snippet"]
+        InvalidConfig[Invalid Config<br/>━━━━━<br/>Customer service setting<br/>Edge compute feature<br/>Malformed VCL snippet]
 
-        CompilerBug["Compiler Bug<br/>━━━━━<br/>Config validation bypass<br/>Edge compute compiler<br/>Segmentation fault"]
+        CompilerBug[Compiler Bug<br/>━━━━━<br/>Config validation bypass<br/>Edge compute compiler<br/>Segmentation fault]
 
-        ProcessCrash["Process Crash<br/>━━━━━<br/>Varnish workers exit<br/>Service unavailable<br/>PoP failure cascade"]
+        ProcessCrash[Process Crash<br/>━━━━━<br/>Varnish workers exit<br/>Service unavailable<br/>PoP failure cascade]
     end
 
     %% Flow connections
@@ -222,34 +222,34 @@ grep "edge_compute" /var/log/fastly/service-compiler.log | tail -20
 
 ```mermaid
 graph TB
-    subgraph NormalFlow["Normal CDN Flow - Before Incident"]
+    subgraph NormalFlow[Normal CDN Flow - Before Incident]
         style NormalFlow fill:#E5FFE5,stroke:#10B981,color:#000
 
-        User1["Global Users<br/>Making requests"]
-        EdgePoP1["Edge PoPs<br/>120 locations<br/>95% cache hit rate"]
-        Origin1["Origin Servers<br/>2M requests/min<br/>Normal load"]
+        User1[Global Users<br/>Making requests]
+        EdgePoP1[Edge PoPs<br/>120 locations<br/>95% cache hit rate]
+        Origin1[Origin Servers<br/>2M requests/min<br/>Normal load]
 
         User1 --> EdgePoP1
         EdgePoP1 -.->|"5% cache miss"| Origin1
     end
 
-    subgraph IncidentFlow["During Incident - CDN Failure"]
+    subgraph IncidentFlow[During Incident - CDN Failure]
         style IncidentFlow fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
-        User2["Global Users<br/>Same request volume"]
-        EdgePoP2["Edge PoPs<br/>❌ 102/120 offline<br/>❌ Cache unavailable"]
-        Origin2["Origin Servers<br/>🔥 20M requests/min<br/>🔥 10x overload"]
+        User2[Global Users<br/>Same request volume]
+        EdgePoP2[Edge PoPs<br/>❌ 102/120 offline<br/>❌ Cache unavailable]
+        Origin2[Origin Servers<br/>🔥 20M requests/min<br/>🔥 10x overload]
 
         User2 --> EdgePoP2
         EdgePoP2 -->|"100% cache bypass"| Origin2
     end
 
-    subgraph RecoveryFlow["Recovery - Cache Rebuilding"]
+    subgraph RecoveryFlow[Recovery - Cache Rebuilding]
         style RecoveryFlow fill:#FFFFE5,stroke:#CCCC00,color:#000
 
-        User3["Global Users<br/>Gradual return"]
-        EdgePoP3["Edge PoPs<br/>✅ 120/120 online<br/>🔄 Cold cache rebuilding"]
-        Origin3["Origin Servers<br/>⚠️ 8M requests/min<br/>⚠️ Still elevated"]
+        User3[Global Users<br/>Gradual return]
+        EdgePoP3[Edge PoPs<br/>✅ 120/120 online<br/>🔄 Cold cache rebuilding]
+        Origin3[Origin Servers<br/>⚠️ 8M requests/min<br/>⚠️ Still elevated]
 
         User3 --> EdgePoP3
         EdgePoP3 -.->|"60% cache miss"| Origin3
@@ -405,21 +405,21 @@ monitoring_improvements:
 ### Cache Warming Strategy
 ```mermaid
 graph TB
-    subgraph CacheRecovery["Cache Recovery Process"]
+    subgraph CacheRecovery[Cache Recovery Process]
 
-        subgraph ColdStart["Cold Start Phase (T+0 to T+15min)"]
-            ColdCache["Empty Caches<br/>0% hit rate<br/>All requests to origin"]
-            OriginOverload["Origin Overload<br/>10x normal traffic<br/>Response time: 8s"]
+        subgraph ColdStart[Cold Start Phase (T+0 to T+15min)]
+            ColdCache[Empty Caches<br/>0% hit rate<br/>All requests to origin]
+            OriginOverload[Origin Overload<br/>10x normal traffic<br/>Response time: 8s]
         end
 
-        subgraph WarmingPhase["Warming Phase (T+15min to T+30min)"]
-            PopularContent["Popular Content<br/>Top 20% of URLs<br/>60% hit rate achieved"]
-            ReducedLoad["Origin Load Drops<br/>5x normal traffic<br/>Response time: 2s"]
+        subgraph WarmingPhase[Warming Phase (T+15min to T+30min)]
+            PopularContent[Popular Content<br/>Top 20% of URLs<br/>60% hit rate achieved]
+            ReducedLoad[Origin Load Drops<br/>5x normal traffic<br/>Response time: 2s]
         end
 
-        subgraph SteadyState["Steady State (T+30min+)"]
-            FullCache["Full Cache Efficiency<br/>95% hit rate<br/>Normal performance"]
-            NormalLoad["Normal Origin Load<br/>1x baseline traffic<br/>Response time: 200ms"]
+        subgraph SteadyState[Steady State (T+30min+)]
+            FullCache[Full Cache Efficiency<br/>95% hit rate<br/>Normal performance]
+            NormalLoad[Normal Origin Load<br/>1x baseline traffic<br/>Response time: 200ms]
         end
 
         ColdCache --> PopularContent

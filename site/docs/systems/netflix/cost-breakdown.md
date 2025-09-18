@@ -6,56 +6,56 @@ This diagram shows Netflix's actual monthly infrastructure costs serving 260+ mi
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6<br/>Monthly Cost: $48M"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6<br/>Monthly Cost: $48M]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        OpenConnect["Open Connect CDN<br/>━━━━━<br/>$40M/month<br/>18,000 edge servers<br/>$2,222/server/month<br/>200Tbps capacity"]
+        OpenConnect[Open Connect CDN<br/>━━━━━<br/>$40M/month<br/>18,000 edge servers<br/>$2,222/server/month<br/>200Tbps capacity]
 
-        CloudFront["AWS CloudFront Backup<br/>━━━━━<br/>$8M/month<br/>450+ PoPs<br/>15% traffic during outages<br/>$0.085/GB transfer"]
+        CloudFront[AWS CloudFront Backup<br/>━━━━━<br/>$8M/month<br/>450+ PoPs<br/>15% traffic during outages<br/>$0.085/GB transfer]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981<br/>Monthly Cost: $35M"]
+    subgraph ServicePlane[Service Plane - Green #10B981<br/>Monthly Cost: $35M]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        ComputeAPI["Playback APIs<br/>━━━━━<br/>$12M/month<br/>r6i.8xlarge × 500<br/>$24,000/instance/month<br/>2M req/sec capacity"]
+        ComputeAPI[Playback APIs<br/>━━━━━<br/>$12M/month<br/>r6i.8xlarge × 500<br/>$24,000/instance/month<br/>2M req/sec capacity]
 
-        ComputeMicro["Microservices Fleet<br/>━━━━━<br/>$15M/month<br/>Mixed instance types<br/>1000+ services<br/>Auto-scaling enabled"]
+        ComputeMicro[Microservices Fleet<br/>━━━━━<br/>$15M/month<br/>Mixed instance types<br/>1000+ services<br/>Auto-scaling enabled]
 
-        ComputeML["ML/Personalization<br/>━━━━━<br/>$8M/month<br/>p4d.24xlarge × 200<br/>$40,000/instance/month<br/>GPU inference"]
+        ComputeML[ML/Personalization<br/>━━━━━<br/>$8M/month<br/>p4d.24xlarge × 200<br/>$40,000/instance/month<br/>GPU inference]
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B<br/>Monthly Cost: $50M"]
+    subgraph StatePlane[State Plane - Orange #F59E0B<br/>Monthly Cost: $50M]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        S3Costs["AWS S3 Storage<br/>━━━━━<br/>$20M/month<br/>1 Exabyte stored<br/>$0.023/GB/month<br/>Video masters + backups"]
+        S3Costs[AWS S3 Storage<br/>━━━━━<br/>$20M/month<br/>1 Exabyte stored<br/>$0.023/GB/month<br/>Video masters + backups]
 
-        CassandraCosts["Cassandra Fleet<br/>━━━━━<br/>$15M/month<br/>i3en.24xlarge × 10,000<br/>$1,500/node/month<br/>100PB operational data"]
+        CassandraCosts[Cassandra Fleet<br/>━━━━━<br/>$15M/month<br/>i3en.24xlarge × 10,000<br/>$1,500/node/month<br/>100PB operational data]
 
-        EVCacheCosts["EVCache Fleet<br/>━━━━━<br/>$8M/month<br/>r6gd.16xlarge × 1,000<br/>$8,000/instance/month<br/>180TB RAM total"]
+        EVCacheCosts[EVCache Fleet<br/>━━━━━<br/>$8M/month<br/>r6gd.16xlarge × 1,000<br/>$8,000/instance/month<br/>180TB RAM total]
 
-        ElasticCosts["Elasticsearch<br/>━━━━━<br/>$7M/month<br/>i3.8xlarge × 3,500<br/>$2,000/node/month<br/>15PB indexed data"]
+        ElasticCosts[Elasticsearch<br/>━━━━━<br/>$7M/month<br/>i3.8xlarge × 3,500<br/>$2,000/node/month<br/>15PB indexed data]
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6<br/>Monthly Cost: $12M"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6<br/>Monthly Cost: $12M]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        MonitoringCosts["Atlas Monitoring<br/>━━━━━<br/>$4M/month<br/>m5.12xlarge × 200<br/>$20,000/instance/month<br/>2.5M metrics/sec"]
+        MonitoringCosts[Atlas Monitoring<br/>━━━━━<br/>$4M/month<br/>m5.12xlarge × 200<br/>$20,000/instance/month<br/>2.5M metrics/sec]
 
-        DeploymentCosts["Spinnaker/CI-CD<br/>━━━━━<br/>$3M/month<br/>10K deployments/day<br/>Multi-region orchestration<br/>Blue-green infrastructure"]
+        DeploymentCosts[Spinnaker/CI-CD<br/>━━━━━<br/>$3M/month<br/>10K deployments/day<br/>Multi-region orchestration<br/>Blue-green infrastructure]
 
-        ChaosCosts["Chaos Engineering<br/>━━━━━<br/>$2M/month<br/>1000+ experiments/day<br/>ChAP platform<br/>Automated resilience"]
+        ChaosCosts[Chaos Engineering<br/>━━━━━<br/>$2M/month<br/>1000+ experiments/day<br/>ChAP platform<br/>Automated resilience]
 
-        LoggingCosts["Logging & Analytics<br/>━━━━━<br/>$3M/month<br/>Mantis stream processing<br/>1T events/day<br/>Real-time insights"]
+        LoggingCosts[Logging & Analytics<br/>━━━━━<br/>$3M/month<br/>Mantis stream processing<br/>1T events/day<br/>Real-time insights]
     end
 
-    subgraph NetworkCosts["Network & Transfer - Purple #9966CC<br/>Monthly Cost: $25M"]
+    subgraph NetworkCosts[Network & Transfer - Purple #9966CC<br/>Monthly Cost: $25M]
         style NetworkCosts fill:#9966CC,stroke:#663399,color:#fff
 
-        EgressCosts["AWS Egress Costs<br/>━━━━━<br/>$12M/month<br/>~1.4 PB/month<br/>$0.09/GB average<br/>Multi-region transfers"]
+        EgressCosts[AWS Egress Costs<br/>━━━━━<br/>$12M/month<br/>~1.4 PB/month<br/>$0.09/GB average<br/>Multi-region transfers]
 
-        DirectConnect["AWS Direct Connect<br/>━━━━━<br/>$5M/month<br/>100Gbps dedicated<br/>30+ DX connections<br/>Consistent performance"]
+        DirectConnect[AWS Direct Connect<br/>━━━━━<br/>$5M/month<br/>100Gbps dedicated<br/>30+ DX connections<br/>Consistent performance]
 
-        TransitCosts["Transit & Peering<br/>━━━━━<br/>$8M/month<br/>ISP relationships<br/>Content peering<br/>Global connectivity"]
+        TransitCosts[Transit & Peering<br/>━━━━━<br/>$8M/month<br/>ISP relationships<br/>Content peering<br/>Global connectivity]
     end
 
     %% Cost Flow Connections
@@ -105,14 +105,14 @@ graph TB
 ### Open Connect ROI Analysis
 ```mermaid
 graph LR
-    subgraph Investment["Initial Investment"]
-        CapEx["$1.2B CapEx<br/>━━━━━<br/>18,000 servers<br/>$65K per server<br/>5-year depreciation"]
+    subgraph Investment[Initial Investment]
+        CapEx[$1.2B CapEx<br/>━━━━━<br/>18,000 servers<br/>$65K per server<br/>5-year depreciation]
     end
 
-    subgraph Savings["Annual Savings"]
-        BandwidthSave["Bandwidth Savings<br/>━━━━━<br/>$1.8B/year<br/>vs cloud CDN<br/>85% traffic served"]
+    subgraph Savings[Annual Savings]
+        BandwidthSave[Bandwidth Savings<br/>━━━━━<br/>$1.8B/year<br/>vs cloud CDN<br/>85% traffic served]
 
-        LatencySave["Latency Improvement<br/>━━━━━<br/>50% reduction<br/>Higher engagement<br/>$500M revenue impact"]
+        LatencySave[Latency Improvement<br/>━━━━━<br/>50% reduction<br/>Higher engagement<br/>$500M revenue impact]
     end
 
     CapEx -->|"ROI: 192%<br/>Payback: 6 months"| BandwidthSave
@@ -142,15 +142,15 @@ graph LR
 ### Video Playback Request
 ```mermaid
 graph TB
-    Request["User Video Request"]
+    Request[User Video Request]
 
-    EdgeCost["Edge Processing<br/>━━━━━<br/>$0.0001<br/>CDN + Zuul"]
+    EdgeCost[Edge Processing<br/>━━━━━<br/>$0.0001<br/>CDN + Zuul]
 
-    ServiceCost["Service Processing<br/>━━━━━<br/>$0.0015<br/>API + microservices"]
+    ServiceCost[Service Processing<br/>━━━━━<br/>$0.0015<br/>API + microservices]
 
-    StateCost["State Access<br/>━━━━━<br/>$0.0008<br/>Cache + DB reads"]
+    StateCost[State Access<br/>━━━━━<br/>$0.0008<br/>Cache + DB reads]
 
-    TotalCost["Total Cost per Request<br/>━━━━━<br/>$0.0024<br/>2.4 millisatoshis"]
+    TotalCost[Total Cost per Request<br/>━━━━━<br/>$0.0024<br/>2.4 millisatoshis]
 
     Request --> EdgeCost
     Request --> ServiceCost

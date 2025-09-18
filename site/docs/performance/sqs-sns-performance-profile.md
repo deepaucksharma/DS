@@ -10,7 +10,7 @@ Amazon SQS and SNS performance characteristics in production environments, cover
 
 ```mermaid
 graph TB
-    subgraph "Standard Queue Architecture"
+    subgraph Standard Queue Architecture
         STD1[Distributed queue system<br/>Multiple servers<br/>At-least-once delivery<br/>Best-effort ordering<br/>Nearly unlimited throughput]
 
         STD2[Performance metrics<br/>Throughput: 3000 TPS per action<br/>Batch send: 10 messages<br/>Effective rate: 30K msg/sec<br/>Latency: 10-50ms]
@@ -20,7 +20,7 @@ graph TB
         STD1 --> STD2 --> STD3
     end
 
-    subgraph "Standard Queue Message Flow"
+    subgraph Standard Queue Message Flow
         PROD[Producer Application<br/>Send rate: 10K msg/sec<br/>Batch size: 10 messages<br/>API calls: 1K TPS]
 
         SQS_STD[Standard SQS Queue<br/>Distributed storage<br/>Multiple servers<br/>Message duplication possible]
@@ -45,7 +45,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "FIFO Queue Architecture"
+    subgraph FIFO Queue Architecture
         FIFO1[Single logical queue<br/>Message groups<br/>Exactly-once processing<br/>Strict ordering<br/>Limited throughput]
 
         FIFO2[Performance metrics<br/>Throughput: 300 TPS per group<br/>Max groups: 20K<br/>Theoretical max: 6M msg/sec<br/>Practical max: 100K msg/sec]
@@ -55,7 +55,7 @@ graph TB
         FIFO1 --> FIFO2 --> FIFO3
     end
 
-    subgraph "FIFO Queue Message Flow"
+    subgraph FIFO Queue Message Flow
         PROD_FIFO[Producer Application<br/>Send rate: 1K msg/sec<br/>Group ID: user_123<br/>Dedup ID: Required]
 
         SQS_FIFO[FIFO SQS Queue<br/>Message groups<br/>Strict ordering per group<br/>Deduplication enabled]
@@ -76,19 +76,19 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Throughput Comparison"
+    subgraph Throughput Comparison
         THR1[Standard Queue<br/>Single queue: 30K msg/sec<br/>Multiple queues: Unlimited<br/>Batching: 10x improvement<br/>Regional limits: None]
 
         THR2[FIFO Queue<br/>Single group: 300 msg/sec<br/>Multiple groups: 100K msg/sec<br/>Batching: 10x improvement<br/>Regional limits: Apply]
     end
 
-    subgraph "Latency Comparison"
+    subgraph Latency Comparison
         LAT1[Standard Queue<br/>Receive: 10-50ms<br/>Visibility timeout: Configurable<br/>Polling: Long/Short available<br/>Jitter: Moderate]
 
         LAT2[FIFO Queue<br/>Receive: 50-200ms<br/>Group processing: Sequential<br/>Dedup overhead: +20ms<br/>Jitter: Higher]
     end
 
-    subgraph "Cost Comparison"
+    subgraph Cost Comparison
         COST1[Standard Queue<br/>Base cost: $0.40/million requests<br/>Data transfer: Standard rates<br/>No ordering premium<br/>High volume discounts]
 
         COST2[FIFO Queue<br/>Base cost: $0.50/million requests<br/>Data transfer: Standard rates<br/>Ordering premium: 25%<br/>Limited volume discounts]
@@ -107,7 +107,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Short Polling (0 seconds)"
+    subgraph Short Polling (0 seconds)
         SHORT1[Polling configuration<br/>WaitTimeSeconds: 0<br/>Immediate return<br/>Empty response possible<br/>High API call frequency]
 
         SHORT2[Performance characteristics<br/>Latency: 10-20ms<br/>API calls: 1 per second minimum<br/>Cost: High (empty receives)<br/>CPU usage: High]
@@ -117,7 +117,7 @@ graph TB
         SHORT1 --> SHORT2 --> SHORT3
     end
 
-    subgraph "Long Polling (20 seconds)"
+    subgraph Long Polling (20 seconds)
         LONG1[Polling configuration<br/>WaitTimeSeconds: 20<br/>Wait for messages<br/>Connection held open<br/>Reduced API calls]
 
         LONG2[Performance characteristics<br/>Latency: 0-20000ms<br/>API calls: Reduced by 10x<br/>Cost: Low (fewer empty receives)<br/>CPU usage: Low]
@@ -127,7 +127,7 @@ graph TB
         LONG1 --> LONG2 --> LONG3
     end
 
-    subgraph "Hybrid Polling Strategy"
+    subgraph Hybrid Polling Strategy
         HYBRID1[Adaptive polling<br/>Short poll during high load<br/>Long poll during low load<br/>Dynamic adjustment<br/>Load-based switching]
 
         HYBRID2[Implementation<br/>CloudWatch metrics<br/>Queue depth monitoring<br/>Automatic switching<br/>Cost optimization]
@@ -148,7 +148,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Single Message Processing"
+    subgraph Single Message Processing
         SINGLE1[Batch size: 1<br/>API calls: High<br/>Network overhead: High<br/>Processing efficiency: Low]
 
         SINGLE2[Performance metrics<br/>Throughput: 1K msg/sec<br/>API cost: $40/million messages<br/>Latency: 20ms per message<br/>Network utilization: 30%]
@@ -156,7 +156,7 @@ graph LR
         SINGLE1 --> SINGLE2
     end
 
-    subgraph "Optimal Batch Processing"
+    subgraph Optimal Batch Processing
         BATCH1[Batch size: 10<br/>API calls: Reduced 10x<br/>Network overhead: Low<br/>Processing efficiency: High]
 
         BATCH2[Performance metrics<br/>Throughput: 10K msg/sec<br/>API cost: $4/million messages<br/>Latency: 20ms per batch<br/>Network utilization: 90%]
@@ -164,7 +164,7 @@ graph LR
         BATCH1 --> BATCH2
     end
 
-    subgraph "Batch Size Optimization"
+    subgraph Batch Size Optimization
         OPT1[Factors affecting batch size<br/>• Message size<br/>• Processing latency<br/>• Memory constraints<br/>• Error handling complexity]
 
         OPT2[Optimal configurations<br/>Small messages: Batch 10<br/>Large messages: Batch 2-5<br/>Fast processing: Batch 10<br/>Slow processing: Batch 3-5]
@@ -187,7 +187,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Publisher to SNS Topic"
+    subgraph Publisher to SNS Topic
         PUB[Event Publisher<br/>Application: Order service<br/>Event: Order placed<br/>Rate: 10K events/sec]
 
         TOPIC[SNS Topic: OrderEvents<br/>Message filtering<br/>Fan-out delivery<br/>Regional replication]
@@ -195,7 +195,7 @@ graph TB
         PUB --> TOPIC
     end
 
-    subgraph "SNS Subscription Types"
+    subgraph SNS Subscription Types
         SQS_SUB[SQS Subscription<br/>Queue: inventory-updates<br/>Filter: product_category<br/>Delivery: Reliable]
 
         LAMBDA_SUB[Lambda Subscription<br/>Function: send-notification<br/>Filter: customer_type = premium<br/>Delivery: Asynchronous]
@@ -210,7 +210,7 @@ graph TB
         TOPIC --> EMAIL_SUB
     end
 
-    subgraph "Performance Characteristics"
+    subgraph Performance Characteristics
         PERF1[Fan-out performance<br/>Parallel delivery<br/>Per-subscription filtering<br/>Independent scaling<br/>Failure isolation]
 
         PERF2[Delivery metrics<br/>SQS: 99.9% success rate<br/>Lambda: 99.5% success rate<br/>HTTP: 95% success rate<br/>Email: 90% success rate]
@@ -236,7 +236,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "No Filtering (Broadcast)"
+    subgraph No Filtering (Broadcast)
         NO_FILTER1[All messages delivered<br/>to all subscriptions<br/>Processing overhead: High<br/>Network utilization: High]
 
         NO_FILTER2[Performance impact<br/>Delivery rate: 100K msg/sec<br/>Network bandwidth: 500 Mbps<br/>Processing cost: $100/day<br/>Unwanted messages: 80%]
@@ -244,7 +244,7 @@ graph TB
         NO_FILTER1 --> NO_FILTER2
     end
 
-    subgraph "Attribute-based Filtering"
+    subgraph Attribute-based Filtering
         ATTR_FILTER1[Server-side filtering<br/>Message attributes<br/>Filter policies<br/>Selective delivery]
 
         ATTR_FILTER2[Performance impact<br/>Delivery rate: 20K msg/sec<br/>Network bandwidth: 100 Mbps<br/>Processing cost: $20/day<br/>Unwanted messages: 5%]
@@ -252,7 +252,7 @@ graph TB
         ATTR_FILTER1 --> ATTR_FILTER2
     end
 
-    subgraph "Content-based Filtering"
+    subgraph Content-based Filtering
         CONTENT_FILTER1[Message body filtering<br/>JSON path expressions<br/>Complex conditions<br/>Advanced matching]
 
         CONTENT_FILTER2[Performance impact<br/>Filter overhead: +5ms<br/>CPU usage: +30%<br/>Precision: 99%<br/>Complexity: High]
@@ -260,7 +260,7 @@ graph TB
         CONTENT_FILTER1 --> CONTENT_FILTER2
     end
 
-    subgraph "Filter Policy Examples"
+    subgraph Filter Policy Examples
         EXAMPLES[Attribute filtering<br/>{"order_value": [{"numeric": [">=", 100]}]}<br/>{"region": ["us-east-1", "us-west-2"]}<br/>{"event_type": ["order", "payment"]}]
     end
 
@@ -281,7 +281,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Standard Queue with DLQ"
+    subgraph Standard Queue with DLQ
         MAIN_Q[Main Queue<br/>Message processing<br/>Visibility timeout: 30s<br/>Max receive count: 3]
 
         DLQ[Dead Letter Queue<br/>Failed messages<br/>Manual inspection<br/>Reprocessing capability]
@@ -293,7 +293,7 @@ graph TB
         PROC -->|Failure 5%| DLQ
     end
 
-    subgraph "DLQ Performance Impact"
+    subgraph DLQ Performance Impact
         IMPACT1[Processing overhead<br/>Receive count tracking<br/>Message redirection<br/>Additional API calls]
 
         IMPACT2[Performance metrics<br/>Success path: 50ms latency<br/>Failure path: 200ms latency<br/>DLQ overhead: 20ms<br/>Storage cost: +10%]
@@ -301,7 +301,7 @@ graph TB
         IMPACT1 --> IMPACT2
     end
 
-    subgraph "DLQ Analysis and Recovery"
+    subgraph DLQ Analysis and Recovery
         ANALYSIS[Message analysis<br/>Failure pattern detection<br/>Error categorization<br/>Root cause identification]
 
         RECOVERY[Recovery strategies<br/>Message replay<br/>Format correction<br/>Manual processing<br/>Discard decision]
@@ -324,7 +324,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Immediate DLQ Transfer"
+    subgraph Immediate DLQ Transfer
         IMMEDIATE1[Configuration<br/>Max receive count: 1<br/>No retry attempts<br/>Fast failure detection<br/>Low processing cost]
 
         IMMEDIATE2[Use cases<br/>Format validation<br/>Schema violations<br/>Poison messages<br/>Fast debugging]
@@ -332,7 +332,7 @@ graph LR
         IMMEDIATE1 --> IMMEDIATE2
     end
 
-    subgraph "Retry with Exponential Backoff"
+    subgraph Retry with Exponential Backoff
         RETRY1[Configuration<br/>Max receive count: 5<br/>Visibility timeout: Progressive<br/>30s, 60s, 120s, 300s<br/>Higher processing cost]
 
         RETRY2[Use cases<br/>Transient failures<br/>External service timeouts<br/>Network issues<br/>Resource contention]
@@ -340,7 +340,7 @@ graph LR
         RETRY1 --> RETRY2
     end
 
-    subgraph "Hybrid Strategy"
+    subgraph Hybrid Strategy
         HYBRID1[Error type classification<br/>Permanent errors: Immediate DLQ<br/>Transient errors: Retry<br/>Classification logic required<br/>Complex but efficient]
 
         HYBRID2[Implementation<br/>Message attribute analysis<br/>Error code mapping<br/>Dynamic routing<br/>Optimal resource usage]
@@ -363,7 +363,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Netflix Event Architecture"
+    subgraph Netflix Event Architecture
         EVENTS[Event Sources<br/>User interactions: 1B/day<br/>System events: 10B/day<br/>Service communications: 100B/day<br/>Total volume: 111B events/day]
 
         SNS_TOPICS[SNS Topics<br/>User events: 100 topics<br/>System events: 500 topics<br/>Service events: 1000 topics<br/>Regional replication: 3 regions]
@@ -374,13 +374,13 @@ graph TB
         SNS_TOPICS --> SQS_QUEUES
     end
 
-    subgraph "Performance Characteristics"
+    subgraph Performance Characteristics
         PERF1[Throughput metrics<br/>Peak events: 2M/sec<br/>Average events: 1.3M/sec<br/>Processing latency: p95 < 100ms<br/>End-to-end: p95 < 5 seconds]
 
         PERF2[Reliability metrics<br/>Event delivery: 99.99%<br/>Processing success: 99.5%<br/>DLQ rate: 0.1%<br/>Replay capability: 24 hours]
     end
 
-    subgraph "Cost Optimization"
+    subgraph Cost Optimization
         COST1[Batching strategies<br/>SQS batch sends: 10 messages<br/>SNS fan-out: Optimized<br/>Long polling: 20 seconds<br/>Reserved capacity: Critical paths]
 
         COST2[Cost metrics<br/>SQS costs: $50K/month<br/>SNS costs: $30K/month<br/>Lambda triggers: $20K/month<br/>Total messaging: $100K/month]
@@ -400,7 +400,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Event Sourcing Pattern"
+    subgraph Event Sourcing Pattern
         ES1[Event store<br/>SNS topic per aggregate<br/>All state changes captured<br/>Immutable event log]
 
         ES2[Event replay<br/>SQS queues for consumers<br/>Checkpointing supported<br/>Temporal decoupling]
@@ -410,7 +410,7 @@ graph TB
         ES1 --> ES2 --> ES3
     end
 
-    subgraph "CQRS Implementation"
+    subgraph CQRS Implementation
         CQRS1[Command handling<br/>Write-side processing<br/>Business logic validation<br/>Event publication]
 
         CQRS2[Read model updates<br/>Event subscribers<br/>Denormalized views<br/>Query optimization]
@@ -420,7 +420,7 @@ graph TB
         CQRS1 --> CQRS2 --> CQRS3
     end
 
-    subgraph "Saga Orchestration"
+    subgraph Saga Orchestration
         SAGA1[Saga coordinator<br/>Long-running transactions<br/>Compensation actions<br/>State management]
 
         SAGA2[Step execution<br/>SQS for step commands<br/>SNS for step completion<br/>Error handling]
@@ -443,21 +443,21 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "SQS Metrics"
+    subgraph SQS Metrics
         SQS_METRICS[Key metrics<br/>• ApproximateNumberOfMessages<br/>• ApproximateAgeOfOldestMessage<br/>• NumberOfMessagesSent<br/>• NumberOfMessagesReceived<br/>• NumberOfMessagesDeleted]
     end
 
-    subgraph "SNS Metrics"
+    subgraph SNS Metrics
         SNS_METRICS[Key metrics<br/>• NumberOfMessagesPublished<br/>• NumberOfNotificationsFailed<br/>• NumberOfNotificationsDelivered<br/>• PublishSize<br/>• SMSMonthToDateSpentUSD]
     end
 
-    subgraph "Alerting Strategy"
+    subgraph Alerting Strategy
         ALERTS1[Critical alerts<br/>Queue depth > 10K messages<br/>Message age > 15 minutes<br/>DLQ message count > 0<br/>SNS delivery failure rate > 1%]
 
         ALERTS2[Capacity alerts<br/>Message rate > 80% of limit<br/>Queue depth growth rate<br/>Processing lag increasing<br/>Cost thresholds exceeded]
     end
 
-    subgraph "Dashboards"
+    subgraph Dashboards
         DASH1[Real-time monitoring<br/>Message flow visualization<br/>Queue depth trends<br/>Error rate tracking<br/>Cost analysis]
     end
 
@@ -489,19 +489,19 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Throughput Optimization"
+    subgraph Throughput Optimization
         THR_OPT1[Batching strategies<br/>• Send/receive in batches of 10<br/>• Use SendMessageBatch API<br/>• Implement client-side batching<br/>• Monitor batch efficiency]
     end
 
-    subgraph "Latency Optimization"
+    subgraph Latency Optimization
         LAT_OPT1[Polling optimization<br/>• Use long polling (20s)<br/>• Minimize empty receives<br/>• Implement adaptive polling<br/>• Monitor receive latency]
     end
 
-    subgraph "Cost Optimization"
+    subgraph Cost Optimization
         COST_OPT1[Cost reduction strategies<br/>• Message filtering at SNS<br/>• Optimal visibility timeouts<br/>• Reserved capacity for predictable loads<br/>• DLQ threshold tuning]
     end
 
-    subgraph "Reliability Optimization"
+    subgraph Reliability Optimization
         REL_OPT1[Error handling<br/>• Appropriate DLQ configuration<br/>• Exponential backoff<br/>• Circuit breaker patterns<br/>• Monitoring and alerting]
     end
 

@@ -8,7 +8,7 @@ Shopify operates one of the world's largest e-commerce platforms with estimated 
 
 ```mermaid
 graph TB
-    subgraph "Revenue Streams #10B981"
+    subgraph Revenue Streams #10B981
         SUBSCRIPTION[Subscription Revenue<br/>$29-2000/month plans<br/>$2.4B annually<br/>Recurring revenue]
         MERCHANT_SOLUTIONS[Merchant Solutions<br/>Payment processing<br/>Shopify Capital<br/>$5.1B annually]
         PLUS_ENTERPRISE[Shopify Plus<br/>Enterprise customers<br/>Higher margins<br/>Premium features]
@@ -17,36 +17,36 @@ graph TB
         TOTAL_REVENUE[Total Revenue<br/>$7.6B annually<br/>24% YoY growth<br/>Diversified streams]
     end
 
-    subgraph "Infrastructure Costs #F59E0B"
-        subgraph "Compute Costs (45%)"
+    subgraph Infrastructure Costs #F59E0B
+        subgraph Compute Costs (45%)
             CLOUD_COMPUTE[Cloud Computing<br/>$67M annually<br/>AWS multi-region<br/>Auto-scaling]
             APP_SERVERS[Application Servers<br/>10K+ instances<br/>Ruby/Rails stack<br/>Container orchestration]
         end
 
-        subgraph "Storage & Database (25%)"
+        subgraph Storage & Database (25%)
             DATABASE_COSTS[Database Costs<br/>$37M annually<br/>Vitess MySQL<br/>130+ shards]
             REDIS_COSTS[Redis Clusters<br/>$8M annually<br/>Session + cache<br/>Memory optimization]
         end
 
-        subgraph "Network & CDN (20%)"
+        subgraph Network & CDN (20%)
             CDN_COSTS[CDN & Bandwidth<br/>$30M annually<br/>Global distribution<br/>Static assets]
             LOAD_BALANCING[Load Balancing<br/>$5M annually<br/>Traffic distribution<br/>Health monitoring]
         end
 
-        subgraph "Support Systems (10%)"
+        subgraph Support Systems (10%)
             MONITORING[Monitoring & Logs<br/>$10M annually<br/>Observability stack<br/>Analytics platform]
             BACKUP_DR[Backup & DR<br/>$5M annually<br/>Data protection<br/>Business continuity]
         end
     end
 
-    subgraph "Operational Costs #3B82F6"
+    subgraph Operational Costs #3B82F6
         ENGINEERING[Engineering<br/>$2.5B annually<br/>7000+ engineers<br/>Platform development]
         OPERATIONS[Operations<br/>$300M annually<br/>24/7 support<br/>Infrastructure management]
         SECURITY[Security & Compliance<br/>$100M annually<br/>PCI DSS<br/>Data protection]
         FACILITIES[Facilities & Other<br/>$200M annually<br/>Global offices<br/>Supporting functions]
     end
 
-    subgraph "Cost Per Unit Economics #8B5CF6"
+    subgraph Cost Per Unit Economics #8B5CF6
         COST_PER_MERCHANT[Cost per Merchant<br/>$7/month average<br/>Decreasing with scale<br/>Multi-tenant efficiency]
         COST_PER_TRANSACTION[Cost per Transaction<br/>$0.15 average<br/>Payment processing<br/>Platform overhead]
         COST_PER_GMV[Cost per GMV Dollar<br/>0.06% of GMV<br/>Infrastructure efficiency<br/>Scale advantages]
@@ -94,15 +94,15 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Multi-Tenant Infrastructure Sharing"
-        subgraph "Shared Resources (80% of costs)"
+    subgraph Multi-Tenant Infrastructure Sharing
+        subgraph Shared Resources (80% of costs)
             SHARED_COMPUTE[Shared Compute<br/>Application servers<br/>10K+ merchants per pod<br/>70% resource utilization]
             SHARED_DATABASE[Shared Database<br/>Vitess sharded MySQL<br/>Multiple merchants per shard<br/>High density storage]
             SHARED_CDN[Shared CDN<br/>Static assets<br/>Theme files<br/>Global distribution]
             SHARED_SEARCH[Shared Search<br/>Elasticsearch cluster<br/>Product indexing<br/>Cross-merchant optimization]
         end
 
-        subgraph "Dedicated Resources (20% of costs)"
+        subgraph Dedicated Resources (20% of costs)
             PLUS_DEDICATED[Plus Dedicated<br/>Enterprise customers<br/>Dedicated resources<br/>Premium SLA]
             COMPLIANCE_ISOLATION[Compliance Isolation<br/>Regulated industries<br/>Data residency<br/>Enhanced security]
             CUSTOM_INTEGRATIONS[Custom Integrations<br/>Enterprise features<br/>API rate limits<br/>Priority support]
@@ -115,7 +115,7 @@ graph TB
     SHARED_CDN --> CUSTOM_INTEGRATIONS
     SHARED_SEARCH --> PLUS_DEDICATED
 
-    subgraph "Cost Efficiency Metrics"
+    subgraph Cost Efficiency Metrics
         TENANT_DENSITY[Tenant Density<br/>10K merchants/pod<br/>95% efficiency<br/>$5/merchant/month]
 
         RESOURCE_UTILIZATION[Resource Utilization<br/>85% average CPU<br/>80% memory usage<br/>90% storage efficiency]
@@ -141,22 +141,22 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Pod Economics Model"
-        subgraph "Standard Pod (10K merchants)"
+    subgraph Pod Economics Model
+        subgraph Standard Pod (10K merchants)
             POD_COMPUTE[Compute Costs<br/>$50K/month<br/>100 app servers<br/>$5/merchant/month]
             POD_DATABASE[Database Costs<br/>$30K/month<br/>5 MySQL shards<br/>$3/merchant/month]
             POD_CACHE[Cache Costs<br/>$10K/month<br/>Redis clusters<br/>$1/merchant/month]
             POD_NETWORK[Network Costs<br/>$10K/month<br/>CDN + bandwidth<br/>$1/merchant/month]
         end
 
-        subgraph "Plus Pod (1K enterprise merchants)"
+        subgraph Plus Pod (1K enterprise merchants)
             PLUS_COMPUTE[Premium Compute<br/>$75K/month<br/>Dedicated resources<br/>$75/merchant/month]
             PLUS_DATABASE[Premium Database<br/>$45K/month<br/>Enhanced performance<br/>$45/merchant/month]
             PLUS_CACHE[Premium Cache<br/>$15K/month<br/>Larger memory<br/>$15/merchant/month]
             PLUS_NETWORK[Premium Network<br/>$15K/month<br/>Priority bandwidth<br/>$15/merchant/month]
         end
 
-        subgraph "Cost Comparison"
+        subgraph Cost Comparison
             STANDARD_TOTAL[Standard Pod Total<br/>$100K/month<br/>$10/merchant<br/>85% gross margin]
             PLUS_TOTAL[Plus Pod Total<br/>$150K/month<br/>$150/merchant<br/>92% gross margin]
             EFFICIENCY_GAIN[Efficiency Gains<br/>Volume discounts<br/>Automation benefits<br/>Scale optimization]
@@ -202,7 +202,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Payment Processing Revenue"
+    subgraph Payment Processing Revenue
         SHOPIFY_PAYMENTS[Shopify Payments<br/>70% of transactions<br/>2.9% + 30¢ fee<br/>Lower processing costs]
 
         THIRD_PARTY[Third-Party Gateways<br/>30% of transactions<br/>2% transaction fee<br/>No processing costs]
@@ -210,7 +210,7 @@ graph TB
         PAYMENT_REVENUE[Payment Revenue<br/>$4.5B annually<br/>60% of total revenue<br/>Growing penetration]
     end
 
-    subgraph "Payment Cost Structure"
+    subgraph Payment Cost Structure
         PROCESSING_COSTS[Processing Costs<br/>2.5% of transaction<br/>Card network fees<br/>Bank charges]
 
         FRAUD_PREVENTION[Fraud Prevention<br/>0.1% of transaction<br/>ML detection<br/>Chargeback insurance]
@@ -243,7 +243,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Black Friday Cost Scaling"
+    subgraph Black Friday Cost Scaling
         BASELINE_COSTS[Baseline Costs<br/>$150M annually<br/>Normal operations<br/>85% utilization]
 
         PEAK_PREPARATION[Peak Preparation<br/>$30M additional<br/>October-November<br/>Capacity doubling]
@@ -253,7 +253,7 @@ graph TB
         COST_AMORTIZATION[Cost Amortization<br/>$9.3B GMV weekend<br/>0.5% infrastructure cost<br/>Exceptional ROI]
     end
 
-    subgraph "Scaling Economics"
+    subgraph Scaling Economics
         AUTO_SCALING[Auto-scaling<br/>Elastic capacity<br/>Pay-per-use<br/>Cost optimization]
 
         RESERVED_CAPACITY[Reserved Capacity<br/>60% discount<br/>Annual commitments<br/>Predictable costs]
@@ -300,7 +300,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Database Cost Optimization"
+    subgraph Database Cost Optimization
         VITESS_SHARDING[Vitess Sharding<br/>Horizontal scaling<br/>Query optimization<br/>Connection pooling]
 
         READ_REPLICAS[Read Replicas<br/>Read scaling<br/>Geographic distribution<br/>Load balancing]
@@ -310,7 +310,7 @@ graph TB
         STORAGE_TIERING[Storage Tiering<br/>Hot/warm/cold data<br/>SSD for active data<br/>Archive for historical]
     end
 
-    subgraph "Cache Optimization"
+    subgraph Cache Optimization
         MULTI_LAYER_CACHE[Multi-layer Caching<br/>Application cache<br/>Redis clusters<br/>CDN edge cache]
 
         CACHE_WARMING[Cache Warming<br/>Predictive loading<br/>Popular products<br/>Merchant patterns]
@@ -346,7 +346,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Cost Reduction Through Automation"
+    subgraph Cost Reduction Through Automation
         INFRASTRUCTURE_AUTOMATION[Infrastructure Automation<br/>Terraform/Ansible<br/>Self-healing systems<br/>Capacity management]
 
         DEPLOYMENT_AUTOMATION[Deployment Automation<br/>Shipit platform<br/>Gradual rollouts<br/>Automated testing]
@@ -356,7 +356,7 @@ graph TB
         SCALING_AUTOMATION[Scaling Automation<br/>Elastic scaling<br/>Load prediction<br/>Resource optimization]
     end
 
-    subgraph "Operational Efficiency"
+    subgraph Operational Efficiency
         SELF_SERVICE[Self-Service Platform<br/>Merchant tools<br/>Reduced support<br/>Automated workflows]
 
         AI_OPTIMIZATION[AI Optimization<br/>Resource allocation<br/>Performance tuning<br/>Cost prediction]
@@ -388,7 +388,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Unit Economics Evolution"
+    subgraph Unit Economics Evolution
         COST_2020[2020 Costs<br/>$12/merchant/month<br/>Higher overhead<br/>Growth investments]
 
         COST_2022[2022 Costs<br/>$9/merchant/month<br/>Scale efficiency<br/>Automation benefits]
@@ -403,7 +403,7 @@ graph LR
     end
 
     %% Cost reduction drivers
-    subgraph "Cost Reduction Drivers"
+    subgraph Cost Reduction Drivers
         SCALE_ECONOMIES[Scale Economies<br/>Volume discounts<br/>Resource sharing<br/>Fixed cost amortization]
 
         TECHNOLOGY_EFFICIENCY[Technology Efficiency<br/>Modern architecture<br/>Automation<br/>Performance optimization]
@@ -443,7 +443,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Strategic Investments 2025-2027"
+    subgraph Strategic Investments 2025-2027
         AI_INFRASTRUCTURE[AI Infrastructure<br/>$100M investment<br/>ML platform<br/>Intelligent automation]
 
         GLOBAL_EXPANSION[Global Expansion<br/>$75M investment<br/>New regions<br/>Local compliance]
@@ -453,7 +453,7 @@ graph TB
         SUSTAINABILITY[Sustainability<br/>$25M investment<br/>Carbon neutral<br/>Green energy]
     end
 
-    subgraph "Expected Returns"
+    subgraph Expected Returns
         COST_REDUCTION[Cost Reduction<br/>30% efficiency gain<br/>Automation benefits<br/>Scale advantages]
 
         REVENUE_GROWTH[Revenue Growth<br/>New market access<br/>Premium features<br/>Customer expansion]

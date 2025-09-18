@@ -6,80 +6,80 @@ This diagram showcases Discord's breakthrough architectural innovations that rev
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        AdaptiveRouting["Adaptive Message Routing<br/>━━━━━<br/>Geographic optimization<br/>Latency-based selection<br/>Real-time path analysis<br/>Sub-100ms global delivery"]
+        AdaptiveRouting[Adaptive Message Routing<br/>━━━━━<br/>Geographic optimization<br/>Latency-based selection<br/>Real-time path analysis<br/>Sub-100ms global delivery]
 
-        VoiceEdgeIntelligence["Voice Edge Intelligence<br/>━━━━━<br/>Jitter buffer optimization<br/>Adaptive bitrate control<br/>P2P mesh optimization<br/>WebRTC innovation"]
+        VoiceEdgeIntelligence[Voice Edge Intelligence<br/>━━━━━<br/>Jitter buffer optimization<br/>Adaptive bitrate control<br/>P2P mesh optimization<br/>WebRTC innovation]
 
-        ShardAffinity["Connection Affinity<br/>━━━━━<br/>Sticky WebSocket routing<br/>Guild-based affinity<br/>Failover optimization<br/>Connection preservation"]
+        ShardAffinity[Connection Affinity<br/>━━━━━<br/>Sticky WebSocket routing<br/>Guild-based affinity<br/>Failover optimization<br/>Connection preservation]
     end
 
-    subgraph ServicePlane["Service Plane - Green #10B981"]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        subgraph ElixirInnovation["Elixir/OTP Innovation - Massive Concurrency"]
-            ActorSystem["Actor System<br/>━━━━━<br/>200M+ lightweight processes<br/>Fault-tolerant supervision<br/>Let-it-crash philosophy<br/>Hot code swapping"]
+        subgraph ElixirInnovation[Elixir/OTP Innovation - Massive Concurrency]
+            ActorSystem[Actor System<br/>━━━━━<br/>200M+ lightweight processes<br/>Fault-tolerant supervision<br/>Let-it-crash philosophy<br/>Hot code swapping]
 
-            SupervisionTrees["Supervision Trees<br/>━━━━━<br/>Hierarchical fault tolerance<br/>Automatic process restart<br/>Cascading failure prevention<br/>Self-healing architecture"]
+            SupervisionTrees[Supervision Trees<br/>━━━━━<br/>Hierarchical fault tolerance<br/>Automatic process restart<br/>Cascading failure prevention<br/>Self-healing architecture]
 
-            GenServerPatterns["GenServer Patterns<br/>━━━━━<br/>State machine abstraction<br/>Message passing<br/>Process isolation<br/>Concurrent message handling"]
+            GenServerPatterns[GenServer Patterns<br/>━━━━━<br/>State machine abstraction<br/>Message passing<br/>Process isolation<br/>Concurrent message handling]
         end
 
-        subgraph GuildSharding["Guild Sharding Strategy - Smart Distribution"]
-            ConsistentHashing["Consistent Hashing<br/>━━━━━<br/>Guild distribution<br/>Load balancing<br/>Minimal reshuffling<br/>Hash ring optimization"]
+        subgraph GuildSharding[Guild Sharding Strategy - Smart Distribution]
+            ConsistentHashing[Consistent Hashing<br/>━━━━━<br/>Guild distribution<br/>Load balancing<br/>Minimal reshuffling<br/>Hash ring optimization]
 
-            HotGuildHandling["Hot Guild Handling<br/>━━━━━<br/>Large guild isolation<br/>Dedicated resources<br/>Performance optimization<br/>Cascade prevention"]
+            HotGuildHandling[Hot Guild Handling<br/>━━━━━<br/>Large guild isolation<br/>Dedicated resources<br/>Performance optimization<br/>Cascade prevention]
 
-            ShardCoordination["Shard Coordination<br/>━━━━━<br/>Cross-shard messaging<br/>State synchronization<br/>Failover management<br/>Dynamic rebalancing"]
+            ShardCoordination[Shard Coordination<br/>━━━━━<br/>Cross-shard messaging<br/>State synchronization<br/>Failover management<br/>Dynamic rebalancing]
         end
 
-        subgraph VoiceInnovation["Voice Innovation - Custom WebRTC"]
-            OpusOptimization["Opus Codec Optimization<br/>━━━━━<br/>Custom encoder tuning<br/>60% bandwidth reduction<br/>Quality preservation<br/>Latency optimization"]
+        subgraph VoiceInnovation[Voice Innovation - Custom WebRTC]
+            OpusOptimization[Opus Codec Optimization<br/>━━━━━<br/>Custom encoder tuning<br/>60% bandwidth reduction<br/>Quality preservation<br/>Latency optimization]
 
-            P2PMeshNetwork["P2P Mesh Network<br/>━━━━━<br/>Direct peer connections<br/>Server fallback<br/>NAT traversal<br/>Topology optimization"]
+            P2PMeshNetwork[P2P Mesh Network<br/>━━━━━<br/>Direct peer connections<br/>Server fallback<br/>NAT traversal<br/>Topology optimization]
 
-            JitterBuffering["Adaptive Jitter Buffer<br/>━━━━━<br/>Dynamic buffer sizing<br/>Packet loss recovery<br/>Latency optimization<br/>Quality preservation"]
+            JitterBuffering[Adaptive Jitter Buffer<br/>━━━━━<br/>Dynamic buffer sizing<br/>Packet loss recovery<br/>Latency optimization<br/>Quality preservation]
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #F59E0B"]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        subgraph ScyllaInnovation["ScyllaDB Innovation - 90% Cost Reduction"]
-            CassandraCompatible["Cassandra Compatibility<br/>━━━━━<br/>Drop-in replacement<br/>Same CQL interface<br/>Zero application changes<br/>Seamless migration"]
+        subgraph ScyllaInnovation[ScyllaDB Innovation - 90% Cost Reduction]
+            CassandraCompatible[Cassandra Compatibility<br/>━━━━━<br/>Drop-in replacement<br/>Same CQL interface<br/>Zero application changes<br/>Seamless migration]
 
-            CppPerformance["C++ Performance Engine<br/>━━━━━<br/>10x faster than Java<br/>Lower GC pressure<br/>Better resource utilization<br/>Consistent latency"]
+            CppPerformance[C++ Performance Engine<br/>━━━━━<br/>10x faster than Java<br/>Lower GC pressure<br/>Better resource utilization<br/>Consistent latency]
 
-            AutoTuning["Self-Tuning Database<br/>━━━━━<br/>Automatic optimization<br/>Workload adaptation<br/>Reduced operations<br/>Performance consistency"]
+            AutoTuning[Self-Tuning Database<br/>━━━━━<br/>Automatic optimization<br/>Workload adaptation<br/>Reduced operations<br/>Performance consistency]
         end
 
-        subgraph CacheStrategy["Intelligent Caching Strategy"]
-            MultiTierCache["Multi-Tier Cache<br/>━━━━━<br/>L1: Hot messages (Redis)<br/>L2: Guild metadata (Memcached)<br/>L3: Application cache<br/>Intelligent eviction"]
+        subgraph CacheStrategy[Intelligent Caching Strategy]
+            MultiTierCache[Multi-Tier Cache<br/>━━━━━<br/>L1: Hot messages (Redis)<br/>L2: Guild metadata (Memcached)<br/>L3: Application cache<br/>Intelligent eviction]
 
-            CacheWarming["Predictive Cache Warming<br/>━━━━━<br/>User behavior prediction<br/>Preemptive data loading<br/>Latency reduction<br/>Hit ratio optimization"]
+            CacheWarming[Predictive Cache Warming<br/>━━━━━<br/>User behavior prediction<br/>Preemptive data loading<br/>Latency reduction<br/>Hit ratio optimization]
 
-            ConsistencyModel["Cache Consistency<br/>━━━━━<br/>Write-through patterns<br/>TTL-based invalidation<br/>Event-driven updates<br/>Eventual consistency"]
+            ConsistencyModel[Cache Consistency<br/>━━━━━<br/>Write-through patterns<br/>TTL-based invalidation<br/>Event-driven updates<br/>Eventual consistency]
         end
 
-        subgraph MessageStorage["Message Storage Innovation"]
-            PartitionStrategy["Time-based Partitioning<br/>━━━━━<br/>Channel + time buckets<br/>Query optimization<br/>Compaction efficiency<br/>Retention automation"]
+        subgraph MessageStorage[Message Storage Innovation]
+            PartitionStrategy[Time-based Partitioning<br/>━━━━━<br/>Channel + time buckets<br/>Query optimization<br/>Compaction efficiency<br/>Retention automation]
 
-            CompressionEngine["Compression Engine<br/>━━━━━<br/>Message deduplication<br/>Content compression<br/>Storage optimization<br/>Transfer efficiency"]
+            CompressionEngine[Compression Engine<br/>━━━━━<br/>Message deduplication<br/>Content compression<br/>Storage optimization<br/>Transfer efficiency]
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        ElixirMonitoring["Elixir Process Monitor<br/>━━━━━<br/>Process health tracking<br/>Supervisor alerts<br/>Memory monitoring<br/>Performance profiling"]
+        ElixirMonitoring[Elixir Process Monitor<br/>━━━━━<br/>Process health tracking<br/>Supervisor alerts<br/>Memory monitoring<br/>Performance profiling]
 
-        ScyllaMetrics["ScyllaDB Metrics<br/>━━━━━<br/>Performance monitoring<br/>Latency tracking<br/>Throughput analysis<br/>Capacity planning"]
+        ScyllaMetrics[ScyllaDB Metrics<br/>━━━━━<br/>Performance monitoring<br/>Latency tracking<br/>Throughput analysis<br/>Capacity planning]
 
-        VoiceQualityMonitor["Voice Quality Monitor<br/>━━━━━<br/>Audio quality metrics<br/>Connection stability<br/>Latency measurement<br/>Packet loss tracking"]
+        VoiceQualityMonitor[Voice Quality Monitor<br/>━━━━━<br/>Audio quality metrics<br/>Connection stability<br/>Latency measurement<br/>Packet loss tracking]
 
-        ShardBalancer["Shard Load Balancer<br/>━━━━━<br/>Guild activity monitoring<br/>Resource utilization<br/>Rebalancing triggers<br/>Performance optimization"]
+        ShardBalancer[Shard Load Balancer<br/>━━━━━<br/>Guild activity monitoring<br/>Resource utilization<br/>Rebalancing triggers<br/>Performance optimization]
     end
 
     %% Innovation connections

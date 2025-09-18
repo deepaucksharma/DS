@@ -6,66 +6,66 @@ This diagram shows Uber's complete infrastructure cost breakdown supporting 25M 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - $35M/month (21%)"]
+    subgraph EdgePlane[Edge Plane - $35M/month (21%)]
         style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        CDN["Global CDN<br/>━━━━━<br/>$25M/month<br/>3,000+ edge servers<br/>70 countries<br/>$1.00 per TB"]
+        CDN[Global CDN<br/>━━━━━<br/>$25M/month<br/>3,000+ edge servers<br/>70 countries<br/>$1.00 per TB]
 
-        LoadBalancers["Load Balancers<br/>━━━━━<br/>$8M/month<br/>c5n.18xlarge fleet<br/>99.99% availability<br/>$0.50 per req/million"]
+        LoadBalancers[Load Balancers<br/>━━━━━<br/>$8M/month<br/>c5n.18xlarge fleet<br/>99.99% availability<br/>$0.50 per req/million]
 
-        APIGateway["API Gateways<br/>━━━━━<br/>$2M/month<br/>Rate limiting<br/>Authentication<br/>$0.10 per req/million"]
+        APIGateway[API Gateways<br/>━━━━━<br/>$2M/month<br/>Rate limiting<br/>Authentication<br/>$0.10 per req/million]
     end
 
-    subgraph ServicePlane["Service Plane - $60M/month (35%)"]
+    subgraph ServicePlane[Service Plane - $60M/month (35%)]
         style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        Matching["DISCO Matching<br/>━━━━━<br/>$15M/month<br/>c5.24xlarge fleet<br/>CPU-intensive<br/>$0.75 per match"]
+        Matching[DISCO Matching<br/>━━━━━<br/>$15M/month<br/>c5.24xlarge fleet<br/>CPU-intensive<br/>$0.75 per match]
 
-        LocationServices["Location Services<br/>━━━━━<br/>$12M/month<br/>Real-time tracking<br/>r5.12xlarge<br/>$0.002 per location update"]
+        LocationServices[Location Services<br/>━━━━━<br/>$12M/month<br/>Real-time tracking<br/>r5.12xlarge<br/>$0.002 per location update]
 
-        ETAServices["ETA/Routing<br/>━━━━━<br/>$10M/month<br/>Map computations<br/>c5n.24xlarge<br/>$0.001 per route calc"]
+        ETAServices[ETA/Routing<br/>━━━━━<br/>$10M/month<br/>Map computations<br/>c5n.24xlarge<br/>$0.001 per route calc]
 
-        PricingServices["Pricing Engine<br/>━━━━━<br/>$8M/month<br/>ML inference<br/>r5.24xlarge<br/>$0.0001 per price calc"]
+        PricingServices[Pricing Engine<br/>━━━━━<br/>$8M/month<br/>ML inference<br/>r5.24xlarge<br/>$0.0001 per price calc]
 
-        OtherServices["Other Services<br/>━━━━━<br/>$15M/month<br/>200+ microservices<br/>Various instance types<br/>$0.60 per trip avg"]
+        OtherServices[Other Services<br/>━━━━━<br/>$15M/month<br/>200+ microservices<br/>Various instance types<br/>$0.60 per trip avg]
     end
 
-    subgraph StatePlane["State Plane - $50M/month (29%)"]
+    subgraph StatePlane[State Plane - $50M/month (29%)]
         style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-        Schemaless["Schemaless MySQL<br/>━━━━━<br/>$18M/month<br/>10K+ shards<br/>db.r6gd.16xlarge<br/>$1.80 per GB-month"]
+        Schemaless[Schemaless MySQL<br/>━━━━━<br/>$18M/month<br/>10K+ shards<br/>db.r6gd.16xlarge<br/>$1.80 per GB-month]
 
-        Cassandra["Cassandra Clusters<br/>━━━━━<br/>$12M/month<br/>600 nodes<br/>i3en.24xlarge<br/>$0.50 per GB-month"]
+        Cassandra[Cassandra Clusters<br/>━━━━━<br/>$12M/month<br/>600 nodes<br/>i3en.24xlarge<br/>$0.50 per GB-month]
 
-        RedisCache["Redis Clusters<br/>━━━━━<br/>$8M/month<br/>100TB memory<br/>r6gd.16xlarge<br/>$4.00 per GB-month"]
+        RedisCache[Redis Clusters<br/>━━━━━<br/>$8M/month<br/>100TB memory<br/>r6gd.16xlarge<br/>$4.00 per GB-month]
 
-        Analytics["Analytics Platform<br/>━━━━━<br/>$7M/month<br/>Hadoop/Spark<br/>i3en.24xlarge<br/>$0.10 per GB-month"]
+        Analytics[Analytics Platform<br/>━━━━━<br/>$7M/month<br/>Hadoop/Spark<br/>i3en.24xlarge<br/>$0.10 per GB-month]
 
-        Kafka["Kafka Infrastructure<br/>━━━━━<br/>$3M/month<br/>Event streaming<br/>i3en.12xlarge<br/>$1.00 per topic"]
+        Kafka[Kafka Infrastructure<br/>━━━━━<br/>$3M/month<br/>Event streaming<br/>i3en.12xlarge<br/>$1.00 per topic]
 
-        Backups["Backup Storage<br/>━━━━━<br/>$2M/month<br/>S3/Glacier<br/>Cross-region<br/>$0.02 per GB-month"]
+        Backups[Backup Storage<br/>━━━━━<br/>$2M/month<br/>S3/Glacier<br/>Cross-region<br/>$0.02 per GB-month]
     end
 
-    subgraph ControlPlane["Control Plane - $15M/month (9%)"]
+    subgraph ControlPlane[Control Plane - $15M/month (9%)]
         style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-        Monitoring["M3 Metrics Platform<br/>━━━━━<br/>$6M/month<br/>10M metrics/sec<br/>m5.24xlarge<br/>$0.60 per metric/month"]
+        Monitoring[M3 Metrics Platform<br/>━━━━━<br/>$6M/month<br/>10M metrics/sec<br/>m5.24xlarge<br/>$0.60 per metric/month]
 
-        Deployment["uDeploy Platform<br/>━━━━━<br/>$3M/month<br/>CI/CD infrastructure<br/>10K deploys/week<br/>$300 per deploy"]
+        Deployment[uDeploy Platform<br/>━━━━━<br/>$3M/month<br/>CI/CD infrastructure<br/>10K deploys/week<br/>$300 per deploy]
 
-        Observability["Observability Stack<br/>━━━━━<br/>$4M/month<br/>Logging/Tracing<br/>ELK + Jaeger<br/>$0.10 per log entry"]
+        Observability[Observability Stack<br/>━━━━━<br/>$4M/month<br/>Logging/Tracing<br/>ELK + Jaeger<br/>$0.10 per log entry]
 
-        Automation["Automation Tools<br/>━━━━━<br/>$2M/month<br/>Orchestration<br/>Configuration mgmt<br/>$1K per automation"]
+        Automation[Automation Tools<br/>━━━━━<br/>$2M/month<br/>Orchestration<br/>Configuration mgmt<br/>$1K per automation]
     end
 
-    subgraph NetworkCosts["Network & Transfer - $10M/month (6%)"]
+    subgraph NetworkCosts[Network & Transfer - $10M/month (6%)]
         style NetworkCosts fill:#9C27B0,stroke:#6A1B9A,color:#fff
 
-        DataTransfer["Data Transfer<br/>━━━━━<br/>$6M/month<br/>Cross-region traffic<br/>$0.09 per GB"]
+        DataTransfer[Data Transfer<br/>━━━━━<br/>$6M/month<br/>Cross-region traffic<br/>$0.09 per GB]
 
-        VPCCosts["VPC Costs<br/>━━━━━<br/>$2M/month<br/>NAT Gateways<br/>VPN connections"]
+        VPCCosts[VPC Costs<br/>━━━━━<br/>$2M/month<br/>NAT Gateways<br/>VPN connections]
 
-        DNSCosts["DNS & Domains<br/>━━━━━<br/>$2M/month<br/>Route53<br/>Global resolution"]
+        DNSCosts[DNS & Domains<br/>━━━━━<br/>$2M/month<br/>Route53<br/>Global resolution]
     end
 
     %% Cost Flow Relationships

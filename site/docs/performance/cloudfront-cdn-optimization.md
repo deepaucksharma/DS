@@ -10,25 +10,25 @@ CloudFront CDN optimization from Spotify's global music streaming platform - red
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Global CDN Infrastructure"
+    subgraph Edge Plane - Global CDN Infrastructure
         EdgeLocations[CloudFront Edge Locations<br/>400+ PoPs worldwide<br/>Multi-tier caching strategy]
         RegionalCache[Regional Edge Caches<br/>13 regional locations<br/>Larger storage capacity]
         OriginShield[Origin Shield<br/>Single origin fetch point<br/>Minimizes origin load]
     end
 
-    subgraph "Service Plane - Content Distribution"
+    subgraph Service Plane - Content Distribution
         MusicAPI[Spotify Music API<br/>Track metadata service<br/>Real-time recommendations]
         StreamingService[Audio Streaming Service<br/>High-quality audio delivery<br/>Adaptive bitrate streaming]
         ImageService[Album Art Service<br/>Cover images and thumbnails<br/>Multiple format variants]
     end
 
-    subgraph "State Plane - Content Storage"
+    subgraph State Plane - Content Storage
         S3Origin[Amazon S3 Origins<br/>Music files and metadata<br/>Multi-region replication]
         DynamoCache[DynamoDB Caching<br/>Track metadata cache<br/>User preferences]
         ElasticCache[ElastiCache Redis<br/>Session data<br/>Real-time analytics]
     end
 
-    subgraph "Control Plane - Performance Monitoring"
+    subgraph Control Plane - Performance Monitoring
         CloudWatch[CloudWatch Metrics<br/>CDN performance stats<br/>Real-time alerting]
         RealUserMetrics[Real User Monitoring<br/>Client-side performance<br/>Geographic analysis]
         CacheAnalytics[Cache Analytics<br/>Hit rate optimization<br/>Content strategy]
@@ -64,25 +64,25 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Tier 1: Edge Locations - Ultra-Low Latency"
+    subgraph Tier 1: Edge Locations - Ultra-Low Latency
         Edge[Edge Locations (400+)<br/>Small storage: 100-400GB<br/>Hot content only<br/>Response time: 5-15ms]
         Edge --> HotMusic[Hot Music Tracks<br/>Top 1% of plays<br/>TTL: 24 hours<br/>Cache hit: 85%]
         Edge --> PopularImages[Popular Album Art<br/>Trending covers<br/>TTL: 7 days<br/>Cache hit: 92%]
     end
 
-    subgraph "Tier 2: Regional Caches - High Capacity"
+    subgraph Tier 2: Regional Caches - High Capacity
         Regional[Regional Edge Caches (13)<br/>Large storage: 50-200TB<br/>Warm content pool<br/>Response time: 20-30ms]
         Regional --> WarmMusic[Warm Music Tracks<br/>Top 10% of plays<br/>TTL: 7 days<br/>Cache hit: 95%]
         Regional --> MetadataCache[Track Metadata<br/>Artist info, lyrics<br/>TTL: 30 days<br/>Cache hit: 98%]
     end
 
-    subgraph "Tier 3: Origin Shield - Origin Protection"
+    subgraph Tier 3: Origin Shield - Origin Protection
         Shield[Origin Shield<br/>Centralized origin access<br/>Prevents origin overload<br/>Response time: 50-80ms]
         Shield --> ColdContent[Cold Music Tracks<br/>Long-tail content<br/>On-demand fetch<br/>Cache miss: 5%]
         Shield --> LargeFiles[Large Audio Files<br/>High-quality streams<br/>Progressive download<br/>Bandwidth optimization]
     end
 
-    subgraph "Intelligent Caching Logic"
+    subgraph Intelligent Caching Logic
         Intelligence[Smart Caching Rules<br/>ML-driven decisions<br/>User behavior analysis<br/>Geographic preferences]
         Intelligence --> Prediction[Content Prediction<br/>Pre-load trending tracks<br/>Regional preferences<br/>Time-based patterns]
         Intelligence --> Eviction[Intelligent Eviction<br/>Popularity-based LRU<br/>Geographic relevance<br/>Optimal cache utilization]
@@ -114,26 +114,26 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Audio Content Optimization"
+    subgraph Audio Content Optimization
         AudioOrig[Original Audio File<br/>FLAC: 50MB per song<br/>Lossless quality<br/>High bandwidth usage]
         AudioOrig --> Transcode[Transcoding Pipeline<br/>Multiple format generation<br/>Quality-based encoding<br/>Adaptive bitrate preparation]
         Transcode --> AudioFormats[Optimized Formats:<br/>• 320kbps MP3: 8MB<br/>• 256kbps AAC: 6MB<br/>• 128kbps AAC: 3MB<br/>• Opus: 4MB (premium)]
     end
 
-    subgraph "Image Content Optimization"
+    subgraph Image Content Optimization
         ImageOrig[Original Album Art<br/>PNG: 2MB per image<br/>High resolution: 3000x3000<br/>Unoptimized format]
         ImageOrig --> ImageProcess[Image Processing Pipeline<br/>Multi-resolution generation<br/>Format optimization<br/>Progressive loading support]
         ImageProcess --> ImageFormats[Optimized Images:<br/>• WebP: 400KB (modern)<br/>• JPEG: 600KB (fallback)<br/>• Thumbnails: 50KB<br/>• Placeholders: 5KB]
     end
 
-    subgraph "Compression Strategy"
+    subgraph Compression Strategy
         Compression[Compression Configuration<br/>Content-type aware<br/>Size-based decisions<br/>Client capability detection]
         Compression --> GZIP[GZIP Compression<br/>Text content: JSON, CSS, JS<br/>70% size reduction<br/>Universal support]
         Compression --> Brotli[Brotli Compression<br/>Modern browsers<br/>85% size reduction<br/>Better than GZIP]
         Compression --> NoCompress[No Compression<br/>Already compressed: audio, images<br/>Binary content<br/>Avoid double compression]
     end
 
-    subgraph "Adaptive Delivery"
+    subgraph Adaptive Delivery
         Adaptive[Adaptive Content Delivery<br/>Client-aware optimization<br/>Network condition response<br/>Quality vs bandwidth balance]
         Adaptive --> HighBandwidth[High Bandwidth Users<br/>Premium quality: 320kbps<br/>High-res images<br/>No compression sacrifice]
         Adaptive --> LowBandwidth[Low Bandwidth Users<br/>Optimized quality: 128kbps<br/>Compressed images<br/>Progressive loading]
@@ -160,32 +160,32 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "North America Edge Strategy"
+    subgraph North America Edge Strategy
         NAEast[US East (Virginia)<br/>150 edge locations<br/>Primary music catalog<br/>Response time: 8ms avg]
         NAWest[US West (California)<br/>80 edge locations<br/>Tech audience focus<br/>Response time: 10ms avg]
         NACanada[Canada (Toronto)<br/>25 edge locations<br/>Bilingual content<br/>Response time: 12ms avg]
     end
 
-    subgraph "Europe Edge Strategy"
+    subgraph Europe Edge Strategy
         EUWest[Western Europe<br/>120 edge locations<br/>GDPR compliance<br/>Response time: 15ms avg]
         EUEast[Eastern Europe<br/>40 edge locations<br/>Emerging markets<br/>Response time: 18ms avg]
         EUNordic[Nordic Countries<br/>30 edge locations<br/>High-quality demands<br/>Response time: 10ms avg]
     end
 
-    subgraph "Asia-Pacific Edge Strategy"
+    subgraph Asia-Pacific Edge Strategy
         APJapan[Japan (Tokyo)<br/>45 edge locations<br/>High-tech infrastructure<br/>Response time: 8ms avg]
         APAustralia[Australia (Sydney)<br/>25 edge locations<br/>Distant from origin<br/>Response time: 25ms avg]
         APIndia[India (Mumbai)<br/>60 edge locations<br/>Mobile-first users<br/>Response time: 30ms avg]
     end
 
-    subgraph "Intelligent Traffic Routing"
+    subgraph Intelligent Traffic Routing
         GeoDNS[GeoDNS Routing<br/>Latency-based routing<br/>Health check integration<br/>Automatic failover]
         GeoDNS --> Latency[Latency-Based Routing<br/>Real-time measurements<br/>Sub-10ms target<br/>Dynamic adjustments]
         GeoDNS --> Health[Health Check Routing<br/>Edge availability monitoring<br/>Automatic failover<br/>Zero-downtime switching]
         GeoDNS --> LoadBalance[Load Balancing<br/>Capacity-aware routing<br/>Even distribution<br/>Performance optimization]
     end
 
-    subgraph "Regional Content Strategy"
+    subgraph Regional Content Strategy
         ContentStrategy[Regional Content Strategy<br/>Localized caching<br/>Cultural preferences<br/>Language optimization]
         ContentStrategy --> PopularLocal[Popular Local Content<br/>Regional hit songs<br/>Local artist promotion<br/>Cultural relevance]
         ContentStrategy --> GlobalHits[Global Hit Songs<br/>Universal appeal<br/>Multi-region caching<br/>Worldwide distribution]

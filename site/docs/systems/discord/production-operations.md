@@ -6,90 +6,90 @@ This diagram details Discord's production operations including their deployment 
 
 ```mermaid
 graph TB
-    subgraph DeploymentPipeline["Discord Deployment Pipeline"]
+    subgraph DeploymentPipeline[Discord Deployment Pipeline]
         style DeploymentPipeline fill:#E3F2FD,stroke:#3B82F6,color:#000
 
-        GitCommit["Git Commit<br/>━━━━━<br/>Developer push to main<br/>Automatic CI trigger<br/>3,000+ commits/day<br/>Branch protection: required"]
+        GitCommit[Git Commit<br/>━━━━━<br/>Developer push to main<br/>Automatic CI trigger<br/>3,000+ commits/day<br/>Branch protection: required]
 
-        BuildStage["Build & Test Stage<br/>━━━━━<br/>GitHub Actions CI<br/>Multi-language builds<br/>Python/Elixir/Rust/Go<br/>Build time: 6 minutes avg"]
+        BuildStage[Build & Test Stage<br/>━━━━━<br/>GitHub Actions CI<br/>Multi-language builds<br/>Python/Elixir/Rust/Go<br/>Build time: 6 minutes avg]
 
-        TestSuite["Test Suite Execution<br/>━━━━━<br/>Unit tests: 95% coverage<br/>Integration tests<br/>Load testing: 1M WS/sec<br/>Success rate: 97.8%"]
+        TestSuite[Test Suite Execution<br/>━━━━━<br/>Unit tests: 95% coverage<br/>Integration tests<br/>Load testing: 1M WS/sec<br/>Success rate: 97.8%]
 
-        ContainerBuild["Container Build<br/>━━━━━<br/>Docker multi-stage builds<br/>Security scanning<br/>Vulnerability assessment<br/>Artifact registry storage"]
+        ContainerBuild[Container Build<br/>━━━━━<br/>Docker multi-stage builds<br/>Security scanning<br/>Vulnerability assessment<br/>Artifact registry storage]
 
-        CanaryDeploy["Canary Deployment<br/>━━━━━<br/>5% traffic allocation<br/>20-minute soak time<br/>Error rate monitoring<br/>Auto-rollback: <30s"]
+        CanaryDeploy[Canary Deployment<br/>━━━━━<br/>5% traffic allocation<br/>20-minute soak time<br/>Error rate monitoring<br/>Auto-rollback: <30s]
 
-        ProductionDeploy["Production Deployment<br/>━━━━━<br/>Rolling deployment<br/>Zero-downtime updates<br/>Guild shard awareness<br/>500+ deployments/week"]
+        ProductionDeploy[Production Deployment<br/>━━━━━<br/>Rolling deployment<br/>Zero-downtime updates<br/>Guild shard awareness<br/>500+ deployments/week]
     end
 
-    subgraph MonitoringObservability["Monitoring & Observability"]
+    subgraph MonitoringObservability[Monitoring & Observability]
         style MonitoringObservability fill:#E8F5E8,stroke:#10B981,color:#000
 
-        InfluxDB["InfluxDB Time Series<br/>━━━━━<br/>5M metrics/second<br/>Real-time ingestion<br/>30-day retention<br/>Custom Discord metrics"]
+        InfluxDB[InfluxDB Time Series<br/>━━━━━<br/>5M metrics/second<br/>Real-time ingestion<br/>30-day retention<br/>Custom Discord metrics]
 
-        Grafana["Grafana Dashboards<br/>━━━━━<br/>2,000+ dashboards<br/>Real-time visualization<br/>Voice quality tracking<br/>Message delivery SLA"]
+        Grafana[Grafana Dashboards<br/>━━━━━<br/>2,000+ dashboards<br/>Real-time visualization<br/>Voice quality tracking<br/>Message delivery SLA]
 
-        ELKStack["ELK Stack Logging<br/>━━━━━<br/>2TB daily log volume<br/>Centralized logging<br/>Error aggregation<br/>Performance correlation"]
+        ELKStack[ELK Stack Logging<br/>━━━━━<br/>2TB daily log volume<br/>Centralized logging<br/>Error aggregation<br/>Performance correlation]
 
-        StatusPage["Discord Status Page<br/>━━━━━<br/>Public status reporting<br/>Component status<br/>Incident communication<br/>99.95% uptime SLA"]
+        StatusPage[Discord Status Page<br/>━━━━━<br/>Public status reporting<br/>Component status<br/>Incident communication<br/>99.95% uptime SLA]
 
-        AlertingSystem["PagerDuty Alerting<br/>━━━━━<br/>Multi-tier escalation<br/>Smart aggregation<br/>Voice/SMS alerts<br/>Slack integration"]
+        AlertingSystem[PagerDuty Alerting<br/>━━━━━<br/>Multi-tier escalation<br/>Smart aggregation<br/>Voice/SMS alerts<br/>Slack integration]
     end
 
-    subgraph IncidentResponse["Incident Response & On-Call"]
+    subgraph IncidentResponse[Incident Response & On-Call]
         style IncidentResponse fill:#FFE6E6,stroke:#8B5CF6,color:#000
 
-        OnCallRotation["On-Call Rotation<br/>━━━━━<br/>L1: Feature teams (24/7)<br/>L2: Platform team<br/>L3: Infrastructure team<br/>L4: Engineering leadership"]
+        OnCallRotation[On-Call Rotation<br/>━━━━━<br/>L1: Feature teams (24/7)<br/>L2: Platform team<br/>L3: Infrastructure team<br/>L4: Engineering leadership]
 
-        IncidentCommander["Incident Commander<br/>━━━━━<br/>Single point coordination<br/>Cross-team communication<br/>User impact assessment<br/>Public communications"]
+        IncidentCommander[Incident Commander<br/>━━━━━<br/>Single point coordination<br/>Cross-team communication<br/>User impact assessment<br/>Public communications]
 
-        WarRoom["Discord Server War Room<br/>━━━━━<br/>Real-time incident channel<br/>Voice coordination<br/>Screen sharing<br/>Status bot updates"]
+        WarRoom[Discord Server War Room<br/>━━━━━<br/>Real-time incident channel<br/>Voice coordination<br/>Screen sharing<br/>Status bot updates]
 
-        PostIncident["Post-Incident Review<br/>━━━━━<br/>Blameless retrospective<br/>Timeline reconstruction<br/>Action item tracking<br/>Process improvement"]
+        PostIncident[Post-Incident Review<br/>━━━━━<br/>Blameless retrospective<br/>Timeline reconstruction<br/>Action item tracking<br/>Process improvement]
 
-        EscalationFlow["Escalation Procedures<br/>━━━━━<br/>20min L1 → L2<br/>45min L2 → L3<br/>90min L3 → L4<br/>CEO notification: 4hr+"]
+        EscalationFlow[Escalation Procedures<br/>━━━━━<br/>20min L1 → L2<br/>45min L2 → L3<br/>90min L3 → L4<br/>CEO notification: 4hr+]
     end
 
-    subgraph VoiceOperations["Voice Infrastructure Operations"]
+    subgraph VoiceOperations[Voice Infrastructure Operations]
         style VoiceOperations fill:#FFF3E0,stroke:#F59E0B,color:#000
 
-        VoiceMonitoring["Voice Quality Monitoring<br/>━━━━━<br/>MOS score tracking<br/>Jitter/latency metrics<br/>Packet loss detection<br/>Real-time diagnostics"]
+        VoiceMonitoring[Voice Quality Monitoring<br/>━━━━━<br/>MOS score tracking<br/>Jitter/latency metrics<br/>Packet loss detection<br/>Real-time diagnostics]
 
-        RTCEdgeManagement["RTC Edge Management<br/>━━━━━<br/>1000+ edge servers<br/>Dynamic routing<br/>Capacity monitoring<br/>Regional failover"]
+        RTCEdgeManagement[RTC Edge Management<br/>━━━━━<br/>1000+ edge servers<br/>Dynamic routing<br/>Capacity monitoring<br/>Regional failover]
 
-        VoiceLoadBalancing["Voice Load Balancing<br/>━━━━━<br/>Least connection routing<br/>Geographic optimization<br/>Server health checks<br/>Graceful draining"]
+        VoiceLoadBalancing[Voice Load Balancing<br/>━━━━━<br/>Least connection routing<br/>Geographic optimization<br/>Server health checks<br/>Graceful draining]
 
-        AudioProcessing["Audio Processing Ops<br/>━━━━━<br/>Opus codec monitoring<br/>Echo cancellation<br/>Noise suppression<br/>Quality adaptation"]
+        AudioProcessing[Audio Processing Ops<br/>━━━━━<br/>Opus codec monitoring<br/>Echo cancellation<br/>Noise suppression<br/>Quality adaptation]
 
-        VoiceCapacity["Voice Capacity Planning<br/>━━━━━<br/>4M+ concurrent users<br/>Peak usage forecasting<br/>Event-based scaling<br/>Regional distribution"]
+        VoiceCapacity[Voice Capacity Planning<br/>━━━━━<br/>4M+ concurrent users<br/>Peak usage forecasting<br/>Event-based scaling<br/>Regional distribution]
     end
 
-    subgraph MessageOperations["Message Infrastructure Operations"]
+    subgraph MessageOperations[Message Infrastructure Operations]
         style MessageOperations fill:#F3E5F5,stroke:#9C27B0,color:#000
 
-        MessageRouting["Message Routing Ops<br/>━━━━━<br/>14B+ messages/day<br/>Real-time fanout<br/>Permission checking<br/>Rate limiting"]
+        MessageRouting[Message Routing Ops<br/>━━━━━<br/>14B+ messages/day<br/>Real-time fanout<br/>Permission checking<br/>Rate limiting]
 
-        GatewayOperations["Gateway Operations<br/>━━━━━<br/>200M+ WebSocket connections<br/>Connection health<br/>Shard coordination<br/>Auto-scaling"]
+        GatewayOperations[Gateway Operations<br/>━━━━━<br/>200M+ WebSocket connections<br/>Connection health<br/>Shard coordination<br/>Auto-scaling]
 
-        CacheManagement["Cache Management<br/>━━━━━<br/>Redis cluster operations<br/>Cache hit optimization<br/>Memory monitoring<br/>Eviction policies"]
+        CacheManagement[Cache Management<br/>━━━━━<br/>Redis cluster operations<br/>Cache hit optimization<br/>Memory monitoring<br/>Eviction policies]
 
-        ScyllaOperations["ScyllaDB Operations<br/>━━━━━<br/>12T messages stored<br/>800+ node management<br/>Compaction monitoring<br/>Performance tuning"]
+        ScyllaOperations[ScyllaDB Operations<br/>━━━━━<br/>12T messages stored<br/>800+ node management<br/>Compaction monitoring<br/>Performance tuning]
 
-        MessageDelivery["Message Delivery SLA<br/>━━━━━<br/>p99: <100ms globally<br/>Delivery guarantees<br/>Retry mechanisms<br/>Dead letter queues"]
+        MessageDelivery[Message Delivery SLA<br/>━━━━━<br/>p99: <100ms globally<br/>Delivery guarantees<br/>Retry mechanisms<br/>Dead letter queues]
     end
 
-    subgraph SecurityOperations["Security Operations"]
+    subgraph SecurityOperations[Security Operations]
         style SecurityOperations fill:#E1F5FE,stroke:#00BCD4,color:#000
 
-        TrustSafety["Trust & Safety Ops<br/>━━━━━<br/>Content moderation<br/>Automated detection<br/>Human review queue<br/>Appeal processing"]
+        TrustSafety[Trust & Safety Ops<br/>━━━━━<br/>Content moderation<br/>Automated detection<br/>Human review queue<br/>Appeal processing]
 
-        DDoSProtection["DDoS Protection<br/>━━━━━<br/>Cloudflare integration<br/>Rate limiting<br/>IP reputation<br/>Attack mitigation"]
+        DDoSProtection[DDoS Protection<br/>━━━━━<br/>Cloudflare integration<br/>Rate limiting<br/>IP reputation<br/>Attack mitigation]
 
-        APISecurityOps["API Security Operations<br/>━━━━━<br/>Rate limiting enforcement<br/>Token validation<br/>Permission auditing<br/>Abuse detection"]
+        APISecurityOps[API Security Operations<br/>━━━━━<br/>Rate limiting enforcement<br/>Token validation<br/>Permission auditing<br/>Abuse detection]
 
-        ComplianceOps["Compliance Operations<br/>━━━━━<br/>GDPR compliance<br/>COPPA compliance<br/>Data retention<br/>Privacy controls"]
+        ComplianceOps[Compliance Operations<br/>━━━━━<br/>GDPR compliance<br/>COPPA compliance<br/>Data retention<br/>Privacy controls]
 
-        SecurityIncidents["Security Incident Response<br/>━━━━━<br/>Dedicated security team<br/>Forensic analysis<br/>User notification<br/>Regulatory reporting"]
+        SecurityIncidents[Security Incident Response<br/>━━━━━<br/>Dedicated security team<br/>Forensic analysis<br/>User notification<br/>Regulatory reporting]
     end
 
     %% Deployment Flow

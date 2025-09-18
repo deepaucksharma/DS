@@ -10,24 +10,24 @@ Facebook's TAO (The Associations and Objects) cache optimization that improved r
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - CDN & Load Balancers"
+    subgraph Edge Plane - CDN & Load Balancers
         CDN[Akamai CDN<br/>30 PoPs worldwide]
         LB[HAProxy Load Balancer<br/>99.99% uptime]
     end
 
-    subgraph "Service Plane - TAO Layer"
+    subgraph Service Plane - TAO Layer
         TAO_Leader[TAO Leader Tier<br/>128 servers<br/>Write-through cache]
         TAO_Follower[TAO Follower Tier<br/>2,048 servers<br/>Read-only replicas]
         TAO_Client[TAO Client Library<br/>Smart routing<br/>Circuit breakers]
     end
 
-    subgraph "State Plane - Storage Layer"
+    subgraph State Plane - Storage Layer
         MySQL_Master[(MySQL Master<br/>Sharded across 4,096 DBs<br/>99.95% available)]
         MySQL_Slave[(MySQL Slaves<br/>Read replicas<br/>Async replication)]
         MemCache[Memcached Tier<br/>Look-aside cache<br/>Legacy system]
     end
 
-    subgraph "Control Plane - Monitoring"
+    subgraph Control Plane - Monitoring
         Scribe[Scribe Logging<br/>10TB/day logs]
         ODS[Operational Data Store<br/>Real-time metrics]
     end
@@ -60,25 +60,25 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "2009-2011: Memcached Era"
+    subgraph 2009-2011: Memcached Era
         MC_App[Facebook App] --> MC_Cache[Memcached<br/>Cache Hit: 85%<br/>Latency: 2.4ms]
         MC_Cache --> MC_Miss[Cache Miss: 15%] --> MC_DB[(MySQL<br/>Query Time: 45ms<br/>Load: 100%)]
         MC_Cache --> MC_Hit[Cache Hit: 85%<br/>Response: 2.4ms]
     end
 
-    subgraph "2012-2014: TAO v1"
+    subgraph 2012-2014: TAO v1
         TAO1_App[Facebook App] --> TAO1_Cache[TAO Cache<br/>Cache Hit: 97%<br/>Latency: 1.2ms]
         TAO1_Cache --> TAO1_Miss[Cache Miss: 3%] --> TAO1_DB[(MySQL<br/>Query Time: 45ms<br/>Load: 30%)]
         TAO1_Cache --> TAO1_Hit[Cache Hit: 97%<br/>Response: 1.2ms]
     end
 
-    subgraph "2015-Present: TAO v2 Optimized"
+    subgraph 2015-Present: TAO v2 Optimized
         TAO2_App[Facebook App] --> TAO2_Cache[TAO Cache<br/>Cache Hit: 99.8%<br/>Latency: 0.3ms]
         TAO2_Cache --> TAO2_Miss[Cache Miss: 0.2%] --> TAO2_DB[(MySQL<br/>Query Time: 45ms<br/>Load: 2%)]
         TAO2_Cache --> TAO2_Hit[Cache Hit: 99.8%<br/>Response: 0.3ms]
     end
 
-    subgraph "Performance Evolution"
+    subgraph Performance Evolution
         Perf1[2011: 2.4ms, 85% hit rate<br/>MySQL Load: 15M QPS]
         Perf2[2014: 1.2ms, 97% hit rate<br/>MySQL Load: 5M QPS]
         Perf3[2024: 0.3ms, 99.8% hit rate<br/>MySQL Load: 300K QPS]
@@ -102,26 +102,26 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Cold Start - Before Optimization"
+    subgraph Cold Start - Before Optimization
         Cold_Start[Server Boot<br/>Empty Cache<br/>0% hit rate]
         Cold_Start --> Cold_Miss[All Requests Miss<br/>45ms latency<br/>High DB load]
         Cold_Miss --> Cold_Warmup[Gradual Warmup<br/>2-4 hours<br/>User impact]
     end
 
-    subgraph "Intelligent Preloading - After"
+    subgraph Intelligent Preloading - After
         Smart_Start[Server Boot<br/>Preload Algorithm<br/>85% hit rate in 5min]
         Smart_Start --> Popularity[Popular Objects<br/>Top 10% by access frequency<br/>Preloaded first]
         Smart_Start --> Social[Social Graph<br/>Friend connections<br/>User's network data]
         Smart_Start --> Recent[Recent Activity<br/>Last 24h interactions<br/>Hot data priority]
     end
 
-    subgraph "Preloading Algorithm"
+    subgraph Preloading Algorithm
         Algorithm[ML-Based Predictor<br/>Gradient Boosting<br/>99.2% accuracy]
         Algorithm --> Features[Features:<br/>- User activity patterns<br/>- Friend graph topology<br/>- Content popularity<br/>- Time of day<br/>- Geographic location]
         Features --> Prediction[Prediction:<br/>Cache 150MB per server<br/>300K objects<br/>85% hit rate immediately]
     end
 
-    subgraph "Performance Impact"
+    subgraph Performance Impact
         Cold_Start -.->|"2-4 hours warmup<br/>User complaints"| Bad[Poor UX]
         Smart_Start -.->|"5 minutes warmup<br/>No user impact"| Good[Great UX]
     end
@@ -140,21 +140,21 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph "Memory Allocation - Before"
+    subgraph Memory Allocation - Before
         Old_Mem[Total Memory: 64GB<br/>Objects: 2M cached<br/>Avg Size: 32KB<br/>Hit Rate: 97%]
         Old_Mem --> Old_Hot[Hot Data: 20%<br/>Memory Used: 60%<br/>Access: 80% of requests]
         Old_Mem --> Old_Warm[Warm Data: 30%<br/>Memory Used: 25%<br/>Access: 15% of requests]
         Old_Mem --> Old_Cold[Cold Data: 50%<br/>Memory Used: 15%<br/>Access: 5% of requests]
     end
 
-    subgraph "Memory Allocation - After"
+    subgraph Memory Allocation - After
         New_Mem[Total Memory: 64GB<br/>Objects: 8M cached<br/>Avg Size: 8KB<br/>Hit Rate: 99.8%]
         New_Mem --> New_Hot[Hot Data: 40%<br/>Memory Used: 80%<br/>Access: 85% of requests]
         New_Mem --> New_Warm[Warm Data: 45%<br/>Memory Used: 18%<br/>Access: 14% of requests]
         New_Mem --> New_Cold[Cold Data: 15%<br/>Memory Used: 2%<br/>Access: 1% of requests]
     end
 
-    subgraph "LRU Enhancement - Segmented LRU"
+    subgraph LRU Enhancement - Segmented LRU
         SLRU[Segmented LRU<br/>4 segments by access frequency]
         SLRU --> Probation[Probation Segment<br/>New objects<br/>25% of memory]
         SLRU --> Protected[Protected Segment<br/>Proven hot objects<br/>65% of memory]
@@ -162,7 +162,7 @@ graph TB
         SLRU --> Ghost[Ghost Segment<br/>Metadata only<br/>2% of memory]
     end
 
-    subgraph "Eviction Intelligence"
+    subgraph Eviction Intelligence
         AI_Evict[ML Eviction Predictor<br/>Random Forest Model<br/>Predicts re-access probability]
         AI_Evict --> Features2[Features:<br/>- Access recency<br/>- Access frequency<br/>- Object type<br/>- User relationship<br/>- Content age]
         Features2 --> Decision[Eviction Decision:<br/>Keep objects with >15% re-access<br/>probability within 24h]
@@ -188,24 +188,24 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "US East Data Centers"
+    subgraph US East Data Centers
         US_East_Leader[TAO Leader<br/>Ashburn, VA<br/>Master writes]
         US_East_Follower[TAO Followers (64)<br/>Read replicas<br/>0.3ms latency]
     end
 
-    subgraph "US West Data Centers"
+    subgraph US West Data Centers
         US_West_Follower[TAO Followers (64)<br/>Palo Alto, CA<br/>Read replicas<br/>0.4ms latency]
     end
 
-    subgraph "Europe Data Centers"
+    subgraph Europe Data Centers
         EU_Follower[TAO Followers (32)<br/>Dublin, Ireland<br/>Read replicas<br/>0.6ms latency]
     end
 
-    subgraph "Asia Data Centers"
+    subgraph Asia Data Centers
         APAC_Follower[TAO Followers (24)<br/>Singapore<br/>Read replicas<br/>0.8ms latency]
     end
 
-    subgraph "Consistency Protocol"
+    subgraph Consistency Protocol
         Write_Path[Write Request] --> US_East_Leader
         US_East_Leader --> MySQL_Write[(MySQL Write<br/>Synchronous)]
         MySQL_Write --> Async_Repl[Async Replication<br/>50-200ms lag]
@@ -214,7 +214,7 @@ graph TB
         Async_Repl --> APAC_Follower
     end
 
-    subgraph "Read-After-Write Consistency"
+    subgraph Read-After-Write Consistency
         RAW[Read After Write<br/>Same User Session]
         RAW --> Sticky_Leader[Route to Leader<br/>Consistent read<br/>+2ms latency penalty]
         RAW --> Or_Wait[Or Wait for Replication<br/>Max 500ms timeout<br/>99.8% success rate]
@@ -241,20 +241,20 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Object Serialization - Before"
+    subgraph Object Serialization - Before
         Raw_Object[Facebook Post Object<br/>JSON: 45KB<br/>User, comments, likes]
         Raw_Object --> JSON_Store[JSON Storage<br/>Plain text<br/>45KB per object]
         JSON_Store --> Network_Old[Network Transfer<br/>45KB * 1B requests/day<br/>45TB/day bandwidth]
     end
 
-    subgraph "Object Serialization - After"
+    subgraph Object Serialization - After
         Opt_Object[Facebook Post Object<br/>Same data<br/>User, comments, likes]
         Opt_Object --> Thrift_Serial[Thrift Serialization<br/>Binary format<br/>18KB per object]
         Thrift_Serial --> LZ4_Compress[LZ4 Compression<br/>Ultra-fast<br/>6KB per object]
         LZ4_Compress --> Network_New[Network Transfer<br/>6KB * 1B requests/day<br/>6TB/day bandwidth]
     end
 
-    subgraph "Compression Algorithms Comparison"
+    subgraph Compression Algorithms Comparison
         Comp_Test[Test Object: 45KB JSON<br/>Social media post with 50 comments]
         Comp_Test --> GZIP[GZIP: 8KB (82% reduction)<br/>Compression: 15ms<br/>Decompression: 8ms]
         Comp_Test --> LZ4[LZ4: 12KB (73% reduction)<br/>Compression: 2ms<br/>Decompression: 1ms]
@@ -262,7 +262,7 @@ graph LR
         Comp_Test --> ZSTD[ZSTD: 7KB (84% reduction)<br/>Compression: 12ms<br/>Decompression: 5ms]
     end
 
-    subgraph "Performance Trade-offs"
+    subgraph Performance Trade-offs
         CPU_Impact[CPU Usage<br/>LZ4 chosen for speed]
         CPU_Impact --> Compression[Compression: 2ms<br/>25% CPU increase]
         CPU_Impact --> Bandwidth[Bandwidth: 73% reduction<br/>$12M/year savings]

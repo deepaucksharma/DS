@@ -6,26 +6,26 @@ A distributed system is multiple independent computers appearing as a single coh
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - CDN & Load Balancing"]
-        CDN["Cloudflare CDN<br/>150 POPs globally<br/>p99: 15ms"]
-        LB["AWS ALB<br/>50K RPS capacity<br/>99.99% SLA"]
+    subgraph EdgePlane[Edge Plane - CDN & Load Balancing]
+        CDN[Cloudflare CDN<br/>150 POPs globally<br/>p99: 15ms]
+        LB[AWS ALB<br/>50K RPS capacity<br/>99.99% SLA]
     end
 
-    subgraph ServicePlane["Service Plane - Business Logic"]
-        API["API Gateway<br/>Kong Enterprise<br/>10K RPS/instance"]
-        MS1["User Service<br/>Java 17, K8s<br/>p99: 50ms"]
-        MS2["Order Service<br/>Go 1.21, K8s<br/>p99: 25ms"]
+    subgraph ServicePlane[Service Plane - Business Logic]
+        API[API Gateway<br/>Kong Enterprise<br/>10K RPS/instance]
+        MS1[User Service<br/>Java 17, K8s<br/>p99: 50ms]
+        MS2[Order Service<br/>Go 1.21, K8s<br/>p99: 25ms]
     end
 
-    subgraph StatePlane["State Plane - Data Storage"]
+    subgraph StatePlane[State Plane - Data Storage]
         PG[("PostgreSQL 15<br/>Primary-Replica<br/>db.r6g.2xlarge")]
         REDIS[("Redis Cluster<br/>6 nodes, 64GB<br/>p99: 1ms")]
         S3[("AWS S3<br/>99.999999999%<br/>durability")]
     end
 
-    subgraph ControlPlane["Control Plane - Operations"]
-        MON["Datadog APM<br/>200K metrics/min<br/>real-time alerts"]
-        LOG["ELK Stack<br/>10TB/day logs<br/>7-day retention"]
+    subgraph ControlPlane[Control Plane - Operations]
+        MON[Datadog APM<br/>200K metrics/min<br/>real-time alerts]
+        LOG[ELK Stack<br/>10TB/day logs<br/>7-day retention]
     end
 
     CDN --> LB
@@ -58,23 +58,23 @@ This framework provides systematic production-focused guidance instead of theore
 
 ```mermaid
 flowchart LR
-    subgraph Problem["Production Problems"]
-        P1["3AM Outage<br/>p99 latency 5000ms<br/>$10K/min revenue loss"]
-        P2["Black Friday<br/>100x traffic spike<br/>system collapse"]
-        P3["Data Corruption<br/>inconsistent state<br/>financial impact"]
+    subgraph Problem[Production Problems]
+        P1[3AM Outage<br/>p99 latency 5000ms<br/>$10K/min revenue loss]
+        P2[Black Friday<br/>100x traffic spike<br/>system collapse]
+        P3[Data Corruption<br/>inconsistent state<br/>financial impact]
     end
 
-    subgraph Framework["Atlas Framework"]
-        F1["15 Universal Laws<br/>mathematical constraints<br/>CAP, Little's, Amdahl's"]
-        F2["30 Capabilities<br/>system guarantees<br/>with SLOs"]
-        F3["20 Primitives<br/>building blocks<br/>with trade-offs"]
-        F4["15 Patterns<br/>proven solutions<br/>with metrics"]
+    subgraph Framework[Atlas Framework]
+        F1[15 Universal Laws<br/>mathematical constraints<br/>CAP, Little's, Amdahl's]
+        F2[30 Capabilities<br/>system guarantees<br/>with SLOs]
+        F3[20 Primitives<br/>building blocks<br/>with trade-offs]
+        F4[15 Patterns<br/>proven solutions<br/>with metrics]
     end
 
-    subgraph Solution["Production Solutions"]
-        S1["Automated Design<br/>requirement → architecture<br/>in 5 minutes"]
-        S2["Capacity Planning<br/>quantitative models<br/>cost optimization"]
-        S3["Incident Response<br/>failure mode maps<br/>recovery procedures"]
+    subgraph Solution[Production Solutions]
+        S1[Automated Design<br/>requirement → architecture<br/>in 5 minutes]
+        S2[Capacity Planning<br/>quantitative models<br/>cost optimization]
+        S3[Incident Response<br/>failure mode maps<br/>recovery procedures]
     end
 
     P1 --> F1
@@ -98,28 +98,28 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    subgraph Laws["Universal Laws (15)"]
-        CAP["CAP Theorem<br/>consistency vs availability<br/>during partition"]
-        LITTLE["Little's Law<br/>users = rate × latency<br/>queueing theory"]
-        AMDAHL["Amdahl's Law<br/>speedup = 1/(s+p/n)<br/>parallel limits"]
+    subgraph Laws[Universal Laws (15)]
+        CAP[CAP Theorem<br/>consistency vs availability<br/>during partition]
+        LITTLE[Little's Law<br/>users = rate × latency<br/>queueing theory]
+        AMDAHL[Amdahl's Law<br/>speedup = 1/(s+p/n)<br/>parallel limits]
     end
 
-    subgraph Capabilities["System Capabilities (30)"]
-        CONS["Consistency<br/>linearizable: bank transfers<br/>eventual: social feeds"]
-        PERF["Performance<br/>p99 < 100ms: user-facing<br/>p99 < 10ms: internal"]
-        AVAIL["Availability<br/>99.99%: critical systems<br/>99.9%: internal tools"]
+    subgraph Capabilities[System Capabilities (30)]
+        CONS[Consistency<br/>linearizable: bank transfers<br/>eventual: social feeds]
+        PERF[Performance<br/>p99 < 100ms: user-facing<br/>p99 < 10ms: internal]
+        AVAIL[Availability<br/>99.99%: critical systems<br/>99.9%: internal tools]
     end
 
-    subgraph Primitives["Building Primitives (20)"]
-        P1["P1 Partitioning<br/>10M users → 100 shards<br/>consistent hashing"]
-        P2["P2 Replication<br/>3 replicas → 99.99% uptime<br/>async/sync modes"]
-        P5["P5 Consensus<br/>Raft: 5-node cluster<br/>majority quorum"]
+    subgraph Primitives[Building Primitives (20)]
+        P1[P1 Partitioning<br/>10M users → 100 shards<br/>consistent hashing]
+        P2[P2 Replication<br/>3 replicas → 99.99% uptime<br/>async/sync modes]
+        P5[P5 Consensus<br/>Raft: 5-node cluster<br/>majority quorum]
     end
 
-    subgraph Patterns["Proven Patterns (15)"]
-        OUTBOX["Outbox Pattern<br/>dual write problem<br/>transaction + event"]
-        SAGA["Saga Pattern<br/>distributed transaction<br/>compensation actions"]
-        CQRS["CQRS Pattern<br/>read/write separation<br/>eventual consistency"]
+    subgraph Patterns[Proven Patterns (15)]
+        OUTBOX[Outbox Pattern<br/>dual write problem<br/>transaction + event]
+        SAGA[Saga Pattern<br/>distributed transaction<br/>compensation actions]
+        CQRS[CQRS Pattern<br/>read/write separation<br/>eventual consistency]
     end
 
     Laws --> Capabilities
@@ -150,28 +150,28 @@ Systematic 5-step process from requirements to validated architecture.
 
 ```mermaid
 flowchart LR
-    subgraph Step1["1. Requirements"]
-        REQ["E-commerce Checkout<br/>10K orders/hour<br/>99.99% availability<br/>$1M/hour revenue"]
+    subgraph Step1[1. Requirements]
+        REQ[E-commerce Checkout<br/>10K orders/hour<br/>99.99% availability<br/>$1M/hour revenue]
     end
 
-    subgraph Step2["2. Capabilities"]
-        CAP1["LinearizableWrite<br/>inventory consistency"]
-        CAP2["DurableWrite<br/>order persistence"]
-        CAP3["SubSecondRead<br/>UI responsiveness"]
+    subgraph Step2[2. Capabilities]
+        CAP1[LinearizableWrite<br/>inventory consistency]
+        CAP2[DurableWrite<br/>order persistence]
+        CAP3[SubSecondRead<br/>UI responsiveness]
     end
 
-    subgraph Step3["3. Primitives"]
-        PRIM1["P2 Replication<br/>3 replicas"]
-        PRIM2["P5 Consensus<br/>Raft protocol"]
-        PRIM3["P11 Caching<br/>Redis cluster"]
+    subgraph Step3[3. Primitives]
+        PRIM1[P2 Replication<br/>3 replicas]
+        PRIM2[P5 Consensus<br/>Raft protocol]
+        PRIM3[P11 Caching<br/>Redis cluster]
     end
 
-    subgraph Step4["4. Patterns"]
-        PAT["Outbox Pattern<br/>atomic DB + event<br/>dual-write solution"]
+    subgraph Step4[4. Patterns]
+        PAT[Outbox Pattern<br/>atomic DB + event<br/>dual-write solution]
     end
 
-    subgraph Step5["5. Validation"]
-        VAL["Throughput: 15K ops/sec ✓<br/>Availability: 99.995% ✓<br/>Latency p99: 45ms ✓"]
+    subgraph Step5[5. Validation]
+        VAL[Throughput: 15K ops/sec ✓<br/>Availability: 99.995% ✓<br/>Latency p99: 45ms ✓]
     end
 
     REQ --> CAP1

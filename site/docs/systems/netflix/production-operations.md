@@ -6,84 +6,84 @@ This diagram details Netflix's production operations including Spinnaker deploym
 
 ```mermaid
 graph TB
-    subgraph DeploymentPipeline["Spinnaker Deployment Pipeline"]
+    subgraph DeploymentPipeline[Spinnaker Deployment Pipeline]
         style DeploymentPipeline fill:#E3F2FD,stroke:#3B82F6,color:#000
 
-        GitCommit["Git Commit<br/>━━━━━<br/>Developer push to main<br/>Automatic trigger<br/>5,000+ commits/day<br/>Branch protection rules"]
+        GitCommit[Git Commit<br/>━━━━━<br/>Developer push to main<br/>Automatic trigger<br/>5,000+ commits/day<br/>Branch protection rules]
 
-        BuildStage["Build & Test Stage<br/>━━━━━<br/>Jenkins CI/CD pipeline<br/>Unit tests: 99% coverage<br/>Build time: 8 minutes avg<br/>Success rate: 98.5%"]
+        BuildStage[Build & Test Stage<br/>━━━━━<br/>Jenkins CI/CD pipeline<br/>Unit tests: 99% coverage<br/>Build time: 8 minutes avg<br/>Success rate: 98.5%]
 
-        ArtifactStage["Artifact Creation<br/>━━━━━<br/>Docker image build<br/>Security scanning<br/>Vulnerability assessment<br/>Artifact signing"]
+        ArtifactStage[Artifact Creation<br/>━━━━━<br/>Docker image build<br/>Security scanning<br/>Vulnerability assessment<br/>Artifact signing]
 
-        CanaryDeploy["Canary Deployment<br/>━━━━━<br/>1% traffic allocation<br/>15-minute soak time<br/>Automatic rollback<br/>Success threshold: 99.9%"]
+        CanaryDeploy[Canary Deployment<br/>━━━━━<br/>1% traffic allocation<br/>15-minute soak time<br/>Automatic rollback<br/>Success threshold: 99.9%]
 
-        ProductionDeploy["Production Deployment<br/>━━━━━<br/>Blue-green strategy<br/>100% traffic cutover<br/>Zero-downtime deploys<br/>10,000+ deployments/day"]
+        ProductionDeploy[Production Deployment<br/>━━━━━<br/>Blue-green strategy<br/>100% traffic cutover<br/>Zero-downtime deploys<br/>10,000+ deployments/day]
     end
 
-    subgraph MonitoringObservability["Monitoring & Observability"]
+    subgraph MonitoringObservability[Monitoring & Observability]
         style MonitoringObservability fill:#E8F5E8,stroke:#10B981,color:#000
 
-        Atlas["Atlas Metrics Platform<br/>━━━━━<br/>2.5M metrics/second<br/>1.3B time series<br/>7-day retention<br/>Sub-second querying"]
+        Atlas[Atlas Metrics Platform<br/>━━━━━<br/>2.5M metrics/second<br/>1.3B time series<br/>7-day retention<br/>Sub-second querying]
 
-        Mantis["Mantis Stream Processing<br/>━━━━━<br/>1T events/day<br/>Real-time analytics<br/>100ms processing latency<br/>Flink-based platform"]
+        Mantis[Mantis Stream Processing<br/>━━━━━<br/>1T events/day<br/>Real-time analytics<br/>100ms processing latency<br/>Flink-based platform]
 
-        ElasticSearch["Elasticsearch Logs<br/>━━━━━<br/>3PB daily log volume<br/>7-day retention<br/>750B documents<br/>50ms query response"]
+        ElasticSearch[Elasticsearch Logs<br/>━━━━━<br/>3PB daily log volume<br/>7-day retention<br/>750B documents<br/>50ms query response]
 
-        Grafana["Grafana Dashboards<br/>━━━━━<br/>10,000+ dashboards<br/>Real-time visualization<br/>SLA/SLO tracking<br/>Executive reporting"]
+        Grafana[Grafana Dashboards<br/>━━━━━<br/>10,000+ dashboards<br/>Real-time visualization<br/>SLA/SLO tracking<br/>Executive reporting]
 
-        AlertManager["Alert Manager<br/>━━━━━<br/>5,000+ active alerts<br/>Smart aggregation<br/>Escalation policies<br/>PagerDuty integration"]
+        AlertManager[Alert Manager<br/>━━━━━<br/>5,000+ active alerts<br/>Smart aggregation<br/>Escalation policies<br/>PagerDuty integration]
     end
 
-    subgraph IncidentResponse["Incident Response & On-Call"]
+    subgraph IncidentResponse[Incident Response & On-Call]
         style IncidentResponse fill:#FFE6E6,stroke:#8B5CF6,color:#000
 
-        OnCallTiers["On-Call Tier Structure<br/>━━━━━<br/>L1: Service teams (24/7)<br/>L2: Platform teams<br/>L3: Senior engineers<br/>L4: Architecture team"]
+        OnCallTiers[On-Call Tier Structure<br/>━━━━━<br/>L1: Service teams (24/7)<br/>L2: Platform teams<br/>L3: Senior engineers<br/>L4: Architecture team]
 
-        IncidentCommander["Incident Commander<br/>━━━━━<br/>Single point of coordination<br/>Cross-team communication<br/>Decision authority<br/>Post-incident review"]
+        IncidentCommander[Incident Commander<br/>━━━━━<br/>Single point of coordination<br/>Cross-team communication<br/>Decision authority<br/>Post-incident review]
 
-        WarRoom["Virtual War Room<br/>━━━━━<br/>Slack incident channels<br/>Real-time collaboration<br/>Status updates every 15min<br/>Stakeholder communication"]
+        WarRoom[Virtual War Room<br/>━━━━━<br/>Slack incident channels<br/>Real-time collaboration<br/>Status updates every 15min<br/>Stakeholder communication]
 
-        PostMortem["Post-Mortem Process<br/>━━━━━<br/>Blameless culture<br/>Root cause analysis<br/>Action item tracking<br/>Learning dissemination"]
+        PostMortem[Post-Mortem Process<br/>━━━━━<br/>Blameless culture<br/>Root cause analysis<br/>Action item tracking<br/>Learning dissemination]
 
-        Escalation["Escalation Procedures<br/>━━━━━<br/>15min L1 → L2<br/>30min L2 → L3<br/>1hr L3 → L4<br/>Exec notification: 2hr+"]
+        Escalation[Escalation Procedures<br/>━━━━━<br/>15min L1 → L2<br/>30min L2 → L3<br/>1hr L3 → L4<br/>Exec notification: 2hr+]
     end
 
-    subgraph ChaosEngineering["Chaos Engineering Operations"]
+    subgraph ChaosEngineering[Chaos Engineering Operations]
         style ChaosEngineering fill:#FFF3E0,stroke:#F59E0B,color:#000
 
-        ChaosSchedule["Chaos Schedule<br/>━━━━━<br/>Daily: 1,000+ experiments<br/>Weekly: Region failures<br/>Monthly: Kong exercises<br/>Quarterly: DR tests"]
+        ChaosSchedule[Chaos Schedule<br/>━━━━━<br/>Daily: 1,000+ experiments<br/>Weekly: Region failures<br/>Monthly: Kong exercises<br/>Quarterly: DR tests]
 
-        ChaosMonkey["Chaos Monkey Operations<br/>━━━━━<br/>Business hours only<br/>9 AM - 3 PM weekdays<br/>Instance termination<br/>Gradual service coverage"]
+        ChaosMonkey[Chaos Monkey Operations<br/>━━━━━<br/>Business hours only<br/>9 AM - 3 PM weekdays<br/>Instance termination<br/>Gradual service coverage]
 
-        ChaosKong["Chaos Kong Exercises<br/>━━━━━<br/>Quarterly full region tests<br/>Cross-team coordination<br/>Customer impact monitoring<br/>Recovery validation"]
+        ChaosKong[Chaos Kong Exercises<br/>━━━━━<br/>Quarterly full region tests<br/>Cross-team coordination<br/>Customer impact monitoring<br/>Recovery validation]
 
-        ChaosPlatform["Chaos Platform (ChAP)<br/>━━━━━<br/>Experiment orchestration<br/>Safety controls<br/>Blast radius limits<br/>Automated abort triggers"]
+        ChaosPlatform[Chaos Platform (ChAP)<br/>━━━━━<br/>Experiment orchestration<br/>Safety controls<br/>Blast radius limits<br/>Automated abort triggers]
 
-        SafetyControls["Safety Controls<br/>━━━━━<br/>Business hour restrictions<br/>Customer impact limits<br/>Automatic rollback<br/>Kill switch: 30 seconds"]
+        SafetyControls[Safety Controls<br/>━━━━━<br/>Business hour restrictions<br/>Customer impact limits<br/>Automatic rollback<br/>Kill switch: 30 seconds]
     end
 
-    subgraph CapacityManagement["Capacity Management"]
+    subgraph CapacityManagement[Capacity Management]
         style CapacityManagement fill:#F3E5F5,stroke:#9C27B0,color:#000
 
-        AutoScaling["Auto-Scaling Platform<br/>━━━━━<br/>Predictive scaling<br/>ML-driven decisions<br/>5-minute reaction time<br/>Cost optimization"]
+        AutoScaling[Auto-Scaling Platform<br/>━━━━━<br/>Predictive scaling<br/>ML-driven decisions<br/>5-minute reaction time<br/>Cost optimization]
 
-        CapacityPlanning["Capacity Planning<br/>━━━━━<br/>6-month forecasting<br/>Growth modeling<br/>Reserved instance optimization<br/>Multi-region planning"]
+        CapacityPlanning[Capacity Planning<br/>━━━━━<br/>6-month forecasting<br/>Growth modeling<br/>Reserved instance optimization<br/>Multi-region planning]
 
-        ResourceOptimization["Resource Optimization<br/>━━━━━<br/>Right-sizing automation<br/>Unused resource detection<br/>Cost allocation tracking<br/>$50M annual savings"]
+        ResourceOptimization[Resource Optimization<br/>━━━━━<br/>Right-sizing automation<br/>Unused resource detection<br/>Cost allocation tracking<br/>$50M annual savings]
 
-        DemandForecasting["Demand Forecasting<br/>━━━━━<br/>Content release planning<br/>Seasonal adjustment<br/>Geographic modeling<br/>Real-time adaptation"]
+        DemandForecasting[Demand Forecasting<br/>━━━━━<br/>Content release planning<br/>Seasonal adjustment<br/>Geographic modeling<br/>Real-time adaptation]
     end
 
-    subgraph SecurityOperations["Security Operations"]
+    subgraph SecurityOperations[Security Operations]
         style SecurityOperations fill:#E1F5FE,stroke:#00BCD4,color:#000
 
-        SecurityMonitoring["Security Monitoring<br/>━━━━━<br/>SIEM platform<br/>Threat detection<br/>Behavioral analysis<br/>24/7 SOC"]
+        SecurityMonitoring[Security Monitoring<br/>━━━━━<br/>SIEM platform<br/>Threat detection<br/>Behavioral analysis<br/>24/7 SOC]
 
-        VulnerabilityManagement["Vulnerability Management<br/>━━━━━<br/>Automated scanning<br/>Patch management<br/>Risk assessment<br/>Compliance tracking"]
+        VulnerabilityManagement[Vulnerability Management<br/>━━━━━<br/>Automated scanning<br/>Patch management<br/>Risk assessment<br/>Compliance tracking]
 
-        IncidentResponse["Security Incident Response<br/>━━━━━<br/>Dedicated CERT team<br/>Forensic capabilities<br/>Containment procedures<br/>Legal coordination"]
+        IncidentResponse[Security Incident Response<br/>━━━━━<br/>Dedicated CERT team<br/>Forensic capabilities<br/>Containment procedures<br/>Legal coordination]
 
-        ComplianceMonitoring["Compliance Monitoring<br/>━━━━━<br/>SOX compliance<br/>GDPR compliance<br/>PCI DSS monitoring<br/>Audit automation"]
+        ComplianceMonitoring[Compliance Monitoring<br/>━━━━━<br/>SOX compliance<br/>GDPR compliance<br/>PCI DSS monitoring<br/>Audit automation]
     end
 
     %% Deployment Flow

@@ -12,57 +12,57 @@
 
 ```mermaid
 graph TB
-    subgraph Detection["T+0: Detection Phase - 14:23 UTC"]
+    subgraph Detection[T+0: Detection Phase - 14:23 UTC]
         style Detection fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
-        Start["14:23:00<br/>━━━━━<br/>Deployment Initiated<br/>EVCache v3.2.1<br/>Rolling update across<br/>6 regions"]
+        Start[14:23:00<br/>━━━━━<br/>Deployment Initiated<br/>EVCache v3.2.1<br/>Rolling update across<br/>6 regions]
 
-        Alert1["14:23:45<br/>━━━━━<br/>First Alerts<br/>Atlas: Cache miss rate ↑300%<br/>Mantis: Latency spike<br/>PagerDuty triggered"]
+        Alert1[14:23:45<br/>━━━━━<br/>First Alerts<br/>Atlas: Cache miss rate ↑300%<br/>Mantis: Latency spike<br/>PagerDuty triggered]
 
-        Alert2["14:24:15<br/>━━━━━<br/>Cascade Detected<br/>Playback API timeouts<br/>p99: 50ms → 2000ms<br/>Error rate: 0.01% → 18%"]
+        Alert2[14:24:15<br/>━━━━━<br/>Cascade Detected<br/>Playback API timeouts<br/>p99: 50ms → 2000ms<br/>Error rate: 0.01% → 18%]
     end
 
-    subgraph Diagnosis["T+5min: Diagnosis Phase"]
+    subgraph Diagnosis[T+5min: Diagnosis Phase]
         style Diagnosis fill:#FFF5E5,stroke:#F59E0B,color:#000
 
-        Triage["14:28:00<br/>━━━━━<br/>Incident Commander<br/>Severity: SEV-1<br/>War room opened<br/>25 engineers joined"]
+        Triage[14:28:00<br/>━━━━━<br/>Incident Commander<br/>Severity: SEV-1<br/>War room opened<br/>25 engineers joined]
 
-        RCA1["14:30:00<br/>━━━━━<br/>Initial Hypothesis<br/>EVCache replication lag<br/>Checked: Gossip protocol<br/>Finding: Protocol storm"]
+        RCA1[14:30:00<br/>━━━━━<br/>Initial Hypothesis<br/>EVCache replication lag<br/>Checked: Gossip protocol<br/>Finding: Protocol storm]
 
-        RCA2["14:33:00<br/>━━━━━<br/>Root Cause Found<br/>Version mismatch in<br/>coordination protocol<br/>Old: CRDTv2<br/>New: CRDTv3 incompatible"]
+        RCA2[14:33:00<br/>━━━━━<br/>Root Cause Found<br/>Version mismatch in<br/>coordination protocol<br/>Old: CRDTv2<br/>New: CRDTv3 incompatible]
     end
 
-    subgraph Mitigation["T+15min: Mitigation Phase"]
+    subgraph Mitigation[T+15min: Mitigation Phase]
         style Mitigation fill:#FFFFE5,stroke:#CCCC00,color:#000
 
-        Rollback["14:38:00<br/>━━━━━<br/>Rollback Decision<br/>Spinnaker automated<br/>rollback initiated<br/>6 regions parallel"]
+        Rollback[14:38:00<br/>━━━━━<br/>Rollback Decision<br/>Spinnaker automated<br/>rollback initiated<br/>6 regions parallel]
 
-        Traffic["14:41:00<br/>━━━━━<br/>Traffic Management<br/>Zuul: Shed 30% traffic<br/>Failover to CloudFront<br/>Degraded to SD quality"]
+        Traffic[14:41:00<br/>━━━━━<br/>Traffic Management<br/>Zuul: Shed 30% traffic<br/>Failover to CloudFront<br/>Degraded to SD quality]
 
-        CacheWarm["14:45:00<br/>━━━━━<br/>Cache Warming<br/>Replay last 4 hours<br/>8M events/sec replay<br/>From Kafka commit log"]
+        CacheWarm[14:45:00<br/>━━━━━<br/>Cache Warming<br/>Replay last 4 hours<br/>8M events/sec replay<br/>From Kafka commit log]
     end
 
-    subgraph Recovery["T+35min: Recovery Phase"]
+    subgraph Recovery[T+35min: Recovery Phase]
         style Recovery fill:#E5FFE5,stroke:#10B981,color:#000
 
-        Stable1["14:58:00<br/>━━━━━<br/>Partial Recovery<br/>Cache hit rate: 75%<br/>Error rate: 18% → 5%<br/>HD streaming resumed"]
+        Stable1[14:58:00<br/>━━━━━<br/>Partial Recovery<br/>Cache hit rate: 75%<br/>Error rate: 18% → 5%<br/>HD streaming resumed]
 
-        Stable2["15:05:00<br/>━━━━━<br/>Full Recovery<br/>Cache hit rate: 95%<br/>All metrics nominal<br/>4K streaming enabled"]
+        Stable2[15:05:00<br/>━━━━━<br/>Full Recovery<br/>Cache hit rate: 95%<br/>All metrics nominal<br/>4K streaming enabled]
 
-        PostMortem["15:10:00<br/>━━━━━<br/>Incident Closed<br/>All clear signal<br/>Post-mortem scheduled<br/>Blameless review"]
+        PostMortem[15:10:00<br/>━━━━━<br/>Incident Closed<br/>All clear signal<br/>Post-mortem scheduled<br/>Blameless review]
     end
 
     %% Service Dependencies During Incident
-    subgraph Services["Affected Services & Metrics"]
+    subgraph Services[Affected Services & Metrics]
         style Services fill:#F0F0F0,stroke:#666666,color:#000
 
-        EVCacheImpact["EVCache Cluster<br/>━━━━━<br/>❌ 1,800 nodes affected<br/>30T requests failing<br/>Gossip storm: 10Gbps"]
+        EVCacheImpact[EVCache Cluster<br/>━━━━━<br/>❌ 1,800 nodes affected<br/>30T requests failing<br/>Gossip storm: 10Gbps]
 
-        PlayAPIImpact["Playback API<br/>━━━━━<br/>⚠️ 500 instances degraded<br/>2M req/sec → 400K<br/>Timeouts: 2s circuit break"]
+        PlayAPIImpact[Playback API<br/>━━━━━<br/>⚠️ 500 instances degraded<br/>2M req/sec → 400K<br/>Timeouts: 2s circuit break]
 
-        CassandraImpact["Cassandra<br/>━━━━━<br/>⚠️ Read amplification 10x<br/>CPU: 95% across fleet<br/>Compaction backlog: 2TB"]
+        CassandraImpact[Cassandra<br/>━━━━━<br/>⚠️ Read amplification 10x<br/>CPU: 95% across fleet<br/>Compaction backlog: 2TB]
 
-        UserImpact["User Experience<br/>━━━━━<br/>❌ 47M users affected<br/>Buffering: 15s average<br/>Fallback to SD: 100%"]
+        UserImpact[User Experience<br/>━━━━━<br/>❌ 47M users affected<br/>Buffering: 15s average<br/>Fallback to SD: 100%]
     end
 
     %% Flow connections

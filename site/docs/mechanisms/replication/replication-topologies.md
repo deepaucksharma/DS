@@ -10,26 +10,26 @@ Replication topologies define how data is distributed and synchronized across mu
 
 ```mermaid
 graph TB
-    subgraph EDGE["Edge Plane - Global CDN"]
+    subgraph EDGE[Edge Plane - Global CDN]
         CDN[Instagram CDN<br/>Facebook's global network<br/>1000+ edge servers]
         LB[Load Balancers<br/>Nginx + HAProxy<br/>100K+ RPS handling]
         API[Instagram API<br/>Django application<br/>Read/write routing]
     end
 
-    subgraph SERVICE["Service Plane - Application Logic"]
+    subgraph SERVICE[Service Plane - Application Logic]
         WRITE_SVC[Write Service<br/>Photo upload processing<br/>Metadata extraction]
         READ_SVC[Read Service<br/>Timeline generation<br/>Feed personalization]
         REPL_SVC[Replication Service<br/>PostgreSQL streaming<br/>Lag monitoring: < 1s]
     end
 
-    subgraph STATE["State Plane - Database Tier"]
+    subgraph STATE[State Plane - Database Tier]
         POSTGRES_PRIMARY[PostgreSQL Primary<br/>us-west-1<br/>32 cores, 512GB RAM<br/>10TB NVMe storage]
         POSTGRES_R1[PostgreSQL Replica 1<br/>us-west-1 (same AZ)<br/>Synchronous replication<br/>Lag: < 10ms]
         POSTGRES_R2[PostgreSQL Replica 2<br/>us-east-1<br/>Asynchronous replication<br/>Lag: 50-200ms]
         POSTGRES_R3[PostgreSQL Replica 3<br/>eu-west-1<br/>Asynchronous replication<br/>Lag: 100-500ms]
     end
 
-    subgraph CONTROL["Control Plane - Operations"]
+    subgraph CONTROL[Control Plane - Operations]
         MONITOR[DataDog Monitoring<br/>Replication lag tracking<br/>SLO: p99 < 1s]
         FAILOVER[Patroni Failover<br/>Automatic promotion<br/>RTO: 30 seconds]
         BACKUP[WAL-E Backups<br/>S3 continuous backup<br/>Point-in-time recovery]
@@ -146,27 +146,27 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph EDGE["Edge Plane - Global Load Balancing"]
+    subgraph EDGE[Edge Plane - Global Load Balancing]
         GSLB[Global Server LB<br/>Route 53 geo-routing<br/>Health-based failover]
         ALB_US[ALB us-east-1<br/>50K+ connections<br/>Regional routing]
         ALB_EU[ALB eu-west-1<br/>30K+ connections<br/>Regional routing]
         ALB_AP[ALB ap-south-1<br/>20K+ connections<br/>Regional routing]
     end
 
-    subgraph SERVICE["Service Plane - CockroachDB Nodes"]
+    subgraph SERVICE[Service Plane - CockroachDB Nodes]
         CRDB_US[CockroachDB Cluster<br/>us-east-1: 9 nodes<br/>Range leader distribution]
         CRDB_EU[CockroachDB Cluster<br/>eu-west-1: 9 nodes<br/>Range leader distribution]
         CRDB_AP[CockroachDB Cluster<br/>ap-south-1: 6 nodes<br/>Range leader distribution]
     end
 
-    subgraph STATE["State Plane - Distributed Storage"]
+    subgraph STATE[State Plane - Distributed Storage]
         RANGES_US[Data Ranges (US)<br/>Account data: US customers<br/>3x replication factor]
         RANGES_EU[Data Ranges (EU)<br/>Account data: EU customers<br/>3x replication factor]
         RANGES_AP[Data Ranges (AP)<br/>Account data: AP customers<br/>3x replication factor]
         GLOBAL_RANGES[Global Tables<br/>Currency rates, configs<br/>5x replication (all regions)]
     end
 
-    subgraph CONTROL["Control Plane - Operations"]
+    subgraph CONTROL[Control Plane - Operations]
         CONSENSUS[Raft Consensus<br/>Leader election per range<br/>50-200ms cross-region latency]
         MONITOR[Prometheus + Grafana<br/>Cross-region lag tracking<br/>SLO: p99 < 1s]
         BACKUP[Incremental Backups<br/>S3 in each region<br/>15-minute RPO]
@@ -285,14 +285,14 @@ Linear chain of replicas where writes flow through the chain sequentially.
 
 ```mermaid
 graph LR
-    subgraph "Chain Replication Architecture"
+    subgraph Chain Replication Architecture
         CLIENT[Client]
         HEAD[Head Node<br/>- Receives writes<br/>- First in chain<br/>- Forwards to next]
         MIDDLE1[Middle Node 1<br/>- Processes in order<br/>- Forwards to next<br/>- Maintains state]
         MIDDLE2[Middle Node 2<br/>- Processes in order<br/>- Forwards to next<br/>- Maintains state]
         TAIL[Tail Node<br/>- Last in chain<br/>- Sends ack to client<br/>- Handles reads]
 
-        subgraph "Chain Master"
+        subgraph Chain Master
             MASTER[Chain Master<br/>- Monitors health<br/>- Handles failures<br/>- Reconfigures chain]
         end
     end
@@ -370,29 +370,29 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph "Topology Decision Matrix"
-        subgraph "Primary-Secondary Best For"
+    subgraph Topology Decision Matrix
+        subgraph Primary-Secondary Best For
             PS_SIMPLE[Simple Consistency Model]
             PS_SINGLE[Single Write Region]
             PS_SCALE[Read Scaling]
             PS_FAILOVER[Automatic Failover]
         end
 
-        subgraph "Multi-Primary Best For"
+        subgraph Multi-Primary Best For
             MP_GLOBAL[Global Distribution]
             MP_LATENCY[Low Write Latency]
             MP_PARTITION[Partition Tolerance]
             MP_AVAILABILITY[High Availability]
         end
 
-        subgraph "Chain Replication Best For"
+        subgraph Chain Replication Best For
             CR_ORDERED[Ordered Processing]
             CR_SIMPLE[Simple Protocol]
             CR_RECOVERY[Fast Recovery]
             CR_BROADCAST[Reliable Broadcast]
         end
 
-        subgraph "Trade-offs"
+        subgraph Trade-offs
             COMPLEXITY[Implementation Complexity<br/>Chain < Primary-Secondary < Multi-Primary]
             CONSISTENCY[Consistency Guarantees<br/>Chain = Primary-Secondary > Multi-Primary]
             AVAILABILITY[Availability<br/>Multi-Primary > Primary-Secondary > Chain]
@@ -416,24 +416,24 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EDGE["Edge Plane - Infrastructure Costs"]
-        INFRA_PS["Primary-Secondary<br/>+100% servers for replicas<br/>Instagram: $2M/month extra<br/>Storage: 3x replication"]
-        INFRA_MP["Multi-Primary<br/>+200% cross-region bandwidth<br/>CockroachDB: $5M/month extra<br/>Compute: global distribution"]
+    subgraph EDGE[Edge Plane - Infrastructure Costs]
+        INFRA_PS[Primary-Secondary<br/>+100% servers for replicas<br/>Instagram: $2M/month extra<br/>Storage: 3x replication]
+        INFRA_MP[Multi-Primary<br/>+200% cross-region bandwidth<br/>CockroachDB: $5M/month extra<br/>Compute: global distribution]
     end
 
-    subgraph SERVICE["Service Plane - Operational Costs"]
-        OPS_PS["Primary-Secondary Operations<br/>Simpler failover procedures<br/>2 FTE engineers<br/>Cost: $400K/year"]
-        OPS_MP["Multi-Primary Operations<br/>Complex conflict resolution<br/>5 FTE engineers<br/>Cost: $1M/year"]
+    subgraph SERVICE[Service Plane - Operational Costs]
+        OPS_PS[Primary-Secondary Operations<br/>Simpler failover procedures<br/>2 FTE engineers<br/>Cost: $400K/year]
+        OPS_MP[Multi-Primary Operations<br/>Complex conflict resolution<br/>5 FTE engineers<br/>Cost: $1M/year]
     end
 
-    subgraph STATE["State Plane - Performance Impact"]
-        PERF_PS["Read scaling benefits<br/>Write bottleneck remains<br/>Read latency: 10ms vs 100ms<br/>User satisfaction: +25%"]
-        PERF_MP["Global write capability<br/>Local low latency<br/>Write latency: 50ms vs 500ms<br/>Global user growth: +40%"]
+    subgraph STATE[State Plane - Performance Impact]
+        PERF_PS[Read scaling benefits<br/>Write bottleneck remains<br/>Read latency: 10ms vs 100ms<br/>User satisfaction: +25%]
+        PERF_MP[Global write capability<br/>Local low latency<br/>Write latency: 50ms vs 500ms<br/>Global user growth: +40%]
     end
 
-    subgraph CONTROL["Control Plane - Business Value"]
-        VALUE_PS["High availability<br/>99.95% vs 99.9% uptime<br/>Instagram: $50M saved/year<br/>Reduced outage costs"]
-        VALUE_MP["Global expansion<br/>Multi-region compliance<br/>Banking: $500M new revenue<br/>GDPR, SOX compliance"]
+    subgraph CONTROL[Control Plane - Business Value]
+        VALUE_PS[High availability<br/>99.95% vs 99.9% uptime<br/>Instagram: $50M saved/year<br/>Reduced outage costs]
+        VALUE_MP[Global expansion<br/>Multi-region compliance<br/>Banking: $500M new revenue<br/>GDPR, SOX compliance]
     end
 
     INFRA_PS -.->|"Cost vs benefit"| VALUE_PS
