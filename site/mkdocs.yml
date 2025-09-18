@@ -367,29 +367,54 @@ nav:
       - AWS US-East-1 2021: incidents/aws-us-east-1-2021.md
       - Azure AD March 2021: incidents/azure-ad-march-2021.md
       - Alibaba Cloud 2023: incidents/alibaba-cloud-2023.md
+      - Google Cloud November 2021: incidents/google-cloud-november-2021.md
+      - Oracle Cloud 2022: incidents/oracle-cloud-2022.md
     - Financial Services:
       - Coinbase May 2021: incidents/coinbase-may-2021.md
-      - Robinhood March 2020: incidents/robinhood-march-2020.md
+      - Robinhood January 2021: incidents/robinhood-january-2021.md
+      - Stripe July 2023: incidents/stripe-july-2023.md
+      - PayPal November 2022: incidents/paypal-november-2022.md
+      - Visa June 2021: incidents/visa-june-2021.md
     - Communication Platforms:
       - Discord March 2024: incidents/discord-march-2024.md
-      - Zoom April 2020: incidents/zoom-april-2020.md
+      - Zoom August 2020: incidents/zoom-august-2020.md
+      - Teams January 2023: incidents/teams-january-2023.md
+      - WhatsApp October 2022: incidents/whatsapp-october-2022.md
+    - Entertainment & Media:
+      - Netflix December 2022: incidents/netflix-december-2022.md
+      - Netflix December 2023: incidents/netflix-dec-2023-outage.md
+      - Spotify March 2024: incidents/spotify-march-2024.md
     - E-commerce & Food Delivery:
       - DoorDash July 2023: incidents/doordash-july-2023.md
-      - Shopify Black Friday 2019: incidents/shopify-black-friday-2019.md
+      - Shopify Black Friday 2022: incidents/shopify-black-friday-2022.md
+      - Uber March 2023: incidents/uber-march-2023.md
+    - Social Media:
+      - Reddit March 2023: incidents/reddit-march-2023.md
     - Response Patterns:
       - Cascading Failures:
         - Circuit Breaker Patterns: incidents/response-patterns/cascading-failures/circuit-breaker-patterns.md
-        - Bulkhead Implementation: incidents/response-patterns/cascading-failures/bulkhead-implementation.md
-        - Timeout Strategies: incidents/response-patterns/cascading-failures/timeout-strategies.md
+        - Cache Stampede Response: incidents/response-patterns/cascading-failures/cache-stampede-response.md
+        - Retry Storm Prevention: incidents/response-patterns/cascading-failures/retry-storm-prevention.md
+        - Service Cascade Detection: incidents/response-patterns/cascading-failures/service-cascade-detection.md
+        - Split Brain Detection: incidents/response-patterns/cascading-failures/split-brain-detection.md
       - Data Consistency:
-        - Consistency Recovery: incidents/response-patterns/data-consistency/consistency-recovery.md
-        - Split Brain Resolution: incidents/response-patterns/data-consistency/split-brain-resolution.md
+        - Conflict Resolution Patterns: incidents/response-patterns/data-consistency/conflict-resolution-patterns.md
+        - Data Corruption Detection: incidents/response-patterns/data-consistency/data-corruption-detection.md
+        - Eventual Consistency Failures: incidents/response-patterns/data-consistency/eventual-consistency-failures.md
+        - Replication Lag Recovery: incidents/response-patterns/data-consistency/replication-lag-recovery.md
+        - Transaction Isolation Failures: incidents/response-patterns/data-consistency/transaction-isolation-failures.md
       - Distributed Systems:
-        - Leader Election Failures: incidents/response-patterns/distributed-systems/leader-election-failures.md
-        - Consensus Algorithm Issues: incidents/response-patterns/distributed-systems/consensus-algorithm-issues.md
+        - Consensus Algorithm Failures: incidents/response-patterns/distributed-systems/consensus-algorithm-failures.md
+        - Distributed Deadlock Resolution: incidents/response-patterns/distributed-systems/distributed-deadlock-resolution.md
+        - Load Balancer Failures: incidents/response-patterns/distributed-systems/load-balancer-failures.md
+        - Network Partition Handling: incidents/response-patterns/distributed-systems/network-partition-handling.md
+        - Service Mesh Failures: incidents/response-patterns/distributed-systems/service-mesh-failures.md
       - Resource Exhaustion:
         - Memory Leak Detection: incidents/response-patterns/resource-exhaustion/memory-leak-detection.md
-        - Connection Pool Exhaustion: incidents/response-patterns/resource-exhaustion/connection-pool-exhaustion.md
+        - CPU Spike Response: incidents/response-patterns/resource-exhaustion/cpu-spike-response.md
+        - Database Connection Exhaustion: incidents/response-patterns/resource-exhaustion/database-connection-exhaustion.md
+        - Disk Space Exhaustion: incidents/response-patterns/resource-exhaustion/disk-space-exhaustion.md
+        - Network Bandwidth Saturation: incidents/response-patterns/resource-exhaustion/network-bandwidth-saturation.md
   - Debugging Guides:
     - Performance Issues:
       - CPU Spike Diagnosis: debugging/cpu-spike-diagnosis.md
@@ -423,30 +448,38 @@ nav:
       - Microservice Communication: debugging/microservice-communication-debugging.md
   - Performance Profiles:
     - Database Performance:
-      - MySQL Performance Tuning: performance/mysql-performance-tuning.md
-      - PostgreSQL Optimization: performance/postgresql-optimization.md
-      - MongoDB Performance: performance/mongodb-performance-optimization.md
-      - Redis Performance: performance/redis-performance-tuning.md
+      - MySQL Performance Profile: performance/mysql-performance-profile.md
+      - PostgreSQL Performance Profile: performance/postgresql-performance-profile.md
+      - MongoDB Performance Profile: performance/mongodb-performance-profile.md
+      - Redis Performance Profile: performance/redis-performance-profile.md
+      - Cassandra Performance Profile: performance/cassandra-performance-profile.md
+      - DynamoDB Query Optimization: performance/dynamodb-query-optimization.md
     - Application Performance:
-      - JVM Performance Tuning: performance/jvm-performance-tuning.md
-      - Node.js Performance: performance/nodejs-performance-optimization.md
-      - Python Performance: performance/python-performance-optimization.md
-      - Go Performance: performance/go-performance-optimization.md
+      - JVM GC Optimization: performance/jvm-gc-optimization.md
+      - Go Goroutine Optimization: performance/golang-goroutine-optimization.md
+      - Tomcat Connector Optimization: performance/tomcat-connector-optimization.md
+      - HikariCP Connection Pool Tuning: performance/hikaricp-connection-pool-tuning.md
+    - Web & API Performance:
+      - REST API Performance Profile: performance/rest-api-performance-profile.md
+      - GraphQL Performance Profile: performance/graphql-performance-profile.md
+      - gRPC Performance Profile: performance/grpc-performance-profile.md
+      - WebSocket Performance Profile: performance/websocket-performance-profile.md
     - Infrastructure Performance:
-      - CDN Performance: performance/cdn-performance-optimization.md
-      - Load Balancer Performance: performance/load-balancer-performance.md
-      - Container Performance: performance/container-performance-optimization.md
-      - Kubernetes Performance: performance/kubernetes-performance-tuning.md
-    - Network Performance:
-      - API Gateway Performance: performance/api-gateway-performance.md
-      - Microservices Performance: performance/microservices-performance.md
-      - Message Queue Performance: performance/message-queue-performance.md
+      - AWS ALB Optimization: performance/aws-alb-optimization.md
+      - CloudFront CDN Optimization: performance/cloudfront-cdn-optimization.md
+      - Nginx Async Optimization: performance/nginx-async-optimization.md
+      - Serverless Performance Profile: performance/serverless-performance-profile.md
+    - Messaging Performance:
+      - Kafka Performance Profile: performance/kafka-performance-profile.md
+      - Kafka Batch Processing: performance/kafka-batch-processing.md
+      - RabbitMQ Performance Profile: performance/rabbitmq-performance-profile.md
+      - NATS Performance Profile: performance/nats-performance-profile.md
+      - Pulsar Performance Profile: performance/pulsar-performance-profile.md
+      - SQS SNS Performance Profile: performance/sqs-sns-performance-profile.md
     - Caching Performance:
-      - Distributed Caching: performance/distributed-caching-optimization.md
-      - Cache Strategy: performance/cache-strategy-optimization.md
-    - Search & Analytics:
-      - Elasticsearch Performance: performance/elasticsearch-performance.md
-      - Real-time Analytics: performance/real-time-analytics-optimization.md
+      - Redis Cache Hit Optimization: performance/redis-cache-hit-optimization.md
+      - Memcached Cluster Optimization: performance/memcached-cluster-optimization.md
+      - Facebook TAO Cache Optimization: performance/facebook-tao-cache-optimization.md
   - Guarantees:
     - Consistency Models:
       - Linearizability:
@@ -487,22 +520,24 @@ nav:
       - Failure Handling: mechanisms/load-balancing/load-balancing-failures.md
     - Partitioning:
       - Strategies: mechanisms/partitioning/partitioning-strategies.md
-      - Hash Partitioning: mechanisms/partitioning/partitioning-hash.md
-      - Range Partitioning: mechanisms/partitioning/partitioning-range.md
-      - Directory Partitioning: mechanisms/partitioning/partitioning-directory.md
+      - Consistent Hashing: mechanisms/partitioning/partitioning-consistent-hash.md
+      - Hotspot Management: mechanisms/partitioning/partitioning-hotspots.md
+      - Resharding: mechanisms/partitioning/partitioning-resharding.md
       - MongoDB Sharding: mechanisms/partitioning/partitioning-mongodb.md
       - Cassandra Partitioning: mechanisms/partitioning/partitioning-cassandra.md
     - Consensus:
-      - Raft Algorithm: mechanisms/consensus/raft-consensus.md
-      - PBFT Algorithm: mechanisms/consensus/pbft-consensus.md
-      - Paxos Algorithm: mechanisms/consensus/paxos-consensus.md
-      - Byzantine Fault Tolerance: mechanisms/consensus/byzantine-fault-tolerance.md
+      - Raft Algorithm: mechanisms/consensus/raft-algorithm.md
+      - Raft Implementation: mechanisms/consensus/raft-implementation.md
+      - Raft vs Paxos: mechanisms/consensus/raft-vs-paxos.md
+      - Raft Performance: mechanisms/consensus/raft-performance.md
+      - Raft Failures: mechanisms/consensus/raft-failures.md
+      - Raft Debugging: mechanisms/consensus/raft-debugging.md
     - Caching:
-      - Cache Strategies: mechanisms/caching/cache-strategies.md
-      - Cache Invalidation: mechanisms/caching/cache-invalidation.md
-      - Distributed Caching: mechanisms/caching/distributed-caching.md
-      - Write-Through Caching: mechanisms/caching/write-through-caching.md
-      - Write-Behind Caching: mechanisms/caching/write-behind-caching.md
+      - Cache Patterns: mechanisms/caching/caching-patterns.md
+      - Cache Invalidation: mechanisms/caching/caching-invalidation.md
+      - Cache Consistency: mechanisms/caching/caching-consistency.md
+      - Redis Caching: mechanisms/caching/caching-redis.md
+      - Memcached: mechanisms/caching/caching-memcached.md
   - Patterns:
     - Overview: patterns/index.md
     - Production Architecture: patterns/production-architecture.md
@@ -529,6 +564,8 @@ nav:
       - WhatsApp Scale Journey: scaling/whatsapp-scale-journey.md
       - YouTube Scale Evolution: scaling/youtube-scale-evolution.md
       - Dropbox Scale Journey: scaling/dropbox-scale-journey.md
+      - Instagram Scale Journey: scaling/instagram-evolution.md
+      - WhatsApp Scale Journey: scaling/whatsapp-evolution.md
   - Capacity Planning:
     - Infrastructure Sizing:
       - Database Capacity Planning: capacity/database-capacity-planning.md
@@ -545,6 +582,7 @@ nav:
     - Event-Driven Capacity:
       - Netflix Show Release Surge: capacity/netflix-show-release-surge.md
       - Amazon Black Friday Capacity: capacity/amazon-black-friday-capacity.md
+      - Amazon Black Friday Planning: capacity/amazon-black-friday.md
   - Migration Playbooks:
     - Database Migrations:
       - MySQL to Aurora: migrations/mysql-to-aurora.md

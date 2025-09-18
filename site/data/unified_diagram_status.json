@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2025-09-18T20:40:09.095827",
+    "last_updated": "2025-09-18T22:37:12.354351",
     "last_spec_check": null,
     "total_target": 900,
     "creation_start_date": "2025-09-18T18:08:06.407613"
@@ -3308,10 +3308,23 @@
       "system": "zoom",
       "type": "architecture",
       "created_date": null,
-      "last_updated": null,
+      "last_updated": "2025-09-18T22:37:11.026415",
       "last_reviewed": null,
       "spec_version": null,
-      "file_path": null
+      "file_path": "systems/zoom/architecture.md",
+      "content_hash": "1b4707b8",
+      "diagram_count": 1,
+      "compliance_score": 57,
+      "issues": [
+        "Contains placeholder text: Example",
+        "No MTTR/MTTD metrics documented",
+        "Generic term 'Database' without specific technology",
+        "Generic term 'Queue' without specific technology",
+        "Generic term 'Service' without specific technology",
+        "Generic term 'API' without specific technology",
+        "Generic term 'Storage' without specific technology",
+        "No technology version numbers found"
+      ]
     },
     "systems/zoom/request-flow": {
       "status": "not_created",
@@ -3319,10 +3332,24 @@
       "system": "zoom",
       "type": "request-flow",
       "created_date": null,
-      "last_updated": null,
+      "last_updated": "2025-09-18T22:37:11.036619",
       "last_reviewed": null,
       "spec_version": null,
-      "file_path": null
+      "file_path": "systems/zoom/request-flow.md",
+      "content_hash": "45d81cfb",
+      "diagram_count": 3,
+      "compliance_score": 42,
+      "issues": [
+        "Section 2: Excessive text (30 lines) between diagrams",
+        "No MTTR/MTTD metrics documented",
+        "Insufficient cost/resource info (found 0/5 patterns)",
+        "Generic term 'Database' without specific technology",
+        "Generic term 'Cache' without specific technology",
+        "Generic term 'Service' without specific technology",
+        "Generic term 'API' without specific technology",
+        "Generic term 'Storage' without specific technology",
+        "No technology version numbers found"
+      ]
     },
     "systems/zoom/storage": {
       "status": "not_created",
@@ -3341,10 +3368,24 @@
       "system": "zoom",
       "type": "failure-domains",
       "created_date": null,
-      "last_updated": null,
+      "last_updated": "2025-09-18T22:37:11.030445",
       "last_reviewed": null,
       "spec_version": null,
-      "file_path": null
+      "file_path": "systems/zoom/failure-domains.md",
+      "content_hash": "2a5c9587",
+      "diagram_count": 1,
+      "compliance_score": 57,
+      "issues": [
+        "Contains placeholder text: Test",
+        "Missing metrics: throughput, latency, storage",
+        "Insufficient cost/resource info (found 1/5 patterns)",
+        "Generic term 'Database' without specific technology",
+        "Generic term 'Cache' without specific technology",
+        "Generic term 'Service' without specific technology",
+        "Generic term 'API' without specific technology",
+        "Generic term 'Storage' without specific technology",
+        "No technology version numbers found"
+      ]
     },
     "systems/zoom/scale-evolution": {
       "status": "not_created",
@@ -9143,21 +9184,32 @@
       "status": "needs_update",
       "category": "comparisons",
       "created_date": "2025-09-18T20:40:07.359266",
-      "last_updated": "2025-09-18T20:40:07.359280",
+      "last_updated": "2025-09-18T22:37:10.059260",
       "last_reviewed": null,
       "spec_version": "d41d8cd9",
       "file_path": "comparisons/postgresql-vs-dynamodb.md",
-      "diagram_count": 6,
-      "content_hash": "1535dc02",
-      "compliance_score": 71,
+      "diagram_count": 9,
+      "content_hash": "9015d1f1",
+      "compliance_score": 28,
       "issues": [
-        "Diagram 3: Has edges but no SLO labels",
+        "Section 3: Excessive text (13 lines) between diagrams",
+        "Section 5: Excessive text (13 lines) between diagrams",
+        "Section 7: Excessive text (25 lines) between diagrams",
+        "Contains code blocks that should be visual representations or tables",
+        "Contains placeholder text: Example, Test",
+        "Insufficient failure coverage: recovery",
+        "No MTTR/MTTD metrics documented",
         "Diagram 5: Has edges but no SLO labels",
+        "Diagram 6: Has edges but no SLO labels",
+        "Diagram 8: Has edges but no SLO labels",
+        "Diagram 9: Has edges but no SLO labels",
         "Generic term 'Database' without specific technology",
         "Generic term 'Cache' without specific technology",
+        "Generic term 'Queue' without specific technology",
         "Generic term 'Service' without specific technology",
         "Generic term 'API' without specific technology",
-        "Generic term 'Storage' without specific technology"
+        "Generic term 'Storage' without specific technology",
+        "No technology version numbers found"
       ]
     },
     "comparisons/kafka-vs-kinesis-vs-pulsar": {
@@ -9390,6 +9442,56 @@
         "Generic term 'Storage' without specific technology",
         "No technology version numbers found"
       ]
+    },
+    "capacity/amazon-black-friday": {
+      "status": "needs_update",
+      "category": "capacity",
+      "created_date": "2025-09-18T22:37:10.193974",
+      "last_updated": "2025-09-18T22:37:10.193992",
+      "last_reviewed": null,
+      "spec_version": "d41d8cd9",
+      "file_path": "capacity/amazon-black-friday.md",
+      "diagram_count": 9,
+      "content_hash": "39ff08e6",
+      "compliance_score": 28,
+      "issues": [
+        "Section 7: Excessive text (14 lines) between diagrams",
+        "Section 9: Excessive text (29 lines) between diagrams",
+        "Contains placeholder text: Example, Test",
+        "No MTTR/MTTD metrics documented",
+        "Diagram 1: Has edges but no SLO labels",
+        "Generic term 'Database' without specific technology",
+        "Generic term 'Cache' without specific technology",
+        "Generic term 'Queue' without specific technology",
+        "Generic term 'Service' without specific technology",
+        "Generic term 'API' without specific technology",
+        "Generic term 'Storage' without specific technology",
+        "No technology version numbers found"
+      ]
+    },
+    "systems/discord/production-operations": {
+      "status": "needs_update",
+      "category": "systems",
+      "created_date": "2025-09-18T22:37:11.266187",
+      "last_updated": "2025-09-18T22:37:11.266201",
+      "last_reviewed": null,
+      "spec_version": "d41d8cd9",
+      "file_path": "systems/discord/production-operations.md",
+      "diagram_count": 1,
+      "content_hash": "8e025ca7",
+      "compliance_score": 42,
+      "issues": [
+        "Contains placeholder text: Test",
+        "No MTTR/MTTD metrics documented",
+        "Insufficient cost/resource info (found 1/5 patterns)",
+        "Generic term 'Database' without specific technology",
+        "Generic term 'Cache' without specific technology",
+        "Generic term 'Queue' without specific technology",
+        "Generic term 'Service' without specific technology",
+        "Generic term 'API' without specific technology",
+        "Generic term 'Storage' without specific technology",
+        "No technology version numbers found"
+      ]
     }
   },
   "systems": {
@@ -9548,7 +9650,7 @@
       }
     },
     "systems/discord": {
-      "created": 7,
+      "created": 8,
       "expected": 8,
       "diagrams": {
         "systems/discord/scale-evolution": true,
@@ -9557,7 +9659,8 @@
         "systems/discord/failure-domains": true,
         "systems/discord/request-flow": true,
         "systems/discord/novel-solutions": true,
-        "systems/discord/storage-architecture": true
+        "systems/discord/storage-architecture": true,
+        "systems/discord/production-operations": true
       }
     },
     "systems/cloudflare": {
@@ -9634,9 +9737,13 @@
       "diagrams": {}
     },
     "systems/zoom": {
-      "created": 0,
+      "created": 3,
       "expected": 8,
-      "diagrams": {}
+      "diagrams": {
+        "systems/zoom/architecture": true,
+        "systems/zoom/failure-domains": true,
+        "systems/zoom/request-flow": true
+      }
     },
     "systems/tiktok": {
       "created": 0,
