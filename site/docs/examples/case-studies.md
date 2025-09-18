@@ -172,308 +172,436 @@ graph TB
 
 ## Uber: Real-time Matching Platform
 
-### The Challenge
-- **Scale**: 100M+ active users
-- **Latency**: <5 seconds to match rider with driver
-- **Geographic**: 60+ countries with different regulations
-- **Real-time**: Live location tracking for millions
+Uber matches 100M+ users with <5 second latency across 60+ countries using geospatial indexing.
 
-### Architecture Evolution
+### Complete Architecture
 
-#### Phase 1: Monolith (2009-2013)
-```python
-# Simple monolithic architecture
-class UberMonolith:
-    def request_ride(self, rider_location):
-        drivers = self.find_nearby_drivers(rider_location)
-        best_driver = self.select_optimal_driver(drivers)
-        return self.create_trip(rider, best_driver)
-```
+```mermaid
+graph TB
+    subgraph EdgePlane[Edge Plane - Mobile & Web]
+        RIDER_APP[Rider App - React Native]
+        DRIVER_APP[Driver App - Native iOS/Android]
+        WEB_APP[Web Portal - React]
+        LOAD_BAL[Load Balancer - ALB]
+    end
 
-**Problems at Scale**:
-- Single point of failure
-- Deployment bottlenecks  
-- Technology lock-in
-- Team scaling issues
+    subgraph ServicePlane[Service Plane - Microservices]
+        API_GATEWAY[API Gateway - Kong]
+        MATCHING_SVC[Matching Service - Go]
+        LOCATION_SVC[Location Service - C++]
+        TRIP_SVC[Trip Service - Java]
+        PAYMENT_SVC[Payment Service - Python]
+        PRICING_SVC[Pricing Service - Scala]
+    end
 
-#### Phase 2: Microservices (2013-2016)
-```yaml
-core_services:
-  - rider_service
-  - driver_service  
-  - trip_service
-  - pricing_service
-  - matching_service
-  - payment_service
-  - notification_service
+    subgraph StatePlane[State Plane - Data Stores]
+        REDIS[(Redis - Location Cache)]
+        CASSANDRA[(Cassandra - Trip Data)]
+        MYSQL[(MySQL - User Data)]
+        S3[(S3 - Analytics)]
+        KAFKA[(Kafka - Event Stream)]
+    end
 
-communication: synchronous_http
-data_consistency: eventual
-```
+    subgraph ControlPlane[Control Plane - Platform]
+        JAEGER[Jaeger - Tracing]
+        PROMETHEUS[Prometheus - Metrics]
+        CONSUL[Consul - Service Discovery]
+        RINGPOP[RingPop - Consistent Hashing]
+    end
 
-**Patterns Applied**:
-- **Service Decomposition**: Domain-driven design
-- **API Gateway**: External interface
-- **Event-driven**: Pub/sub for real-time updates
+    %% Request flows
+    RIDER_APP --> LOAD_BAL
+    DRIVER_APP --> LOAD_BAL
+    LOAD_BAL --> API_GATEWAY
+    API_GATEWAY --> MATCHING_SVC
+    API_GATEWAY --> LOCATION_SVC
+    API_GATEWAY --> TRIP_SVC
 
-#### Phase 3: Platform Architecture (2016+)
-```yaml
-platform_services:
-  - identity_platform
-  - payment_platform
-  - notification_platform
-  - maps_platform
-  - forecasting_platform
+    %% Data flows
+    LOCATION_SVC --> REDIS
+    TRIP_SVC --> CASSANDRA
+    PAYMENT_SVC --> MYSQL
+    MATCHING_SVC --> KAFKA
 
-service_mesh: envoy_proxy
-observability: jaeger_tracing
-reliability: circuit_breakers
+    %% Control flows
+    MATCHING_SVC --> RINGPOP
+    LOCATION_SVC --> CONSUL
+
+    %% Apply four-plane colors
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class RIDER_APP,DRIVER_APP,WEB_APP,LOAD_BAL edgeStyle
+    class API_GATEWAY,MATCHING_SVC,LOCATION_SVC,TRIP_SVC,PAYMENT_SVC,PRICING_SVC serviceStyle
+    class REDIS,CASSANDRA,MYSQL,S3,KAFKA stateStyle
+    class JAEGER,PROMETHEUS,CONSUL,RINGPOP controlStyle
 ```
 
 ### Real-time Matching Algorithm
 
-#### Geospatial Indexing
-```python
-class GeospatialIndex:
-    def __init__(self):
-        # Use S2 geometry for Earth partitioning
-        self.s2_index = S2Index()
-    
-    def find_nearby_drivers(self, rider_lat, rider_lng, radius_km):
-        # Convert to S2 cell
-        rider_cell = s2.S2LatLng.FromDegrees(rider_lat, rider_lng).ToPoint()
-        
-        # Find covering cells
-        covering_cells = s2.S2RegionCoverer().GetCovering(
-            s2.S2Cap.FromAxisHeight(rider_cell, radius_to_height(radius_km))
-        )
-        
-        # Query drivers in those cells
-        drivers = []
-        for cell in covering_cells:
-            drivers.extend(self.driver_index.get(cell.id(), []))
-        
-        return drivers
+```mermaid
+graph TB
+    subgraph GeoIndexing[Geospatial Indexing - S2 Geometry]
+        S2_CELL[S2 Cell Grid]
+        DRIVER_INDEX[Driver Index by Cell]
+        LOCATION_UPDATE[Location Updates - 4Hz]
+    end
+
+    subgraph MatchingEngine[Matching Engine]
+        REQUEST[Ride Request]
+        RADIUS_SEARCH[Search 2km Radius]
+        FILTER[Filter Available Drivers]
+        RANK[Rank by ETA + Rating]
+        DISPATCH[Dispatch to Best Driver]
+    end
+
+    subgraph EventStream[Event Processing]
+        KAFKA_TOPIC[driver.location.updated]
+        LOCATION_PROCESSOR[Location Processor]
+        TRIP_PROCESSOR[Trip State Processor]
+        NOTIFICATION[Push Notifications]
+    end
+
+    REQUEST --> RADIUS_SEARCH
+    RADIUS_SEARCH --> S2_CELL
+    S2_CELL --> DRIVER_INDEX
+    DRIVER_INDEX --> FILTER
+    FILTER --> RANK
+    RANK --> DISPATCH
+
+    DISPATCH --> KAFKA_TOPIC
+    KAFKA_TOPIC --> TRIP_PROCESSOR
+    TRIP_PROCESSOR --> NOTIFICATION
+
+    LOCATION_UPDATE --> LOCATION_PROCESSOR
+    LOCATION_PROCESSOR --> DRIVER_INDEX
+
+    classDef geoStyle fill:#9966CC,stroke:#663399,color:#fff
+    classDef matchStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef eventStyle fill:#FF8800,stroke:#CC6600,color:#fff
+
+    class S2_CELL,DRIVER_INDEX,LOCATION_UPDATE geoStyle
+    class REQUEST,RADIUS_SEARCH,FILTER,RANK,DISPATCH matchStyle
+    class KAFKA_TOPIC,LOCATION_PROCESSOR,TRIP_PROCESSOR,NOTIFICATION eventStyle
 ```
 
-**Primitives Used**:
-- **P1 Partitioning**: Geographic sharding by city
-- **P4 Specialized Index**: Geospatial indexing (S2)
-- **P11 Caching**: Driver location cache
-- **P18 Gossip Protocol**: Driver state propagation
+### Evolution from Monolith to Microservices
 
-#### Event-driven Updates
-```python
-# Real-time location updates
-class LocationService:
-    def update_driver_location(self, driver_id, lat, lng):
-        # Update primary storage
-        self.driver_db.update(driver_id, lat, lng)
-        
-        # Publish event for real-time processing
-        event = DriverLocationUpdated(driver_id, lat, lng, timestamp=now())
-        self.event_bus.publish('driver.location.updated', event)
-        
-        # Update geospatial index
-        self.geo_index.update(driver_id, lat, lng)
+```mermaid
+graph TB
+    subgraph Phase1[Phase 1: Monolith (2009-2013)]
+        MONO[Single Python App]
+        MONO_DB[(Single PostgreSQL)]
+        PROB1[Problems: Single Point of Failure]
+        PROB2[Deployment Bottlenecks]
+    end
+
+    subgraph Phase2[Phase 2: SOA (2013-2016)]
+        USER_SVC[User Service]
+        TRIP_SVC[Trip Service]
+        PAY_SVC[Payment Service]
+        MATCH_SVC[Matching Service]
+        HTTP[HTTP/REST APIs]
+    end
+
+    subgraph Phase3[Phase 3: Platform (2016+)]
+        MESH[Service Mesh - Envoy]
+        PLATFORM[Platform Services]
+        OBSERVABILITY[Distributed Tracing]
+        ASYNC[Event-Driven Architecture]
+    end
+
+    Phase1 --> Phase2
+    Phase2 --> Phase3
+
+    classDef phase1Style fill:#CC0000,stroke:#990000,color:#fff
+    classDef phase2Style fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef phase3Style fill:#00AA00,stroke:#007700,color:#fff
+
+    class MONO,MONO_DB,PROB1,PROB2 phase1Style
+    class USER_SVC,TRIP_SVC,PAY_SVC,MATCH_SVC,HTTP phase2Style
+    class MESH,PLATFORM,OBSERVABILITY,ASYNC phase3Style
 ```
 
-**Patterns Used**:
-- **Outbox Pattern**: Atomic DB + event publishing
-- **CQRS**: Separate write (location updates) from read (matching)
-- **Event Sourcing**: Trip state as sequence of events
+### Hot Partition Handling
 
-### Scaling Challenges Solved
+```mermaid
+graph TB
+    subgraph HotSpots[Hot Partition Detection]
+        AIRPORT[Airport - 10x Normal Traffic]
+        STADIUM[Stadium - 20x Normal Traffic]
+        MONITOR[Load Monitor - Real-time]
+        THRESHOLD[Threshold: >1000 requests/sec]
+    end
 
-#### Hot Partitions
-**Problem**: Popular areas (airports, stadiums) create hotspots
-**Solution**: Dynamic resharding + load shedding
+    subgraph LoadBalancing[Dynamic Load Balancing]
+        SPLIT[Split Hot Partition]
+        REDISTRIBUTE[Redistribute Load]
+        SHED[Load Shedding - Drop Low Priority]
+        CIRCUIT[Circuit Breaker - Fail Fast]
+    end
 
-```python
-class DynamicSharding:
-    def rebalance_if_needed(self, partition_id):
-        load = self.monitor.get_partition_load(partition_id)
-        if load > HOTSPOT_THRESHOLD:
-            # Split hot partition
-            new_partitions = self.split_partition(partition_id)
-            self.redistribute_load(new_partitions)
+    subgraph Recovery[Recovery Strategy]
+        SCALE_OUT[Auto-scale Instances]
+        CACHE_WARM[Warm Cache]
+        TRAFFIC_SHAPE[Traffic Shaping]
+        DEGRADE[Graceful Degradation]
+    end
+
+    AIRPORT --> MONITOR
+    STADIUM --> MONITOR
+    MONITOR --> THRESHOLD
+    THRESHOLD --> SPLIT
+    SPLIT --> REDISTRIBUTE
+    REDISTRIBUTE --> SHED
+
+    SHED --> SCALE_OUT
+    SCALE_OUT --> CACHE_WARM
+    CACHE_WARM --> TRAFFIC_SHAPE
+
+    classDef hotStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef balanceStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef recoveryStyle fill:#00AA00,stroke:#007700,color:#fff
+
+    class AIRPORT,STADIUM,MONITOR,THRESHOLD hotStyle
+    class SPLIT,REDISTRIBUTE,SHED,CIRCUIT balanceStyle
+    class SCALE_OUT,CACHE_WARM,TRAFFIC_SHAPE,DEGRADE recoveryStyle
 ```
 
-#### Network Partitions
-**Problem**: Different regions lose connectivity
-**Solution**: Regional autonomy + eventual consistency
+### Cost & Performance Metrics
 
-```python
-class RegionalAutonomy:
-    def handle_network_partition(self, region):
-        if self.is_partitioned_from_global(region):
-            # Switch to local-only mode
-            self.enable_local_fallback(region)
-            self.disable_cross_region_trips(region)
-```
-
-### Key Learnings
-1. **Start Simple**: Monolith → microservices → platform
-2. **Real-time is Hard**: Eventual consistency with compensations
-3. **Geographic Matters**: Regional data sovereignty and performance
-4. **Monitoring is Critical**: Real-time dashboards for operational awareness
+| Component | Technology | Scale | Latency | Cost/Month |
+|-----------|------------|--------|---------|------------|
+| Matching | Go Services | 1M matches/hour | <3s p99 | $2M |
+| Location | C++ Services | 10M updates/sec | <50ms p99 | $5M |
+| Database | Cassandra | 500TB data | <10ms read | $1.5M |
+| Cache | Redis Cluster | 100TB memory | <1ms p99 | $800K |
+| CDN | CloudFlare | 50 regions | <100ms p99 | $500K |
 
 ---
 
 ## Amazon: E-commerce Platform
 
-### The Challenge
-- **Scale**: 1B+ items, 300M+ customers
-- **Availability**: 99.95% uptime (every minute down = $1M lost)
-- **Global**: 200+ countries with local requirements
-- **Peak Load**: 10x normal traffic during Prime Day
+Amazon handles 1B+ items with 99.95% uptime where every minute down costs $1M during Prime Day.
 
-### Architecture Principles
+### Complete Architecture
 
-#### Service-Oriented Architecture (SOA)
-Amazon pioneered microservices (called SOA) in early 2000s:
+```mermaid
+graph TB
+    subgraph EdgePlane[Edge Plane - Global Frontend]
+        CF[CloudFront - 400+ Locations]
+        ALB[Application Load Balancer]
+        WAF[Web Application Firewall]
+        ROUTE53[Route 53 DNS]
+    end
 
-```yaml
-mandate_from_bezos_2002:
-  - All teams expose functionality through service interfaces
-  - Teams must communicate through these interfaces
-  - No direct linking, shared memory, or backdoors
-  - All service interfaces must be externalizable
+    subgraph ServicePlane[Service Plane - SOA Services]
+        GATEWAY[API Gateway]
+        CATALOG[Catalog Service - Java]
+        CART[Cart Service - DynamoDB]
+        ORDER[Order Service - C++]
+        INVENTORY[Inventory Service - Rust]
+        PAYMENT[Payment Service - Java]
+        SHIPPING[Shipping Service - Python]
+    end
+
+    subgraph StatePlane[State Plane - Data Layer]
+        DYNAMODB[(DynamoDB - Cart/Session)]
+        RDS[(RDS Aurora - Orders)]
+        REDSHIFT[(Redshift - Analytics)]
+        S3_CATALOG[(S3 - Product Images)]
+        ELASTICSEARCH[(Elasticsearch - Search)]
+    end
+
+    subgraph ControlPlane[Control Plane - AWS Services]
+        CLOUDWATCH[CloudWatch - Monitoring]
+        XRAY[X-Ray - Tracing]
+        CONFIG[AWS Config - Compliance]
+        AUTOSCALING[Auto Scaling Groups]
+    end
+
+    %% Request flows
+    ROUTE53 --> CF
+    CF --> WAF
+    WAF --> ALB
+    ALB --> GATEWAY
+    GATEWAY --> CATALOG
+    GATEWAY --> CART
+    GATEWAY --> ORDER
+
+    %% Data flows
+    CART --> DYNAMODB
+    ORDER --> RDS
+    CATALOG --> S3_CATALOG
+    INVENTORY --> ELASTICSEARCH
+
+    %% Control flows
+    GATEWAY --> CLOUDWATCH
+    ORDER --> XRAY
+
+    %% Apply four-plane colors
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class CF,ALB,WAF,ROUTE53 edgeStyle
+    class GATEWAY,CATALOG,CART,ORDER,INVENTORY,PAYMENT,SHIPPING serviceStyle
+    class DYNAMODB,RDS,REDSHIFT,S3_CATALOG,ELASTICSEARCH stateStyle
+    class CLOUDWATCH,XRAY,CONFIG,AUTOSCALING controlStyle
 ```
 
-#### Ownership Model
-```python
-class AmazonServiceOwnership:
-    ownership_rule = "You build it, you run it"
-    
-    responsibilities = [
-        "Development",
-        "Testing", 
-        "Deployment",
-        "Operations",
-        "Monitoring",
-        "Support"
-    ]
+### Prime Day Traffic Handling
+
+```mermaid
+graph TB
+    subgraph TrafficPrediction[Traffic Prediction & Pre-scaling]
+        FORECAST[Historical Data + ML Forecasting]
+        CAPACITY[Capacity Planning - 10x Normal]
+        PRESCALE[Pre-scale 30min Before Event]
+        WARMUP[Cache Warming Strategy]
+    end
+
+    subgraph LoadManagement[Load Management]
+        PRIORITY[Request Priority Classification]
+        SHED[Load Shedding - Drop Low Priority]
+        QUEUE[Request Queuing with Backpressure]
+        CIRCUIT[Circuit Breakers per Service]
+    end
+
+    subgraph ResponseStrategy[Response Strategy]
+        STALE[Serve Stale Data vs Error]
+        DEGRADE[Graceful Feature Degradation]
+        CACHE[Aggressive Caching - 99.9% Hit Rate]
+        STATIC[Static Fallback Pages]
+    end
+
+    FORECAST --> CAPACITY
+    CAPACITY --> PRESCALE
+    PRESCALE --> WARMUP
+
+    WARMUP --> PRIORITY
+    PRIORITY --> SHED
+    SHED --> QUEUE
+    QUEUE --> CIRCUIT
+
+    CIRCUIT --> STALE
+    STALE --> DEGRADE
+    DEGRADE --> CACHE
+    CACHE --> STATIC
+
+    classDef predictionStyle fill:#9966CC,stroke:#663399,color:#fff
+    classDef loadStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef responseStyle fill:#00AA00,stroke:#007700,color:#fff
+
+    class FORECAST,CAPACITY,PRESCALE,WARMUP predictionStyle
+    class PRIORITY,SHED,QUEUE,CIRCUIT loadStyle
+    class STALE,DEGRADE,CACHE,STATIC responseStyle
 ```
 
-### Core Patterns
+### Shopping Cart Architecture
 
-#### Shopping Cart Service
-```python
-class ShoppingCartService:
-    def __init__(self):
-        # Optimistic approach - availability over consistency
-        self.cart_store = DynamoDB()  # Eventually consistent
-        
-    def add_item(self, user_id, item_id, quantity):
-        # Best effort - might have brief inconsistency
-        try:
-            cart = self.cart_store.get(user_id)
-            cart.add_item(item_id, quantity)
-            self.cart_store.put(user_id, cart)
-            
-            # Fire event for other services
-            self.event_bus.publish(ItemAddedToCart(user_id, item_id))
-            
-        except Exception:
-            # Log but don't fail - better to have working cart
-            self.logger.error("Failed to add item", user_id, item_id)
+```mermaid
+graph TB
+    subgraph CartOperations[Shopping Cart Operations]
+        ADD[Add Item - Optimistic Write]
+        UPDATE[Update Quantity - Last Write Wins]
+        REMOVE[Remove Item - Idempotent]
+        CHECKOUT[Checkout - Two-Phase Commit]
+    end
+
+    subgraph DataConsistency[Data Consistency Strategy]
+        EVENTUAL[Eventually Consistent Reads]
+        CONFLICT[Conflict Resolution - Business Rules]
+        BACKUP[Cross-Region Backup]
+        SESSION[Session Affinity to Reduce Conflicts]
+    end
+
+    subgraph Performance[Performance Optimizations]
+        CACHE[DynamoDB DAX - μs Latency]
+        COMPRESS[Gzip Compression]
+        BATCH[Batch Operations]
+        PRELOAD[Preload Related Items]
+    end
+
+    ADD --> EVENTUAL
+    UPDATE --> CONFLICT
+    REMOVE --> BACKUP
+    CHECKOUT --> SESSION
+
+    EVENTUAL --> CACHE
+    CONFLICT --> COMPRESS
+    BACKUP --> BATCH
+    SESSION --> PRELOAD
+
+    classDef operationStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef consistencyStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
+
+    class ADD,UPDATE,REMOVE,CHECKOUT operationStyle
+    class EVENTUAL,CONFLICT,BACKUP,SESSION consistencyStyle
+    class CACHE,COMPRESS,BATCH,PRELOAD perfStyle
 ```
 
-**Patterns Used**:
-- **Optimistic Concurrency**: Accept occasional conflicts
-- **Circuit Breaker**: Fail fast on dependency issues
-- **Bulkhead**: Isolate cart from other services
+### Recommendation Engine Pipeline
 
-#### Inventory Management
-```python
-class InventoryService:
-    def reserve_item(self, item_id, quantity):
-        # Two-phase approach for accuracy
-        try:
-            # Phase 1: Check availability
-            available = self.inventory_db.get_available(item_id)
-            if available < quantity:
-                return ReservationFailed("Insufficient inventory")
-            
-            # Phase 2: Create reservation with timeout
-            reservation_id = self.create_reservation(
-                item_id, quantity, ttl_minutes=15
-            )
-            
-            return ReservationSuccess(reservation_id)
-            
-        except DatabaseError:
-            # Fail closed - don't oversell
-            return ReservationFailed("System temporarily unavailable")
-```
-
-**Primitives Used**:
-- **P7 Idempotency**: Prevent double reservations
-- **P13 Sharded Locks**: Reduce contention per item
-- **P14 Write-Ahead Log**: Durability for inventory changes
-
-#### Recommendation Engine
 ```mermaid
 graph LR
-    User[User Action] --> Stream[Kinesis Stream]
-    Stream --> Lambda[Lambda Function]
-    Lambda --> ML[ML Model]
-    ML --> Cache[ElastiCache]
-    Cache --> API[Recommendation API]
+    subgraph DataIngestion[Data Ingestion - Real-time]
+        CLICK[Click Events - 100M/hour]
+        VIEW[Page Views - 500M/hour]
+        PURCHASE[Purchases - 10M/hour]
+        KINESIS[Kinesis Data Streams]
+    end
+
+    subgraph Processing[ML Processing Pipeline]
+        SPARK[Spark Streaming - Feature Extraction]
+        SAGEMAKER[SageMaker - Model Training]
+        LAMBDA[Lambda - Real-time Inference]
+        BATCH[EMR - Batch Processing]
+    end
+
+    subgraph Serving[Recommendation Serving]
+        ELASTICACHE[ElastiCache - Hot Recommendations]
+        PERSONALIZE[Amazon Personalize - Real-time API]
+        AB_TEST[A/B Testing Framework]
+        FALLBACK[Fallback to Popular Items]
+    end
+
+    CLICK --> KINESIS
+    VIEW --> KINESIS
+    PURCHASE --> KINESIS
+    KINESIS --> SPARK
+
+    SPARK --> SAGEMAKER
+    SAGEMAKER --> LAMBDA
+    LAMBDA --> ELASTICACHE
+    SPARK --> BATCH
+
+    ELASTICACHE --> PERSONALIZE
+    PERSONALIZE --> AB_TEST
+    AB_TEST --> FALLBACK
+
+    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef processStyle fill:#9966CC,stroke:#663399,color:#fff
+    classDef servingStyle fill:#00AA00,stroke:#007700,color:#fff
+
+    class CLICK,VIEW,PURCHASE,KINESIS dataStyle
+    class SPARK,SAGEMAKER,LAMBDA,BATCH processStyle
+    class ELASTICACHE,PERSONALIZE,AB_TEST,FALLBACK servingStyle
 ```
 
-**Patterns Used**:
-- **Lambda Architecture**: Batch + stream processing
-- **CQRS**: Separate models for reads vs writes
-- **Feature Flags**: A/B testing for recommendations
+### Cost & Performance Metrics
 
-### Handling Peak Traffic
-
-#### Auto Scaling Strategy
-```python
-class AutoScaling:
-    def scale_decision(self, service_metrics):
-        # Predictive scaling for known events
-        if self.is_peak_event_approaching():
-            return self.pre_scale_for_event()
-        
-        # Reactive scaling for unexpected load
-        if service_metrics.cpu_usage > 70:
-            return self.scale_out()
-        elif service_metrics.cpu_usage < 30:
-            return self.scale_in()
-        
-        return "no_action"
-    
-    def pre_scale_for_event(self):
-        # Scale up 30 minutes before Prime Day
-        return "scale_to_10x_capacity"
-```
-
-#### Load Shedding
-```python
-class LoadShedding:
-    def handle_request(self, request):
-        # Priority-based shedding
-        if self.is_overloaded():
-            if request.priority == "critical":
-                return self.process_request(request)
-            elif request.priority == "normal":
-                if random.random() < 0.5:  # Drop 50%
-                    return "Service temporarily unavailable"
-                return self.process_request(request)
-            else:  # Low priority
-                return "Service temporarily unavailable"
-        
-        return self.process_request(request)
-```
-
-### Key Learnings
-1. **Availability First**: Better to show stale data than error page
-2. **Ownership Drives Quality**: Teams responsible for entire lifecycle
-3. **Fail Fast**: Circuit breakers prevent cascade failures
-4. **Measure Everything**: Data-driven decisions on performance
+| Component | Technology | Scale | Availability | Cost/Month |
+|-----------|------------|--------|--------------|------------|
+| CDN | CloudFront | 400+ locations | 99.99% | $50M |
+| Compute | EC2 + Lambda | 1M+ instances | 99.9% | $200M |
+| Database | DynamoDB | 100TB+ | 99.99% | $30M |
+| Storage | S3 | 1000PB+ | 99.999% | $20M |
+| Analytics | Redshift | 100PB warehouse | 99.9% | $10M |
 
 ---
 

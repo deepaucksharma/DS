@@ -1,105 +1,156 @@
-# Layer 2: The 20 Primitives (Extended)
+# Layer 2: The 20 Primitives
 
-Primitives are the fundamental building blocks that provide capabilities. Each primitive has clear triggers for when to use it, implementation patterns, and success criteria.
+Primitives are implementation building blocks that deliver capabilities. Instagram uses Partitioning (P1) for photo storage, Netflix uses Caching (P11) for content delivery, Uber uses Consensus (P5) for driver assignment.
 
-| **ID** | **Primitive** | **Trigger** | **Provides** | **Implementation** | **Proof** | **Anti-patterns** |
-|---|---|---|---|---|---|---|
-| P1 | **Partitioning** | >20K writes/sec OR >100GB | ElasticScale, HotspotMitigation | Hash: even distribution<br/>Range: ordered scans<br/>Geographic: locality | Load variance <2x<br/>No hot partitions >10% | Global secondary indexes<br/>Cross-partition transactions |
-| P2 | **Replication** | RPO<60s OR RTO<30s | Durability, ReadScale | Sync: strong consistency<br/>Async: performance<br/>Quorum: balance | Failover <RTO<br/>Data loss <RPO | Writing to replicas<br/>Ignoring lag |
-| P3 | **Durable Log** | Audit OR event sourcing | Replayability, Order | Append-only<br/>Compaction<br/>Retention policies | Replay identical state<br/>No gaps in sequence | Mutable events<br/>Infinite retention |
-| P4 | **Specialized Index** | Query diversity >1K | FastLookup, RangeScans | B-tree: range<br/>Hash: exact<br/>Inverted: text<br/>Spatial: geo | Index usage >90%<br/>Maintenance <5% writes | Over-indexing<br/>Unused indexes |
-| P5 | **Consensus** | Distributed coordination | Linearizability, LeaderElection | Raft: understandable<br/>Paxos: proven<br/>PBFT: Byzantine | Jepsen passes<br/>Split-brain prevented | Using for data path<br/>Even node count |
-| P6 | **Causal Tracking** | User-visible ordering | CausalOrder | Vector clocks: accurate<br/>HLC: bounded size<br/>Session tokens: simple | No causal violations<br/>Bounded clock size | Global ordering attempt<br/>Unbounded vectors |
-| P7 | **Idempotency** | Any retry scenario | ExactlyOnceEffect | UUID: simple<br/>Hash: deterministic<br/>Version: optimistic | Duplicate = no-op<br/>Concurrent handling | Weak keys<br/>No TTL |
-| P8 | **Retry Logic** | Network operations | FaultTolerance | Exponential backoff<br/>Jitter<br/>Circuit breaking | No retry storms<br/>Budget respected | Infinite retries<br/>No backoff |
-| P9 | **Circuit Breaker** | Unreliable dependencies | FailFast, Isolation | Error rate threshold<br/>Latency threshold<br/>Half-open probes | Recovery <1min<br/>Cascades prevented | Global breaker<br/>No fallback |
-| P10 | **Bulkheading** | Multi-tenant | Isolation, Fairness | Thread pools<br/>Connection pools<br/>Queue isolation | Noisy neighbor isolated<br/>Fair scheduling | Shared resources<br/>Unbounded queues |
-| P11 | **Caching** | Read/Write >10:1 | LatencyReduction | Write-through: consistency<br/>Write-back: performance<br/>Aside: flexibility | Hit ratio >90%<br/>Staleness <SLO | No invalidation<br/>Cache-only state |
-| P12 | **Load Shedding** | Overload risk | GracefulDegradation | Random: simple<br/>Priority: smart<br/>Adaptive: dynamic | Critical preserved<br/>Graceful degradation | Silent drops<br/>All-or-nothing |
-| P13 | **Sharded Locks** | High contention | Concurrency | Partition locks<br/>Range locks<br/>Hierarchical | Deadlock <1%<br/>Fair acquisition | Global locks<br/>No timeout |
-| P14 | **Write-Ahead Log** | Durability+Performance | CrashRecovery | Sequential writes<br/>Group commit<br/>Checkpointing | Recovery correct<br/>Performance gain | Sync every write<br/>No checkpoints |
-| P15 | **Bloom Filter** | Existence checks | SpaceSaving | False positive OK<br/>No false negatives<br/>Size calculation | Error rate <target<br/>Space saved >10x | When FP unacceptable<br/>Dynamic sets |
-| P16 | **Merkle Tree** | Data verification | EfficientSync | Hash tree<br/>Diff detection<br/>Proof generation | Sync bandwidth <10%<br/>Corruption detected | Frequent updates<br/>Small datasets |
-| P17 | **Vector Clock** | Distributed ordering | CausalTracking | Per-node counter<br/>Merge on receive<br/>Prune old entries | Causality preserved<br/>Size bounded | When timestamp enough<br/>Many nodes |
-| P18 | **Gossip Protocol** | Information spread | EventualDelivery | Epidemic spread<br/>Anti-entropy<br/>Rumor mongering | Convergence <O(log N)<br/>Message overhead low | Urgent updates<br/>Large messages |
-| P19 | **Change Data Capture** | Stream from DB | EventStream | Logical replication<br/>Binlog tailing<br/>Triggers (avoid) | No events lost<br/>Order preserved | Dual writes<br/>Polling |
-| P20 | **Feature Flags** | Progressive rollout | SafeDeployment | Percentage rollout<br/>User targeting<br/>Circuit breaker | Instant rollback<br/>No restart needed | Complex nesting<br/>Permanent flags |
+## Core Infrastructure Primitives
 
-## Primitive Interactions
+```mermaid
+graph TB
+    subgraph StatePlane["State Plane - Data Primitives"]
+        P1[P1: Partitioning<br/>Split data across nodes]
+        P2[P2: Replication<br/>Copy data for durability]
+        P3[P3: Durable Log<br/>Append-only storage]
+        P4[P4: Specialized Index<br/>Fast data access]
+        P14[P14: Write-Ahead Log<br/>Crash recovery]
+    end
 
-### Incompatible Combinations
-- P5 (Consensus) + P11 (Caching) in critical path → Latency violation
-- P1 (Partitioning) + P5 (Consensus) across partitions → Deadlock risk
-- P7 (Idempotency) + P11 (Caching) without invalidation → Stale state
+    subgraph ServicePlane["Service Plane - Coordination Primitives"]
+        P5[P5: Consensus<br/>Distributed agreement]
+        P6[P6: Causal Tracking<br/>Event ordering]
+        P7[P7: Idempotency<br/>Safe retries]
+        P8[P8: Retry Logic<br/>Fault tolerance]
+        P19[P19: Change Data Capture<br/>Event streaming]
+    end
 
-### Synergistic Combinations
-- P3 (Durable Log) + P19 (CDC) → Event sourcing foundation
-- P1 (Partitioning) + P4 (Indexes) → Distributed query capability
-- P8 (Retry) + P9 (Circuit Breaker) → Robust failure handling
-- P2 (Replication) + P5 (Consensus) → Strong consistency with availability
+    subgraph EdgePlane["Edge Plane - Performance Primitives"]
+        P11[P11: Caching<br/>Latency reduction]
+        P15[P15: Bloom Filter<br/>Existence checks]
+        P16[P16: Merkle Tree<br/>Data verification]
+        P18[P18: Gossip Protocol<br/>Information spread]
+    end
 
-### Required Combinations
-- P7 (Idempotency) always needs P8 (Retry Logic)
-- P19 (CDC) requires P3 (Durable Log) or P14 (WAL)
-- P12 (Load Shedding) needs P10 (Bulkheading) for isolation
+    subgraph ControlPlane["Control Plane - Resilience Primitives"]
+        P9[P9: Circuit Breaker<br/>Failure isolation]
+        P10[P10: Bulkheading<br/>Resource isolation]
+        P12[P12: Load Shedding<br/>Overload protection]
+        P13[P13: Sharded Locks<br/>Concurrency control]
+        P20[P20: Feature Flags<br/>Safe deployment]
+    end
 
-## Implementation Checklist
+    %% Apply four-plane colors
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
 
-For each primitive, verify:
+    class P1,P2,P3,P4,P14 stateStyle
+    class P5,P6,P7,P8,P19 serviceStyle
+    class P11,P15,P16,P18 edgeStyle
+    class P9,P10,P12,P13,P20 controlStyle
+```
 
-### P1 - Partitioning
-- [ ] Partition key chosen to avoid hotspots
-- [ ] Rebalancing strategy defined
-- [ ] Cross-partition query strategy
-- [ ] Monitoring partition distribution
+## Primitive Trigger Thresholds
 
-### P2 - Replication  
-- [ ] Replication factor matches durability needs
-- [ ] Lag monitoring implemented
-- [ ] Failover procedures tested
-- [ ] Read preference strategy defined
+```mermaid
+graph TB
+    subgraph ScaleTriggers["Scale-Driven Triggers"]
+        P1T[">20K writes/sec<br/>OR >100GB data<br/>→ Partitioning"]
+        P2T["RPO <60s OR RTO <30s<br/>→ Replication"]
+        P11T["Read/Write ratio >10:1<br/>→ Caching"]
+        P10T["Multi-tenant system<br/>→ Bulkheading"]
+    end
 
-### P3 - Durable Log
-- [ ] Append-only storage verified
-- [ ] Compaction policy implemented
-- [ ] Retention policy defined
-- [ ] Replay procedure tested
+    subgraph ReliabilityTriggers["Reliability-Driven Triggers"]
+        P5T["Distributed coordination<br/>→ Consensus"]
+        P8T["Network operations<br/>→ Retry Logic"]
+        P9T["Unreliable dependencies<br/>→ Circuit Breaker"]
+        P12T["Overload risk<br/>→ Load Shedding"]
+    end
 
-### P5 - Consensus
-- [ ] Odd number of nodes
-- [ ] Network partition handling tested
-- [ ] Leadership election timeout tuned
-- [ ] Split-brain prevention verified
+    subgraph PerformanceTriggers["Performance-Driven Triggers"]
+        P4T["Query diversity >1K<br/>→ Specialized Index"]
+        P15T["Existence checks<br/>→ Bloom Filter"]
+        P7T["Any retry scenario<br/>→ Idempotency"]
+        P13T["High contention<br/>→ Sharded Locks"]
+    end
 
-### P11 - Caching
-- [ ] Cache invalidation strategy implemented
-- [ ] TTL appropriate for data freshness needs
-- [ ] Cache-aside vs write-through chosen correctly
-- [ ] Hit ratio monitoring implemented
+    %% Real examples
+    P1T --> |Instagram Photos| Instagram
+    P11T --> |Netflix CDN| Netflix
+    P5T --> |Uber Driver Assignment| Uber
+    P9T --> |Stripe Payment Gateway| Stripe
+
+    %% Apply colors
+    classDef scaleStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef reliabilityStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef performanceStyle fill:#0066CC,stroke:#004499,color:#fff
+
+    class P1T,P2T,P11T,P10T scaleStyle
+    class P5T,P8T,P9T,P12T reliabilityStyle
+    class P4T,P15T,P7T,P13T performanceStyle
+```
+
+## Production Implementation Examples
+
+```mermaid
+graph LR
+    subgraph Netflix["Netflix Architecture"]
+        N1[P11: CDN Caching<br/>Edge locations]
+        N2[P1: Content Partitioning<br/>Geographic shards]
+        N3[P12: Load Shedding<br/>Video quality degradation]
+        N4[P20: Feature Flags<br/>A/B testing]
+    end
+
+    subgraph Uber["Uber Architecture"]
+        U1[P5: Consensus<br/>Driver assignment]
+        U2[P1: Geo Partitioning<br/>City-based shards]
+        U3[P6: Causal Tracking<br/>Ride state ordering]
+        U4[P9: Circuit Breaker<br/>Maps API protection]
+    end
+
+    subgraph Instagram["Instagram Architecture"]
+        I1[P1: Photo Partitioning<br/>User-based sharding]
+        I2[P11: Feed Caching<br/>Redis clusters]
+        I3[P19: CDC<br/>Activity streams]
+        I4[P15: Bloom Filter<br/>Duplicate photo detection]
+    end
+
+    %% Apply colors
+    classDef netflixStyle fill:#E50914,stroke:#B20710,color:#fff
+    classDef uberStyle fill:#000000,stroke:#333333,color:#fff
+    classDef instagramStyle fill:#E4405F,stroke:#C13584,color:#fff
+
+    class N1,N2,N3,N4 netflixStyle
+    class U1,U2,U3,U4 uberStyle
+    class I1,I2,I3,I4 instagramStyle
+```
+
+## Critical Primitive Combinations
+
+| Combination | Why Needed | Production Example | Anti-Pattern |
+|-------------|------------|--------------------|--------------|
+| **P7 + P8** | Idempotency + Retry | Stripe payment retries | Retry without idempotency key |
+| **P1 + P4** | Partitioning + Indexes | Instagram photo lookup | Global secondary indexes |
+| **P2 + P5** | Replication + Consensus | Spanner strong consistency | Async replication only |
+| **P8 + P9** | Retry + Circuit Breaker | Netflix API resilience | Infinite retries |
+| **P3 + P19** | Durable Log + CDC | Kafka event streaming | Dual writes to downstream |
 
 ## Capacity Planning
 
-Each primitive has specific capacity characteristics:
+| Primitive | Throughput Limit | Latency Impact | When It Breaks |
+|-----------|------------------|----------------|----------------|
+| **P1 Partitioning** | 20K writes/partition | None if balanced | Hot partitions, celebrity users |
+| **P5 Consensus** | 10K writes/sec | +2-10ms | Network partitions, >7 nodes |
+| **P11 Caching** | 50K+ ops/node | <1ms hits | Cache misses, invalidation storms |
+| **P2 Replication** | Unlimited | +1-5ms/replica | Network lag, replica failure |
+| **P9 Circuit Breaker** | No limit | Fail-fast | Cascading failures, no fallback |
 
-```yaml
-primitive_capacity:
-  P1_Partitioning:
-    write_throughput: 20000 per partition
-    read_throughput: 100000 per partition
-    storage: unlimited per partition
-    
-  P2_Replication:
-    write_latency_overhead: 1-5ms per replica
-    storage_overhead: replication_factor * base
-    network_overhead: replication_factor * write_size
-    
-  P5_Consensus:
-    write_latency: 2-10ms (network + consensus)
-    throughput_limit: 10000 writes/sec typical
-    node_limit: 5-7 nodes practical maximum
-    
-  P11_Caching:
-    memory_requirement: working_set_size * 1.3
-    lookup_latency: <1ms for in-memory
-    throughput: 50000+ ops/sec per node
-```
+## Implementation Checklist
+
+| Primitive | Must Have | Must Monitor | Common Mistake |
+|-----------|-----------|--------------|----------------|
+| **P1 Partitioning** | Even distribution strategy | Hot partition detection | Celebrity user hotspots |
+| **P5 Consensus** | Odd node count | Split-brain monitoring | Even number of nodes |
+| **P11 Caching** | Invalidation strategy | Hit ratio tracking | No cache invalidation |
+| **P8 Retry Logic** | Exponential backoff | Retry storm detection | No jitter, infinite retries |
+| **P9 Circuit Breaker** | Fallback mechanism | Recovery time tracking | Global circuit breaker |
