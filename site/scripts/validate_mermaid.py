@@ -26,9 +26,12 @@ def validate_mermaid_syntax(diagram: str) -> List[str]:
 
     # Check for diagram type declaration
     diagram_types = ['graph', 'flowchart', 'sequenceDiagram', 'classDiagram',
-                     'stateDiagram', 'erDiagram', 'journey', 'gantt', 'pie']
+                     'stateDiagram', 'erDiagram', 'journey', 'gantt', 'pie', 'timeline']
 
-    first_line = diagram.strip().split('\n')[0] if diagram.strip() else ''
+    # Skip init lines when checking for diagram type
+    lines = diagram.strip().split('\n')
+    non_init_lines = [line for line in lines if not line.startswith('%%')]
+    first_line = non_init_lines[0] if non_init_lines else ''
     has_valid_type = any(dtype in first_line for dtype in diagram_types)
 
     if not has_valid_type:
@@ -47,6 +50,26 @@ def validate_mermaid_syntax(diagram: str) -> List[str]:
     # Check for unclosed strings
     if diagram.count('"') % 2 != 0:
         errors.append("Unclosed quotes")
+
+    # Check for new Tailwind colors
+    new_colors = ['#3B82F6', '#10B981', '#F59E0B', '#8B5CF6']
+    old_colors = ['#0066CC', '#00AA00', '#FF8800', '#CC0000']
+
+    # Warning for old colors (not error)
+    for old_color in old_colors:
+        if old_color in diagram:
+            errors.append(f"Warning: Using old color {old_color}, consider updating to new Tailwind palette")
+
+    # Check for interactive features (warnings, not errors)
+    if 'classDef' in diagram and not any(color in diagram for color in new_colors):
+        errors.append("Warning: classDef found but not using new Tailwind colors")
+
+    # Check for 4-plane architecture
+    if 'graph' in first_line or 'flowchart' in first_line:
+        planes = ['Edge', 'Service', 'State', 'Control']
+        has_planes = sum(1 for plane in planes if plane in diagram)
+        if has_planes > 0 and has_planes < 4:
+            errors.append(f"Warning: Only {has_planes} of 4 planes detected, consider adding all planes")
 
     return errors
 
