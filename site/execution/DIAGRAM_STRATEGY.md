@@ -146,44 +146,54 @@ verified_metrics:
       - https://eng.uber.com/scaling-uber-2024
 ```
 
-### C. Simplify Diagram Specifications
+### C. Simplify Diagram Specifications with Interactive Features
 
 **Update: `../../readonly-spec/02-DIAGRAM-SPECIFICATIONS-V3.md`**
 
-Add practical templates that can be copy-pasted:
+Add practical templates with interactive features and new Tailwind-inspired colors:
 
 ```mermaid
-%% TEMPLATE: Production Architecture (Copy and Modify)
+%%{init: {'theme':'base', 'themeVariables': { 'fontSize': '16px'}}}%%
+%% TEMPLATE: Production Architecture with Interactive Features
+%% Note: Zoom, pan, and fullscreen enabled automatically
 graph TB
-    %% Edge Plane (Always Blue)
-    subgraph Edge["Edge Plane"]
-        CDN[CDN<br/>_____<br/>REPLACE: Provider<br/>REPLACE: Capacity<br/>REPLACE: Cost]
-        LB[Load Balancer<br/>_____<br/>REPLACE: Type<br/>REPLACE: Config<br/>REPLACE: Limits]
+    %% Edge Plane (Tailwind Blue-500)
+    subgraph Edge["🌐 Edge Plane"]
+        CDN["🚀 CDN<br/>_____<br/>REPLACE: Provider<br/>REPLACE: Capacity<br/>REPLACE: Cost"]
+        LB["⚖️ Load Balancer<br/>_____<br/>REPLACE: Type<br/>REPLACE: Config<br/>REPLACE: Limits"]
     end
 
-    %% Service Plane (Always Green)
-    subgraph Service["Service Plane"]
-        API[API Gateway<br/>_____<br/>REPLACE: Tech<br/>REPLACE: Throughput<br/>REPLACE: Latency]
+    %% Service Plane (Tailwind Emerald-500)
+    subgraph Service["⚙️ Service Plane"]
+        API["🔌 API Gateway<br/>_____<br/>REPLACE: Tech<br/>REPLACE: Throughput<br/>REPLACE: Latency"]
     end
 
-    %% State Plane (Always Orange)
-    subgraph State["State Plane"]
-        DB[(Database<br/>_____<br/>REPLACE: Type<br/>REPLACE: Instance<br/>REPLACE: IOPS)]
+    %% State Plane (Tailwind Amber-500)
+    subgraph State["💾 State Plane"]
+        DB[("🗄️ Database<br/>_____<br/>REPLACE: Type<br/>REPLACE: Instance<br/>REPLACE: IOPS")]
+    end
+
+    %% Control Plane (Tailwind Violet-500)
+    subgraph Control["🎛️ Control Plane"]
+        MON["📊 Monitoring<br/>_____<br/>REPLACE: Tool<br/>REPLACE: Metrics/sec<br/>REPLACE: Retention"]
     end
 
     %% Add actual metrics on edges
     CDN -->|REPLACE: p50 latency| LB
     LB -->|REPLACE: p99 latency| API
     API -->|REPLACE: queries/sec| DB
+    DB -.->|metrics| MON
 
-    %% Apply standard colors
-    classDef edge fill:#0066CC,color:#fff
-    classDef service fill:#00AA00,color:#fff
-    classDef state fill:#FF8800,color:#fff
+    %% Apply new Tailwind-inspired colors
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-    class CDN,LB edge
-    class API service
-    class DB state
+    class CDN,LB edgeStyle
+    class API serviceStyle
+    class DB stateStyle
+    class MON controlStyle
 ```
 
 ---
@@ -334,7 +344,10 @@ netflix_bandwidth:
 
 - [ ] **3 AM Test**: Would this help during an incident?
 - [ ] **Real Data**: All metrics from verified sources
-- [ ] **Proper Colors**: 5-plane scheme strictly followed
+- [ ] **Proper Colors**: 4-plane Tailwind scheme (#3B82F6, #10B981, #F59E0B, #8B5CF6)
+- [ ] **Interactive Features**: Zoom, pan, fullscreen tested
+- [ ] **Visual Enhancements**: Emojis for quick recognition
+- [ ] **Minimum Height**: At least 500px for readability
 - [ ] **Cost Included**: $ amounts or resource counts
 - [ ] **Latency Budgets**: p50, p99 on critical paths
 - [ ] **Failure Modes**: What breaks and how
@@ -367,12 +380,17 @@ npm install -g @mermaid-js/mermaid-cli
 ```python
 # /site/scripts/validate_diagrams.py
 def validate_diagram(content):
+    # Updated with new Tailwind colors and interactive requirements
     checks = {
-        'has_colors': all(c in content for c in ['#0066CC', '#00AA00', '#FF8800']),
+        'has_colors': all(c in content for c in ['#3B82F6', '#10B981', '#F59E0B', '#8B5CF6']),
+        'has_stroke_colors': any(c in content for c in ['#2563EB', '#059669', '#D97706', '#7C3AED']),
+        'has_emojis': any(e in content for e in ['🌐', '⚙️', '💾', '🎛️', '🚀', '📊']),
+        'has_init_theme': '%%{init:' in content,  # Interactive features
         'has_metrics': any(m in content for m in ['req/s', 'ms', 'GB', 'TB']),
         'has_costs': '$' in content or 'Cost:' in content,
         'has_instances': any(i in content for i in ['xlarge', 'nodes', 'pods']),
-        'has_source': 'Source:' in content or 'Reference:' in content
+        'has_source': 'Source:' in content or 'Reference:' in content,
+        'uses_classDef': 'classDef' in content and 'Style' in content  # New style classes
     }
     return all(checks.values()), checks
 ```

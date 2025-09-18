@@ -5,6 +5,10 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/color-comparison/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/mermaid-style-guide/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
@@ -94,6 +98,14 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/comparisons/postgresql-vs-dynamodb/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/comparisons/redis-vs-memcached/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/costs/airbnb-infrastructure-breakdown/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -654,6 +666,10 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/migrations/kafka-to-kinesis/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/migrations/linkedin-kafka-evolution/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
