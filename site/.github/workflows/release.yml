@@ -28,7 +28,7 @@ jobs:
           
       - name: Install dependencies
         run: |
-          pip install mkdocs mkdocs-material pymdownx-extensions mkdocs-mermaid2-plugin
+          pip install mkdocs mkdocs-material mkdocs-mermaid2-plugin mkdocs-panzoom-plugin
           
       - name: Build documentation
         working-directory: ./site

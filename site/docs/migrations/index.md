@@ -20,52 +20,28 @@ This collection documents 20 major production migrations that transformed how co
 
 ### Platform Transformations
 - [Uber: Monolith → Microservices](uber-microservices.md) (2014-2016, 18 months, $50M+ investment)
-- [Netflix: Data Center → AWS](netflix-aws.md) (2008-2016, 8 years, 100+ engineers)
-- [Twitter: Ruby → JVM Services](twitter-jvm.md) (2010-2013, 3 years, Performance 10x)
-- [Airbnb: Monorail → SOA](airbnb-soa.md) (2016-2018, 2 years, 200+ services)
+- [Uber: Monolith to Microservices](uber-monolith-to-microservices.md) (2014-2016, 18 months, Complete transformation)
+- [Monolith to Microservices](monolith-to-microservices.md) (General patterns and strategies)
 
 ### Cloud Migrations
-- [Spotify: On-Prem → Google Cloud](spotify-gcp.md) (2016-2018, 2 years, $100M+ savings)
-- [Pinterest: AWS → Self-Managed](pinterest-selfmanaged.md) (2017-2019, 2 years, 80% cost reduction)
+- [On-premise to Cloud](on-premise-to-cloud.md) (General cloud migration strategies)
 
 ### Database Transformations
-- [LinkedIn: Oracle → Espresso](linkedin-espresso.md) (2010-2012, 2 years, Custom NoSQL)
-- [Shopify: MySQL → Vitess](shopify-vitess.md) (2019-2021, 18 months, 100TB+ data)
+- [MySQL to Aurora](mysql-to-aurora.md) (AWS migration patterns)
+- [PostgreSQL to DynamoDB](postgresql-to-dynamodb.md) (NoSQL migration strategies)
+- [LinkedIn Kafka Evolution](linkedin-kafka-evolution.md) (2011-present, Event streaming platform)
 
-### Language/Runtime Migrations
-- [Slack: PHP → Hack/Java](slack-performance.md) (2015-2017, 2 years, 50x performance)
-- [GitHub: Ruby → Go](github-performance.md) (2018-2020, 18 months, Critical services)
+### Messaging Migrations
+- [Kafka to Kinesis](kafka-to-kinesis.md) (AWS streaming migration)
 
-### Storage & Infrastructure
-- [Dropbox: S3 → Magic Pocket](dropbox-storage.md) (2013-2016, 3 years, 90% cost reduction)
-- [Instagram: Django → React](instagram-frontend.md) (2016-2018, 18 months, Mobile-first)
-
-### Search & Discovery
-- [Elasticsearch: Lucene → OpenSearch](elastic-opensearch.md) (2021-2022, 12 months, Fork migration)
-- [Reddit: PostgreSQL → Cassandra](reddit-cassandra.md) (2017-2019, 2 years, Comment scaling)
-
-### Payment & Financial
-- [Square: Ruby → Go](square-payments.md) (2014-2016, 2 years, Payment processing)
-- [Robinhood: Django → Go](robinhood-trading.md) (2018-2020, 18 months, Trading engine)
-
-### Communication & Social
-- [Discord: MongoDB → Cassandra](discord-cassandra.md) (2017-2018, 12 months, Message scaling)
-- [WhatsApp: FreeBSD → Linux](whatsapp-linux.md) (2014-2015, 18 months, Billion users)
-
-### E-commerce & Logistics
-- [DoorDash: PHP → Go](doordash-microservices.md) (2017-2019, 2 years, Delivery platform)
-- [Etsy: PHP → Scala](etsy-scala.md) (2011-2013, 2 years, Search optimization)
-
-### Media & Streaming
-- [Twitch: Monolith → Microservices](twitch-microservices.md) (2016-2018, 2 years, Live streaming)
 
 ## Migration Categories
 
 ### By Transformation Type
-- **Monolith → Microservices**: Uber, Airbnb, Twitch, DoorDash
-- **Language/Runtime**: Twitter, Slack, GitHub, Square, Robinhood, Etsy
-- **Cloud Provider**: Netflix, Spotify, Pinterest
-- **Database Platform**: LinkedIn, Shopify, Reddit, Discord
+- **Monolith → Microservices**: Uber and other major platforms
+- **Cloud Provider**: On-premise to AWS, GCP, Azure migrations
+- **Database Platform**: SQL to NoSQL transformations
+- **Messaging Systems**: Kafka, Kinesis, and streaming platforms
 - **Infrastructure**: Dropbox, WhatsApp
 - **Frontend Framework**: Instagram
 
