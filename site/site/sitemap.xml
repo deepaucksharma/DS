@@ -5,6 +5,14 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/capacity/amazon-black-friday-capacity/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/capacity/amazon-black-friday/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/capacity/api-gateway-capacity/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
@@ -34,6 +42,10 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/capacity/message-queue-sizing/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/capacity/netflix-show-release-surge/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -69,7 +81,35 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/comparisons/kafka-vs-kinesis-vs-pulsar/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/comparisons/postgresql-vs-dynamodb/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/costs/netflix-infrastructure-500m/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/costs/netflix-infrastructure-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/cache-miss-storm-investigation/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/capacity-planning-debugging/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/debugging/cascading-failure-prevention/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/circuit-breaker-failure-debugging/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -81,7 +121,15 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/debugging/data-inconsistency-detection/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/debugging/data-inconsistency-resolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/database-connection-pool-debugging/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -89,11 +137,59 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/debugging/dns-resolution-issues-debugging/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/error-rate-surge-debugging/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/debugging/high-latency-investigation/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/debugging/latency-spike-investigation/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/load-balancer-health-check-debugging/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/log-correlation-services/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/debugging/memory-leak-detection/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/message-queue-backlog-debugging/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/metric-anomaly-detection/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/network-issues-troubleshooting/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/performance-bottleneck-identification/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/resource-exhaustion-diagnosis/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/security-incident-response-debugging/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/service-dependency-mapping/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -114,6 +210,10 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/debugging/timeout-and-retry-tuning/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/timeout-cascade-debugging/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -341,11 +441,83 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/cascading-failures/cache-stampede-response/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/cascading-failures/circuit-breaker-patterns/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/incidents/response-patterns/cascading-failures/retry-storm-prevention/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/incidents/response-patterns/cascading-failures/service-cascade-detection/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/cascading-failures/split-brain-detection/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/data-consistency/conflict-resolution-patterns/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/data-consistency/data-corruption-detection/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/data-consistency/eventual-consistency-failures/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/data-consistency/replication-lag-recovery/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/data-consistency/transaction-isolation-failures/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/distributed-systems/consensus-algorithm-failures/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/distributed-systems/distributed-deadlock-resolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/distributed-systems/load-balancer-failures/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/distributed-systems/network-partition-handling/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/distributed-systems/service-mesh-failures/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/resource-exhaustion/cpu-spike-response/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/resource-exhaustion/database-connection-exhaustion/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/resource-exhaustion/disk-space-exhaustion/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/resource-exhaustion/memory-leak-detection/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/resource-exhaustion/network-bandwidth-saturation/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -465,6 +637,10 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/migrations/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/migrations/kafka-to-kinesis/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
@@ -482,6 +658,14 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/migrations/postgresql-to-dynamodb/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/migrations/uber-microservices/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/migrations/uber-monolith-to-microservices/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -513,11 +697,27 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/performance/aws-alb-optimization/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/performance/cassandra-performance-profile/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/performance/cloudfront-cdn-optimization/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/performance/dynamodb-query-optimization/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/facebook-tao-cache-optimization/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/golang-goroutine-optimization/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -529,7 +729,23 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/performance/hikaricp-connection-pool-tuning/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/jvm-gc-optimization/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/kafka-batch-processing/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/performance/kafka-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/memcached-cluster-optimization/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -545,6 +761,10 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/performance/nginx-async-optimization/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/performance/postgresql-performance-profile/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
@@ -554,6 +774,10 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/performance/rabbitmq-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/redis-cache-hit-optimization/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -570,6 +794,10 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/performance/sqs-sns-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/tomcat-connector-optimization/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -598,6 +826,22 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/reference/reading/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/scaling/instagram-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/scaling/instagram/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/scaling/whatsapp-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/scaling/whatsapp/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -710,6 +954,10 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/systems/discord/novel-solutions/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/discord/production-operations/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -1042,6 +1290,18 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/systems/uber/storage-architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/zoom/architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/zoom/failure-domains/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/zoom/request-flow/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
 </urlset>
