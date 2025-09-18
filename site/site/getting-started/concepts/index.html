@@ -316,16 +316,16 @@
 <nav aria-label="The Fundamental Trade-offs" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#cap-theorem-in-practice">
+<a class="md-nav__link" href="#cap-theorem-in-production">
 <span class="md-ellipsis">
-      CAP Theorem in Practice
+      CAP Theorem in Production
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#consistency-models-spectrum">
+<a class="md-nav__link" href="#consistency-models-in-production">
 <span class="md-ellipsis">
-      Consistency Models Spectrum
+      Consistency Models in Production
     </span>
 </a>
 </li>
@@ -884,16 +884,16 @@
 <nav aria-label="The Fundamental Trade-offs" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#cap-theorem-in-practice">
+<a class="md-nav__link" href="#cap-theorem-in-production">
 <span class="md-ellipsis">
-      CAP Theorem in Practice
+      CAP Theorem in Production
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#consistency-models-spectrum">
+<a class="md-nav__link" href="#consistency-models-in-production">
 <span class="md-ellipsis">
-      Consistency Models Spectrum
+      Consistency Models in Production
     </span>
 </a>
 </li>
@@ -1100,138 +1100,221 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
 <h1 id="core-concepts">Core Concepts</h1>
-<p>Understanding these fundamental concepts is essential for working with distributed systems.</p>
+<p>Production-focused fundamentals for building reliable distributed systems.</p>
 <h2 id="the-distribution-problem">The Distribution Problem</h2>
-<p>When you move from a single machine to multiple machines, you encounter new classes of problems that don't exist in single-machine systems.</p>
+<p>Moving from single machine to distributed introduces fundamental new failure modes.</p>
 <h3 id="what-changes-with-distribution">What Changes with Distribution?</h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph SingleMachine["Single Machine - Predictable"]
+        SM_MEM["Shared Memory&lt;br/&gt;μs latency&lt;br/&gt;atomic operations"]
+        SM_CLOCK["Single Clock&lt;br/&gt;nanosecond precision&lt;br/&gt;monotonic time"]
+        SM_FAIL["Fail-Stop&lt;br/&gt;process crash&lt;br/&gt;binary: working/dead"]
+    end
+
+    subgraph Distributed["Distributed System - Unpredictable"]
+        DS_NET["Network Communication&lt;br/&gt;ms latency, packet loss&lt;br/&gt;no guarantees"]
+        DS_CLOCK["Multiple Clocks&lt;br/&gt;drift, skew, leap seconds&lt;br/&gt;NTP synchronization"]
+        DS_FAIL["Partial Failures&lt;br/&gt;network partitions&lt;br/&gt;byzantine behaviors"]
+    end
+
+    subgraph ProductionReality["Production Reality"]
+        PROB1["AWS S3 2017&lt;br/&gt;4-hour outage&lt;br/&gt;typo in command"]
+        PROB2["GitHub 2018&lt;br/&gt;database failover&lt;br/&gt;24-hour incident"]
+        PROB3["Cloudflare 2019&lt;br/&gt;BGP leak&lt;br/&gt;global internet down"]
+    end
+
+    SingleMachine --&gt; Distributed
+    Distributed --&gt; ProductionReality
+
+    classDef singleStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef distStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef realityStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class SM_MEM,SM_CLOCK,SM_FAIL singleStyle
+    class DS_NET,DS_CLOCK,DS_FAIL distStyle
+    class PROB1,PROB2,PROB3 realityStyle</code></pre>
 <table>
 <thead>
 <tr>
 <th><strong>Single Machine</strong></th>
 <th><strong>Distributed System</strong></th>
+<th><strong>Production Example</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Shared memory</td>
-<td>Network communication</td>
+<td>Shared memory (μs)</td>
+<td>Network communication (ms)</td>
+<td>Redis: 0.1ms, PostgreSQL: 5ms</td>
 </tr>
 <tr>
 <td>Single clock</td>
 <td>Multiple clocks</td>
+<td>AWS regions: 100ms skew</td>
 </tr>
 <tr>
 <td>Fail-stop failures</td>
 <td>Partial failures</td>
+<td>Netflix: 1000+ microservices</td>
 </tr>
 <tr>
 <td>Atomic operations</td>
 <td>Distributed coordination</td>
+<td>Stripe: eventual consistency</td>
 </tr>
 <tr>
 <td>Direct function calls</td>
 <td>Remote procedure calls</td>
+<td>Uber: 2000+ services, gRPC</td>
 </tr>
 <tr>
 <td>Local transactions</td>
 <td>Distributed transactions</td>
+<td>Banking: 2-phase commit</td>
 </tr>
 </tbody>
 </table>
 <h2 id="the-fundamental-trade-offs">The Fundamental Trade-offs</h2>
-<h3 id="cap-theorem-in-practice">CAP Theorem in Practice</h3>
-<p><strong>The Law</strong>: During a network partition, you must choose between Consistency and Availability.</p>
-<pre class="mermaid"><code>graph TB
-    CAP[CAP Theorem]
-    CAP --&gt; CP[CP Systems]
-    CAP --&gt; AP[AP Systems]
+<h3 id="cap-theorem-in-production">CAP Theorem in Production</h3>
+<p>During network partitions, choose consistency or availability - not both.</p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph Problem["Network Partition Reality"]
+        PART["AWS Multi-AZ Partition&lt;br/&gt;2019: 7-hour outage&lt;br/&gt;RDS unavailable"]
+    end
 
-    CP --&gt; CPEx[Examples: Banking, ACID databases]
-    AP --&gt; APEx[Examples: Social media, DNS]
+    subgraph CPSystems["CP Systems - Choose Consistency"]
+        BANK["Chase Bank&lt;br/&gt;$2T deposits&lt;br/&gt;unavailable &gt; incorrect"]
+        STRIPE["Stripe Payments&lt;br/&gt;$640B processed&lt;br/&gt;fail-safe design"]
+        COCKROACH["CockroachDB&lt;br/&gt;linearizable writes&lt;br/&gt;sacrifice availability"]
+    end
 
-    CPEx --&gt; CPTrade[Trade-off: Unavailable during partition]
-    APEx --&gt; APTrade[Trade-off: Stale reads possible]</code></pre>
-<p><strong>Real-world implications:</strong>
-- <strong>Banking systems</strong> choose CP: Better to be unavailable than show wrong balance
-- <strong>Social media</strong> choose AP: Better to show stale posts than be unavailable
-- <strong>E-commerce</strong> is mixed: Inventory is CP, recommendations are AP</p>
-<h3 id="consistency-models-spectrum">Consistency Models Spectrum</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>Strong Consistency ←→ Weak Consistency
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>    ↓                     ↓
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>Linearizable         Eventual
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>Serializable         Causal
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>Sequential           FIFO
-</code></pre></div>
-<p><strong>When to use each:</strong></p>
+    subgraph APSystems["AP Systems - Choose Availability"]
+        NETFLIX["Netflix Streaming&lt;br/&gt;200M subscribers&lt;br/&gt;stale data acceptable"]
+        DNS["Route53 DNS&lt;br/&gt;100B queries/day&lt;br/&gt;eventual consistency"]
+        DYNAMO["DynamoDB&lt;br/&gt;10T requests/day&lt;br/&gt;last-writer-wins"]
+    end
+
+    subgraph Hybrid["Hybrid Approach"]
+        AMAZON["Amazon.com&lt;br/&gt;inventory: CP&lt;br/&gt;recommendations: AP"]
+        UBER["Uber Platform&lt;br/&gt;payments: CP&lt;br/&gt;surge pricing: AP"]
+    end
+
+    PART --&gt; CPSystems
+    PART --&gt; APSystems
+    CPSystems --&gt; Hybrid
+    APSystems --&gt; Hybrid
+
+    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef cpStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef apStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef hybridStyle fill:#FF8800,stroke:#CC6600,color:#fff
+
+    class PART problemStyle
+    class BANK,STRIPE,COCKROACH cpStyle
+    class NETFLIX,DNS,DYNAMO apStyle
+    class AMAZON,UBER hybridStyle</code></pre>
+<h3 id="consistency-models-in-production">Consistency Models in Production</h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Strong["Strong Consistency - Expensive"]
+        LIN["Linearizable&lt;br/&gt;Spanner: 5ms commit&lt;br/&gt;global consensus"]
+        SER["Serializable&lt;br/&gt;PostgreSQL ACID&lt;br/&gt;2PL + MVCC"]
+    end
+
+    subgraph Medium["Balanced Consistency"]
+        SEQ["Sequential&lt;br/&gt;MongoDB WiredTiger&lt;br/&gt;causally consistent"]
+        CAUS["Causal&lt;br/&gt;CosmosDB&lt;br/&gt;session consistency"]
+    end
+
+    subgraph Weak["Weak Consistency - Fast"]
+        EVEN["Eventual&lt;br/&gt;DynamoDB&lt;br/&gt;sub-ms reads"]
+        FIFO["FIFO&lt;br/&gt;Redis Streams&lt;br/&gt;ordered per partition"]
+    end
+
+    Strong --&gt; Medium
+    Medium --&gt; Weak
+
+    classDef strongStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef mediumStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef weakStyle fill:#00AA00,stroke:#007700,color:#fff
+
+    class LIN,SER strongStyle
+    class SEQ,CAUS mediumStyle
+    class EVEN,FIFO weakStyle</code></pre>
 <table>
 <thead>
 <tr>
 <th><strong>Model</strong></th>
+<th><strong>Latency</strong></th>
 <th><strong>Use Case</strong></th>
-<th><strong>Example</strong></th>
+<th><strong>Production Example</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>Linearizable</strong></td>
+<td>5-50ms</td>
 <td>Financial transactions</td>
-<td>Bank account balance</td>
+<td>Google Spanner (banking)</td>
 </tr>
 <tr>
 <td><strong>Serializable</strong></td>
+<td>1-10ms</td>
 <td>Business workflows</td>
-<td>Order processing</td>
+<td>PostgreSQL (e-commerce)</td>
 </tr>
 <tr>
 <td><strong>Sequential</strong></td>
+<td>1-5ms</td>
 <td>Collaborative editing</td>
-<td>Google Docs</td>
+<td>MongoDB (Google Docs)</td>
 </tr>
 <tr>
 <td><strong>Causal</strong></td>
+<td>0.5-2ms</td>
 <td>Social media feeds</td>
-<td>Twitter timeline</td>
+<td>Cosmos DB (LinkedIn)</td>
 </tr>
 <tr>
 <td><strong>Eventual</strong></td>
+<td>0.1-1ms</td>
 <td>Content distribution</td>
-<td>CDN, DNS</td>
+<td>DynamoDB (Netflix CDN)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="scale-dimensions">Scale Dimensions</h2>
 <p>Systems scale across multiple dimensions, each with different challenges.</p>
 <h3 id="request-volume-scaling">Request Volume Scaling</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Scale breakpoints (rules of thumb)</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">if</span> <span class="n">requests_per_second</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>    <span class="n">architecture</span> <span class="o">=</span> <span class="s2">"single_server"</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="k">elif</span> <span class="n">requests_per_second</span> <span class="o">&lt;</span> <span class="mi">10_000</span><span class="p">:</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="n">architecture</span> <span class="o">=</span> <span class="s2">"load_balanced_servers"</span>  
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="k">elif</span> <span class="n">requests_per_second</span> <span class="o">&lt;</span> <span class="mi">100_000</span><span class="p">:</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="n">architecture</span> <span class="o">=</span> <span class="s2">"partitioned_system"</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="k">else</span><span class="p">:</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>    <span class="n">architecture</span> <span class="o">=</span> <span class="s2">"distributed_coordination"</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Scale breakpoints (rules of thumb)</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">if</span> <span class="n">requests_per_second</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="n">architecture</span> <span class="o">=</span> <span class="s2">"single_server"</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="k">elif</span> <span class="n">requests_per_second</span> <span class="o">&lt;</span> <span class="mi">10_000</span><span class="p">:</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">architecture</span> <span class="o">=</span> <span class="s2">"load_balanced_servers"</span>  
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">elif</span> <span class="n">requests_per_second</span> <span class="o">&lt;</span> <span class="mi">100_000</span><span class="p">:</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="n">architecture</span> <span class="o">=</span> <span class="s2">"partitioned_system"</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">architecture</span> <span class="o">=</span> <span class="s2">"distributed_coordination"</span>
 </code></pre></div>
 <h3 id="data-volume-scaling">Data Volume Scaling</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Storage breakpoints  </span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">if</span> <span class="n">data_size</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="n">_GB</span><span class="p">:</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    <span class="n">storage</span> <span class="o">=</span> <span class="s2">"single_database"</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="k">elif</span> <span class="n">data_size</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="n">_TB</span><span class="p">:</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>    <span class="n">storage</span> <span class="o">=</span> <span class="s2">"sharded_database"</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="k">elif</span> <span class="n">data_size</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="n">_PB</span><span class="p">:</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="n">storage</span> <span class="o">=</span> <span class="s2">"distributed_storage"</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="k">else</span><span class="p">:</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>    <span class="n">storage</span> <span class="o">=</span> <span class="s2">"data_lake_architecture"</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Storage breakpoints  </span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">if</span> <span class="n">data_size</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="n">_GB</span><span class="p">:</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>    <span class="n">storage</span> <span class="o">=</span> <span class="s2">"single_database"</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="k">elif</span> <span class="n">data_size</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="n">_TB</span><span class="p">:</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="n">storage</span> <span class="o">=</span> <span class="s2">"sharded_database"</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="k">elif</span> <span class="n">data_size</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="n">_PB</span><span class="p">:</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="n">storage</span> <span class="o">=</span> <span class="s2">"distributed_storage"</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>    <span class="n">storage</span> <span class="o">=</span> <span class="s2">"data_lake_architecture"</span>
 </code></pre></div>
 <h3 id="geographic-scaling">Geographic Scaling</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Latency constraints</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">if</span> <span class="n">users_global</span><span class="p">:</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>    <span class="k">if</span> <span class="n">consistency_required</span><span class="p">:</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>        <span class="n">pattern</span> <span class="o">=</span> <span class="s2">"regional_strong_global_eventual"</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>    <span class="k">else</span><span class="p">:</span>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>        <span class="n">pattern</span> <span class="o">=</span> <span class="s2">"edge_computing"</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="k">else</span><span class="p">:</span>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>    <span class="n">pattern</span> <span class="o">=</span> <span class="s2">"single_region_deployment"</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Latency constraints</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">if</span> <span class="n">users_global</span><span class="p">:</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>    <span class="k">if</span> <span class="n">consistency_required</span><span class="p">:</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>        <span class="n">pattern</span> <span class="o">=</span> <span class="s2">"regional_strong_global_eventual"</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>    <span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>        <span class="n">pattern</span> <span class="o">=</span> <span class="s2">"edge_computing"</span>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="k">else</span><span class="p">:</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>    <span class="n">pattern</span> <span class="o">=</span> <span class="s2">"single_region_deployment"</span>
 </code></pre></div>
 <h2 id="failure-models">Failure Models</h2>
 <p>Understanding how things fail is crucial for building reliable systems.</p>
@@ -1311,45 +1394,45 @@
 <h2 id="time-in-distributed-systems">Time in Distributed Systems</h2>
 <p>Time is one of the hardest problems in distributed systems.</p>
 <h3 id="clock-types">Clock Types</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Physical clocks - wall clock time</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">physical_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># Can go backwards, drift</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="c1"># Logical clocks - ordering events  </span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">LamportClock</span><span class="p">:</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">tick</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">+=</span> <span class="mi">1</span>
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span>
-<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a>
-<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other_time</span><span class="p">):</span>
-<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">other_time</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span>
-<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a>
-<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="c1"># Vector clocks - causal relationships</span>
-<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="k">class</span><span class="w"> </span><span class="nc">VectorClock</span><span class="p">:</span>
-<a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">):</span>
-<a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">node_id</span> <span class="o">=</span> <span class="n">node_id</span>
-<a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">clock</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_nodes</span>
-<a href="#__codelineno-4-23" id="__codelineno-4-23" name="__codelineno-4-23"></a>
-<a href="#__codelineno-4-24" id="__codelineno-4-24" name="__codelineno-4-24"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">tick</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a href="#__codelineno-4-25" id="__codelineno-4-25" name="__codelineno-4-25"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-<a href="#__codelineno-4-26" id="__codelineno-4-26" name="__codelineno-4-26"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<a href="#__codelineno-4-27" id="__codelineno-4-27" name="__codelineno-4-27"></a>
-<a href="#__codelineno-4-28" id="__codelineno-4-28" name="__codelineno-4-28"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other_clock</span><span class="p">):</span>
-<a href="#__codelineno-4-29" id="__codelineno-4-29" name="__codelineno-4-29"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="p">)):</span>
-<a href="#__codelineno-4-30" id="__codelineno-4-30" name="__codelineno-4-30"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">other_clock</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<a href="#__codelineno-4-31" id="__codelineno-4-31" name="__codelineno-4-31"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-<a href="#__codelineno-4-32" id="__codelineno-4-32" name="__codelineno-4-32"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Physical clocks - wall clock time</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">physical_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># Can go backwards, drift</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="c1"># Logical clocks - ordering events  </span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">LamportClock</span><span class="p">:</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">tick</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">+=</span> <span class="mi">1</span>
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other_time</span><span class="p">):</span>
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">other_time</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span>
+<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>
+<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="c1"># Vector clocks - causal relationships</span>
+<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="k">class</span><span class="w"> </span><span class="nc">VectorClock</span><span class="p">:</span>
+<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">):</span>
+<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">node_id</span> <span class="o">=</span> <span class="n">node_id</span>
+<a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">clock</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_nodes</span>
+<a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a>
+<a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">tick</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<a href="#__codelineno-3-26" id="__codelineno-3-26" name="__codelineno-3-26"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a href="#__codelineno-3-27" id="__codelineno-3-27" name="__codelineno-3-27"></a>
+<a href="#__codelineno-3-28" id="__codelineno-3-28" name="__codelineno-3-28"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other_clock</span><span class="p">):</span>
+<a href="#__codelineno-3-29" id="__codelineno-3-29" name="__codelineno-3-29"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="p">)):</span>
+<a href="#__codelineno-3-30" id="__codelineno-3-30" name="__codelineno-3-30"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">other_clock</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<a href="#__codelineno-3-31" id="__codelineno-3-31" name="__codelineno-3-31"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">node_id</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<a href="#__codelineno-3-32" id="__codelineno-3-32" name="__codelineno-3-32"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="happened-before-relationship">Happened-Before Relationship</h3>
 <p>Events in distributed systems have a partial order:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>Event A → Event B if:
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>1. A and B occur on same process and A occurs before B
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>2. A is send event and B is receive event for same message  
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>3. Transitive: A → C and C → B implies A → B
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>Event A → Event B if:
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>1. A and B occur on same process and A occurs before B
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>2. A is send event and B is receive event for same message  
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>3. Transitive: A → C and C → B implies A → B
 </code></pre></div>
 <h2 id="communication-patterns">Communication Patterns</h2>
 <h3 id="synchronous-vs-asynchronous">Synchronous vs Asynchronous</h3>
@@ -1380,44 +1463,44 @@
 </tbody>
 </table>
 <h3 id="message-delivery-guarantees">Message Delivery Guarantees</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># At-most-once: Message delivered 0 or 1 times</span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="c1"># Implementation: Send without retry</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">send_at_most_once</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>    <span class="k">try</span><span class="p">:</span>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>        <span class="n">network</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>    <span class="k">except</span> <span class="n">NetworkError</span><span class="p">:</span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>        <span class="k">pass</span>  <span class="c1"># Don't retry</span>
-<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>
-<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="c1"># At-least-once: Message delivered 1 or more times  </span>
-<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="c1"># Implementation: Retry until acknowledgment</span>
-<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">send_at_least_once</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a>        <span class="k">try</span><span class="p">:</span>
-<a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a>            <span class="n">ack</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">send_with_ack</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a>            <span class="k">if</span> <span class="n">ack</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
-<a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a>                <span class="k">break</span>
-<a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a>        <span class="k">except</span> <span class="n">NetworkError</span><span class="p">:</span>
-<a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Retry</span>
-<a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a>
-<a href="#__codelineno-6-20" id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="c1"># Exactly-once: Message delivered exactly 1 time</span>
-<a href="#__codelineno-6-21" id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="c1"># Implementation: Idempotency + at-least-once</span>
-<a href="#__codelineno-6-22" id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="k">def</span><span class="w"> </span><span class="nf">send_exactly_once</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
-<a href="#__codelineno-6-23" id="__codelineno-6-23" name="__codelineno-6-23"></a>    <span class="n">message</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">generate_unique_id</span><span class="p">()</span>
-<a href="#__codelineno-6-24" id="__codelineno-6-24" name="__codelineno-6-24"></a>    <span class="n">send_at_least_once</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>  <span class="c1"># Receiver deduplicates</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># At-most-once: Message delivered 0 or 1 times</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="c1"># Implementation: Send without retry</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">send_at_most_once</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>    <span class="k">try</span><span class="p">:</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>        <span class="n">network</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span class="k">except</span> <span class="n">NetworkError</span><span class="p">:</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>        <span class="k">pass</span>  <span class="c1"># Don't retry</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="c1"># At-least-once: Message delivered 1 or more times  </span>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="c1"># Implementation: Retry until acknowledgment</span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">send_at_least_once</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a>        <span class="k">try</span><span class="p">:</span>
+<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a>            <span class="n">ack</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">send_with_ack</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a>            <span class="k">if</span> <span class="n">ack</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a>                <span class="k">break</span>
+<a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a>        <span class="k">except</span> <span class="n">NetworkError</span><span class="p">:</span>
+<a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Retry</span>
+<a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a>
+<a href="#__codelineno-5-20" id="__codelineno-5-20" name="__codelineno-5-20"></a><span class="c1"># Exactly-once: Message delivered exactly 1 time</span>
+<a href="#__codelineno-5-21" id="__codelineno-5-21" name="__codelineno-5-21"></a><span class="c1"># Implementation: Idempotency + at-least-once</span>
+<a href="#__codelineno-5-22" id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="k">def</span><span class="w"> </span><span class="nf">send_exactly_once</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+<a href="#__codelineno-5-23" id="__codelineno-5-23" name="__codelineno-5-23"></a>    <span class="n">message</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">generate_unique_id</span><span class="p">()</span>
+<a href="#__codelineno-5-24" id="__codelineno-5-24" name="__codelineno-5-24"></a>    <span class="n">send_at_least_once</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>  <span class="c1"># Receiver deduplicates</span>
 </code></pre></div>
 <h2 id="consensus-and-agreement">Consensus and Agreement</h2>
 <p>Getting distributed nodes to agree on a single value.</p>
 <h3 id="why-consensus-is-hard">Why Consensus is Hard</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># The problem: Nodes can fail, network can partition</span>
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">distributed_agreement_impossible</span><span class="p">():</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="sd">"""</span>
-<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="sd">    FLP Impossibility Result:</span>
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="sd">    In an asynchronous network where even one node can fail,</span>
-<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="sd">    no consensus algorithm can guarantee termination.</span>
-<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="sd">    """</span>
-<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a>    <span class="c1"># This is why all practical consensus algorithms make</span>
-<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a>    <span class="c1"># additional assumptions (timeouts, failure detectors, etc.)</span>
-<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a>    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># The problem: Nodes can fail, network can partition</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">distributed_agreement_impossible</span><span class="p">():</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="sd">"""</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="sd">    FLP Impossibility Result:</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="sd">    In an asynchronous network where even one node can fail,</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="sd">    no consensus algorithm can guarantee termination.</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="sd">    """</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>    <span class="c1"># This is why all practical consensus algorithms make</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>    <span class="c1"># additional assumptions (timeouts, failure detectors, etc.)</span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>    <span class="k">pass</span>
 </code></pre></div>
 <h3 id="practical-consensus-algorithms">Practical Consensus Algorithms</h3>
 <table>
@@ -1458,41 +1541,41 @@
 </table>
 <h2 id="data-distribution-strategies">Data Distribution Strategies</h2>
 <h3 id="partitioning-schemes">Partitioning Schemes</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># Hash partitioning - even distribution</span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">hash_partition</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">num_partitions</span><span class="p">):</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">%</span> <span class="n">num_partitions</span>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="c1"># Range partitioning - ordered access</span>
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">range_partition</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ranges</span><span class="p">):</span>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">range_end</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ranges</span><span class="p">):</span>
-<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>        <span class="k">if</span> <span class="n">key</span> <span class="o">&lt;=</span> <span class="n">range_end</span><span class="p">:</span>
-<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>            <span class="k">return</span> <span class="n">i</span>
-<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">ranges</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>
-<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="c1"># Directory partitioning - flexible</span>
-<a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">directory_partition</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">directory</span><span class="p">):</span>
-<a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a>    <span class="k">return</span> <span class="n">directory</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># Hash partitioning - even distribution</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">hash_partition</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">num_partitions</span><span class="p">):</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>    <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">%</span> <span class="n">num_partitions</span>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="c1"># Range partitioning - ordered access</span>
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">range_partition</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">ranges</span><span class="p">):</span>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">range_end</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ranges</span><span class="p">):</span>
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a>        <span class="k">if</span> <span class="n">key</span> <span class="o">&lt;=</span> <span class="n">range_end</span><span class="p">:</span>
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a>            <span class="k">return</span> <span class="n">i</span>
+<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">ranges</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a>
+<a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="c1"># Directory partitioning - flexible</span>
+<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">directory_partition</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">directory</span><span class="p">):</span>
+<a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a>    <span class="k">return</span> <span class="n">directory</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="replication-strategies">Replication Strategies</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># Primary-backup replication</span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">PrimaryBackup</span><span class="p">:</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>        <span class="c1"># Write to primary first</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>        <span class="n">primary</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a>
-<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>        <span class="c1"># Then replicate to backups</span>
-<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>        <span class="k">for</span> <span class="n">backup</span> <span class="ow">in</span> <span class="n">backups</span><span class="p">:</span>
-<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a>            <span class="n">backup</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a>
-<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="c1"># Multi-master replication  </span>
-<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="k">class</span><span class="w"> </span><span class="nc">MultiMaster</span><span class="p">:</span>
-<a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-<a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a>        <span class="c1"># Write to local replica</span>
-<a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a>        <span class="n">local_replica</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a>
-<a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a>        <span class="c1"># Async replicate to others</span>
-<a href="#__codelineno-9-18" id="__codelineno-9-18" name="__codelineno-9-18"></a>        <span class="k">for</span> <span class="n">replica</span> <span class="ow">in</span> <span class="n">other_replicas</span><span class="p">:</span>
-<a href="#__codelineno-9-19" id="__codelineno-9-19" name="__codelineno-9-19"></a>            <span class="n">async_send</span><span class="p">(</span><span class="n">replica</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># Primary-backup replication</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">PrimaryBackup</span><span class="p">:</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>        <span class="c1"># Write to primary first</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>        <span class="n">primary</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>        <span class="c1"># Then replicate to backups</span>
+<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>        <span class="k">for</span> <span class="n">backup</span> <span class="ow">in</span> <span class="n">backups</span><span class="p">:</span>
+<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>            <span class="n">backup</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>
+<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="c1"># Multi-master replication  </span>
+<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="k">class</span><span class="w"> </span><span class="nc">MultiMaster</span><span class="p">:</span>
+<a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a>        <span class="c1"># Write to local replica</span>
+<a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a>        <span class="n">local_replica</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a>
+<a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a>        <span class="c1"># Async replicate to others</span>
+<a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a>        <span class="k">for</span> <span class="n">replica</span> <span class="ow">in</span> <span class="n">other_replicas</span><span class="p">:</span>
+<a href="#__codelineno-8-19" id="__codelineno-8-19" name="__codelineno-8-19"></a>            <span class="n">async_send</span><span class="p">(</span><span class="n">replica</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="state-management">State Management</h2>
 <h3 id="stateless-vs-stateful">Stateless vs Stateful</h3>
@@ -1523,37 +1606,37 @@
 </tbody>
 </table>
 <h3 id="event-sourcing-vs-state-storage">Event Sourcing vs State Storage</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1"># Traditional state storage</span>
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Account</span><span class="p">:</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">balance</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">=</span> <span class="n">balance</span>
-<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>
-<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
-<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">&gt;=</span> <span class="n">amount</span><span class="p">:</span>
-<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">-=</span> <span class="n">amount</span>  <span class="c1"># Mutate state</span>
-<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a>            <span class="k">return</span> <span class="kc">True</span>
-<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a>        <span class="k">return</span> <span class="kc">False</span>
-<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a>
-<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="c1"># Event sourcing approach</span>
-<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="k">class</span><span class="w"> </span><span class="nc">EventSourcedAccount</span><span class="p">:</span>
-<a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
-<a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a>
-<a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
-<a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a>        <span class="n">current_balance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_balance</span><span class="p">()</span>
-<a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a>        <span class="k">if</span> <span class="n">current_balance</span> <span class="o">&gt;=</span> <span class="n">amount</span><span class="p">:</span>
-<a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">WithdrawEvent</span><span class="p">(</span><span class="n">amount</span><span class="p">))</span>
-<a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a>            <span class="k">return</span> <span class="kc">True</span>
-<a href="#__codelineno-10-22" id="__codelineno-10-22" name="__codelineno-10-22"></a>        <span class="k">return</span> <span class="kc">False</span>
-<a href="#__codelineno-10-23" id="__codelineno-10-23" name="__codelineno-10-23"></a>
-<a href="#__codelineno-10-24" id="__codelineno-10-24" name="__codelineno-10-24"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a href="#__codelineno-10-25" id="__codelineno-10-25" name="__codelineno-10-25"></a>        <span class="n">balance</span> <span class="o">=</span> <span class="mi">0</span>
-<a href="#__codelineno-10-26" id="__codelineno-10-26" name="__codelineno-10-26"></a>        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
-<a href="#__codelineno-10-27" id="__codelineno-10-27" name="__codelineno-10-27"></a>            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">DepositEvent</span><span class="p">):</span>
-<a href="#__codelineno-10-28" id="__codelineno-10-28" name="__codelineno-10-28"></a>                <span class="n">balance</span> <span class="o">+=</span> <span class="n">event</span><span class="o">.</span><span class="n">amount</span>
-<a href="#__codelineno-10-29" id="__codelineno-10-29" name="__codelineno-10-29"></a>            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">WithdrawEvent</span><span class="p">):</span>
-<a href="#__codelineno-10-30" id="__codelineno-10-30" name="__codelineno-10-30"></a>                <span class="n">balance</span> <span class="o">-=</span> <span class="n">event</span><span class="o">.</span><span class="n">amount</span>
-<a href="#__codelineno-10-31" id="__codelineno-10-31" name="__codelineno-10-31"></a>        <span class="k">return</span> <span class="n">balance</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># Traditional state storage</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Account</span><span class="p">:</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">balance</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">=</span> <span class="n">balance</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">&gt;=</span> <span class="n">amount</span><span class="p">:</span>
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">balance</span> <span class="o">-=</span> <span class="n">amount</span>  <span class="c1"># Mutate state</span>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a>            <span class="k">return</span> <span class="kc">True</span>
+<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a>        <span class="k">return</span> <span class="kc">False</span>
+<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a>
+<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="c1"># Event sourcing approach</span>
+<a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="k">class</span><span class="w"> </span><span class="nc">EventSourcedAccount</span><span class="p">:</span>
+<a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
+<a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a>
+<a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+<a href="#__codelineno-9-18" id="__codelineno-9-18" name="__codelineno-9-18"></a>        <span class="n">current_balance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_balance</span><span class="p">()</span>
+<a href="#__codelineno-9-19" id="__codelineno-9-19" name="__codelineno-9-19"></a>        <span class="k">if</span> <span class="n">current_balance</span> <span class="o">&gt;=</span> <span class="n">amount</span><span class="p">:</span>
+<a href="#__codelineno-9-20" id="__codelineno-9-20" name="__codelineno-9-20"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">WithdrawEvent</span><span class="p">(</span><span class="n">amount</span><span class="p">))</span>
+<a href="#__codelineno-9-21" id="__codelineno-9-21" name="__codelineno-9-21"></a>            <span class="k">return</span> <span class="kc">True</span>
+<a href="#__codelineno-9-22" id="__codelineno-9-22" name="__codelineno-9-22"></a>        <span class="k">return</span> <span class="kc">False</span>
+<a href="#__codelineno-9-23" id="__codelineno-9-23" name="__codelineno-9-23"></a>
+<a href="#__codelineno-9-24" id="__codelineno-9-24" name="__codelineno-9-24"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a href="#__codelineno-9-25" id="__codelineno-9-25" name="__codelineno-9-25"></a>        <span class="n">balance</span> <span class="o">=</span> <span class="mi">0</span>
+<a href="#__codelineno-9-26" id="__codelineno-9-26" name="__codelineno-9-26"></a>        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
+<a href="#__codelineno-9-27" id="__codelineno-9-27" name="__codelineno-9-27"></a>            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">DepositEvent</span><span class="p">):</span>
+<a href="#__codelineno-9-28" id="__codelineno-9-28" name="__codelineno-9-28"></a>                <span class="n">balance</span> <span class="o">+=</span> <span class="n">event</span><span class="o">.</span><span class="n">amount</span>
+<a href="#__codelineno-9-29" id="__codelineno-9-29" name="__codelineno-9-29"></a>            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">WithdrawEvent</span><span class="p">):</span>
+<a href="#__codelineno-9-30" id="__codelineno-9-30" name="__codelineno-9-30"></a>                <span class="n">balance</span> <span class="o">-=</span> <span class="n">event</span><span class="o">.</span><span class="n">amount</span>
+<a href="#__codelineno-9-31" id="__codelineno-9-31" name="__codelineno-9-31"></a>        <span class="k">return</span> <span class="n">balance</span>
 </code></pre></div>
 <h2 id="key-takeaways">Key Takeaways</h2>
 <ol>

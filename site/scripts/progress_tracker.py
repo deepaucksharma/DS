@@ -1,173 +1,66 @@
 #!/usr/bin/env python3
 """
 Progress Tracking System for Atlas Project
-Tracks progress toward 900-1500 diagram goal
-Based on readonly-spec requirements
+Reads from CENTRAL_METRICS.json - the single source of truth
 """
 
 import json
-import yaml
-import glob
-import os
 from datetime import datetime, timedelta
-from typing import Dict, List, Tuple
 from pathlib import Path
 
 class ProgressTracker:
-    """Track and report progress on diagram generation"""
+    """Track and report progress from central metrics"""
 
     def __init__(self, base_path: str = "."):
         self.base_path = Path(base_path)
-        self.docs_path = self.base_path / "docs"
         self.data_path = self.base_path / "data"
-        self.data_path.mkdir(exist_ok=True)
-        self.progress_file = self.data_path / "progress.json"
+        self.central_metrics_file = self.data_path / "CENTRAL_METRICS.json"
 
-    def scan_diagrams(self) -> Dict:
-        """Scan all markdown files for Mermaid diagrams"""
-        stats = {
-            "guarantees": {"files": 0, "diagrams": 0},
-            "mechanisms": {"files": 0, "diagrams": 0},
-            "patterns": {"files": 0, "diagrams": 0},
-            "case_studies": {"files": 0, "diagrams": 0},
-            "total": {"files": 0, "diagrams": 0}
-        }
+    def load_metrics(self):
+        """Load metrics from central file"""
+        if not self.central_metrics_file.exists():
+            raise FileNotFoundError(
+                f"Central metrics file not found at {self.central_metrics_file}\n"
+                "Run: python scripts/unified_status_tracker.py --update-central"
+            )
 
-        # Scan all markdown files
-        for md_file in self.docs_path.rglob("*.md"):
-            content = md_file.read_text()
-            mermaid_count = content.count("```mermaid")
-
-            if mermaid_count > 0:
-                # Categorize by path
-                category = self._categorize_file(md_file)
-                stats[category]["files"] += 1
-                stats[category]["diagrams"] += mermaid_count
-                stats["total"]["files"] += 1
-                stats["total"]["diagrams"] += mermaid_count
-
-        return stats
-
-    def _categorize_file(self, file_path: Path) -> str:
-        """Categorize file based on path"""
-        path_str = str(file_path).lower()
-        if "guarantee" in path_str:
-            return "guarantees"
-        elif "mechanism" in path_str:
-            return "mechanisms"
-        elif "pattern" in path_str:
-            return "patterns"
-        elif "case" in path_str or "example" in path_str:
-            return "case_studies"
-        else:
-            return "patterns"  # default
-
-    def calculate_velocity(self) -> Dict:
-        """Calculate velocity based on historical progress"""
-        history = self.load_history()
-
-        if len(history) < 2:
-            return {"weekly": 0, "monthly": 0, "projected_completion": "N/A"}
-
-        # Calculate weekly velocity (last 7 days)
-        week_ago = datetime.now() - timedelta(days=7)
-        recent_entries = [h for h in history if datetime.fromisoformat(h["date"]) > week_ago]
-
-        if recent_entries:
-            start_count = recent_entries[0]["total_diagrams"]
-            end_count = recent_entries[-1]["total_diagrams"]
-            weekly_velocity = end_count - start_count
-        else:
-            weekly_velocity = 0
-
-        # Calculate monthly velocity (last 30 days)
-        month_ago = datetime.now() - timedelta(days=30)
-        monthly_entries = [h for h in history if datetime.fromisoformat(h["date"]) > month_ago]
-
-        if monthly_entries:
-            start_count = monthly_entries[0]["total_diagrams"]
-            end_count = monthly_entries[-1]["total_diagrams"]
-            monthly_velocity = end_count - start_count
-        else:
-            monthly_velocity = 0
-
-        # Project completion
-        current = history[-1]["total_diagrams"] if history else 0
-        target = 1200  # mid-range target
-        remaining = target - current
-
-        if weekly_velocity > 0:
-            weeks_to_complete = remaining / weekly_velocity
-            completion_date = datetime.now() + timedelta(weeks=weeks_to_complete)
-            projected = completion_date.strftime("%Y-%m-%d")
-        else:
-            projected = "N/A - No velocity"
-
-        return {
-            "weekly": weekly_velocity,
-            "monthly": monthly_velocity,
-            "projected_completion": projected
-        }
-
-    def load_history(self) -> List[Dict]:
-        """Load historical progress data"""
-        if self.progress_file.exists():
-            with open(self.progress_file) as f:
-                return json.load(f)
-        return []
-
-    def save_snapshot(self, stats: Dict):
-        """Save current progress snapshot"""
-        history = self.load_history()
-
-        snapshot = {
-            "date": datetime.now().isoformat(),
-            "total_diagrams": stats["total"]["diagrams"],
-            "total_files": stats["total"]["files"],
-            "breakdown": {
-                "guarantees": stats["guarantees"]["diagrams"],
-                "mechanisms": stats["mechanisms"]["diagrams"],
-                "patterns": stats["patterns"]["diagrams"],
-                "case_studies": stats["case_studies"]["diagrams"]
-            }
-        }
-
-        history.append(snapshot)
-
-        # Keep only last 90 days of history
-        cutoff = datetime.now() - timedelta(days=90)
-        history = [h for h in history if datetime.fromisoformat(h["date"]) > cutoff]
-
-        with open(self.progress_file, "w") as f:
-            json.dump(history, f, indent=2)
+        with open(self.central_metrics_file, 'r') as f:
+            return json.load(f)
 
     def generate_report(self) -> str:
-        """Generate comprehensive progress report"""
-        stats = self.scan_diagrams()
-        velocity = self.calculate_velocity()
-        self.save_snapshot(stats)
+        """Generate comprehensive progress report from central metrics"""
+        metrics = self.load_metrics()
 
-        # Calculate progress percentages
-        target_min, target_max, target_mid = 900, 1500, 1200
-        current = stats["total"]["diagrams"]
-        progress_pct = (current / target_mid) * 100
+        # Extract key values
+        current = metrics['current_status']['diagrams_created']
+        target = metrics['targets']['total_diagrams']
+        progress_pct = metrics['progress_percentages']['overall']
 
-        # Determine status
-        if current >= target_min:
+        # Status determination
+        if current >= target:
             status = "✅ TARGET ACHIEVED"
-            status_color = "green"
         elif progress_pct >= 75:
             status = "🎯 ON TRACK"
-            status_color = "blue"
         elif progress_pct >= 50:
             status = "⚡ ACCELERATING"
-            status_color = "yellow"
         else:
             status = "🚀 RAMPING UP"
-            status_color = "orange"
+
+        # Category breakdown
+        categories = metrics['category_breakdown']
+
+        # Timeline info
+        timeline = metrics['timeline']
+
+        # Compliance info
+        compliance = metrics['current_status']['compliance']
+
+        # Status distribution
+        status_dist = metrics['status_distribution']
 
         report = f"""# Atlas Progress Report
 Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+Source: /site/data/CENTRAL_METRICS.json
 
 ## 📊 Overall Progress
 
@@ -175,83 +68,85 @@ Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 | Metric | Value | Target | Progress |
 |--------|-------|--------|----------|
-| **Total Diagrams** | {current} | {target_min}-{target_max} | {progress_pct:.1f}% |
-| **Files with Diagrams** | {stats['total']['files']} | 75-125 | {(stats['total']['files']/100)*100:.0f}% |
-| **Average per File** | {current/max(stats['total']['files'],1):.1f} | 10-15 | Good |
+| **Total Diagrams** | {current} | {target} | {progress_pct:.1f}% |
+| **Files Created** | {metrics['current_status']['files_created']} | As needed | Active |
+| **Compliance Score** | {compliance['average_score']:.1f}% | 100% | In Progress |
 
 ## 📈 Progress Visualization
 
 ```
-Target Range: {target_min} ━━━━━━━━━━━━━━━━━━━━ {target_max}
-Current:      {'█' * int(progress_pct/5)}{' ' * (20-int(progress_pct/5))} {current}
+Target: {target} diagrams
+Current: {'█' * int(progress_pct/5)}{'░' * (20-int(progress_pct/5))} {current}
 ```
 
 ## 🎯 Category Breakdown
 
-| Category | Files | Diagrams | Target | Status |
-|----------|-------|----------|--------|--------|
-| **Guarantees** | {stats['guarantees']['files']} | {stats['guarantees']['diagrams']} | 180 (18×10) | {self._status_indicator(stats['guarantees']['diagrams'], 180)} |
-| **Mechanisms** | {stats['mechanisms']['files']} | {stats['mechanisms']['diagrams']} | 200 (20×10) | {self._status_indicator(stats['mechanisms']['diagrams'], 200)} |
-| **Patterns** | {stats['patterns']['files']} | {stats['patterns']['diagrams']} | 210 (21×10) | {self._status_indicator(stats['patterns']['diagrams'], 210)} |
-| **Case Studies** | {stats['case_studies']['files']} | {stats['case_studies']['diagrams']} | 600+ | {self._status_indicator(stats['case_studies']['diagrams'], 600)} |
+| Category | Diagrams | Status |
+|----------|----------|--------|
+| **Systems** | {categories.get('systems', 0)} | {self._status_indicator(categories.get('systems', 0), 240)} |
+| **Patterns** | {categories.get('patterns', 0)} | {self._status_indicator(categories.get('patterns', 0), 80)} |
+| **Incidents** | {categories.get('incidents', 0)} | {self._status_indicator(categories.get('incidents', 0), 100)} |
+| **Debugging** | {categories.get('debugging', 0)} | {self._status_indicator(categories.get('debugging', 0), 100)} |
+| **Performance** | {categories.get('performance', 0)} | {self._status_indicator(categories.get('performance', 0), 80)} |
+| **Migrations** | {categories.get('migrations', 0)} | {self._status_indicator(categories.get('migrations', 0), 60)} |
+| **Capacity** | {categories.get('capacity', 0)} | {self._status_indicator(categories.get('capacity', 0), 60)} |
+| **Comparisons** | {categories.get('comparisons', 0)} | {self._status_indicator(categories.get('comparisons', 0), 40)} |
 
-## ⚡ Velocity Metrics
+## 📊 Status Distribution
 
-| Period | Diagrams Added | Rate | Projection |
-|--------|---------------|------|------------|
-| **Last Week** | {velocity['weekly']} | {velocity['weekly']/7:.1f}/day | {velocity['weekly']*4}/month |
-| **Last Month** | {velocity['monthly']} | {velocity['monthly']/30:.1f}/day | {velocity['monthly']*12}/year |
-| **Completion** | {target_mid - current} remaining | - | {velocity['projected_completion']} |
+| Status | Count | Percentage |
+|--------|-------|------------|
+| ✅ **Up to Date** | {status_dist['up_to_date']} | {status_dist['up_to_date']/9:.1f}% |
+| 🔄 **In Review** | {status_dist['in_review']} | {status_dist['in_review']/9:.1f}% |
+| ⚠️ **Needs Update** | {status_dist['needs_update']} | {status_dist['needs_update']/9:.1f}% |
+| ⬜ **Not Created** | {status_dist['not_created']} | {status_dist['not_created']/9:.1f}% |
 
-## 🎯 Milestones
+## ⚡ Timeline Metrics
 
-| Milestone | Diagrams | Status | ETA |
-|-----------|----------|--------|-----|
-| 🏗️ Foundation | 300 | {'✅ Complete' if current >= 300 else f'⏳ {300-current} to go'} | {self._calculate_eta(current, 300, velocity['weekly'])} |
-| 🔧 Core Systems | 600 | {'✅ Complete' if current >= 600 else f'⏳ {600-current} to go'} | {self._calculate_eta(current, 600, velocity['weekly'])} |
-| 🎯 **Minimum Target** | 900 | {'✅ Complete' if current >= 900 else f'⏳ {900-current} to go'} | {self._calculate_eta(current, 900, velocity['weekly'])} |
-| 🚀 Optimal Coverage | 1200 | {'✅ Complete' if current >= 1200 else f'⏳ {1200-current} to go'} | {self._calculate_eta(current, 1200, velocity['weekly'])} |
-| 🌟 Stretch Goal | 1500 | {'✅ Complete' if current >= 1500 else f'⏳ {1500-current} to go'} | {self._calculate_eta(current, 1500, velocity['weekly'])} |
+| Metric | Value |
+|--------|-------|
+| **Project Start** | {timeline['project_start']} |
+| **Current Week** | {timeline['current_week']} of {timeline['weeks_remaining'] + timeline['current_week']} |
+| **Velocity Required** | {timeline['required_velocity']:.1f} diagrams/week |
+| **Current Velocity** | {timeline['current_velocity']} diagrams/week |
+| **Estimated Completion** | {timeline['estimated_completion']} |
 
-## 📋 Next Actions
+## 🏢 Systems Documentation
 
-### Immediate (This Week)
-- [ ] Complete {max(0, 30 - velocity['weekly'])} more diagrams to hit 30/week target
-- [ ] Review and validate existing diagrams for schema compliance
-- [ ] Identify high-priority gaps in coverage
+| Status | Count |
+|--------|-------|
+| **Complete** | {metrics['current_status']['systems_documented']['complete']} / {metrics['targets']['total_systems']} |
+| **Partial** | {metrics['current_status']['systems_documented']['partial']} |
+| **Not Started** | {metrics['current_status']['systems_documented']['not_started']} |
 
-### Short Term (This Month)
-- [ ] Add {max(0, 120 - velocity['monthly'])} diagrams to achieve 120/month rate
-- [ ] Complete all foundation guarantees and mechanisms
-- [ ] Start 2-3 new case studies
+## 📋 Quality Metrics
 
-### Long Term (This Quarter)
-- [ ] Reach {min(target_mid, current + 300)} total diagrams
-- [ ] Complete 10+ production case studies
-- [ ] Achieve comprehensive pattern coverage
+| Metric | Count | Target |
+|--------|-------|--------|
+| **With SLO Labels** | {metrics['quality_metrics']['with_slo_labels']} | All |
+| **With Cost Data** | {metrics['quality_metrics']['with_cost_data']} | All |
+| **With Failure Scenarios** | {metrics['quality_metrics']['with_failure_scenarios']} | All |
+| **Following 4-Plane** | {metrics['quality_metrics']['following_4_plane']} | All |
+| **Production Ready** | {metrics['quality_metrics']['production_ready']} | All |
+| **Emergency Ready** | {metrics['quality_metrics']['emergency_ready']} | All |
 
 ## 💡 Recommendations
 
-{self._generate_recommendations(stats, velocity, current, target_mid)}
-
-## 📊 Quality Metrics
-
-- **Schema Compliance**: All diagrams must validate against spec
-- **Size Limit**: All diagrams < 500KB uncompressed
-- **Accessibility**: WCAG 2.1 AA compliant
-- **Performance**: < 2s render time
-- **Coverage**: {(stats['total']['files']/100)*100:.0f}% of planned content areas
+{self._generate_recommendations(metrics)}
 
 ---
-*Report generated by progress_tracker.py*
-*Target: 900-1500 production-quality diagrams*
+*Report generated from CENTRAL_METRICS.json*
+*Last metrics update: {metrics['metadata']['last_updated']}*
+*Target: {target} production-quality diagrams*
 *Philosophy: Every diagram must help debug production issues at 3 AM*
 """
         return report
 
     def _status_indicator(self, current: int, target: int) -> str:
         """Generate status indicator for category"""
-        pct = (current / target) * 100 if target > 0 else 0
+        if target == 0:
+            return "N/A"
+        pct = (current / target) * 100
         if pct >= 100:
             return "✅ Complete"
         elif pct >= 75:
@@ -263,39 +158,47 @@ Current:      {'█' * int(progress_pct/5)}{' ' * (20-int(progress_pct/5))} {cur
         else:
             return "⚪ Planning"
 
-    def _calculate_eta(self, current: int, target: int, weekly_velocity: int) -> str:
-        """Calculate ETA for milestone"""
-        if current >= target:
-            return "Completed"
-        if weekly_velocity <= 0:
-            return "TBD"
-        weeks = (target - current) / weekly_velocity
-        eta = datetime.now() + timedelta(weeks=weeks)
-        return eta.strftime("%Y-%m-%d")
-
-    def _generate_recommendations(self, stats: Dict, velocity: Dict, current: int, target: int) -> str:
+    def _generate_recommendations(self, metrics) -> str:
         """Generate actionable recommendations"""
         recommendations = []
 
-        # Velocity recommendations
-        if velocity['weekly'] < 20:
-            recommendations.append("⚡ **Increase velocity**: Current rate below 20 diagrams/week target")
-        if velocity['weekly'] > 40:
-            recommendations.append("✅ **Excellent velocity**: Maintaining over 40 diagrams/week!")
+        # Velocity check
+        current_velocity = metrics['timeline']['current_velocity']
+        required_velocity = metrics['timeline']['required_velocity']
 
-        # Category balance recommendations
-        if stats['guarantees']['diagrams'] < 50:
-            recommendations.append("📘 **Focus on Guarantees**: Need more guarantee flow diagrams")
-        if stats['mechanisms']['diagrams'] < 50:
-            recommendations.append("🔧 **Focus on Mechanisms**: Need more mechanism detail diagrams")
-        if stats['case_studies']['diagrams'] < stats['total']['diagrams'] * 0.4:
-            recommendations.append("📚 **Add Case Studies**: Case studies should be 40%+ of total")
+        if current_velocity < required_velocity:
+            recommendations.append(
+                f"⚡ **Increase velocity**: Need {required_velocity:.1f} diagrams/week, "
+                f"currently at {current_velocity}"
+            )
 
-        # Progress recommendations
-        remaining = target - current
-        if remaining > 0:
-            weeks_needed = remaining / max(velocity['weekly'], 20)
-            recommendations.append(f"📅 **Timeline**: Need {weeks_needed:.1f} weeks at current/target velocity")
+        # Compliance check
+        compliance = metrics['current_status']['compliance']['average_score']
+        if compliance < 90:
+            recommendations.append(
+                f"📊 **Improve compliance**: Average score {compliance:.1f}% should be >90%"
+            )
+
+        # Status distribution check
+        not_created = metrics['status_distribution']['not_created']
+        needs_update = metrics['status_distribution']['needs_update']
+
+        if not_created > 400:
+            recommendations.append(
+                f"🚀 **Focus on creation**: {not_created} diagrams not yet created"
+            )
+
+        if needs_update > 100:
+            recommendations.append(
+                f"🔧 **Update existing**: {needs_update} diagrams need updates"
+            )
+
+        # Systems check
+        systems_not_started = metrics['current_status']['systems_documented']['not_started']
+        if systems_not_started > 10:
+            recommendations.append(
+                f"🏢 **Document systems**: {systems_not_started} systems not started"
+            )
 
         if not recommendations:
             recommendations.append("✅ **On Track**: All metrics looking good!")
@@ -304,24 +207,35 @@ Current:      {'█' * int(progress_pct/5)}{' ' * (20-int(progress_pct/5))} {cur
 
     def generate_dashboard(self) -> str:
         """Generate simple text dashboard for command line"""
-        stats = self.scan_diagrams()
-        current = stats["total"]["diagrams"]
-        target = 1200
-        progress = (current / target) * 100
+        try:
+            metrics = self.load_metrics()
+        except FileNotFoundError as e:
+            return str(e)
+
+        current = metrics['current_status']['diagrams_created']
+        target = metrics['targets']['total_diagrams']
+        progress = metrics['progress_percentages']['overall']
 
         dashboard = f"""
 ╔══════════════════════════════════════════════════════════╗
 ║               ATLAS PROJECT DASHBOARD                     ║
 ╠══════════════════════════════════════════════════════════╣
 ║  Progress: [{('█' * int(progress/5)).ljust(20)}] {progress:.1f}%
-║  Diagrams: {str(current).rjust(4)} / {target} (Target: 900-1500)
-║  Files:    {str(stats['total']['files']).rjust(4)} with diagrams
+║  Diagrams: {str(current).rjust(4)} / {target}
+║  Files:    {str(metrics['current_status']['files_created']).rjust(4)} created
 ╠══════════════════════════════════════════════════════════╣
-║  Guarantees:    {str(stats['guarantees']['diagrams']).rjust(3)} diagrams
-║  Mechanisms:    {str(stats['mechanisms']['diagrams']).rjust(3)} diagrams
-║  Patterns:      {str(stats['patterns']['diagrams']).rjust(3)} diagrams
-║  Case Studies:  {str(stats['case_studies']['diagrams']).rjust(3)} diagrams
+║  Systems:       {str(metrics['category_breakdown'].get('systems', 0)).rjust(3)} diagrams
+║  Patterns:      {str(metrics['category_breakdown'].get('patterns', 0)).rjust(3)} diagrams
+║  Incidents:     {str(metrics['category_breakdown'].get('incidents', 0)).rjust(3)} diagrams
+║  Debugging:     {str(metrics['category_breakdown'].get('debugging', 0)).rjust(3)} diagrams
+╠══════════════════════════════════════════════════════════╣
+║  Compliance:    {metrics['current_status']['compliance']['average_score']:.1f}%
+║  Velocity:      {metrics['timeline']['current_velocity']} diagrams/week
+║  Required:      {metrics['timeline']['required_velocity']:.1f} diagrams/week
 ╚══════════════════════════════════════════════════════════╝
+
+Source: /site/data/CENTRAL_METRICS.json
+Last Updated: {metrics['metadata']['last_updated']}
 """
         return dashboard
 
@@ -329,21 +243,29 @@ def main():
     """Run progress tracking"""
     tracker = ProgressTracker()
 
-    # Generate and save report
-    report = tracker.generate_report()
-    with open("progress-report.md", "w") as f:
-        f.write(report)
-    print("✓ Generated progress-report.md")
+    try:
+        # Generate and save report
+        report = tracker.generate_report()
+        with open("progress-report.md", "w") as f:
+            f.write(report)
+        print("✓ Generated progress-report.md from CENTRAL_METRICS.json")
 
-    # Show dashboard
-    dashboard = tracker.generate_dashboard()
-    print(dashboard)
+        # Show dashboard
+        dashboard = tracker.generate_dashboard()
+        print(dashboard)
 
-    # Show quick stats
-    stats = tracker.scan_diagrams()
-    print(f"Total Diagrams: {stats['total']['diagrams']}")
-    print(f"Target Range: 900-1500")
-    print(f"Progress: {(stats['total']['diagrams']/1200)*100:.1f}%")
+        # Show quick stats
+        metrics = tracker.load_metrics()
+        print(f"\nTotal Diagrams: {metrics['current_status']['diagrams_created']}")
+        print(f"Target: {metrics['targets']['total_diagrams']}")
+        print(f"Progress: {metrics['progress_percentages']['overall']:.1f}%")
+        print(f"\n📊 All metrics from: /site/data/CENTRAL_METRICS.json")
+
+    except FileNotFoundError as e:
+        print(f"❌ Error: {e}")
+        return 1
+
+    return 0
 
 if __name__ == "__main__":
-    main()
+    exit(main())

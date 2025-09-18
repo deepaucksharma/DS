@@ -52,6 +52,61 @@ graph TB
 
 ---
 
+## Interactive and Relational Diagram Requirements
+
+### Every Diagram Must Be Interactive
+
+```mermaid
+flowchart TD
+    subgraph "Interactive Elements"
+        Click[Clickable nodes<br/>with navigation]
+        Hover[Hover tooltips<br/>with details]
+        Links[Cross-references<br/>between diagrams]
+    end
+
+    subgraph "Relationship Types"
+        Depends[Dependencies<br/>A needs B]
+        Cascades[Failure cascades<br/>A breaks → B breaks]
+        Composes[Composition<br/>A + B = C]
+        Trades[Trade-offs<br/>A vs B]
+    end
+
+    subgraph "Dynamic Behaviors"
+        States[State transitions]
+        Flows[Data flows]
+        Timelines[Evolution paths]
+        Decisions[Choice trees]
+    end
+
+    Click --> Links
+    Depends --> Cascades
+    States --> Flows
+
+    style Click fill:#0066CC,color:#fff
+    style Depends fill:#00AA00,color:#fff
+    style States fill:#FF8800,color:#fff
+```
+
+### Interactive Navigation Example
+
+```mermaid
+graph TB
+    subgraph "Clickable Architecture"
+        API[API Gateway<br/>Click for details]
+        DB[(Database<br/>Click for schema)]
+        Cache[(Cache<br/>Click for metrics)]
+    end
+
+    API -->|"Click for<br/>latency analysis"| DB
+    API -->|"Click for<br/>hit rate stats"| Cache
+
+    click API "#api-details" "View API specifications"
+    click DB "#database-schema" "View database design"
+    click Cache "#cache-metrics" "View cache performance"
+```
+
+---
+
 ## Diagram Categories with Production Focus
 
 ### 1. ARCHITECTURE DIAGRAMS - "How It's Actually Built"

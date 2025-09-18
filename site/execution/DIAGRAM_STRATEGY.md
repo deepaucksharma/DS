@@ -3,7 +3,7 @@
 
 ### Executive Summary
 
-Based on thorough analysis of readonly-spec requirements, we need to create **900-1,500 production-quality diagrams** manually. This document provides a practical, achievable strategy that balances quality with scale.
+Based on thorough analysis of readonly-spec requirements, we need to create production-quality diagrams manually. See `/site/data/CENTRAL_METRICS.json` for current targets and progress. This document provides a practical, achievable strategy that balances quality with scale.
 
 ---
 
@@ -17,7 +17,7 @@ Based on thorough analysis of readonly-spec requirements, we need to create **90
 - ✅ Production metrics and incidents documented
 
 ### Gaps to Fill
-- ❌ 0 of 900+ diagrams created
+- See `/site/data/CENTRAL_METRICS.json` for current progress
 - ❌ No diagram tracking system
 - ❌ No consistent creation workflow
 - ❌ No data source pipeline for real metrics
@@ -27,7 +27,8 @@ Based on thorough analysis of readonly-spec requirements, we need to create **90
 
 ## 2. Diagram Requirements Analysis
 
-### Total Diagram Breakdown (Target: 1,200)
+### Total Diagram Breakdown
+> See `/site/data/CENTRAL_METRICS.json` for targets
 
 | Category | Count | Priority | Effort/Diagram | Total Effort |
 |----------|-------|----------|----------------|--------------|
@@ -103,7 +104,7 @@ Must-Document Incidents:
 
 ### A. Add Diagram Tracking System
 
-**Create: `/readonly-spec/17-DIAGRAM-TRACKING.md`**
+**Create: `../../readonly-spec/17-DIAGRAM-TRACKING.md`**
 ```yaml
 diagram_registry:
   guarantees:
@@ -123,7 +124,7 @@ diagram_registry:
 
 ### B. Create Data Source Registry
 
-**Create: `/readonly-spec/18-PRODUCTION-DATA-SOURCES.md`**
+**Create: `../../readonly-spec/18-PRODUCTION-DATA-SOURCES.md`**
 ```yaml
 verified_metrics:
   netflix:
@@ -147,7 +148,7 @@ verified_metrics:
 
 ### C. Simplify Diagram Specifications
 
-**Update: `/readonly-spec/02-DIAGRAM-SPECIFICATIONS-V3.md`**
+**Update: `../../readonly-spec/02-DIAGRAM-SPECIFICATIONS-V3.md`**
 
 Add practical templates that can be copy-pasted:
 

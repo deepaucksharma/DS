@@ -8,7 +8,8 @@ Shopify powers 1.75+ million merchants globally, processing $235+ billion in gro
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Global CDN & Load Balancing #0066CC"
+    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
+        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
         subgraph "Global Edge Network"
             CDN[Shopify CDN<br/>CloudFlare + Custom<br/>Static assets<br/>300+ locations]
             EDGE_LB[Edge Load Balancers<br/>Geographic routing<br/>SSL termination<br/>DDoS protection]
@@ -22,7 +23,8 @@ graph TB
         end
     end
 
-    subgraph "Service Plane - Application Services #00AA00"
+    subgraph ServicePlane["Service Plane - Green #00AA00"]
+        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
         subgraph "Core Application Stack"
             STOREFRONT[Storefront Renderer<br/>Liquid templating<br/>Theme engine<br/>Mobile-first design]
             CHECKOUT[Checkout Engine<br/>6-step process<br/>Payment optimization<br/>Conversion focus]
@@ -42,7 +44,8 @@ graph TB
         end
     end
 
-    subgraph "State Plane - Data & Storage Systems #FF8800"
+    subgraph StatePlane["State Plane - Orange #FF8800"]
+        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
         subgraph "Primary Databases (Vitess Sharded)"
             VITESS[Vitess MySQL Cluster<br/>130+ shards<br/>Horizontal scaling<br/>Online schema changes]
             PRODUCTS_DB[Product Catalog<br/>50M+ products<br/>Variant management<br/>Search indexing]
@@ -63,7 +66,8 @@ graph TB
         end
     end
 
-    subgraph "Control Plane - Operations & Management #CC0000"
+    subgraph ControlPlane["Control Plane - Red #CC0000"]
+        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
         subgraph "Deployment & Configuration"
             SHIPIT[Shipit Deploy System<br/>Continuous deployment<br/>Feature flags<br/>Gradual rollouts]
             CONFIG_MGMT[Configuration Management<br/>Environment-specific<br/>Secret management<br/>Feature toggles]
@@ -77,40 +81,40 @@ graph TB
         end
     end
 
-    %% Traffic Flow
-    USER[1.75M Merchants<br/>Millions of customers] --> CDN
-    CDN --> EDGE_LB
-    EDGE_LB --> WAF
-    WAF --> STOREFRONT
+    %% Traffic Flow with real metrics
+    USER[1.75M Merchants<br/>Millions of customers] -->|"10.5K req/sec baseline<br/>100K peak RPS"| CDN
+    CDN -->|"Static assets<br/>p99: 10ms"| EDGE_LB
+    EDGE_LB -->|"SSL termination<br/>p99: 15ms"| WAF
+    WAF -->|"Security filtering<br/>p99: 5ms"| STOREFRONT
 
-    %% Service Interactions
-    STOREFRONT --> API_GATEWAY
-    CHECKOUT --> PAYMENTS
-    ADMIN --> FULFILLMENT
+    %% Service Interactions with metrics
+    STOREFRONT -->|"Template rendering<br/>p95: 150ms"| API_GATEWAY
+    CHECKOUT -->|"Payment processing<br/>p99: 200ms"| PAYMENTS
+    ADMIN -->|"Order management<br/>p99: 100ms"| FULFILLMENT
 
-    API_GATEWAY --> APP_PLATFORM
-    PAYMENTS --> WEBHOOKS
-    FULFILLMENT --> PLUS_APIS
+    API_GATEWAY -->|"App requests<br/>Rate limited"| APP_PLATFORM
+    PAYMENTS -->|"Payment events<br/>Async delivery"| WEBHOOKS
+    FULFILLMENT -->|"Enterprise APIs<br/>SLA: 99.95%"| PLUS_APIS
 
-    %% Data Connections
-    STOREFRONT --> VITESS
-    CHECKOUT --> PRODUCTS_DB
-    ADMIN --> ORDERS_DB
-    API_GATEWAY --> CUSTOMERS_DB
+    %% Data Connections with metrics
+    STOREFRONT -->|"Product lookup<br/>130+ shards<br/>p99: 50ms"| VITESS
+    CHECKOUT -->|"Inventory check<br/>50M+ products<br/>p99: 30ms"| PRODUCTS_DB
+    ADMIN -->|"Order query<br/>1B+ orders<br/>p99: 80ms"| ORDERS_DB
+    API_GATEWAY -->|"Customer data<br/>100M+ profiles<br/>p99: 20ms"| CUSTOMERS_DB
 
-    VITESS --> REDIS
-    PRODUCTS_DB --> MEMCACHED
-    ORDERS_DB --> ELASTICSEARCH
+    VITESS -->|"Session cache<br/>95% hit rate<br/>p99: 1ms"| REDIS
+    PRODUCTS_DB -->|"Fragment cache<br/>p99: 0.5ms"| MEMCACHED
+    ORDERS_DB -->|"Search index<br/>Real-time"| ELASTICSEARCH
 
-    REDIS --> KAFKA
-    MEMCACHED --> ANALYTICS_DB
-    ELASTICSEARCH --> AUDIT_LOGS
+    REDIS -->|"Event streaming<br/>Order events"| KAFKA
+    MEMCACHED -->|"Analytics ETL<br/>Business intelligence"| ANALYTICS_DB
+    ELASTICSEARCH -->|"Audit trail<br/>Compliance logs"| AUDIT_LOGS
 
-    %% Control Connections
-    SHIPIT --> CONFIG_MGMT
-    CONFIG_MGMT --> MONITORING
-    SECURITY_CENTER --> COMPLIANCE
-    COMPLIANCE --> FRAUD_DETECTION
+    %% Control Connections with monitoring
+    SHIPIT -->|"Deploy automation<br/>Feature flags"| CONFIG_MGMT
+    CONFIG_MGMT -->|"Config changes<br/>Real-time"| MONITORING
+    SECURITY_CENTER -->|"Security events<br/>Threat analysis"| COMPLIANCE
+    COMPLIANCE -->|"Risk scores<br/>ML-based"| FRAUD_DETECTION
 
     %% Apply four-plane colors
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff

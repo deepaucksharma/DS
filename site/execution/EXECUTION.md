@@ -1,22 +1,27 @@
 # Atlas Execution Guide
 
-## 🎯 Mission: Generate 900-1500 Production-Quality Diagrams
+## 🎯 Mission: Generate Production-Quality Diagrams
 
 This guide provides the practical execution workflow for the Atlas Distributed Systems Architecture Framework. We're building a comprehensive library of production-focused diagrams that help engineers debug issues at 3 AM.
 
 ## 📊 Current Status
 
-- **Target**: 900-1500 diagrams
-- **Timeline**: 12 weeks
-- **Approach**: Direct Mermaid in Markdown (no complex pipelines)
-- **Philosophy**: Production-first, real metrics, actual incidents
+> **📈 Live Metrics**: See `/site/data/CENTRAL_METRICS.json` for current status
+>
+> All metrics are centrally tracked. Run `python scripts/unified_status_tracker.py --dashboard` for latest.
+
+> **⚠️ Important**: Due to significant spec changes (Stream Plane removal, visual-first approach), existing diagrams require review and updates. See [REVIEW_UPDATE_WORKFLOW.md](REVIEW_UPDATE_WORKFLOW.md) for the complete review process.
 
 ## 🚀 Quick Start
 
-### 1. Check Progress
+### 1. Check Unified Status
 ```bash
 cd site
-python scripts/progress_tracker.py
+# Comprehensive dashboard with creation AND review status
+python scripts/unified_status_tracker.py --dashboard
+
+# Scan and update all diagram statuses
+python scripts/unified_status_tracker.py --scan
 ```
 
 ### 2. Generate Weekly Checklist
@@ -32,25 +37,49 @@ python scripts/manual_source_discovery.py
 # Use 4-plane architecture and real metrics
 ```
 
+## 🔄 Dual-Track Workflow
+
+We now operate a dual-track system to handle both updates and new creation:
+
+### Track 1: Review & Update (40% effort)
+- Review existing diagrams against new specs
+- Fix Stream Plane references (4-plane architecture only)
+- Convert to visual-first approach
+- Add real production metrics
+
+### Track 2: New Creation (60% effort)
+- Continue toward 900 diagram target
+- Follow latest specifications
+- Ensure compliance from the start
+
 ## 📋 Weekly Workflow (2-3 Hours Total)
 
-### Monday: Source Discovery (30 min)
-1. Run source discovery script
-2. Review 15-20 high-value sources
-3. Identify 2-3 candidates for case studies
-4. Create case study templates
+### Monday: Status Check & Planning (30 min)
+1. Run unified status dashboard
+2. Identify review priorities
+3. Plan week's updates and creation
+4. Generate source discovery checklist
 
-### Wednesday: Diagram Creation (1 hour)
+### Wednesday: Dual-Track Execution (1 hour)
 1. Create 10-15 diagrams from templates
 2. Focus on one category (guarantees/mechanisms/patterns)
 3. Validate against 5-plane architecture
 4. Ensure all have SLO labels
 
 ### Friday: Review & Commit (30 min)
-1. Run progress tracker
+1. Run unified status tracker
 2. Validate all diagrams render correctly
 3. Check file sizes (< 500KB)
-4. Commit and push changes
+4. Update review status for completed items
+5. Commit and push changes
+
+```bash
+# Track both creation and review progress
+python scripts/unified_status_tracker.py --dashboard
+
+# Mark reviewed diagrams
+python scripts/unified_status_tracker.py --mark-reviewed docs/systems/netflix/architecture.md
+```
 
 ## 🗂️ File Organization
 
@@ -146,12 +175,21 @@ case_study = gen.generate_case_study_diagram(
 )
 ```
 
-### Progress Tracking
+### Unified Status Tracking
 ```python
-# Track progress
-from scripts.progress_tracker import ProgressTracker
-tracker = ProgressTracker()
-report = tracker.generate_report()
+# Track both creation and review status
+from scripts.unified_status_tracker import UnifiedStatusTracker
+tracker = UnifiedStatusTracker()
+
+# Scan all diagrams
+results = tracker.scan_all_diagrams()
+
+# Generate comprehensive dashboard
+dashboard = tracker.generate_unified_dashboard()
+print(dashboard)
+
+# Export status report
+tracker.export_status_report("json")
 ```
 
 ## 🏆 Quality Standards
@@ -195,7 +233,7 @@ Priority sources for case studies (check weekly):
 
 ## 📝 Notes
 
-- **Frozen Reference**: All specs in `/readonly-spec/` are frozen references
+- **Frozen Reference**: All specs in `../../readonly-spec/` are frozen references
 - **Direct Creation**: We create diagrams directly in markdown, no YAML pipelines
 - **Manual Focus**: 2-3 hours/week manual effort is more effective than complex automation
 - **Production First**: Every diagram must have production value

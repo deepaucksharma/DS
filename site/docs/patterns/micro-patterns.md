@@ -48,20 +48,20 @@ graph TB
     end
 
     %% Normal flow
-    API --> ORDER
-    ORDER --> DB
-    DB --> CDC
-    CDC --> STREAM
+    API -->|p99: 50ms| ORDER
+    ORDER -->|p99: 10ms| DB
+    DB -->|p99: 5ms| CDC
+    CDC -->|p99: 100ms| STREAM
 
     %% Failure scenarios
     CDC -.->|Processing failure| DLQ
     STREAM -.->|Downstream failure| DLQ
-    DB -.->|Transaction rollback| ORDER
+    DB -.->|Transaction rollback, p99: 20ms| ORDER
 
     %% Monitoring
-    CDC --> MON
-    STREAM --> MON
-    DLQ --> MON
+    CDC -->|Lag: <500ms| MON
+    STREAM -->|Throughput: 100K/s| MON
+    DLQ -->|Error rate: <0.1%| MON
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -112,25 +112,25 @@ graph TB
     end
 
     %% Normal flow
-    CLIENT --> ORCH
-    ORCH --> PAY
-    ORCH --> INV
-    ORCH --> SHIP
+    CLIENT -->|p99: 5s timeout| ORCH
+    ORCH -->|p99: 500ms| PAY
+    ORCH -->|p99: 200ms| INV
+    ORCH -->|p99: 1s| SHIP
 
     %% State management
-    ORCH --> SAGA_DB
-    ORCH --> EVENT_LOG
+    ORCH -->|p99: 50ms| SAGA_DB
+    ORCH -->|p99: 10ms| EVENT_LOG
 
     %% Failure compensation
-    PAY -.->|Timeout/Failure| COMP_QUEUE
+    PAY -.->|Timeout: 30s| COMP_QUEUE
     INV -.->|Insufficient Stock| COMP_QUEUE
     SHIP -.->|Delivery Error| COMP_QUEUE
-    COMP_QUEUE -.->|Compensate| PAY
-    COMP_QUEUE -.->|Compensate| INV
+    COMP_QUEUE -.->|Compensate, p99: 2s| PAY
+    COMP_QUEUE -.->|Compensate, p99: 500ms| INV
 
     %% Monitoring
-    ORCH --> MON
-    COMP_QUEUE --> MON
+    ORCH -->|Success rate: 95%| MON
+    COMP_QUEUE -->|Compensation rate: 5%| MON
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -191,25 +191,25 @@ graph TB
     end
 
     %% Request routing
-    LB -->|hash(item_id) % 3| INV1
-    LB -->|hash(item_id) % 3| INV2
-    LB -->|hash(item_id) % 3| INV3
+    LB -->|hash(item_id) % 3, p99: 1ms| INV1
+    LB -->|hash(item_id) % 3, p99: 1ms| INV2
+    LB -->|hash(item_id) % 3, p99: 1ms| INV3
 
     %% Storage
-    INV1 --> DB1
-    INV2 --> DB2
-    INV3 --> DB3
+    INV1 -->|p99: 5ms| DB1
+    INV2 -->|p99: 5ms| DB2
+    INV3 -->|p99: 5ms| DB3
 
     %% Distributed locking
-    INV1 --> LOCK_MGR
-    INV2 --> LOCK_MGR
-    INV3 --> LOCK_MGR
+    INV1 -->|Lock timeout: 10s| LOCK_MGR
+    INV2 -->|Lock timeout: 10s| LOCK_MGR
+    INV3 -->|Lock timeout: 10s| LOCK_MGR
 
     %% Management
-    DB1 --> TTL
-    DB2 --> TTL
-    DB3 --> TTL
-    LOCK_MGR --> MON
+    DB1 -->|TTL: 300s| TTL
+    DB2 -->|TTL: 300s| TTL
+    DB3 -->|TTL: 300s| TTL
+    LOCK_MGR -->|Contention alerts| MON
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -262,28 +262,28 @@ graph TB
     end
 
     %% Write path
-    WRITE_API --> COMMAND
-    COMMAND --> WRITE_DB
-    WRITE_DB --> EVENT_STREAM
+    WRITE_API -->|p99: 100ms| COMMAND
+    COMMAND -->|p99: 50ms| WRITE_DB
+    WRITE_DB -->|p99: 10ms| EVENT_STREAM
 
     %% Read path
-    READ_API --> QUERY
-    QUERY --> READ_CACHE
-    QUERY --> READ_DB
+    READ_API -->|p99: 10ms| QUERY
+    QUERY -->|Cache hit: p99: 1ms| READ_CACHE
+    QUERY -->|Cache miss: p99: 20ms| READ_DB
 
     %% Event processing
-    EVENT_STREAM --> PROJECTION
-    PROJECTION --> READ_DB
-    PROJECTION --> READ_CACHE
+    EVENT_STREAM -->|Lag: <500ms| PROJECTION
+    PROJECTION -->|p99: 100ms| READ_DB
+    PROJECTION -->|p99: 5ms| READ_CACHE
 
     %% Fallback path
-    QUERY -.->|Cache miss + critical| WRITE_DB
+    QUERY -.->|Cache miss + critical, p99: 200ms| WRITE_DB
 
     %% Management
-    EVENT_STREAM --> LAG_MON
-    PROJECTION --> LAG_MON
-    LAG_MON --> REBUILD
-    REBUILD --> PROJECTION
+    EVENT_STREAM -->|Lag monitoring| LAG_MON
+    PROJECTION -->|Processing rate: 10K/s| LAG_MON
+    LAG_MON -->|Trigger rebuild| REBUILD
+    REBUILD -->|Recovery: 30min| PROJECTION
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -336,25 +336,25 @@ graph LR
     end
 
     %% Request flow
-    CLIENT --> LB
-    LB --> CB
-    CB --> SERVER1
-    CB --> SERVER2
-    CB -.->|Circuit open| SERVER3
+    CLIENT -->|Timeout: 30s, Retry: 3x| LB
+    LB -->|Health check: 5s| CB
+    CB -->|p99: 50ms| SERVER1
+    CB -->|p99: 45ms| SERVER2
+    CB -.->|Circuit open, Failure: 50%| SERVER3
 
     %% Data access
-    SERVER1 --> CACHE
-    SERVER2 --> CACHE
-    SERVER3 --> CACHE
-    CACHE -.->|Miss| DB
-    SERVER1 -.->|Cache bypass| DB
+    SERVER1 -->|Hit ratio: 85%, p99: 1ms| CACHE
+    SERVER2 -->|Hit ratio: 85%, p99: 1ms| CACHE
+    SERVER3 -->|Hit ratio: 85%, p99: 1ms| CACHE
+    CACHE -.->|Miss, p99: 20ms| DB
+    SERVER1 -.->|Cache bypass, p99: 50ms| DB
 
     %% Monitoring
-    LB --> HEALTH
-    CB --> METRICS
-    SERVER1 --> METRICS
-    SERVER2 --> METRICS
-    SERVER3 --> HEALTH
+    LB -->|Health checks: 10s interval| HEALTH
+    CB -->|Error rate tracking| METRICS
+    SERVER1 -->|Latency: p99: 50ms| METRICS
+    SERVER2 -->|Latency: p99: 45ms| METRICS
+    SERVER3 -->|Degraded: p99: 200ms| HEALTH
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -403,23 +403,23 @@ graph LR
     end
 
     %% Data flow
-    PRODUCER --> KAFKA
-    KAFKA --> PROCESSOR1
-    KAFKA --> PROCESSOR2
+    PRODUCER -->|1M events/sec| KAFKA
+    KAFKA -->|Partition lag: <1s| PROCESSOR1
+    KAFKA -->|Partition lag: <1s| PROCESSOR2
 
     %% State management
-    PROCESSOR1 --> STATE_STORE
-    PROCESSOR2 --> SINK
+    PROCESSOR1 -->|State size: 10GB| STATE_STORE
+    PROCESSOR2 -->|Write rate: 50K/s| SINK
 
     %% Failure handling
-    PROCESSOR1 -.->|Failure| REBALANCE
-    PROCESSOR2 -.->|Failure| REBALANCE
-    REBALANCE -.->|Reassign| PROCESSOR1
+    PROCESSOR1 -.->|Failure, Recovery: 30s| REBALANCE
+    PROCESSOR2 -.->|Failure, Recovery: 30s| REBALANCE
+    REBALANCE -.->|Reassign partitions| PROCESSOR1
 
     %% Monitoring
-    KAFKA --> LAG_MON
-    PROCESSOR1 --> LAG_MON
-    PROCESSOR2 --> LAG_MON
+    KAFKA -->|Consumer lag tracking| LAG_MON
+    PROCESSOR1 -->|Processing rate: 500K/s| LAG_MON
+    PROCESSOR2 -->|Processing rate: 500K/s| LAG_MON
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -470,22 +470,22 @@ graph TB
     end
 
     %% Command flow
-    API --> AGGREGATE
-    AGGREGATE --> EVENT_STORE
+    API -->|p99: 100ms| AGGREGATE
+    AGGREGATE -->|p99: 20ms| EVENT_STORE
 
     %% Event processing
-    EVENT_STORE --> PROJECTOR
-    PROJECTOR --> VIEW_STORE
+    EVENT_STORE -->|p99: 500ms lag| PROJECTOR
+    PROJECTOR -->|p99: 100ms| VIEW_STORE
 
     %% Snapshots
-    AGGREGATE --> SNAPSHOTTER
-    SNAPSHOTTER --> SNAPSHOT_STORE
-    SNAPSHOT_STORE -.->|Load state| AGGREGATE
+    AGGREGATE -->|Every 1000 events| SNAPSHOTTER
+    SNAPSHOTTER -->|p99: 5s| SNAPSHOT_STORE
+    SNAPSHOT_STORE -.->|Load state: 200ms| AGGREGATE
 
     %% Management
-    EVENT_STORE --> REPLAY
-    EVENT_STORE --> ARCHIVE
-    REPLAY --> VIEW_STORE
+    EVENT_STORE -->|Replay: 10K events/s| REPLAY
+    EVENT_STORE -->|Archive after 90 days| ARCHIVE
+    REPLAY -->|Rebuild: 30min| VIEW_STORE
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -512,31 +512,31 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph EdgePlane[Edge Plane]
-        REQUEST[Single Request<br/>Fan-out coordinator<br/>Timeout: 30s]
+    subgraph EdgePlane[Edge Plane - #0066CC]
+        REQUEST[Single Request<br/>Fan-out coordinator<br/>SLO: p99 <30s]
     end
 
-    subgraph ServicePlane[Service Plane]
-        SERVICE1[Service A<br/>Processing time: 10ms<br/>Success rate: 99%]
-        SERVICE2[Service B<br/>Processing time: 15ms<br/>Success rate: 95%]
-        SERVICE3[Service C<br/>Processing time: 20ms<br/>Success rate: 98%]
-        AGGREGATOR[Result Aggregator<br/>Partial results OK<br/>Timeout handling]
+    subgraph ServicePlane[Service Plane - #00AA00]
+        SERVICE1[Service A<br/>p99: 10ms, 99% SLA<br/>Cost: $2K/month]
+        SERVICE2[Service B<br/>p99: 15ms, 95% SLA<br/>Cost: $3K/month]
+        SERVICE3[Service C<br/>p99: 20ms, 98% SLA<br/>Cost: $2.5K/month]
+        AGGREGATOR[Result Aggregator<br/>p99: 5ms merge<br/>Partial results: 90%]
     end
 
-    subgraph StatePlane[State Plane]
-        RESULTS[(Aggregated Results<br/>JSON merge<br/>Failure metadata)]
+    subgraph StatePlane[State Plane - #FF8800]
+        RESULTS[(Aggregated Results<br/>JSON merge, 10GB/day<br/>Failure metadata)]
     end
 
     %% Fan-out
-    REQUEST --> SERVICE1
-    REQUEST --> SERVICE2
-    REQUEST --> SERVICE3
+    REQUEST -->|p99: 10ms| SERVICE1
+    REQUEST -->|p99: 15ms| SERVICE2
+    REQUEST -->|p99: 20ms| SERVICE3
 
     %% Gather
-    SERVICE1 --> AGGREGATOR
-    SERVICE2 --> AGGREGATOR
-    SERVICE3 -.->|Timeout| AGGREGATOR
-    AGGREGATOR --> RESULTS
+    SERVICE1 -->|p99: 10ms, SLA: 99%| AGGREGATOR
+    SERVICE2 -->|p99: 15ms, SLA: 95%| AGGREGATOR
+    SERVICE3 -.->|Timeout: 30s, SLA: 98%| AGGREGATOR
+    AGGREGATOR -->|p99: 30s total| RESULTS
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -558,39 +558,39 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane]
-        QUERY_API[Analytics API<br/>SQL interface<br/>Query optimization]
+    subgraph EdgePlane[Edge Plane - #0066CC]
+        QUERY_API[Analytics API<br/>SQL interface, p99: 2s<br/>10K queries/day]
     end
 
-    subgraph ServicePlane[Service Plane]
-        QUERY_ENGINE[Query Engine<br/>Distributed processing<br/>Columnar format]
-        ETL[ETL Processor<br/>Data transformation<br/>Schema evolution]
+    subgraph ServicePlane[Service Plane - #00AA00]
+        QUERY_ENGINE[Query Engine<br/>Apache Spark 3.4<br/>1TB/hour processing]
+        ETL[ETL Processor<br/>Airflow orchestration<br/>500GB/day pipeline]
     end
 
-    subgraph StatePlane[State Plane]
-        DWH[(Data Warehouse<br/>Columnar storage<br/>Parquet files)]
-        STAGING[(Staging Area<br/>Raw data buffer<br/>Temporary storage)]
-        METADATA[(Metadata Store<br/>Schema registry<br/>Lineage tracking)]
+    subgraph StatePlane[State Plane - #FF8800]
+        DWH[(Data Warehouse<br/>Snowflake, 100TB<br/>$50K/month)]
+        STAGING[(Staging Area<br/>S3, 10TB buffer<br/>7-day retention)]
+        METADATA[(Metadata Store<br/>Apache Atlas<br/>10K entities)]
     end
 
-    subgraph ControlPlane[Control Plane]
-        WORKLOAD[Workload Manager<br/>Resource allocation<br/>Query prioritization]
-        SCHEDULER[Job Scheduler<br/>ETL orchestration<br/>Dependency management]
+    subgraph ControlPlane[Control Plane - #CC0000]
+        WORKLOAD[Workload Manager<br/>Resource allocation<br/>Auto-scaling: 10-100 nodes]
+        SCHEDULER[Job Scheduler<br/>Airflow 2.7<br/>1K DAGs, 99.9% SLA]
     end
 
     %% Query flow
-    QUERY_API --> QUERY_ENGINE
-    QUERY_ENGINE --> DWH
-    QUERY_ENGINE --> METADATA
+    QUERY_API -->|p99: 2s| QUERY_ENGINE
+    QUERY_ENGINE -->|p99: 10s| DWH
+    QUERY_ENGINE -->|p99: 100ms| METADATA
 
     %% ETL flow
-    STAGING --> ETL
-    ETL --> DWH
-    ETL --> METADATA
+    STAGING -->|500GB/day| ETL
+    ETL -->|p99: 1 hour batch| DWH
+    ETL -->|p99: 1s| METADATA
 
     %% Management
-    QUERY_ENGINE --> WORKLOAD
-    ETL --> SCHEDULER
+    QUERY_ENGINE -->|Auto-scale: 10-100 nodes| WORKLOAD
+    ETL -->|SLA: 99.9%| SCHEDULER
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -638,23 +638,23 @@ graph TB
     end
 
     %% Task flow
-    PRODUCER --> TASK_QUEUE
-    TASK_QUEUE --> WORKER1
-    TASK_QUEUE --> WORKER2
-    TASK_QUEUE --> WORKER3
+    PRODUCER -->|Queue depth: 1K tasks| TASK_QUEUE
+    TASK_QUEUE -->|Batch: 10, p99: 500ms| WORKER1
+    TASK_QUEUE -->|Batch: 10, p99: 500ms| WORKER2
+    TASK_QUEUE -->|Batch: 10, p99: 500ms| WORKER3
 
     %% Results and failures
-    WORKER1 --> RESULT_STORE
-    WORKER2 --> RESULT_STORE
-    WORKER3 --> RESULT_STORE
-    WORKER1 -.->|Max retries| DLQ
-    WORKER2 -.->|Max retries| DLQ
-    WORKER3 -.->|Max retries| DLQ
+    WORKER1 -->|Success rate: 95%| RESULT_STORE
+    WORKER2 -->|Success rate: 95%| RESULT_STORE
+    WORKER3 -->|Success rate: 95%| RESULT_STORE
+    WORKER1 -.->|Max retries: 3| DLQ
+    WORKER2 -.->|Max retries: 3| DLQ
+    WORKER3 -.->|Max retries: 3| DLQ
 
     %% Management
-    TASK_QUEUE --> SCHEDULER
-    RESULT_STORE --> MONITOR
-    DLQ --> MONITOR
+    TASK_QUEUE -->|Auto-scale workers| SCHEDULER
+    RESULT_STORE -->|Processing metrics| MONITOR
+    DLQ -->|Failure rate: <5%| MONITOR
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -676,183 +676,47 @@ graph TB
 
 ### Graph Pattern (P1+P18+P11)
 
-**Problem**: How to efficiently query and traverse graph data structures?
+Optimized graph traversal with caching and distributed storage.
 
-**Solution**:
-```python
-class GraphQueryEngine:
-    def __init__(self, graph_store, cache):
-        self.store = graph_store
-        self.cache = cache
-
-    async def traverse_graph(self, start_node, traversal_pattern):
-        # Check cache first
-        cache_key = f"traversal:{start_node}:{hash(traversal_pattern)}"
-        if cached_result := await self.cache.get(cache_key):
-            return cached_result
-
-        # Partition-aware traversal
-        visited = set()
-        results = []
-        queue = deque([start_node])
-
-        while queue:
-            node = queue.popleft()
-            if node in visited:
-                continue
-
-            visited.add(node)
-
-            # Load node data with index optimization
-            node_data = await self.store.get_node_with_edges(node)
-            results.append(node_data)
-
-            # Add neighbors to queue based on pattern
-            for neighbor in self.apply_pattern(node_data, traversal_pattern):
-                queue.append(neighbor)
-
-        # Cache results for future queries
-        await self.cache.set(cache_key, results, ttl=300)
-        return results
-```
-
-**Guarantees**:
-- Index-optimized queries
-- Distributed traversal capability
-- Cached performance
+| Component | Technology | Performance | Guarantee | Cost |
+|-----------|------------|-------------|-----------|------|
+| Graph Store | Neo4j 5.x | 10K traversals/sec | ACID transactions | $5K/month |
+| Cache Layer | Redis 7.x | 100K queries/sec | TTL-based consistency | $2K/month |
+| Query Engine | GraphQL API | p99: 50ms | Index optimization | $3K/month |
+| Partitioner | Consistent hash | 1M nodes/partition | Balanced distribution | Included |
 
 ### Ledger Pattern (P3+P5+P13)
 
-**Problem**: How to implement immutable transaction ledger with strong consistency?
+Immutable transaction ledger with consensus and strong consistency.
 
-**Solution**:
-```python
-class DistributedLedger:
-    def __init__(self, consensus_group):
-        self.consensus = consensus_group
-        self.lock_manager = DistributedLockManager()
-        self.log = ImmutableLog()
-
-    async def record_transaction(self, transaction):
-        # Acquire locks for all affected accounts
-        locks = []
-        for account in transaction.accounts:
-            lock = await self.lock_manager.acquire(f"account:{account}")
-            locks.append(lock)
-
-        try:
-            # Validate transaction
-            if not await self.validate_transaction(transaction):
-                raise InvalidTransactionError()
-
-            # Achieve consensus on transaction
-            consensus_result = await self.consensus.propose(transaction)
-
-            if consensus_result.accepted:
-                # Append to immutable log
-                entry = LedgerEntry(
-                    transaction=transaction,
-                    timestamp=consensus_result.timestamp,
-                    sequence=consensus_result.sequence
-                )
-                await self.log.append(entry)
-
-                return entry.sequence
-            else:
-                raise ConsensusFailedError()
-
-        finally:
-            # Release all locks
-            for lock in locks:
-                await lock.release()
-```
-
-**Guarantees**:
-- Immutable transaction history
-- Strong consistency through consensus
-- ACID properties for financial operations
+| Component | Technology | Throughput | Consistency | Recovery Time |
+|-----------|------------|------------|-------------|---------------|
+| Consensus Layer | Raft/etcd 3.5 | 10K TPS | Strong consistency | <5s leader election |
+| Lock Manager | Distributed locks | 1M locks/sec | Deadlock detection | 30s timeout |
+| Immutable Log | Apache Kafka | 100K writes/sec | Append-only | Partition replication |
+| Validation Engine | Business rules | 50K validations/sec | ACID guarantees | Transaction rollback |
 
 ### ML Inference Pattern (P11+P12+P4)
 
-**Problem**: How to serve machine learning models at scale with low latency?
+Scalable ML model serving with low latency and high availability.
 
-**Solution**:
-```python
-class MLInferenceService:
-    def __init__(self, model_cache, load_balancer):
-        self.cache = model_cache
-        self.balancer = load_balancer
-
-    async def predict(self, model_id, features):
-        # Load model from cache
-        model = await self.cache.get_model(model_id)
-        if not model:
-            model = await self.load_model(model_id)
-            await self.cache.set_model(model_id, model)
-
-        # Fan-out for ensemble models
-        if model.is_ensemble:
-            predictions = await self.ensemble_predict(model, features)
-            return self.aggregate_predictions(predictions)
-        else:
-            return await model.predict(features)
-
-    async def ensemble_predict(self, ensemble_model, features):
-        tasks = []
-        for sub_model in ensemble_model.models:
-            task = asyncio.create_task(sub_model.predict(features))
-            tasks.append(task)
-
-        return await asyncio.gather(*tasks)
-```
-
-**Guarantees**:
-- Low latency through caching
-- High availability through load balancing
-- Parallel inference for ensemble models
+| Component | Technology | Performance | Cache Hit Rate | Monthly Cost |
+|-----------|------------|-------------|----------------|---------------|
+| Model Cache | Redis + GPU memory | p99: 10ms | 95% | $15K GPU instances |
+| Load Balancer | NVIDIA Triton | 10K inferences/sec | N/A | $2K |
+| Ensemble Engine | TensorFlow Serving | 5K parallel calls | N/A | $8K |
+| Model Store | S3 + CDN | 1GB/s transfer | 90% edge hit | $1K |
 
 ### Search Pattern (P18+P11+P4)
 
-**Problem**: How to implement fast, relevant search across large datasets?
+Distributed search with indexing, caching, and relevance ranking.
 
-**Solution**:
-```python
-class DistributedSearchEngine:
-    def __init__(self, index_shards, cache):
-        self.shards = index_shards
-        self.cache = cache
-
-    async def search(self, query, filters=None):
-        # Check cache for popular queries
-        cache_key = f"search:{hash(query)}:{hash(filters)}"
-        if cached_results := await self.cache.get(cache_key):
-            return cached_results
-
-        # Fan-out search to all shards
-        shard_tasks = []
-        for shard in self.shards:
-            task = asyncio.create_task(
-                shard.search(query, filters, limit=100)
-            )
-            shard_tasks.append(task)
-
-        # Gather results from all shards
-        shard_results = await asyncio.gather(*shard_tasks)
-
-        # Merge and rank results globally
-        merged_results = self.merge_and_rank(shard_results)
-
-        # Cache popular results
-        if self.is_popular_query(query):
-            await self.cache.set(cache_key, merged_results, ttl=600)
-
-        return merged_results
-```
-
-**Guarantees**:
-- Fast lookup through indexing
-- Distributed scalability
-- Relevance ranking
+| Component | Technology | Query Rate | Index Size | Relevance Score |
+|-----------|------------|------------|------------|------------------|
+| Search Engine | Elasticsearch 8.x | 50K queries/sec | 1TB per shard | >95% precision |
+| Index Shards | 20 shards/cluster | 2.5K queries/shard | 50GB average | Auto-rebalancing |
+| Result Cache | Redis cluster | 100K hits/sec | 10GB cache | 85% hit rate |
+| Ranking Engine | ML-based scoring | p99: 20ms | Real-time updates | Learning feedback |
 
 ## Pattern Selection Decision Matrix
 

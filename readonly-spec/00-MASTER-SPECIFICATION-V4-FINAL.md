@@ -20,88 +20,41 @@ If it doesn't help during an incident, during debugging, during capacity plannin
 ❌ Academic exercises with made-up metrics
 
 ### What We ARE Building
-✅ 800-1000 battle-tested production architectures
+✅ Battle-tested production architectures
 ✅ "Kafka Broker-1 (i3.2xlarge) → ZooKeeper Ensemble (r5.large×3)"
 ✅ Patterns that power Netflix, Uber, Stripe at scale
 ✅ Failure scenarios from actual post-mortems
 ✅ Real metrics from Black Friday, Super Bowl, outages
 
+> **📊 Metrics & Progress**: See `/site/data/CENTRAL_METRICS.json` for all targets and current status
+
 ---
 
 ## The 10 Commandments of Production Diagrams
 
-### 1. Thou Shalt Name Real Components
-```
-❌ DON'T: "Message Queue"
-✅ DO: "Kafka 3.5 (30 brokers, 100K partitions, 7TB/day)"
-```
-
-### 2. Thou Shalt Include Actual Metrics
-```
-❌ DON'T: "Low latency"
-✅ DO: "p50: 12ms, p99: 47ms, p99.9: 183ms (measured 2024-01-15 peak traffic)"
-```
-
-### 3. Thou Shalt Show Failure Modes
-```
-❌ DON'T: Service → Database
-✅ DO: Service → [Circuit Breaker: 50% error rate, 10s timeout] → Database
-```
-
-### 4. Thou Shalt Specify Configuration
-```
-❌ DON'T: "Connection pool"
-✅ DO: "HikariCP: min=10, max=100, timeout=30s, leak-detection=60s"
-```
-
-### 5. Thou Shalt Include Costs
-```
-❌ DON'T: "Scalable architecture"
-✅ DO: "$47K/month (EC2: $30K, RDS: $10K, Data Transfer: $7K)"
-✅ BETTER: "$500/shard/month × 100 shards = $50K (Vitess@YouTube actual)"
-✅ BEST: "Cost per transaction: $0.0012 (Stripe production data)"
-```
-
-### 6. Thou Shalt Reference Incidents
-```
-❌ DON'T: "Handles failures gracefully"
-✅ DO: "After 2023-10-15 outage: Added bulkheads, separate thread pools"
-```
-
-### 7. Thou Shalt Show Scale Limits
-```
-❌ DON'T: "Horizontally scalable"
-✅ DO: "Tested to 10K nodes, breaks at 15K (etcd leader election timeout)"
-✅ REAL: "MySQL: 20K writes/shard, etcd: 10K nodes max, Kafka: 200K partitions/cluster"
-✅ PROVEN: "Facebook Memcached: 1B+ req/s with 99.25% hit rate"
-```
-
-### 8. Thou Shalt Include Recovery Time
-```
-❌ DON'T: "Automatic failover"
-✅ DO: "Failover: 8-12s detection + 15s promotion + 5s DNS = ~30s total"
-```
-
-### 9. Thou Shalt Cite Sources
-```
-❌ DON'T: "High performance system"
-✅ DO: "Source: Uber Engineering Blog 2023-Q4 Performance Report"
-```
-
-### 10. Thou Shalt Help On-Call
-```
-❌ DON'T: Theoretical architecture
-✅ DO: Runbook references, log locations, key metrics to watch
-```
+| # | Rule | ❌ Don't | ✅ Do |
+|---|------|---------|------|
+| 1 | **Name Real Components** | "Message Queue" | "Kafka 3.5 (30 brokers, 100K partitions, 7TB/day)" |
+| 2 | **Include Actual Metrics** | "Low latency" | "p50: 12ms, p99: 47ms, p99.9: 183ms (peak traffic)" |
+| 3 | **Show Failure Modes** | Service → Database | Service → [Circuit Breaker: 50% error, 10s timeout] → Database |
+| 4 | **Specify Configuration** | "Connection pool" | "HikariCP: min=10, max=100, timeout=30s" |
+| 5 | **Include Costs** | "Scalable architecture" | "$0.0012/transaction (Stripe production)" |
+| 6 | **Reference Incidents** | "Handles failures" | "After 2023-10-15 outage: Added bulkheads" |
+| 7 | **Show Scale Limits** | "Horizontally scalable" | "MySQL: 20K writes/shard, etcd: 10K nodes max" |
+| 8 | **Include Recovery Time** | "Automatic failover" | "Failover: 30s total (8s detect + 15s promote + 5s DNS)" |
+| 9 | **Cite Sources** | "High performance" | "Source: Uber Engineering 2023-Q4" |
+| 10 | **Help On-Call** | Theoretical architecture | Runbook references, log locations, key metrics |
 
 ---
 
 ## Content Taxonomy: The Production Lens
 
-### Total Target: 900 Production-Grade Diagrams
+### Target Distribution
 
-| Category | Count | Purpose | Example |
-|----------|-------|---------|---------|
+> **📊 Current metrics**: See `/site/data/CENTRAL_METRICS.json` for live progress tracking
+
+| Category | Target | Purpose | Example |
+|----------|--------|---------|---------|
 | **Incident Anatomies** | 100 | Learn from failures | AWS S3 2017: 4hr, $150M impact<br/>GitHub 2018: 24hr degraded<br/>Cloudflare 2019: 30min global |
 | **Scale Journeys** | 80 | Evolution with growth | Instagram: 10→1B users<br/>Twitter: Celebrity problem (94M writes)<br/>Uber: 1M+ trips/day sagas |
 | **Cost Breakdowns** | 60 | Infrastructure economics | Netflix: $500M/year breakdown |
@@ -109,9 +62,9 @@ If it doesn't help during an incident, during debugging, during capacity plannin
 | **Migration Playbooks** | 60 | How to transform | Monolith → Microservices at Uber |
 | **Debugging Guides** | 100 | Troubleshooting maps | Distributed tracing patterns |
 | **Capacity Models** | 60 | Planning for scale | Black Friday prep at Amazon |
-| **Architecture Deep-Dives** | 200 | Complete system tours | 30 companies × 6-8 diagrams |
+| **Architecture Deep-Dives** | 240 | Complete system tours | 30 companies × 8 diagrams |
 | **Pattern Implementations** | 80 | Patterns in production | CQRS at Uber, Saga at Airbnb |
-| **Technology Comparisons** | 80 | Real trade-offs | PostgreSQL vs DynamoDB at scale |
+| **Technology Comparisons** | 40 | Real trade-offs | PostgreSQL vs DynamoDB at scale |
 
 ---
 

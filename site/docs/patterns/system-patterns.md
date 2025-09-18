@@ -47,35 +47,35 @@ graph TB
     end
 
     %% Write flow
-    WRITE_LB --> WRITE_API
-    WRITE_API --> WRITE_DB
-    WRITE_DB --> CDC
-    CDC --> KAFKA
+    WRITE_LB -->|p99: 5ms| WRITE_API
+    WRITE_API -->|p99: 50ms| WRITE_DB
+    WRITE_DB -->|p99: 5ms| CDC
+    CDC -->|p99: 100ms| KAFKA
 
     %% Read flow
-    READ_LB --> READ_API
-    READ_API --> READ_CACHE
-    READ_API --> READ_DB
-    READ_API --> READ_SQL
-    CDN --> READ_LB
+    READ_LB -->|p99: 1ms| READ_API
+    READ_API -->|Hit: p99: 1ms| READ_CACHE
+    READ_API -->|Miss: p99: 10ms| READ_DB
+    READ_API -->|Analytics: p99: 1s| READ_SQL
+    CDN -->|Global: <50ms| READ_LB
 
     %% Event processing
-    KAFKA --> PROJECTOR
-    PROJECTOR --> READ_CACHE
-    PROJECTOR --> READ_DB
-    PROJECTOR --> READ_SQL
+    KAFKA -->|Lag: <500ms| PROJECTOR
+    PROJECTOR -->|p99: 5ms| READ_CACHE
+    PROJECTOR -->|p99: 50ms| READ_DB
+    PROJECTOR -->|p99: 100ms| READ_SQL
 
     %% Failure scenarios
-    READ_CACHE -.->|Cache miss| READ_DB
-    READ_DB -.->|Search down| READ_SQL
-    READ_SQL -.->|All read stores down| WRITE_DB
-    PROJECTOR -.->|Processing failure| REBUILD
+    READ_CACHE -.->|Cache miss, p99: 10ms| READ_DB
+    READ_DB -.->|Search down, p99: 1s| READ_SQL
+    READ_SQL -.->|All read stores down, p99: 100ms| WRITE_DB
+    PROJECTOR -.->|Processing failure, Recovery: 10min| REBUILD
 
     %% Monitoring
-    KAFKA --> LAG_MON
-    PROJECTOR --> LAG_MON
-    LAG_MON --> ALERT
-    REBUILD --> ALERT
+    KAFKA -->|Consumer lag monitoring| LAG_MON
+    PROJECTOR -->|Processing rate: 50K/s| LAG_MON
+    LAG_MON -->|SLA: <500ms lag| ALERT
+    REBUILD -->|Recovery alerts| ALERT
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -140,30 +140,30 @@ graph TB
     end
 
     %% Command flow
-    API --> COMMAND_HANDLER
-    COMMAND_HANDLER --> EVENT_STORE
+    API -->|p99: 100ms| COMMAND_HANDLER
+    COMMAND_HANDLER -->|p99: 20ms| EVENT_STORE
 
     %% Query flow
-    QUERY_API --> PROJECTOR
-    QUERY_API --> REPLAYER
-    REPLAYER --> EVENT_STORE
-    REPLAYER --> SNAPSHOT_STORE
+    QUERY_API -->|p99: 50ms| PROJECTOR
+    QUERY_API -->|Time travel: p99: 30s| REPLAYER
+    REPLAYER -->|Replay: 10K events/s| EVENT_STORE
+    REPLAYER -->|Load: p99: 200ms| SNAPSHOT_STORE
 
     %% Event processing
-    EVENT_STORE --> PROJECTOR
-    PROJECTOR --> PROJECTION_DB
+    EVENT_STORE -->|Lag: <1s| PROJECTOR
+    PROJECTOR -->|p99: 100ms| PROJECTION_DB
 
     %% Snapshots
-    COMMAND_HANDLER --> SNAPSHOTTER
-    SNAPSHOTTER --> SNAPSHOT_STORE
-    SNAPSHOT_STORE --> REPLAYER
+    COMMAND_HANDLER -->|Every 1000 events| SNAPSHOTTER
+    SNAPSHOTTER -->|p99: 5s| SNAPSHOT_STORE
+    SNAPSHOT_STORE -->|State load: 200ms| REPLAYER
 
     %% Management
-    EVENT_STORE --> VERSION_MGR
-    EVENT_STORE --> RETENTION_MGR
-    RETENTION_MGR --> ARCHIVE
-    PROJECTOR --> PERFORMANCE_MON
-    REPLAYER --> PERFORMANCE_MON
+    EVENT_STORE -->|Schema evolution| VERSION_MGR
+    EVENT_STORE -->|Archive after 7 years| RETENTION_MGR
+    RETENTION_MGR -->|Cold storage| ARCHIVE
+    PROJECTOR -->|Processing metrics| PERFORMANCE_MON
+    REPLAYER -->|Replay speed: 50K/s| PERFORMANCE_MON
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -222,35 +222,35 @@ graph TB
     end
 
     %% External flow
-    EXT_LB --> API_GW
-    API_GW --> MESH
+    EXT_LB -->|TLS termination, p99: 2ms| API_GW
+    API_GW -->|Auth, Rate limit: 1K/user| MESH
 
     %% Service communication
-    MESH --> USER_SVC
-    MESH --> ORDER_SVC
-    MESH --> PAY_SVC
-    MESH --> NOTIF_SVC
+    MESH -->|mTLS, p99: 5ms| USER_SVC
+    MESH -->|mTLS, p99: 10ms| ORDER_SVC
+    MESH -->|mTLS, p99: 20ms| PAY_SVC
+    MESH -->|mTLS, p99: 15ms| NOTIF_SVC
 
     %% Service-to-service calls
-    ORDER_SVC <--> USER_SVC
-    ORDER_SVC --> PAY_SVC
-    ORDER_SVC --> NOTIF_SVC
+    ORDER_SVC <-->|gRPC, p99: 20ms| USER_SVC
+    ORDER_SVC -->|Payment, p99: 500ms| PAY_SVC
+    ORDER_SVC -->|Async, <5s| NOTIF_SVC
 
     %% Data layer
-    USER_SVC --> USER_DB
-    ORDER_SVC --> ORDER_DB
-    PAY_SVC --> PAY_DB
-    NOTIF_SVC --> NOTIF_QUEUE
-    USER_SVC --> SHARED_CACHE
-    ORDER_SVC --> SHARED_CACHE
+    USER_SVC -->|Pool: 100 conn| USER_DB
+    ORDER_SVC -->|Pool: 200 conn| ORDER_DB
+    PAY_SVC -->|Pool: 50 conn| PAY_DB
+    NOTIF_SVC -->|Async queue| NOTIF_QUEUE
+    USER_SVC -->|Session cache| SHARED_CACHE
+    ORDER_SVC -->|Order cache| SHARED_CACHE
 
     %% Control plane connections
-    MESH --> SERVICE_DISC
-    USER_SVC --> MONITORING
-    ORDER_SVC --> MONITORING
-    PAY_SVC --> MONITORING
-    NOTIF_SVC --> MONITORING
-    MESH --> TRACING
+    MESH -->|Health checks: 30s| SERVICE_DISC
+    USER_SVC -->|SLA: 99.9%| MONITORING
+    ORDER_SVC -->|SLA: 99.95%| MONITORING
+    PAY_SVC -->|SLA: 99.99%| MONITORING
+    NOTIF_SVC -->|SLA: 99.5%| MONITORING
+    MESH -->|Request tracing| TRACING
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -313,37 +313,37 @@ graph TB
     end
 
     %% Routing
-    GLOBAL_LB --> CELL_ROUTER
-    CELL_ROUTER -->|Users 1-50K| C1_LB
-    CELL_ROUTER -->|Users 50K-100K| C2_LB
-    CELL_ROUTER -->|Users 100K-150K| C3_LB
+    GLOBAL_LB -->|Geo-routing, p99: 5ms| CELL_ROUTER
+    CELL_ROUTER -->|Users 1-50K, p99: 2ms| C1_LB
+    CELL_ROUTER -->|Users 50K-100K, p99: 2ms| C2_LB
+    CELL_ROUTER -->|Users 100K-150K, p99: 2ms| C3_LB
 
     %% Cell internals
-    C1_LB --> C1_API
-    C1_API --> C1_DB
-    C1_API --> C1_CACHE
+    C1_LB -->|Health check: 10s| C1_API
+    C1_API -->|p99: 20ms| C1_DB
+    C1_API -->|p99: 1ms| C1_CACHE
 
-    C2_LB --> C2_API
-    C2_API --> C2_DB
-    C2_API --> C2_CACHE
+    C2_LB -->|Health check: 10s| C2_API
+    C2_API -->|p99: 20ms| C2_DB
+    C2_API -->|p99: 1ms| C2_CACHE
 
-    C3_LB --> C3_API
-    C3_API --> C3_DB
-    C3_API --> C3_CACHE
+    C3_LB -->|Health check: 10s| C3_API
+    C3_API -->|p99: 20ms| C3_DB
+    C3_API -->|p99: 1ms| C3_CACHE
 
     %% Global management
-    CELL_ROUTER --> PLACEMENT
-    C1_API --> MONITORING
-    C2_API --> MONITORING
-    C3_API --> MONITORING
-    MONITORING --> EVACUATION
-    C1_API --> GLOBAL_DATA
-    C2_API --> GLOBAL_DATA
-    C3_API --> GLOBAL_DATA
+    CELL_ROUTER -->|User placement| PLACEMENT
+    C1_API -->|Availability: 99.9%| MONITORING
+    C2_API -->|Availability: 99.9%| MONITORING
+    C3_API -->|Availability: 99.9%| MONITORING
+    MONITORING -->|Trigger evacuation| EVACUATION
+    C1_API -->|Ref data sync| GLOBAL_DATA
+    C2_API -->|Ref data sync| GLOBAL_DATA
+    C3_API -->|Ref data sync| GLOBAL_DATA
 
     %% Failure scenarios
-    C1_API -.->|Cell failure| EVACUATION
-    EVACUATION -.->|Migrate users| C2_API
+    C1_API -.->|Cell failure, Recovery: 30min| EVACUATION
+    EVACUATION -.->|Migrate 50K users| C2_API
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -541,34 +541,34 @@ graph TB
     end
 
     %% Request flow
-    CDN --> WAF
-    WAF --> API_GW
-    API_GW --> AUTH_FN
-    AUTH_FN --> USER_FN
-    AUTH_FN --> ORDER_FN
+    CDN -->|Cache hit: 95%| WAF
+    WAF -->|DDoS protection| API_GW
+    API_GW -->|p99: 100ms| AUTH_FN
+    AUTH_FN -->|Cold start: 200ms| USER_FN
+    AUTH_FN -->|Cold start: 1s| ORDER_FN
 
     %% Event-driven flow
-    S3 --> EMAIL_FN
-    SQS --> ORDER_FN
-    SQS --> EMAIL_FN
+    S3 -->|Object created| EMAIL_FN
+    SQS -->|Queue depth: 1K| ORDER_FN
+    SQS -->|Batch: 10 msgs| EMAIL_FN
 
     %% Scheduled
-    CLOUDWATCH --> CRON_FN
+    CLOUDWATCH -->|Cron: hourly| CRON_FN
 
     %% Data access
-    USER_FN --> DYNAMO
-    ORDER_FN --> DYNAMO
-    USER_FN --> REDIS
-    EMAIL_FN --> S3
-    ORDER_FN --> SQS
+    USER_FN -->|p99: 5ms| DYNAMO
+    ORDER_FN -->|p99: 10ms| DYNAMO
+    USER_FN -->|Session cache| REDIS
+    EMAIL_FN -->|Template storage| S3
+    ORDER_FN -->|Async processing| SQS
 
     %% Monitoring
-    AUTH_FN --> CLOUDWATCH
-    USER_FN --> CLOUDWATCH
-    ORDER_FN --> CLOUDWATCH
-    EMAIL_FN --> CLOUDWATCH
-    API_GW --> XRAY
-    AUTH_FN --> LAMBDA_INSIGHTS
+    AUTH_FN -->|Duration: 50ms avg| CLOUDWATCH
+    USER_FN -->|Duration: 200ms avg| CLOUDWATCH
+    ORDER_FN -->|Duration: 1s avg| CLOUDWATCH
+    EMAIL_FN -->|Duration: 300ms avg| CLOUDWATCH
+    API_GW -->|Request tracing| XRAY
+    AUTH_FN -->|Memory optimization| LAMBDA_INSIGHTS
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -659,22 +659,22 @@ graph TB
     end
 
     %% Data flow
-    EVENTS --> KAFKA
-    EVENTS --> DATA_LAKE
-    BATCH_DATA --> DATA_LAKE
+    EVENTS -->|1M events/sec| KAFKA
+    EVENTS -->|Immutable storage| DATA_LAKE
+    BATCH_DATA -->|Daily loads: 500GB| DATA_LAKE
 
     %% Batch processing
-    DATA_LAKE --> SPARK
-    SPARK --> BATCH_VIEWS
+    DATA_LAKE -->|Processing: 1TB/hour| SPARK
+    SPARK -->|Accuracy: 100%| BATCH_VIEWS
 
     %% Speed processing
-    KAFKA --> FLINK
-    FLINK --> REALTIME_VIEWS
+    KAFKA -->|Lag: <1s| FLINK
+    FLINK -->|Approximate: 95%| REALTIME_VIEWS
 
     %% Query layer
-    BATCH_VIEWS --> QUERY_API
-    REALTIME_VIEWS --> QUERY_API
-    QUERY_API --> UNIFIED_VIEW
+    BATCH_VIEWS -->|p99: 1s| QUERY_API
+    REALTIME_VIEWS -->|p99: 100ms| QUERY_API
+    QUERY_API -->|Combined view| UNIFIED_VIEW
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
@@ -716,20 +716,20 @@ graph LR
     end
 
     %% Data flow
-    SOURCES --> KAFKA
-    KAFKA --> PROCESSOR1
-    KAFKA --> PROCESSOR2
-    KAFKA --> REPROCESSOR
+    SOURCES -->|Various formats| KAFKA
+    KAFKA -->|Real-time, lag: <1s| PROCESSOR1
+    KAFKA -->|ML pipeline, lag: <10s| PROCESSOR2
+    KAFKA -->|Reprocess: 50K events/s| REPROCESSOR
 
     %% View updates
-    PROCESSOR1 --> VIEW1
-    PROCESSOR2 --> VIEW2
-    REPROCESSOR --> VIEW1
-    REPROCESSOR --> VIEW2
+    PROCESSOR1 -->|Real-time metrics| VIEW1
+    PROCESSOR2 -->|ML features| VIEW2
+    REPROCESSOR -->|Historical rebuild| VIEW1
+    REPROCESSOR -->|Algorithm update| VIEW2
 
     %% Query access
-    VIEW1 --> API
-    VIEW2 --> API
+    VIEW1 -->|p99: 10ms| API
+    VIEW2 -->|p99: 50ms| API
 
     classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
     classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide adapts the automation concepts from `/readonly-spec/` for manual execution. The focus is on **2-3 hours per week** of focused manual effort rather than complex automation.
+This guide adapts the automation concepts from `../../readonly-spec/` for manual execution. The focus is on **2-3 hours per week** of focused manual effort rather than complex automation.
 
 ## Key Adaptations from readonly-spec
 
@@ -213,7 +213,7 @@ python scripts/progress_tracker.py
 
 ## Frozen Reference Structure
 
-The `/readonly-spec/` folder remains as a frozen reference:
+The `../../readonly-spec/` folder remains as a frozen reference:
 
 ```
 readonly-spec/

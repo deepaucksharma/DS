@@ -5,6 +5,46 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/capacity/api-gateway-capacity/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/capacity/cdn-capacity-planning/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/capacity/database-capacity-planning/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/capacity/elasticsearch-cluster-sizing/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/capacity/kafka-cluster-sizing/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/capacity/kubernetes-cluster-capacity/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/capacity/load-balancer-capacity/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/capacity/message-queue-sizing/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/capacity/redis-memory-planning/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/capacity/serverless-capacity-planning/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/case-studies/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
@@ -42,6 +82,10 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/debugging/data-inconsistency-resolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/debugging/distributed-tracing-analysis/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -193,6 +237,10 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/incidents/alibaba-cloud-2023/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/incidents/aws-s3-2017/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
@@ -206,6 +254,18 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/incidents/cloudflare-2019/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/coinbase-may-2021/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/discord-march-2024/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/doordash-july-2023/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -225,7 +285,67 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/incidents/netflix-december-2022/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/oracle-cloud-2022/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/paypal-november-2022/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/reddit-march-2023/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/robinhood-january-2021/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/shopify-black-friday-2022/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/incidents/slack-2022/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/spotify-march-2024/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/stripe-july-2023/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/teams-january-2023/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/uber-march-2023/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/visa-june-2021/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/whatsapp-october-2022/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/zoom-august-2020/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/cascading-failures/retry-storm-prevention/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/incidents/response-patterns/cascading-failures/service-cascade-detection/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -345,7 +465,23 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/migrations/kafka-to-kinesis/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/migrations/monolith-to-microservices/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/migrations/mysql-to-aurora/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/migrations/on-premise-to-cloud/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/migrations/postgresql-to-dynamodb/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -378,6 +514,10 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/performance/cassandra-performance-profile/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/performance/dynamodb-query-optimization/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -458,6 +598,38 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/reference/reading/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/airbnb/architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/airbnb/cost-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/airbnb/failure-domains/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/airbnb/novel-solutions/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/airbnb/production-operations/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/airbnb/request-flow/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/airbnb/scale-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/airbnb/storage-architecture/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -589,11 +761,27 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/systems/linkedin/cost-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/systems/linkedin/failure-domains/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/systems/linkedin/novel-solutions/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/linkedin/production-operations/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/systems/linkedin/request-flow/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/linkedin/scale-evolution/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -605,7 +793,19 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/systems/meta/cost-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/systems/meta/failure-domains/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/meta/novel-solutions/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/meta/production-operations/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -613,11 +813,51 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/systems/meta/scale-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/systems/meta/storage-architecture/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/systems/microsoft/architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/microsoft/cost-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/microsoft/failure-domains/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/microsoft/novel-solutions/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/microsoft/production-operations/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/microsoft/request-flow/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/microsoft/scale-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/microsoft/storage-architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/systems/netflix/architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/netflix/cost-breakdown/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -681,7 +921,19 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/systems/spotify/cost-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/systems/spotify/failure-domains/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/spotify/novel-solutions/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/spotify/production-operations/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -726,6 +978,38 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/systems/stripe/storage-architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/twitter/architecture/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/twitter/cost-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/twitter/failure-domains/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/twitter/novel-solutions/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/twitter/production-operations/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/twitter/request-flow/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/twitter/scale-evolution/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/systems/twitter/storage-architecture/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>

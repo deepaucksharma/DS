@@ -10,17 +10,16 @@ This is the **Atlas Distributed Systems Architecture Framework** - a production-
 
 ## Execution Strategy
 
-### 📊 The Numbers
-- **Target**: 900 production-grade diagrams
-- **Timeline**: 9-12 months (36-52 weeks realistic)
-- **Philosophy**: Production reality over academic theory
-- **Quality Gate**: "Does this help at 3 AM?"
+> **📊 Live Metrics**: All project metrics are maintained in `/site/data/CENTRAL_METRICS.json`
+>
+> Run `python scripts/unified_status_tracker.py --dashboard` for current status
+>
+> Run `python scripts/unified_status_tracker.py --update-central` to update metrics
 
-### Resource Requirements
-- **Total Effort**: 2,400-3,600 hours
-- **Team Size**: 3-4 engineers at 50% allocation
-- **Weekly Team Hours**: 60-80 hours combined
-- **Average per Diagram**: 2.7-4 hours (including research, creation, validation)
+### Philosophy
+- **Production reality over academic theory**
+- **Quality Gate**: "Does this help at 3 AM?"
+- **Focus**: Real incidents, actual metrics, production configs
 
 ### Primary Execution Documents
 - **EXECUTION_MASTER.md**: Main guide with 9-12 month realistic timeline and team of 3-4 engineers

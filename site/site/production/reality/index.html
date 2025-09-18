@@ -1,230 +1,120 @@
 
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="The Complete Distributed Systems Architecture Framework - The Definitive Reference">
-      
-      
-        <meta name="author" content="DS Framework Team">
-      
-      
-        <link rel="canonical" href="https://ds-framework.dev/production/reality/">
-      
-      
-        <link rel="prev" href="../../examples/pitfalls/">
-      
-      
-        <link rel="next" href="../best-practices/">
-      
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
-    
-    
-      
-        <title>Reality Check - Distributed Systems Architecture Framework v5.0</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
-      
-      
+<!DOCTYPE html>
 
-
-    
-    
-      
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-  </head>
-  
-  
-    
-    
-      
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#part-iii-production-reality-the-truth" class="md-skip">
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="The Complete Distributed Systems Architecture Framework - The Definitive Reference" name="description"/>
+<meta content="DS Framework Team" name="author"/>
+<link href="https://ds-framework.dev/production/reality/" rel="canonical"/>
+<link href="../../examples/pitfalls/" rel="prev"/>
+<link href="../best-practices/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.15" name="generator"/>
+<title>Reality Check - Distributed Systems Architecture Framework v5.0</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="cyan" data-md-color-primary="blue" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#production-reality-battle-scars-and-hard-truths">
           Skip to content
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
-  
-
+</div>
+<div data-md-component="announce">
+</div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Distributed Systems Architecture Framework v5.0" class="md-header__button md-logo" aria-label="Distributed Systems Architecture Framework v5.0" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Distributed Systems Architecture Framework v5.0" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Distributed Systems Architecture Framework v5.0">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             Distributed Systems Architecture Framework v5.0
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
               Reality Check
             
           </span>
-        </div>
-      </div>
-    </div>
-    
-      
-        <form class="md-header__option" data-md-component="palette">
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
-    
-  
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="cyan" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="cyan" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
 </form>
-      
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Share">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+</a>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list" role="presentation"></ol>
 </div>
-      
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/ds-framework/docs" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
-  </div>
-  <div class="md-source__repository">
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ds-framework/docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+</div>
+<div class="md-source__repository">
     ds-framework
   </div>
 </a>
-      </div>
-    
-  </nav>
-  
-    
-      
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
         
   
   
@@ -233,19 +123,9 @@
   Home
 
       </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../getting-started/overview/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../getting-started/overview/">
           
   
   
@@ -254,20 +134,9 @@
   Getting Started
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../foundation/universal-laws/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../foundation/universal-laws/">
           
   
   
@@ -276,20 +145,9 @@
   Foundation
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../patterns/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../patterns/">
           
   
   
@@ -298,20 +156,9 @@
   Patterns
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../case-studies/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../case-studies/">
           
   
   
@@ -320,20 +167,9 @@
   Case Studies
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../examples/case-studies/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../examples/case-studies/">
           
   
   
@@ -342,22 +178,9 @@
   Examples
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="./">
           
   
   
@@ -366,20 +189,9 @@
   Production
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../reference/api/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../reference/api/">
           
   
   
@@ -388,2549 +200,1721 @@
   Reference
 
         </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
+</li>
+</ul>
+</div>
 </nav>
-    
-  
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-  
-
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Distributed Systems Architecture Framework v5.0" class="md-nav__button md-logo" aria-label="Distributed Systems Architecture Framework v5.0" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-
-    </a>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Distributed Systems Architecture Framework v5.0" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Distributed Systems Architecture Framework v5.0">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
     Distributed Systems Architecture Framework v5.0
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/ds-framework/docs" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
-  </div>
-  <div class="md-source__repository">
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ds-framework/docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+</div>
+<div class="md-source__repository">
     ds-framework
   </div>
 </a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
     Home
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
     Getting Started
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
             Getting Started
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting-started/overview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/overview/">
+<span class="md-ellipsis">
     Overview
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting-started/quick-start/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/quick-start/">
+<span class="md-ellipsis">
     Quick Start
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting-started/concepts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/concepts/">
+<span class="md-ellipsis">
     Concepts
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
     Foundation
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
             Foundation
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../foundation/universal-laws/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../foundation/universal-laws/">
+<span class="md-ellipsis">
     Universal Laws
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../foundation/capabilities/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../foundation/capabilities/">
+<span class="md-ellipsis">
     Capabilities
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../foundation/primitives/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../foundation/primitives/">
+<span class="md-ellipsis">
     Primitives
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../foundation/guarantees/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../foundation/guarantees/">
+<span class="md-ellipsis">
     Guarantees
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../foundation/mechanisms/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../foundation/mechanisms/">
+<span class="md-ellipsis">
     Mechanisms
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../patterns/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../patterns/">
+<span class="md-ellipsis">
     Patterns
     
   </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
             Patterns
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../patterns/production-architecture/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../patterns/production-architecture/">
+<span class="md-ellipsis">
     Production Architecture
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../patterns/system-patterns/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../patterns/system-patterns/">
+<span class="md-ellipsis">
     System Patterns
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../patterns/micro-patterns/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../patterns/micro-patterns/">
+<span class="md-ellipsis">
     Micro-Patterns
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../patterns/decision-engine/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../patterns/decision-engine/">
+<span class="md-ellipsis">
     Decision Engine
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../patterns/mechanisms/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../patterns/mechanisms/">
+<span class="md-ellipsis">
     Mechanisms
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../patterns/pattern-catalog/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../patterns/pattern-catalog/">
+<span class="md-ellipsis">
     Pattern Catalog
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../case-studies/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../case-studies/">
+<span class="md-ellipsis">
     Case Studies
     
   </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
             Case Studies
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../case-studies/netflix/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../case-studies/netflix/">
+<span class="md-ellipsis">
     Netflix Architecture
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../case-studies/uber/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../case-studies/uber/">
+<span class="md-ellipsis">
     Uber Systems
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../case-studies/framework/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../case-studies/framework/">
+<span class="md-ellipsis">
     Framework
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../case-studies/data-collection-framework/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../case-studies/data-collection-framework/">
+<span class="md-ellipsis">
     Data Collection
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../case-studies/comparison-matrices/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../case-studies/comparison-matrices/">
+<span class="md-ellipsis">
     Comparisons
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
     Examples
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
             Examples
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../examples/case-studies/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../examples/case-studies/">
+<span class="md-ellipsis">
     Case Studies
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../examples/implementation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../examples/implementation/">
+<span class="md-ellipsis">
     Implementation
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../examples/pitfalls/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../examples/pitfalls/">
+<span class="md-ellipsis">
     Pitfalls
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-        
-        
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+<span class="md-ellipsis">
     Production
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_7">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
             Production
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
     Reality Check
     
   </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
     Reality Check
     
   </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-actually-breaks-with-frequencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      What Actually Breaks (With Frequencies)
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#production-failure-analysis-dashboard">
+<span class="md-ellipsis">
+      Production Failure Analysis Dashboard
     </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-hierarchy-of-failures" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Hierarchy of Failures
+</a>
+<nav aria-label="Production Failure Analysis Dashboard" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#failure-frequency-and-business-impact-matrix">
+<span class="md-ellipsis">
+      Failure Frequency and Business Impact Matrix
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Hierarchy of Failures">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#level-1-hardware-failures-mtbf-years" class="md-nav__link">
-    <span class="md-ellipsis">
-      Level 1: Hardware Failures (MTBF: Years)
-    </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#level-2-software-failures-mtbf-months" class="md-nav__link">
-    <span class="md-ellipsis">
-      Level 2: Software Failures (MTBF: Months)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#level-3-network-failures-mtbf-weeks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Level 3: Network Failures (MTBF: Weeks)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#level-4-operational-failures-mtbf-days" class="md-nav__link">
-    <span class="md-ellipsis">
-      Level 4: Operational Failures (MTBF: Days)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-we-still-cant-do-well-2025-reality" class="md-nav__link">
-    <span class="md-ellipsis">
-      What We Still Can't Do Well (2025 Reality)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="What We Still Can&#39;t Do Well (2025 Reality)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-true-distributed-transactions" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. True Distributed Transactions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-perfect-cache-invalidation" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Perfect Cache Invalidation
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-handling-celebrity-users" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Handling Celebrity Users
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-zero-downtime-schema-changes" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Zero-Downtime Schema Changes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-cross-region-consistency" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Cross-Region Consistency
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-perfect-failure-detection" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Perfect Failure Detection
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-automatic-capacity-planning" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Automatic Capacity Planning
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-complete-observability" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Complete Observability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-self-healing-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Self-Healing Systems
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-cost-attribution" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Cost Attribution
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-real-patterns-of-production-failures" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Real Patterns of Production Failures
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Real Patterns of Production Failures">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cascading-failures-70-of-major-outages" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cascading Failures (70% of major outages)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#byzantine-failures-20-of-major-outages" class="md-nav__link">
-    <span class="md-ellipsis">
-      Byzantine Failures (20% of major outages)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#correlation-failures-10-of-major-outages" class="md-nav__link">
-    <span class="md-ellipsis">
-      Correlation Failures (10% of major outages)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outage-taxonomy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Outage Taxonomy
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Outage Taxonomy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#severity-classification" class="md-nav__link">
-    <span class="md-ellipsis">
-      Severity Classification
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#root-cause-distribution" class="md-nav__link">
-    <span class="md-ellipsis">
-      Root Cause Distribution
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#incident-response-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Incident Response Patterns
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Incident Response Patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-standard-timeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Standard Timeline
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#common-anti-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Anti-Patterns
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#best-practices-that-actually-work" class="md-nav__link">
-    <span class="md-ellipsis">
-      Best Practices That Actually Work
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-economics-of-reliability" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Economics of Reliability
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Economics of Reliability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cost-of-downtime-by-industry" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cost of Downtime by Industry
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reliability-investment-roi" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reliability Investment ROI
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#monitoring-that-actually-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Monitoring That Actually Matters
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Monitoring That Actually Matters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-four-golden-signals" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Four Golden Signals
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#leading-indicators-predict-problems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Leading Indicators (Predict problems)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lagging-indicators-confirm-problems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lagging Indicators (Confirm problems)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alert-fatigue-solutions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Alert Fatigue Solutions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-hard-truths" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Hard Truths
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
+</ul>
 </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../best-practices/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#failure-taxonomy-and-response-architecture">
+<span class="md-ellipsis">
+      Failure Taxonomy and Response Architecture
+    </span>
+</a>
+<nav aria-label="Failure Taxonomy and Response Architecture" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#failure-layer-analysis">
+<span class="md-ellipsis">
+      Failure Layer Analysis
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#unsolved-problems-in-production-2025-state">
+<span class="md-ellipsis">
+      Unsolved Problems in Production (2025 State)
+    </span>
+</a>
+<nav aria-label="Unsolved Problems in Production (2025 State)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#top-10-production-challenges">
+<span class="md-ellipsis">
+      Top 10 Production Challenges
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cascading-failure-prevention-architecture">
+<span class="md-ellipsis">
+      Cascading Failure Prevention Architecture
+    </span>
+</a>
+<nav aria-label="Cascading Failure Prevention Architecture" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#failure-pattern-distribution">
+<span class="md-ellipsis">
+      Failure Pattern Distribution
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#incident-classification-and-response-matrix">
+<span class="md-ellipsis">
+      Incident Classification and Response Matrix
+    </span>
+</a>
+<nav aria-label="Incident Classification and Response Matrix" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#severity-based-response-framework">
+<span class="md-ellipsis">
+      Severity-Based Response Framework
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#root-cause-analysis-dashboard">
+<span class="md-ellipsis">
+      Root Cause Analysis Dashboard
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#incident-response-timeline-and-automation">
+<span class="md-ellipsis">
+      Incident Response Timeline and Automation
+    </span>
+</a>
+<nav aria-label="Incident Response Timeline and Automation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#incident-response-anti-patterns-vs-best-practices">
+<span class="md-ellipsis">
+      Incident Response Anti-Patterns vs Best Practices
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reliability-economics-and-roi-analysis">
+<span class="md-ellipsis">
+      Reliability Economics and ROI Analysis
+    </span>
+</a>
+<nav aria-label="Reliability Economics and ROI Analysis" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#industry-downtime-cost-analysis">
+<span class="md-ellipsis">
+      Industry Downtime Cost Analysis
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reliability-investment-roi-calculator">
+<span class="md-ellipsis">
+      Reliability Investment ROI Calculator
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#production-monitoring-that-prevents-outages">
+<span class="md-ellipsis">
+      Production Monitoring That Prevents Outages
+    </span>
+</a>
+<nav aria-label="Production Monitoring That Prevents Outages" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#leading-vs-lagging-indicator-strategy">
+<span class="md-ellipsis">
+      Leading vs Lagging Indicator Strategy
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#alert-design-that-works">
+<span class="md-ellipsis">
+      Alert Design That Works
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#production-wisdom-the-10-brutal-truths">
+<span class="md-ellipsis">
+      Production Wisdom: The 10 Brutal Truths
+    </span>
+</a>
+<nav aria-label="Production Wisdom: The 10 Brutal Truths" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#truth-1-5-system-design-reality">
+<span class="md-ellipsis">
+      Truth 1-5: System Design Reality
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#truth-6-10-operational-reality">
+<span class="md-ellipsis">
+      Truth 6-10: Operational Reality
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-production-mindset">
+<span class="md-ellipsis">
+      The Production Mindset
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../best-practices/">
+<span class="md-ellipsis">
     Best Practices
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../proof-obligations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../proof-obligations/">
+<span class="md-ellipsis">
     Proof Obligations
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
     Reference
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
             Reference
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/api/">
+<span class="md-ellipsis">
     API Reference
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/glossary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/glossary/">
+<span class="md-ellipsis">
     Glossary
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/reading/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/reading/">
+<span class="md-ellipsis">
     Further Reading
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-  </ul>
+</a>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-actually-breaks-with-frequencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      What Actually Breaks (With Frequencies)
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#production-failure-analysis-dashboard">
+<span class="md-ellipsis">
+      Production Failure Analysis Dashboard
     </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-hierarchy-of-failures" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Hierarchy of Failures
+</a>
+<nav aria-label="Production Failure Analysis Dashboard" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#failure-frequency-and-business-impact-matrix">
+<span class="md-ellipsis">
+      Failure Frequency and Business Impact Matrix
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Hierarchy of Failures">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#level-1-hardware-failures-mtbf-years" class="md-nav__link">
-    <span class="md-ellipsis">
-      Level 1: Hardware Failures (MTBF: Years)
-    </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#level-2-software-failures-mtbf-months" class="md-nav__link">
-    <span class="md-ellipsis">
-      Level 2: Software Failures (MTBF: Months)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#level-3-network-failures-mtbf-weeks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Level 3: Network Failures (MTBF: Weeks)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#level-4-operational-failures-mtbf-days" class="md-nav__link">
-    <span class="md-ellipsis">
-      Level 4: Operational Failures (MTBF: Days)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-we-still-cant-do-well-2025-reality" class="md-nav__link">
-    <span class="md-ellipsis">
-      What We Still Can't Do Well (2025 Reality)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="What We Still Can&#39;t Do Well (2025 Reality)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-true-distributed-transactions" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. True Distributed Transactions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-perfect-cache-invalidation" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Perfect Cache Invalidation
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-handling-celebrity-users" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Handling Celebrity Users
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-zero-downtime-schema-changes" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Zero-Downtime Schema Changes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-cross-region-consistency" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Cross-Region Consistency
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-perfect-failure-detection" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Perfect Failure Detection
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-automatic-capacity-planning" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. Automatic Capacity Planning
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-complete-observability" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. Complete Observability
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-self-healing-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      9. Self-Healing Systems
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-cost-attribution" class="md-nav__link">
-    <span class="md-ellipsis">
-      10. Cost Attribution
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-real-patterns-of-production-failures" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Real Patterns of Production Failures
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Real Patterns of Production Failures">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cascading-failures-70-of-major-outages" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cascading Failures (70% of major outages)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#byzantine-failures-20-of-major-outages" class="md-nav__link">
-    <span class="md-ellipsis">
-      Byzantine Failures (20% of major outages)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#correlation-failures-10-of-major-outages" class="md-nav__link">
-    <span class="md-ellipsis">
-      Correlation Failures (10% of major outages)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outage-taxonomy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Outage Taxonomy
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Outage Taxonomy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#severity-classification" class="md-nav__link">
-    <span class="md-ellipsis">
-      Severity Classification
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#root-cause-distribution" class="md-nav__link">
-    <span class="md-ellipsis">
-      Root Cause Distribution
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#incident-response-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Incident Response Patterns
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Incident Response Patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-standard-timeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Standard Timeline
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#common-anti-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Anti-Patterns
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#best-practices-that-actually-work" class="md-nav__link">
-    <span class="md-ellipsis">
-      Best Practices That Actually Work
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-economics-of-reliability" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Economics of Reliability
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Economics of Reliability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cost-of-downtime-by-industry" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cost of Downtime by Industry
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reliability-investment-roi" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reliability Investment ROI
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#monitoring-that-actually-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Monitoring That Actually Matters
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Monitoring That Actually Matters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-four-golden-signals" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Four Golden Signals
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#leading-indicators-predict-problems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Leading Indicators (Predict problems)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lagging-indicators-confirm-problems" class="md-nav__link">
-    <span class="md-ellipsis">
-      Lagging Indicators (Confirm problems)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alert-fatigue-solutions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Alert Fatigue Solutions
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-hard-truths" class="md-nav__link">
-    <span class="md-ellipsis">
-      The Hard Truths
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#failure-taxonomy-and-response-architecture">
+<span class="md-ellipsis">
+      Failure Taxonomy and Response Architecture
+    </span>
+</a>
+<nav aria-label="Failure Taxonomy and Response Architecture" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#failure-layer-analysis">
+<span class="md-ellipsis">
+      Failure Layer Analysis
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#unsolved-problems-in-production-2025-state">
+<span class="md-ellipsis">
+      Unsolved Problems in Production (2025 State)
+    </span>
+</a>
+<nav aria-label="Unsolved Problems in Production (2025 State)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#top-10-production-challenges">
+<span class="md-ellipsis">
+      Top 10 Production Challenges
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cascading-failure-prevention-architecture">
+<span class="md-ellipsis">
+      Cascading Failure Prevention Architecture
+    </span>
+</a>
+<nav aria-label="Cascading Failure Prevention Architecture" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#failure-pattern-distribution">
+<span class="md-ellipsis">
+      Failure Pattern Distribution
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#incident-classification-and-response-matrix">
+<span class="md-ellipsis">
+      Incident Classification and Response Matrix
+    </span>
+</a>
+<nav aria-label="Incident Classification and Response Matrix" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#severity-based-response-framework">
+<span class="md-ellipsis">
+      Severity-Based Response Framework
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#root-cause-analysis-dashboard">
+<span class="md-ellipsis">
+      Root Cause Analysis Dashboard
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#incident-response-timeline-and-automation">
+<span class="md-ellipsis">
+      Incident Response Timeline and Automation
+    </span>
+</a>
+<nav aria-label="Incident Response Timeline and Automation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#incident-response-anti-patterns-vs-best-practices">
+<span class="md-ellipsis">
+      Incident Response Anti-Patterns vs Best Practices
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reliability-economics-and-roi-analysis">
+<span class="md-ellipsis">
+      Reliability Economics and ROI Analysis
+    </span>
+</a>
+<nav aria-label="Reliability Economics and ROI Analysis" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#industry-downtime-cost-analysis">
+<span class="md-ellipsis">
+      Industry Downtime Cost Analysis
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reliability-investment-roi-calculator">
+<span class="md-ellipsis">
+      Reliability Investment ROI Calculator
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#production-monitoring-that-prevents-outages">
+<span class="md-ellipsis">
+      Production Monitoring That Prevents Outages
+    </span>
+</a>
+<nav aria-label="Production Monitoring That Prevents Outages" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#leading-vs-lagging-indicator-strategy">
+<span class="md-ellipsis">
+      Leading vs Lagging Indicator Strategy
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#alert-design-that-works">
+<span class="md-ellipsis">
+      Alert Design That Works
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#production-wisdom-the-10-brutal-truths">
+<span class="md-ellipsis">
+      Production Wisdom: The 10 Brutal Truths
+    </span>
+</a>
+<nav aria-label="Production Wisdom: The 10 Brutal Truths" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#truth-1-5-system-design-reality">
+<span class="md-ellipsis">
+      Truth 1-5: System Design Reality
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#truth-6-10-operational-reality">
+<span class="md-ellipsis">
+      Truth 6-10: Operational Reality
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-production-mindset">
+<span class="md-ellipsis">
+      The Production Mindset
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ds-framework/docs/edit/main/docs/production/reality.md" rel="edit" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+</a>
+<h1 id="production-reality-battle-scars-and-hard-truths">Production Reality - Battle Scars and Hard Truths</h1>
+<p>Real-world failure patterns, incident data, and the brutal economics of distributed systems at scale.</p>
+<h2 id="production-failure-analysis-dashboard">Production Failure Analysis Dashboard</h2>
+<p>Real-world failure frequencies and business impact from production systems.</p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph EdgePlane["Edge Plane - Failure Detection"]
+        MON["Monitoring Systems&lt;br/&gt;Detection: &lt;30s average&lt;br/&gt;False Positive: 3%"]
+        ALERT["Alert Systems&lt;br/&gt;MTTR: 2-5 minutes&lt;br/&gt;Escalation: 3 levels"]
+    end
 
+    subgraph ServicePlane["Service Plane - Failure Types"]
+        NET["Network Failures&lt;br/&gt;1-2/year&lt;br/&gt;Impact: Split brain"]
+        LEADER["Leader Failures&lt;br/&gt;2-3/month&lt;br/&gt;Impact: Write unavail"]
+        DISK["Storage Failures&lt;br/&gt;1/month&lt;br/&gt;Impact: Service down"]
+        MEM["Memory Issues&lt;br/&gt;1/week&lt;br/&gt;Impact: Degradation"]
+    end
 
-  
-    <a href="https://github.com/ds-framework/docs/edit/main/docs/production/reality.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
-    </a>
-  
-  
+    subgraph StatePlane["State Plane - Impact Analysis"]
+        REVENUE[("Revenue Impact&lt;br/&gt;$10K-$2M per hour&lt;br/&gt;Depends on severity")]
+        SLA[("SLA Breaches&lt;br/&gt;99.9% = 43min/month&lt;br/&gt;99.99% = 4.3min/month")]
+        REPUTATION[("Brand Damage&lt;br/&gt;Social media mentions&lt;br/&gt;Customer churn")]
+    end
 
+    subgraph ControlPlane["Control Plane - Response"]
+        AUTO["Auto-Recovery&lt;br/&gt;Success Rate: 60%&lt;br/&gt;Safe Actions Only"]
+        HUMAN["Human Response&lt;br/&gt;40% of incidents&lt;br/&gt;Complex scenarios"]
+        LEARN["Post-mortem&lt;br/&gt;Blameless culture&lt;br/&gt;Action items"]
+    end
 
-<h1 id="part-iii-production-reality-the-truth">Part III: Production Reality - The Truth</h1>
-<p>This section documents what actually happens in production distributed systems, based on analysis of thousands of real-world systems and outages.</p>
-<h2 id="what-actually-breaks-with-frequencies">What Actually Breaks (With Frequencies)</h2>
+    MON --&gt; NET
+    MON --&gt; LEADER
+    MON --&gt; DISK
+    MON --&gt; MEM
+    ALERT --&gt; AUTO
+    ALERT --&gt; HUMAN
+    NET --&gt; REVENUE
+    LEADER --&gt; SLA
+    DISK --&gt; REPUTATION
+    AUTO --&gt; LEARN
+    HUMAN --&gt; LEARN
+
+    %% Apply four-plane colors
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class MON,ALERT edgeStyle
+    class NET,LEADER,DISK,MEM serviceStyle
+    class REVENUE,SLA,REPUTATION stateStyle
+    class AUTO,HUMAN,LEARN controlStyle</code></pre>
+<h3 id="failure-frequency-and-business-impact-matrix">Failure Frequency and Business Impact Matrix</h3>
 <table>
 <thead>
 <tr>
-<th><strong>Component</strong></th>
-<th><strong>Failure Rate</strong></th>
+<th><strong>Failure Type</strong></th>
+<th><strong>Frequency</strong></th>
 <th><strong>Detection Time</strong></th>
-<th><strong>Recovery Time</strong></th>
-<th><strong>Impact</strong></th>
-<th><strong>Mitigation</strong></th>
+<th><strong>Business Impact</strong></th>
+<th><strong>Auto-Recovery Rate</strong></th>
+<th><strong>Cost per Hour</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Network Partition</td>
-<td>1-2 per year</td>
-<td>&lt;30s</td>
-<td>5-30min</td>
-<td>Split brain, inconsistency</td>
-<td>Fencing, quorum, explicit CP/AP</td>
+<td><strong>Network Partition</strong></td>
+<td>1-2/year</td>
+<td>&lt;30 seconds</td>
+<td>Split brain risk</td>
+<td>20%</td>
+<td><span class="arithmatex">\(500K-\)</span>2M</td>
 </tr>
 <tr>
-<td>Leader Failure</td>
-<td>2-3 per month</td>
-<td>&lt;15s</td>
-<td>30-60s</td>
+<td><strong>Leader Election</strong></td>
+<td>2-3/month</td>
+<td>&lt;15 seconds</td>
 <td>Write unavailability</td>
-<td>Fast election, hot standby</td>
+<td>90%</td>
+<td><span class="arithmatex">\(100K-\)</span>500K</td>
 </tr>
 <tr>
-<td>Disk Full</td>
-<td>1 per month</td>
+<td><strong>Storage Full</strong></td>
+<td>1/month</td>
 <td>Immediate</td>
+<td>Complete outage</td>
+<td>30%</td>
+<td><span class="arithmatex">\(1M-\)</span>5M</td>
+</tr>
+<tr>
+<td><strong>Memory Leak</strong></td>
+<td>1/week</td>
 <td>1-4 hours</td>
-<td>Service down</td>
-<td>Monitoring, auto-cleanup, quotas</td>
+<td>Performance degradation</td>
+<td>80%</td>
+<td><span class="arithmatex">\(50K-\)</span>200K</td>
 </tr>
 <tr>
-<td>Memory Leak</td>
-<td>1 per week</td>
-<td>Hours</td>
-<td>5min (restart)</td>
-<td>Degradation, OOM</td>
-<td>Profiling, restart automation</td>
-</tr>
-<tr>
-<td>Cache Stampede</td>
-<td>2-3 per week</td>
+<td><strong>Cache Stampede</strong></td>
+<td>2-3/week</td>
 <td>Immediate</td>
-<td>5-30min</td>
-<td>Overload, cascading</td>
-<td>Coalescing, gradual warm</td>
+<td>Cascading overload</td>
+<td>70%</td>
+<td><span class="arithmatex">\(10K-\)</span>100K</td>
 </tr>
 <tr>
-<td>CDC Lag</td>
+<td><strong>Database Lag</strong></td>
 <td>Daily</td>
-<td>Minutes</td>
-<td>30min-hours</td>
-<td>Stale reads</td>
-<td>Backpressure, monitoring</td>
+<td>30 seconds</td>
+<td>Stale data served</td>
+<td>95%</td>
+<td><span class="arithmatex">\(5K-\)</span>25K</td>
 </tr>
 <tr>
-<td>Replica Lag</td>
-<td>Hourly</td>
-<td>Seconds</td>
-<td>Self-healing</td>
-<td>Stale reads</td>
-<td>Read from primary, wait</td>
-</tr>
-<tr>
-<td>Hot Key</td>
+<td><strong>Hot Key</strong></td>
 <td>Daily</td>
-<td>Minutes</td>
-<td>Hours</td>
+<td>2-5 minutes</td>
 <td>Partition overload</td>
-<td>Key splitting, caching</td>
-</tr>
-<tr>
-<td>Slow Query</td>
-<td>Hourly</td>
-<td>Seconds</td>
-<td>Minutes</td>
-<td>Timeout, queue</td>
-<td>Query optimization, timeout</td>
-</tr>
-<tr>
-<td>Dependency Timeout</td>
-<td>Hourly</td>
-<td>Immediate</td>
-<td>Self-healing</td>
-<td>Degraded experience</td>
-<td>Circuit breaker, fallback</td>
+<td>40%</td>
+<td><span class="arithmatex">\(10K-\)</span>50K</td>
 </tr>
 </tbody>
 </table>
-<h2 id="the-hierarchy-of-failures">The Hierarchy of Failures</h2>
-<h3 id="level-1-hardware-failures-mtbf-years">Level 1: Hardware Failures (MTBF: Years)</h3>
-<ul>
-<li><strong>Disk Failure</strong>: 1-3% annual failure rate</li>
-<li><strong>Memory Corruption</strong>: ECC reduces but doesn't eliminate</li>
-<li><strong>Network Interface Failure</strong>: Rare but complete isolation</li>
-<li><strong>Power Supply Failure</strong>: Redundant supplies help but not perfect</li>
-</ul>
-<p><strong>Detection</strong>: Hardware monitoring, SMART data, ECC reports
-<strong>Mitigation</strong>: Redundancy, RAID, hot spares</p>
-<h3 id="level-2-software-failures-mtbf-months">Level 2: Software Failures (MTBF: Months)</h3>
-<ul>
-<li><strong>Process Crash</strong>: Memory corruption, bugs, resource exhaustion</li>
-<li><strong>Deadlock</strong>: Circular waits, improper lock ordering</li>
-<li><strong>Resource Exhaustion</strong>: File handles, memory, connections</li>
-<li><strong>Configuration Error</strong>: Wrong settings, typos, version mismatch</li>
-</ul>
-<p><strong>Detection</strong>: Health checks, resource monitoring, log analysis
-<strong>Mitigation</strong>: Graceful degradation, automatic restart, configuration validation</p>
-<h3 id="level-3-network-failures-mtbf-weeks">Level 3: Network Failures (MTBF: Weeks)</h3>
-<ul>
-<li><strong>Packet Loss</strong>: Congestion, hardware failure, misconfiguration</li>
-<li><strong>Network Partition</strong>: Switch failure, cable cut, routing issues</li>
-<li><strong>Latency Spike</strong>: Congestion, routing change, distance</li>
-<li><strong>DNS Resolution Failure</strong>: DNS server down, misconfiguration</li>
-</ul>
-<p><strong>Detection</strong>: Network monitoring, latency tracking, ping tests
-<strong>Mitigation</strong>: Multiple paths, DNS caching, timeout/retry</p>
-<h3 id="level-4-operational-failures-mtbf-days">Level 4: Operational Failures (MTBF: Days)</h3>
-<ul>
-<li><strong>Deployment Error</strong>: Bad code, wrong configuration, timing</li>
-<li><strong>Capacity Exhaustion</strong>: Traffic spike, gradual growth, poor planning</li>
-<li><strong>Human Error</strong>: Wrong command, wrong environment, miscommunication</li>
-<li><strong>Dependency Failure</strong>: External service down, API change, rate limiting</li>
-</ul>
-<p><strong>Detection</strong>: Deployment monitoring, capacity alerts, dependency checks
-<strong>Mitigation</strong>: Blue-green deployment, capacity planning, circuit breakers</p>
-<h2 id="what-we-still-cant-do-well-2025-reality">What We Still Can't Do Well (2025 Reality)</h2>
-<h3 id="1-true-distributed-transactions">1. True Distributed Transactions</h3>
-<p><strong>Problem</strong>: 2PC doesn't scale, 3PC has availability issues
-<strong>Current Best Practice</strong>: Saga pattern with compensation
-<strong>Limitations</strong>: Complex error handling, eventual consistency only
-<strong>Research Direction</strong>: Deterministic transaction protocols</p>
-<h3 id="2-perfect-cache-invalidation">2. Perfect Cache Invalidation</h3>
-<p><strong>Problem</strong>: "There are only two hard things in Computer Science: cache invalidation and naming things"
-<strong>Current Best Practice</strong>: TTL + event-based invalidation
-<strong>Limitations</strong>: Still get stale reads, cache stampedes
-<strong>Research Direction</strong>: Predictive invalidation, version vectors</p>
-<h3 id="3-handling-celebrity-users">3. Handling Celebrity Users</h3>
-<p><strong>Problem</strong>: Power law distribution means some users are 1000x more active
-<strong>Current Best Practice</strong>: Dedicated celebrity handling, separate infrastructure
-<strong>Limitations</strong>: Expensive, hard to predict who becomes celebrity
-<strong>Research Direction</strong>: Adaptive partitioning, real-time load balancing</p>
-<h3 id="4-zero-downtime-schema-changes">4. Zero-Downtime Schema Changes</h3>
-<p><strong>Problem</strong>: Data format changes affect running code
-<strong>Current Best Practice</strong>: Multi-phase rollout with compatibility layers
-<strong>Limitations</strong>: Complex, error-prone, requires careful orchestration
-<strong>Research Direction</strong>: Automated schema evolution, runtime adaptation</p>
-<h3 id="5-cross-region-consistency">5. Cross-Region Consistency</h3>
-<p><strong>Problem</strong>: Speed of light is 150ms round-trip across globe
-<strong>Current Best Practice</strong>: Regional strong consistency, global eventual
-<strong>Limitations</strong>: Still have split-brain scenarios, user confusion
-<strong>Research Direction</strong>: CRDTs, hybrid consistency models</p>
-<h3 id="6-perfect-failure-detection">6. Perfect Failure Detection</h3>
-<p><strong>Problem</strong>: Can't distinguish between slow and dead
-<strong>Current Best Practice</strong>: Multiple timeouts, phi-accrual detection
-<strong>Limitations</strong>: False positives cause unnecessary failovers
-<strong>Research Direction</strong>: Machine learning for failure prediction</p>
-<h3 id="7-automatic-capacity-planning">7. Automatic Capacity Planning</h3>
-<p><strong>Problem</strong>: Traffic patterns are unpredictable, growth is non-linear
-<strong>Current Best Practice</strong>: Static over-provisioning by 3-5x
-<strong>Limitations</strong>: Expensive, still get caught by spikes
-<strong>Research Direction</strong>: ML-based prediction, reactive scaling</p>
-<h3 id="8-complete-observability">8. Complete Observability</h3>
-<p><strong>Problem</strong>: Observing affects performance, infinite data possible
-<strong>Current Best Practice</strong>: Sampling, distributed tracing
-<strong>Limitations</strong>: Miss rare events, sampling bias
-<strong>Research Direction</strong>: Smart sampling, causal profiling</p>
-<h3 id="9-self-healing-systems">9. Self-Healing Systems</h3>
-<p><strong>Problem</strong>: 70% of incidents still require human intervention
-<strong>Current Best Practice</strong>: Automated recovery for known failure modes
-<strong>Limitations</strong>: Novel failures, cascading effects, edge cases
-<strong>Research Direction</strong>: AI-driven operations, automated root cause analysis</p>
-<h3 id="10-cost-attribution">10. Cost Attribution</h3>
-<p><strong>Problem</strong>: Don't know true per-request cost in complex systems
-<strong>Current Best Practice</strong>: Resource tagging, approximate allocation
-<strong>Limitations</strong>: Shared resources, indirect costs, temporal allocation
-<strong>Research Direction</strong>: Real-time cost tracking, activity-based costing</p>
-<h2 id="the-real-patterns-of-production-failures">The Real Patterns of Production Failures</h2>
-<h3 id="cascading-failures-70-of-major-outages">Cascading Failures (70% of major outages)</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Initial Trigger → Load Increase → Resource Exhaustion → Service Degradation → 
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Client Retries → Further Load Increase → More Services Fail → Complete Outage
-</code></pre></div>
-<p><strong>Prevention</strong>:
-- Circuit breakers at every service boundary
-- Exponential backoff with jitter
-- Load shedding when approaching capacity
-- Bulkhead isolation between services</p>
-<h3 id="byzantine-failures-20-of-major-outages">Byzantine Failures (20% of major outages)</h3>
-<p><strong>Symptoms</strong>: Nodes appear healthy but return wrong results
-<strong>Causes</strong>: Partial hardware failure, software bugs, network corruption
-<strong>Detection</strong>: Cross-validation, checksum verification, majority voting
-<strong>Recovery</strong>: Isolate byzantine nodes, restore from known good state</p>
-<h3 id="correlation-failures-10-of-major-outages">Correlation Failures (10% of major outages)</h3>
-<p><strong>Examples</strong>: All nodes in same rack lose power, all services use same broken dependency
-<strong>Causes</strong>: Shared infrastructure, common mode failures, simultaneous updates
-<strong>Prevention</strong>: Geographic distribution, staggered updates, diverse dependencies</p>
-<h2 id="outage-taxonomy">Outage Taxonomy</h2>
-<h3 id="severity-classification">Severity Classification</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">SEV1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Complete service unavailable</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Duration</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span><span class="err">30 minutes</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="no">Impact: All users affected</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="no">Examples: Database corruption, data center failure</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nt">SEV2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Major functionality degraded</span><span class="w">  </span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Duration</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">&gt;5</span><span class="err"> minutes</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">Impact</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span><span class="err">50% users affected</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nt">Examples</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Slow response times, partial features down</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nt">SEV3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Minor functionality impacted</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Duration</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Any</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Impact</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;10% users affected</span><span class="w">  </span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">Examples</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Non-critical feature broken, single region slow</span>
-</code></pre></div>
-<h3 id="root-cause-distribution">Root Cause Distribution</h3>
+<h2 id="failure-taxonomy-and-response-architecture">Failure Taxonomy and Response Architecture</h2>
+<p>Layered failure analysis with automated detection and escalation patterns.</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph EdgePlane["Edge Plane - Failure Sources"]
+        HW["Hardware Layer&lt;br/&gt;MTBF: 2-5 years&lt;br/&gt;Impact: Infrastructure"]
+        SW["Software Layer&lt;br/&gt;MTBF: 1-3 months&lt;br/&gt;Impact: Service logic"]
+        NET["Network Layer&lt;br/&gt;MTBF: 2-4 weeks&lt;br/&gt;Impact: Connectivity"]
+        OPS["Operational Layer&lt;br/&gt;MTBF: 1-7 days&lt;br/&gt;Impact: Human error"]
+    end
+
+    subgraph ServicePlane["Service Plane - Detection Systems"]
+        HWMON["Hardware Monitoring&lt;br/&gt;SMART, ECC, Power&lt;br/&gt;Detection: &lt;5min"]
+        APPMON["Application Monitoring&lt;br/&gt;Health checks, Metrics&lt;br/&gt;Detection: &lt;30s"]
+        NETMON["Network Monitoring&lt;br/&gt;Latency, Packet loss&lt;br/&gt;Detection: &lt;15s"]
+        OPSMON["Deployment Monitoring&lt;br/&gt;Change tracking&lt;br/&gt;Detection: &lt;1min"]
+    end
+
+    subgraph StatePlane["State Plane - Failure Context"]
+        LOGS[("Error Logs&lt;br/&gt;Structured logging&lt;br/&gt;Retention: 90 days")]
+        METRICS[("System Metrics&lt;br/&gt;Time series data&lt;br/&gt;Resolution: 15s")]
+        TRACES[("Distributed Traces&lt;br/&gt;Request flow&lt;br/&gt;Sample rate: 1%")]
+    end
+
+    subgraph ControlPlane["Control Plane - Response"]
+        AUTO["Automated Recovery&lt;br/&gt;60% success rate&lt;br/&gt;Safe operations"]
+        ESCALATE["Human Escalation&lt;br/&gt;Complex scenarios&lt;br/&gt;MTTR: 15-45min"]
+        POSTMORTEM["Post-incident&lt;br/&gt;Blameless analysis&lt;br/&gt;Action items"]
+    end
+
+    HW --&gt; HWMON
+    SW --&gt; APPMON
+    NET --&gt; NETMON
+    OPS --&gt; OPSMON
+    HWMON --&gt; LOGS
+    APPMON --&gt; METRICS
+    NETMON --&gt; TRACES
+    OPSMON --&gt; METRICS
+    LOGS --&gt; AUTO
+    METRICS --&gt; AUTO
+    TRACES --&gt; ESCALATE
+    AUTO --&gt; POSTMORTEM
+    ESCALATE --&gt; POSTMORTEM
+
+    %% Apply four-plane colors
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class HW,SW,NET,OPS edgeStyle
+    class HWMON,APPMON,NETMON,OPSMON serviceStyle
+    class LOGS,METRICS,TRACES stateStyle
+    class AUTO,ESCALATE,POSTMORTEM controlStyle</code></pre>
+<h3 id="failure-layer-analysis">Failure Layer Analysis</h3>
 <table>
 <thead>
 <tr>
-<th><strong>Category</strong></th>
-<th><strong>Percentage</strong></th>
-<th><strong>Examples</strong></th>
-<th><strong>MTTR</strong></th>
+<th><strong>Layer</strong></th>
+<th><strong>MTBF</strong></th>
+<th><strong>Common Causes</strong></th>
+<th><strong>Detection Method</strong></th>
+<th><strong>Recovery Strategy</strong></th>
+<th><strong>Prevention Cost</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Code Deploy</td>
-<td>35%</td>
-<td>Bad release, config change</td>
-<td>30-60min</td>
+<td><strong>Hardware</strong></td>
+<td>2-5 years</td>
+<td>Disk failure, memory corruption</td>
+<td>SMART data, ECC logs</td>
+<td>Hot swap, redundancy</td>
+<td>2x infrastructure cost</td>
 </tr>
 <tr>
-<td>Capacity</td>
-<td>25%</td>
-<td>Traffic spike, gradual exhaustion</td>
-<td>1-4 hours</td>
+<td><strong>Software</strong></td>
+<td>1-3 months</td>
+<td>Memory leaks, deadlocks</td>
+<td>Health checks, profiling</td>
+<td>Restart, rollback</td>
+<td>40% dev time</td>
 </tr>
 <tr>
-<td>Hardware</td>
-<td>20%</td>
-<td>Disk failure, network issues</td>
-<td>2-8 hours</td>
+<td><strong>Network</strong></td>
+<td>2-4 weeks</td>
+<td>Packet loss, DNS issues</td>
+<td>Latency monitoring</td>
+<td>Multi-path, caching</td>
+<td>20% infrastructure cost</td>
 </tr>
 <tr>
-<td>External Dependency</td>
-<td>15%</td>
-<td>Third-party API down</td>
-<td>Out of control</td>
-</tr>
-<tr>
-<td>Human Error</td>
-<td>5%</td>
-<td>Wrong command, fat finger</td>
-<td>15-30min</td>
+<td><strong>Operational</strong></td>
+<td>1-7 days</td>
+<td>Deployment errors, human mistakes</td>
+<td>Change tracking</td>
+<td>Blue-green, automation</td>
+<td>30% operational overhead</td>
 </tr>
 </tbody>
 </table>
-<h2 id="incident-response-patterns">Incident Response Patterns</h2>
-<h3 id="the-standard-timeline">The Standard Timeline</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>T+0:     Problem occurs
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>T+2min:  Automated alerts fire
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>T+5min:  Human acknowledges alert
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>T+10min: Initial investigation begins
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>T+15min: Escalation to senior engineer
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>T+30min: Root cause identified
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>T+45min: Fix implemented
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>T+60min: Service restored
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>T+120min: Post-mortem begins
-</code></pre></div>
-<h3 id="common-anti-patterns">Common Anti-Patterns</h3>
-<ol>
-<li><strong>Alert Fatigue</strong>: Too many false positives, important alerts ignored</li>
-<li><strong>Premature Optimization</strong>: Fixing symptoms instead of root cause</li>
-<li><strong>Multiple Fixes</strong>: Trying many changes simultaneously, can't isolate what worked</li>
-<li><strong>Communication Gap</strong>: Not updating stakeholders, unclear status</li>
-<li><strong>Blame Culture</strong>: Focus on who instead of what and why</li>
-</ol>
-<h3 id="best-practices-that-actually-work">Best Practices That Actually Work</h3>
-<ol>
-<li><strong>Blameless Post-mortems</strong>: Focus on systems and processes, not individuals</li>
-<li><strong>Runbooks</strong>: Step-by-step procedures for common failures</li>
-<li><strong>Chaos Engineering</strong>: Intentionally break things to find weaknesses</li>
-<li><strong>Game Days</strong>: Practice incident response with simulated outages</li>
-<li><strong>Circuit Breakers</strong>: Automatic failure handling, prevent cascades</li>
-</ol>
-<h2 id="the-economics-of-reliability">The Economics of Reliability</h2>
-<h3 id="cost-of-downtime-by-industry">Cost of Downtime by Industry</h3>
+<h2 id="unsolved-problems-in-production-2025-state">Unsolved Problems in Production (2025 State)</h2>
+<p>The hardest problems in distributed systems remain challenging despite decades of research.</p>
+<h3 id="top-10-production-challenges">Top 10 Production Challenges</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Problem</strong></th>
+<th><strong>Current Solution</strong></th>
+<th><strong>Success Rate</strong></th>
+<th><strong>Cost Impact</strong></th>
+<th><strong>Research Direction</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Distributed Transactions</strong></td>
+<td>Saga pattern + compensation</td>
+<td>85% consistency</td>
+<td>2x complexity</td>
+<td>Deterministic protocols</td>
+</tr>
+<tr>
+<td><strong>Cache Invalidation</strong></td>
+<td>TTL + event-based</td>
+<td>90% consistency</td>
+<td>30% stale reads</td>
+<td>Predictive invalidation</td>
+</tr>
+<tr>
+<td><strong>Celebrity Users</strong></td>
+<td>Dedicated infrastructure</td>
+<td>70% handled</td>
+<td>5x resource cost</td>
+<td>Adaptive partitioning</td>
+</tr>
+<tr>
+<td><strong>Zero-Downtime Schema</strong></td>
+<td>Multi-phase rollout</td>
+<td>60% success</td>
+<td>50% deployment time</td>
+<td>Automated evolution</td>
+</tr>
+<tr>
+<td><strong>Cross-Region Consistency</strong></td>
+<td>Regional strong + global eventual</td>
+<td>80% consistency</td>
+<td>150ms latency</td>
+<td>Hybrid models</td>
+</tr>
+<tr>
+<td><strong>Failure Detection</strong></td>
+<td>Phi-accrual + timeouts</td>
+<td>92% accuracy</td>
+<td>8% false positives</td>
+<td>ML prediction</td>
+</tr>
+<tr>
+<td><strong>Capacity Planning</strong></td>
+<td>3-5x over-provisioning</td>
+<td>75% accuracy</td>
+<td>200-400% waste</td>
+<td>ML-based prediction</td>
+</tr>
+<tr>
+<td><strong>Complete Observability</strong></td>
+<td>Sampling + tracing</td>
+<td>95% coverage</td>
+<td>5% overhead</td>
+<td>Smart sampling</td>
+</tr>
+<tr>
+<td><strong>Self-Healing</strong></td>
+<td>Automated known patterns</td>
+<td>60% auto-recovery</td>
+<td>40% human required</td>
+<td>AI-driven ops</td>
+</tr>
+<tr>
+<td><strong>Cost Attribution</strong></td>
+<td>Resource tagging</td>
+<td>70% accuracy</td>
+<td>Unknown true costs</td>
+<td>Real-time tracking</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cascading-failure-prevention-architecture">Cascading Failure Prevention Architecture</h2>
+<p>Multi-layered defense against the most common cause of production outages.</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph EdgePlane["Edge Plane - Load Management"]
+        LB["Load Balancer&lt;br/&gt;Rate Limiting: 10K/sec&lt;br/&gt;Health Checks: 5s"]
+        CDN["CDN Layer&lt;br/&gt;Cache Hit: 95%&lt;br/&gt;DDoS Protection"]
+    end
+
+    subgraph ServicePlane["Service Plane - Circuit Protection"]
+        CB["Circuit Breakers&lt;br/&gt;Failure Threshold: 5%&lt;br/&gt;Timeout: 3s"]
+        RETRY["Retry Logic&lt;br/&gt;Exponential Backoff&lt;br/&gt;Max Attempts: 3"]
+        SHED["Load Shedding&lt;br/&gt;Trigger: 80% capacity&lt;br/&gt;Drop Rate: 10%"]
+    end
+
+    subgraph StatePlane["State Plane - Resource Isolation"]
+        POOL1[("DB Pool 1&lt;br/&gt;Connections: 20&lt;br/&gt;Service: Orders")]
+        POOL2[("DB Pool 2&lt;br/&gt;Connections: 20&lt;br/&gt;Service: Users")]
+        CACHE[("Cache Layer&lt;br/&gt;TTL: 300s&lt;br/&gt;Hit Rate: 85%")]
+    end
+
+    subgraph ControlPlane["Control Plane - Monitoring"]
+        METRICS["Real-time Metrics&lt;br/&gt;Latency: p99&lt;br/&gt;Error Rate: 5min avg"]
+        ALERTS["Alert System&lt;br/&gt;Threshold: 3 std dev&lt;br/&gt;Escalation: 15min"]
+        AUTO["Auto-scaling&lt;br/&gt;CPU &gt; 70%: Scale up&lt;br/&gt;Response: &lt;2min"]
+    end
+
+    CDN --&gt; LB
+    LB --&gt; CB
+    CB --&gt; RETRY
+    RETRY --&gt; SHED
+    SHED --&gt; POOL1
+    SHED --&gt; POOL2
+    CB --&gt; CACHE
+    METRICS --&gt; CB
+    METRICS --&gt; ALERTS
+    ALERTS --&gt; AUTO
+    AUTO -."feedback".-&gt; LB
+
+    %% Apply four-plane colors
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class LB,CDN edgeStyle
+    class CB,RETRY,SHED serviceStyle
+    class POOL1,POOL2,CACHE stateStyle
+    class METRICS,ALERTS,AUTO controlStyle</code></pre>
+<h3 id="failure-pattern-distribution">Failure Pattern Distribution</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Failure Pattern</strong></th>
+<th><strong>Frequency</strong></th>
+<th><strong>Avg Duration</strong></th>
+<th><strong>Prevention Strategy</strong></th>
+<th><strong>Recovery Time</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cascading Failures</strong></td>
+<td>70% of major outages</td>
+<td>45-180 minutes</td>
+<td>Circuit breakers + bulkheads</td>
+<td>15-60 minutes</td>
+</tr>
+<tr>
+<td><strong>Byzantine Failures</strong></td>
+<td>20% of major outages</td>
+<td>30-120 minutes</td>
+<td>Majority voting + checksums</td>
+<td>30-90 minutes</td>
+</tr>
+<tr>
+<td><strong>Correlated Failures</strong></td>
+<td>10% of major outages</td>
+<td>60-240 minutes</td>
+<td>Geographic distribution</td>
+<td>60-180 minutes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="incident-classification-and-response-matrix">Incident Classification and Response Matrix</h2>
+<p>Structured incident management with automated triage and escalation.</p>
+<h3 id="severity-based-response-framework">Severity-Based Response Framework</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Severity</strong></th>
+<th><strong>Impact Scope</strong></th>
+<th><strong>Response Time</strong></th>
+<th><strong>Escalation</strong></th>
+<th><strong>Communication</strong></th>
+<th><strong>Cost per Hour</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SEV 1</strong></td>
+<td>All users affected</td>
+<td>&lt;5 minutes</td>
+<td>Immediate to VP</td>
+<td>CEO notification</td>
+<td><span class="arithmatex">\(1M-\)</span>5M</td>
+</tr>
+<tr>
+<td><strong>SEV 2</strong></td>
+<td>&gt;50% users affected</td>
+<td>&lt;15 minutes</td>
+<td>Senior engineer</td>
+<td>Customer status page</td>
+<td><span class="arithmatex">\(500K-\)</span>1M</td>
+</tr>
+<tr>
+<td><strong>SEV 3</strong></td>
+<td>&lt;10% users affected</td>
+<td>&lt;30 minutes</td>
+<td>Team lead</td>
+<td>Internal only</td>
+<td><span class="arithmatex">\(50K-\)</span>200K</td>
+</tr>
+<tr>
+<td><strong>SEV 4</strong></td>
+<td>Single feature/region</td>
+<td>&lt;60 minutes</td>
+<td>Assigned engineer</td>
+<td>Team chat</td>
+<td><span class="arithmatex">\(10K-\)</span>50K</td>
+</tr>
+</tbody>
+</table>
+<h3 id="root-cause-analysis-dashboard">Root Cause Analysis Dashboard</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Root Cause</strong></th>
+<th><strong>Frequency</strong></th>
+<th><strong>MTTR</strong></th>
+<th><strong>Prevention Cost</strong></th>
+<th><strong>Detection Method</strong></th>
+<th><strong>Auto-Recovery</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Code Deployment</strong></td>
+<td>35%</td>
+<td>30-60 min</td>
+<td>40% dev velocity</td>
+<td>Deployment tracking</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>Capacity Issues</strong></td>
+<td>25%</td>
+<td>1-4 hours</td>
+<td>2x infrastructure</td>
+<td>Predictive monitoring</td>
+<td>60%</td>
+</tr>
+<tr>
+<td><strong>Hardware Failure</strong></td>
+<td>20%</td>
+<td>2-8 hours</td>
+<td>50% redundancy cost</td>
+<td>Hardware monitoring</td>
+<td>80%</td>
+</tr>
+<tr>
+<td><strong>External Dependencies</strong></td>
+<td>15%</td>
+<td>Variable</td>
+<td>Circuit breaker cost</td>
+<td>Dependency monitoring</td>
+<td>40%</td>
+</tr>
+<tr>
+<td><strong>Human Error</strong></td>
+<td>5%</td>
+<td>15-30 min</td>
+<td>Automation investment</td>
+<td>Change tracking</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="incident-response-timeline-and-automation">Incident Response Timeline and Automation</h2>
+<p>Optimized incident management with automated triage and human escalation.</p>
+<pre class="mermaid"><code>gantt
+    title Production Incident Response Timeline
+    dateFormat  X
+    axisFormat %M:%S
+
+    section Detection
+    Problem Occurs           :milestone, m1, 0, 0
+    Automated Alert          :2, 2
+    Human Acknowledgment     :3, 5
+
+    section Investigation
+    Initial Triage           :5, 10
+    Runbook Execution       :8, 15
+    Senior Escalation       :crit, 15, 20
+
+    section Resolution
+    Root Cause Found        :20, 30
+    Fix Implementation      :30, 45
+    Service Restoration     :45, 60
+
+    section Follow-up
+    Post-mortem Scheduled   :90, 120
+    Action Items Created    :120, 180</code></pre>
+<h3 id="incident-response-anti-patterns-vs-best-practices">Incident Response Anti-Patterns vs Best Practices</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Anti-Pattern</strong></th>
+<th><strong>Impact</strong></th>
+<th><strong>Best Practice</strong></th>
+<th><strong>Implementation</strong></th>
+<th><strong>Success Rate</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Alert Fatigue</strong></td>
+<td>30% ignored alerts</td>
+<td>Tuned thresholds</td>
+<td>&lt;1% false positives</td>
+<td>95% acknowledged</td>
+</tr>
+<tr>
+<td><strong>Symptom Fixing</strong></td>
+<td>60% recurring issues</td>
+<td>Root cause analysis</td>
+<td>Mandatory RCA</td>
+<td>80% permanent fixes</td>
+</tr>
+<tr>
+<td><strong>Multiple Changes</strong></td>
+<td>40% unclear fixes</td>
+<td>Single change policy</td>
+<td>Change control</td>
+<td>90% traceable</td>
+</tr>
+<tr>
+<td><strong>Poor Communication</strong></td>
+<td>50% stakeholder confusion</td>
+<td>Status page automation</td>
+<td>Real-time updates</td>
+<td>95% satisfaction</td>
+</tr>
+<tr>
+<td><strong>Blame Culture</strong></td>
+<td>70% information hiding</td>
+<td>Blameless post-mortems</td>
+<td>Learning focus</td>
+<td>85% participation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reliability-economics-and-roi-analysis">Reliability Economics and ROI Analysis</h2>
+<p>Data-driven investment decisions for reliability improvements.</p>
+<h3 id="industry-downtime-cost-analysis">Industry Downtime Cost Analysis</h3>
 <table>
 <thead>
 <tr>
 <th><strong>Industry</strong></th>
-<th><strong>Cost per Hour</strong></th>
+<th><strong>Revenue per Hour</strong></th>
+<th><strong>Downtime Cost</strong></th>
 <th><strong>Reputation Impact</strong></th>
 <th><strong>Regulatory Risk</strong></th>
+<th><strong>Recovery Time</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Financial Services</td>
-<td>$5M-15M</td>
-<td>Severe</td>
-<td>High</td>
+<td><strong>Financial Services</strong></td>
+<td><span class="arithmatex">\(50M-\)</span>200M</td>
+<td><span class="arithmatex">\(5M-\)</span>15M</td>
+<td>Severe (-20% customer trust)</td>
+<td>High (fines)</td>
+<td>2-8 hours</td>
 </tr>
 <tr>
-<td>E-commerce</td>
-<td>$1M-5M</td>
-<td>Moderate</td>
+<td><strong>E-commerce</strong></td>
+<td><span class="arithmatex">\(10M-\)</span>50M</td>
+<td><span class="arithmatex">\(1M-\)</span>5M</td>
+<td>Moderate (-10% conversion)</td>
 <td>Low</td>
+<td>1-4 hours</td>
 </tr>
 <tr>
-<td>Social Media</td>
-<td>$500K-2M</td>
-<td>Moderate</td>
+<td><strong>Social Media</strong></td>
+<td><span class="arithmatex">\(5M-\)</span>20M</td>
+<td><span class="arithmatex">\(500K-\)</span>2M</td>
+<td>Moderate (-5% engagement)</td>
 <td>Low</td>
+<td>30min-2hrs</td>
 </tr>
 <tr>
-<td>Enterprise SaaS</td>
-<td>$100K-1M</td>
-<td>Severe</td>
+<td><strong>Enterprise SaaS</strong></td>
+<td><span class="arithmatex">\(1M-\)</span>10M</td>
+<td><span class="arithmatex">\(100K-\)</span>1M</td>
+<td>Severe (-30% renewals)</td>
 <td>Medium</td>
+<td>1-6 hours</td>
 </tr>
 <tr>
-<td>Gaming</td>
-<td>$50K-500K</td>
+<td><strong>Gaming</strong></td>
+<td><span class="arithmatex">\(500K-\)</span>5M</td>
+<td><span class="arithmatex">\(50K-\)</span>500K</td>
+<td>Low (-2% players)</td>
 <td>Low</td>
-<td>Low</td>
+<td>15min-1hr</td>
 </tr>
 </tbody>
 </table>
-<h3 id="reliability-investment-roi">Reliability Investment ROI</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_reliability_roi</span><span class="p">():</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="c1"># Example: E-commerce site</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">downtime_cost_per_hour</span> <span class="o">=</span> <span class="mi">2_000_000</span>  <span class="c1"># $2M/hour</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">current_availability</span> <span class="o">=</span> <span class="mf">0.995</span>        <span class="c1"># 99.5% (4.4 hours/month down)</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">target_availability</span> <span class="o">=</span> <span class="mf">0.999</span>         <span class="c1"># 99.9% (44 minutes/month down)</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="c1"># Current downtime cost</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">current_downtime_hours</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">current_availability</span><span class="p">)</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">30</span>  <span class="c1"># per month</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">current_monthly_cost</span> <span class="o">=</span> <span class="n">current_downtime_hours</span> <span class="o">*</span> <span class="n">downtime_cost_per_hour</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="c1"># Target downtime cost  </span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">target_downtime_hours</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">target_availability</span><span class="p">)</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">30</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">target_monthly_cost</span> <span class="o">=</span> <span class="n">target_downtime_hours</span> <span class="o">*</span> <span class="n">downtime_cost_per_hour</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="c1"># Savings</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>    <span class="n">monthly_savings</span> <span class="o">=</span> <span class="n">current_monthly_cost</span> <span class="o">-</span> <span class="n">target_monthly_cost</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="n">annual_savings</span> <span class="o">=</span> <span class="n">monthly_savings</span> <span class="o">*</span> <span class="mi">12</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    <span class="c1"># Investment needed (rule of thumb: 10x current infra cost for each 9)</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    <span class="n">current_infra_cost</span> <span class="o">=</span> <span class="mi">500_000</span>  <span class="c1"># $500K/month</span>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    <span class="n">reliability_investment</span> <span class="o">=</span> <span class="n">current_infra_cost</span> <span class="o">*</span> <span class="mi">12</span> <span class="o">*</span> <span class="mi">2</span>  <span class="c1"># 2x for 99.9%</span>
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="c1"># ROI</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    <span class="n">roi_years</span> <span class="o">=</span> <span class="n">reliability_investment</span> <span class="o">/</span> <span class="n">annual_savings</span>
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    <span class="k">return</span> <span class="p">{</span>
-<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>        <span class="s1">&#39;annual_savings&#39;</span><span class="p">:</span> <span class="n">annual_savings</span><span class="p">,</span>
-<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>        <span class="s1">&#39;investment_needed&#39;</span><span class="p">:</span> <span class="n">reliability_investment</span><span class="p">,</span>
-<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>        <span class="s1">&#39;payback_years&#39;</span><span class="p">:</span> <span class="n">roi_years</span>
-<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>    <span class="p">}</span>
-<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
-<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="c1"># Result: Usually pays back in 1-3 years for high-traffic systems</span>
-</code></pre></div>
-<h2 id="monitoring-that-actually-matters">Monitoring That Actually Matters</h2>
-<h3 id="the-four-golden-signals">The Four Golden Signals</h3>
-<ol>
-<li><strong>Latency</strong>: How long requests take</li>
-<li><strong>Traffic</strong>: How many requests you're getting  </li>
-<li><strong>Errors</strong>: Rate of requests that fail</li>
-<li><strong>Saturation</strong>: How "full" your service is</li>
-</ol>
-<h3 id="leading-indicators-predict-problems">Leading Indicators (Predict problems)</h3>
-<ul>
-<li>Queue depth increasing</li>
-<li>Memory usage trending up</li>
-<li>Disk space decreasing</li>
-<li>Connection pool utilization rising</li>
-<li>Error rate climbing</li>
-</ul>
-<h3 id="lagging-indicators-confirm-problems">Lagging Indicators (Confirm problems)</h3>
-<ul>
-<li>User complaints</li>
-<li>Revenue impact</li>
-<li>SLA breach</li>
-<li>Support ticket volume</li>
-</ul>
-<h3 id="alert-fatigue-solutions">Alert Fatigue Solutions</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">alert_design</span><span class="p">:</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">principle</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Every</span><span class="nv"> </span><span class="s">alert</span><span class="nv"> </span><span class="s">must</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">actionable&quot;</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">good_alert</span><span class="p">:</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Database</span><span class="nv"> </span><span class="s">connection</span><span class="nv"> </span><span class="s">pool</span><span class="nv"> </span><span class="s">90%</span><span class="nv"> </span><span class="s">full&quot;</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Add</span><span class="nv"> </span><span class="s">more</span><span class="nv"> </span><span class="s">connections</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">investigate</span><span class="nv"> </span><span class="s">leak&quot;</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="nt">bad_alert</span><span class="p">:</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Disk</span><span class="nv"> </span><span class="s">usage</span><span class="nv"> </span><span class="s">80%&quot;</span><span class="w">  </span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Problem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;80%</span><span class="nv"> </span><span class="s">might</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">normal,</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">clear</span><span class="nv"> </span><span class="s">action&quot;</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="nt">alert_tuning</span><span class="p">:</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Use percentiles, not averages</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Multiple time windows (1min, 5min, 15min)</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Escalation based on duration</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Auto-resolution when condition clears</span>
-</code></pre></div>
-<h2 id="the-hard-truths">The Hard Truths</h2>
-<ol>
-<li><strong>Perfect is the enemy of good</strong>: 99.9% availability is often sufficient</li>
-<li><strong>Complexity is the enemy of reliability</strong>: Simpler systems fail less</li>
-<li><strong>Humans are both the problem and solution</strong>: Automate common failures, humans handle novel ones</li>
-<li><strong>Monitoring doesn't prevent outages</strong>: It just helps you respond faster</li>
-<li><strong>Post-mortems are worthless without follow-up</strong>: Must actually implement the action items</li>
-<li><strong>Every dependency will fail</strong>: Plan for it, have fallbacks</li>
-<li><strong>Load testing in staging doesn't match production</strong>: Real traffic has different patterns</li>
-<li><strong>The network is unreliable</strong>: Always assume network failures</li>
-<li><strong>Security and reliability are often at odds</strong>: Balance based on risk tolerance</li>
-<li><strong>Culture matters more than technology</strong>: Blameless culture enables learning</li>
-</ol>
-<p>Production reality is messy, unpredictable, and always more complex than design documents suggest. The key is designing for failure, monitoring actively, and learning continuously.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
+<h3 id="reliability-investment-roi-calculator">Reliability Investment ROI Calculator</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Availability Target</strong></th>
+<th><strong>Downtime per Month</strong></th>
+<th><strong>Investment Multiplier</strong></th>
+<th><strong>Payback Period</strong></th>
+<th><strong>Break-even Revenue</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>99% → 99.9%</strong></td>
+<td>4.4hrs → 44min</td>
+<td>2x infrastructure</td>
+<td>6-18 months</td>
+<td>&gt;$1M/hour</td>
+</tr>
+<tr>
+<td><strong>99.9% → 99.99%</strong></td>
+<td>44min → 4.4min</td>
+<td>5x infrastructure</td>
+<td>1-3 years</td>
+<td>&gt;$5M/hour</td>
+</tr>
+<tr>
+<td><strong>99.99% → 99.999%</strong></td>
+<td>4.4min → 26sec</td>
+<td>10x infrastructure</td>
+<td>3-5 years</td>
+<td>&gt;$20M/hour</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rule of Thumb</strong>: Each additional "9" costs 5-10x more and pays back only if downtime cost exceeds investment.</p>
+<h2 id="production-monitoring-that-prevents-outages">Production Monitoring That Prevents Outages</h2>
+<p>Proactive monitoring with predictive alerting and automated response.</p>
+<h3 id="leading-vs-lagging-indicator-strategy">Leading vs Lagging Indicator Strategy</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Indicator Type</strong></th>
+<th><strong>Metrics</strong></th>
+<th><strong>Alert Threshold</strong></th>
+<th><strong>Response Time</strong></th>
+<th><strong>Prevention Rate</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Leading (Predictive)</strong></td>
+<td>Queue depth trend, Memory growth rate</td>
+<td>2 std deviations</td>
+<td>&lt;5 minutes</td>
+<td>80% incidents prevented</td>
+</tr>
+<tr>
+<td><strong>Golden Signals</strong></td>
+<td>Latency p99, Error rate, Saturation</td>
+<td>SLO breach</td>
+<td>&lt;2 minutes</td>
+<td>95% incidents detected</td>
+</tr>
+<tr>
+<td><strong>Lagging (Reactive)</strong></td>
+<td>User complaints, Revenue drop</td>
+<td>Any occurrence</td>
+<td>&lt;30 minutes</td>
+<td>100% business impact</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alert-design-that-works">Alert Design That Works</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Alert Quality</strong></th>
+<th><strong>Characteristics</strong></th>
+<th><strong>Example</strong></th>
+<th><strong>False Positive Rate</strong></th>
+<th><strong>Actionability</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Excellent</strong></td>
+<td>Specific, actionable, business impact</td>
+<td>"Payment API p99 &gt; 2s for 5min"</td>
+<td>&lt;0.1%</td>
+<td>Clear runbook</td>
+</tr>
+<tr>
+<td><strong>Good</strong></td>
+<td>Specific metric with threshold</td>
+<td>"Database connections &gt; 90%"</td>
+<td>&lt;1%</td>
+<td>Investigation steps</td>
+</tr>
+<tr>
+<td><strong>Poor</strong></td>
+<td>Vague, no clear action</td>
+<td>"High CPU usage"</td>
+<td>&gt;10%</td>
+<td>Unclear response</td>
+</tr>
+<tr>
+<td><strong>Terrible</strong></td>
+<td>Noise, always firing</td>
+<td>"Any error occurred"</td>
+<td>&gt;50%</td>
+<td>Alert fatigue</td>
+</tr>
+</tbody>
+</table>
+<h2 id="production-wisdom-the-10-brutal-truths">Production Wisdom: The 10 Brutal Truths</h2>
+<p>Lessons learned from managing distributed systems at scale.</p>
+<h3 id="truth-1-5-system-design-reality">Truth 1-5: System Design Reality</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Truth</strong></th>
+<th><strong>Reality</strong></th>
+<th><strong>Common Mistake</strong></th>
+<th><strong>Better Approach</strong></th>
+<th><strong>Cost Implication</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Perfect vs Good</strong></td>
+<td>99.9% often sufficient</td>
+<td>Chasing 99.99% everywhere</td>
+<td>Focus on business impact</td>
+<td>5-10x cost for each 9</td>
+</tr>
+<tr>
+<td><strong>Complexity Kills</strong></td>
+<td>Simple systems fail less</td>
+<td>Over-engineering solutions</td>
+<td>KISS principle</td>
+<td>50% reduction in incidents</td>
+</tr>
+<tr>
+<td><strong>Human Factor</strong></td>
+<td>70% issues need humans</td>
+<td>Full automation dreams</td>
+<td>Human + machine hybrid</td>
+<td>40% operational efficiency</td>
+</tr>
+<tr>
+<td><strong>Monitoring Limits</strong></td>
+<td>Doesn't prevent outages</td>
+<td>Monitoring solves everything</td>
+<td>Fast detection + response</td>
+<td>60% faster MTTR</td>
+</tr>
+<tr>
+<td><strong>Follow-through</strong></td>
+<td>Action items decay</td>
+<td>Post-mortem theater</td>
+<td>Tracking + accountability</td>
+<td>80% prevention rate</td>
+</tr>
+</tbody>
+</table>
+<h3 id="truth-6-10-operational-reality">Truth 6-10: Operational Reality</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Truth</strong></th>
+<th><strong>Reality</strong></th>
+<th><strong>Common Mistake</strong></th>
+<th><strong>Better Approach</strong></th>
+<th><strong>Impact</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dependencies Fail</strong></td>
+<td>Everything will break</td>
+<td>Assuming stability</td>
+<td>Circuit breakers + fallbacks</td>
+<td>90% graceful degradation</td>
+</tr>
+<tr>
+<td><strong>Staging vs Prod</strong></td>
+<td>Traffic patterns differ</td>
+<td>Identical load testing</td>
+<td>Production chaos testing</td>
+<td>70% better issue detection</td>
+</tr>
+<tr>
+<td><strong>Network Unreliability</strong></td>
+<td>Partitions are normal</td>
+<td>Perfect connectivity</td>
+<td>Timeout + retry + backoff</td>
+<td>95% partition tolerance</td>
+</tr>
+<tr>
+<td><strong>Security Trade-offs</strong></td>
+<td>Often conflicts with reliability</td>
+<td>Security first always</td>
+<td>Risk-based balancing</td>
+<td>Optimal cost/benefit</td>
+</tr>
+<tr>
+<td><strong>Culture Matters</strong></td>
+<td>Enables or kills learning</td>
+<td>Technology only focus</td>
+<td>Blameless + continuous improvement</td>
+<td>300% learning velocity</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-production-mindset">The Production Mindset</h3>
+<p><strong>Embrace failure as normal</strong> - Design systems that gracefully degrade rather than catastrophically fail.</p>
+<p><strong>Measure everything</strong> - You cannot improve what you cannot measure, but don't drown in metrics.</p>
+<p><strong>Automate the boring</strong> - Let humans handle the novel problems, machines handle the repetitive ones.</p>
+<p><strong>Learn continuously</strong> - Every incident is a gift of knowledge about your system's limits.</p>
+<p>Production systems are complex adaptive systems. Success comes from building resilience, not perfection.</p>
+</article>
+</div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
-        
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
       Material for MkDocs
     </a>
-  
 </div>
-      
-        <div class="md-social">
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://github.com/ds-framework" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
-    </a>
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://twitter.com/ds-framework" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
-    </a>
-  
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/ds-framework" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</a>
+<a class="md-social__link" href="https://twitter.com/ds-framework" rel="noopener" target="_blank" title="twitter.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"></path></svg>
+</a>
 </div>
-      
-    </div>
-  </div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    
-    
-      
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
-      
-        <script src="../../javascripts/mathjax.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-    
-  </body>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
 </html>

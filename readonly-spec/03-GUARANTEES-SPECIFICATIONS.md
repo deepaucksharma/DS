@@ -728,6 +728,346 @@ Levels: Read Uncommitted < Read Committed < Repeatable Read < Serializable
 
 ---
 
+## Deep Relational Framework: How Guarantees Compose
+
+### Guarantee Composition Hierarchy
+
+```mermaid
+graph TD
+    subgraph "Strongest Guarantees"
+        LIN[Linearizability<br/>All ops atomic]
+        SEQ[Sequential<br/>Process order]
+    end
+
+    subgraph "Session Guarantees"
+        RYW[Read Your Writes]
+        MRD[Monotonic Reads]
+        MWR[Monotonic Writes]
+        WFR[Write Follows Read]
+    end
+
+    subgraph "Weak Guarantees"
+        CAU[Causal<br/>Happens-before]
+        BND[Bounded<br/>Time/version limits]
+        EVE[Eventual<br/>Convergence only]
+    end
+
+    subgraph "Delivery Guarantees"
+        EXO[Exactly Once]
+        ALO[At Least Once]
+        AMO[At Most Once]
+    end
+
+    LIN --> SEQ
+    SEQ --> CAU
+    CAU --> EVE
+
+    LIN --> RYW & MRD & MWR & WFR
+    CAU --> RYW & MRD
+
+    EXO --> ALO
+    ALO --> AMO
+
+    LIN -.->|"Requires"| EXO
+    SEQ -.->|"Benefits from"| ALO
+    EVE -.->|"Works with"| AMO
+
+    click LIN "#linearizability" "Strongest consistency"
+    click CAU "#causal-consistency" "Preserves causality"
+    click EVE "#eventual-consistency" "Weakest guarantee"
+    click EXO "#exactly-once" "Critical for finance"
+
+    style LIN fill:#CC0000,color:#fff
+    style SEQ fill:#FF8800,color:#fff
+    style CAU fill:#00AA00,color:#fff
+    style EVE fill:#0066CC,color:#fff
+    style EXO fill:#9900CC,color:#fff
+```
+
+### Failure Cascade Simulator
+
+```mermaid
+stateDiagram-v2
+    [*] --> Healthy: System Start
+
+    state Linearizable {
+        Healthy --> NetworkPartition: Packet Loss >5%
+        NetworkPartition --> LeaderElection: Heartbeat Timeout (10s)
+        LeaderElection --> Unavailable: No Quorum
+        Unavailable --> [*]: System Down
+    }
+
+    state GracefulDegradation {
+        Unavailable --> Sequential: Downgrade to Sequential
+        Sequential --> Causal: Further Degradation
+        Causal --> Eventual: Emergency Mode
+        Eventual --> ReadOnly: Critical Failure
+    }
+
+    state Recovery {
+        ReadOnly --> Eventual: Writes Resume
+        Eventual --> Causal: Dependencies Restore
+        Causal --> Sequential: Order Restored
+        Sequential --> Healthy: Full Recovery
+    }
+
+    note right of Unavailable
+        Cost: $10K/minute
+        MTTR: 5-30 minutes
+        User Impact: 50K
+    end note
+
+    note right of Eventual
+        Performance: 10x better
+        Consistency: None
+        Risk: Data conflicts
+    end note
+```
+
+### Interactive Decision Tree
+
+```mermaid
+flowchart TD
+    Start([Need Consistency Level?])
+    Start --> Q1{Data Type?}
+
+    Q1 -->|Financial| F1{Transaction Volume?}
+    Q1 -->|User Content| U1{Real-time Need?}
+    Q1 -->|Analytics| A1[Eventual Consistency<br/>Cost: $0.001/GB]
+    Q1 -->|Configuration| C1[Linearizability<br/>Cost: $0.01/op]
+
+    F1 -->|<1K TPS| LIN1[Linearizability<br/>Spanner/DynamoDB<br/>$2K/month]
+    F1 -->|>1K TPS| EXO1[Exactly Once + Bounded<br/>Kafka/Kinesis<br/>$5K/month]
+
+    U1 -->|Yes| CAU1[Causal Consistency<br/>MongoDB/Cassandra<br/>$1K/month]
+    U1 -->|No| EVE1[Eventual + CDN<br/>S3/CloudFront<br/>$500/month]
+
+    LIN1 -->|Trade-off| PERF1[5ms → 50ms latency]
+    EXO1 -->|Trade-off| SCALE1[Horizontal scaling OK]
+    CAU1 -->|Trade-off| ORDER1[Ordering preserved]
+    EVE1 -->|Trade-off| CHEAP1[Lowest cost]
+
+    style Start fill:#0066CC,color:#fff
+    style LIN1 fill:#CC0000,color:#fff
+    style CAU1 fill:#00AA00,color:#fff
+    style EVE1 fill:#0066CC,color:#fff
+```
+
+### Guarantee Degradation Paths
+
+```mermaid
+journey
+    title Consistency Degradation Under Load
+    section Normal Load (1K QPS)
+      Linearizable: 5: System, Users, Ops
+      5ms latency: 5: Performance
+      All replicas sync: 5: Consistency
+      Cost $100/hour: 3: Finance
+    section High Load (10K QPS)
+      Sequential: 4: System
+      20ms latency: 3: Performance
+      Async to remote DC: 4: Consistency
+      Cost $200/hour: 2: Finance
+    section Overload (50K QPS)
+      Read Your Writes: 3: System
+      100ms latency: 2: Performance
+      Local reads only: 3: Consistency
+      Cost $500/hour: 1: Finance
+    section Degraded (100K QPS)
+      Eventual: 2: System
+      500ms latency: 1: Performance
+      Conflicts possible: 2: Consistency
+      Cost $1000/hour: 1: Finance
+```
+
+### Mechanism Composition Matrix
+
+```mermaid
+graph LR
+    subgraph "Guarantee Combinations"
+        subgraph "Strong + Strong"
+            SS[Linearizable + Exactly-Once<br/>Banking/Trading<br/>Cost: 5x baseline]
+        end
+
+        subgraph "Strong + Weak"
+            SW[Linearizable Metadata<br/>+ Eventual Data<br/>Netflix/Uber<br/>Cost: 2x baseline]
+        end
+
+        subgraph "Weak + Weak"
+            WW[Eventual + At-Least-Once<br/>Analytics/Logs<br/>Cost: 1x baseline]
+        end
+    end
+
+    subgraph "Resulting Properties"
+        PROP1[Consistency + Delivery]
+        PROP2[Performance + Correctness]
+        PROP3[Scale + Completeness]
+    end
+
+    SS --> PROP1
+    SW --> PROP2
+    WW --> PROP3
+
+    SS -.->|"Trade-off:<br/>Performance"| SW
+    SW -.->|"Trade-off:<br/>Consistency"| WW
+
+    style SS fill:#CC0000,color:#fff
+    style SW fill:#FF8800,color:#fff
+    style WW fill:#00AA00,color:#fff
+```
+
+### Guarantee Evolution Timeline
+
+```mermaid
+gitGraph
+    commit id: "Start: Monolith"
+    commit id: "ACID Transactions"
+    branch scale
+    commit id: "Read Replicas (Eventual)"
+    commit id: "Multi-Master (Causal)"
+    checkout main
+    merge scale
+    branch global
+    commit id: "Cross-Region (Bounded)"
+    commit id: "Edge Caching (Eventual)"
+    checkout main
+    merge global
+    branch optimize
+    commit id: "Tiered Consistency"
+    commit id: "Dynamic Downgrade"
+    checkout main
+    merge optimize
+    commit id: "Production: Mixed Guarantees"
+```
+
+### Dependency Impact Analyzer
+
+```mermaid
+graph TB
+    subgraph "Guarantee Dependencies"
+        L[Linearizable Config<br/>99.9% SLA]
+        C[Causal User Data<br/>99.95% SLA]
+        E[Eventual Analytics<br/>99.99% SLA]
+        X[Exactly-Once Payments<br/>99.999% SLA]
+    end
+
+    subgraph "Composite Impact"
+        Total[System SLA: 99.73%<br/>2.4 hours/month downtime<br/>$50K/month cost]
+    end
+
+    L -->|"Config drives<br/>all operations"| C & E & X
+    C -->|"User state affects<br/>analytics"| E
+    X -->|"Payment affects<br/>user data"| C
+
+    L -.->|"0.1% downtime<br/>$20K cost"| Total
+    C -.->|"0.05% downtime<br/>$15K cost"| Total
+    E -.->|"0.01% downtime<br/>$5K cost"| Total
+    X -.->|"0.001% downtime<br/>$10K cost"| Total
+
+    style L fill:#CC0000,color:#fff
+    style C fill:#00AA00,color:#fff
+    style E fill:#0066CC,color:#fff
+    style X fill:#9900CC,color:#fff
+```
+
+### Failure Domain Isolation by Guarantee
+
+```mermaid
+graph TB
+    subgraph "Isolated by Consistency Level"
+        subgraph "Linearizable Domain"
+            L1[Config Service]
+            L2[Leader Election]
+            L3[Distributed Lock]
+        end
+
+        subgraph "Causal Domain"
+            C1[User Sessions]
+            C2[Social Graph]
+            C3[Timeline]
+        end
+
+        subgraph "Eventual Domain"
+            E1[CDN Content]
+            E2[Search Index]
+            E3[Analytics]
+        end
+    end
+
+    subgraph "Shared Infrastructure"
+        Router[Smart Router]
+        Monitor[Monitoring]
+    end
+
+    Router -->|"Route by<br/>consistency need"| L1 & C1 & E1
+    Monitor -.->|"Different SLAs"| L1 & C1 & E1
+
+    L1 -->|"Strict coordination"| L2 & L3
+    C1 -->|"Causal dependencies"| C2 & C3
+    E1 -->|"Best effort"| E2 & E3
+
+    style L1 fill:#CC0000,stroke:#AA0000
+    style C1 fill:#00AA00,stroke:#007700
+    style E1 fill:#0066CC,stroke:#004499
+```
+
+### Guarantee Selection Quadrant
+
+```mermaid
+quadrantChart
+    title Guarantee Selection by Complexity vs Business Value
+    x-axis Low Complexity --> High Complexity
+    y-axis Low Value --> High Value
+    quadrant-1 Complex but Critical
+    quadrant-2 Quick Wins
+    quadrant-3 Avoid These
+    quadrant-4 Consider Carefully
+
+    Linearizability: [0.9, 0.95]
+    "Exactly Once": [0.8, 0.9]
+    "Causal Consistency": [0.5, 0.7]
+    "Bounded Staleness": [0.4, 0.6]
+    "Eventually Consistent": [0.1, 0.4]
+    "Read Your Writes": [0.3, 0.8]
+    "At Least Once": [0.2, 0.5]
+    "At Most Once": [0.1, 0.2]
+```
+
+### Composition Testing Matrix
+
+```mermaid
+graph LR
+    subgraph "Test Scenarios"
+        T1[Network Partition]
+        T2[Leader Failure]
+        T3[Clock Skew]
+        T4[Cascading Failure]
+    end
+
+    subgraph "Guarantee Behavior"
+        G1[Linearizable:<br/>Unavailable]
+        G2[Causal:<br/>Diverge]
+        G3[Eventual:<br/>Conflicts]
+        G4[Exactly-Once:<br/>Block]
+    end
+
+    subgraph "Business Impact"
+        I1[Config updates stop]
+        I2[User data inconsistent]
+        I3[Analytics delayed]
+        I4[Payments halt]
+    end
+
+    T1 --> G1 --> I1
+    T2 --> G2 --> I2
+    T3 --> G3 --> I3
+    T4 --> G4 --> I4
+
+    style T1 fill:#FFE5E5
+    style G1 fill:#FF8800,color:#fff
+    style I1 fill:#CC0000,color:#fff
+```
+
 ## Production Decision Framework
 
 ### Guarantee Selection Matrix

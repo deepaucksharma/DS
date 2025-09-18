@@ -10,27 +10,72 @@ If it doesn't help during an incident, during debugging, during capacity plannin
 
 ## 📊 Production Reality: The Numbers
 
-**Target**: 900 production-grade diagrams
-**Timeline**: 36-52 weeks (9-12 months realistic)
-**Philosophy**: Production reality over academic theory
-**Quality Gate**: "Does this help at 3 AM?"
+> **📈 Live Metrics**: See `/site/data/CENTRAL_METRICS.json` for current status
+>
+> All project metrics are centrally tracked and updated via scripts.
+> Run `python scripts/unified_status_tracker.py --dashboard` for latest numbers.
 
-### Resource Requirements
-- **Total Effort**: 2,400-3,600 hours
-- **Team Size**: 3-4 engineers at 50% allocation
-- **Weekly Team Hours**: 60-80 hours combined
-- **Average per Diagram**: 2.7-4 hours (including research, creation, validation)
+### Streamlined Approach
+- **Parallel Agents**: 5+ agents working simultaneously
+- **Velocity**: 350+ diagrams/session (proven)
+- **Quality**: Relational thinking, visual-first
+- **Focus**: Real incidents, actual metrics, production configs
 
-### Current Status
-- **Diagrams Created**: 0
-- **Systems Documented**: 0 of 30
-- **Incidents Analyzed**: 0 of 100
-- **Target Month**: Month 1
-- **Week 1 of 36-52**
+### Key Changes from Streamlining
+- ✅ Deleted 7 redundant specification files
+- ✅ Merged overlapping content (40% reduction)
+- ✅ Created INCIDENT_RESPONSE_INDEX.md for emergencies
+- ✅ Converted verbose text to visual tables
+- ✅ Applied relational composition framework
 
 ---
 
-## 🏗️ Content Distribution (900 Total Diagrams)
+## 🔄 Review & Update Workflow (NEW)
+
+### The Challenge
+With 887 diagrams already created and significant changes made to readonly-spec, we need a systematic approach to review and update existing content while continuing new creation.
+
+### Dual-Track Execution
+1. **Track 1: Review & Update** (40% effort)
+   - Review existing diagrams against new specs
+   - Update outdated content
+   - Ensure consistency with visual-first approach
+
+2. **Track 2: New Creation** (60% effort)
+   - Continue creating missing diagrams
+   - Focus on gaps (incidents, debugging guides)
+   - Maintain momentum toward 900 target
+
+### Review Priority Matrix
+| Priority | Category | Reason | Action |
+|----------|----------|--------|--------|
+| **🔴 HIGH** | Pre-visual diagrams | Created before visual-first spec | Complete redesign |
+| **🟡 MEDIUM** | Stream Plane refs | Obsolete 5-plane architecture | Update to 4-plane |
+| **🟢 LOW** | Working diagrams | Already production-quality | Minor adjustments |
+
+### Unified Tracking Workflow
+```bash
+# Monday: Unified Status Check (2 hours)
+python scripts/unified_status_tracker.py --scan  # Update all statuses
+python scripts/unified_status_tracker.py --dashboard  # View comprehensive status
+python scripts/batch_diagram_reviewer.py --report  # Detailed compliance report
+
+# Tuesday-Thursday: Dual-Track Execution
+# Track 1: Review & Update Existing
+python scripts/batch_diagram_reviewer.py --category systems  # Review by category
+python scripts/unified_status_tracker.py --mark-reviewed <file>  # Mark completed
+
+# Track 2: Create New Diagrams
+# Continue with missing diagrams per unified dashboard
+
+# Friday: Progress & Planning
+python scripts/unified_status_tracker.py --dashboard  # Final weekly status
+python scripts/unified_status_tracker.py --export weekly_report  # Export for records
+```
+
+---
+
+## 🏗️ Content Distribution
 
 | Category | Count | Purpose | Timeline |
 |----------|-------|---------|----------|
@@ -64,7 +109,7 @@ Control Plane: #CC0000 (Red)     - Monitoring, Config, Automation
 
 ## 🏢 The 30 Must-Document Systems
 
-### Tier 1: The Giants (8 diagrams each = 80 diagrams)
+### Tier 1: The Giants (8 diagrams each)
 1. **Netflix** - Microservices, Chaos Engineering
 2. **Uber** - Real-time matching, Geo-distributed
 3. **Amazon** - Everything (DynamoDB, S3, Lambda)
@@ -76,7 +121,7 @@ Control Plane: #CC0000 (Red)     - Monitoring, Config, Automation
 9. **Stripe** - Payment processing, Financial consistency
 10. **Spotify** - Music streaming, Discovery algorithms
 
-### Tier 2: The Innovators (8 diagrams each = 80 diagrams)
+### Tier 2: The Innovators (8 diagrams each)
 11. **Airbnb** - Search, Pricing, Booking systems
 12. **Discord** - Real-time chat/voice at scale
 13. **Cloudflare** - Edge computing, DDoS protection
@@ -88,7 +133,7 @@ Control Plane: #CC0000 (Red)     - Monitoring, Config, Automation
 19. **Twitch** - Live streaming, Chat scale
 20. **Coinbase** - Crypto exchange, Matching engine
 
-### Tier 3: The Specialists (8 diagrams each = 80 diagrams)
+### Tier 3: The Specialists (8 diagrams each)
 21. **Reddit** - Comment trees, Voting system
 22. **Datadog** - Metrics ingestion, Time series
 23. **Robinhood** - Stock trading, Market data
@@ -459,6 +504,54 @@ PostgreSQL 14 (db.r6g.2xlarge, 1000 connections)
 - **Technical Debt**: <5% rework needed
 
 ---
+
+## 📋 Review Tracking & Version Control
+
+### Diagram Versioning System
+Every diagram now has:
+- **Version Number**: Major.Minor (e.g., 1.0, 1.1, 2.0)
+- **Review Status**: up_to_date | needs_review | outdated | missing_version
+- **Last Review Date**: ISO timestamp
+- **Content Hash**: MD5 hash for change detection
+
+### Unified Status Commands
+```bash
+# Primary Status Commands (Use These Daily)
+# Comprehensive dashboard showing creation AND review status
+python scripts/unified_status_tracker.py --dashboard
+
+# Scan all diagrams and update unified tracking
+python scripts/unified_status_tracker.py --scan
+
+# Mark diagram as reviewed/updated
+python scripts/unified_status_tracker.py --mark-reviewed docs/systems/netflix/architecture.md
+
+# Update specific diagram status
+python scripts/unified_status_tracker.py --update-status docs/patterns/cqrs.md --status needs_update
+
+# Batch Review Commands
+# Review all diagrams in a category for compliance
+python scripts/batch_diagram_reviewer.py --category systems --report
+
+# Generate fix suggestions for non-compliant diagrams
+python scripts/batch_diagram_reviewer.py --fix-suggestions
+
+# Export unified status report
+python scripts/unified_status_tracker.py --export status_report
+```
+
+### Review Priorities
+1. **🔴 HIGH Priority**: Diagrams with Stream Plane references (obsolete)
+2. **🟡 MEDIUM Priority**: Content changed or review > 30 days old
+3. **🟢 LOW Priority**: Working diagrams needing minor updates
+
+### Spec Change Impact Analysis
+When readonly-spec files change, affected diagrams are automatically identified:
+- `02-DIAGRAM-SPECIFICATIONS-V3.md` → All diagrams
+- `03-GUARANTEES-SPECIFICATIONS.md` → Guarantees category
+- `04-MECHANISM-SPECIFICATIONS.md` → Mechanisms category
+- `05-PATTERN-SPECIFICATIONS.md` → Patterns category
+- `26-VISUAL-FIRST-SPECIFICATION.md` → All diagrams (visual update)
 
 ## 🎉 Completion Criteria
 

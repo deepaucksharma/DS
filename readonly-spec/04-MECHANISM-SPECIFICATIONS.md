@@ -8,6 +8,210 @@ This document specifies the **20 fundamental mechanisms (primitives)** that serv
 
 ---
 
+## Deep Compositional Framework: How Mechanisms Work Together
+
+### Mechanism Composition Hierarchy
+
+```mermaid
+graph TD
+    subgraph "Foundation Layer"
+        P1[Partitioning<br/>Data Distribution]
+        R1[Replication<br/>Redundancy]
+        L1[Logging<br/>Durability]
+    end
+
+    subgraph "Coordination Layer"
+        C1[Consensus<br/>Agreement]
+        Q1[Quorum<br/>Majority]
+        CL1[Clock Sync<br/>Ordering]
+    end
+
+    subgraph "Communication Layer"
+        M1[Messaging<br/>Async Comm]
+        B1[Broadcast<br/>Fanout]
+        G1[Gossip<br/>Epidemic]
+    end
+
+    subgraph "Optimization Layer"
+        CA1[Caching<br/>Performance]
+        LB1[Load Balance<br/>Distribution]
+        CB1[Circuit Break<br/>Resilience]
+    end
+
+    subgraph "Guarantees Provided"
+        LIN[Linearizability]
+        DUR[Durability]
+        AVL[Availability]
+        PRT[Partition Tolerance]
+    end
+
+    P1 & R1 & L1 --> C1
+    C1 & Q1 --> LIN
+    R1 & CB1 --> AVL
+    P1 & Q1 --> PRT
+    L1 & R1 --> DUR
+
+    C1 --> M1
+    M1 --> B1
+    B1 --> G1
+
+    CA1 -.->|"Optimizes"| R1
+    LB1 -.->|"Distributes"| P1
+    CB1 -.->|"Protects"| C1
+
+    style P1 fill:#0066CC,color:#fff
+    style C1 fill:#00AA00,color:#fff
+    style CA1 fill:#FF8800,color:#fff
+    style LIN fill:#CC0000,color:#fff
+```
+
+### Mechanism Failure Cascade Analysis
+
+```mermaid
+stateDiagram-v2
+    [*] --> HealthySystem: All Mechanisms OK
+
+    state "Cascading Failure" {
+        HealthySystem --> PartitionFailure: Network Split
+        PartitionFailure --> ConsensusLoss: No Quorum
+        ConsensusLoss --> ReplicationLag: Writes Block
+        ReplicationLag --> CacheInvalidation: Stale Data
+        CacheInvalidation --> LoadImbalance: Hotspots
+        LoadImbalance --> CircuitOpen: Protect System
+        CircuitOpen --> [*]: Service Degraded
+    }
+
+    state "Recovery Path" {
+        CircuitOpen --> LoadRebalance: Traffic Shift
+        LoadRebalance --> CacheWarm: Rebuild Cache
+        CacheWarm --> ReplicationCatchup: Sync Data
+        ReplicationCatchup --> ConsensusReform: New Leader
+        ConsensusReform --> PartitionHeal: Network Restore
+        PartitionHeal --> HealthySystem: Full Recovery
+    }
+
+    note right of ConsensusLoss
+        Impact: No writes
+        Cost: $10K/minute
+        MTTR: 5-30 minutes
+    end note
+
+    note right of CircuitOpen
+        Protection Active
+        Degraded Mode
+        50% capacity
+    end note
+```
+
+### Mechanism Combination Matrix
+
+```mermaid
+graph LR
+    subgraph "Common Combinations"
+        subgraph "HA Pattern"
+            HA[Replication<br/>+<br/>Load Balancing<br/>+<br/>Circuit Breaker]
+        end
+
+        subgraph "Consistency Pattern"
+            CP[Consensus<br/>+<br/>Quorum<br/>+<br/>Logging]
+        end
+
+        subgraph "Scale Pattern"
+            SC[Partitioning<br/>+<br/>Caching<br/>+<br/>Gossip]
+        end
+    end
+
+    subgraph "System Properties"
+        PROP1[99.99% Available<br/>Survives failures]
+        PROP2[Linearizable<br/>Strong consistency]
+        PROP3[1M+ QPS<br/>Horizontal scale]
+    end
+
+    HA --> PROP1
+    CP --> PROP2
+    SC --> PROP3
+
+    HA -.->|"Trade-off"| CP
+    CP -.->|"Trade-off"| SC
+    SC -.->|"Trade-off"| HA
+
+    style HA fill:#00AA00,color:#fff
+    style CP fill:#CC0000,color:#fff
+    style SC fill:#0066CC,color:#fff
+```
+
+### Mechanism Selection Decision Tree
+
+```mermaid
+flowchart TD
+    Start([System Requirements])
+    Start --> Q1{Consistency Need?}
+
+    Q1 -->|Strong| C1{Scale Need?}
+    Q1 -->|Weak| W1{Availability Need?}
+
+    C1 -->|<10K QPS| CON[Consensus + Logging<br/>etcd/Consul<br/>Simple but limited]
+    C1 -->|>10K QPS| SHARD[Partitioned Consensus<br/>Spanner/CockroachDB<br/>Complex but scalable]
+
+    W1 -->|99.99%| REP[Multi-Region Replication<br/>+ Circuit Breakers<br/>DynamoDB Global]
+    W1 -->|99.9%| CACHE[Caching + Eventual<br/>Redis/CDN<br/>Cost effective]
+
+    CON --> M1[Monitor:<br/>Consensus latency<br/>Leader elections]
+    SHARD --> M2[Monitor:<br/>Shard balance<br/>Cross-shard TX]
+    REP --> M3[Monitor:<br/>Replication lag<br/>Failover time]
+    CACHE --> M4[Monitor:<br/>Hit rate<br/>Invalidation]
+
+    style Start fill:#0066CC,color:#fff
+    style CON fill:#CC0000,color:#fff
+    style REP fill:#00AA00,color:#fff
+```
+
+### Mechanism Performance Trade-offs
+
+```mermaid
+journey
+    title Mechanism Impact on Latency
+    section Single Mechanism
+      Caching: 5: Speed
+      Logging: 3: Speed
+      Consensus: 2: Speed
+      Replication: 3: Speed
+    section Two Mechanisms
+      Cache+Replica: 4: Speed
+      Log+Consensus: 2: Speed
+      Partition+Cache: 4: Speed
+    section Three Mechanisms
+      Cache+Replica+LB: 4: Speed
+      Log+Consensus+Quorum: 1: Speed
+      Partition+Cache+Gossip: 3: Speed
+    section Full Stack
+      All Mechanisms: 2: Speed
+```
+
+### Mechanism Evolution Path
+
+```mermaid
+gitGraph
+    commit id: "Single Server"
+    commit id: "Add Logging"
+    branch scale
+    commit id: "Add Replication"
+    commit id: "Add Load Balancer"
+    checkout main
+    merge scale
+    branch consistency
+    commit id: "Add Consensus"
+    commit id: "Add Quorum"
+    checkout main
+    merge consistency
+    branch performance
+    commit id: "Add Caching"
+    commit id: "Add Partitioning"
+    checkout main
+    merge performance
+    commit id: "Production System"
+```
+
 ## Mechanism Categories
 
 | Category | Count | Purpose | Latency Impact | Complexity | Production Scale |

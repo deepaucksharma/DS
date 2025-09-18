@@ -1,230 +1,120 @@
 
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="The Complete Distributed Systems Architecture Framework - The Definitive Reference">
-      
-      
-        <meta name="author" content="DS Framework Team">
-      
-      
-        <link rel="canonical" href="https://ds-framework.dev/patterns/micro-patterns/">
-      
-      
-        <link rel="prev" href="../system-patterns/">
-      
-      
-        <link rel="next" href="../decision-engine/">
-      
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
-    
-    
-      
-        <title>Micro-Patterns - Distributed Systems Architecture Framework v5.0</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
-      
-      
+<!DOCTYPE html>
 
-
-    
-    
-      
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-  </head>
-  
-  
-    
-    
-      
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#layer-3-the-15-proven-micro-patterns" class="md-skip">
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="The Complete Distributed Systems Architecture Framework - The Definitive Reference" name="description"/>
+<meta content="DS Framework Team" name="author"/>
+<link href="https://ds-framework.dev/patterns/micro-patterns/" rel="canonical"/>
+<link href="../system-patterns/" rel="prev"/>
+<link href="../decision-engine/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.15" name="generator"/>
+<title>Micro-Patterns - Distributed Systems Architecture Framework v5.0</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="cyan" data-md-color-primary="blue" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#layer-3-the-15-proven-micro-patterns">
           Skip to content
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
-  
-
+</div>
+<div data-md-component="announce">
+</div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Distributed Systems Architecture Framework v5.0" class="md-header__button md-logo" aria-label="Distributed Systems Architecture Framework v5.0" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Distributed Systems Architecture Framework v5.0" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Distributed Systems Architecture Framework v5.0">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             Distributed Systems Architecture Framework v5.0
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
               Micro-Patterns
             
           </span>
-        </div>
-      </div>
-    </div>
-    
-      
-        <form class="md-header__option" data-md-component="palette">
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
-    
-  
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="cyan" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="cyan" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
 </form>
-      
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Share">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+</a>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list" role="presentation"></ol>
 </div>
-      
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/ds-framework/docs" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
-  </div>
-  <div class="md-source__repository">
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ds-framework/docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+</div>
+<div class="md-source__repository">
     ds-framework
   </div>
 </a>
-      </div>
-    
-  </nav>
-  
-    
-      
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
         
   
   
@@ -233,19 +123,9 @@
   Home
 
       </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../getting-started/overview/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../getting-started/overview/">
           
   
   
@@ -254,20 +134,9 @@
   Getting Started
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../foundation/universal-laws/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../foundation/universal-laws/">
           
   
   
@@ -276,22 +145,9 @@
   Foundation
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
           
   
   
@@ -300,20 +156,9 @@
   Patterns
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../case-studies/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../case-studies/">
           
   
   
@@ -322,20 +167,9 @@
   Case Studies
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../examples/case-studies/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../examples/case-studies/">
           
   
   
@@ -344,20 +178,9 @@
   Examples
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../production/reality/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../production/reality/">
           
   
   
@@ -366,20 +189,9 @@
   Production
 
         </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../reference/api/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../reference/api/">
           
   
   
@@ -388,1651 +200,929 @@
   Reference
 
         </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
+</li>
+</ul>
+</div>
 </nav>
-    
-  
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-  
-
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Distributed Systems Architecture Framework v5.0" class="md-nav__button md-logo" aria-label="Distributed Systems Architecture Framework v5.0" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-
-    </a>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Distributed Systems Architecture Framework v5.0" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Distributed Systems Architecture Framework v5.0">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
     Distributed Systems Architecture Framework v5.0
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/ds-framework/docs" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
-  </div>
-  <div class="md-source__repository">
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ds-framework/docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+</div>
+<div class="md-source__repository">
     ds-framework
   </div>
 </a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
     Home
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
     Getting Started
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
             Getting Started
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting-started/overview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/overview/">
+<span class="md-ellipsis">
     Overview
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting-started/quick-start/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/quick-start/">
+<span class="md-ellipsis">
     Quick Start
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting-started/concepts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/concepts/">
+<span class="md-ellipsis">
     Concepts
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
     Foundation
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
             Foundation
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../foundation/universal-laws/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../foundation/universal-laws/">
+<span class="md-ellipsis">
     Universal Laws
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../foundation/capabilities/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../foundation/capabilities/">
+<span class="md-ellipsis">
     Capabilities
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../foundation/primitives/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../foundation/primitives/">
+<span class="md-ellipsis">
     Primitives
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../foundation/guarantees/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../foundation/guarantees/">
+<span class="md-ellipsis">
     Guarantees
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../foundation/mechanisms/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../foundation/mechanisms/">
+<span class="md-ellipsis">
     Mechanisms
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-        
-        
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
     Patterns
     
   </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
             Patterns
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../production-architecture/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../production-architecture/">
+<span class="md-ellipsis">
     Production Architecture
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../system-patterns/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../system-patterns/">
+<span class="md-ellipsis">
     System Patterns
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
     Micro-Patterns
     
   </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
     Micro-Patterns
     
   </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#detailed-pattern-analysis" class="md-nav__link">
-    <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#detailed-pattern-analysis">
+<span class="md-ellipsis">
       Detailed Pattern Analysis
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Detailed Pattern Analysis">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#outbox-pattern-p3p7p19" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Detailed Pattern Analysis" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#outbox-pattern-p3p7p19">
+<span class="md-ellipsis">
       Outbox Pattern (P3+P7+P19)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#saga-pattern-p3p7p8" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#outbox-pattern-implementation">
+<span class="md-ellipsis">
+      Outbox Pattern Implementation
+    </span>
+</a>
+<nav aria-label="Outbox Pattern Implementation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#saga-pattern-p3p7p8">
+<span class="md-ellipsis">
       Saga Pattern (P3+P7+P8)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#escrow-pattern-p1p5p13" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#saga-implementation-components">
+<span class="md-ellipsis">
+      Saga Implementation Components
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#saga-state-transitions">
+<span class="md-ellipsis">
+      Saga State Transitions
+    </span>
+</a>
+<nav aria-label="Saga State Transitions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#escrow-pattern-p1p5p13">
+<span class="md-ellipsis">
       Escrow Pattern (P1+P5+P13)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#cqrs-pattern-p19p3p11" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#escrow-implementation">
+<span class="md-ellipsis">
+      Escrow Implementation
+    </span>
+</a>
+<nav aria-label="Escrow Implementation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cqrs-pattern-p19p3p11">
+<span class="md-ellipsis">
       CQRS Pattern (P19+P3+P11)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#request-response-pattern-p1p8p9p12" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cqrs-implementation-matrix">
+<span class="md-ellipsis">
+      CQRS Implementation Matrix
+    </span>
+</a>
+<nav aria-label="CQRS Implementation Matrix" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#request-response-pattern-p1p8p9p12">
+<span class="md-ellipsis">
       Request-Response Pattern (P1+P8+P9+P12)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#streaming-pattern-p3p7p19" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#request-response-scale-evolution">
+<span class="md-ellipsis">
+      Request-Response Scale Evolution
+    </span>
+</a>
+<nav aria-label="Request-Response Scale Evolution" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#streaming-pattern-p3p7p19">
+<span class="md-ellipsis">
       Streaming Pattern (P3+P7+P19)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#event-sourcing-pattern-p3p14p7" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#streaming-implementation">
+<span class="md-ellipsis">
+      Streaming Implementation
+    </span>
+</a>
+<nav aria-label="Streaming Implementation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#event-sourcing-pattern-p3p14p7">
+<span class="md-ellipsis">
       Event Sourcing Pattern (P3+P14+P7)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#fan-out-pattern-p1p4p8" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#event-sourcing-components">
+<span class="md-ellipsis">
+      Event Sourcing Components
+    </span>
+</a>
+<nav aria-label="Event Sourcing Components" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fan-out-pattern-p1p4p8">
+<span class="md-ellipsis">
       Fan-out Pattern (P1+P4+P8)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#analytics-pattern-p4p5p10p12" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#analytics-pattern-p4p5p10p12">
+<span class="md-ellipsis">
       Analytics Pattern (P4+P5+P10+P12)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#async-task-pattern-p7p16p8" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#analytics-pattern-variants">
+<span class="md-ellipsis">
+      Analytics Pattern Variants
+    </span>
+</a>
+<nav aria-label="Analytics Pattern Variants" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async-task-pattern-p7p16p8">
+<span class="md-ellipsis">
       Async Task Pattern (P7+P16+P8)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#graph-pattern-p1p18p11" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#graph-pattern-p1p18p11">
+<span class="md-ellipsis">
       Graph Pattern (P1+P18+P11)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#ledger-pattern-p3p5p13" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ledger-pattern-p3p5p13">
+<span class="md-ellipsis">
       Ledger Pattern (P3+P5+P13)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#ml-inference-pattern-p11p12p4" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ml-inference-pattern-p11p12p4">
+<span class="md-ellipsis">
       ML Inference Pattern (P11+P12+P4)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#search-pattern-p18p11p4" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#search-pattern-p18p11p4">
+<span class="md-ellipsis">
       Search Pattern (P18+P11+P4)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#pattern-selection-matrix" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pattern Selection Matrix
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pattern-selection-decision-matrix">
+<span class="md-ellipsis">
+      Pattern Selection Decision Matrix
     </span>
-  </a>
-  
+</a>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#anti-pattern-detection" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#anti-pattern-detection">
+<span class="md-ellipsis">
       Anti-Pattern Detection
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Anti-Pattern Detection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#common-mistakes" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Anti-Pattern Detection" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-mistakes">
+<span class="md-ellipsis">
       Common Mistakes
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance-characteristics" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance Characteristics
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
+</ul>
 </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../decision-engine/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pattern-performance-matrix">
+<span class="md-ellipsis">
+      Pattern Performance Matrix
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#production-metrics-summary">
+<span class="md-ellipsis">
+      Production Metrics Summary
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../decision-engine/">
+<span class="md-ellipsis">
     Decision Engine
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../mechanisms/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mechanisms/">
+<span class="md-ellipsis">
     Mechanisms
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pattern-catalog/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pattern-catalog/">
+<span class="md-ellipsis">
     Pattern Catalog
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../case-studies/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../case-studies/">
+<span class="md-ellipsis">
     Case Studies
     
   </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
             Case Studies
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../case-studies/netflix/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../case-studies/netflix/">
+<span class="md-ellipsis">
     Netflix Architecture
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../case-studies/uber/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../case-studies/uber/">
+<span class="md-ellipsis">
     Uber Systems
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../case-studies/framework/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../case-studies/framework/">
+<span class="md-ellipsis">
     Framework
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../case-studies/data-collection-framework/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../case-studies/data-collection-framework/">
+<span class="md-ellipsis">
     Data Collection
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../case-studies/comparison-matrices/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../case-studies/comparison-matrices/">
+<span class="md-ellipsis">
     Comparisons
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
     Examples
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
             Examples
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../examples/case-studies/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../examples/case-studies/">
+<span class="md-ellipsis">
     Case Studies
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../examples/implementation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../examples/implementation/">
+<span class="md-ellipsis">
     Implementation
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../examples/pitfalls/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../examples/pitfalls/">
+<span class="md-ellipsis">
     Pitfalls
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
-        
-          
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
     Production
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
             Production
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../production/reality/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../production/reality/">
+<span class="md-ellipsis">
     Reality Check
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../production/best-practices/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../production/best-practices/">
+<span class="md-ellipsis">
     Best Practices
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../production/proof-obligations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../production/proof-obligations/">
+<span class="md-ellipsis">
     Proof Obligations
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
     Reference
     
   </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
             Reference
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/api/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/api/">
+<span class="md-ellipsis">
     API Reference
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/glossary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/glossary/">
+<span class="md-ellipsis">
     Glossary
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/reading/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reference/reading/">
+<span class="md-ellipsis">
     Further Reading
     
   </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-  </ul>
+</a>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#detailed-pattern-analysis" class="md-nav__link">
-    <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#detailed-pattern-analysis">
+<span class="md-ellipsis">
       Detailed Pattern Analysis
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Detailed Pattern Analysis">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#outbox-pattern-p3p7p19" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Detailed Pattern Analysis" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#outbox-pattern-p3p7p19">
+<span class="md-ellipsis">
       Outbox Pattern (P3+P7+P19)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#saga-pattern-p3p7p8" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#outbox-pattern-implementation">
+<span class="md-ellipsis">
+      Outbox Pattern Implementation
+    </span>
+</a>
+<nav aria-label="Outbox Pattern Implementation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#saga-pattern-p3p7p8">
+<span class="md-ellipsis">
       Saga Pattern (P3+P7+P8)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#escrow-pattern-p1p5p13" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#saga-implementation-components">
+<span class="md-ellipsis">
+      Saga Implementation Components
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#saga-state-transitions">
+<span class="md-ellipsis">
+      Saga State Transitions
+    </span>
+</a>
+<nav aria-label="Saga State Transitions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#escrow-pattern-p1p5p13">
+<span class="md-ellipsis">
       Escrow Pattern (P1+P5+P13)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#cqrs-pattern-p19p3p11" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#escrow-implementation">
+<span class="md-ellipsis">
+      Escrow Implementation
+    </span>
+</a>
+<nav aria-label="Escrow Implementation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cqrs-pattern-p19p3p11">
+<span class="md-ellipsis">
       CQRS Pattern (P19+P3+P11)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#request-response-pattern-p1p8p9p12" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cqrs-implementation-matrix">
+<span class="md-ellipsis">
+      CQRS Implementation Matrix
+    </span>
+</a>
+<nav aria-label="CQRS Implementation Matrix" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#request-response-pattern-p1p8p9p12">
+<span class="md-ellipsis">
       Request-Response Pattern (P1+P8+P9+P12)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#streaming-pattern-p3p7p19" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#request-response-scale-evolution">
+<span class="md-ellipsis">
+      Request-Response Scale Evolution
+    </span>
+</a>
+<nav aria-label="Request-Response Scale Evolution" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#streaming-pattern-p3p7p19">
+<span class="md-ellipsis">
       Streaming Pattern (P3+P7+P19)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#event-sourcing-pattern-p3p14p7" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#streaming-implementation">
+<span class="md-ellipsis">
+      Streaming Implementation
+    </span>
+</a>
+<nav aria-label="Streaming Implementation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#event-sourcing-pattern-p3p14p7">
+<span class="md-ellipsis">
       Event Sourcing Pattern (P3+P14+P7)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#fan-out-pattern-p1p4p8" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#event-sourcing-components">
+<span class="md-ellipsis">
+      Event Sourcing Components
+    </span>
+</a>
+<nav aria-label="Event Sourcing Components" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fan-out-pattern-p1p4p8">
+<span class="md-ellipsis">
       Fan-out Pattern (P1+P4+P8)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#analytics-pattern-p4p5p10p12" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#analytics-pattern-p4p5p10p12">
+<span class="md-ellipsis">
       Analytics Pattern (P4+P5+P10+P12)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#async-task-pattern-p7p16p8" class="md-nav__link">
-    <span class="md-ellipsis">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#analytics-pattern-variants">
+<span class="md-ellipsis">
+      Analytics Pattern Variants
+    </span>
+</a>
+<nav aria-label="Analytics Pattern Variants" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#async-task-pattern-p7p16p8">
+<span class="md-ellipsis">
       Async Task Pattern (P7+P16+P8)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#graph-pattern-p1p18p11" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#graph-pattern-p1p18p11">
+<span class="md-ellipsis">
       Graph Pattern (P1+P18+P11)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#ledger-pattern-p3p5p13" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ledger-pattern-p3p5p13">
+<span class="md-ellipsis">
       Ledger Pattern (P3+P5+P13)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#ml-inference-pattern-p11p12p4" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ml-inference-pattern-p11p12p4">
+<span class="md-ellipsis">
       ML Inference Pattern (P11+P12+P4)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#search-pattern-p18p11p4" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#search-pattern-p18p11p4">
+<span class="md-ellipsis">
       Search Pattern (P18+P11+P4)
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#pattern-selection-matrix" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pattern Selection Matrix
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pattern-selection-decision-matrix">
+<span class="md-ellipsis">
+      Pattern Selection Decision Matrix
     </span>
-  </a>
-  
+</a>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#anti-pattern-detection" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#anti-pattern-detection">
+<span class="md-ellipsis">
       Anti-Pattern Detection
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Anti-Pattern Detection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#common-mistakes" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Anti-Pattern Detection" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-mistakes">
+<span class="md-ellipsis">
       Common Mistakes
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance-characteristics" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance Characteristics
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-
-  
-    <a href="https://github.com/ds-framework/docs/edit/main/docs/patterns/micro-patterns.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
-    </a>
-  
-  
-
-
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pattern-performance-matrix">
+<span class="md-ellipsis">
+      Pattern Performance Matrix
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#production-metrics-summary">
+<span class="md-ellipsis">
+      Production Metrics Summary
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ds-framework/docs/edit/main/docs/patterns/micro-patterns.md" rel="edit" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+</a>
 <h1 id="layer-3-the-15-proven-micro-patterns">Layer 3: The 15 Proven Micro-Patterns</h1>
-<p>Micro-patterns combine 2-4 primitives to solve specific distributed systems problems. Each has been proven in production across multiple organizations.</p>
+<p>Micro-patterns combine 2-4 primitives to solve specific distributed systems problems. Each pattern has been battle-tested in production at Netflix, Uber, Amazon, and other hyperscale companies.</p>
 <table>
 <thead>
 <tr>
@@ -2169,486 +1259,1306 @@
 </table>
 <h2 id="detailed-pattern-analysis">Detailed Pattern Analysis</h2>
 <h3 id="outbox-pattern-p3p7p19">Outbox Pattern (P3+P7+P19)</h3>
-<p><strong>Problem</strong>: How to atomically update database and publish event without distributed transactions?</p>
-<p><strong>Solution</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">BEGIN</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(...);</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">outbox</span><span class="w"> </span><span class="p">(</span><span class="n">event_id</span><span class="p">,</span><span class="w"> </span><span class="n">event_type</span><span class="p">,</span><span class="w"> </span><span class="n">payload</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(...);</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">COMMIT</span><span class="p">;</span>
-</code></pre></div></p>
-<p><strong>Guarantees</strong>:
-- Either both DB update and event occur, or neither
-- Events published exactly once
-- Events published in order of transaction commit</p>
-<p><strong>Implementation Checklist</strong>:
-- [ ] Outbox table in same database as business data
-- [ ] CDC configured to monitor outbox table
-- [ ] Event deduplication using event_id
-- [ ] Dead letter queue for failed processing
-- [ ] Outbox cleanup after successful publication</p>
-<h3 id="saga-pattern-p3p7p8">Saga Pattern (P3+P7+P8)</h3>
-<p><strong>Problem</strong>: How to manage distributed transactions across multiple services?</p>
-<p><strong>Solution</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">saga_definition</span><span class="p">:</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;order_fulfillment&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;payment&quot;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;charge_card&quot;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">compensation</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;refund_card&quot;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;inventory&quot;</span><span class="w"> </span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;reserve_items&quot;</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="nt">compensation</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;release_items&quot;</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;shipping&quot;</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;create_shipment&quot;</span><span class="w"> </span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="nt">compensation</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cancel_shipment&quot;</span>
-</code></pre></div></p>
-<p><strong>Guarantees</strong>:
-- Either all steps complete successfully, or all effects are compensated
-- Progress despite individual service failures
-- Audit trail of all operations</p>
-<p><strong>Implementation Checklist</strong>:
-- [ ] Saga orchestrator with durable state
-- [ ] Compensation actions for every forward action
-- [ ] Timeout handling for each step
-- [ ] Idempotency for all operations
-- [ ] Monitoring for stuck sagas</p>
-<h3 id="escrow-pattern-p1p5p13">Escrow Pattern (P1+P5+P13)</h3>
-<p><strong>Problem</strong>: How to handle high-contention resources like inventory?</p>
-<p><strong>Solution</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">reserve_inventory</span><span class="p">(</span><span class="n">item_id</span><span class="p">,</span> <span class="n">quantity</span><span class="p">):</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">shard</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">item_id</span><span class="p">)</span> <span class="o">%</span> <span class="n">NUM_SHARDS</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">with</span> <span class="n">distributed_lock</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;inventory:</span><span class="si">{</span><span class="n">shard</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">item_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">):</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="n">current</span> <span class="o">=</span> <span class="n">get_inventory</span><span class="p">(</span><span class="n">item_id</span><span class="p">)</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="k">if</span> <span class="n">current</span> <span class="o">&gt;=</span> <span class="n">quantity</span><span class="p">:</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>            <span class="n">escrow_reservation</span><span class="p">(</span><span class="n">item_id</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>            <span class="k">return</span> <span class="n">reservation_id</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>            <span class="k">raise</span> <span class="n">InsufficientInventory</span><span class="p">()</span>
-</code></pre></div></p>
-<p><strong>Guarantees</strong>:
-- No overselling (invariant: reserved + available ≤ total)
-- Reservations expire automatically
-- Highly concurrent reservations possible</p>
-<p><strong>Implementation Checklist</strong>:
-- [ ] Inventory sharded by item_id
-- [ ] Reservations have TTL
-- [ ] Lock timeout &lt; reservation TTL
-- [ ] Monitoring for lock contention
-- [ ] Graceful degradation under extreme load</p>
-<h3 id="cqrs-pattern-p19p3p11">CQRS Pattern (P19+P3+P11)</h3>
-<p><strong>Problem</strong>: How to optimize for both write and read workloads?</p>
-<p><strong>Solution</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Write side - optimized for consistency</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">OrderService</span><span class="p">:</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">create_order</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="k">with</span> <span class="n">transaction</span><span class="p">():</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>            <span class="n">order_repo</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>            <span class="n">outbox</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">OrderCreated</span><span class="p">(</span><span class="n">order</span><span class="p">))</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># Read side - optimized for queries</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">class</span><span class="w"> </span><span class="nc">OrderProjectionService</span><span class="p">:</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">OrderCreated</span><span class="p">):</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="n">projection</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>            <span class="s1">&#39;order_id&#39;</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">order_id</span><span class="p">,</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>            <span class="s1">&#39;customer_name&#39;</span><span class="p">:</span> <span class="n">customer_service</span><span class="o">.</span><span class="n">get_name</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">customer_id</span><span class="p">),</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>            <span class="s1">&#39;total_amount&#39;</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>            <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;pending&#39;</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>        <span class="p">}</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        <span class="n">read_store</span><span class="o">.</span><span class="n">upsert</span><span class="p">(</span><span class="n">projection</span><span class="p">)</span>
-</code></pre></div></p>
-<p><strong>Guarantees</strong>:
-- Write model optimized for business rules
-- Read models optimized for specific queries
-- Eventual consistency between write and read sides
-- Independent scaling of read and write workloads</p>
-<p><strong>Implementation Checklist</strong>:
-- [ ] Clear separation of write and read models
-- [ ] Event streaming from write to read side
-- [ ] Projection rebuilding capability
-- [ ] Monitoring projection lag
-- [ ] Fallback to write side for critical reads</p>
-<h3 id="request-response-pattern-p1p8p9p12">Request-Response Pattern (P1+P8+P9+P12)</h3>
-<p><strong>Problem</strong>: How to implement reliable synchronous communication between client and server?</p>
-<p><strong>Solution</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">RequestResponseClient</span><span class="p">:</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">load_balancer</span><span class="p">,</span> <span class="n">circuit_breaker</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">load_balancer</span> <span class="o">=</span> <span class="n">load_balancer</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">circuit_breaker</span> <span class="o">=</span> <span class="n">circuit_breaker</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">make_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        <span class="k">with</span> <span class="n">timeout_context</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">):</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">circuit_breaker</span><span class="p">:</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>                <span class="n">server</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_balancer</span><span class="o">.</span><span class="n">get_healthy_server</span><span class="p">()</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>                <span class="k">return</span> <span class="k">await</span> <span class="n">server</span><span class="o">.</span><span class="n">send_request</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-</code></pre></div></p>
-<p><strong>Guarantees</strong>:
-- Sequential ordering per client
-- Linearizable operations
-- Total order guarantee within single client session</p>
-<p><strong>Scale Variants</strong>:
-- <strong>Startup</strong>: Direct connections, basic timeouts
-- <strong>Growth</strong>: Load balancer, circuit breaker, retry logic
-- <strong>Scale</strong>: Regional load balancing, auto-scaling groups
-- <strong>Hyperscale</strong>: Global load balancers, intelligent routing</p>
-<h3 id="streaming-pattern-p3p7p19">Streaming Pattern (P3+P7+P19)</h3>
-<p><strong>Problem</strong>: How to process continuous data streams with ordering and fault tolerance?</p>
-<p><strong>Solution</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">StreamProcessor</span><span class="p">:</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stream_name</span><span class="p">,</span> <span class="n">processing_function</span><span class="p">):</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">stream</span> <span class="o">=</span> <span class="n">KafkaStream</span><span class="p">(</span><span class="n">stream_name</span><span class="p">)</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">processor</span> <span class="o">=</span> <span class="n">processing_function</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">StreamState</span><span class="p">()</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process_stream</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>        <span class="k">async</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stream</span><span class="p">:</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>            <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>                <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">processor</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">commit_offset</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">offset</span><span class="p">)</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_failure</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-</code></pre></div></p>
-<p><strong>Guarantees</strong>:
-- Eventual consistency
-- Partition ordering preserved
-- Multi-reader capability</p>
-<p><strong>Use Cases</strong>:
-- Real-time analytics
-- Event processing pipelines
-- Log aggregation
-- Change data capture</p>
-<h3 id="event-sourcing-pattern-p3p14p7">Event Sourcing Pattern (P3+P14+P7)</h3>
-<p><strong>Problem</strong>: How to maintain complete audit trail and enable time-travel debugging?</p>
-<p><strong>Solution</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">EventSourcedAggregate</span><span class="p">:</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">aggregate_id</span><span class="p">):</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">aggregate_id</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">handle_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">):</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        <span class="c1"># Validate command against current state</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        <span class="n">events</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_and_generate_events</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        <span class="c1"># Persist events atomically</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        <span class="n">event_store</span><span class="o">.</span><span class="n">append_events</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">events</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        <span class="c1"># Apply events to update state</span>
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">apply_event</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">rebuild_from_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">events</span><span class="p">):</span>
-<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
-<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">apply_event</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-</code></pre></div></p>
-<p><strong>Guarantees</strong>:
-- Complete history preservation
-- Deterministic state reconstruction
-- Event immutability</p>
-<h3 id="fan-out-pattern-p1p4p8">Fan-out Pattern (P1+P4+P8)</h3>
-<p><strong>Problem</strong>: How to distribute single request to multiple services and aggregate results?</p>
-<p><strong>Solution</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">fan_out_gather</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">services</span><span class="p">):</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="c1"># Fan-out phase</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="k">for</span> <span class="n">service</span> <span class="ow">in</span> <span class="n">services</span><span class="p">:</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>        <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>            <span class="n">service</span><span class="o">.</span><span class="n">process_with_timeout</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        <span class="p">)</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="c1"># Gather phase</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">as_completed</span><span class="p">(</span><span class="n">tasks</span><span class="p">):</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>            <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">task</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>            <span class="c1"># Handle partial failures</span>
-<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Service failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
-<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    <span class="k">return</span> <span class="n">aggregate_results</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-</code></pre></div></p>
-<p><strong>Guarantees</strong>:
-- Parallel processing
-- Completeness (when all services respond)
-- Partial results on failures</p>
-<h3 id="analytics-pattern-p4p5p10p12">Analytics Pattern (P4+P5+P10+P12)</h3>
-<p><strong>Problem</strong>: How to build high-performance analytical processing system?</p>
-<p><strong>Solution</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">architecture</span><span class="p">:</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">edge</span><span class="p">:</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Analytics API (query interface)</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">service</span><span class="p">:</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Query Engine (parallel processing)</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ETL Processor (data preparation)</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="nt">state</span><span class="p">:</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Data Warehouse (columnar storage)</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Staging Area (temporary storage)</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">  </span><span class="nt">control</span><span class="p">:</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Workload Manager (resource optimization)</span>
-</code></pre></div></p>
-<p><strong>Guarantees</strong>:
-- Eventual consistency for analytics data
-- Parallel processing for queries
-- Multi-dimensional aggregation</p>
-<p><strong>Variants</strong>:
-- <strong>Real-Time</strong>: Low latency, limited complexity
-- <strong>Batch</strong>: High throughput, complex queries
-- <strong>Hybrid</strong>: Balanced approach with lambda architecture</p>
-<h3 id="async-task-pattern-p7p16p8">Async Task Pattern (P7+P16+P8)</h3>
-<p><strong>Problem</strong>: How to process long-running tasks asynchronously with reliability?</p>
-<p><strong>Solution</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">AsyncTaskProcessor</span><span class="p">:</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queue</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="n">queue</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>            <span class="c1"># Batch tasks for efficiency</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>            <span class="n">tasks</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">get_batch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>            <span class="c1"># Process with retry logic</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>            <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_with_retry</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">max_retries</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">process_with_retry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">,</span> <span class="n">max_retries</span><span class="p">):</span>
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>        <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_retries</span><span class="p">):</span>
-<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>            <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>                <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute_task</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">mark_complete</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
-<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>                <span class="k">return</span>
-<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>            <span class="k">except</span> <span class="n">RetryableException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>                <span class="k">if</span> <span class="n">attempt</span> <span class="o">==</span> <span class="n">max_retries</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">mark_failed</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
-<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>                <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>                    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">attempt</span><span class="p">)</span>  <span class="c1"># Exponential backoff</span>
-</code></pre></div></p>
-<p><strong>Guarantees</strong>:
-- Eventual completion
-- Worker failure tolerance
-- Batch efficiency</p>
-<h3 id="graph-pattern-p1p18p11">Graph Pattern (P1+P18+P11)</h3>
-<p><strong>Problem</strong>: How to efficiently query and traverse graph data structures?</p>
-<p><strong>Solution</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GraphQueryEngine</span><span class="p">:</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_store</span><span class="p">,</span> <span class="n">cache</span><span class="p">):</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">store</span> <span class="o">=</span> <span class="n">graph_store</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="n">cache</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">traverse_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_node</span><span class="p">,</span> <span class="n">traversal_pattern</span><span class="p">):</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        <span class="c1"># Check cache first</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>        <span class="n">cache_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;traversal:</span><span class="si">{</span><span class="n">start_node</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="nb">hash</span><span class="p">(</span><span class="n">traversal_pattern</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>        <span class="k">if</span> <span class="n">cached_result</span> <span class="o">:=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cache_key</span><span class="p">):</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>            <span class="k">return</span> <span class="n">cached_result</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>        <span class="c1"># Partition-aware traversal</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>        <span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>        <span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="n">start_node</span><span class="p">])</span>
-<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
-<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>        <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
-<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>            <span class="n">node</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>
-<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>            <span class="k">if</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
-<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>                <span class="k">continue</span>
-<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>
-<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>            <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>
-<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>            <span class="c1"># Load node data with index optimization</span>
-<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>            <span class="n">node_data</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">store</span><span class="o">.</span><span class="n">get_node_with_edges</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
-<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node_data</span><span class="p">)</span>
-<a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
-<a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>            <span class="c1"># Add neighbors to queue based on pattern</span>
-<a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>            <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_pattern</span><span class="p">(</span><span class="n">node_data</span><span class="p">,</span> <span class="n">traversal_pattern</span><span class="p">):</span>
-<a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>                <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neighbor</span><span class="p">)</span>
-<a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>
-<a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>        <span class="c1"># Cache results for future queries</span>
-<a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">cache_key</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-<a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>        <span class="k">return</span> <span class="n">results</span>
-</code></pre></div></p>
-<p><strong>Guarantees</strong>:
-- Index-optimized queries
-- Distributed traversal capability
-- Cached performance</p>
-<h3 id="ledger-pattern-p3p5p13">Ledger Pattern (P3+P5+P13)</h3>
-<p><strong>Problem</strong>: How to implement immutable transaction ledger with strong consistency?</p>
-<p><strong>Solution</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">DistributedLedger</span><span class="p">:</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">consensus_group</span><span class="p">):</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">consensus</span> <span class="o">=</span> <span class="n">consensus_group</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">lock_manager</span> <span class="o">=</span> <span class="n">DistributedLockManager</span><span class="p">()</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">ImmutableLog</span><span class="p">()</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">record_transaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transaction</span><span class="p">):</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>        <span class="c1"># Acquire locks for all affected accounts</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>        <span class="n">locks</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>        <span class="k">for</span> <span class="n">account</span> <span class="ow">in</span> <span class="n">transaction</span><span class="o">.</span><span class="n">accounts</span><span class="p">:</span>
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>            <span class="n">lock</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock_manager</span><span class="o">.</span><span class="n">acquire</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;account:</span><span class="si">{</span><span class="n">account</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>            <span class="n">locks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lock</span><span class="p">)</span>
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>            <span class="c1"># Validate transaction</span>
-<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_transaction</span><span class="p">(</span><span class="n">transaction</span><span class="p">):</span>
-<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>                <span class="k">raise</span> <span class="n">InvalidTransactionError</span><span class="p">()</span>
-<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>
-<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>            <span class="c1"># Achieve consensus on transaction</span>
-<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>            <span class="n">consensus_result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">consensus</span><span class="o">.</span><span class="n">propose</span><span class="p">(</span><span class="n">transaction</span><span class="p">)</span>
-<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>
-<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>            <span class="k">if</span> <span class="n">consensus_result</span><span class="o">.</span><span class="n">accepted</span><span class="p">:</span>
-<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>                <span class="c1"># Append to immutable log</span>
-<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a>                <span class="n">entry</span> <span class="o">=</span> <span class="n">LedgerEntry</span><span class="p">(</span>
-<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a>                    <span class="n">transaction</span><span class="o">=</span><span class="n">transaction</span><span class="p">,</span>
-<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a>                    <span class="n">timestamp</span><span class="o">=</span><span class="n">consensus_result</span><span class="o">.</span><span class="n">timestamp</span><span class="p">,</span>
-<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a>                    <span class="n">sequence</span><span class="o">=</span><span class="n">consensus_result</span><span class="o">.</span><span class="n">sequence</span>
-<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>                <span class="p">)</span>
-<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a>                <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
-<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>
-<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a>                <span class="k">return</span> <span class="n">entry</span><span class="o">.</span><span class="n">sequence</span>
-<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a>            <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a>                <span class="k">raise</span> <span class="n">ConsensusFailedError</span><span class="p">()</span>
-<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a>
-<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>        <span class="k">finally</span><span class="p">:</span>
-<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>            <span class="c1"># Release all locks</span>
-<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a>            <span class="k">for</span> <span class="n">lock</span> <span class="ow">in</span> <span class="n">locks</span><span class="p">:</span>
-<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a>                <span class="k">await</span> <span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-</code></pre></div></p>
-<p><strong>Guarantees</strong>:
-- Immutable transaction history
-- Strong consistency through consensus
-- ACID properties for financial operations</p>
-<h3 id="ml-inference-pattern-p11p12p4">ML Inference Pattern (P11+P12+P4)</h3>
-<p><strong>Problem</strong>: How to serve machine learning models at scale with low latency?</p>
-<p><strong>Solution</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MLInferenceService</span><span class="p">:</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_cache</span><span class="p">,</span> <span class="n">load_balancer</span><span class="p">):</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="n">model_cache</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">balancer</span> <span class="o">=</span> <span class="n">load_balancer</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="n">features</span><span class="p">):</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>        <span class="c1"># Load model from cache</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>        <span class="n">model</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">model</span><span class="p">:</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>            <span class="n">model</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>        <span class="c1"># Fan-out for ensemble models</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>        <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">is_ensemble</span><span class="p">:</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>            <span class="n">predictions</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">ensemble_predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">aggregate_predictions</span><span class="p">(</span><span class="n">predictions</span><span class="p">)</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>            <span class="k">return</span> <span class="k">await</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
-<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>
-<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">ensemble_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ensemble_model</span><span class="p">,</span> <span class="n">features</span><span class="p">):</span>
-<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>        <span class="n">tasks</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>        <span class="k">for</span> <span class="n">sub_model</span> <span class="ow">in</span> <span class="n">ensemble_model</span><span class="o">.</span><span class="n">models</span><span class="p">:</span>
-<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>            <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">sub_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features</span><span class="p">))</span>
-<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>            <span class="n">tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>
-<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>        <span class="k">return</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">)</span>
-</code></pre></div></p>
-<p><strong>Guarantees</strong>:
-- Low latency through caching
-- High availability through load balancing
-- Parallel inference for ensemble models</p>
-<h3 id="search-pattern-p18p11p4">Search Pattern (P18+P11+P4)</h3>
-<p><strong>Problem</strong>: How to implement fast, relevant search across large datasets?</p>
-<p><strong>Solution</strong>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">DistributedSearchEngine</span><span class="p">:</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index_shards</span><span class="p">,</span> <span class="n">cache</span><span class="p">):</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">shards</span> <span class="o">=</span> <span class="n">index_shards</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="n">cache</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>        <span class="c1"># Check cache for popular queries</span>
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>        <span class="n">cache_key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;search:</span><span class="si">{</span><span class="nb">hash</span><span class="p">(</span><span class="n">query</span><span class="p">)</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="nb">hash</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>        <span class="k">if</span> <span class="n">cached_results</span> <span class="o">:=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cache_key</span><span class="p">):</span>
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>            <span class="k">return</span> <span class="n">cached_results</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
-<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>        <span class="c1"># Fan-out search to all shards</span>
-<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>        <span class="n">shard_tasks</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>        <span class="k">for</span> <span class="n">shard</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">shards</span><span class="p">:</span>
-<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>            <span class="n">task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span>
-<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>                <span class="n">shard</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>            <span class="p">)</span>
-<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>            <span class="n">shard_tasks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
-<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>
-<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>        <span class="c1"># Gather results from all shards</span>
-<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>        <span class="n">shard_results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">shard_tasks</span><span class="p">)</span>
-<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>
-<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>        <span class="c1"># Merge and rank results globally</span>
-<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>        <span class="n">merged_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">merge_and_rank</span><span class="p">(</span><span class="n">shard_results</span><span class="p">)</span>
-<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>
-<a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>        <span class="c1"># Cache popular results</span>
-<a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_popular_query</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
-<a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">cache_key</span><span class="p">,</span> <span class="n">merged_results</span><span class="p">,</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
-<a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>
-<a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a>        <span class="k">return</span> <span class="n">merged_results</span>
-</code></pre></div></p>
-<p><strong>Guarantees</strong>:
-- Fast lookup through indexing
-- Distributed scalability
-- Relevance ranking</p>
-<h2 id="pattern-selection-matrix">Pattern Selection Matrix</h2>
+<p>The Outbox pattern solves the dual-write problem by using a single database transaction to update business data and publish events atomically.</p>
+<pre class="mermaid"><code>graph TB
+    subgraph EdgePlane[Edge Plane]
+        API[Order API&lt;br/&gt;p99: 50ms&lt;br/&gt;10K RPS]
+    end
+
+    subgraph ServicePlane[Service Plane]
+        ORDER[Order Service&lt;br/&gt;Java 17&lt;br/&gt;Business Logic]
+        CDC[CDC Processor&lt;br/&gt;Debezium&lt;br/&gt;Change Capture]
+    end
+
+    subgraph StatePlane[State Plane]
+        DB[(PostgreSQL&lt;br/&gt;Orders + Outbox&lt;br/&gt;ACID transactions)]
+        STREAM[(Kafka&lt;br/&gt;Order Events&lt;br/&gt;Exactly-once)]
+        DLQ[(Dead Letter Queue&lt;br/&gt;Failed Events&lt;br/&gt;Retry logic)]
+    end
+
+    subgraph ControlPlane[Control Plane]
+        MON[Monitoring&lt;br/&gt;Lag tracking&lt;br/&gt;Failure alerts]
+    end
+
+    %% Normal flow
+    API --&gt; ORDER
+    ORDER --&gt; DB
+    DB --&gt; CDC
+    CDC --&gt; STREAM
+
+    %% Failure scenarios
+    CDC -.-&gt;|Processing failure| DLQ
+    STREAM -.-&gt;|Downstream failure| DLQ
+    DB -.-&gt;|Transaction rollback| ORDER
+
+    %% Monitoring
+    CDC --&gt; MON
+    STREAM --&gt; MON
+    DLQ --&gt; MON
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class API edgeStyle
+    class ORDER,CDC serviceStyle
+    class DB,STREAM,DLQ stateStyle
+    class MON controlStyle</code></pre>
+<h2 id="outbox-pattern-implementation">Outbox Pattern Implementation</h2>
 <table>
 <thead>
 <tr>
-<th><strong>Requirement</strong></th>
-<th><strong>Recommended Pattern</strong></th>
-<th><strong>Alternative</strong></th>
-<th><strong>Avoid</strong></th>
+<th>Component</th>
+<th>Purpose</th>
+<th>Configuration</th>
+<th>Failure Mode</th>
+<th>Recovery</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Atomic multi-service operation</td>
+<td>Business Table</td>
+<td>Store order data</td>
+<td>PostgreSQL, ACID</td>
+<td>Transaction rollback</td>
+<td>Retry from client</td>
+</tr>
+<tr>
+<td>Outbox Table</td>
+<td>Event staging</td>
+<td>Same DB, event_id PK</td>
+<td>Constraint violation</td>
+<td>Idempotent retry</td>
+</tr>
+<tr>
+<td>CDC Process</td>
+<td>Event publishing</td>
+<td>Debezium connector</td>
+<td>Processing lag</td>
+<td>Restart with offset</td>
+</tr>
+<tr>
+<td>Kafka Topic</td>
+<td>Event distribution</td>
+<td>3 partitions, RF=3</td>
+<td>Leader failure</td>
+<td>Auto failover</td>
+</tr>
+<tr>
+<td>Dead Letter Queue</td>
+<td>Failed events</td>
+<td>SQS, 14-day retention</td>
+<td>Message loss</td>
+<td>Manual replay</td>
+</tr>
+</tbody>
+</table>
+<h3 id="saga-pattern-p3p7p8">Saga Pattern (P3+P7+P8)</h3>
+<p>The Saga pattern manages distributed transactions through forward recovery and compensating actions, ensuring eventual consistency across services.</p>
+<pre class="mermaid"><code>graph TB
+    subgraph EdgePlane[Edge Plane]
+        CLIENT[Client Request&lt;br/&gt;Order Placement&lt;br/&gt;p99: 5s timeout]
+    end
+
+    subgraph ServicePlane[Service Plane]
+        ORCH[Saga Orchestrator&lt;br/&gt;State Machine&lt;br/&gt;Durable Storage]
+        PAY[Payment Service&lt;br/&gt;Stripe Integration&lt;br/&gt;Idempotent]
+        INV[Inventory Service&lt;br/&gt;Stock Management&lt;br/&gt;Pessimistic Lock]
+        SHIP[Shipping Service&lt;br/&gt;Fulfillment API&lt;br/&gt;External Partner]
+    end
+
+    subgraph StatePlane[State Plane]
+        SAGA_DB[(Saga State DB&lt;br/&gt;MongoDB&lt;br/&gt;Execution Log)]
+        EVENT_LOG[(Event Stream&lt;br/&gt;Kafka&lt;br/&gt;Audit Trail)]
+        COMP_QUEUE[(Compensation Queue&lt;br/&gt;SQS&lt;br/&gt;Failed Steps)]
+    end
+
+    subgraph ControlPlane[Control Plane]
+        MON[Saga Monitor&lt;br/&gt;Stuck Detection&lt;br/&gt;SLA Tracking]
+    end
+
+    %% Normal flow
+    CLIENT --&gt; ORCH
+    ORCH --&gt; PAY
+    ORCH --&gt; INV
+    ORCH --&gt; SHIP
+
+    %% State management
+    ORCH --&gt; SAGA_DB
+    ORCH --&gt; EVENT_LOG
+
+    %% Failure compensation
+    PAY -.-&gt;|Timeout/Failure| COMP_QUEUE
+    INV -.-&gt;|Insufficient Stock| COMP_QUEUE
+    SHIP -.-&gt;|Delivery Error| COMP_QUEUE
+    COMP_QUEUE -.-&gt;|Compensate| PAY
+    COMP_QUEUE -.-&gt;|Compensate| INV
+
+    %% Monitoring
+    ORCH --&gt; MON
+    COMP_QUEUE --&gt; MON
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class CLIENT edgeStyle
+    class ORCH,PAY,INV,SHIP serviceStyle
+    class SAGA_DB,EVENT_LOG,COMP_QUEUE stateStyle
+    class MON controlStyle</code></pre>
+<h2 id="saga-implementation-components">Saga Implementation Components</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Forward Action</th>
+<th>Compensation</th>
+<th>Timeout</th>
+<th>Idempotency</th>
+<th>Monitoring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Payment</td>
+<td>Charge credit card</td>
+<td>Refund amount</td>
+<td>30s</td>
+<td>Payment ID</td>
+<td>Transaction status</td>
+</tr>
+<tr>
+<td>Inventory</td>
+<td>Reserve items</td>
+<td>Release reservation</td>
+<td>15s</td>
+<td>Reservation ID</td>
+<td>Stock levels</td>
+</tr>
+<tr>
+<td>Shipping</td>
+<td>Create shipment</td>
+<td>Cancel order</td>
+<td>60s</td>
+<td>Tracking number</td>
+<td>Delivery status</td>
+</tr>
+<tr>
+<td>Notification</td>
+<td>Send confirmation</td>
+<td>Send cancellation</td>
+<td>5s</td>
+<td>Message ID</td>
+<td>Delivery receipt</td>
+</tr>
+</tbody>
+</table>
+<h2 id="saga-state-transitions">Saga State Transitions</h2>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Next Action</th>
+<th>Failure Response</th>
+<th>Timeout</th>
+<th>Retry Policy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STARTED</td>
+<td>Charge payment</td>
+<td>COMPENSATING</td>
+<td>30s</td>
+<td>Exponential backoff</td>
+</tr>
+<tr>
+<td>PAYMENT_OK</td>
+<td>Reserve inventory</td>
+<td>COMPENSATING</td>
+<td>15s</td>
+<td>3 retries max</td>
+</tr>
+<tr>
+<td>INVENTORY_OK</td>
+<td>Create shipment</td>
+<td>COMPENSATING</td>
+<td>60s</td>
+<td>2 retries max</td>
+</tr>
+<tr>
+<td>SHIPPING_OK</td>
+<td>Send notification</td>
+<td>COMPLETED</td>
+<td>5s</td>
+<td>1 retry only</td>
+</tr>
+<tr>
+<td>COMPENSATING</td>
+<td>Run compensation</td>
+<td>FAILED</td>
+<td>120s</td>
+<td>Manual intervention</td>
+</tr>
+</tbody>
+</table>
+<h3 id="escrow-pattern-p1p5p13">Escrow Pattern (P1+P5+P13)</h3>
+<p>The Escrow pattern handles high-contention resources through sharding, distributed locking, and time-based reservations.</p>
+<pre class="mermaid"><code>graph TB
+    subgraph EdgePlane[Edge Plane]
+        LB[Load Balancer&lt;br/&gt;Consistent Hashing&lt;br/&gt;Route by item_id]
+    end
+
+    subgraph ServicePlane[Service Plane]
+        INV1[Inventory Shard 1&lt;br/&gt;Items 0-333&lt;br/&gt;Distributed Lock]
+        INV2[Inventory Shard 2&lt;br/&gt;Items 334-666&lt;br/&gt;Distributed Lock]
+        INV3[Inventory Shard 3&lt;br/&gt;Items 667-999&lt;br/&gt;Distributed Lock]
+    end
+
+    subgraph StatePlane[State Plane]
+        DB1[(PostgreSQL 1&lt;br/&gt;Inventory + Escrow&lt;br/&gt;ACID guarantees)]
+        DB2[(PostgreSQL 2&lt;br/&gt;Inventory + Escrow&lt;br/&gt;ACID guarantees)]
+        DB3[(PostgreSQL 3&lt;br/&gt;Inventory + Escrow&lt;br/&gt;ACID guarantees)]
+        LOCK_MGR[(Consensus Group&lt;br/&gt;etcd cluster&lt;br/&gt;Distributed locks)]
+    end
+
+    subgraph ControlPlane[Control Plane]
+        TTL[TTL Manager&lt;br/&gt;Cleanup expired&lt;br/&gt;reservations]
+        MON[Lock Monitor&lt;br/&gt;Contention alerts&lt;br/&gt;Performance SLA]
+    end
+
+    %% Request routing
+    LB --&gt;|hash(item_id) % 3| INV1
+    LB --&gt;|hash(item_id) % 3| INV2
+    LB --&gt;|hash(item_id) % 3| INV3
+
+    %% Storage
+    INV1 --&gt; DB1
+    INV2 --&gt; DB2
+    INV3 --&gt; DB3
+
+    %% Distributed locking
+    INV1 --&gt; LOCK_MGR
+    INV2 --&gt; LOCK_MGR
+    INV3 --&gt; LOCK_MGR
+
+    %% Management
+    DB1 --&gt; TTL
+    DB2 --&gt; TTL
+    DB3 --&gt; TTL
+    LOCK_MGR --&gt; MON
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class LB edgeStyle
+    class INV1,INV2,INV3 serviceStyle
+    class DB1,DB2,DB3,LOCK_MGR stateStyle
+    class TTL,MON controlStyle</code></pre>
+<h2 id="escrow-implementation">Escrow Implementation</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+<th>Configuration</th>
+<th>Invariants</th>
+<th>Failure Recovery</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shard Router</td>
+<td>Distribute load</td>
+<td>Consistent hashing</td>
+<td>Even distribution</td>
+<td>Failover to replica</td>
+</tr>
+<tr>
+<td>Distributed Lock</td>
+<td>Prevent races</td>
+<td>10s timeout, consensus</td>
+<td>Single writer</td>
+<td>Lock timeout release</td>
+</tr>
+<tr>
+<td>Reservation Table</td>
+<td>Temporary hold</td>
+<td>TTL 300s, item_id index</td>
+<td>reserved + available ≤ total</td>
+<td>TTL expiration</td>
+</tr>
+<tr>
+<td>Inventory Table</td>
+<td>Current stock</td>
+<td>ACID transactions</td>
+<td>No negative values</td>
+<td>Rollback on constraint</td>
+</tr>
+<tr>
+<td>Cleanup Process</td>
+<td>Expire old reservations</td>
+<td>Run every 60s</td>
+<td>Release expired locks</td>
+<td>Manual intervention</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cqrs-pattern-p19p3p11">CQRS Pattern (P19+P3+P11)</h3>
+<p>CQRS separates read and write models to optimize each for their specific workload characteristics and scaling requirements.</p>
+<pre class="mermaid"><code>graph TB
+    subgraph EdgePlane[Edge Plane]
+        WRITE_API[Write API&lt;br/&gt;Orders/Commands&lt;br/&gt;p99: 100ms]
+        READ_API[Read API&lt;br/&gt;Queries/GraphQL&lt;br/&gt;p99: 10ms]
+    end
+
+    subgraph ServicePlane[Service Plane]
+        COMMAND[Command Handler&lt;br/&gt;Business Rules&lt;br/&gt;Validation]
+        PROJECTION[Projection Builder&lt;br/&gt;Event Processing&lt;br/&gt;Multiple views]
+        QUERY[Query Handler&lt;br/&gt;Read Optimization&lt;br/&gt;Caching]
+    end
+
+    subgraph StatePlane[State Plane]
+        WRITE_DB[(Write Store&lt;br/&gt;PostgreSQL&lt;br/&gt;Normalized, ACID)]
+        EVENT_STREAM[(Event Stream&lt;br/&gt;Kafka&lt;br/&gt;Change events)]
+        READ_CACHE[(Read Cache&lt;br/&gt;Redis&lt;br/&gt;Query optimization)]
+        READ_DB[(Read Store&lt;br/&gt;Elasticsearch&lt;br/&gt;Denormalized)]
+    end
+
+    subgraph ControlPlane[Control Plane]
+        LAG_MON[Lag Monitor&lt;br/&gt;Projection delay&lt;br/&gt;SLA tracking]
+        REBUILD[Rebuild Service&lt;br/&gt;Projection recovery&lt;br/&gt;Event replay]
+    end
+
+    %% Write path
+    WRITE_API --&gt; COMMAND
+    COMMAND --&gt; WRITE_DB
+    WRITE_DB --&gt; EVENT_STREAM
+
+    %% Read path
+    READ_API --&gt; QUERY
+    QUERY --&gt; READ_CACHE
+    QUERY --&gt; READ_DB
+
+    %% Event processing
+    EVENT_STREAM --&gt; PROJECTION
+    PROJECTION --&gt; READ_DB
+    PROJECTION --&gt; READ_CACHE
+
+    %% Fallback path
+    QUERY -.-&gt;|Cache miss + critical| WRITE_DB
+
+    %% Management
+    EVENT_STREAM --&gt; LAG_MON
+    PROJECTION --&gt; LAG_MON
+    LAG_MON --&gt; REBUILD
+    REBUILD --&gt; PROJECTION
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class WRITE_API,READ_API edgeStyle
+    class COMMAND,PROJECTION,QUERY serviceStyle
+    class WRITE_DB,EVENT_STREAM,READ_CACHE,READ_DB stateStyle
+    class LAG_MON,REBUILD controlStyle</code></pre>
+<h2 id="cqrs-implementation-matrix">CQRS Implementation Matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Write Side</th>
+<th>Read Side</th>
+<th>Event Stream</th>
+<th>Cache Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Purpose</td>
+<td>Business logic</td>
+<td>Query optimization</td>
+<td>State sync</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td>Technology</td>
+<td>PostgreSQL</td>
+<td>Elasticsearch</td>
+<td>Kafka</td>
+<td>Redis</td>
+</tr>
+<tr>
+<td>Consistency</td>
+<td>Strong (ACID)</td>
+<td>Eventual</td>
+<td>At-least-once</td>
+<td>TTL-based</td>
+</tr>
+<tr>
+<td>Scaling</td>
+<td>Vertical</td>
+<td>Horizontal</td>
+<td>Partition-based</td>
+<td>Memory-bound</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>50-100ms</td>
+<td>1-10ms</td>
+<td>100-500ms lag</td>
+<td>Sub-millisecond</td>
+</tr>
+<tr>
+<td>Failure Mode</td>
+<td>Transaction rollback</td>
+<td>Stale data served</td>
+<td>Event replay</td>
+<td>Cache miss fallback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="request-response-pattern-p1p8p9p12">Request-Response Pattern (P1+P8+P9+P12)</h3>
+<p>The Request-Response pattern provides reliable synchronous communication with fault tolerance, load distribution, and performance optimization.</p>
+<pre class="mermaid"><code>graph LR
+    subgraph EdgePlane[Edge Plane]
+        CLIENT[Client&lt;br/&gt;Timeout: 30s&lt;br/&gt;Retry: 3x]
+        LB[Load Balancer&lt;br/&gt;Health checks&lt;br/&gt;Round-robin]
+    end
+
+    subgraph ServicePlane[Service Plane]
+        CB[Circuit Breaker&lt;br/&gt;Failure threshold: 50%&lt;br/&gt;Recovery: 30s]
+        SERVER1[Server Instance 1&lt;br/&gt;Healthy&lt;br/&gt;p99: 50ms]
+        SERVER2[Server Instance 2&lt;br/&gt;Healthy&lt;br/&gt;p99: 45ms]
+        SERVER3[Server Instance 3&lt;br/&gt;Degraded&lt;br/&gt;p99: 200ms]
+    end
+
+    subgraph StatePlane[State Plane]
+        CACHE[(Cache&lt;br/&gt;Redis&lt;br/&gt;Hit ratio: 85%)]
+        DB[(Database&lt;br/&gt;PostgreSQL&lt;br/&gt;Connection pool)]
+    end
+
+    subgraph ControlPlane[Control Plane]
+        HEALTH[Health Monitor&lt;br/&gt;Endpoint checks&lt;br/&gt;Auto-scaling]
+        METRICS[Metrics&lt;br/&gt;Latency tracking&lt;br/&gt;Error rates]
+    end
+
+    %% Request flow
+    CLIENT --&gt; LB
+    LB --&gt; CB
+    CB --&gt; SERVER1
+    CB --&gt; SERVER2
+    CB -.-&gt;|Circuit open| SERVER3
+
+    %% Data access
+    SERVER1 --&gt; CACHE
+    SERVER2 --&gt; CACHE
+    SERVER3 --&gt; CACHE
+    CACHE -.-&gt;|Miss| DB
+    SERVER1 -.-&gt;|Cache bypass| DB
+
+    %% Monitoring
+    LB --&gt; HEALTH
+    CB --&gt; METRICS
+    SERVER1 --&gt; METRICS
+    SERVER2 --&gt; METRICS
+    SERVER3 --&gt; HEALTH
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class CLIENT,LB edgeStyle
+    class CB,SERVER1,SERVER2,SERVER3 serviceStyle
+    class CACHE,DB stateStyle
+    class HEALTH,METRICS controlStyle</code></pre>
+<h2 id="request-response-scale-evolution">Request-Response Scale Evolution</h2>
+<table>
+<thead>
+<tr>
+<th>Scale Stage</th>
+<th>Architecture</th>
+<th>Throughput</th>
+<th>Latency p99</th>
+<th>Monthly Cost</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Startup</td>
+<td>Direct connection</td>
+<td>100 RPS</td>
+<td>100ms</td>
+<td>$500</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Growth</td>
+<td>Load balancer + circuit breaker</td>
+<td>1K RPS</td>
+<td>50ms</td>
+<td>$2K</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>Multi-region + auto-scaling</td>
+<td>10K RPS</td>
+<td>20ms</td>
+<td>$10K</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Hyperscale</td>
+<td>Global distribution + edge</td>
+<td>100K RPS</td>
+<td>10ms</td>
+<td>$50K</td>
+<td>Very High</td>
+</tr>
+</tbody>
+</table>
+<h3 id="streaming-pattern-p3p7p19">Streaming Pattern (P3+P7+P19)</h3>
+<p>The Streaming pattern processes continuous data streams with guaranteed ordering, fault tolerance, and exactly-once semantics.</p>
+<pre class="mermaid"><code>graph LR
+    subgraph EdgePlane[Edge Plane]
+        PRODUCER[Event Producers&lt;br/&gt;Multiple sources&lt;br/&gt;1M events/sec]
+    end
+
+    subgraph ServicePlane[Service Plane]
+        PROCESSOR1[Stream Processor 1&lt;br/&gt;Consumer Group A&lt;br/&gt;Stateful processing]
+        PROCESSOR2[Stream Processor 2&lt;br/&gt;Consumer Group B&lt;br/&gt;Analytics pipeline]
+    end
+
+    subgraph StatePlane[State Plane]
+        KAFKA[(Kafka Cluster&lt;br/&gt;3 partitions&lt;br/&gt;Replication: 3)]
+        STATE_STORE[(RocksDB&lt;br/&gt;Local state&lt;br/&gt;Changelog backup)]
+        SINK[(Output Sink&lt;br/&gt;Elasticsearch&lt;br/&gt;Time series)]
+    end
+
+    subgraph ControlPlane[Control Plane]
+        LAG_MON[Lag Monitor&lt;br/&gt;Consumer offset&lt;br/&gt;Processing delay]
+        REBALANCE[Rebalancer&lt;br/&gt;Partition assignment&lt;br/&gt;Failure detection]
+    end
+
+    %% Data flow
+    PRODUCER --&gt; KAFKA
+    KAFKA --&gt; PROCESSOR1
+    KAFKA --&gt; PROCESSOR2
+
+    %% State management
+    PROCESSOR1 --&gt; STATE_STORE
+    PROCESSOR2 --&gt; SINK
+
+    %% Failure handling
+    PROCESSOR1 -.-&gt;|Failure| REBALANCE
+    PROCESSOR2 -.-&gt;|Failure| REBALANCE
+    REBALANCE -.-&gt;|Reassign| PROCESSOR1
+
+    %% Monitoring
+    KAFKA --&gt; LAG_MON
+    PROCESSOR1 --&gt; LAG_MON
+    PROCESSOR2 --&gt; LAG_MON
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class PRODUCER edgeStyle
+    class PROCESSOR1,PROCESSOR2 serviceStyle
+    class KAFKA,STATE_STORE,SINK stateStyle
+    class LAG_MON,REBALANCE controlStyle</code></pre>
+<h2 id="streaming-implementation">Streaming Implementation</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+<th>Guarantees</th>
+<th>Failure Mode</th>
+<th>Recovery</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kafka Partitions</td>
+<td>Ordered event log</td>
+<td>Per-partition ordering</td>
+<td>Leader failure</td>
+<td>Follower promotion</td>
+</tr>
+<tr>
+<td>Consumer Groups</td>
+<td>Load distribution</td>
+<td>At-least-once delivery</td>
+<td>Consumer crash</td>
+<td>Partition rebalance</td>
+</tr>
+<tr>
+<td>State Stores</td>
+<td>Stateful processing</td>
+<td>Local consistency</td>
+<td>Disk failure</td>
+<td>Changelog replay</td>
+</tr>
+<tr>
+<td>Offset Management</td>
+<td>Progress tracking</td>
+<td>No message loss</td>
+<td>Coordinator failure</td>
+<td>Offset reset</td>
+</tr>
+<tr>
+<td>Dead Letter Topic</td>
+<td>Error handling</td>
+<td>Poison message isolation</td>
+<td>Processing failure</td>
+<td>Manual replay</td>
+</tr>
+</tbody>
+</table>
+<h3 id="event-sourcing-pattern-p3p14p7">Event Sourcing Pattern (P3+P14+P7)</h3>
+<p>Event Sourcing stores all state changes as immutable events, enabling complete audit trails, time travel, and deterministic replay.</p>
+<pre class="mermaid"><code>graph TB
+    subgraph EdgePlane[Edge Plane]
+        API[Command API&lt;br/&gt;Business operations&lt;br/&gt;Validation]
+    end
+
+    subgraph ServicePlane[Service Plane]
+        AGGREGATE[Aggregate Root&lt;br/&gt;Business logic&lt;br/&gt;Event generation]
+        PROJECTOR[Event Projector&lt;br/&gt;View generation&lt;br/&gt;Real-time updates]
+        SNAPSHOTTER[Snapshot Service&lt;br/&gt;Performance optimization&lt;br/&gt;Periodic saves]
+    end
+
+    subgraph StatePlane[State Plane]
+        EVENT_STORE[(Event Store&lt;br/&gt;Kafka/EventStore&lt;br/&gt;Immutable log)]
+        SNAPSHOT_STORE[(Snapshot Store&lt;br/&gt;S3/MongoDB&lt;br/&gt;Point-in-time state)]
+        VIEW_STORE[(View Store&lt;br/&gt;PostgreSQL&lt;br/&gt;Query optimization)]
+    end
+
+    subgraph ControlPlane[Control Plane]
+        REPLAY[Replay Service&lt;br/&gt;Event rebuilding&lt;br/&gt;Migration support]
+        ARCHIVE[Archive Manager&lt;br/&gt;Old event cleanup&lt;br/&gt;Compliance]
+    end
+
+    %% Command flow
+    API --&gt; AGGREGATE
+    AGGREGATE --&gt; EVENT_STORE
+
+    %% Event processing
+    EVENT_STORE --&gt; PROJECTOR
+    PROJECTOR --&gt; VIEW_STORE
+
+    %% Snapshots
+    AGGREGATE --&gt; SNAPSHOTTER
+    SNAPSHOTTER --&gt; SNAPSHOT_STORE
+    SNAPSHOT_STORE -.-&gt;|Load state| AGGREGATE
+
+    %% Management
+    EVENT_STORE --&gt; REPLAY
+    EVENT_STORE --&gt; ARCHIVE
+    REPLAY --&gt; VIEW_STORE
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class API edgeStyle
+    class AGGREGATE,PROJECTOR,SNAPSHOTTER serviceStyle
+    class EVENT_STORE,SNAPSHOT_STORE,VIEW_STORE stateStyle
+    class REPLAY,ARCHIVE controlStyle</code></pre>
+<h2 id="event-sourcing-components">Event Sourcing Components</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+<th>Storage</th>
+<th>Performance</th>
+<th>Failure Recovery</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Event Store</td>
+<td>Immutable event log</td>
+<td>Kafka topics</td>
+<td>100K events/sec</td>
+<td>Partition replication</td>
+</tr>
+<tr>
+<td>Snapshots</td>
+<td>Performance optimization</td>
+<td>S3/MongoDB</td>
+<td>1000 snapshots/sec</td>
+<td>Snapshot rebuilding</td>
+</tr>
+<tr>
+<td>Projections</td>
+<td>Query-optimized views</td>
+<td>PostgreSQL/ES</td>
+<td>10K queries/sec</td>
+<td>Event replay</td>
+</tr>
+<tr>
+<td>Command Handler</td>
+<td>Business logic</td>
+<td>Stateless</td>
+<td>50K commands/sec</td>
+<td>Retry with idempotency</td>
+</tr>
+<tr>
+<td>Event Handler</td>
+<td>View updates</td>
+<td>Stateless</td>
+<td>100K events/sec</td>
+<td>Dead letter queue</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fan-out-pattern-p1p4p8">Fan-out Pattern (P1+P4+P8)</h3>
+<pre class="mermaid"><code>graph LR
+    subgraph EdgePlane[Edge Plane - #0066CC]
+        REQUEST[Single Request&lt;br/&gt;Fan-out coordinator&lt;br/&gt;SLO: p99 &lt;30s]
+    end
+
+    subgraph ServicePlane[Service Plane - #00AA00]
+        SERVICE1[Service A&lt;br/&gt;p99: 10ms, 99% SLA&lt;br/&gt;Cost: $2K/month]
+        SERVICE2[Service B&lt;br/&gt;p99: 15ms, 95% SLA&lt;br/&gt;Cost: $3K/month]
+        SERVICE3[Service C&lt;br/&gt;p99: 20ms, 98% SLA&lt;br/&gt;Cost: $2.5K/month]
+        AGGREGATOR[Result Aggregator&lt;br/&gt;p99: 5ms merge&lt;br/&gt;Partial results: 90%]
+    end
+
+    subgraph StatePlane[State Plane - #FF8800]
+        RESULTS[(Aggregated Results&lt;br/&gt;JSON merge, 10GB/day&lt;br/&gt;Failure metadata)]
+    end
+
+    %% Fan-out
+    REQUEST --&gt; SERVICE1
+    REQUEST --&gt; SERVICE2
+    REQUEST --&gt; SERVICE3
+
+    %% Gather
+    SERVICE1 --&gt; AGGREGATOR
+    SERVICE2 --&gt; AGGREGATOR
+    SERVICE3 -.-&gt;|Timeout| AGGREGATOR
+    AGGREGATOR --&gt; RESULTS
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+
+    class REQUEST edgeStyle
+    class SERVICE1,SERVICE2,SERVICE3,AGGREGATOR serviceStyle
+    class RESULTS stateStyle</code></pre>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Timeout</th>
+<th>Success Rate</th>
+<th>Failure Handling</th>
+<th>Aggregation Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Service A</td>
+<td>30s</td>
+<td>99%</td>
+<td>Return partial</td>
+<td>Include in result</td>
+</tr>
+<tr>
+<td>Service B</td>
+<td>30s</td>
+<td>95%</td>
+<td>Log and continue</td>
+<td>Include in result</td>
+</tr>
+<tr>
+<td>Service C</td>
+<td>30s</td>
+<td>98%</td>
+<td>Fallback data</td>
+<td>Include fallback</td>
+</tr>
+<tr>
+<td>Aggregator</td>
+<td>35s total</td>
+<td>Depends on services</td>
+<td>Best-effort merge</td>
+<td>JSON combination</td>
+</tr>
+</tbody>
+</table>
+<h3 id="analytics-pattern-p4p5p10p12">Analytics Pattern (P4+P5+P10+P12)</h3>
+<pre class="mermaid"><code>graph TB
+    subgraph EdgePlane[Edge Plane - #0066CC]
+        QUERY_API[Analytics API&lt;br/&gt;SQL interface, p99: 2s&lt;br/&gt;10K queries/day]
+    end
+
+    subgraph ServicePlane[Service Plane - #00AA00]
+        QUERY_ENGINE[Query Engine&lt;br/&gt;Apache Spark 3.4&lt;br/&gt;1TB/hour processing]
+        ETL[ETL Processor&lt;br/&gt;Airflow orchestration&lt;br/&gt;500GB/day pipeline]
+    end
+
+    subgraph StatePlane[State Plane - #FF8800]
+        DWH[(Data Warehouse&lt;br/&gt;Snowflake, 100TB&lt;br/&gt;$50K/month)]
+        STAGING[(Staging Area&lt;br/&gt;S3, 10TB buffer&lt;br/&gt;7-day retention)]
+        METADATA[(Metadata Store&lt;br/&gt;Apache Atlas&lt;br/&gt;10K entities)]
+    end
+
+    subgraph ControlPlane[Control Plane - #CC0000]
+        WORKLOAD[Workload Manager&lt;br/&gt;Resource allocation&lt;br/&gt;Auto-scaling: 10-100 nodes]
+        SCHEDULER[Job Scheduler&lt;br/&gt;Airflow 2.7&lt;br/&gt;1K DAGs, 99.9% SLA]
+    end
+
+    %% Query flow
+    QUERY_API --&gt; QUERY_ENGINE
+    QUERY_ENGINE --&gt; DWH
+    QUERY_ENGINE --&gt; METADATA
+
+    %% ETL flow
+    STAGING --&gt; ETL
+    ETL --&gt; DWH
+    ETL --&gt; METADATA
+
+    %% Management
+    QUERY_ENGINE --&gt; WORKLOAD
+    ETL --&gt; SCHEDULER
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class QUERY_API edgeStyle
+    class QUERY_ENGINE,ETL serviceStyle
+    class DWH,STAGING,METADATA stateStyle
+    class WORKLOAD,SCHEDULER controlStyle</code></pre>
+<h2 id="analytics-pattern-variants">Analytics Pattern Variants</h2>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Latency</th>
+<th>Throughput</th>
+<th>Consistency</th>
+<th>Use Case</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Real-Time</td>
+<td>&lt;1s</td>
+<td>10K queries/sec</td>
+<td>Near real-time</td>
+<td>Dashboards</td>
+<td>Apache Druid</td>
+</tr>
+<tr>
+<td>Batch</td>
+<td>Hours</td>
+<td>1M records/sec</td>
+<td>Eventually consistent</td>
+<td>Reports</td>
+<td>Apache Spark</td>
+</tr>
+<tr>
+<td>Hybrid (Lambda)</td>
+<td>1s-1min</td>
+<td>100K queries/sec</td>
+<td>Configurable</td>
+<td>Mixed workload</td>
+<td>Spark + Druid</td>
+</tr>
+<tr>
+<td>Streaming</td>
+<td>&lt;100ms</td>
+<td>1K queries/sec</td>
+<td>Event-time</td>
+<td>Live monitoring</td>
+<td>Apache Flink</td>
+</tr>
+</tbody>
+</table>
+<h3 id="async-task-pattern-p7p16p8">Async Task Pattern (P7+P16+P8)</h3>
+<pre class="mermaid"><code>graph TB
+    subgraph EdgePlane[Edge Plane]
+        PRODUCER[Task Producer&lt;br/&gt;Job submission&lt;br/&gt;Priority queuing]
+    end
+
+    subgraph ServicePlane[Service Plane]
+        WORKER1[Worker 1&lt;br/&gt;Batch size: 10&lt;br/&gt;Max retries: 3]
+        WORKER2[Worker 2&lt;br/&gt;Batch size: 10&lt;br/&gt;Max retries: 3]
+        WORKER3[Worker 3&lt;br/&gt;Batch size: 10&lt;br/&gt;Max retries: 3]
+    end
+
+    subgraph StatePlane[State Plane]
+        TASK_QUEUE[(Task Queue&lt;br/&gt;SQS/RabbitMQ&lt;br/&gt;FIFO with priority)]
+        DLQ[(Dead Letter Queue&lt;br/&gt;Failed tasks&lt;br/&gt;Manual retry)]
+        RESULT_STORE[(Result Store&lt;br/&gt;Task outcomes&lt;br/&gt;Status tracking)]
+    end
+
+    subgraph ControlPlane[Control Plane]
+        SCHEDULER[Task Scheduler&lt;br/&gt;Worker scaling&lt;br/&gt;Load balancing]
+        MONITOR[Task Monitor&lt;br/&gt;Progress tracking&lt;br/&gt;SLA alerts]
+    end
+
+    %% Task flow
+    PRODUCER --&gt; TASK_QUEUE
+    TASK_QUEUE --&gt; WORKER1
+    TASK_QUEUE --&gt; WORKER2
+    TASK_QUEUE --&gt; WORKER3
+
+    %% Results and failures
+    WORKER1 --&gt; RESULT_STORE
+    WORKER2 --&gt; RESULT_STORE
+    WORKER3 --&gt; RESULT_STORE
+    WORKER1 -.-&gt;|Max retries| DLQ
+    WORKER2 -.-&gt;|Max retries| DLQ
+    WORKER3 -.-&gt;|Max retries| DLQ
+
+    %% Management
+    TASK_QUEUE --&gt; SCHEDULER
+    RESULT_STORE --&gt; MONITOR
+    DLQ --&gt; MONITOR
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class PRODUCER edgeStyle
+    class WORKER1,WORKER2,WORKER3 serviceStyle
+    class TASK_QUEUE,DLQ,RESULT_STORE stateStyle
+    class SCHEDULER,MONITOR controlStyle</code></pre>
+<table>
+<thead>
+<tr>
+<th>Task Type</th>
+<th>Processing Time</th>
+<th>Retry Strategy</th>
+<th>Batch Size</th>
+<th>Failure Rate</th>
+<th>Recovery</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Email Send</td>
+<td>100ms</td>
+<td>3 retries, exp backoff</td>
+<td>50</td>
+<td>1%</td>
+<td>DLQ replay</td>
+</tr>
+<tr>
+<td>Image Resize</td>
+<td>2s</td>
+<td>2 retries, linear</td>
+<td>10</td>
+<td>5%</td>
+<td>Manual retry</td>
+</tr>
+<tr>
+<td>Data Export</td>
+<td>30s</td>
+<td>1 retry only</td>
+<td>1</td>
+<td>10%</td>
+<td>Alert ops team</td>
+</tr>
+<tr>
+<td>Report Generation</td>
+<td>5min</td>
+<td>No retries</td>
+<td>1</td>
+<td>15%</td>
+<td>Customer notification</td>
+</tr>
+</tbody>
+</table>
+<h3 id="graph-pattern-p1p18p11">Graph Pattern (P1+P18+P11)</h3>
+<p>Optimized graph traversal with caching and distributed storage.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Technology</th>
+<th>Performance</th>
+<th>Guarantee</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Graph Store</td>
+<td>Neo4j 5.x</td>
+<td>10K traversals/sec</td>
+<td>ACID transactions</td>
+<td>$5K/month</td>
+</tr>
+<tr>
+<td>Cache Layer</td>
+<td>Redis 7.x</td>
+<td>100K queries/sec</td>
+<td>TTL-based consistency</td>
+<td>$2K/month</td>
+</tr>
+<tr>
+<td>Query Engine</td>
+<td>GraphQL API</td>
+<td>p99: 50ms</td>
+<td>Index optimization</td>
+<td>$3K/month</td>
+</tr>
+<tr>
+<td>Partitioner</td>
+<td>Consistent hash</td>
+<td>1M nodes/partition</td>
+<td>Balanced distribution</td>
+<td>Included</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ledger-pattern-p3p5p13">Ledger Pattern (P3+P5+P13)</h3>
+<p>Immutable transaction ledger with consensus and strong consistency.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Technology</th>
+<th>Throughput</th>
+<th>Consistency</th>
+<th>Recovery Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consensus Layer</td>
+<td>Raft/etcd 3.5</td>
+<td>10K TPS</td>
+<td>Strong consistency</td>
+<td>&lt;5s leader election</td>
+</tr>
+<tr>
+<td>Lock Manager</td>
+<td>Distributed locks</td>
+<td>1M locks/sec</td>
+<td>Deadlock detection</td>
+<td>30s timeout</td>
+</tr>
+<tr>
+<td>Immutable Log</td>
+<td>Apache Kafka</td>
+<td>100K writes/sec</td>
+<td>Append-only</td>
+<td>Partition replication</td>
+</tr>
+<tr>
+<td>Validation Engine</td>
+<td>Business rules</td>
+<td>50K validations/sec</td>
+<td>ACID guarantees</td>
+<td>Transaction rollback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ml-inference-pattern-p11p12p4">ML Inference Pattern (P11+P12+P4)</h3>
+<p>Scalable ML model serving with low latency and high availability.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Technology</th>
+<th>Performance</th>
+<th>Cache Hit Rate</th>
+<th>Monthly Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model Cache</td>
+<td>Redis + GPU memory</td>
+<td>p99: 10ms</td>
+<td>95%</td>
+<td>$15K GPU instances</td>
+</tr>
+<tr>
+<td>Load Balancer</td>
+<td>NVIDIA Triton</td>
+<td>10K inferences/sec</td>
+<td>N/A</td>
+<td>$2K</td>
+</tr>
+<tr>
+<td>Ensemble Engine</td>
+<td>TensorFlow Serving</td>
+<td>5K parallel calls</td>
+<td>N/A</td>
+<td>$8K</td>
+</tr>
+<tr>
+<td>Model Store</td>
+<td>S3 + CDN</td>
+<td>1GB/s transfer</td>
+<td>90% edge hit</td>
+<td>$1K</td>
+</tr>
+</tbody>
+</table>
+<h3 id="search-pattern-p18p11p4">Search Pattern (P18+P11+P4)</h3>
+<p>Distributed search with indexing, caching, and relevance ranking.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Technology</th>
+<th>Query Rate</th>
+<th>Index Size</th>
+<th>Relevance Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Search Engine</td>
+<td>Elasticsearch 8.x</td>
+<td>50K queries/sec</td>
+<td>1TB per shard</td>
+<td>&gt;95% precision</td>
+</tr>
+<tr>
+<td>Index Shards</td>
+<td>20 shards/cluster</td>
+<td>2.5K queries/shard</td>
+<td>50GB average</td>
+<td>Auto-rebalancing</td>
+</tr>
+<tr>
+<td>Result Cache</td>
+<td>Redis cluster</td>
+<td>100K hits/sec</td>
+<td>10GB cache</td>
+<td>85% hit rate</td>
+</tr>
+<tr>
+<td>Ranking Engine</td>
+<td>ML-based scoring</td>
+<td>p99: 20ms</td>
+<td>Real-time updates</td>
+<td>Learning feedback</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pattern-selection-decision-matrix">Pattern Selection Decision Matrix</h2>
+<pre class="mermaid"><code>flowchart TD
+    START[System Requirement] --&gt; TYPE{Problem Type}
+
+    TYPE --&gt;|Data Consistency| CONSISTENCY{Consistency Level}
+    TYPE --&gt;|Performance| PERFORMANCE{Bottleneck Type}
+    TYPE --&gt;|Reliability| RELIABILITY{Failure Type}
+    TYPE --&gt;|Scale| SCALE{Scale Dimension}
+
+    CONSISTENCY --&gt;|Strong| STRONG_PATTERNS[Event Sourcing&lt;br/&gt;CQRS with sync&lt;br/&gt;Escrow]
+    CONSISTENCY --&gt;|Eventual| EVENTUAL_PATTERNS[Outbox&lt;br/&gt;Saga&lt;br/&gt;CQRS]
+
+    PERFORMANCE --&gt;|Read Heavy| READ_PATTERNS[CQRS&lt;br/&gt;Cache-aside&lt;br/&gt;Read Replicas]
+    PERFORMANCE --&gt;|Write Heavy| WRITE_PATTERNS[Sharding&lt;br/&gt;Escrow&lt;br/&gt;Batch]
+    PERFORMANCE --&gt;|Latency| LATENCY_PATTERNS[Cache&lt;br/&gt;CDN&lt;br/&gt;Hedged Requests]
+
+    RELIABILITY --&gt;|Service Failures| SERVICE_PATTERNS[Circuit Breaker&lt;br/&gt;Saga&lt;br/&gt;Bulkhead]
+    RELIABILITY --&gt;|Data Loss| DATA_PATTERNS[Event Sourcing&lt;br/&gt;Replication&lt;br/&gt;Backup]
+
+    SCALE --&gt;|Horizontal| SCALE_PATTERNS[Sharding&lt;br/&gt;CQRS&lt;br/&gt;Microservices]
+    SCALE --&gt;|Global| GLOBAL_PATTERNS[CDN&lt;br/&gt;Edge Computing&lt;br/&gt;Multi-region]
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class START,TYPE edgeStyle
+    class CONSISTENCY,PERFORMANCE,RELIABILITY,SCALE serviceStyle
+    class STRONG_PATTERNS,EVENTUAL_PATTERNS,READ_PATTERNS,WRITE_PATTERNS stateStyle
+    class LATENCY_PATTERNS,SERVICE_PATTERNS,DATA_PATTERNS,SCALE_PATTERNS,GLOBAL_PATTERNS controlStyle</code></pre>
+<table>
+<thead>
+<tr>
+<th><strong>Requirement</strong></th>
+<th><strong>Primary Pattern</strong></th>
+<th><strong>Supporting Patterns</strong></th>
+<th><strong>Anti-Pattern</strong></th>
+<th><strong>Metrics</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multi-service transactions</td>
 <td>Saga</td>
+<td>Outbox + Event Sourcing</td>
 <td>Two-phase commit</td>
-<td>Distributed transactions</td>
+<td>99% success rate</td>
 </tr>
 <tr>
-<td>High-throughput inventory</td>
+<td>High-contention resources</td>
 <td>Escrow</td>
+<td>Sharding + Consensus</td>
 <td>Global locks</td>
-<td>Optimistic concurrency</td>
+<td>&lt;10ms lock time</td>
 </tr>
 <tr>
-<td>Audit requirements</td>
+<td>Complete audit trail</td>
 <td>Event Sourcing</td>
-<td>Change logs</td>
-<td>CRUD with audit table</td>
+<td>CQRS + Snapshots</td>
+<td>CRUD with logs</td>
+<td>100% event capture</td>
 </tr>
 <tr>
-<td>Read/write performance gap</td>
+<td>Read/write optimization</td>
 <td>CQRS</td>
-<td>Read replicas</td>
-<td>Single model</td>
+<td>Cache + Projections</td>
+<td>Shared database</td>
+<td>10:1 read/write ratio</td>
 </tr>
 <tr>
-<td>Tail latency sensitive</td>
-<td>Hedged Request</td>
-<td>Caching only</td>
-<td>Synchronous calls</td>
+<td>Tail latency reduction</td>
+<td>Hedged Requests</td>
+<td>Cache + CDN</td>
+<td>Synchronous chains</td>
+<td>p99 &lt;100ms</td>
 </tr>
 <tr>
-<td>Cross-cutting concerns</td>
-<td>Sidecar</td>
-<td>Library per service</td>
-<td>Embedded logic</td>
+<td>Service isolation</td>
+<td>Bulkhead</td>
+<td>Circuit Breaker + Rate Limit</td>
+<td>Shared resources</td>
+<td>Failure isolation</td>
 </tr>
 <tr>
 <td>Cache consistency</td>
 <td>Write-Through</td>
-<td>Eventual consistency</td>
+<td>Invalidation + TTL</td>
 <td>Cache-aside</td>
+<td>Zero stale reads</td>
 </tr>
 <tr>
-<td>Fault isolation</td>
-<td>Bulkhead</td>
-<td>Global resources</td>
-<td>Shared thread pools</td>
+<td>Geographic distribution</td>
+<td>Edge Computing</td>
+<td>CDN + Replication</td>
+<td>Central deployment</td>
+<td>&lt;50ms global</td>
 </tr>
 </tbody>
 </table>
@@ -2687,167 +2597,139 @@
 <li>Detection: Memory growth, processing lag</li>
 <li>Fix: Add Bulkhead pattern</li>
 </ol>
-<h2 id="performance-characteristics">Performance Characteristics</h2>
+<h2 id="pattern-performance-matrix">Pattern Performance Matrix</h2>
+<pre class="mermaid"><code>quadrantChart
+    title Pattern Performance vs Complexity
+    x-axis Low Complexity --&gt; High Complexity
+    y-axis Low Latency --&gt; High Latency
+
+    Hedged Request: [0.2, 0.1]
+    Sidecar: [0.4, 0.2]
+    Request-Response: [0.3, 0.3]
+    Outbox: [0.5, 0.4]
+    Escrow: [0.5, 0.3]
+    CQRS: [0.8, 0.6]
+    Saga: [0.9, 0.8]
+    Event Sourcing: [0.9, 0.7]</code></pre>
+<h2 id="production-metrics-summary">Production Metrics Summary</h2>
 <table>
 <thead>
 <tr>
 <th><strong>Pattern</strong></th>
-<th><strong>Latency</strong></th>
+<th><strong>Latency Impact</strong></th>
 <th><strong>Throughput</strong></th>
 <th><strong>Consistency</strong></th>
-<th><strong>Complexity</strong></th>
+<th><strong>Operational Overhead</strong></th>
+<th><strong>Monthly Cost</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Outbox</td>
 <td>+5-10ms</td>
-<td>High</td>
-<td>Strong</td>
+<td>50K TPS</td>
+<td>Strong (DB)</td>
 <td>Medium</td>
+<td>+$2K</td>
 </tr>
 <tr>
 <td>Saga</td>
 <td>+50-200ms</td>
-<td>Medium</td>
+<td>20K TPS</td>
 <td>Eventual</td>
 <td>High</td>
+<td>+$5K</td>
 </tr>
 <tr>
 <td>Escrow</td>
 <td>+1-5ms</td>
-<td>High</td>
-<td>Strong</td>
+<td>100K TPS</td>
+<td>Strong (locks)</td>
 <td>Medium</td>
+<td>+$3K</td>
 </tr>
 <tr>
 <td>Event Sourcing</td>
 <td>+10-20ms</td>
+<td>80K TPS</td>
+<td>Strong (append)</td>
 <td>High</td>
-<td>Strong</td>
-<td>High</td>
+<td>+$8K</td>
 </tr>
 <tr>
 <td>CQRS</td>
 <td>Read: &lt;1ms, Write: +5ms</td>
-<td>Very High</td>
+<td>200K QPS reads</td>
 <td>Eventual</td>
 <td>High</td>
+<td>+$10K</td>
 </tr>
 <tr>
 <td>Hedged Request</td>
-<td>P99 improved</td>
-<td>+50% load</td>
+<td>P99: -50%</td>
+<td>150% load</td>
 <td>N/A</td>
 <td>Low</td>
+<td>+$1K</td>
 </tr>
 <tr>
-<td>Sidecar</td>
-<td>+1-5ms</td>
-<td>High</td>
-<td>N/A</td>
-<td>Medium</td>
-</tr>
-<tr>
-<td>Leader-Follower</td>
+<td>Request-Response</td>
 <td>+2-10ms</td>
-<td>High</td>
-<td>Strong</td>
+<td>50K RPS</td>
+<td>Strong (sync)</td>
 <td>Medium</td>
+<td>+$2K</td>
+</tr>
+<tr>
+<td>Streaming</td>
+<td>+100-500ms lag</td>
+<td>1M events/sec</td>
+<td>Eventual</td>
+<td>Medium</td>
+<td>+$4K</td>
 </tr>
 </tbody>
 </table>
-
-
-
-
-
-
-
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
+<p>Each micro-pattern solves specific distributed systems challenges with quantified trade-offs in performance, consistency, and operational complexity. Choose patterns based on your actual requirements, not theoretical ideals.</p>
+</article>
+</div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
-        
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
       Material for MkDocs
     </a>
-  
 </div>
-      
-        <div class="md-social">
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://github.com/ds-framework" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
-    </a>
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://twitter.com/ds-framework" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
-    </a>
-  
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/ds-framework" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</a>
+<a class="md-social__link" href="https://twitter.com/ds-framework" rel="noopener" target="_blank" title="twitter.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"></path></svg>
+</a>
 </div>
-      
-    </div>
-  </div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    
-    
-      
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
-      
-        <script src="../../javascripts/mathjax.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-    
-  </body>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
 </html>

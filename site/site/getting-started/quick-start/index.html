@@ -329,16 +329,16 @@
 <nav aria-label="10-Minute Implementation Plan" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#database-schema">
+<a class="md-nav__link" href="#database-schema-design">
 <span class="md-ellipsis">
-      Database Schema
+      Database Schema Design
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#application-logic">
+<a class="md-nav__link" href="#application-architecture">
 <span class="md-ellipsis">
-      Application Logic
+      Application Architecture
     </span>
 </a>
 </li>
@@ -815,16 +815,16 @@
 <nav aria-label="10-Minute Implementation Plan" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#database-schema">
+<a class="md-nav__link" href="#database-schema-design">
 <span class="md-ellipsis">
-      Database Schema
+      Database Schema Design
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#application-logic">
+<a class="md-nav__link" href="#application-architecture">
 <span class="md-ellipsis">
-      Application Logic
+      Application Architecture
     </span>
 </a>
 </li>
@@ -920,125 +920,266 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
 <h1 id="quick-start">Quick Start</h1>
-<p>Get up and running with the Distributed Systems Framework in 15 minutes.</p>
+<p>Design a production URL shortener in 15 minutes using the Atlas Framework.</p>
 <h2 id="5-minute-system-design">5-Minute System Design</h2>
-<p>Let's design a simple URL shortener like bit.ly using the framework.</p>
 <h3 id="step-1-requirements-analysis-1-minute">Step 1: Requirements Analysis (1 minute)</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nt">requirements</span><span class="p">:</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="nt">scale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000 writes/sec, 10K reads/sec</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="nt">latency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;100ms for reads</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="nt">availability</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">99.9%</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">  </span><span class="nt">consistency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eventual (social media use case)</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">  </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100M URLs</span>
-</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Value</th>
+<th>Business Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Write Rate</strong></td>
+<td>1K/sec</td>
+<td>$2M ARR at scale</td>
+</tr>
+<tr>
+<td><strong>Read Rate</strong></td>
+<td>10K/sec</td>
+<td>100M clicks/day</td>
+</tr>
+<tr>
+<td><strong>Latency</strong></td>
+<td>p99 &lt; 100ms</td>
+<td>1% conversion per 100ms</td>
+</tr>
+<tr>
+<td><strong>Availability</strong></td>
+<td>99.9% SLA</td>
+<td>$10K/hour downtime cost</td>
+</tr>
+<tr>
+<td><strong>Storage</strong></td>
+<td>100M URLs</td>
+<td>5 years retention</td>
+</tr>
+<tr>
+<td><strong>Consistency</strong></td>
+<td>Eventual</td>
+<td>Social media use case</td>
+</tr>
+</tbody>
+</table>
 <h3 id="step-2-capability-mapping-1-minute">Step 2: Capability Mapping (1 minute)</h3>
-<p>Based on requirements, we need:
-- <strong>ElasticScale</strong>: Handle 10K reads/sec
-- <strong>SubSecondRead</strong>: &lt;100ms latency<br/>
-- <strong>HighAvailability</strong>: 99.9% uptime
-- <strong>EventualConsistency</strong>: Social media tolerance</p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>SLO Target</th>
+<th>Implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ElasticScale</strong></td>
+<td>10K reads/sec</td>
+<td>Horizontal scaling</td>
+</tr>
+<tr>
+<td><strong>SubSecondRead</strong></td>
+<td>p99 &lt; 100ms</td>
+<td>Cache-first architecture</td>
+</tr>
+<tr>
+<td><strong>HighAvailability</strong></td>
+<td>99.9% uptime</td>
+<td>Multi-AZ deployment</td>
+</tr>
+<tr>
+<td><strong>EventualConsistency</strong></td>
+<td>&lt; 1s propagation</td>
+<td>Async replication</td>
+</tr>
+</tbody>
+</table>
 <h3 id="step-3-primitive-selection-2-minutes">Step 3: Primitive Selection (2 minutes)</h3>
-<p>Framework suggests these primitives:
-- <strong>P1 Partitioning</strong>: Shard URLs by hash for scale
-- <strong>P2 Replication</strong>: 3 replicas for availability
-- <strong>P11 Caching</strong>: Cache popular URLs for performance
-- <strong>P4 Indexes</strong>: Hash index for O(1) lookup</p>
+<table>
+<thead>
+<tr>
+<th>Primitive</th>
+<th>Purpose</th>
+<th>Production Config</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P1 Partitioning</strong></td>
+<td>Shard by hash(short_code)</td>
+<td>16 shards, consistent hashing</td>
+</tr>
+<tr>
+<td><strong>P2 Replication</strong></td>
+<td>3 replicas per shard</td>
+<td>Primary-replica, async replication</td>
+</tr>
+<tr>
+<td><strong>P11 Caching</strong></td>
+<td>Cache hot URLs</td>
+<td>Redis Cluster, 6 nodes, 64GB</td>
+</tr>
+<tr>
+<td><strong>P4 Indexes</strong></td>
+<td>Fast lookups</td>
+<td>B-tree index on short_code</td>
+</tr>
+</tbody>
+</table>
 <h3 id="step-4-architecture-generation-1-minute">Step 4: Architecture Generation (1 minute)</h3>
 <pre class="mermaid"><code>graph TB
-    Client[Client] --&gt; LB[Load Balancer]
-    LB --&gt; Cache[Redis Cache]
-    Cache --&gt; App[App Servers]
-    App --&gt; DB[(Partitioned DB)]
-
-    subgraph "Partition 1"
-        DB1[(URLs A-H)]
+    subgraph EdgePlane["Edge Plane - CDN &amp; Load Balancing"]
+        CDN["CloudFlare CDN&lt;br/&gt;285 POPs globally&lt;br/&gt;p99: 12ms cache hit"]
+        ALB["AWS ALB&lt;br/&gt;50K RPS capacity&lt;br/&gt;health checks every 5s"]
     end
 
-    subgraph "Partition 2"  
-        DB2[(URLs I-P)]
+    subgraph ServicePlane["Service Plane - URL Processing"]
+        API["API Gateway&lt;br/&gt;Kong 3.4&lt;br/&gt;rate limit: 1K/min"]
+        APP["URL Service&lt;br/&gt;Go 1.21, 8 instances&lt;br/&gt;p99: 15ms"]
     end
 
-    subgraph "Partition 3"
-        DB3[(URLs Q-Z)]
-    end</code></pre>
-<p><strong>Total time: 5 minutes to complete architecture!</strong></p>
+    subgraph StatePlane["State Plane - Data Storage"]
+        REDIS["Redis Cluster&lt;br/&gt;6 nodes, 64GB RAM&lt;br/&gt;p99: 0.8ms"]
+        PG1[("PostgreSQL 15&lt;br/&gt;Shard 1: A-H&lt;br/&gt;db.r6g.xlarge")]
+        PG2[("PostgreSQL 15&lt;br/&gt;Shard 2: I-P&lt;br/&gt;db.r6g.xlarge")]
+        PG3[("PostgreSQL 15&lt;br/&gt;Shard 3: Q-Z&lt;br/&gt;db.r6g.xlarge")]
+    end
+
+    subgraph ControlPlane["Control Plane - Monitoring"]
+        MON["DataDog APM&lt;br/&gt;100K metrics/min&lt;br/&gt;real-time alerts"]
+        LOGS["CloudWatch Logs&lt;br/&gt;1TB/day ingestion&lt;br/&gt;7-day retention"]
+    end
+
+    CDN --&gt; ALB
+    ALB --&gt; API
+    API --&gt; APP
+    APP --&gt; REDIS
+    APP --&gt; PG1
+    APP --&gt; PG2
+    APP --&gt; PG3
+    MON -.-&gt; APP
+    LOGS -.-&gt; APP
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class CDN,ALB edgeStyle
+    class API,APP serviceStyle
+    class REDIS,PG1,PG2,PG3 stateStyle
+    class MON,LOGS controlStyle</code></pre>
+<p><strong>Total time: 5 minutes to complete production architecture!</strong></p>
 <h2 id="10-minute-implementation-plan">10-Minute Implementation Plan</h2>
-<h3 id="database-schema">Database Schema</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">-- Partition by first character of short_code</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">urls</span><span class="w"> </span><span class="p">(</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="n">short_code</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="n">long_url</span><span class="w"> </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">NOW</span><span class="p">(),</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="n">expires_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="p">,</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="n">click_count</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="p">);</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="c1">-- Index for fast lookups</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_short_code</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">urls</span><span class="p">(</span><span class="n">short_code</span><span class="p">);</span>
-</code></pre></div>
-<h3 id="application-logic">Application Logic</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">URLShortener</span><span class="p">:</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="n">Redis</span><span class="p">()</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">db_shards</span> <span class="o">=</span> <span class="p">[</span><span class="n">DB1</span><span class="p">,</span> <span class="n">DB2</span><span class="p">,</span> <span class="n">DB3</span><span class="p">]</span>  <span class="c1"># 3 partitions</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">shorten_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">long_url</span><span class="p">):</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>        <span class="n">short_code</span> <span class="o">=</span> <span class="n">generate_short_code</span><span class="p">()</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>        <span class="n">shard</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_shard</span><span class="p">(</span><span class="n">short_code</span><span class="p">)</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>        <span class="c1"># Write to database</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>        <span class="n">shard</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">short_code</span><span class="p">,</span> <span class="n">long_url</span><span class="p">)</span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>        <span class="c1"># Warm cache</span>
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">short_code</span><span class="p">,</span> <span class="n">long_url</span><span class="p">,</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">3600</span><span class="p">)</span>
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>        <span class="k">return</span> <span class="n">short_code</span>
-<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a>
-<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">short_code</span><span class="p">):</span>
-<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a>        <span class="c1"># Try cache first (P11)</span>
-<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a>        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">short_code</span><span class="p">)</span>
-<a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a>        <span class="k">if</span> <span class="n">url</span><span class="p">:</span>
-<a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a>            <span class="k">return</span> <span class="n">url</span>
-<a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a>
-<a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a>        <span class="c1"># Fallback to database (P1)</span>
-<a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a>        <span class="n">shard</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_shard</span><span class="p">(</span><span class="n">short_code</span><span class="p">)</span>
-<a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a>        <span class="n">url</span> <span class="o">=</span> <span class="n">shard</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">short_code</span><span class="p">)</span>
-<a href="#__codelineno-2-27" id="__codelineno-2-27" name="__codelineno-2-27"></a>
-<a href="#__codelineno-2-28" id="__codelineno-2-28" name="__codelineno-2-28"></a>        <span class="k">if</span> <span class="n">url</span><span class="p">:</span>
-<a href="#__codelineno-2-29" id="__codelineno-2-29" name="__codelineno-2-29"></a>            <span class="c1"># Cache for next time</span>
-<a href="#__codelineno-2-30" id="__codelineno-2-30" name="__codelineno-2-30"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">short_code</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">ttl</span><span class="o">=</span><span class="mi">3600</span><span class="p">)</span>
-<a href="#__codelineno-2-31" id="__codelineno-2-31" name="__codelineno-2-31"></a>
-<a href="#__codelineno-2-32" id="__codelineno-2-32" name="__codelineno-2-32"></a>        <span class="k">return</span> <span class="n">url</span>
-<a href="#__codelineno-2-33" id="__codelineno-2-33" name="__codelineno-2-33"></a>
-<a href="#__codelineno-2-34" id="__codelineno-2-34" name="__codelineno-2-34"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_shard</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">short_code</span><span class="p">):</span>
-<a href="#__codelineno-2-35" id="__codelineno-2-35" name="__codelineno-2-35"></a>        <span class="c1"># Simple hash partitioning</span>
-<a href="#__codelineno-2-36" id="__codelineno-2-36" name="__codelineno-2-36"></a>        <span class="n">shard_id</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">short_code</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">db_shards</span><span class="p">)</span>
-<a href="#__codelineno-2-37" id="__codelineno-2-37" name="__codelineno-2-37"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_shards</span><span class="p">[</span><span class="n">shard_id</span><span class="p">]</span>
-</code></pre></div>
+<h3 id="database-schema-design">Database Schema Design</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Configuration</th>
+<th>Reasoning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Table Structure</strong></td>
+<td>short_code VARCHAR(7), long_url TEXT, created_at, click_count</td>
+<td>Base62 encoding = 7 chars for 3.5T URLs</td>
+</tr>
+<tr>
+<td><strong>Partitioning</strong></td>
+<td>Hash partition on short_code[0] into 16 shards</td>
+<td>Even distribution, predictable routing</td>
+</tr>
+<tr>
+<td><strong>Indexing</strong></td>
+<td>B-tree primary key on short_code</td>
+<td>O(log n) lookup, cache-friendly</td>
+</tr>
+<tr>
+<td><strong>Replication</strong></td>
+<td>Primary + 2 read replicas per shard</td>
+<td>99.9% availability, read scaling</td>
+</tr>
+</tbody>
+</table>
+<h3 id="application-architecture">Application Architecture</h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+<th>Configuration</th>
+<th>Performance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Load Balancer</strong></td>
+<td>AWS ALB</td>
+<td>50K RPS capacity, sticky sessions</td>
+<td>p99: 2ms</td>
+</tr>
+<tr>
+<td><strong>Application</strong></td>
+<td>Go 1.21 microservice</td>
+<td>8 instances, 2GB RAM each</td>
+<td>p99: 15ms</td>
+</tr>
+<tr>
+<td><strong>Cache</strong></td>
+<td>Redis Cluster</td>
+<td>6 nodes, 64GB, LRU eviction</td>
+<td>p99: 0.8ms</td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>PostgreSQL 15</td>
+<td>16 shards, read replicas</td>
+<td>p99: 25ms</td>
+</tr>
+</tbody>
+</table>
 <h3 id="capacity-validation">Capacity Validation</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Framework's quantitative models</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">validate_design</span><span class="p">():</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>    <span class="c1"># Throughput calculation</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span class="n">cache_ops_per_second</span> <span class="o">=</span> <span class="mi">50_000</span>  <span class="c1"># Redis capacity</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>    <span class="n">db_ops_per_shard</span> <span class="o">=</span> <span class="mi">5_000</span>       <span class="c1"># DB capacity per shard</span>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>    <span class="n">num_shards</span> <span class="o">=</span> <span class="mi">3</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>    <span class="n">max_reads</span> <span class="o">=</span> <span class="n">cache_ops_per_second</span>  <span class="c1"># Cache handles reads</span>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>    <span class="n">max_writes</span> <span class="o">=</span> <span class="n">num_shards</span> <span class="o">*</span> <span class="n">db_ops_per_shard</span> <span class="o">*</span> <span class="mf">0.7</span>  <span class="c1"># 70% utilization</span>
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>    <span class="k">assert</span> <span class="n">max_reads</span> <span class="o">&gt;=</span> <span class="mi">10_000</span>   <span class="c1"># Requirement: 10K reads/sec</span>
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>    <span class="k">assert</span> <span class="n">max_writes</span> <span class="o">&gt;=</span> <span class="mi">1_000</span>   <span class="c1"># Requirement: 1K writes/sec</span>
-<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>
-<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>    <span class="c1"># Latency calculation  </span>
-<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>    <span class="n">cache_latency_p99</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># 1ms</span>
-<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>    <span class="n">db_latency_p99</span> <span class="o">=</span> <span class="mi">50</span>     <span class="c1"># 50ms</span>
-<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>
-<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a>    <span class="c1"># 90% cache hit rate</span>
-<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>    <span class="n">effective_latency_p99</span> <span class="o">=</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">cache_latency_p99</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">db_latency_p99</span>
-<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a>    <span class="k">assert</span> <span class="n">effective_latency_p99</span> <span class="o">&lt;</span> <span class="mi">100</span>  <span class="c1"># Requirement: &lt;100ms</span>
-<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>
-<a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"✅ Design validated!"</span><span class="p">)</span>
-</code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Throughput["Throughput Analysis"]
+        CACHE["Redis Cluster&lt;br/&gt;250K ops/sec&lt;br/&gt;6 nodes × 40K"]
+        DB["PostgreSQL Shards&lt;br/&gt;80K ops/sec&lt;br/&gt;16 × 5K/shard"]
+        APP["Go Services&lt;br/&gt;120K ops/sec&lt;br/&gt;8 × 15K/instance"]
+    end
+
+    subgraph Latency["Latency Budget"]
+        CDN_LAT["CDN: 12ms&lt;br/&gt;cache hit"]
+        ALB_LAT["ALB: 2ms&lt;br/&gt;health routing"]
+        APP_LAT["App: 15ms&lt;br/&gt;business logic"]
+        CACHE_LAT["Cache: 0.8ms&lt;br/&gt;90% hit rate"]
+        DB_LAT["DB: 25ms&lt;br/&gt;10% cache miss"]
+    end
+
+    subgraph Result["Validation Results"]
+        THRU_OK["✅ Throughput&lt;br/&gt;250K &gt; 11K required"]
+        LAT_OK["✅ Latency&lt;br/&gt;p99: 32ms &lt; 100ms"]
+        AVAIL_OK["✅ Availability&lt;br/&gt;99.95% &gt; 99.9%"]
+    end
+
+    CACHE --&gt; THRU_OK
+    DB --&gt; THRU_OK
+    APP --&gt; THRU_OK
+    CDN_LAT --&gt; LAT_OK
+    ALB_LAT --&gt; LAT_OK
+    APP_LAT --&gt; LAT_OK
+    CACHE_LAT --&gt; LAT_OK
+    DB_LAT --&gt; LAT_OK
+
+    classDef throughputStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef latencyStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef resultStyle fill:#0066CC,stroke:#004499,color:#fff
+
+    class CACHE,DB,APP throughputStyle
+    class CDN_LAT,ALB_LAT,APP_LAT,CACHE_LAT,DB_LAT latencyStyle
+    class THRU_OK,LAT_OK,AVAIL_OK resultStyle</code></pre>
 <h2 id="common-patterns-quick-reference">Common Patterns Quick Reference</h2>
 <h3 id="when-to-use-each-pattern">When to Use Each Pattern</h3>
 <table>
@@ -1090,22 +1231,22 @@
 </tbody>
 </table>
 <h3 id="technology-quick-picks">Technology Quick Picks</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nt">databases</span><span class="p">:</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">  </span><span class="nt">small_scale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">  </span><span class="nt">large_scale_cp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CockroachDB</span><span class="w">  </span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">  </span><span class="nt">large_scale_ap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cassandra</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="nt">caching</span><span class="p">:</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">  </span><span class="nt">simple</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Redis</span>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">  </span><span class="nt">large</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Redis Cluster</span>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="nt">streaming</span><span class="p">:</span>
-<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">  </span><span class="nt">reliable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Apache Kafka</span>
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">  </span><span class="nt">simple</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS Kinesis</span>
-<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a>
-<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="nt">load_balancer</span><span class="p">:</span>
-<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">  </span><span class="nt">simple</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Nginx</span>
-<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">  </span><span class="nt">advanced</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Envoy + Istio</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nt">databases</span><span class="p">:</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="nt">small_scale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="nt">large_scale_cp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CockroachDB</span><span class="w">  </span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span><span class="nt">large_scale_ap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cassandra</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="nt">caching</span><span class="p">:</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">  </span><span class="nt">simple</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Redis</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">  </span><span class="nt">large</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Redis Cluster</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="nt">streaming</span><span class="p">:</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">  </span><span class="nt">reliable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Apache Kafka</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">  </span><span class="nt">simple</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS Kinesis</span>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="nt">load_balancer</span><span class="p">:</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">  </span><span class="nt">simple</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Nginx</span>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">  </span><span class="nt">advanced</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Envoy + Istio</span>
 </code></pre></div>
 <h2 id="debugging-checklist">Debugging Checklist</h2>
 <p>When things go wrong, check these in order:</p>
