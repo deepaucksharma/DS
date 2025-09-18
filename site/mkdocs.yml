@@ -584,6 +584,7 @@ nav:
     - Event-Driven Capacity:
       - Netflix Show Release Surge: capacity/netflix-show-release-surge.md
       - Amazon Black Friday Capacity: capacity/amazon-black-friday-capacity.md
+      - Zoom COVID Explosion: capacity/zoom-covid-explosion.md
   - Migration Playbooks:
     - Database Migrations:
       - MySQL to Aurora: migrations/mysql-to-aurora.md
@@ -600,10 +601,13 @@ nav:
       - Netflix Infrastructure Breakdown: costs/netflix-infrastructure-breakdown.md
       - Netflix $500M Infrastructure: costs/netflix-infrastructure-500m.md
       - Spotify Infrastructure Breakdown: costs/spotify-infrastructure-breakdown.md
+      - Airbnb Infrastructure Breakdown: costs/airbnb-infrastructure-breakdown.md
   - Technology Comparisons:
     - Database Comparisons:
       - PostgreSQL vs DynamoDB: comparisons/postgresql-vs-dynamodb.md
+      - Redis vs Memcached: comparisons/redis-vs-memcached.md
     - Messaging Comparisons:
+      - Kafka vs Kinesis: comparisons/kafka-vs-kinesis.md
       - Kafka vs Kinesis vs Pulsar: comparisons/kafka-vs-kinesis-vs-pulsar.md
   - Case Studies:
     - Overview: case-studies/index.md

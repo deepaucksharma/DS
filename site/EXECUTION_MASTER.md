@@ -92,9 +92,9 @@ python scripts/unified_status_tracker.py --export weekly_report  # Export for re
 
 ---
 
-## 🎨 The 4-Plane Architecture (MANDATORY)
+## 🎨 The 4-Plane Architecture (MANDATORY with Interactive Features)
 
-Every diagram MUST use these exact colors:
+Every diagram MUST use these exact colors and interactive features:
 
 ```css
 Edge Plane:    #0066CC (Blue)    - CDN, WAF, Load Balancers
@@ -104,6 +104,26 @@ Control Plane: #CC0000 (Red)     - Monitoring, Config, Automation
 ```
 
 **Note**: The "Stream Plane" has been removed from specifications.
+
+### Interactive Features (Automatically Applied)
+- **Zoom**: Ctrl/Cmd + Scroll (50% to 400% range)
+- **Pan**: Click and drag to navigate large diagrams
+- **Fullscreen**: Press 'F' for presentation mode
+- **Clickable Nodes**: Add links to documentation
+- **Dark Mode**: Automatic theme switching
+- **Mobile**: Pinch-to-zoom support
+
+### Visual Enhancements (Required)
+- **Emojis**: Use for visual clarity
+  - 🌐 Network/Edge components
+  - ⚙️ Service/Processing
+  - 💾 Storage/Database
+  - 🎛️ Control/Monitoring
+  - 📊 Metrics/Analytics
+  - ⚡ Performance indicators
+  - 💰 Cost information
+- **Minimum Height**: 400px for zoom/pan functionality
+- **Rounded Corners**: rx:8 for modern appearance
 
 ---
 
@@ -321,12 +341,20 @@ python scripts/check_links.py
 
 ### MkDocs Operations
 ```bash
-# Serve documentation locally
+# Serve documentation locally (with interactive diagrams)
 cd site
 mkdocs serve  # View at http://127.0.0.1:8000
 
+# Test interactive features
+# Navigate to http://127.0.0.1:8000/mermaid-style-guide
+# Try: Ctrl+scroll to zoom, drag to pan, F for fullscreen
+
 # Build static site
 mkdocs build  # Output to site/site/
+
+# Verify interactive JS/CSS loaded
+ls -la site/site/javascripts/mermaid-interactive.js
+ls -la site/site/stylesheets/mermaid-beautiful.css
 ```
 
 ---
@@ -462,11 +490,35 @@ site/
 Client → API Gateway → Microservice → Database
 ```
 
-✅ **GOOD - Production Reality**
-```
-iPhone App (2M DAU) → Kong Gateway (p99: 10ms) →
-Order Service (Java 17, 200 threads) →
-PostgreSQL 14 (db.r6g.2xlarge, 1000 connections)
+✅ **GOOD - Production Reality with Interactive Features**
+```mermaid
+graph LR
+    subgraph EdgePlane["🌐 Edge"]
+        APP["iPhone App<br/>📱 2M DAU"]
+    end
+
+    subgraph ServicePlane["⚙️ Service"]
+        GW["Kong Gateway<br/>⚡ p99: 10ms"]
+        SVC["Order Service<br/>Java 17<br/>200 threads"]
+    end
+
+    subgraph StatePlane["💾 State"]
+        DB[("PostgreSQL 14<br/>db.r6g.2xlarge<br/>1000 connections")]
+    end
+
+    APP --> GW
+    GW --> SVC
+    SVC --> DB
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+
+    class APP edgeStyle
+    class GW,SVC serviceStyle
+    class DB stateStyle
+
+    click DB "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html" "PostgreSQL on AWS"
 ```
 
 ---
@@ -619,9 +671,16 @@ We're building an atlas of **battle-tested production architectures** that actua
 ### Week 1 Priorities
 1. **Form Team**: Identify 3-4 dedicated engineers
 2. **Set Up Tooling**: Install validation scripts
-3. **Create First 5 Diagrams**: Focus on incident response
-4. **Establish Review Process**: Define quality gates
-5. **Begin Data Collection**: Start production metrics database
+3. **Test Interactive Features**:
+   - Navigate to `/mermaid-style-guide` to see examples
+   - Verify zoom/pan works on existing diagrams
+   - Test dark mode switching
+4. **Create First 5 Diagrams**: Focus on incident response with interactive features
+   - Use 4-plane color scheme
+   - Add clickable nodes for documentation
+   - Include emojis for visual clarity
+5. **Establish Review Process**: Define quality gates including interactive features
+6. **Begin Data Collection**: Start production metrics database
 
 ### Month 1 Goals
 - 50 incident response diagrams completed

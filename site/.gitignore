@@ -52,3 +52,6 @@ Thumbs.db
 # Temporary files
 .tmp/
 tmp/
+
+# Data files with timestamps (temporary)
+data/unified_status_*.json

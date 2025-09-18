@@ -59,19 +59,29 @@ We now operate a dual-track system to handle both updates and new creation:
 2. Identify review priorities
 3. Plan week's updates and creation
 4. Generate source discovery checklist
+5. **NEW**: Test interactive features on existing diagrams
 
 ### Wednesday: Dual-Track Execution (1 hour)
 1. Create 10-15 diagrams from templates
 2. Focus on one category (guarantees/mechanisms/patterns)
-3. Validate against 5-plane architecture
+3. Validate against 4-plane architecture (NOT 5-plane)
 4. Ensure all have SLO labels
+5. **NEW**: Apply interactive design system:
+   - Use standard color scheme (#0066CC, #00AA00, #FF8800, #CC0000)
+   - Add clickable nodes where applicable
+   - Include emojis for visual clarity (🌐, ⚙️, 💾, 🎛️)
+   - Ensure minimum 400px height for zoom/pan
 
 ### Friday: Review & Commit (30 min)
 1. Run unified status tracker
 2. Validate all diagrams render correctly
-3. Check file sizes (< 500KB)
-4. Update review status for completed items
-5. Commit and push changes
+3. **NEW**: Test interactive features:
+   - Verify zoom/pan works (Ctrl+scroll, drag)
+   - Check dark mode appearance
+   - Test on mobile if applicable
+4. Check file sizes (< 500KB)
+5. Update review status for completed items
+6. Commit and push changes
 
 ```bash
 # Track both creation and review progress
@@ -112,27 +122,72 @@ site/
     └── progress.json         # Progress tracking
 ```
 
-## 🎨 Diagram Types & Templates
+## 🎨 Diagram Types & Templates (With Interactive Features)
 
 ### 1. Guarantee Flow Diagrams (180 total)
 - Linearizability, Sequential Consistency, Eventual Consistency, etc.
-- Show data flow through 5 planes
+- Show data flow through **4 planes** (Edge, Service, State, Control)
 - Include SLO labels (p50, p99, p999)
+- **Interactive**: Make critical paths clickable for details
 
 ### 2. Mechanism Detail Diagrams (200 total)
 - Consistent Hashing, Gossip Protocol, Raft, etc.
 - Implementation specifics
 - Production metrics and configurations
+- **Interactive**: Zoom in to see implementation details
 
 ### 3. Pattern Architecture Diagrams (210 total)
 - CQRS, Event Sourcing, Saga, etc.
 - Complete system views
 - Scale indicators and trade-offs
+- **Interactive**: Click nodes to navigate to related patterns
 
 ### 4. Case Study Diagrams (600+ total)
 - Netflix, Uber, Discord, GitHub, etc.
 - Real architectures with actual metrics
 - Incident timelines and recovery
+- **Interactive**: Pan across large architectures, fullscreen for presentations
+
+### Interactive Diagram Template
+```mermaid
+graph TB
+    subgraph EdgePlane["🌐 Edge Plane"]
+        CDN["CDN<br/>CloudFlare<br/>📊 500 Gbps"]
+        LB["Load Balancer<br/>⚡ 10ms p99"]
+    end
+
+    subgraph ServicePlane["⚙️ Service Plane"]
+        API["API Gateway<br/>🔐 OAuth2"]
+        SVC["Services<br/>📦 200 pods"]
+    end
+
+    subgraph StatePlane["💾 State Plane"]
+        DB[("PostgreSQL<br/>💽 10TB")]
+        CACHE[("Redis<br/>⚡ 1ms")]
+    end
+
+    subgraph ControlPlane["🎛️ Control Plane"]
+        MON["Monitoring<br/>📈 10k metrics/s"]
+    end
+
+    CDN --> LB --> API --> SVC
+    SVC --> DB
+    SVC --> CACHE
+    SVC --> MON
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:2px
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:2px
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:2px
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:2px
+
+    class CDN,LB edgeStyle
+    class API,SVC serviceStyle
+    class DB,CACHE stateStyle
+    class MON controlStyle
+
+    click CDN "https://docs.example.com/cdn" "CDN Documentation"
+    click DB "https://docs.example.com/database" "Database Schema"
+```
 
 ## 📈 Progress Milestones
 
@@ -192,15 +247,29 @@ print(dashboard)
 tracker.export_status_report("json")
 ```
 
-## 🏆 Quality Standards
+## 🏆 Quality Standards (Updated for Interactive Diagrams)
 
 Every diagram MUST:
-- ✅ Follow 5-plane architecture (Edge, Service, Stream, State, Control)
-- ✅ Use correct color scheme (#0066CC, #00AA00, #AA00AA, #FF8800, #CC0000)
+- ✅ Follow **4-plane architecture** (Edge, Service, State, Control - NO Stream Plane)
+- ✅ Use correct color scheme:
+  - Edge: #0066CC (Blue)
+  - Service: #00AA00 (Green)
+  - State: #FF8800 (Orange)
+  - Control: #CC0000 (Red)
 - ✅ Include SLO labels on edges (p50, p99, p999)
 - ✅ Show real metrics from production
 - ✅ Be under 500KB uncompressed
 - ✅ Help debug production issues at 3 AM
+- ✅ **NEW**: Support interactive features:
+  - Zoomable (Ctrl+scroll)
+  - Pannable (click & drag)
+  - Clickable nodes for navigation
+  - Mobile-friendly (pinch to zoom)
+  - Dark mode compatible
+- ✅ **NEW**: Include visual enhancements:
+  - Emojis for clarity (🌐, ⚙️, 💾, 🎛️, 📊, ⚡, 💰)
+  - Minimum 400px height
+  - Rounded corners (rx:8)
 
 ## 📚 High-Value Sources
 
