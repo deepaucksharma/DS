@@ -1,144 +1,147 @@
 # Quick Start
 
-Get up and running with the Distributed Systems Framework in 15 minutes.
+Design a production URL shortener in 15 minutes using the Atlas Framework.
 
 ## 5-Minute System Design
 
-Let's design a simple URL shortener like bit.ly using the framework.
-
 ### Step 1: Requirements Analysis (1 minute)
 
-```yaml
-requirements:
-  scale: 1000 writes/sec, 10K reads/sec
-  latency: <100ms for reads
-  availability: 99.9%
-  consistency: eventual (social media use case)
-  storage: 100M URLs
-```
+| Requirement | Value | Business Impact |
+|-------------|-------|----------------|
+| **Write Rate** | 1K/sec | $2M ARR at scale |
+| **Read Rate** | 10K/sec | 100M clicks/day |
+| **Latency** | p99 < 100ms | 1% conversion per 100ms |
+| **Availability** | 99.9% SLA | $10K/hour downtime cost |
+| **Storage** | 100M URLs | 5 years retention |
+| **Consistency** | Eventual | Social media use case |
 
 ### Step 2: Capability Mapping (1 minute)
 
-Based on requirements, we need:
-- **ElasticScale**: Handle 10K reads/sec
-- **SubSecondRead**: <100ms latency  
-- **HighAvailability**: 99.9% uptime
-- **EventualConsistency**: Social media tolerance
+| Capability | SLO Target | Implementation |
+|------------|------------|----------------|
+| **ElasticScale** | 10K reads/sec | Horizontal scaling |
+| **SubSecondRead** | p99 < 100ms | Cache-first architecture |
+| **HighAvailability** | 99.9% uptime | Multi-AZ deployment |
+| **EventualConsistency** | < 1s propagation | Async replication |
 
 ### Step 3: Primitive Selection (2 minutes)
 
-Framework suggests these primitives:
-- **P1 Partitioning**: Shard URLs by hash for scale
-- **P2 Replication**: 3 replicas for availability
-- **P11 Caching**: Cache popular URLs for performance
-- **P4 Indexes**: Hash index for O(1) lookup
+| Primitive | Purpose | Production Config |
+|-----------|---------|------------------|
+| **P1 Partitioning** | Shard by hash(short_code) | 16 shards, consistent hashing |
+| **P2 Replication** | 3 replicas per shard | Primary-replica, async replication |
+| **P11 Caching** | Cache hot URLs | Redis Cluster, 6 nodes, 64GB |
+| **P4 Indexes** | Fast lookups | B-tree index on short_code |
 
 ### Step 4: Architecture Generation (1 minute)
 
 ```mermaid
 graph TB
-    Client[Client] --> LB[Load Balancer]
-    LB --> Cache[Redis Cache]
-    Cache --> App[App Servers]
-    App --> DB[(Partitioned DB)]
-    
-    subgraph "Partition 1"
-        DB1[(URLs A-H)]
+    subgraph EdgePlane["Edge Plane - CDN & Load Balancing"]
+        CDN["CloudFlare CDN<br/>285 POPs globally<br/>p99: 12ms cache hit"]
+        ALB["AWS ALB<br/>50K RPS capacity<br/>health checks every 5s"]
     end
-    
-    subgraph "Partition 2"  
-        DB2[(URLs I-P)]
+
+    subgraph ServicePlane["Service Plane - URL Processing"]
+        API["API Gateway<br/>Kong 3.4<br/>rate limit: 1K/min"]
+        APP["URL Service<br/>Go 1.21, 8 instances<br/>p99: 15ms"]
     end
-    
-    subgraph "Partition 3"
-        DB3[(URLs Q-Z)]
+
+    subgraph StatePlane["State Plane - Data Storage"]
+        REDIS["Redis Cluster<br/>6 nodes, 64GB RAM<br/>p99: 0.8ms"]
+        PG1[("PostgreSQL 15<br/>Shard 1: A-H<br/>db.r6g.xlarge")]
+        PG2[("PostgreSQL 15<br/>Shard 2: I-P<br/>db.r6g.xlarge")]
+        PG3[("PostgreSQL 15<br/>Shard 3: Q-Z<br/>db.r6g.xlarge")]
     end
+
+    subgraph ControlPlane["Control Plane - Monitoring"]
+        MON["DataDog APM<br/>100K metrics/min<br/>real-time alerts"]
+        LOGS["CloudWatch Logs<br/>1TB/day ingestion<br/>7-day retention"]
+    end
+
+    CDN --> ALB
+    ALB --> API
+    API --> APP
+    APP --> REDIS
+    APP --> PG1
+    APP --> PG2
+    APP --> PG3
+    MON -.-> APP
+    LOGS -.-> APP
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class CDN,ALB edgeStyle
+    class API,APP serviceStyle
+    class REDIS,PG1,PG2,PG3 stateStyle
+    class MON,LOGS controlStyle
 ```
 
-**Total time: 5 minutes to complete architecture!**
+**Total time: 5 minutes to complete production architecture!**
 
 ## 10-Minute Implementation Plan
 
-### Database Schema
-```sql
--- Partition by first character of short_code
-CREATE TABLE urls (
-    short_code VARCHAR(7) PRIMARY KEY,
-    long_url TEXT NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW(),
-    expires_at TIMESTAMP,
-    click_count INTEGER DEFAULT 0
-);
+### Database Schema Design
 
--- Index for fast lookups
-CREATE INDEX idx_short_code ON urls(short_code);
-```
+| Component | Configuration | Reasoning |
+|-----------|---------------|-----------|
+| **Table Structure** | short_code VARCHAR(7), long_url TEXT, created_at, click_count | Base62 encoding = 7 chars for 3.5T URLs |
+| **Partitioning** | Hash partition on short_code[0] into 16 shards | Even distribution, predictable routing |
+| **Indexing** | B-tree primary key on short_code | O(log n) lookup, cache-friendly |
+| **Replication** | Primary + 2 read replicas per shard | 99.9% availability, read scaling |
 
-### Application Logic
-```python
-class URLShortener:
-    def __init__(self):
-        self.cache = Redis()
-        self.db_shards = [DB1, DB2, DB3]  # 3 partitions
-    
-    def shorten_url(self, long_url):
-        short_code = generate_short_code()
-        shard = self.get_shard(short_code)
-        
-        # Write to database
-        shard.insert(short_code, long_url)
-        
-        # Warm cache
-        self.cache.set(short_code, long_url, ttl=3600)
-        
-        return short_code
-    
-    def get_url(self, short_code):
-        # Try cache first (P11)
-        url = self.cache.get(short_code)
-        if url:
-            return url
-            
-        # Fallback to database (P1)
-        shard = self.get_shard(short_code)
-        url = shard.get(short_code)
-        
-        if url:
-            # Cache for next time
-            self.cache.set(short_code, url, ttl=3600)
-            
-        return url
-        
-    def get_shard(self, short_code):
-        # Simple hash partitioning
-        shard_id = hash(short_code[0]) % len(self.db_shards)
-        return self.db_shards[shard_id]
-```
+### Application Architecture
+
+| Layer | Technology | Configuration | Performance |
+|-------|------------|---------------|-------------|
+| **Load Balancer** | AWS ALB | 50K RPS capacity, sticky sessions | p99: 2ms |
+| **Application** | Go 1.21 microservice | 8 instances, 2GB RAM each | p99: 15ms |
+| **Cache** | Redis Cluster | 6 nodes, 64GB, LRU eviction | p99: 0.8ms |
+| **Database** | PostgreSQL 15 | 16 shards, read replicas | p99: 25ms |
 
 ### Capacity Validation
-```python
-# Framework's quantitative models
-def validate_design():
-    # Throughput calculation
-    cache_ops_per_second = 50_000  # Redis capacity
-    db_ops_per_shard = 5_000       # DB capacity per shard
-    num_shards = 3
-    
-    max_reads = cache_ops_per_second  # Cache handles reads
-    max_writes = num_shards * db_ops_per_shard * 0.7  # 70% utilization
-    
-    assert max_reads >= 10_000   # Requirement: 10K reads/sec
-    assert max_writes >= 1_000   # Requirement: 1K writes/sec
-    
-    # Latency calculation  
-    cache_latency_p99 = 1   # 1ms
-    db_latency_p99 = 50     # 50ms
-    
-    # 90% cache hit rate
-    effective_latency_p99 = 0.9 * cache_latency_p99 + 0.1 * db_latency_p99
-    assert effective_latency_p99 < 100  # Requirement: <100ms
-    
-    print("✅ Design validated!")
+
+```mermaid
+flowchart LR
+    subgraph Throughput["Throughput Analysis"]
+        CACHE["Redis Cluster<br/>250K ops/sec<br/>6 nodes × 40K"]
+        DB["PostgreSQL Shards<br/>80K ops/sec<br/>16 × 5K/shard"]
+        APP["Go Services<br/>120K ops/sec<br/>8 × 15K/instance"]
+    end
+
+    subgraph Latency["Latency Budget"]
+        CDN_LAT["CDN: 12ms<br/>cache hit"]
+        ALB_LAT["ALB: 2ms<br/>health routing"]
+        APP_LAT["App: 15ms<br/>business logic"]
+        CACHE_LAT["Cache: 0.8ms<br/>90% hit rate"]
+        DB_LAT["DB: 25ms<br/>10% cache miss"]
+    end
+
+    subgraph Result["Validation Results"]
+        THRU_OK["✅ Throughput<br/>250K > 11K required"]
+        LAT_OK["✅ Latency<br/>p99: 32ms < 100ms"]
+        AVAIL_OK["✅ Availability<br/>99.95% > 99.9%"]
+    end
+
+    CACHE --> THRU_OK
+    DB --> THRU_OK
+    APP --> THRU_OK
+    CDN_LAT --> LAT_OK
+    ALB_LAT --> LAT_OK
+    APP_LAT --> LAT_OK
+    CACHE_LAT --> LAT_OK
+    DB_LAT --> LAT_OK
+
+    classDef throughputStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef latencyStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef resultStyle fill:#0066CC,stroke:#004499,color:#fff
+
+    class CACHE,DB,APP throughputStyle
+    class CDN_LAT,ALB_LAT,APP_LAT,CACHE_LAT,DB_LAT latencyStyle
+    class THRU_OK,LAT_OK,AVAIL_OK resultStyle
 ```
 
 ## Common Patterns Quick Reference

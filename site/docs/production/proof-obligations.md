@@ -423,195 +423,159 @@ def test_consensus_safety_property(partitions):
             leaders_by_term[term] = node.id
 ```
 
-## Formal Verification Tools
+## Formal Verification Pipeline
 
-### TLA+ Specifications
+Mathematical proof systems for critical distributed system properties.
 
-```tla
----- MODULE DistributedCounter ----
-EXTENDS Integers, Sequences, FiniteSets
+```mermaid
+flowchart LR
+    subgraph EdgePlane["Edge Plane - Design Input"]
+        SPEC["System Specification<br/>TLA+ Models<br/>Alloy Constraints"]
+        REQ["Requirements<br/>Safety Properties<br/>Liveness Properties"]
+    end
 
-CONSTANTS Nodes, InitialValue
+    subgraph ServicePlane["Service Plane - Verification Tools"]
+        TLA["TLA+ Model Checker<br/>State Space: 10^6 states<br/>Duration: 5-30min"]
+        ALLOY["Alloy Analyzer<br/>SAT Solving<br/>Counterexample: <1min"]
+        SPIN["SPIN Verifier<br/>Promela Models<br/>Memory: 8GB limit"]
+    end
 
-VARIABLES 
-    nodeValues,  \* nodeValues[n] = current value at node n
-    messages     \* messages in transit
+    subgraph StatePlane["State Plane - Verification Results"]
+        PROOF[("Proof Artifacts<br/>Verified Properties<br/>Counterexamples")]
+        TRACE[("Execution Traces<br/>Error Scenarios<br/>State Transitions")]
+    end
 
-TypeOK == 
-    /\ nodeValues \in [Nodes -> Int]
-    /\ messages \subseteq [src: Nodes, dst: Nodes, type: {"increment", "sync"}, value: Int]
+    subgraph ControlPlane["Control Plane - Integration"]
+        CI["CI Integration<br/>Automated Verification<br/>Regression Detection"]
+        CERT["Certification Evidence<br/>Compliance Reports<br/>Audit Trail"]
+    end
 
-Init == 
-    /\ nodeValues = [n \in Nodes |-> InitialValue]
-    /\ messages = {}
+    SPEC --> TLA
+    SPEC --> ALLOY
+    REQ --> SPIN
+    TLA --> PROOF
+    ALLOY --> PROOF
+    SPIN --> PROOF
+    PROOF --> TRACE
+    TRACE --> CI
+    PROOF --> CERT
 
-Increment(n) ==
-    /\ nodeValues' = [nodeValues EXCEPT ![n] = @ + 1]
-    /\ \E m \in Nodes \ {n}: 
-        messages' = messages \cup {[src |-> n, dst |-> m, type |-> "increment", value |-> nodeValues'[n]]}
+    %% Apply four-plane colors
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
 
-Sync(n, m) ==
-    /\ \E msg \in messages:
-        /\ msg.dst = n
-        /\ msg.type = "sync"
-        /\ nodeValues' = [nodeValues EXCEPT ![n] = msg.value]
-        /\ messages' = messages \ {msg}
-
-Next == \E n, m \in Nodes: Increment(n) \/ Sync(n, m)
-
-Spec == Init /\ [][Next]_<<nodeValues, messages>>
-
-\* Safety property: All nodes eventually have same value when no more increments
-EventualConsistency == 
-    <>[](\A n, m \in Nodes: nodeValues[n] = nodeValues[m])
-
-====
+    class SPEC,REQ edgeStyle
+    class TLA,ALLOY,SPIN serviceStyle
+    class PROOF,TRACE stateStyle
+    class CI,CERT controlStyle
 ```
 
-### Model Checking
+### Formal Method Tool Comparison
 
-```python
-# Example: Model checking with Alloy
-def verify_consensus_algorithm():
-    """
-    Use Alloy to verify Raft consensus algorithm properties
-    """
-    alloy_model = """
-    module raft
-    
-    sig Node {
-        currentTerm: one Int,
-        votedFor: lone Node,
-        log: seq LogEntry,
-        role: one Role
-    }
-    
-    abstract sig Role {}
-    one sig Leader, Follower, Candidate extends Role {}
-    
-    sig LogEntry {
-        term: one Int,
-        index: one Int
-    }
-    
-    // Safety: At most one leader per term
-    pred atMostOneLeaderPerTerm {
-        all t: Int | lone n: Node | n.role = Leader and n.currentTerm = t
-    }
-    
-    // Liveness: Eventually a leader is elected
-    pred eventuallyLeader {
-        eventually some n: Node | n.role = Leader
-    }
-    
-    run atMostOneLeaderPerTerm for 5 Node, 3 Int
-    check eventuallyLeader for 5 Node, 3 Int
-    """
-    
-    result = alloy.check(alloy_model)
-    assert result.satisfiable, "Consensus algorithm violates safety properties"
+| **Tool** | **Verification Scope** | **Model Size Limit** | **Verification Time** | **Learning Curve** | **Industry Usage** |
+|---|---|---|---|---|---|
+| **TLA+** | Concurrent algorithms | 10^6 states | 5-30 minutes | High | Amazon, Microsoft |
+| **Alloy** | System structure | 50 objects | <1 minute | Medium | MIT, JPL |
+| **SPIN** | Protocol verification | 8GB memory | 1-60 minutes | High | Telecommunications |
+| **CBMC** | C code verification | 1M lines | 10-120 minutes | Medium | Automotive, aerospace |
+| **Dafny** | Functional correctness | 10K lines | 1-10 minutes | High | Microsoft research |
+
+## Production Invariant Monitoring
+
+Real-time validation of business and system invariants with automated violation response.
+
+### Business Invariant Matrix
+
+| **Invariant Type** | **Check Frequency** | **Violation Severity** | **Auto-Response** | **Business Impact** |
+|---|---|---|---|---|
+| **Account Balance ≥ 0** | Every transaction | CRITICAL | Block transactions | Compliance violation |
+| **Inventory Conservation** | Every 60 seconds | HIGH | Audit reconciliation | Revenue loss |
+| **Single Leader per Term** | Every 5 seconds | CRITICAL | Force re-election | Split-brain scenario |
+| **Data Consistency** | Every write | HIGH | Read from primary | Stale data served |
+| **Rate Limiting** | Every request | MEDIUM | Throttle requests | Service degradation |
+
+## Comprehensive Verification Strategy
+
+Multi-layered verification ensures system correctness from design through production operation.
+
+```mermaid
+flowchart TB
+    subgraph EdgePlane["Edge Plane - Verification Inputs"]
+        DESIGN["Design Specs<br/>TLA+ Models<br/>Property Definitions"]
+        PROD["Production Data<br/>Real Traffic<br/>User Behavior"]
+    end
+
+    subgraph ServicePlane["Service Plane - Verification Layers"]
+        FORMAL["Formal Methods<br/>Mathematical Proofs<br/>Model Checking"]
+        UNIT["Unit Testing<br/>Property-based Tests<br/>Component Isolation"]
+        INTEGRATION["Integration Testing<br/>End-to-end Flows<br/>System Interactions"]
+        CHAOS["Chaos Engineering<br/>Failure Injection<br/>Recovery Validation"]
+    end
+
+    subgraph StatePlane["State Plane - Verification Evidence"]
+        PROOF[("Proof Artifacts<br/>Verified Properties<br/>Test Results")]
+        METRICS[("Quality Metrics<br/>Coverage Reports<br/>Performance Data")]
+        AUDIT[("Audit Trail<br/>Compliance Evidence<br/>Incident History")]
+    end
+
+    subgraph ControlPlane["Control Plane - Continuous Validation"]
+        MONITOR["Production Monitoring<br/>Invariant Checking<br/>Real-time Validation"]
+        ALERT["Violation Detection<br/>Automated Response<br/>Incident Escalation"]
+        IMPROVE["Continuous Improvement<br/>Gap Analysis<br/>Strategy Evolution"]
+    end
+
+    DESIGN --> FORMAL
+    DESIGN --> UNIT
+    PROD --> INTEGRATION
+    PROD --> CHAOS
+    FORMAL --> PROOF
+    UNIT --> PROOF
+    INTEGRATION --> METRICS
+    CHAOS --> METRICS
+    PROOF --> AUDIT
+    METRICS --> AUDIT
+    AUDIT --> MONITOR
+    MONITOR --> ALERT
+    ALERT --> IMPROVE
+    IMPROVE -."feedback".-> DESIGN
+
+    %% Apply four-plane colors
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class DESIGN,PROD edgeStyle
+    class FORMAL,UNIT,INTEGRATION,CHAOS serviceStyle
+    class PROOF,METRICS,AUDIT stateStyle
+    class MONITOR,ALERT,IMPROVE controlStyle
 ```
 
-## Monitoring-Based Verification
+### Verification Layer ROI Analysis
 
-### Invariant Checking
+| **Verification Layer** | **Implementation Cost** | **Bug Detection Rate** | **Production Impact** | **ROI Timeframe** |
+|---|---|---|---|---|
+| **Formal Methods** | High (6 months) | 95% critical bugs | Prevents catastrophic failures | 2-3 years |
+| **Unit Testing** | Low (2 weeks) | 60% component bugs | Faster development cycles | 3-6 months |
+| **Integration Testing** | Medium (1 month) | 80% interface bugs | Reduces system outages | 6-12 months |
+| **Chaos Engineering** | Medium (2 months) | 70% failure modes | Improves resilience | 1-2 years |
+| **Production Monitoring** | Low (1 month) | 90% runtime issues | Faster incident response | 1-3 months |
 
-```python
-class InvariantChecker:
-    """
-    Continuously verify system invariants in production
-    """
-    
-    def __init__(self):
-        self.invariants = []
-        self.violations = []
-    
-    def add_invariant(self, name, check_function, severity="HIGH"):
-        self.invariants.append({
-            'name': name,
-            'check': check_function,
-            'severity': severity
-        })
-    
-    def verify_all(self):
-        """Check all invariants and report violations"""
-        for invariant in self.invariants:
-            try:
-                if not invariant['check']():
-                    violation = {
-                        'name': invariant['name'],
-                        'severity': invariant['severity'],
-                        'timestamp': time.now(),
-                        'system_state': self.capture_state()
-                    }
-                    self.violations.append(violation)
-                    self.alert(violation)
-            except Exception as e:
-                self.log_error(f"Error checking invariant {invariant['name']}: {e}")
+### Success Metrics Dashboard
 
-# Example invariants
-checker = InvariantChecker()
+| **Metric** | **Target** | **Current** | **Trend** | **Action Required** |
+|---|---|---|---|---|
+| **Test Coverage** | >90% | 87% | ↗ | Add integration tests |
+| **MTTR** | <5 minutes | 8 minutes | ↘ | Improve automation |
+| **False Positive Rate** | <1% | 3% | ↘ | Tune alert thresholds |
+| **Production Bugs** | <1 per release | 2 per release | ↗ | Enhance pre-prod testing |
+| **Verification Cost** | <15% dev time | 18% dev time | ↘ | Optimize test efficiency |
 
-# Financial system invariant
-checker.add_invariant(
-    "account_balance_non_negative",
-    lambda: all(account.balance >= 0 for account in get_all_accounts()),
-    severity="CRITICAL"
-)
+**Total Score: ___/18**
+- **12-18**: Production-ready verification system
+- **6-11**: Good foundation, focus on automation
+- **0-5**: Significant reliability risks
 
-# Inventory system invariant
-checker.add_invariant(
-    "inventory_conservation",
-    lambda: sum(item.available + item.reserved for item in get_inventory()) == sum(item.total for item in get_inventory()),
-    severity="HIGH"
-)
-
-# Consensus system invariant
-checker.add_invariant(
-    "single_leader_per_term",
-    lambda: len(get_leaders_in_current_term()) <= 1,
-    severity="CRITICAL"
-)
-```
-
-## Conclusion: Verification Strategy
-
-A comprehensive verification strategy includes:
-
-1. **Design-time verification**: TLA+ specs, formal methods
-2. **Development-time verification**: Unit and integration tests
-3. **Pre-production verification**: System tests, chaos engineering
-4. **Production verification**: Monitoring, invariant checking
-5. **Post-incident verification**: Game days, failure analysis
-
-The key insight is that verification must be continuous and multi-layered. No single approach catches all problems, but together they provide high confidence in system correctness.
-
-**The verification pyramid:**
-```
-Production Monitoring (continuous)
-├── Invariant checking
-├── Performance monitoring  
-└── Error rate tracking
-
-Chaos Engineering (weekly)
-├── Failure injection
-├── Load testing
-└── Game days
-
-System Tests (nightly)
-├── End-to-end scenarios
-├── Integration testing
-└── Performance testing
-
-Unit Tests (every commit)
-├── Individual components
-├── Property-based testing
-└── Contract testing
-
-Formal Methods (design time)
-├── TLA+ specifications
-├── Model checking
-└── Mathematical proofs
-```
-
-This comprehensive approach ensures that distributed systems behave correctly under all conditions, from normal operation to extreme failure scenarios.
+This layered approach provides comprehensive verification coverage while maintaining development velocity and production reliability.

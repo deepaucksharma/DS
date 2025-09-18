@@ -607,192 +607,278 @@ graph LR
 
 ## WhatsApp: Global Messaging Platform
 
-### The Challenge
-- **Scale**: 2B+ users, 100B+ messages/day
-- **Latency**: <100ms message delivery globally
-- **Team Size**: 50 engineers (acquired by Facebook)
-- **Reliability**: 99.9% uptime for real-time communication
+WhatsApp delivers 100B+ messages/day to 2B users with just 50 engineers using Erlang's actor model.
 
-### Minimalist Architecture
+### Complete Architecture
 
-#### Core Philosophy
-```python
-# WhatsApp's engineering principles
-principles = {
-    "simple_is_better": "Avoid unnecessary complexity",
-    "erlang_for_concurrency": "Actor model for massive concurrency", 
-    "minimal_team": "Small team, focused execution",
-    "proven_tech": "Use battle-tested technology"
-}
-```
-
-#### Technology Stack
-```yaml
-backend: Erlang/OTP
-database: Mnesia (distributed Erlang DB)
-messaging: XMPP protocol (customized)
-load_balancer: FreeBSD + nginx
-monitoring: Custom Erlang tools
-```
-
-### Message Delivery Pipeline
-
-#### Actor-based Architecture
-```erlang
-% Simplified Erlang pseudocode
--module(message_router).
-
-% Each user connection is an actor/process
-handle_message(From, To, Message) ->
-    % Find target user's connection
-    case user_registry:lookup(To) of
-        {ok, ConnectionPid} ->
-            % Send directly to user's connection process
-            ConnectionPid ! {deliver_message, From, Message},
-            {ok, delivered};
-        {error, not_connected} ->
-            % Store for later delivery
-            offline_storage:store(To, From, Message),
-            {ok, stored}
-    end.
-```
-
-**Key Advantages**:
-- **Massive Concurrency**: Millions of lightweight processes
-- **Fault Isolation**: One user failure doesn't affect others
-- **Hot Code Swapping**: Update code without downtime
-
-#### Global Distribution
 ```mermaid
 graph TB
-    subgraph "North America"
-        NA_LB[Load Balancer]
-        NA_Chat[Chat Servers]
-        NA_DB[(User DB)]
+    subgraph EdgePlane[Edge Plane - Global Access]
+        DNS[DNS Load Balancing]
+        NGINX[Nginx - FreeBSD]
+        SSL[SSL Termination]
+        GEOIP[GeoIP Routing]
     end
-    
-    subgraph "Europe"  
-        EU_LB[Load Balancer]
-        EU_Chat[Chat Servers]
-        EU_DB[(User DB)]
+
+    subgraph ServicePlane[Service Plane - Erlang/OTP]
+        CONN_MGR[Connection Manager - 1M connections/server]
+        MSG_ROUTER[Message Router - Actor Model]
+        PRESENCE[Presence Service - Online Status]
+        GROUP_MGR[Group Manager - Broadcast Logic]
+        MEDIA_SVC[Media Service - File Uploads]
     end
-    
-    subgraph "Asia"
-        ASIA_LB[Load Balancer] 
-        ASIA_Chat[Chat Servers]
-        ASIA_DB[(User DB)]
+
+    subgraph StatePlane[State Plane - Minimal Storage]
+        MNESIA[(Mnesia - User Sessions)]
+        MYSQL[(MySQL - User Registration)]
+        FILE_STORE[(FreeBSD - Message Storage)]
+        MEDIA_STORE[(S3 - Media Files)]
     end
-    
-    NA_Chat <--> EU_Chat
-    EU_Chat <--> ASIA_Chat
-    ASIA_Chat <--> NA_Chat
+
+    subgraph ControlPlane[Control Plane - Operations]
+        STATS[Custom Erlang Stats]
+        ALERTS[Custom Monitoring]
+        DEPLOY[Hot Code Deploy]
+        BACKUP[Incremental Backup]
+    end
+
+    %% Flows
+    DNS --> NGINX
+    NGINX --> SSL
+    SSL --> CONN_MGR
+    CONN_MGR --> MSG_ROUTER
+    MSG_ROUTER --> PRESENCE
+    MSG_ROUTER --> GROUP_MGR
+
+    %% Data
+    CONN_MGR --> MNESIA
+    MSG_ROUTER --> FILE_STORE
+    MEDIA_SVC --> MEDIA_STORE
+
+    %% Control
+    MSG_ROUTER --> STATS
+    CONN_MGR --> ALERTS
+
+    %% Apply four-plane colors
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class DNS,NGINX,SSL,GEOIP edgeStyle
+    class CONN_MGR,MSG_ROUTER,PRESENCE,GROUP_MGR,MEDIA_SVC serviceStyle
+    class MNESIA,MYSQL,FILE_STORE,MEDIA_STORE stateStyle
+    class STATS,ALERTS,DEPLOY,BACKUP controlStyle
 ```
 
-**Patterns Used**:
-- **Geographic Partitioning**: Users routed to nearest data center
-- **Peer-to-Peer**: Direct server-to-server messaging
-- **Eventual Consistency**: Message ordering eventual across regions
+### Actor Model Message Delivery
 
-### Scaling Techniques
+```mermaid
+graph TB
+    subgraph ConnectionLayer[Connection Layer - Massive Concurrency]
+        USER1[User 1 Process - PID: 12345]
+        USER2[User 2 Process - PID: 12346]
+        USER3[User 3 Process - PID: 12347]
+        USERN[User N Process - PID: 99999]
+        REGISTRY[Process Registry - ETS Table]
+    end
 
-#### Connection Management
-```erlang
-% Connection pooling per server
--record(connection_pool, {
-    active_connections = 0,
-    max_connections = 1000000,  % 1M connections per server
-    connection_pids = []
-}).
+    subgraph MessageFlow[Message Flow - Async Delivery]
+        RECEIVE[Receive Message]
+        LOOKUP[Lookup Recipient Process]
+        DELIVER[Send to Process Mailbox]
+        OFFLINE[Store if Offline]
+        ACK[Send Delivery Ack]
+    end
 
-handle_new_connection(Socket) ->
-    case connection_pool:can_accept() of
-        true ->
-            % Spawn new process for this connection
-            Pid = spawn(fun() -> handle_user_session(Socket) end),
-            connection_pool:add(Pid),
-            {ok, accepted};
-        false ->
-            % Gracefully reject with retry-after
-            {error, server_full}
-    end.
+    subgraph FaultTolerance[Fault Tolerance - Let It Crash]
+        SUPERVISOR[Supervisor Tree]
+        RESTART[Restart Failed Process]
+        ISOLATE[Isolate Failures]
+        PRESERVE[Preserve System State]
+    end
+
+    USER1 --> REGISTRY
+    USER2 --> REGISTRY
+    USER3 --> REGISTRY
+    USERN --> REGISTRY
+
+    REGISTRY --> LOOKUP
+    LOOKUP --> DELIVER
+    DELIVER --> ACK
+    LOOKUP --> OFFLINE
+
+    SUPERVISOR --> RESTART
+    RESTART --> ISOLATE
+    ISOLATE --> PRESERVE
+
+    classDef actorStyle fill:#9966CC,stroke:#663399,color:#fff
+    classDef flowStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef faultStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class USER1,USER2,USER3,USERN,REGISTRY actorStyle
+    class RECEIVE,LOOKUP,DELIVER,OFFLINE,ACK flowStyle
+    class SUPERVISOR,RESTART,ISOLATE,PRESERVE faultStyle
 ```
 
-#### Message Storage
-```erlang
-% Simple but effective message storage
-store_message(UserId, FromUser, Message) ->
-    % Partition by user ID hash
-    Shard = hash(UserId) rem num_shards(),
-    
-    % Store in memory-mapped file for fast access
-    Storage = storage_shard:get(Shard),
-    MessageId = generate_id(),
-    
-    % Write to log-structured storage
-    storage:append(Storage, {MessageId, UserId, FromUser, Message, timestamp()}).
+### Global Distribution Strategy
+
+```mermaid
+graph TB
+    subgraph RegionUS[US Region - Primary]
+        US_LB[Load Balancer - 500 servers]
+        US_CHAT[Chat Servers - 1M connections each]
+        US_DB[(User Registry - Sharded)]
+        US_METRICS[Metrics Collection]
+    end
+
+    subgraph RegionEU[EU Region - GDPR Compliant]
+        EU_LB[Load Balancer - 300 servers]
+        EU_CHAT[Chat Servers - 800K connections each]
+        EU_DB[(User Registry - Local)]
+        EU_METRICS[Metrics Collection]
+    end
+
+    subgraph RegionASIA[Asia Region - High Density]
+        ASIA_LB[Load Balancer - 400 servers]
+        ASIA_CHAT[Chat Servers - 1.2M connections each]
+        ASIA_DB[(User Registry - Sharded)]
+        ASIA_METRICS[Metrics Collection]
+    end
+
+    subgraph CrossRegion[Cross-Region Messaging]
+        ROUTE[Message Routing Logic]
+        PRESENCE_SYNC[Presence Synchronization]
+        FEDERATION[Server-to-Server Protocol]
+        BACKUP_SYNC[Backup Synchronization]
+    end
+
+    US_CHAT -.->|Cross-region message| EU_CHAT
+    EU_CHAT -.->|Cross-region message| ASIA_CHAT
+    ASIA_CHAT -.->|Cross-region message| US_CHAT
+
+    ROUTE --> PRESENCE_SYNC
+    PRESENCE_SYNC --> FEDERATION
+    FEDERATION --> BACKUP_SYNC
+
+    classDef regionStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef crossStyle fill:#FF8800,stroke:#CC6600,color:#fff
+
+    class US_LB,US_CHAT,US_DB,US_METRICS,EU_LB,EU_CHAT,EU_DB,EU_METRICS,ASIA_LB,ASIA_CHAT,ASIA_DB,ASIA_METRICS regionStyle
+    class ROUTE,PRESENCE_SYNC,FEDERATION,BACKUP_SYNC crossStyle
 ```
 
 ### Performance Optimizations
 
-#### Memory Management
-```erlang
-% Aggressive garbage collection tuning
-gc_settings() ->
-    % Small heap sizes force frequent GC
-    % Prevents long GC pauses that would affect latency
-    [{min_heap_size, 233},
-     {min_bin_vheap_size, 46422},
-     {fullsweep_after, 10}].
+```mermaid
+graph TB
+    subgraph MemoryOpt[Memory Optimization - Aggressive GC]
+        SMALL_HEAP[Small Heap Sizes - 233 words]
+        FREQ_GC[Frequent GC - Every 10 operations]
+        BINARY_OPT[Binary Optimization - Large binaries off-heap]
+        SHARED_TERMS[Share Terms Between Processes]
+    end
+
+    subgraph NetworkOpt[Network Optimization - Low Latency]
+        TCP_NODELAY[TCP_NODELAY - Disable Nagle]
+        LARGE_BUFFERS[Large Socket Buffers - 8MB]
+        KEEPALIVE[TCP Keepalive - Connection Health]
+        COMPRESSION[Message Compression - Zlib]
+    end
+
+    subgraph ConcurrencyOpt[Concurrency Optimization]
+        SCHEDULER[SMP Scheduler - Multi-core Usage]
+        PROCESS_SPAWN[Fast Process Spawn - μs latency]
+        MESSAGE_PASS[Message Passing - Copy-free]
+        LOCK_FREE[Lock-free Data Structures]
+    end
+
+    SMALL_HEAP --> FREQ_GC
+    FREQ_GC --> BINARY_OPT
+    BINARY_OPT --> SHARED_TERMS
+
+    TCP_NODELAY --> LARGE_BUFFERS
+    LARGE_BUFFERS --> KEEPALIVE
+    KEEPALIVE --> COMPRESSION
+
+    SCHEDULER --> PROCESS_SPAWN
+    PROCESS_SPAWN --> MESSAGE_PASS
+    MESSAGE_PASS --> LOCK_FREE
+
+    classDef memStyle fill:#9966CC,stroke:#663399,color:#fff
+    classDef netStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef concStyle fill:#00AA00,stroke:#007700,color:#fff
+
+    class SMALL_HEAP,FREQ_GC,BINARY_OPT,SHARED_TERMS memStyle
+    class TCP_NODELAY,LARGE_BUFFERS,KEEPALIVE,COMPRESSION netStyle
+    class SCHEDULER,PROCESS_SPAWN,MESSAGE_PASS,LOCK_FREE concStyle
 ```
 
-#### Network Optimization
-```python
-# Connection optimization techniques
-class ConnectionOptimization:
-    def optimize_tcp_stack(self):
-        # Disable Nagle's algorithm for low latency
-        socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
-        
-        # Large receive buffers
-        socket.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, 8192000)
-        
-        # Keep connections alive
-        socket.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
-```
+### Cost & Performance Metrics
 
-### Key Learnings
-1. **Technology Matters**: Erlang's actor model perfect for messaging
-2. **Simple Wins**: Avoid over-engineering, focus on core functionality
-3. **Vertical Scaling**: Better to scale up than out for simpler operations
-4. **Measure Relentlessly**: Profile every bottleneck
+| Component | Technology | Scale | Latency | Cost/Month |
+|-----------|------------|--------|---------|------------|
+| Servers | FreeBSD | 1200 servers | <50ms p99 | $2M |
+| Connections | Erlang/OTP | 2B concurrent | <10ms local | $500K |
+| Storage | Custom | 1PB messages | <1ms write | $200K |
+| Bandwidth | Global ISPs | 100Gbps peak | Regional | $1M |
+| Team | Engineers | 50 people | 24/7 support | $800K |
 
 ---
 
-## Common Patterns Across All Case Studies
+## Architecture Patterns Summary
 
-### 1. Evolution Over Revolution
-- Start simple, evolve architecture as you scale
-- Monolith → Services → Platform is common progression
-- Premature optimization is root of many problems
+### Common Evolution Path
 
-### 2. Observability is Critical  
-- Comprehensive monitoring and alerting
-- Distributed tracing for debugging
-- Real-time dashboards for operations
+```mermaid
+graph LR
+    subgraph Phase1[Phase 1: Startup (0-1M users)]
+        MONOLITH[Monolithic Application]
+        SINGLE_DB[(Single Database)]
+        SIMPLE[Simple Deployment]
+    end
 
-### 3. Failure is Normal
-- Design for failure, not perfect operation
-- Circuit breakers and bulkheads for isolation
-- Chaos engineering to find weaknesses
+    subgraph Phase2[Phase 2: Growth (1M-10M users)]
+        SERVICES[Microservices]
+        MULTI_DB[(Multiple Databases)]
+        LOAD_BAL[Load Balancers]
+    end
 
-### 4. Conway's Law Always Applies
-- System architecture reflects team structure
-- Invest in team organization and communication
-- Service boundaries often follow team boundaries
+    subgraph Phase3[Phase 3: Scale (10M-100M users)]
+        PLATFORM[Platform Services]
+        SHARDED[(Sharded Data)]
+        REGIONS[Multi-Region]
+    end
 
-### 5. Trade-offs Are Unavoidable
-- No silver bullets in distributed systems
-- CAP theorem forces hard choices
-- Optimize for your specific requirements
+    subgraph Phase4[Phase 4: Global (100M+ users)]
+        ECOSYSTEM[Service Ecosystem]
+        GLOBAL_DB[(Global Distribution)]
+        EDGE[Edge Computing]
+    end
 
-These case studies show that while the specific technologies vary, the fundamental patterns and principles remain consistent across different domains and scales.
+    Phase1 --> Phase2
+    Phase2 --> Phase3
+    Phase3 --> Phase4
+
+    classDef phase1Style fill:#CC0000,stroke:#990000,color:#fff
+    classDef phase2Style fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef phase3Style fill:#00AA00,stroke:#007700,color:#fff
+    classDef phase4Style fill:#0066CC,stroke:#004499,color:#fff
+
+    class MONOLITH,SINGLE_DB,SIMPLE phase1Style
+    class SERVICES,MULTI_DB,LOAD_BAL phase2Style
+    class PLATFORM,SHARDED,REGIONS phase3Style
+    class ECOSYSTEM,GLOBAL_DB,EDGE phase4Style
+```
+
+### Universal Principles
+
+| Principle | Netflix | Uber | Amazon | WhatsApp |
+|-----------|---------|------|--------|----------|
+| **Embrace Failure** | Chaos Engineering | Circuit Breakers | Load Shedding | Let It Crash |
+| **Eventual Consistency** | Multi-region CDN | Location Updates | Shopping Cart | Message Delivery |
+| **Horizontal Scaling** | Microservices | Geospatial Sharding | Service-Oriented | Process Per User |
+| **Observability** | Atlas + Jaeger | Prometheus + Jaeger | CloudWatch + X-Ray | Custom Erlang Tools |
+| **Automation** | Spinnaker CI/CD | Auto-scaling | Infrastructure as Code | Hot Code Deploy |
+
+These companies demonstrate that while technologies differ, fundamental distributed systems principles remain constant across domains and scales.

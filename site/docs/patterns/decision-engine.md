@@ -347,148 +347,160 @@ graph TD
 | P5 (Consensus) | Strong consistency | +50% latency | Fixed | +$5K/month | 1.5x |
 | P11 (Cache) | <100ms reads | $10/GB | Linear | +$1K/month | 1.1x |
 
-## Decision Trees
+## Consistency Decision Tree
 
-### Consistency Requirements
+```mermaid
+flowchart TD
+    START[Domain Analysis] --> FINANCE{Financial Domain?}
 
-```python
-def classify_consistency_need(requirements):
-    """
-    Classify consistency requirements based on domain and use case
-    """
-    if any(keyword in requirements.domain.lower() for keyword in 
-           ['financial', 'payment', 'billing', 'accounting', 'money']):
-        return 'strong'  # Financial accuracy required
-    
-    if any(keyword in requirements.domain.lower() for keyword in
-           ['inventory', 'booking', 'reservation', 'ticket']):
-        return 'strong'  # No overbooking allowed
-    
-    if any(keyword in requirements.domain.lower() for keyword in
-           ['social', 'feed', 'timeline', 'news', 'content']):
-        return 'eventual'  # Eventual consistency acceptable
-    
-    if any(keyword in requirements.domain.lower() for keyword in
-           ['analytics', 'reporting', 'dashboard', 'metrics']):
-        return 'eventual'  # Stale data acceptable
-    
-    if requirements.consistency_slo:
-        if requirements.consistency_slo < 100:  # <100ms
-            return 'strong'
-        else:
-            return 'eventual'
-    
-    return 'eventual'  # Default to eventual consistency
+    FINANCE -->|Yes| STRONG[Strong Consistency Required]
+    FINANCE -->|No| INVENTORY{Inventory/Booking?}
 
-def select_consistency_pattern(consistency_need, scale_requirements):
-    """Select appropriate consistency pattern"""
-    if consistency_need == 'strong':
-        if scale_requirements.writes_per_second > 50_000:
-            return 'sharded_strong'  # Partitioned strong consistency
-        else:
-            return 'single_leader'   # Simple strong consistency
-    else:
-        if scale_requirements.reads_per_second > 100_000:
-            return 'cqrs'           # CQRS for read scaling
-        else:
-            return 'eventual'       # Simple eventual consistency
+    INVENTORY -->|Yes| STRONG
+    INVENTORY -->|No| SOCIAL{Social/Content?}
+
+    SOCIAL -->|Yes| EVENTUAL[Eventual Consistency OK]
+    SOCIAL -->|No| ANALYTICS{Analytics/Reporting?}
+
+    ANALYTICS -->|Yes| EVENTUAL
+    ANALYTICS -->|No| SLO{SLO < 100ms?}
+
+    SLO -->|Yes| STRONG
+    SLO -->|No| EVENTUAL
+
+    STRONG --> SCALE1{Writes > 50K TPS?}
+    SCALE1 -->|Yes| SHARDED[Sharded Strong<br/>P1 + P5]
+    SCALE1 -->|No| LEADER[Single Leader<br/>P5 only]
+
+    EVENTUAL --> SCALE2{Reads > 100K QPS?}
+    SCALE2 -->|Yes| CQRS[CQRS Pattern<br/>P3 + P19]
+    SCALE2 -->|No| SIMPLE[Simple Eventual<br/>P2 only]
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class START,FINANCE,INVENTORY,SOCIAL,ANALYTICS,SLO edgeStyle
+    class SCALE1,SCALE2 serviceStyle
+    class STRONG,EVENTUAL stateStyle
+    class SHARDED,LEADER,CQRS,SIMPLE controlStyle
 ```
 
-### Technology Selection
+## Domain Classification
 
-```python
-def select_database(requirements, primitives):
-    """Select appropriate database technology"""
-    if 'P5' in primitives:  # Consensus required
-        if requirements.throughput > 50_000:
-            return 'CockroachDB'  # Distributed consensus
-        else:
-            return 'PostgreSQL'   # Single node with consensus for metadata
-    
-    if 'P1' in primitives:  # Partitioning required
-        if requirements.consistency == 'eventual':
-            return 'Cassandra'    # AP system
-        else:
-            return 'CockroachDB'  # CP system
-    
-    if requirements.throughput < 10_000:
-        return 'PostgreSQL'       # Single node sufficient
-    
-    return 'PostgreSQL'           # Default choice
+| Domain | Keywords | Consistency Need | Recommended Pattern | Justification |
+|--------|----------|------------------|---------------------|---------------|
+| Financial | payment, billing, money, accounting | Strong | Single Leader or Sharded Strong | Zero tolerance for inconsistency |
+| Inventory | booking, reservation, tickets | Strong | Escrow with Sharding | Prevent overbooking |
+| Social | feed, timeline, content, news | Eventual | CQRS or Simple Eventual | User experience over perfect consistency |
+| Analytics | reporting, dashboard, metrics | Eventual | Batch Processing | Stale data acceptable for insights |
+| Gaming | leaderboard, scores, matches | Strong | Consensus with Partitioning | Fair play requires consistency |
+| IoT | sensors, telemetry, monitoring | Eventual | Time Series with Batching | Volume over perfect order |
 
-def select_caching_layer(requirements):
-    """Select appropriate caching technology"""
-    if requirements.cache_size_gb > 100:
-        return 'Redis Cluster'
-    elif requirements.cache_hit_ratio > 0.95:
-        return 'Redis'
-    elif requirements.latency_p99 < 10:
-        return 'In-Memory Cache'
-    else:
-        return 'Redis'
+## Technology Selection Matrix
 
-def select_streaming_platform(requirements):
-    """Select appropriate streaming platform"""
-    if requirements.events_per_second > 100_000:
-        return 'Apache Kafka'
-    elif requirements.exactly_once_required:
-        return 'Apache Kafka'
-    elif requirements.serverless_preferred:
-        return 'AWS Kinesis'
-    else:
-        return 'Apache Kafka'
-```
+### Database Selection
+
+| Throughput | Consistency | Primitives | Technology | Rationale | Monthly Cost |
+|------------|-------------|------------|------------|-----------|-------------|
+| <10K TPS | Any | None | PostgreSQL | Simple, proven | $500 |
+| 10-50K TPS | Strong | P5 | PostgreSQL + Consensus | Single leader with HA | $1500 |
+| >50K TPS | Strong | P1 + P5 | CockroachDB | Distributed strong consistency | $5000 |
+| >50K TPS | Eventual | P1 | Cassandra | AP system, horizontal scale | $3000 |
+| <1K TPS | Strong | P13 | SQLite + Replication | Embedded with backup | $100 |
+
+### Cache Selection
+
+| Cache Size | Hit Ratio | Latency Requirement | Technology | Configuration | Cost |
+|------------|-----------|---------------------|------------|---------------|------|
+| <1GB | >90% | <1ms | In-Memory HashMap | JVM heap, single instance | $0 |
+| 1-10GB | >85% | <5ms | Redis Single | r6g.large, single AZ | $200 |
+| 10-100GB | >80% | <10ms | Redis Cluster | 6 nodes, r6g.xlarge | $1200 |
+| >100GB | >75% | <50ms | Redis + CDN | Global distribution | $5000 |
+
+### Streaming Platform Selection
+
+| Events/Sec | Consistency | Serverless | Technology | Reasoning | Cost Model |
+|------------|-------------|------------|------------|-----------|------------|
+| <1K | Any | Yes | AWS Kinesis | Serverless, pay-per-use | $0.014/shard-hour |
+| 1-10K | Any | No | Apache Kafka | Industry standard | $500/month |
+| >10K | Exactly-once | No | Apache Kafka | Transaction support | $2000/month |
+| >100K | Any | No | Apache Kafka | Proven at scale | $10000/month |
+| >1M | Any | No | Apache Pulsar | Multi-tenant, geo-replication | $50000/month |
 
 ## Validation Framework
 
-```python
-def validate_system_design(system, requirements):
-    """
-    Comprehensive validation of system design against requirements
-    """
-    violations = []
-    
-    # Performance validation
-    if system['latency_p99'] > requirements.latency_budget:
-        violations.append(f"Latency P99 {system['latency_p99']}ms exceeds budget {requirements.latency_budget}ms")
-    
-    if system['throughput'] < requirements.peak_load:
-        violations.append(f"Throughput {system['throughput']} below required {requirements.peak_load}")
-    
-    # Availability validation
-    if system['availability'] < requirements.availability_slo:
-        violations.append(f"Availability {system['availability']} below SLO {requirements.availability_slo}")
-    
-    # Cost validation
-    if system['monthly_cost'] > requirements.budget:
-        violations.append(f"Cost ${system['monthly_cost']} exceeds budget ${requirements.budget}")
-    
-    # Consistency validation
-    required_consistency = classify_consistency_need(requirements)
-    provided_consistency = determine_consistency_level(system['primitives'])
-    
-    if not consistency_compatible(required_consistency, provided_consistency):
-        violations.append(f"Consistency mismatch: need {required_consistency}, provides {provided_consistency}")
-    
-    return violations
+```mermaid
+graph LR
+    subgraph Input[System + Requirements]
+        SYS[Calculated System<br/>Properties]
+        REQ[Business<br/>Requirements]
+    end
 
-def generate_recommendations(violations, system):
-    """Generate recommendations to fix violations"""
-    recommendations = []
-    
-    for violation in violations:
-        if 'Latency' in violation:
-            recommendations.append("Consider adding caching (P11) or reducing hops")
-        elif 'Throughput' in violation:
-            recommendations.append("Consider adding partitioning (P1) or scaling nodes")
-        elif 'Availability' in violation:
-            recommendations.append("Consider adding replication (P2) or redundancy")
-        elif 'Cost' in violation:
-            recommendations.append("Consider serverless pattern or resource optimization")
-        elif 'Consistency' in violation:
-            recommendations.append("Consider stronger consistency primitives or relaxing requirements")
-    
-    return recommendations
+    subgraph Validators[Validation Checks]
+        PERF[Performance<br/>Latency + Throughput]
+        AVAIL[Availability<br/>SLO compliance]
+        COST[Cost<br/>Budget constraints]
+        CONSIST[Consistency<br/>Domain needs]
+    end
+
+    subgraph Output[Results]
+        PASS[Valid Design]
+        VIOLATIONS[Violations Found]
+        RECOMMENDATIONS[Fix Recommendations]
+    end
+
+    SYS --> PERF
+    SYS --> AVAIL
+    SYS --> COST
+    REQ --> PERF
+    REQ --> AVAIL
+    REQ --> COST
+    REQ --> CONSIST
+    SYS --> CONSIST
+
+    PERF --> PASS
+    AVAIL --> PASS
+    COST --> PASS
+    CONSIST --> PASS
+
+    PERF --> VIOLATIONS
+    AVAIL --> VIOLATIONS
+    COST --> VIOLATIONS
+    CONSIST --> VIOLATIONS
+
+    VIOLATIONS --> RECOMMENDATIONS
+
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class SYS,REQ edgeStyle
+    class PERF,AVAIL,COST,CONSIST serviceStyle
+    class PASS,VIOLATIONS stateStyle
+    class RECOMMENDATIONS controlStyle
 ```
 
-The Decision Engine transforms system design from art to science, providing repeatable, validated approaches to complex architectural decisions.
+## Validation Rules
+
+| Violation Type | Detection Rule | Automatic Fix | Manual Fix Required |
+|----------------|----------------|---------------|--------------------|
+| Latency Budget | p99 > budget | Add caching (P11) | Reduce hops, optimize queries |
+| Throughput | capacity < peak_load | Add partitioning (P1) | Scale vertically first |
+| Availability | calculated < SLO | Add replication (P2) | Multi-region deployment |
+| Cost Overrun | monthly > budget | Serverless pattern | Optimize resource allocation |
+| Consistency Mismatch | strong needed, eventual provided | Add consensus (P5) | Relax business requirements |
+
+## Recommendation Engine
+
+| Problem Pattern | Root Cause | Primary Fix | Alternative Fix | Prevention |
+|-----------------|------------|-------------|-----------------|------------|
+| High Latency | Too many hops | Add CDN/Cache | Reduce service calls | API consolidation |
+| Low Throughput | Single bottleneck | Horizontal scaling | Vertical scaling | Load testing |
+| Poor Availability | Single points of failure | Add redundancy | Multi-region | Chaos engineering |
+| Cost Explosion | Over-provisioning | Right-sizing | Reserved instances | Cost monitoring |
+| Consistency Issues | Wrong pattern choice | Stronger guarantees | Relaxed requirements | Domain analysis |
+
+The Decision Engine transforms system design from intuition to mathematical certainty, providing repeatable validation of complex architectural decisions with quantified trade-offs.

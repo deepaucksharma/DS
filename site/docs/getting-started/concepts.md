@@ -1,65 +1,137 @@
 # Core Concepts
 
-Understanding these fundamental concepts is essential for working with distributed systems.
+Production-focused fundamentals for building reliable distributed systems.
 
 ## The Distribution Problem
 
-When you move from a single machine to multiple machines, you encounter new classes of problems that don't exist in single-machine systems.
+Moving from single machine to distributed introduces fundamental new failure modes.
 
 ### What Changes with Distribution?
 
-| **Single Machine** | **Distributed System** |
-|-------------------|----------------------|
-| Shared memory | Network communication |
-| Single clock | Multiple clocks |
-| Fail-stop failures | Partial failures |
-| Atomic operations | Distributed coordination |
-| Direct function calls | Remote procedure calls |
-| Local transactions | Distributed transactions |
+```mermaid
+flowchart LR
+    subgraph SingleMachine["Single Machine - Predictable"]
+        SM_MEM["Shared Memory<br/>μs latency<br/>atomic operations"]
+        SM_CLOCK["Single Clock<br/>nanosecond precision<br/>monotonic time"]
+        SM_FAIL["Fail-Stop<br/>process crash<br/>binary: working/dead"]
+    end
+
+    subgraph Distributed["Distributed System - Unpredictable"]
+        DS_NET["Network Communication<br/>ms latency, packet loss<br/>no guarantees"]
+        DS_CLOCK["Multiple Clocks<br/>drift, skew, leap seconds<br/>NTP synchronization"]
+        DS_FAIL["Partial Failures<br/>network partitions<br/>byzantine behaviors"]
+    end
+
+    subgraph ProductionReality["Production Reality"]
+        PROB1["AWS S3 2017<br/>4-hour outage<br/>typo in command"]
+        PROB2["GitHub 2018<br/>database failover<br/>24-hour incident"]
+        PROB3["Cloudflare 2019<br/>BGP leak<br/>global internet down"]
+    end
+
+    SingleMachine --> Distributed
+    Distributed --> ProductionReality
+
+    classDef singleStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef distStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef realityStyle fill:#CC0000,stroke:#990000,color:#fff
+
+    class SM_MEM,SM_CLOCK,SM_FAIL singleStyle
+    class DS_NET,DS_CLOCK,DS_FAIL distStyle
+    class PROB1,PROB2,PROB3 realityStyle
+```
+
+| **Single Machine** | **Distributed System** | **Production Example** |
+|-------------------|----------------------|----------------------|
+| Shared memory (μs) | Network communication (ms) | Redis: 0.1ms, PostgreSQL: 5ms |
+| Single clock | Multiple clocks | AWS regions: 100ms skew |
+| Fail-stop failures | Partial failures | Netflix: 1000+ microservices |
+| Atomic operations | Distributed coordination | Stripe: eventual consistency |
+| Direct function calls | Remote procedure calls | Uber: 2000+ services, gRPC |
+| Local transactions | Distributed transactions | Banking: 2-phase commit |
 
 ## The Fundamental Trade-offs
 
-### CAP Theorem in Practice
+### CAP Theorem in Production
 
-**The Law**: During a network partition, you must choose between Consistency and Availability.
+During network partitions, choose consistency or availability - not both.
 
 ```mermaid
-graph TB
-    CAP[CAP Theorem]
-    CAP --> CP[CP Systems]
-    CAP --> AP[AP Systems]
-    
-    CP --> CPEx[Examples: Banking, ACID databases]
-    AP --> APEx[Examples: Social media, DNS]
-    
-    CPEx --> CPTrade[Trade-off: Unavailable during partition]
-    APEx --> APTrade[Trade-off: Stale reads possible]
+flowchart TB
+    subgraph Problem["Network Partition Reality"]
+        PART["AWS Multi-AZ Partition<br/>2019: 7-hour outage<br/>RDS unavailable"]
+    end
+
+    subgraph CPSystems["CP Systems - Choose Consistency"]
+        BANK["Chase Bank<br/>$2T deposits<br/>unavailable > incorrect"]
+        STRIPE["Stripe Payments<br/>$640B processed<br/>fail-safe design"]
+        COCKROACH["CockroachDB<br/>linearizable writes<br/>sacrifice availability"]
+    end
+
+    subgraph APSystems["AP Systems - Choose Availability"]
+        NETFLIX["Netflix Streaming<br/>200M subscribers<br/>stale data acceptable"]
+        DNS["Route53 DNS<br/>100B queries/day<br/>eventual consistency"]
+        DYNAMO["DynamoDB<br/>10T requests/day<br/>last-writer-wins"]
+    end
+
+    subgraph Hybrid["Hybrid Approach"]
+        AMAZON["Amazon.com<br/>inventory: CP<br/>recommendations: AP"]
+        UBER["Uber Platform<br/>payments: CP<br/>surge pricing: AP"]
+    end
+
+    PART --> CPSystems
+    PART --> APSystems
+    CPSystems --> Hybrid
+    APSystems --> Hybrid
+
+    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef cpStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef apStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef hybridStyle fill:#FF8800,stroke:#CC6600,color:#fff
+
+    class PART problemStyle
+    class BANK,STRIPE,COCKROACH cpStyle
+    class NETFLIX,DNS,DYNAMO apStyle
+    class AMAZON,UBER hybridStyle
 ```
 
-**Real-world implications:**
-- **Banking systems** choose CP: Better to be unavailable than show wrong balance
-- **Social media** choose AP: Better to show stale posts than be unavailable
-- **E-commerce** is mixed: Inventory is CP, recommendations are AP
+### Consistency Models in Production
 
-### Consistency Models Spectrum
+```mermaid
+flowchart LR
+    subgraph Strong["Strong Consistency - Expensive"]
+        LIN["Linearizable<br/>Spanner: 5ms commit<br/>global consensus"]
+        SER["Serializable<br/>PostgreSQL ACID<br/>2PL + MVCC"]
+    end
 
+    subgraph Medium["Balanced Consistency"]
+        SEQ["Sequential<br/>MongoDB WiredTiger<br/>causally consistent"]
+        CAUS["Causal<br/>CosmosDB<br/>session consistency"]
+    end
+
+    subgraph Weak["Weak Consistency - Fast"]
+        EVEN["Eventual<br/>DynamoDB<br/>sub-ms reads"]
+        FIFO["FIFO<br/>Redis Streams<br/>ordered per partition"]
+    end
+
+    Strong --> Medium
+    Medium --> Weak
+
+    classDef strongStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef mediumStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef weakStyle fill:#00AA00,stroke:#007700,color:#fff
+
+    class LIN,SER strongStyle
+    class SEQ,CAUS mediumStyle
+    class EVEN,FIFO weakStyle
 ```
-Strong Consistency ←→ Weak Consistency
-    ↓                     ↓
-Linearizable         Eventual
-Serializable         Causal
-Sequential           FIFO
-```
 
-**When to use each:**
-
-| **Model** | **Use Case** | **Example** |
-|-----------|--------------|-------------|
-| **Linearizable** | Financial transactions | Bank account balance |
-| **Serializable** | Business workflows | Order processing |
-| **Sequential** | Collaborative editing | Google Docs |
-| **Causal** | Social media feeds | Twitter timeline |
-| **Eventual** | Content distribution | CDN, DNS |
+| **Model** | **Latency** | **Use Case** | **Production Example** |
+|-----------|-------------|--------------|----------------------|
+| **Linearizable** | 5-50ms | Financial transactions | Google Spanner (banking) |
+| **Serializable** | 1-10ms | Business workflows | PostgreSQL (e-commerce) |
+| **Sequential** | 1-5ms | Collaborative editing | MongoDB (Google Docs) |
+| **Causal** | 0.5-2ms | Social media feeds | Cosmos DB (LinkedIn) |
+| **Eventual** | 0.1-1ms | Content distribution | DynamoDB (Netflix CDN) |
 
 ## Scale Dimensions
 
