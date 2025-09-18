@@ -8,6 +8,10 @@
 **Revenue Loss**: ~$50M (estimated across all affected sites)
 **Root Cause**: Software bug triggered by customer configuration change
 **Scope**: Global CDN network affecting millions of users worldwide
+**MTTR**: 49 minutes (rapid recovery)
+**MTTD**: 1 minute (global traffic drop detected)
+**RTO**: 1 hour (target recovery time)
+**RPO**: 0 (no data loss, availability issue only)
 
 ## Incident Timeline & Response Flow
 

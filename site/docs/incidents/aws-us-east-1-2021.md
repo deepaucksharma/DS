@@ -13,6 +13,9 @@
 | **Financial Impact** | $1.2B+ in economic losses |
 | **Root Cause** | Network device scaling issue in US-East-1 |
 | **MTTR** | 647 minutes |
+| **MTTD** | 2 minutes (capacity alerts triggered) |
+| **RTO** | 6 hours (target recovery time) |
+| **RPO** | 0 (no data loss, service availability issue) |
 | **Key Service** | Kinesis Data Streams cascade failure |
 | **Affected Services** | Netflix, Disney+, Robinhood, Ring, Alexa |
 

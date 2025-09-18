@@ -8,6 +8,10 @@
 **Revenue Loss**: ~$5M (estimated across affected customers)
 **Root Cause**: Catastrophic backtracking in WAF regex rule causing CPU exhaustion
 **Scope**: Global PoP network, 180+ locations affected
+**MTTR**: 30 minutes (rapid mitigation via kill switch)
+**MTTD**: 15 seconds (CPU alerts triggered immediately)
+**RTO**: 30 minutes (full service restoration)
+**RPO**: 0 (no data loss, processing delay only)
 
 ## Incident Timeline & Response Flow
 

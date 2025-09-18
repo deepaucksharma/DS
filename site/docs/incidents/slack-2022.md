@@ -8,6 +8,10 @@
 **Revenue Loss**: ~$25M (estimated based on Slack's revenue and user base)
 **Root Cause**: AWS Transit Gateway capacity exceeded during traffic spike
 **Scope**: Global platform affecting 12M+ daily active users
+**MTTR**: 5 hours 47 minutes (347 minutes)
+**MTTD**: 3 minutes (user reports and automated alerts)
+**RTO**: 6 hours (target recovery time)
+**RPO**: 15 minutes (message delivery delay window)
 
 ## Incident Timeline & Response Flow
 

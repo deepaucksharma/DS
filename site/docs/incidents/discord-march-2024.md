@@ -13,6 +13,9 @@
 | **Financial Impact** | $150M+ in lost engagement and revenue |
 | **Root Cause** | Database shard failure cascade in message storage |
 | **MTTR** | 188 minutes |
+| **MTTD** | 2 minutes (automated alerts) |
+| **RTO** | 4 hours (target recovery time) |
+| **RPO** | 30 seconds (message loss window) |
 | **Key Failure** | Cassandra cluster split-brain scenario |
 | **Services Down** | Voice channels, Text messages, Video calls, Screen sharing |
 

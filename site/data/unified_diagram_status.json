@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2025-09-18T18:58:42.187025",
+    "last_updated": "2025-09-18T19:02:41.750189",
     "last_spec_check": null,
     "total_target": 900,
     "creation_start_date": "2025-09-18T18:08:06.407613"
@@ -5305,11 +5305,11 @@
       ]
     },
     "incidents/slack-2022": {
-      "status": "needs_update",
+      "status": "up_to_date",
       "category": "incidents",
       "created_date": "2025-09-18T18:08:06.448313",
       "last_updated": "2025-09-18T18:08:06.448317",
-      "last_reviewed": null,
+      "last_reviewed": "2025-09-18T19:01:08.977154",
       "spec_version": "d41d8cd9",
       "file_path": "incidents/slack-2022.md",
       "diagram_count": 3,
@@ -5330,11 +5330,11 @@
       ]
     },
     "incidents/cloudflare-2019": {
-      "status": "needs_update",
+      "status": "up_to_date",
       "category": "incidents",
       "created_date": "2025-09-18T18:08:06.448946",
       "last_updated": "2025-09-18T18:08:06.448950",
-      "last_reviewed": null,
+      "last_reviewed": "2025-09-18T19:00:52.082756",
       "spec_version": "d41d8cd9",
       "file_path": "incidents/cloudflare-2019.md",
       "diagram_count": 2,
@@ -5354,11 +5354,11 @@
       ]
     },
     "incidents/discord-march-2024": {
-      "status": "needs_update",
+      "status": "up_to_date",
       "category": "incidents",
       "created_date": "2025-09-18T18:08:06.449482",
       "last_updated": "2025-09-18T18:08:06.449486",
-      "last_reviewed": null,
+      "last_reviewed": "2025-09-18T19:02:02.450023",
       "spec_version": "d41d8cd9",
       "file_path": "incidents/discord-march-2024.md",
       "diagram_count": 12,
@@ -5385,11 +5385,11 @@
       ]
     },
     "incidents/azure-ad-march-2021": {
-      "status": "needs_update",
+      "status": "up_to_date",
       "category": "incidents",
       "created_date": "2025-09-18T18:08:06.450075",
       "last_updated": "2025-09-18T18:08:06.450078",
-      "last_reviewed": null,
+      "last_reviewed": "2025-09-18T19:02:25.544143",
       "spec_version": "d41d8cd9",
       "file_path": "incidents/azure-ad-march-2021.md",
       "diagram_count": 9,
@@ -5412,11 +5412,11 @@
       ]
     },
     "incidents/github-2018": {
-      "status": "needs_update",
+      "status": "up_to_date",
       "category": "incidents",
       "created_date": "2025-09-18T18:08:06.450617",
       "last_updated": "2025-09-18T18:08:06.450621",
-      "last_reviewed": null,
+      "last_reviewed": "2025-09-18T19:00:33.551455",
       "spec_version": "d41d8cd9",
       "file_path": "incidents/github-2018.md",
       "diagram_count": 3,
@@ -5436,11 +5436,11 @@
       ]
     },
     "incidents/aws-us-east-1-2021": {
-      "status": "needs_update",
+      "status": "up_to_date",
       "category": "incidents",
       "created_date": "2025-09-18T18:08:06.451112",
       "last_updated": "2025-09-18T18:08:06.451115",
-      "last_reviewed": null,
+      "last_reviewed": "2025-09-18T19:02:41.750164",
       "spec_version": "d41d8cd9",
       "file_path": "incidents/aws-us-east-1-2021.md",
       "diagram_count": 10,
@@ -5696,11 +5696,11 @@
       ]
     },
     "incidents/aws-s3-2017": {
-      "status": "needs_update",
+      "status": "up_to_date",
       "category": "incidents",
       "created_date": "2025-09-18T18:08:06.454979",
       "last_updated": "2025-09-18T18:08:06.454982",
-      "last_reviewed": null,
+      "last_reviewed": "2025-09-18T18:59:55.809951",
       "spec_version": "d41d8cd9",
       "file_path": "incidents/aws-s3-2017.md",
       "diagram_count": 2,
@@ -5797,11 +5797,11 @@
       ]
     },
     "incidents/fastly-2021": {
-      "status": "needs_update",
+      "status": "up_to_date",
       "category": "incidents",
       "created_date": "2025-09-18T18:08:06.456898",
       "last_updated": "2025-09-18T18:08:06.456901",
-      "last_reviewed": null,
+      "last_reviewed": "2025-09-18T19:01:31.781342",
       "spec_version": "d41d8cd9",
       "file_path": "incidents/fastly-2021.md",
       "diagram_count": 3,

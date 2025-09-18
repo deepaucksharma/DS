@@ -13,6 +13,9 @@
 | **Financial Impact** | $500M+ (estimated productivity loss) |
 | **Root Cause** | DNS configuration error cascading to auth services |
 | **MTTR** | 863 minutes |
+| **MTTD** | 5 minutes (authentication failures detected) |
+| **RTO** | 4 hours (initial target, exceeded) |
+| **RPO** | 0 (no data loss, authentication unavailable) |
 | **Services Down** | Office 365, Teams, OneDrive, Xbox Live, Dynamics |
 
 ## Incident Timeline - The 14-Hour Nightmare

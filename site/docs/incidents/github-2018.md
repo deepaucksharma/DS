@@ -8,6 +8,10 @@
 **Revenue Loss**: ~$12M (estimated based on GitHub Enterprise and Actions)
 **Root Cause**: Network partition during routine maintenance caused MySQL primary failover issues
 **Scope**: Global platform, affecting git operations, web interface, and API
+**MTTR**: 24 hours 11 minutes (1,451 minutes)
+**MTTD**: 43 seconds (network partition duration)
+**RTO**: 24 hours (actual recovery time)
+**RPO**: 6 hours (data divergence window)
 
 ## Incident Timeline & Response Flow
 
@@ -325,15 +329,37 @@ automation_improvements:
 
 ## Prevention Architecture
 
-### Enhanced MySQL Topology
+### Enhanced MySQL Topology - 4-Plane Architecture
 ```mermaid
 graph TB
-    subgraph Consensus["New Consensus-Based Architecture"]
-        EastPrimary["East Primary<br/>Active Master<br/>GTID: Enabled"]
-        WestReplica1["West Replica 1<br/>Semi-Sync Standby"]
-        WestReplica2["West Replica 2<br/>Semi-Sync Standby"]
+    subgraph Enhanced["New Consensus-Based 4-Plane Architecture"]
+        subgraph Edge["Edge Plane #0066CC"]
+            GitHubLB["GitHub Load Balancer<br/>HAProxy cluster<br/>Connection routing"]
+        end
 
-        Orchestrator["Orchestrator Cluster<br/>3-Node Consensus<br/>Failover Decisions"]
+        subgraph Service["Service Plane #00AA00"]
+            GitHubApp["GitHub Application<br/>Ruby on Rails<br/>Database connections"]
+            API["GitHub API<br/>REST/GraphQL<br/>Request validation"]
+        end
+
+        subgraph State["State Plane #FF8800"]
+            EastPrimary["East Primary MySQL<br/>Active Master<br/>GTID: Enabled"]
+            WestReplica1["West Replica 1<br/>Semi-Sync Standby<br/>Read operations"]
+            WestReplica2["West Replica 2<br/>Semi-Sync Standby<br/>Backup operations"]
+        end
+
+        subgraph Control["Control Plane #CC0000"]
+            Orchestrator["Orchestrator Cluster<br/>3-Node Consensus<br/>Failover Decisions"]
+            PartitionDetector["Partition Detector<br/>Cross-DC monitoring<br/>15s alert threshold"]
+            Monitoring["Enhanced Monitoring<br/>Split-brain detection<br/>Automated alerts"]
+        end
+
+        GitHubLB --> GitHubApp
+        GitHubLB --> API
+        GitHubApp --> EastPrimary
+        API --> EastPrimary
+        GitHubApp -.-> WestReplica1
+        API -.-> WestReplica1
 
         EastPrimary -->|"Semi-Sync Replication"| WestReplica1
         EastPrimary -->|"Semi-Sync Replication"| WestReplica2
@@ -341,20 +367,21 @@ graph TB
         Orchestrator -->|"Monitors"| EastPrimary
         Orchestrator -->|"Monitors"| WestReplica1
         Orchestrator -->|"Monitors"| WestReplica2
-    end
-
-    subgraph NetworkMonitor["Network Partition Detection"]
-        PartitionDetector["Partition Detector<br/>Monitors cross-DC links<br/>15s alert threshold"]
-
         PartitionDetector -->|"Network Events"| Orchestrator
+        Monitoring -->|"Health Checks"| EastPrimary
+        Monitoring -->|"Health Checks"| WestReplica1
     end
 
-    %% Style the enhanced architecture
-    classDef enhancedStyle fill:#E5F3FF,stroke:#0066CC,color:#000
-    classDef monitorStyle fill:#FFF3E5,stroke:#CC6600,color:#000
+    %% Apply 4-plane architecture colors
+    classDef edgeStyle fill:#0066CC,color:#fff
+    classDef serviceStyle fill:#00AA00,color:#fff
+    classDef stateStyle fill:#FF8800,color:#fff
+    classDef controlStyle fill:#CC0000,color:#fff
 
-    class EastPrimary,WestReplica1,WestReplica2,Orchestrator enhancedStyle
-    class PartitionDetector monitorStyle
+    class GitHubLB edgeStyle
+    class GitHubApp,API serviceStyle
+    class EastPrimary,WestReplica1,WestReplica2 stateStyle
+    class Orchestrator,PartitionDetector,Monitoring controlStyle
 ```
 
 ## References & Documentation
