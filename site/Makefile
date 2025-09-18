@@ -30,7 +30,7 @@ help:
 ## Install dependencies
 install:
 	@echo "📦 Installing MkDocs and plugins..."
-	@pip install -q mkdocs-material mkdocs-mermaid2-plugin
+	@pip install -q -r requirements.txt
 	@echo "✅ Dependencies installed"
 
 ## Start development server

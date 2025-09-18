@@ -297,6 +297,10 @@ nav:
       - Distributed Tracing Analysis: debugging/distributed-tracing-analysis.md
       - Circuit Breaker Failure: debugging/circuit-breaker-failure-debugging.md
       - Log Correlation Services: debugging/log-correlation-services.md
+      - Service Discovery Failures: debugging/service-discovery-failures.md
+      - Service Dependency Mapping: debugging/service-dependency-mapping.md
+      - Split Brain Recovery: debugging/split-brain-recovery.md
+      - Timeout Cascade Debugging: debugging/timeout-cascade-debugging.md
     - Capacity & Scale:
       - Capacity Planning Debugging: debugging/capacity-planning-debugging.md
       - Cache Miss Storm Investigation: debugging/cache-miss-storm-investigation.md
@@ -304,6 +308,13 @@ nav:
       - Cascading Failure Prevention: debugging/cascading-failure-prevention.md
       - Error Rate Surge Debugging: debugging/error-rate-surge-debugging.md
       - Metric Anomaly Detection: debugging/metric-anomaly-detection.md
+    - Additional Debugging:
+      - Performance Bottleneck Identification: debugging/performance-bottleneck-identification.md
+      - Resource Exhaustion Diagnosis: debugging/resource-exhaustion-diagnosis.md
+      - Security Incident Response: debugging/security-incident-response-debugging.md
+      - Slow Query Analysis: debugging/slow-query-analysis.md
+      - Throughput Degradation: debugging/throughput-degradation.md
+      - Timeout and Retry Tuning: debugging/timeout-and-retry-tuning.md
   - Performance Profiles:
     - Database Performance:
       - MySQL Performance Profile: performance/mysql-performance-profile.md
@@ -347,6 +358,20 @@ nav:
         - Trade-offs: guarantees/linearizability/linearizability-tradeoffs.md
         - Verification: guarantees/linearizability/linearizability-verification.md
         - Failures: guarantees/linearizability/linearizability-failures.md
+      - Eventual Consistency:
+        - Concept: guarantees/eventual-consistency/eventual-consistency-concept.md
+        - Implementation: guarantees/eventual-consistency/eventual-consistency-implementation.md
+        - Patterns: guarantees/eventual-consistency/eventual-consistency-patterns.md
+        - Conflicts: guarantees/eventual-consistency/eventual-consistency-conflicts.md
+        - Examples: guarantees/eventual-consistency/eventual-consistency-examples.md
+        - Metrics: guarantees/eventual-consistency/eventual-consistency-metrics.md
+      - Exactly Once:
+        - Concept: guarantees/exactly-once/exactly-once-concept.md
+        - Implementation: guarantees/exactly-once/exactly-once-implementation.md
+        - Kafka Implementation: guarantees/exactly-once/exactly-once-kafka.md
+        - Payment Systems: guarantees/exactly-once/exactly-once-payment.md
+        - Failures: guarantees/exactly-once/exactly-once-failures.md
+        - Cost Analysis: guarantees/exactly-once/exactly-once-cost.md
   - Mechanisms:
     - Replication:
       - Strategies: mechanisms/replication/replication-strategies.md
@@ -398,6 +423,10 @@ nav:
       - Discord Scale Journey: scaling/discord-scale-journey.md
       - Shopify Evolution: scaling/shopify-evolution.md
       - Twitter Evolution: scaling/twitter-evolution.md
+      - Discord Evolution: scaling/discord-evolution.md
+      - Reddit Evolution: scaling/reddit-evolution.md
+      - Twitch Evolution: scaling/twitch-evolution.md
+      - Pinterest Evolution: scaling/pinterest-evolution.md
   - Capacity Planning:
     - Infrastructure Sizing:
       - Database Capacity Planning: capacity/database-capacity-planning.md
@@ -416,6 +445,7 @@ nav:
       - Amazon Black Friday Capacity: capacity/amazon-black-friday-capacity.md
       - Zoom COVID Explosion: capacity/zoom-covid-explosion.md
   - Migration Playbooks:
+    - Overview: migrations/index.md
     - Database Migrations:
       - MySQL to Aurora: migrations/mysql-to-aurora.md
       - PostgreSQL to DynamoDB: migrations/postgresql-to-dynamodb.md
@@ -443,6 +473,7 @@ nav:
       - PostgreSQL vs DynamoDB: comparisons/postgresql-vs-dynamodb.md
       - Redis vs Memcached: comparisons/redis-vs-memcached.md
       - MongoDB vs Cassandra: comparisons/mongodb-vs-cassandra.md
+      - MySQL vs PostgreSQL: comparisons/mysql-vs-postgresql.md
     - Messaging Comparisons:
       - Kafka vs Kinesis: comparisons/kafka-vs-kinesis.md
       - Kafka vs Kinesis vs Pulsar: comparisons/kafka-vs-kinesis-vs-pulsar.md
@@ -450,6 +481,8 @@ nav:
       - REST vs GraphQL vs gRPC: comparisons/rest-vs-graphql-vs-grpc.md
     - Cloud Providers:
       - AWS vs GCP vs Azure: comparisons/aws-vs-gcp-vs-azure.md
+    - Orchestration Comparisons:
+      - Kubernetes vs Mesos vs Nomad: comparisons/kubernetes-vs-mesos-vs-nomad.md
   - Case Studies:
     - Overview: case-studies/index.md
     - Netflix Architecture: case-studies/netflix.md
@@ -469,6 +502,10 @@ nav:
     - API Reference: reference/api.md
     - Glossary: reference/glossary.md
     - Further Reading: reference/reading.md
+  - Documentation Guides:
+    - Color Comparison: color-comparison.md
+    - Mermaid Style Guide: mermaid-style-guide.md
+    - Incident Response Templates: diagrams/INCIDENT_RESPONSE_TEMPLATES.md
 
 plugins:
   - search

@@ -40,7 +40,7 @@ jobs:
       - name: Install MkDocs and dependencies
         run: |
           pip install --upgrade pip
-          pip install mkdocs mkdocs-material pymdownx-extensions mkdocs-mermaid2-plugin
+          pip install -r requirements.txt
           
       - name: Validate MkDocs configuration
         working-directory: ./site
