@@ -118,10 +118,10 @@ graph TB
     GRAFANA -.-> PINOT
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:2px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:2px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:2px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:2px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:2px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:2px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:2px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:2px
 
     class CDN,LB,WAF edgeStyle
     class GW,MEMBER,CONNECT,FEED,SEARCH,JOB,MESSAGING,KAFKA,SAMZA,PINOT serviceStyle
@@ -161,8 +161,8 @@ graph TB
     NA_DC1 --> EU_DC
     NA_DC1 --> APAC_DC
 
-    classDef primaryStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef replicaStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef primaryStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef replicaStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class NA_DC1 primaryStyle
     class NA_DC2,EU_DC,APAC_DC replicaStyle

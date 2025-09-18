@@ -48,10 +48,10 @@ graph TB
     PL3 --> SL3
 
     %% Apply 4-plane colors
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef gatewayStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef processingStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef storageStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef gatewayStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef processingStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef storageStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CL1,CL2,CL3 clientStyle
     class GL1,GL2,GL3 gatewayStyle
@@ -136,10 +136,10 @@ graph TB
     HA2 --> KP3
     CG1 --> KP4
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serverStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef hybridStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef propertiesStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serverStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef hybridStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef propertiesStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CG1,CG2,CG3 clientStyle
     class SG1,SG2,SG3 serverStyle
@@ -483,10 +483,10 @@ graph LR
     UP2 --> TP1
     TP2 --> SD1
 
-    classDef constraintStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef upsertStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef transactionalStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef schemaStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef constraintStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef upsertStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef transactionalStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef schemaStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class UC1,UC2,UC3 constraintStyle
     class UP1,UP2,UP3 upsertStyle
@@ -577,10 +577,10 @@ graph TB
     SB2 --> CL2
     SC2 --> CL3
 
-    classDef serviceAStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceBStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef serviceCStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef coordinationStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef serviceAStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceBStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef serviceCStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef coordinationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SA1,SA2,SA3 serviceAStyle
     class SB1,SB2,SB3 serviceBStyle
@@ -618,10 +618,10 @@ graph LR
         end
     end
 
-    classDef cachingStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef databaseStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef concurrencyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef monitoringStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef cachingStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef databaseStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef concurrencyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef monitoringStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CO1,CO2,CO3 cachingStyle
     class DO1,DO2,DO3 databaseStyle

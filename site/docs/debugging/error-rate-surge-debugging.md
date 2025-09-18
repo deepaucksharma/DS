@@ -43,10 +43,10 @@ flowchart TD
     ErrorValidation --> ErrorPrevention[8. Error Prevention Setup<br/>Enhanced monitoring<br/>⏱️ 5 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ErrorSurge,ErrorClassification edgeStyle
     class ClientAnalysis,ServerAnalysis,TimeoutAnalysis serviceStyle
@@ -92,10 +92,10 @@ flowchart TD
     StandardFix --> PostIncidentAnalysis
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ErrorStream,ErrorAggregation edgeStyle
     class SpikeInvestigation,SustainedInvestigation,PeriodicInvestigation serviceStyle
@@ -144,10 +144,10 @@ flowchart TD
     RevenueRecovery --> ConversionValidation[6. Conversion Validation<br/>Monitor success rates<br/>⏱️ 10 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EcommerceError,BusinessImpact edgeStyle
     class CartStage,CheckoutStage,PaymentGateway serviceStyle
@@ -192,10 +192,10 @@ flowchart TD
     ErrorRecovery --> CascadeMonitoring[6. Cascade Monitoring<br/>Prevent future propagation<br/>⏱️ 5 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ServiceError,ServiceDependencyMap edgeStyle
     class UpstreamService,MidstreamService,CircuitBreaker serviceStyle

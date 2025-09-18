@@ -67,10 +67,10 @@ graph TB
     end
 
     %% Apply styling
-    classDef openSourceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef proprietaryStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef achievementStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef organizationalStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef openSourceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef proprietaryStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef achievementStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef organizationalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class Backstage,Luigi,Helios,Scio,Styx,Annoy,DockerGC,KubernetesKafka,HelmCharts openSourceStyle
     class CollaborativeFiltering,AudioFingerprinting,PersonalizedAds,EventDrivenArch,ServiceMesh,MultiCloudStrategy proprietaryStyle
@@ -128,10 +128,10 @@ graph TB
     CoreFeatures --> SpotifyPlugins
     CoreFeatures --> CommunityPlugins
 
-    classDef frontendStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef backendStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef pluginStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef frontendStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef backendStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef pluginStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ReactApp,CoreFeatures frontendStyle
     class CatalogAPI,TechDocsAPI,ScaffolderAPI backendStyle
@@ -193,10 +193,10 @@ graph TB
     Workers --> WebInterface
     WebInterface --> Notifications
 
-    classDef taskStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef engineStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef executionStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef monitoringStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef taskStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef engineStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef executionStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef monitoringStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PythonTasks,TaskParameters taskStyle
     class TaskGraph,Scheduler engineStyle
@@ -265,10 +265,10 @@ graph TB
     CandidateSelection --> RankingModel
     RankingModel --> PlaylistOptimization
 
-    classDef dataStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef mlStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef personalStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef playlistStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef dataStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef mlStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef personalStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef playlistStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ListeningData,AudioAnalysis,ContextualData dataStyle
     class CollabFiltering,NLP,AudioCNN mlStyle
@@ -339,10 +339,10 @@ graph TB
     SquadLeads --> Squad1
     ChapterLeads --> Chapters
 
-    classDef tribeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef squadStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef crossStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef leaderStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef tribeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef squadStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef crossStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef leaderStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MusicTribe,PlatformTribe,DataTribe,CreatorTribe tribeStyle
     class Squad1,Squad2,Squad3,Squad4 squadStyle

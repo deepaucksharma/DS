@@ -39,10 +39,10 @@ graph TB
     end
 
     %% Apply 4-plane colors
-    classDef latencyStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef throughputStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef operationalStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef latencyStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef throughputStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef operationalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LC1,LC2,LC3,LC4 latencyStyle
     class TC1,TC2,TC3,TC4 throughputStyle

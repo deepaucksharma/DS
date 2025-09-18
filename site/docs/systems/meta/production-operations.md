@@ -67,10 +67,10 @@ graph TB
     LOAD_BALANCING -.->|"10M+ RPS"| SERVICE_DISCOVERY
 
     %% Apply four-plane colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class SCHEDULER,RESOURCE_MGR,PLACEMENT,CONTAINER_ENGINE,LOAD_BALANCING,SERVICE_DISCOVERY,TRAFFIC_ROUTING serviceStyle
     class IMAGE_REGISTRY,NETWORKING,STORAGE_VOLUMES,CIRCUIT_BREAKERS stateStyle
@@ -139,10 +139,10 @@ graph TB
     CONFIG_SERVICE -.->|"Global configuration"| LOCK_SERVICE
     LATENCY_1MS -.->|"Cross-datacenter"| THROUGHPUT_100K
 
-    classDef coreStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef opsStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef perfStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef coreStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef opsStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef perfStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CONSENSUS,LOG_STORE,STATE_MACHINE,LEADER_ELECTION coreStyle
     class CONFIG_SERVICE,LOCK_SERVICE,COORDINATION,METADATA_STORE clientStyle
@@ -217,10 +217,10 @@ graph LR
     CANARY_INTERNAL -.->|"0.1% traffic"| SHADOW_TRAFFIC
     GRADUAL_ROLLOUT -.->|"4-hour rollout"| FULL_DEPLOYMENT
 
-    classDef devStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stageStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef prodStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef safetyStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef devStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stageStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef prodStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef safetyStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CODE_COMMIT,PEER_REVIEW,AUTOMATED_TESTS,BUILD_SYSTEM devStyle
     class CANARY_INTERNAL,SHADOW_TRAFFIC,INTEGRATION_TEST,PERFORMANCE_TEST stageStyle
@@ -291,10 +291,10 @@ graph TB
     WEB_UI -.->|"10K+ concurrent users"| SQL_INTERFACE
     PARALLEL_PROCESSING -.->|"1000x parallelism"| RESULT_CACHING
 
-    classDef ingestStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef coreStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef interfaceStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef perfStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef ingestStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef coreStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef interfaceStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef perfStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class REAL_TIME_STREAMS,BATCH_INGESTION,SCHEMA_REGISTRY,DATA_VALIDATION ingestStyle
     class COLUMNAR_STORE,QUERY_ENGINE,AGGREGATION,INDEX_MANAGEMENT coreStyle
@@ -359,10 +359,10 @@ graph TB
     DETECTION -.->|"<2 min detection"| ESCALATION
     POSTMORTEM -.->|"72 hour timeline"| ACTION_ITEMS
 
-    classDef sevStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef teamStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef processStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef postStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef sevStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef teamStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef processStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef postStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SEV1,SEV2,SEV3,SEV4 sevStyle
     class IC,PRIMARY_ONCALL,SECONDARY_ONCALL,SUBJECT_EXPERTS teamStyle
@@ -427,10 +427,10 @@ graph LR
     BLAST_RADIUS -.->|"<1% user impact"| AUTO_RECOVERY
     RESILIENCE_IMPROVEMENT -.->|"50% incident reduction"| WEAKNESS_DISCOVERY
 
-    classDef toolStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef scenarioStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef safetyStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef resultStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef toolStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef scenarioStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef safetyStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef resultStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class STORM,LEGION,GREMLINS,CHAOS_AUTOMATION toolStyle
     class DATACENTER_LOSS,SERVICE_DEGRADATION,NETWORK_PARTITION,DATABASE_LATENCY scenarioStyle

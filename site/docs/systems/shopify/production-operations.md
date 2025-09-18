@@ -8,7 +8,7 @@ Shopify operates one of the world's most complex e-commerce platforms, handling 
 
 ```mermaid
 graph TB
-    subgraph "Control Plane - Operations Command #CC0000"
+    subgraph "Control Plane - Operations Command #8B5CF6"
         subgraph "Deployment Systems"
             SHIPIT[Shipit Platform<br/>Continuous deployment<br/>Gradual rollouts<br/>Feature flags]
             DEPLOY_PIPELINE[Deployment Pipeline<br/>Automated testing<br/>Quality gates<br/>Approval workflows]
@@ -28,7 +28,7 @@ graph TB
         end
     end
 
-    subgraph "Service Plane - Operations Services #00AA00"
+    subgraph "Service Plane - Operations Services #10B981"
         subgraph "Monitoring & Alerting"
             METRICS_COLLECTION[Metrics Collection<br/>Application metrics<br/>Infrastructure metrics<br/>Business metrics]
             ALERT_MANAGEMENT[Alert Management<br/>Intelligent routing<br/>Escalation policies<br/>Noise reduction]
@@ -42,7 +42,7 @@ graph TB
         end
     end
 
-    subgraph "Edge Plane - Global Operations #0066CC"
+    subgraph "Edge Plane - Global Operations #3B82F6"
         subgraph "Regional Operations Centers"
             NA_OPS[North America OPS<br/>Primary operations<br/>24/7 coverage<br/>Tier 3 engineers]
             EU_OPS[Europe Operations<br/>EMEA coverage<br/>Local compliance<br/>Regional expertise]
@@ -56,7 +56,7 @@ graph TB
         end
     end
 
-    subgraph "State Plane - Operations Data #FF8800"
+    subgraph "State Plane - Operations Data #F59E0B"
         subgraph "Observability Data"
             METRICS_DB[Metrics Database<br/>Time-series data<br/>High-resolution storage<br/>Long-term retention]
             LOG_AGGREGATION[Log Aggregation<br/>Centralized logging<br/>Structured data<br/>Search capabilities]
@@ -91,10 +91,10 @@ graph TB
     INCIDENT_HISTORY --> CAPACITY_DATA
 
     %% Apply four-plane colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SHIPIT,DEPLOY_PIPELINE,ROLLBACK_SYSTEM,WAR_ROOM,INCIDENT_COMMANDER,STATUS_COMMS,FEATURE_FLAGS,CONFIG_MANAGEMENT,MAINTENANCE_WINDOWS controlStyle
     class METRICS_COLLECTION,ALERT_MANAGEMENT,DASHBOARD_SYSTEM,RUNBOOK_AUTOMATION,CAPACITY_MANAGEMENT,CHAOS_ENGINEERING serviceStyle
@@ -156,8 +156,8 @@ graph TB
     POST_DEPLOY --> FEATURE_TOGGLES
 
     %% Apply deployment colors
-    classDef deployStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef safetyStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef deployStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef safetyStyle fill:#10B981,stroke:#059669,color:#fff
 
     class DEV_COMMIT,CI_PIPELINE,STAGING_DEPLOY,DEPLOY_APPROVAL,CANARY_RELEASE,GRADUAL_ROLLOUT,PRODUCTION_DEPLOY,POST_DEPLOY deployStyle
     class HEALTH_CHECKS,CIRCUIT_BREAKERS,ROLLBACK_TRIGGERS,FEATURE_TOGGLES safetyStyle
@@ -191,8 +191,8 @@ graph LR
     SUCCESS_RATE --> CUSTOMER_IMPACT
 
     %% Apply metrics colors
-    classDef performanceStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef qualityStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef performanceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef qualityStyle fill:#10B981,stroke:#059669,color:#fff
 
     class FREQUENCY,LEAD_TIME,MTTR,SUCCESS_RATE performanceStyle
     class CHANGE_FAILURE,ROLLBACK_RATE,CUSTOMER_IMPACT qualityStyle
@@ -246,10 +246,10 @@ graph TB
     EMERGENCY_PROCEDURES --> PERFORMANCE_MAINTAINED
 
     %% Apply Black Friday colors
-    classDef warRoomStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef monitoringStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef responseStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef successStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef warRoomStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef monitoringStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef responseStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef successStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class COMMAND_CENTER,EXPERT_TEAMS,COMMUNICATION_HUB warRoomStyle
     class REAL_TIME_METRICS,BUSINESS_DASHBOARDS,INFRASTRUCTURE_STATUS monitoringStyle
@@ -298,8 +298,8 @@ graph TB
     PEAK_100K --> SUSTAINED_50K
 
     %% Apply traffic colors
-    classDef managementStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef trafficStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef managementStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef trafficStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class TRAFFIC_PREDICTION,CAPACITY_PLANNING,QUEUE_SYSTEM,PRIORITY_ROUTING,LOAD_SHEDDING,PERFORMANCE_MONITORING managementStyle
     class BASELINE_10K,RAMPUP_25K,PEAK_100K,SUSTAINED_50K trafficStyle
@@ -355,8 +355,8 @@ graph TB
     MITIGATION --> P2_RESPONSE
 
     %% Apply incident colors
-    classDef processStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef slaStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef processStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef slaStyle fill:#10B981,stroke:#059669,color:#fff
 
     class DETECTION,CLASSIFICATION,TEAM_ASSEMBLY,ROOT_CAUSE,MITIGATION,COMMUNICATION,RESOLUTION,POST_MORTEM processStyle
     class P0_RESPONSE,P1_RESPONSE,P2_RESPONSE slaStyle
@@ -396,8 +396,8 @@ graph TB
     PARTNER_ALERTS --> STATUS_PAGE
 
     %% Apply communication colors
-    classDef channelStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef triggerStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef channelStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef triggerStyle fill:#10B981,stroke:#059669,color:#fff
 
     class STATUS_PAGE,MERCHANT_NOTIFICATIONS,PARTNER_ALERTS,INTERNAL_COMMS,MEDIA_RELATIONS channelStyle
     class AUTOMATED_ALERTS,HUMAN_ESCALATION,SCHEDULED_UPDATES triggerStyle
@@ -451,10 +451,10 @@ graph TB
     REAL_USER --> ALERT_CORRELATION
 
     %% Apply monitoring colors
-    classDef appStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef externalStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef alertStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef appStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef externalStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef alertStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class APM,BUSINESS_METRICS,USER_EXPERIENCE appStyle
     class SYSTEM_METRICS,DATABASE_METRICS,CACHE_METRICS infraStyle
@@ -521,10 +521,10 @@ graph TB
     APAC_INFRA --> CHAOS_TEAM
 
     %% Apply org colors
-    classDef leadershipStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef naStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef euStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef apacStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef leadershipStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef naStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef euStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef apacStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef specializedStyle fill:#9900CC,stroke:#660099,color:#fff
 
     class VP_OPS,DIR_INFRA,DIR_SECURITY leadershipStyle

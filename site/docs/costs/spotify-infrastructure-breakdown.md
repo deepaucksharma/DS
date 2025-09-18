@@ -19,10 +19,10 @@ graph TB
     end
 
     %% Apply colors
-    classDef cdnStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef computeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef cdnStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef computeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN cdnStyle
     class STORAGE storageStyle
@@ -49,8 +49,8 @@ graph TB
     end
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serverStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serverStyle fill:#10B981,stroke:#059669,color:#fff
 
     class FASTLY,CLOUDFLARE,AKAMAI edgeStyle
     class NGINX,ENCODING,CACHE serverStyle
@@ -104,9 +104,9 @@ graph TB
     end
 
     %% Apply colors
-    classDef hotStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef warmStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef coldStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef hotStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef warmStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef coldStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class SSD,NVME hotStyle
     class HDD,OBJECT warmStyle
@@ -141,9 +141,9 @@ graph TB
     end
 
     %% Apply colors
-    classDef gcpStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef awsStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef onpremStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef gcpStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef awsStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef onpremStyle fill:#10B981,stroke:#059669,color:#fff
 
     class GKE,FUNCTIONS,APPENGINE gcpStyle
     class ECS,LAMBDA awsStyle
@@ -202,9 +202,9 @@ graph TB
     end
 
     %% Apply colors
-    classDef ingestionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef processingStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef storageStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef ingestionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef processingStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef storageStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class PUBSUB,KAFKA ingestionStyle
     class DATAFLOW,SPARK processingStyle
@@ -234,8 +234,8 @@ graph TB
     end
 
     %% Apply colors
-    classDef trainingStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef inferenceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef trainingStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef inferenceStyle fill:#10B981,stroke:#059669,color:#fff
 
     class TPU,GPU trainingStyle
     class VERTEX,CUSTOM inferenceStyle

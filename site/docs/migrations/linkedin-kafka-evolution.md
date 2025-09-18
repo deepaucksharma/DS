@@ -43,10 +43,10 @@ graph TB
         PROB4[50% Engineering Time on Plumbing]
     end
 
-    style PROB1 fill:#CC0000
-    style PROB2 fill:#CC0000
-    style PROB3 fill:#CC0000
-    style PROB4 fill:#CC0000
+    style PROB1 fill:#8B5CF6
+    style PROB2 fill:#8B5CF6
+    style PROB3 fill:#8B5CF6
+    style PROB4 fill:#8B5CF6
 ```
 
 ## Phase 1: Building Kafka (2011)
@@ -112,9 +112,9 @@ graph LR
         B3 --> METRICS2
     end
 
-    style B1 fill:#FF8800
-    style B2 fill:#FF8800
-    style B3 fill:#FF8800
+    style B1 fill:#F59E0B
+    style B2 fill:#F59E0B
+    style B3 fill:#F59E0B
 ```
 
 Initial Production Metrics:
@@ -167,9 +167,9 @@ graph TB
     end
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
 
     class SRC1,SRC2,SRC3,SRC4 edgeStyle
     class KAFKA stateStyle
@@ -297,10 +297,10 @@ graph TB
 
     K2017 --> K2018 --> K2019 --> K2020
 
-    style K2017 fill:#00AA00
-    style K2018 fill:#00AA00
-    style K2019 fill:#FF8800
-    style K2020 fill:#CC0000
+    style K2017 fill:#10B981
+    style K2018 fill:#10B981
+    style K2019 fill:#F59E0B
+    style K2020 fill:#8B5CF6
 ```
 
 ### Multi-Region Architecture
@@ -335,10 +335,10 @@ graph TB
         R3[Conflict Resolution]
     end
 
-    style UW fill:#0066CC
-    style UE fill:#0066CC
-    style EU fill:#00AA00
-    style AS fill:#FF8800
+    style UW fill:#3B82F6
+    style UE fill:#3B82F6
+    style EU fill:#10B981
+    style AS fill:#F59E0B
 ```
 
 ## Phase 5: Current State (2024)
@@ -509,10 +509,10 @@ graph TB
         INFLUX --> Alerting
     end
 
-    style JMX fill:#00AA00
-    style INFLUX fill:#FF8800
-    style GRAFANA fill:#0066CC
-    style ALERT1 fill:#CC0000
+    style JMX fill:#10B981
+    style INFLUX fill:#F59E0B
+    style GRAFANA fill:#3B82F6
+    style ALERT1 fill:#8B5CF6
 ```
 
 Key Metrics Tracked:

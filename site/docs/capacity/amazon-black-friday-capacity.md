@@ -59,10 +59,10 @@ graph TB
     CW --> AS
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CF,ELB,R53 edgeStyle
     class APIGW,RETAIL,CART,PAY,INV serviceStyle
@@ -229,10 +229,10 @@ graph TB
     APN1 --> DR
 
     %% Apply colors
-    classDef primary fill:#0066CC,stroke:#004499,color:#fff
-    classDef secondary fill:#00AA00,stroke:#007700,color:#fff
-    classDef regional fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef disaster fill:#CC0000,stroke:#990000,color:#fff
+    classDef primary fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef secondary fill:#10B981,stroke:#059669,color:#fff
+    classDef regional fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef disaster fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class USE1 primary
     class USW2 secondary

@@ -49,10 +49,10 @@ graph TB
     OriginShield -.->|"Origin requests: 0.05%<br/>Bandwidth to origin: 5%<br/>Cost optimization: 90%"| CostOptimal[Cost Optimal]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EdgeLocations,RegionalCache,OriginShield edgeStyle
     class MusicAPI,StreamingService,ImageService serviceStyle
@@ -100,7 +100,7 @@ graph TB
 
     %% Apply styles
     classDef edgeStyle fill:#4ECDC4,stroke:#45B7B8,color:#fff
-    classDef regionalStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef regionalStyle fill:#10B981,stroke:#059669,color:#fff
     classDef shieldStyle fill:#FFA726,stroke:#FF8F00,color:#fff
     classDef intelligentStyle fill:#9B59B6,stroke:#8E44AD,color:#fff
 
@@ -198,7 +198,7 @@ graph TB
 
     %% Apply styles
     classDef naStyle fill:#4ECDC4,stroke:#45B7B8,color:#fff
-    classDef euStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef euStyle fill:#10B981,stroke:#059669,color:#fff
     classDef apStyle fill:#FFA726,stroke:#FF8F00,color:#fff
     classDef routingStyle fill:#9B59B6,stroke:#8E44AD,color:#fff
 

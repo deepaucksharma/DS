@@ -87,9 +87,9 @@ graph TB
     REQUIRED --> PROVISIONED
 
     %% Apply colors
-    classDef dataStyle fill:#51CF66,stroke:#00AA00,color:#fff
-    classDef growthStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef capacityStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef dataStyle fill:#51CF66,stroke:#10B981,color:#fff
+    classDef growthStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef capacityStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class BASE_DATA,INDEXES,TEMP_SPACE,LOG_FILES dataStyle
     class LINEAR,EXPONENTIAL,SEASONAL growthStyle
@@ -602,9 +602,9 @@ graph TB
     PAGE_SIZE --> IO_CAPACITY
 
     %% Apply colors
-    classDef memoryStyle fill:#51CF66,stroke:#00AA00,color:#fff
-    classDef connectionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef memoryStyle fill:#51CF66,stroke:#10B981,color:#fff
+    classDef connectionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class BUFFER_POOL,DATA_CACHE,INDEX_CACHE memoryStyle
     class MAX_CONN,THREAD_CACHE connectionStyle
@@ -922,10 +922,10 @@ graph TB
     CRITICAL --> EMERGENCY
 
     %% Apply colors
-    classDef performanceStyle fill:#51CF66,stroke:#00AA00,color:#fff
-    classDef resourceStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef dbSpecificStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef alertStyle fill:#FF6B6B,stroke:#CC0000,color:#fff
+    classDef performanceStyle fill:#51CF66,stroke:#10B981,color:#fff
+    classDef resourceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef dbSpecificStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef alertStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff
 
     class QPS,LATENCY,CONN performanceStyle
     class CPU,MEMORY,DISK resourceStyle

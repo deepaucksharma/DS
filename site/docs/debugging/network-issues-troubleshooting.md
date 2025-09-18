@@ -43,10 +43,10 @@ flowchart TD
     NetworkValidation --> NetworkMonitoring[6. Enhanced Monitoring<br/>Prevent future issues<br/>⏱️ 5 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class NetworkAlert,NetworkTriage edgeStyle
     class PhysicalDiagnosis,DataLinkDiagnosis,NetworkDiagnosis serviceStyle
@@ -95,10 +95,10 @@ flowchart TD
     DNSFix --> DNSValidation[6. DNS Validation<br/>Global resolution test<br/>⏱️ 10 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DNSIssue,DNSQuery edgeStyle
     class RootServers,TLDServers,ConfigurationIssue serviceStyle
@@ -147,10 +147,10 @@ flowchart TD
     CDNValidation --> EdgeMonitoring[6. Enhanced Edge Monitoring<br/>Real-time performance tracking<br/>⏱️ 5 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDNIssue,EdgeAnalysis edgeStyle
     class NorthAmerica,Europe,CacheWarmup serviceStyle
@@ -201,10 +201,10 @@ flowchart TD
     TCPValidation --> TCPMonitoring[6. TCP Monitoring<br/>Continuous performance tracking<br/>⏱️ 5 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class TCPIssue,TCPMetrics edgeStyle
     class Handshake,DataTransfer,KernelTuning serviceStyle

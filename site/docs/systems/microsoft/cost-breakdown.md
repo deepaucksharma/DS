@@ -58,9 +58,9 @@ graph TB
     AI_GPU_SERVERS -.->|"$30K per A100 server"| GPU_INVESTMENT
     STORAGE_CAPACITY -.->|"$200/TB all-flash"| MEMORY_CAPACITY
 
-    classDef capexStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serverStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef driverStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef capexStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serverStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef driverStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class LAND_CONSTRUCTION,SERVER_HARDWARE,NETWORK_EQUIPMENT,STORAGE_HARDWARE capexStyle
     class COMPUTE_SERVERS,STORAGE_SERVERS,AI_GPU_SERVERS,NETWORK_APPLIANCES serverStyle
@@ -121,10 +121,10 @@ graph TB
     PERSONNEL_COSTS -.->|"$150K avg salary"| SRE_ENGINEERS
     SIXTY_REGIONS -.->|"Global redundancy"| DATACENTER_COUNT
 
-    classDef opexStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef opexStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef powerStyle fill:#FFCC00,stroke:#CC9900,color:#fff
-    classDef personnelStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef globalStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef personnelStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef globalStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class POWER_COOLING,PERSONNEL_COSTS,MAINTENANCE,CONNECTIVITY opexStyle
     class ELECTRICITY,RENEWABLE_ENERGY,BACKUP_POWER,COOLING_SYSTEMS powerStyle
@@ -187,10 +187,10 @@ graph TB
     OPENAI_PARTNERSHIP -.->|"Multi-year commitment"| GPU_CLUSTERS
     REVENUE_GROWTH -.->|"$80B cloud revenue"| COPILOT_ADOPTION
 
-    classDef researchStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef aiStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef platformStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef roiStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef researchStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef aiStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef platformStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef roiStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class AI_RESEARCH,CLOUD_PLATFORM,QUANTUM_COMPUTING,SECURITY_RESEARCH researchStyle
     class OPENAI_PARTNERSHIP,GPU_CLUSTERS,AI_TALENT,COPILOT_DEVELOPMENT aiStyle
@@ -247,9 +247,9 @@ graph LR
     INDIA -.->|"Lower operational costs"| BRAZIL
     SINGAPORE -.->|"Balanced economics"| CANADA
 
-    classDef highStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef mediumStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef lowStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef highStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef mediumStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef lowStyle fill:#10B981,stroke:#059669,color:#fff
 
     class US_WEST_COAST,WESTERN_EUROPE,JAPAN,AUSTRALIA highStyle
     class US_CENTRAL,EASTERN_EUROPE,SINGAPORE,CANADA mediumStyle
@@ -312,10 +312,10 @@ graph TB
     SUBSCRIPTION_REVENUE -.->|"100M+ users"| PRODUCTIVITY_GAINS
     MODEL_EFFICIENCY -.->|"50% cost reduction"| EDGE_INFERENCE
 
-    classDef infraStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef gpuStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef roiStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef optimizationStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef infraStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef gpuStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef roiStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef optimizationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class GPU_TRAINING,INFERENCE_SERVERS,OPENAI_LICENSING,AI_TALENT_COSTS infraStyle
     class A100_CLUSTERS,H100_NEXT_GEN,CUSTOM_SILICON,QUANTUM_RESEARCH gpuStyle
@@ -356,8 +356,8 @@ graph LR
     %% Cumulative savings
     SAVE1 -.->|"Cumulative: $10.3B saved"| SAVE6
 
-    classDef optStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef saveStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef optStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef saveStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class OPT2019,OPT2020,OPT2021,OPT2022,OPT2023,OPT2024 optStyle
     class SAVE1,SAVE2,SAVE3,SAVE4,SAVE5,SAVE6 saveStyle
@@ -430,9 +430,9 @@ graph TB
     PLATFORM_SRE --> MTTR_IMPROVEMENT
     SECURITY_SRE --> COST_AVOIDANCE
 
-    classDef investmentStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef orgStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef metricsStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef investmentStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef orgStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef metricsStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SRE_PERSONNEL,MONITORING_TOOLS,AUTOMATION_PLATFORM,CHAOS_ENGINEERING investmentStyle
     class AZURE_SRE,M365_SRE,PLATFORM_SRE,SECURITY_SRE orgStyle
@@ -478,9 +478,9 @@ graph LR
     CONDITIONAL_ACCESS --> THREAT_DETECTION_TIME
     INFORMATION_PROTECTION --> INCIDENT_RESPONSE
 
-    classDef securityStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef roiStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef securityStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef roiStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class THREAT_DETECTION,IDENTITY_SECURITY,DATA_PROTECTION,COMPLIANCE_AUTOMATION,SECURITY_RESEARCH securityStyle
     class AZURE_SENTINEL,AZURE_DEFENDER,CONDITIONAL_ACCESS,INFORMATION_PROTECTION,COMPLIANCE_MANAGER serviceStyle

@@ -50,9 +50,9 @@ graph TB
     MON --> CACHE
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class LB edgeStyle
     class MON serviceStyle
@@ -146,9 +146,9 @@ graph TB
     MON --> CACHE
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class LB edgeStyle
     class AUTH,NOTIF,MON serviceStyle
@@ -214,9 +214,9 @@ graph TB
     ORDER_SVC -.->|API call| PAYMENT_SVC
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CDN,LB edgeStyle
     class AUTH,USER_SVC,ORDER_SVC,PRODUCT_SVC,PAYMENT_SVC,MON serviceStyle
@@ -294,10 +294,10 @@ graph TB
     PAYMENT_SVC -.-> TRACING
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,WAF,LB edgeStyle
     class AUTH,USER_SVC,ORDER_SVC,PRODUCT_SVC,PAYMENT_SVC,SEARCH_SVC serviceStyle
@@ -363,9 +363,9 @@ graph LR
     SYNC -->|4. Reconcile| NEW_DB
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class APP serviceStyle
     class OLD_DB,NEW_DB stateStyle
@@ -464,8 +464,8 @@ graph TB
     TEAM -.->|Communicate| SLACK[Team Communication<br/>Daily standups<br/>Incident response]
 
     %% Apply colors
-    classDef riskStyle fill:#FF6B6B,stroke:#CC0000,color:#fff
-    classDef mitigationStyle fill:#51CF66,stroke:#00AA00,color:#fff
+    classDef riskStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff
+    classDef mitigationStyle fill:#51CF66,stroke:#10B981,color:#fff
 
     class PERF,DATA,DEPS,TEAM riskStyle
     class METRICS,RECONCILE,FALLBACK,SLACK mitigationStyle
@@ -552,8 +552,8 @@ graph TB
     SERVICES --> JAEGER
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SERVICES serviceStyle
     class PROM,GRAFANA,FLUENTD,ELK,JAEGER,ALERTS controlStyle

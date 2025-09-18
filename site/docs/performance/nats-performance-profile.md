@@ -34,8 +34,8 @@ graph TB
         SERVER --> SUB2
     end
 
-    classDef coreStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef flowStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef coreStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef flowStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class CORE1,CORE2,CORE3 coreStyle
     class PUB,SERVER,SUB1,SUB2 flowStyle
@@ -69,8 +69,8 @@ graph TB
         JS_STREAM --> JS_CON2
     end
 
-    classDef jsStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef jsFlowStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef jsStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef jsFlowStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class JS1,JS2,JS3 jsStyle
     class JS_PUB,JS_STREAM,JS_CON1,JS_CON2 jsFlowStyle
@@ -104,9 +104,9 @@ graph LR
         RES3[Network overhead<br/>Core: Minimal<br/>JS: Replication + Acks<br/>Cluster: Gossip protocol]
     end
 
-    classDef coreStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef jsMemStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef jsFileStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef coreStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef jsMemStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef jsFileStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LAT1,THR1 coreStyle
     class LAT2,THR2 jsMemStyle
@@ -146,9 +146,9 @@ graph TB
         PERF1[Routing performance<br/>1-level: 1M msg/sec<br/>2-level wildcard: 800K msg/sec<br/>3-level wildcard: 500K msg/sec<br/>Full wildcard: 100K msg/sec]
     end
 
-    classDef hierStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef wildStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef hierStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef wildStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
 
     class HIER1,HIER2,HIER3 hierStyle
     class WILD1,WILD2,WILD3,WILD4 wildStyle
@@ -179,8 +179,8 @@ graph TB
         ANTI1 --> ANTI2 --> ANTI3
     end
 
-    classDef optStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef antiStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef optStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef antiStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class OPT1,OPT2,OPT3 optStyle
     class ANTI1,ANTI2,ANTI3 antiStyle
@@ -214,9 +214,9 @@ graph TB
         CLIENT1[Client distribution<br/>Clients per node: 1000<br/>Load balancing: Automatic<br/>Failover time: 2-5 seconds<br/>Connection recovery: Automatic]
     end
 
-    classDef meshStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef clientStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef meshStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef clientStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class MESH1,MESH2,MESH3 meshStyle
     class CLUSTER_PERF1,CLUSTER_PERF2 perfStyle
@@ -259,8 +259,8 @@ graph LR
     C5_2 --> SCALE1
     C10_2 --> SCALE1
 
-    classDef clusterStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef scaleStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef clusterStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef scaleStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class C3_1,C3_2,C5_1,C5_2,C10_1,C10_2 clusterStyle
     class SCALE1 scaleStyle
@@ -295,10 +295,10 @@ graph TB
     MR1 --> COMP2
     MR2 --> COMP2
 
-    classDef singleStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef multiStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef gatewayStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef compStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef singleStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef multiStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef gatewayStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef compStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SR1 singleStyle
     class MR1,MR2 multiStyle
@@ -342,9 +342,9 @@ graph TB
         EO1 --> EO2 --> EO3
     end
 
-    classDef amoStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef aloStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef eoStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef amoStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef aloStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef eoStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AMO1,AMO2,AMO3 amoStyle
     class ALO1,ALO2,ALO3 aloStyle
@@ -379,9 +379,9 @@ graph LR
         BATCH1 --> BATCH2
     end
 
-    classDef manualStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef autoStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef batchStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef manualStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef autoStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef batchStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class MANUAL1,MANUAL2 manualStyle
     class AUTO1,AUTO2 autoStyle
@@ -418,9 +418,9 @@ graph TB
         DEPLOY3[Hybrid approach<br/>Local for high-frequency<br/>Shared for coordination<br/>Optimal resource usage]
     end
 
-    classDef cncfStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef deployStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef cncfStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef deployStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class K8S,ISTIO,HELM,PROM cncfStyle
     class PERF1,PERF2 perfStyle
@@ -455,9 +455,9 @@ graph LR
         EVENT1 --> EVENT2
     end
 
-    classDef obsStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef coordStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef eventStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef obsStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef coordStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef eventStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class OBS1,OBS2 obsStyle
     class COORD1,COORD2 coordStyle
@@ -494,9 +494,9 @@ graph TB
         CLUSTER_OPT1 --> CLUSTER_OPT2
     end
 
-    classDef coreOptStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef jsOptStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef clusterOptStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef coreOptStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef jsOptStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef clusterOptStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CORE_OPT1,CORE_OPT2 coreOptStyle
     class JS_OPT1,JS_OPT2 jsOptStyle

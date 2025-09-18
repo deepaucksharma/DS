@@ -68,10 +68,10 @@ graph TB
     RESOURCE_GRAPH -.->|"Real-time queries"| ACTIVITY_LOG
 
     %% Apply four-plane colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class ARM_FRONTEND,POLICY_ENGINE,TEMPLATE_PROCESSOR,DEPLOYMENT_ENGINE,RBAC_ENGINE serviceStyle
     class COMPUTE_RP,STORAGE_RP,NETWORK_RP,SQL_RP,WEB_RP,KEYVAULT_RP stateStyle
@@ -142,10 +142,10 @@ graph TB
     AZURE_MONITOR_K8S -.->|"Real-time telemetry"| SECURITY_POLICIES
     SPOT_INSTANCES -.->|"90% cost savings"| GPU_NODES
 
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef nodeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef azureStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef opsStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef nodeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef azureStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef opsStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class API_SERVER,ETCD_CLUSTER,CONTROLLER_MANAGER,SCHEDULER,AZURE_INTEGRATION controlStyle
     class SYSTEM_POOL,USER_POOL_1,USER_POOL_2,SPOT_INSTANCES,GPU_NODES nodeStyle
@@ -211,10 +211,10 @@ graph LR
     APPLICATION_INSIGHTS -.->|"Real-time telemetry"| FEEDBACK_LOOPS
     ANALYTICS_DASHBOARDS -.->|"Custom dashboards"| AZURE_MONITOR_DEVOPS
 
-    classDef sourceStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef buildStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef deployStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef monitorStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef sourceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef buildStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef deployStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef monitorStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AZURE_REPOS,AZURE_BOARDS,PULL_REQUESTS,BRANCH_POLICIES sourceStyle
     class AZURE_PIPELINES,BUILD_AGENTS,TEST_PLANS,ARTIFACT_FEEDS buildStyle
@@ -282,10 +282,10 @@ graph TB
     INCIDENT_MANAGEMENT -.->|"<15 min response"| CHANGE_MANAGEMENT
     DATACENTER_OPS -.->|"Follow-the-sun support"| NETWORK_OPS
 
-    classDef orchestrationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef serviceStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef operationalStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef infraStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef orchestrationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef serviceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef operationalStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef infraStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class M365_ADMIN_CENTER,SERVICE_HEALTH,TENANT_MANAGEMENT,CAPACITY_PLANNING orchestrationStyle
     class EXCHANGE_ONLINE,SHAREPOINT_ONLINE,TEAMS_SERVICE,ONEDRIVE_SERVICE,POWER_PLATFORM_SVC serviceStyle
@@ -353,10 +353,10 @@ graph TB
     METRIC_ALERTS -.->|"<5 min alerting"| LOG_ALERTS
     RUNBOOK_AUTOMATION -.->|"Auto-remediation"| ACTION_GROUPS
 
-    classDef collectionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef platformStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef analyticsStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef alertingStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef collectionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef platformStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef analyticsStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef alertingStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class TELEMETRY_AGENTS,APPLICATION_INSIGHTS_SDK,DIAGNOSTIC_SETTINGS,CUSTOM_METRICS collectionStyle
     class METRICS_STORE,LOG_ANALYTICS,APPLICATION_INSIGHTS_BACKEND,AZURE_DATA_EXPLORER platformStyle
@@ -426,10 +426,10 @@ graph LR
     RING_2 -.->|"1 week validation"| RING_3
     AUTO_ROLLBACK -.->|"<10 min detection"| FEATURE_FLAGS
 
-    classDef ringStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef qualityStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef monitoringStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef safetyStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef ringStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef qualityStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef monitoringStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef safetyStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class RING_0,RING_1,RING_2,RING_3 ringStyle
     class AUTOMATED_TESTS,PERFORMANCE_TESTS,SECURITY_SCAN,COMPLIANCE_CHECK qualityStyle
@@ -498,10 +498,10 @@ graph TB
     L1_SUPPORT -.->|"<5 min initial response"| L2_SUPPORT
     HANDOFF_PROCESS -.->|"Seamless transitions"| AMERICAS_NOC
 
-    classDef globalStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef severityStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef teamStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef escalationStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef globalStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef severityStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef teamStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef escalationStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class AMERICAS_NOC,EMEA_NOC,APAC_NOC,HANDOFF_PROCESS globalStyle
     class SEV_0,SEV_1,SEV_2,SEV_3 severityStyle

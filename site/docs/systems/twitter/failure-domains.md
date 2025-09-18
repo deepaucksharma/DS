@@ -48,10 +48,10 @@ graph TB
     FLOCKDB_FAIL -.->|"Graph rebuild: 6 hours"| FANOUT_FAIL
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:2px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:2px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:2px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:2px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:2px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:2px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:2px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:2px
 
     class CDN_FAIL,LB_FAIL,WAF_FAIL edgeStyle
     class FANOUT_FAIL,TWEET_FAIL,SEARCH_FAIL,TIMELINE_FAIL,TREND_FAIL serviceStyle
@@ -300,7 +300,7 @@ graph TB
     FANOUT_CB -.->|"Prevented cascading failures<br/>Maintained 80% functionality<br/>Recovery time: <60s"| CACHED_TIMELINE
 
     classDef serviceStyle fill:#E8F5E8,stroke:#388E3C,color:#000
-    classDef dbStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef dbStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef fallbackStyle fill:#FFF3E0,stroke:#F57C00,color:#000
     classDef recoveryStyle fill:#E3F2FD,stroke:#1976D2,color:#000
 
@@ -350,7 +350,7 @@ graph TB
     ASYNC_PROCESSING -.->|"Processing rate: 1M fanouts/minute<br/>Delivery success: 99.9%<br/>Latency: p99 <2s"| TIMELINE_WARMING
 
     classDef detectionStyle fill:#E8F5E8,stroke:#388E3C,color:#000
-    classDef routingStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef routingStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef processingStyle fill:#FFF3E0,stroke:#F57C00,color:#000
     classDef cachingStyle fill:#E3F2FD,stroke:#1976D2,color:#000
 

@@ -43,27 +43,27 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #0066CC"
+    subgraph "Edge Plane - Blue #3B82F6"
         MOBILE[Coinbase Mobile App<br/>68M+ Users]
         WEB[Coinbase Web Platform<br/>Trading Interface]
         PRO[Coinbase Pro<br/>Advanced Trading]
     end
 
-    subgraph "Service Plane - Green #00AA00"
+    subgraph "Service Plane - Green #10B981"
         TRADING[Trading Engine<br/>Order Matching<br/>OVERLOADED]
         WALLET[Wallet Service<br/>Balance Management]
         PRICE[Price Service<br/>Market Data Feed]
         KYC[KYC Service<br/>User Verification]
     end
 
-    subgraph "State Plane - Orange #FF8800"
+    subgraph "State Plane - Orange #F59E0B"
         ORDERS[(Order Database<br/>PostgreSQL<br/>60x Normal Load)]
         BALANCES[(Balance Database<br/>User Accounts)]
         BLOCKCHAIN[(Blockchain State<br/>Crypto Networks)]
         CACHE[(Redis Cache<br/>Price Data)]
     end
 
-    subgraph "Control Plane - Red #CC0000"
+    subgraph "Control Plane - Red #8B5CF6"
         MONITORING[DataDog Monitoring<br/>System Metrics]
         RISK[Risk Management<br/>Trading Limits]
         COMPLIANCE[Compliance Engine<br/>Regulatory Rules]
@@ -100,10 +100,10 @@ graph TB
     TRADING -.->|Cannot buy/sell crypto<br/>68M+ users locked out| CUSTOMERS[Retail Investors<br/>Day Traders<br/>Institutional Clients<br/>DeFi Users]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef cryptoStyle fill:#4B0082,stroke:#301934,color:#fff,stroke-width:4px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 

@@ -118,10 +118,10 @@ graph TB
     HADOOP --> VERTICA
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:2px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:2px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:2px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:2px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:2px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:2px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:2px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:2px
 
     class API,CACHE_PROXY edgeStyle
     class TIMELINE_READ,TWEET_READ,GRAPH_READ,SEARCH_READ,TWEET_WRITE,GRAPH_WRITE,MEDIA_WRITE serviceStyle

@@ -6,16 +6,16 @@ This diagram shows Stripe's complete storage architecture managing 100TB+ of pay
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         CDNCache["Cloudflare Cache<br/>━━━━━<br/>Static assets<br/>API responses (30s TTL)<br/>330+ PoPs<br/>99% cache hit rate"]
 
         ReadReplicas["Read Replicas<br/>━━━━━<br/>Regional distribution<br/>Eventually consistent<br/><100ms replication lag<br/>Read-only queries"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         PaymentAPI["Payment API<br/>━━━━━<br/>Transactional operations<br/>ACID requirements<br/>Strong consistency<br/>Write coordination"]
 
@@ -24,8 +24,8 @@ graph TB
         BackupOrchestrator["Backup Orchestrator<br/>━━━━━<br/>Continuous backups<br/>Cross-region replication<br/>Point-in-time recovery<br/>Compliance archiving"]
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         subgraph PrimaryCluster["Primary Payment Storage - Strong Consistency"]
             MongoDB["MongoDB Atlas M700<br/>━━━━━<br/>Payment intents & customers<br/>100TB active data<br/>Multi-document transactions<br/>Primary: us-east-1"]
@@ -56,8 +56,8 @@ graph TB
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         BackupMonitor["Backup Monitoring<br/>━━━━━<br/>RPO: 15 minutes<br/>RTO: 4 hours<br/>Automated testing<br/>Compliance verification"]
 
@@ -93,10 +93,10 @@ graph TB
     MongoSecondary -.->|"Replication lag<br/>Consistency monitoring"| ReplicationMonitor
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class CDNCache,ReadReplicas edgeStyle
     class PaymentAPI,AnalyticsAPI,BackupOrchestrator serviceStyle

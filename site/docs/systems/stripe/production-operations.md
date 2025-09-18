@@ -6,8 +6,8 @@ This diagram shows Stripe's production operations infrastructure supporting 99.9
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         CDNMonitoring["CDN Health Monitoring<br/>━━━━━<br/>Cloudflare analytics<br/>Edge performance<br/>Global latency tracking<br/>DDoS event detection"]
 
@@ -16,8 +16,8 @@ graph TB
         SSLCertMonitoring["SSL Certificate Monitor<br/>━━━━━<br/>Auto-renewal alerts<br/>Certificate expiry<br/>Chain validation<br/>Security scanning"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         subgraph DeploymentPipeline["Deployment Pipeline - Zero Downtime"]
             GitOpsController["GitOps Controller<br/>━━━━━<br/>ArgoCD deployment<br/>Git webhook triggers<br/>Automated rollbacks<br/>Canary deployments"]
@@ -44,8 +44,8 @@ graph TB
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         subgraph MonitoringData["Monitoring Data Store"]
             MetricsDB["Metrics Database<br/>━━━━━<br/>InfluxDB cluster<br/>1B+ metrics/day<br/>7-day retention<br/>Real-time ingestion"]
@@ -70,8 +70,8 @@ graph TB
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         subgraph ObservabilityStack["Observability Stack"]
             DatadogAPM["Datadog APM<br/>━━━━━<br/>Application monitoring<br/>Request tracing<br/>Error tracking<br/>Performance profiling"]
@@ -128,10 +128,10 @@ graph TB
     AccessAuditing -->|"Access logs<br/>Privilege tracking<br/>Compliance evidence"| ComplianceReporting
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class CDNMonitoring,LoadBalancerHealth,SSLCertMonitoring edgeStyle
     class GitOpsController,BlueGreenOrch,CanaryManager,SmokeTests,LoadTesting,SecurityScanning,PagerDuty,RunbookAutomation,IncidentCommander serviceStyle

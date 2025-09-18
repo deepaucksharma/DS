@@ -54,10 +54,10 @@ graph TB
     FC4 --> MS4
 
     %% Apply 4-plane colors
-    classDef normalStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef partitionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef consequenceStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef mitigationStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef normalStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef partitionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef consequenceStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef mitigationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class NO1,NO2,NO3,NO4 normalStyle
     class PS1,PS2,PS3,PS4 partitionStyle
@@ -150,10 +150,10 @@ graph TB
     RM2 --> OS2
     RM3 --> OS3
 
-    classDef stateStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef partitionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef recoveryStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef outcomeStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef stateStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef partitionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef recoveryStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef outcomeStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PS1,PS2,PS3 stateStyle
     class PE1,PE2,PE3 partitionStyle
@@ -248,10 +248,10 @@ graph LR
         end
     end
 
-    classDef quorumStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef fencingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef consensusStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef applicationStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef quorumStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef fencingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef consensusStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef applicationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class QM1,QM2,QM3 quorumStyle
     class FM1,FM2,FM3 fencingStyle
@@ -387,10 +387,10 @@ graph TB
     LL3 --> PI3
     LL4 --> PI4
 
-    classDef timelineStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef impactStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef lessonsStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef improvementStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef timelineStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef impactStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef lessonsStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef improvementStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class IT1,IT2,IT3,IT4 timelineStyle
     class IA1,IA2,IA3,IA4 impactStyle
@@ -674,10 +674,10 @@ graph LR
         end
     end
 
-    classDef automatedStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef manualStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef reconciliationStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef preventiveStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef automatedStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef manualStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef reconciliationStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef preventiveStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AR1,AR2,AR3 automatedStyle
     class MR1,MR2,MR3 manualStyle

@@ -39,9 +39,9 @@ graph TB
         HTTP2_SERVER --> PERF2
     end
 
-    classDef http1Style fill:#CC0000,stroke:#990000,color:#fff
-    classDef http2Style fill:#00AA00,stroke:#007700,color:#fff
-    classDef perfStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef http1Style fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef http2Style fill:#10B981,stroke:#059669,color:#fff
+    classDef perfStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class HTTP1_CLIENT,HTTP1_CONNS,HTTP1_SERVER http1Style
     class HTTP2_CLIENT,HTTP2_STREAMS,HTTP2_SERVER http2Style
@@ -76,9 +76,9 @@ graph TB
         FLOW_CTRL1 --> FLOW_CTRL2
     end
 
-    classDef streamStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef flowStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef streamStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef flowStyle fill:#10B981,stroke:#059669,color:#fff
 
     class STREAM_MGT streamStyle
     class STREAM_PERF1,STREAM_PERF2,STREAM_PERF3 perfStyle
@@ -121,9 +121,9 @@ graph TB
         IMPACT1 --> IMPACT2
     end
 
-    classDef protoStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef jsonStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef impactStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef protoStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef jsonStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef impactStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class PROTO1,PROTO2,PROTO3 protoStyle
     class JSON1,JSON2,JSON3 jsonStyle
@@ -163,9 +163,9 @@ graph LR
         JSON_EVO3 --> MIGRATION2
     end
 
-    classDef protoStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef jsonStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef migrationStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef protoStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef jsonStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef migrationStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class PROTO_EVO1,PROTO_EVO2,PROTO_EVO3 protoStyle
     class JSON_EVO1,JSON_EVO2,JSON_EVO3 jsonStyle
@@ -218,10 +218,10 @@ graph TB
         BIDI_STREAM1 --> BIDI_STREAM2 --> BIDI_STREAM3
     end
 
-    classDef unaryStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serverStreamStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef clientStreamStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef bidiStreamStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef unaryStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serverStreamStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef clientStreamStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef bidiStreamStyle fill:#10B981,stroke:#059669,color:#fff
 
     class UNARY1,UNARY2,UNARY3 unaryStyle
     class SERVER_STREAM1,SERVER_STREAM2,SERVER_STREAM3 serverStreamStyle
@@ -259,9 +259,9 @@ graph TB
         RESOURCE1 --> RESOURCE2
     end
 
-    classDef throughputStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef latencyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef resourceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef throughputStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef latencyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef resourceStyle fill:#10B981,stroke:#059669,color:#fff
 
     class THROUGHPUT1,THROUGHPUT2,THROUGHPUT3 throughputStyle
     class LATENCY1,LATENCY2 latencyStyle
@@ -300,9 +300,9 @@ graph TB
         MESH_LB1 --> MESH_LB2
     end
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef proxyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef meshStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef proxyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef meshStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CLIENT_LB1,CLIENT_LB2,CLIENT_LB3 clientStyle
     class PROXY_LB1,PROXY_LB2 proxyStyle
@@ -337,9 +337,9 @@ graph LR
         MESH_PERF1 --> MESH_PERF2
     end
 
-    classDef clientStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef proxyStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef meshStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef clientStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef proxyStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef meshStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CLIENT_PERF1,CLIENT_PERF2 clientStyle
     class PROXY_PERF1,PROXY_PERF2 proxyStyle
@@ -372,10 +372,10 @@ graph TB
         POOL3 --> PERF3
     end
 
-    classDef poolStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef underStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef optStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef overStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef poolStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef underStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef optStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef overStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class POOL1,POOL2,POOL3 poolStyle
     class PERF1 underStyle
@@ -421,9 +421,9 @@ graph TB
         OPT1 --> OPT2 --> OPT3
     end
 
-    classDef scaleStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef optStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef scaleStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef optStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SCALE1,SCALE2,SCALE3 scaleStyle
     class SERVICES1,SERVICES2,SERVICES3,SERVICES4 serviceStyle
@@ -457,8 +457,8 @@ graph LR
     CLIENT_CONFIG2 --> PERF_IMPACT1
     SERVER_CONFIG2 --> PERF_IMPACT1
 
-    classDef configStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef configStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CLIENT_CONFIG1,CLIENT_CONFIG2,SERVER_CONFIG1,SERVER_CONFIG2 configStyle
     class PERF_IMPACT1 perfStyle
@@ -498,9 +498,9 @@ graph TB
         OPS1 --> OPS2 --> OPS3
     end
 
-    classDef microStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef opsStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef microStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef opsStyle fill:#10B981,stroke:#059669,color:#fff
 
     class MICRO1,MICRO2,MICRO3 microStyle
     class INFRA1,INFRA2,INFRA3 infraStyle
@@ -537,7 +537,7 @@ graph TB
         INFRA_OPT1[Infrastructure setup<br/>• Proper load balancing<br/>• Service mesh configuration<br/>• Resource allocation<br/>• Monitoring and alerting]
     end
 
-    classDef optStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef optStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class NET_OPT1,SER_OPT1,RPC_OPT1,INFRA_OPT1 optStyle
 ```

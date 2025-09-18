@@ -34,8 +34,8 @@ graph TB
         SQS_STD --> CONS2
     end
 
-    classDef standardStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef flowStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef standardStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef flowStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class STD1,STD2,STD3 standardStyle
     class PROD,SQS_STD,CONS1,CONS2 flowStyle
@@ -65,8 +65,8 @@ graph TB
         PROD_FIFO --> SQS_FIFO --> CONS_FIFO
     end
 
-    classDef fifoStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef fifoFlowStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef fifoStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef fifoFlowStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class FIFO1,FIFO2,FIFO3 fifoStyle
     class PROD_FIFO,SQS_FIFO,CONS_FIFO fifoFlowStyle
@@ -94,8 +94,8 @@ graph LR
         COST2[FIFO Queue<br/>Base cost: $0.50/million requests<br/>Data transfer: Standard rates<br/>Ordering premium: 25%<br/>Limited volume discounts]
     end
 
-    classDef standardStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef fifoStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef standardStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef fifoStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class THR1,LAT1,COST1 standardStyle
     class THR2,LAT2,COST2 fifoStyle
@@ -135,9 +135,9 @@ graph TB
         HYBRID1 --> HYBRID2
     end
 
-    classDef shortStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef longStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef hybridStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef shortStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef longStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef hybridStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class SHORT1,SHORT2,SHORT3 shortStyle
     class LONG1,LONG2,LONG3 longStyle
@@ -172,9 +172,9 @@ graph LR
         OPT1 --> OPT2
     end
 
-    classDef singleStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef batchStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef optStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef singleStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef batchStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef optStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class SINGLE1,SINGLE2 singleStyle
     class BATCH1,BATCH2 batchStyle
@@ -221,10 +221,10 @@ graph TB
         EMAIL_SUB --> PERF2
     end
 
-    classDef pubStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef topicStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef subStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef perfStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef pubStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef topicStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef subStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef perfStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PUB,TOPIC pubStyle
     class TOPIC topicStyle
@@ -264,10 +264,10 @@ graph TB
         EXAMPLES[Attribute filtering<br/>{"order_value": [{"numeric": [">=", 100]}]}<br/>{"region": ["us-east-1", "us-west-2"]}<br/>{"event_type": ["order", "payment"]}]
     end
 
-    classDef noFilterStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef attrFilterStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef contentFilterStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef exampleStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef noFilterStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef attrFilterStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef contentFilterStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef exampleStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class NO_FILTER1,NO_FILTER2 noFilterStyle
     class ATTR_FILTER1,ATTR_FILTER2 attrFilterStyle
@@ -309,10 +309,10 @@ graph TB
         DLQ --> ANALYSIS --> RECOVERY
     end
 
-    classDef queueStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef processStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef impactStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef analysisStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef queueStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef processStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef impactStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef analysisStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MAIN_Q,DLQ queueStyle
     class PROC processStyle
@@ -348,9 +348,9 @@ graph LR
         HYBRID1 --> HYBRID2
     end
 
-    classDef immediateStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef retryStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef hybridStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef immediateStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef retryStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef hybridStyle fill:#10B981,stroke:#059669,color:#fff
 
     class IMMEDIATE1,IMMEDIATE2 immediateStyle
     class RETRY1,RETRY2 retryStyle
@@ -386,10 +386,10 @@ graph TB
         COST2[Cost metrics<br/>SQS costs: $50K/month<br/>SNS costs: $30K/month<br/>Lambda triggers: $20K/month<br/>Total messaging: $100K/month]
     end
 
-    classDef eventStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef costStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef eventStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef costStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EVENTS,SNS_TOPICS,SQS_QUEUES eventStyle
     class PERF1,PERF2 perfStyle
@@ -430,9 +430,9 @@ graph TB
         SAGA1 --> SAGA2 --> SAGA3
     end
 
-    classDef esStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef cqrsStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef sagaStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef esStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef cqrsStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef sagaStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class ES1,ES2,ES3 esStyle
     class CQRS1,CQRS2,CQRS3 cqrsStyle
@@ -466,9 +466,9 @@ graph LR
     ALERTS1 --> ALERTS2
     ALERTS2 --> DASH1
 
-    classDef metricsStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef alertStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef dashStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef metricsStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef alertStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef dashStyle fill:#10B981,stroke:#059669,color:#fff
 
     class SQS_METRICS,SNS_METRICS metricsStyle
     class ALERTS1,ALERTS2 alertStyle
@@ -505,7 +505,7 @@ graph TB
         REL_OPT1[Error handling<br/>• Appropriate DLQ configuration<br/>• Exponential backoff<br/>• Circuit breaker patterns<br/>• Monitoring and alerting]
     end
 
-    classDef optStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef optStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class THR_OPT1,LAT_OPT1,COST_OPT1,REL_OPT1 optStyle
 ```

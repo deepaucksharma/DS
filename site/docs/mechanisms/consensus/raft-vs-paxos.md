@@ -45,10 +45,10 @@ graph TB
     P_ACCEPT --> P_LEARN
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class R_SIMPLE,R_STRONG,R_SEQUENCE,P_COMPLEX,P_SYMMETRIC,P_INDEPENDENT edgeStyle
     class R_REPLICATION,P_PROMISE,P_ACCEPT serviceStyle
@@ -171,7 +171,7 @@ graph LR
     MP_LAT --> BP_LAT
 
     %% Apply state plane color for metrics
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class R_TPS,R_LAT,R_CPU,R_NET,MP_TPS,MP_LAT,MP_CPU,MP_NET,BP_TPS,BP_LAT,BP_CPU,BP_NET,FACTORS stateStyle
 ```
 
@@ -202,7 +202,7 @@ graph TB
     end
 
     %% Apply service plane color for implementation
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     class R_LINES,R_BUGS,R_TEST,R_DEBUG,R_VERIFY,P_LINES,P_BUGS,P_TEST,P_DEBUG,P_VERIFY,ISSUES serviceStyle
 ```
 
@@ -316,7 +316,7 @@ graph TB
     TRANSITION --> FINAL
 
     %% Apply control plane color
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     class OLD_CONFIG,NEW_CONFIG,JOINT,TRANSITION,FINAL controlStyle
 ```
 
@@ -343,7 +343,7 @@ graph TB
     ATOMIC --> DYNAMIC
 
     %% Apply control plane color
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     class COORD,GLOBAL,ATOMIC,VERTICAL,ALPHA,DYNAMIC controlStyle
 ```
 
@@ -376,9 +376,9 @@ graph LR
     end
 
     %% Apply colors based on recommendation
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class R_SIMPLE_REQ,R_STRONG_LEAD,R_FAST_DEV,R_MAINTENANCE,R_EDUCATION serviceStyle
     class P_SYMMETRIC,P_INDEPENDENT,P_RESEARCH,P_SPECIALIZED,P_EXISTING edgeStyle

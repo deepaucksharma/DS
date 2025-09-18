@@ -179,9 +179,9 @@ graph TB
     N3 --> METRIC2
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class N1,N2,N3,N4,N5 stateStyle
     class METRIC1,METRIC2,METRIC3 controlStyle
@@ -284,7 +284,7 @@ graph LR
     L_LOG -.-> |"Very slow replication"| F3_LOG
 
     %% Apply state plane color for log data
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class L_LOG,F1_LOG,F2_LOG,F3_LOG stateStyle
 ```
 
@@ -424,10 +424,10 @@ graph TB
     CHECK_MEM --> FAILOVER
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class HIGH_LAT,LOW_TPS,TIMEOUTS edgeStyle
     class CHECK_IO,CHECK_NET,CHECK_CPU,CHECK_MEM serviceStyle

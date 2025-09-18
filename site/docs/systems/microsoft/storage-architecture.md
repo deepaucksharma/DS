@@ -62,10 +62,10 @@ graph TB
     SYNAPSE_STORAGE -.->|"Petabyte analytics"| REDIS_STORAGE
 
     %% Apply four-plane colors
-    classDef consumerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef enterpriseStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef azureStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef databaseStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef consumerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef enterpriseStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef azureStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef databaseStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ONEDRIVE,PHOTOS,XBOX_STORAGE,OUTLOOK_STORAGE consumerStyle
     class ONEDRIVE_BIZ,SHAREPOINT_STORAGE,TEAMS_FILES,EXCHANGE_STORAGE enterpriseStyle
@@ -135,10 +135,10 @@ graph TB
     STANDARD_SSD -.->|"$0.06/GB/month"| HDD_TIER
     HDD_TIER -.->|"$0.002/GB/month"| ARCHIVE_TIER
 
-    classDef frontendStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef engineStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef physicalStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef frontendStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef engineStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef physicalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class STORAGE_GATEWAY,LOAD_BALANCER,CDN_INTEGRATION,API_ENDPOINTS frontendStyle
     class BLOB_SERVICE,FILE_SERVICE,QUEUE_SERVICE,TABLE_SERVICE,DISK_SERVICE serviceStyle
@@ -210,10 +210,10 @@ graph TB
     PARTITIONS -.->|"Auto-scale: 10K RU/s"| REPLICA_SETS
     INDEX_SUBSYSTEM -.->|"Schema-agnostic"| BACKUP_SYSTEM
 
-    classDef apiStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef distributionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef consistencyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef storageStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef apiStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef distributionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef consistencyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef storageStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SQL_API,MONGODB_API,CASSANDRA_API,GREMLIN_API,TABLE_API apiStyle
     class WRITE_REGION,READ_REGION_1,READ_REGION_2,READ_REGION_3,MULTI_MASTER distributionStyle
@@ -285,10 +285,10 @@ graph TB
     SEARCH_SERVICE -.->|"Search: <1s response"| CONTENT_INDEX
     BACKUP_STORAGE -.->|"Versions: 500 per file"| METADATA_DB
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef syncStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef serviceStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef storageStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef syncStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef serviceStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef storageStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class WINDOWS_CLIENT,MAC_CLIENT,MOBILE_APPS,WEB_CLIENT,OFFICE_INTEGRATION clientStyle
     class BLOCK_SYNC,DELTA_SYNC,CONFLICT_RESOLUTION,BANDWIDTH_THROTTLING,OFFLINE_SUPPORT syncStyle
@@ -354,10 +354,10 @@ graph LR
     AUTO_TUNING -.->|"Performance: +25%"| THREAT_DETECTION
     INTELLIGENT_INSIGHTS -.->|"Anomaly detection"| VULNERABILITY_ASSESSMENT
 
-    classDef gatewayStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef engineStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef haStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef intelligentStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef gatewayStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef engineStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef haStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef intelligentStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CONNECTION_GATEWAY,LOAD_BALANCER_SQL,PROXY_LAYER,SSL_TERMINATION gatewayStyle
     class QUERY_PROCESSOR,STORAGE_ENGINE,LOCK_MANAGER,BUFFER_POOL engineStyle
@@ -412,9 +412,9 @@ graph LR
     LIFECYCLE_POLICY --> COOL_DATA
     COST_TRACKING --> ARCHIVE_DATA
 
-    classDef lifecycleStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef optimizationStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef performanceStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef lifecycleStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef optimizationStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef performanceStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class HOT_DATA,COOL_DATA,ARCHIVE_DATA,DELETION lifecycleStyle
     class ACCESS_PATTERN,AUTO_TIERING,LIFECYCLE_POLICY,COST_TRACKING optimizationStyle
@@ -497,9 +497,9 @@ graph TB
     CANADA_DATACENTERS --> AUDIT_LOGS
     AUSTRALIA_DATACENTERS --> ACCESS_CONTROLS
 
-    classDef complianceStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef regionalStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef controlStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef complianceStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef regionalStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef controlStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class EU_GDPR,US_HIPAA,CANADA_PIPEDA,AUSTRALIA_PRIVACY complianceStyle
     class EU_DATACENTERS,US_DATACENTERS,CANADA_DATACENTERS,AUSTRALIA_DATACENTERS regionalStyle

@@ -54,26 +54,26 @@ graph TB
         EMERGENCY[Emergency Response<br/>DC Security Team]
     end
 
-    subgraph "Edge Plane - Blue #0066CC"
+    subgraph "Edge Plane - Blue #3B82F6"
         SLB[Server Load Balancer<br/>Traffic Distribution]
         CDN[Alibaba CDN<br/>Content Delivery]
         DNS[Alibaba DNS<br/>Domain Resolution]
     end
 
-    subgraph "Service Plane - Green #00AA00"
+    subgraph "Service Plane - Green #10B981"
         ECS[Elastic Compute Service<br/>Virtual Machines]
         CONTAINER[Container Service<br/>Kubernetes Platform]
         FUNCTIONS[Function Compute<br/>Serverless Platform]
     end
 
-    subgraph "State Plane - Orange #FF8800"
+    subgraph "State Plane - Orange #F59E0B"
         RDS[(ApsaraDB for RDS<br/>Relational Database)]
         REDIS[(ApsaraDB for Redis<br/>In-Memory Cache)]
         OSS[(Object Storage Service<br/>Blob Storage)]
         TABLESTORE[(Table Store<br/>NoSQL Database)]
     end
 
-    subgraph "Control Plane - Red #CC0000"
+    subgraph "Control Plane - Red #8B5CF6"
         CONSOLE[Alibaba Cloud Console<br/>Management Interface]
         API[OpenAPI Gateway<br/>Control Plane API]
         MONITOR[CloudMonitor<br/>Observability Platform)]
@@ -105,10 +105,10 @@ graph TB
 
     %% Apply four-plane colors
     classDef physicalStyle fill:#8B4513,stroke:#654321,color:#fff,stroke-width:4px
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
     class FIRE,SUPPRESSION,HVAC,EMERGENCY physicalStyle
@@ -165,7 +165,7 @@ graph LR
 
     A --> B --> C --> D --> E --> F
 
-    classDef damageStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:2px
+    classDef damageStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:2px
     class A,B,C,D,E,F damageStyle
 ```
 
@@ -243,7 +243,7 @@ flowchart TD
 
     I --> J[Complete Hardware Replacement<br/>47 servers affected]
 
-    classDef chemical fill:#FF6B6B,stroke:#CC0000,color:#fff
+    classDef chemical fill:#FF6B6B,stroke:#8B5CF6,color:#fff
     classDef damage fill:#FFA500,stroke:#FF8C00,color:#fff
     classDef failure fill:#8B0000,stroke:#660000,color:#fff
 
@@ -419,7 +419,7 @@ graph TB
     PREACTION --> ENCLOSURE
     AUTO_SHUTDOWN --> ISOLATION
 
-    classDef newStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef newStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     class DETECT1,DETECT2,DETECT3,CONFIRM,OVERRIDE,FM200,PREACTION,EXHAUST,ENCLOSURE,AUTO_SHUTDOWN,ISOLATION newStyle
 ```
 

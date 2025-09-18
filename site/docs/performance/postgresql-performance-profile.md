@@ -37,9 +37,9 @@ graph TB
         PB --> PG2
     end
 
-    classDef appStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef poolStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef dbStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef appStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef poolStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef dbStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class APP1,APP2,APP3,APP4,APP5,APP6 appStyle
     class PB poolStyle
@@ -74,10 +74,10 @@ graph LR
         ST4[Latency: 0.2ms overhead<br/>Transactions: None<br/>Memory: Minimal]
     end
 
-    classDef clientStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef poolStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef dbStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef metricStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef poolStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef dbStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef metricStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class S1,T1,ST1 clientStyle
     class S2,T2,ST2 poolStyle
@@ -106,9 +106,9 @@ graph TB
         P1[Target: < 1ms p95<br/>Achieved: 0.8ms p95<br/>QPS: 50K per core<br/>Index size: 2GB]
     end
 
-    classDef queryStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef indexStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef metricStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef queryStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef indexStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef metricStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class Q1,Q2,Q3 queryStyle
     class I1,I2,I3 indexStyle
@@ -137,10 +137,10 @@ graph TB
         O1 --> O2[Before: 45 seconds<br/>After: 3 seconds<br/>Memory: 4GB → 1GB]
     end
 
-    classDef queryStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef planStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef optimStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef metricStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef queryStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef planStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef optimStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef metricStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class Q1 queryStyle
     class P1,I1,I2 planStyle
@@ -175,10 +175,10 @@ graph LR
         M1[pg_stat_replication<br/>sent_lsn - flush_lsn<br/>Alert: > 1GB lag<br/>Critical: > 5GB lag]
     end
 
-    classDef primaryStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef syncStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef asyncStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef monitorStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef primaryStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef syncStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef asyncStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef monitorStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class P1 primaryStyle
     class S1 syncStyle
@@ -210,9 +210,9 @@ graph TB
         S3[Application-level retry<br/>Catch 40001 error code<br/>Retry on read replica]
     end
 
-    classDef conflictStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef resolutionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef settingStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef conflictStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef resolutionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef settingStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class C1,C2,C3 conflictStyle
     class R1,R2 resolutionStyle
@@ -249,9 +249,9 @@ graph TB
         P2[After optimization<br/>Query performance stable<br/>Background maintenance]
     end
 
-    classDef tableStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef configStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef tableStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef configStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
 
     class T1,T2,T3,T4 tableStyle
     class A1,A2,A3 configStyle
@@ -284,9 +284,9 @@ graph LR
         U2[VACUUM FULL<br/>Monthly/quarterly<br/>Scheduled downtime<br/>Major space reclamation]
     end
 
-    classDef standardStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef fullStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef usageStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef standardStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef fullStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef usageStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class V1,V2,V3,U1 standardStyle
     class VF1,VF2,VF3,U2 fullStyle
@@ -317,9 +317,9 @@ graph TB
         W2[Primary use cases<br/>User profile lookups<br/>Timeline generation<br/>Photo metadata queries<br/>Like/comment counts]
     end
 
-    classDef hwStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef configStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef workloadStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef hwStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef configStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef workloadStyle fill:#10B981,stroke:#059669,color:#fff
 
     class HW1 hwStyle
     class PG1,PG2,PG3 configStyle
@@ -350,8 +350,8 @@ graph LR
         O3[50K → 100K TPS<br/>• Application-level sharding<br/>• Hardware scaling<br/>• Advanced PostgreSQL tuning]
     end
 
-    classDef scaleStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef optimStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef scaleStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef optimStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class S1,S2,S3,S4 scaleStyle
     class O1,O2,O3 optimStyle

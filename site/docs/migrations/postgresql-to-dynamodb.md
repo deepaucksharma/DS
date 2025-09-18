@@ -71,8 +71,8 @@ graph TB
     end
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef metricStyle fill:#FFE066,stroke:#CC9900,color:#000
 
     class APP serviceStyle
@@ -154,9 +154,9 @@ graph TB
     AP5 --> GSI3
 
     %% Apply colors
-    classDef keyStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef indexStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef patternStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef keyStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef indexStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef patternStyle fill:#10B981,stroke:#059669,color:#fff
 
     class PK,SK keyStyle
     class GSI1,GSI2,GSI3 indexStyle
@@ -292,9 +292,9 @@ graph TB
     COMPARE --> ALERTS
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class APP,LAMBDA serviceStyle
     class PG_WRITE,PG_READ,DDB_WRITE,DDB_READ,KINESIS stateStyle
@@ -343,9 +343,9 @@ graph TB
     FF -.->|90% traffic| PG_DAO
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class APP,DAO,PG_DAO,DDB_DAO serviceStyle
     class PG,DDB stateStyle
@@ -513,8 +513,8 @@ graph TB
     BATCH -.-> METRICS
 
     %% Apply colors
-    classDef optimizationStyle fill:#51CF66,stroke:#00AA00,color:#fff
-    classDef cacheStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef optimizationStyle fill:#51CF66,stroke:#10B981,color:#fff
+    classDef cacheStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef metricStyle fill:#FFE066,stroke:#CC9900,color:#000
 
     class HOT,DIST,PARALLEL,PROJECTION,BATCH,ASYNC optimizationStyle
@@ -775,7 +775,7 @@ graph TB
     %% Apply colors
     classDef pgStyle fill:#336791,stroke:#25496b,color:#fff
     classDef ddbStyle fill:#FF9900,stroke:#CC7700,color:#fff
-    classDef optimizationStyle fill:#51CF66,stroke:#00AA00,color:#fff
+    classDef optimizationStyle fill:#51CF66,stroke:#10B981,color:#fff
 
     class PG_COMPUTE,PG_STORAGE,PG_IO,PG_TOTAL pgStyle
     class DDB_READS,DDB_WRITES,DDB_STORAGE,DDB_INDEXES,DDB_TOTAL ddbStyle
@@ -1074,9 +1074,9 @@ graph TB
     GRAFANA --> DATADOG
 
     %% Apply colors
-    classDef metricsStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef alertStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef dashboardStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef metricsStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef alertStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef dashboardStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class CONSUMED,THROTTLES,ERRORS,LATENCY,BUSINESS,CONSISTENCY metricsStyle
     class CW_ALARMS,PAGER,SLACK alertStyle
@@ -1135,10 +1135,10 @@ flowchart TD
     PLAN --> RETRY
     
     %% Apply colors
-    classDef lowRisk fill:#51CF66,stroke:#00AA00,color:#fff
+    classDef lowRisk fill:#51CF66,stroke:#10B981,color:#fff
     classDef mediumRisk fill:#FFE066,stroke:#CC9900,color:#000
-    classDef highRisk fill:#FF6B6B,stroke:#CC0000,color:#fff
-    classDef actionStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef highRisk fill:#FF6B6B,stroke:#8B5CF6,color:#fff
+    classDef actionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     
     class LOW,MONITOR lowRisk
     class MEDIUM,TRAFFIC mediumRisk

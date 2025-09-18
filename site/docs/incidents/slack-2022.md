@@ -18,7 +18,7 @@
 ```mermaid
 graph TB
     subgraph Detection["T+0: Detection Phase - 14:15 UTC"]
-        style Detection fill:#FFE5E5,stroke:#CC0000,color:#000
+        style Detection fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
         Start["14:15:00<br/>━━━━━<br/>Return from Holiday<br/>Post-holiday traffic surge<br/>Users returning to work<br/>3x normal login volume"]
 
@@ -28,7 +28,7 @@ graph TB
     end
 
     subgraph Diagnosis["T+30min: Diagnosis Phase"]
-        style Diagnosis fill:#FFF5E5,stroke:#FF8800,color:#000
+        style Diagnosis fill:#FFF5E5,stroke:#F59E0B,color:#000
 
         Incident["14:45:00<br/>━━━━━<br/>Major Incident<br/>SEV-1 declared<br/>Cross-region traffic<br/>Gateway bottleneck"]
 
@@ -48,7 +48,7 @@ graph TB
     end
 
     subgraph Recovery["T+4hr: Recovery Phase"]
-        style Recovery fill:#E5FFE5,stroke:#00AA00,color:#000
+        style Recovery fill:#E5FFE5,stroke:#10B981,color:#000
 
         Partial["18:45:00<br/>━━━━━<br/>Partial Recovery<br/>Workspace connections<br/>70% success rate<br/>Message sync resuming"]
 
@@ -85,7 +85,7 @@ graph TB
 
     %% User Experience Impact
     subgraph UserImpact["User Experience Impact"]
-        style UserImpact fill:#FFE0E0,stroke:#990000,color:#000
+        style UserImpact fill:#FFE0E0,stroke:#7C3AED,color:#000
 
         EnterpriseUsers["Enterprise Users<br/>━━━━━<br/>❌ 8M users affected<br/>💼 Productivity loss<br/>📞 Phone calls surge"]
 
@@ -121,13 +121,13 @@ graph TB
     FileSharing -.-> Integrations
 
     %% Apply timeline colors
-    classDef detectStyle fill:#FFE5E5,stroke:#CC0000,color:#000,font-weight:bold
-    classDef diagnoseStyle fill:#FFF5E5,stroke:#FF8800,color:#000,font-weight:bold
+    classDef detectStyle fill:#FFE5E5,stroke:#8B5CF6,color:#000,font-weight:bold
+    classDef diagnoseStyle fill:#FFF5E5,stroke:#F59E0B,color:#000,font-weight:bold
     classDef mitigateStyle fill:#FFFFE5,stroke:#CCCC00,color:#000,font-weight:bold
-    classDef recoverStyle fill:#E5FFE5,stroke:#00AA00,color:#000,font-weight:bold
+    classDef recoverStyle fill:#E5FFE5,stroke:#10B981,color:#000,font-weight:bold
     classDef tgwStyle fill:#F0F0F0,stroke:#666666,color:#000
     classDef serviceStyle fill:#F0F0F0,stroke:#666666,color:#000
-    classDef userStyle fill:#FFE0E0,stroke:#990000,color:#000
+    classDef userStyle fill:#FFE0E0,stroke:#7C3AED,color:#000
 
     class Start,Alert1,Alert2 detectStyle
     class Incident,RootCause,Architecture diagnoseStyle
@@ -223,7 +223,7 @@ aws cloudwatch get-metric-statistics \
 ```mermaid
 graph TB
     subgraph BeforeIncident["Before Incident - Architecture Bottleneck"]
-        style BeforeIncident fill:#FFE5E5,stroke:#CC0000,color:#000
+        style BeforeIncident fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
         USEastTGW["US-East-1 TGW<br/>Central Hub<br/>50 Gbps limit"]
 
@@ -237,7 +237,7 @@ graph TB
     end
 
     subgraph DuringIncident["During Incident - Capacity Exceeded"]
-        style DuringIncident fill:#FFF5E5,stroke:#FF8800,color:#000
+        style DuringIncident fill:#FFF5E5,stroke:#F59E0B,color:#000
 
         OverloadedTGW["US-East-1 TGW<br/>🔥 OVERLOADED<br/>52 Gbps demand<br/>50 Gbps limit"]
 
@@ -251,7 +251,7 @@ graph TB
     end
 
     subgraph AfterFix["After Fix - Distributed Architecture"]
-        style AfterFix fill:#E5FFE5,stroke:#00AA00,color:#000
+        style AfterFix fill:#E5FFE5,stroke:#10B981,color:#000
 
         ScaledTGW["US-East-1 TGW<br/>✅ 100 Gbps capacity<br/>Regional TGWs added"]
 
@@ -264,9 +264,9 @@ graph TB
         USRegionalTGW -->|"Shared load"| ScaledTGW
     end
 
-    classDef beforeStyle fill:#FFE5E5,stroke:#CC0000,color:#000
-    classDef duringStyle fill:#FFF5E5,stroke:#FF8800,color:#000
-    classDef afterStyle fill:#E5FFE5,stroke:#00AA00,color:#000
+    classDef beforeStyle fill:#FFE5E5,stroke:#8B5CF6,color:#000
+    classDef duringStyle fill:#FFF5E5,stroke:#F59E0B,color:#000
+    classDef afterStyle fill:#E5FFE5,stroke:#10B981,color:#000
 
     class USEastTGW,EuropeVPCs,AsiaVPCs,USVPCs beforeStyle
     class OverloadedTGW,SurgeEurope,SurgeAsia,SurgeUS duringStyle
@@ -415,9 +415,9 @@ graph TB
     SurgeTraffic --> FileSynce
     SurgeTraffic --> MessageLoad
 
-    classDef normalStyle fill:#E5FFE5,stroke:#00AA00,color:#000
+    classDef normalStyle fill:#E5FFE5,stroke:#10B981,color:#000
     classDef holidayStyle fill:#E5E5FF,stroke:#0000CC,color:#000
-    classDef surgeStyle fill:#FFE5E5,stroke:#CC0000,color:#000
+    classDef surgeStyle fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
     class PreTraffic,LowTraffic normalStyle
     class SurgeTraffic holidayStyle

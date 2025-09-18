@@ -8,7 +8,7 @@ Cloudflare operates one of the world's largest infrastructure networks with an e
 
 ```mermaid
 graph TB
-    subgraph "Revenue Streams #00AA00"
+    subgraph "Revenue Streams #10B981"
         PLAN_FREE[Free Plan<br/>0M+ users<br/>Loss leader]
         PLAN_PRO[Pro Plan<br/>$20/month<br/>Small business]
         PLAN_BIZ[Business Plan<br/>$200/month<br/>Mid-market]
@@ -19,7 +19,7 @@ graph TB
         TOTAL_REV[Total Revenue<br/>$1.3B annually<br/>Growth: 37% YoY]
     end
 
-    subgraph "Infrastructure Costs #FF8800"
+    subgraph "Infrastructure Costs #F59E0B"
         subgraph "Network Costs (60%)"
             BANDWIDTH[Bandwidth: $240M<br/>100+ Tbps capacity<br/>Transit + Peering]
             FIBER[Fiber/Connectivity: $40M<br/>Private network<br/>10K+ miles]
@@ -43,7 +43,7 @@ graph TB
         end
     end
 
-    subgraph "Cost Per Service Unit #0066CC"
+    subgraph "Cost Per Service Unit #3B82F6"
         CDN_COST[CDN: $0.0001/GB<br/>95%+ cache hit<br/>Edge optimization]
         DNS_COST[DNS: $0.000001/query<br/>1.8T queries/day<br/>Anycast efficiency]
         WORKERS_COST[Workers: $0.0001/request<br/>V8 isolate efficiency<br/>Sub-ms startup]
@@ -73,9 +73,9 @@ graph TB
     WORKERS_COST --> SECURITY_COST
 
     %% Apply colors
-    classDef revenueStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef costStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef unitStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef revenueStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef costStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef unitStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class PLAN_FREE,PLAN_PRO,PLAN_BIZ,PLAN_ENT,PRODUCTS,TOTAL_REV revenueStyle
     class BANDWIDTH,FIBER,SERVERS,STORAGE,NETWORK_HW,COLOCATION,POWER,PERSONNEL,MONITORING,INSURANCE costStyle
@@ -121,8 +121,8 @@ graph TB
     POWER_COST -.->|Variable| CONSTRUCTION
 
     %% Apply cost intensity colors
-    classDef highCostStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef mediumCostStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef highCostStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef mediumCostStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef lowCostStyle fill:#FFCC00,stroke:#CC9900,color:#000
 
     class TRANSIT,SERVER_CAPEX highCostStyle
@@ -161,11 +161,11 @@ graph LR
     Y2024 --> UTILIZATION
 
     %% Apply improvement colors
-    classDef expensiveStyle fill:#FF6666,stroke:#CC0000,color:#fff
+    classDef expensiveStyle fill:#FF6666,stroke:#8B5CF6,color:#fff
     classDef improvingStyle fill:#FFCC66,stroke:#CC9900,color:#000
-    classDef efficientStyle fill:#66CC66,stroke:#00AA00,color:#fff
+    classDef efficientStyle fill:#66CC66,stroke:#10B981,color:#fff
     classDef optimalStyle fill:#66FF66,stroke:#00CC00,color:#000
-    classDef driverStyle fill:#CCE6FF,stroke:#0066CC,color:#000
+    classDef driverStyle fill:#CCE6FF,stroke:#3B82F6,color:#000
 
     class Y2010 expensiveStyle
     class Y2015 improvingStyle
@@ -216,9 +216,9 @@ graph TB
     WARP -.->|Future potential| STREAM
 
     %% Apply profitability colors
-    classDef highMarginStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef highMarginStyle fill:#10B981,stroke:#059669,color:#fff
     classDef mediumMarginStyle fill:#FFCC00,stroke:#CC9900,color:#000
-    classDef investmentStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef investmentStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class WORKERS,R2,ZERO_TRUST highMarginStyle
     class CDN,DNS,SECURITY mediumMarginStyle
@@ -262,8 +262,8 @@ graph TB
     NETWORK --> KERNEL
 
     %% Apply optimization colors
-    classDef hardwareStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef softwareStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef hardwareStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef softwareStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CUSTOM,CPU,MEMORY,STORAGE,NETWORK hardwareStyle
     class RUST,KERNEL,CACHE,COMPRESSION softwareStyle
@@ -294,8 +294,8 @@ graph TB
     COMPRESSION_NET --> RESERVED
 
     %% Apply cost management colors
-    classDef optimizationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef planningStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef optimizationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef planningStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class PEERING,CACHING,ROUTING,COMPRESSION_NET optimizationStyle
     class FORECASTING,RIGHTSIZING,BURSTABLE,RESERVED planningStyle
@@ -328,8 +328,8 @@ graph TB
     CAPACITY --> RELIABILITY
 
     %% Apply performance colors
-    classDef financialStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef operationalStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef financialStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef operationalStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class ARPU,GROSS_MARGIN,CUSTOMER_CAC,CUSTOMER_LTV financialStyle
     class UTILIZATION,EFFICIENCY,CAPACITY,RELIABILITY operationalStyle
@@ -377,7 +377,7 @@ graph TB
 
     %% Apply projection colors
     classDef projectionStyle fill:#E6CCFF,stroke:#9900CC,color:#000
-    classDef investmentStyle fill:#CCFFCC,stroke:#00AA00,color:#000
+    classDef investmentStyle fill:#CCFFCC,stroke:#10B981,color:#000
 
     class REVENUE_PROJ,INFRA_PROJ,MARGIN_PROJ,EFFICIENCY_PROJ projectionStyle
     class AI_INFRA,QUANTUM,SUSTAINABILITY investmentStyle

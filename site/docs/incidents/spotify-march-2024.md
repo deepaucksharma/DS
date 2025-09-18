@@ -20,27 +20,27 @@
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #0066CC"
+    subgraph "Edge Plane - Blue #3B82F6"
         MOBILE[Spotify Mobile Apps<br/>400M+ Users]
         DESKTOP[Desktop Application<br/>Premium Users]
         WEB[Web Player<br/>Browser-based]
     end
 
-    subgraph "Service Plane - Green #00AA00"
+    subgraph "Service Plane - Green #10B981"
         PLAYBACK[Playback Service<br/>Music Streaming]
         LICENSE[License Validation<br/>Rights Management<br/>TIMEOUT FAILURE]
         DISCOVERY[Music Discovery<br/>Search & Browse]
         SOCIAL[Social Features<br/>Playlists & Sharing]
     end
 
-    subgraph "State Plane - Orange #FF8800"
+    subgraph "State Plane - Orange #F59E0B"
         CATALOG[(Music Catalog<br/>Track Metadata)]
         RIGHTS[(Rights Database<br/>Licensing Data)]
         USERS[(User Database<br/>Accounts & Playlists)]
         ANALYTICS[(Analytics Store<br/>Listening Data)]
     end
 
-    subgraph "Control Plane - Red #CC0000"
+    subgraph "Control Plane - Red #8B5CF6"
         MONITORING[System Monitoring<br/>Performance Metrics]
         FEATURES[Feature Flags<br/>A/B Testing]
         DEPLOYMENT[Deployment System<br/>Release Management]
@@ -72,10 +72,10 @@ graph TB
     PLAYBACK -.->|"This song is unavailable"<br/>400M+ users affected| LISTENERS[Music Lovers<br/>Podcast Listeners<br/>Premium Subscribers<br/>Free Tier Users]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef musicStyle fill:#4B0082,stroke:#301934,color:#fff,stroke-width:4px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 

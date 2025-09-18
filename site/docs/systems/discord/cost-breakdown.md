@@ -6,8 +6,8 @@ This diagram shows Discord's complete infrastructure cost breakdown for serving 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC - $15M/month"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6 - $15M/month"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         CloudFlareCDN["Cloudflare CDN<br/>━━━━━<br/>$5M/month<br/>200+ PoPs globally<br/>WebSocket optimization<br/>$0.08 per GB transfer"]
 
@@ -16,8 +16,8 @@ graph TB
         MediaCDN["Media CDN<br/>━━━━━<br/>$2M/month<br/>Image/video delivery<br/>500TB/month transfer<br/>GCP CDN integration"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00 - $25M/month"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981 - $25M/month"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         ComputeInfrastructure["Compute Infrastructure<br/>━━━━━<br/>$18M/month<br/>Kubernetes clusters<br/>50K+ pods<br/>Multi-cloud deployment"]
 
@@ -28,8 +28,8 @@ graph TB
         MessageRouting["Message Routing<br/>━━━━━<br/>$1M/month<br/>Rust microservices<br/>High-performance routing<br/>14B+ messages/day"]
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800 - $30M/month"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B - $30M/month"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         ScyllaDBCluster["ScyllaDB Cluster<br/>━━━━━<br/>$15M/month<br/>800+ nodes globally<br/>12T+ messages<br/>90% cost reduction vs Cassandra"]
 
@@ -40,8 +40,8 @@ graph TB
         SearchStorage["Search & Analytics<br/>━━━━━<br/>$2M/month<br/>Elasticsearch cluster<br/>BigQuery warehouse<br/>100TB+ indexed"]
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000 - $10M/month"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6 - $10M/month"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         MonitoringStack["Monitoring Infrastructure<br/>━━━━━<br/>$4M/month<br/>Datadog enterprise<br/>Prometheus clusters<br/>1TB+ metrics/day"]
 
@@ -75,10 +75,10 @@ graph TB
     DeploymentInfra -.->|"Infrastructure costs<br/>Automation overhead"| ComputeInfrastructure
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
     classDef externalStyle fill:#f9f9f9,stroke:#999,color:#333,font-weight:bold
 
     class CloudFlareCDN,VoiceEdgeNetwork,MediaCDN edgeStyle

@@ -6,8 +6,8 @@ This diagram represents Netflix's actual production architecture serving 260+ mi
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         CDN["Open Connect CDN<br/>━━━━━<br/>18,000+ Edge Servers<br/>175+ Countries<br/>200Tbps Peak Bandwidth<br/>Cost: $40M/month"]
 
@@ -16,8 +16,8 @@ graph TB
         Zuul["Zuul API Gateway<br/>━━━━━<br/>1M+ req/sec<br/>p99: 150ms<br/>Circuit Breaking<br/>c5n.9xlarge fleet"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         PlayAPI["Playback API<br/>━━━━━<br/>2M req/sec peak<br/>Java 17, 500 instances<br/>r6i.8xlarge<br/>p99: 50ms"]
 
@@ -28,8 +28,8 @@ graph TB
         VideoService["Video Metadata Service<br/>━━━━━<br/>3M req/sec<br/>80TB catalog data<br/>Java Spring Boot<br/>r5.12xlarge"]
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         EVCache["EVCache<br/>━━━━━<br/>30 trillion req/day<br/>180TB RAM total<br/>Memcached clusters<br/>r6gd.16xlarge"]
 
@@ -40,8 +40,8 @@ graph TB
         ES["Elasticsearch<br/>━━━━━<br/>3,500 nodes<br/>15PB indexed<br/>750B documents<br/>i3.8xlarge"]
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         Spinnaker["Spinnaker<br/>━━━━━<br/>10K deployments/day<br/>Multi-region orchestration<br/>Blue-green & Canary"]
 
@@ -73,10 +73,10 @@ graph TB
     ChAP -.->|"Chaos tests"| PlayAPI
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class CDN,AWSCF,Zuul edgeStyle
     class PlayAPI,Hermes,Falcor,VideoService serviceStyle

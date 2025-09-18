@@ -48,26 +48,26 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #0066CC"
+    subgraph "Edge Plane - Blue #3B82F6"
         EDGE1[Google Front End<br/>Global Load Balancer]
         CDN[Google Global Cache<br/>Content Delivery]
         DNS[Google Public DNS<br/>8.8.8.8 / 8.8.4.4]
     end
 
-    subgraph "Service Plane - Green #00AA00"
+    subgraph "Service Plane - Green #10B981"
         GFE[Google Front End<br/>Ingress Controller]
         BORG[Borg Scheduler<br/>Container Orchestration]
         RPC[gRPC Services<br/>Internal Communications]
     end
 
-    subgraph "State Plane - Orange #FF8800"
+    subgraph "State Plane - Orange #F59E0B"
         SPANNER[(Spanner Database<br/>Global Distribution<br/>Strong Consistency)]
         BIGTABLE[(BigTable<br/>NoSQL Wide Column)]
         GCS[(Google Cloud Storage<br/>Object Storage)]
         COLOSSUS[(Colossus<br/>Distributed File System)]
     end
 
-    subgraph "Control Plane - Red #CC0000"
+    subgraph "Control Plane - Red #8B5CF6"
         CONFIG[Configuration Service<br/>CRITICAL FAILURE POINT]
         MONITORING[Stackdriver<br/>Monitoring & Logging]
         IAM[Identity & Access Mgmt<br/>Authentication Service]
@@ -100,10 +100,10 @@ graph TB
     GFE -.->|HTTP 503 Service Unavailable<br/>1.2B users affected| CUSTOMERS[YouTube Videos<br/>Gmail Access<br/>Google Search<br/>GCP Services]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef networkStyle fill:#4B0082,stroke:#301934,color:#fff,stroke-width:4px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
@@ -159,7 +159,7 @@ graph LR
 
     A --> B --> C --> D --> E --> F
 
-    classDef timelineStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:2px
+    classDef timelineStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:2px
     class A,B,C,D,E,F timelineStyle
 ```
 
@@ -260,7 +260,7 @@ flowchart TD
     G --> H[Load Balancer Confusion<br/>Marks all backends unhealthy]
     H --> I[Cascade Service Failure<br/>Dependent services fail]
 
-    classDef problem fill:#FF6B6B,stroke:#CC0000,color:#fff
+    classDef problem fill:#FF6B6B,stroke:#8B5CF6,color:#fff
     classDef loop fill:#FFA500,stroke:#FF8C00,color:#fff
     classDef cascade fill:#8B0000,stroke:#660000,color:#fff
 
@@ -396,7 +396,7 @@ graph TB
     MONITOR --> STAGE3
     MONITOR --> STAGE4
 
-    classDef newStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef newStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     class VALIDATE1,VALIDATE2,VALIDATE3,VALIDATE4,STAGE1,STAGE2,STAGE3,STAGE4,MONITOR newStyle
 ```
 

@@ -52,10 +52,10 @@ graph TB
     MR1 --> GC
 
     %% Apply 4-plane colors
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef nodeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef nodeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class C1,C2,C3 clientStyle
     class N1,N2,N3 nodeStyle
@@ -142,10 +142,10 @@ graph TB
     SB4 --- RW2
     H1 --- RW4
 
-    classDef stateStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef operationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef hybridStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef usageStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef stateStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef operationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef hybridStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef usageStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SB1,SB2,SB3,SB4 stateStyle
     class OB1,OB2,OB3,OB4 operationStyle
@@ -318,10 +318,10 @@ graph LR
     R3 --> MT
     MT --> AER --> HH
 
-    classDef writeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef replicationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef conflictStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef antiEntropyStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef writeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef replicationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef conflictStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef antiEntropyStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class WC,PL,VV writeStyle
     class R1,R2,R3 replicationStyle
@@ -373,10 +373,10 @@ graph TB
     CR2 --> PO2
     CR3 --> PO3
 
-    classDef dcStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef crdtStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef resolutionStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef performanceStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef dcStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef crdtStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef resolutionStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef performanceStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class US,EU,ASIA dcStyle
     class CT1,CT2,CT3,CT4 crdtStyle
@@ -426,10 +426,10 @@ graph TB
     DOC --> SRV
     SYNC --> DB
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef otStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef crdtStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef networkStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef otStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef crdtStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef networkStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class U1,U2,U3 clientStyle
     class OT1,OT2,OT3 otStyle
@@ -469,10 +469,10 @@ graph TB
     CRDT1 --> UC2
     TS1 --> UC3
 
-    classDef vcStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef crdtStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef tsStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef ucStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef vcStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef crdtStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef tsStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef ucStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class VC1,VC2 vcStyle
     class CRDT1,CRDT2 crdtStyle
@@ -556,10 +556,10 @@ graph LR
         end
     end
 
-    classDef memoryStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef networkStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef computeStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef monitorStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef memoryStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef networkStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef computeStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef monitorStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MO1,MO2,MO3 memoryStyle
     class NO1,NO2,NO3 networkStyle

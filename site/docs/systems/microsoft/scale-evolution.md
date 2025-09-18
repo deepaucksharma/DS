@@ -75,9 +75,9 @@ graph TB
     FLOPPY_DISKS -.->|"1.44MB capacity"| RETAIL_BOXES
     COMMAND_LINE -.->|"Single user"| TEXT_PROCESSING
 
-    classDef systemStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef distributionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef featureStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef systemStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef distributionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef featureStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class MSDOS,BASIC,APPLICATIONS,FILE_SYSTEM systemStyle
     class FLOPPY_DISKS,RETAIL_BOXES,MANUAL_INSTALL distributionStyle
@@ -143,10 +143,10 @@ graph TB
     OFFICE_SUITE -.->|"Productivity suite"| VISUAL_BASIC
     CD_ROM -.->|"650MB capacity"| OEM_LICENSING
 
-    classDef systemStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef networkStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef appStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef distributionStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef systemStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef networkStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef appStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef distributionStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class WIN95_KERNEL,GUI_SHELL,DEVICE_DRIVERS,REGISTRY systemStyle
     class TCP_IP,DIAL_UP,FILE_SHARING,INTERNET_EXPLORER networkStyle
@@ -216,10 +216,10 @@ graph TB
     MULTI_TENANT -.->|"Shared infrastructure"| SERVICE_FABRIC
     WEB_APPS -.->|"Cross-platform"| DESKTOP_OFFICE
 
-    classDef cloudStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef infraStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef serviceStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef clientStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef cloudStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef infraStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef serviceStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef clientStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class OFFICE365,AZURE_PLATFORM,WINDOWS_AZURE,LIVE_SERVICES cloudStyle
     class DATACENTERS,CDN_NETWORK,LOAD_BALANCERS,DNS_INFRASTRUCTURE infraStyle
@@ -292,10 +292,10 @@ graph TB
     OPENAI_INTEGRATION -.->|"100M+ Copilot users"| COGNITIVE_SERVICES
     EDGE_COMPUTING -.->|"60+ regions"| QUANTUM_COMPUTING
 
-    classDef platformStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef aiStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef scaleStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef ecosystemStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef platformStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef aiStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef scaleStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef ecosystemStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class MICROSOFT365,AZURE_CLOUD,TEAMS_PLATFORM,COPILOT,GITHUB platformStyle
     class OPENAI_INTEGRATION,COGNITIVE_SERVICES,ML_PLATFORM,AI_COPILOTS aiStyle
@@ -370,9 +370,9 @@ graph LR
     MULTI_MODEL --> PETABYTES
     INTELLIGENT_DB --> EXABYTES
 
-    classDef dbStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef capStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef scaleStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef dbStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef capStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef scaleStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class FILE_SYSTEM,SQL_SERVER,AZURE_SQL,COSMOS_DB,AI_DATABASES dbStyle
     class LOCAL_FILES,RELATIONAL_DB,CLOUD_DB,MULTI_MODEL,INTELLIGENT_DB capStyle
@@ -449,10 +449,10 @@ graph TB
     LARGE_ENTERPRISE -.->|"55% revenue"| GOVERNMENT
     INDIVIDUAL_DEVS -.->|"10% revenue"| DEV_TEAMS
 
-    classDef consumerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef smbStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef enterpriseStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef devStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef consumerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef smbStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef enterpriseStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef devStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class INDIVIDUALS,HOME_OFFICE,STUDENTS,CREATORS consumerStyle
     class SMALL_BUSINESS,MEDIUM_BUSINESS,STARTUPS,PROFESSIONAL_SERVICES smbStyle
@@ -496,9 +496,9 @@ graph TB
     MOBILE_FIRST --> GLOBAL_SCALE
     CLOUD_FIRST --> AI_PLATFORM
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef transformationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef resultStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef transformationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef resultStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class AMAZON_THREAT,GOOGLE_COMPETITION,MOBILE_DISRUPTION,SAAS_TREND problemStyle
     class AZURE_DEVELOPMENT,OFFICE365_CREATION,MOBILE_FIRST,CLOUD_FIRST transformationStyle

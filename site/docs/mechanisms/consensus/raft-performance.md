@@ -49,10 +49,10 @@ graph TB
     JITTER --> AVAILABILITY
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class RTT,BW,JITTER edgeStyle
     class SERIALIZE,CRYPTO,GC serviceStyle
@@ -121,7 +121,7 @@ graph LR
     FIVE_LAT --> SEVEN_LAT
 
     %% Apply state plane color for metrics
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class THREE_TPS,THREE_LAT,THREE_QUORUM,FIVE_TPS,FIVE_LAT,FIVE_QUORUM,SEVEN_TPS,SEVEN_LAT,SEVEN_QUORUM stateStyle
     class RELIABILITY,NETWORK,CONSENSUS stateStyle
 ```
@@ -214,8 +214,8 @@ graph TB
     P16_LAT --> OPTIMAL
 
     %% Apply colors
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class P1_TPS,P1_LAT,P1_UTIL,P4_TPS,P4_LAT,P4_UTIL,P16_TPS,P16_LAT,P16_UTIL,P64_TPS,P64_LAT,P64_UTIL stateStyle
     class OPTIMAL controlStyle
@@ -269,7 +269,7 @@ graph TB
     end
 
     %% Apply state plane color for hardware metrics
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class HDD_IOPS,HDD_FSYNC,HDD_TPS,SSD_IOPS,SSD_FSYNC,SSD_TPS,NVME_IOPS,NVME_FSYNC,NVME_TPS,MEM_IOPS,MEM_FSYNC,MEM_TPS stateStyle
     class NET1_BW,NET1_LAT,NET10_BW,NET10_LAT,IB_BW,IB_LAT stateStyle
 ```
@@ -425,9 +425,9 @@ graph LR
     NET_BW --> PIPELINE_DEPTH
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class TPS_REQ,LAT_SLA,AVAIL_SLA,GROWTH edgeStyle
     class DISK_IOPS,NET_BW,CPU_CORES,MEMORY stateStyle

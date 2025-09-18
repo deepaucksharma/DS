@@ -88,10 +88,10 @@ graph TB
     end
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class C1,C2 edgeStyle
     class AVAILABLE,UNAVAILABLE serviceStyle
@@ -174,7 +174,7 @@ flowchart TD
     VOTE_INVALID --> QUARANTINE
 
     %% Apply control plane color for monitoring
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     class START,CHECK_TERM,CHECK_LOG,CHECK_TIMING,CHECK_VOTE,INVESTIGATE,QUARANTINE controlStyle
 ```
 
@@ -281,10 +281,10 @@ graph TB
     QUOTAS --> DISK_FULL
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class HEALTHY,WAL_WRITE,STATE_APPLY serviceStyle
     class DISK_FULL,WAL_FAIL,FSYNC_TIMEOUT stateStyle

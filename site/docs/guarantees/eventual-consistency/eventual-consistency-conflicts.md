@@ -48,10 +48,10 @@ graph TB
     MS --> DR
 
     %% Apply 4-plane colors
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef detectionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef resolutionStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef detectionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef resolutionStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class C1,C2,C3 clientStyle
     class VD,TD,HD detectionStyle
@@ -98,10 +98,10 @@ graph TB
     AS3 --> UC3
     AppS2 --> UC4
 
-    classDef autoStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef appStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef hybridStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef useCaseStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef autoStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef appStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef hybridStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef useCaseStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AS1,AS2,AS3,AS4 autoStyle
     class AppS1,AppS2,AppS3,AppS4 appStyle
@@ -192,10 +192,10 @@ graph LR
     WL1 --> CE1
     CE2 --> CL2
 
-    classDef writeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef readStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef consistencyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef exampleStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef writeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef readStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef consistencyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef exampleStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class WL1,WL2,WL3 writeStyle
     class RL1,RL2,RL3 readStyle
@@ -275,10 +275,10 @@ graph TB
     OT2 --> RS1
     CRDT2 --> RS2
 
-    classDef otStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef crdtStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef scenarioStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef resolutionStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef otStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef crdtStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef scenarioStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef resolutionStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class OT1,OT2,OT3 otStyle
     class CRDT1,CRDT2,CRDT3 crdtStyle
@@ -475,10 +475,10 @@ graph TB
     MT2 --> CS1 --> RS1 --> UX1
     MT3 --> CS3 --> RS3 --> UX3
 
-    classDef messageStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef conflictStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef resolutionStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef uxStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef messageStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef conflictStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef resolutionStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef uxStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MT1,MT2,MT3,MT4 messageStyle
     class CS1,CS2,CS3,CS4 conflictStyle
@@ -554,9 +554,9 @@ graph LR
     MR2 --> OT2
     AR3 --> OT3
 
-    classDef autoStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef manualStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef optimizeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef autoStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef manualStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef optimizeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class AR1,AR2,AR3 autoStyle
     class MR1,MR2,MR3 manualStyle

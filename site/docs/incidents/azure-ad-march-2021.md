@@ -51,25 +51,25 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #0066CC"
+    subgraph "Edge Plane - Blue #3B82F6"
         DNS1[Primary DNS<br/>ns1.azure.com]
         DNS2[Secondary DNS<br/>ns2.azure.com]
         CDN[Azure CDN<br/>Global Points]
     end
 
-    subgraph "Service Plane - Green #00AA00"
+    subgraph "Service Plane - Green #10B981"
         LB[Azure Load Balancer<br/>Global Gateway]
         AAD[Azure AD Service<br/>Authentication Hub]
         GRAPH[Microsoft Graph API<br/>Identity Services]
     end
 
-    subgraph "State Plane - Orange #FF8800"
+    subgraph "State Plane - Orange #F59E0B"
         COSMOS[(Cosmos DB<br/>Identity Store<br/>Multi-region)]
         CACHE[(Redis Cache<br/>Token Store<br/>Distributed)]
         BLOB[(Blob Storage<br/>Config Store)]
     end
 
-    subgraph "Control Plane - Red #CC0000"
+    subgraph "Control Plane - Red #8B5CF6"
         MON[Azure Monitor<br/>Alerting System]
         ARM[Azure Resource Manager<br/>Control API]
         DEPLOY[Deployment Service<br/>Config Management]
@@ -92,10 +92,10 @@ graph TB
     DNS1 -.->|IMPACT: 300M users<br/>Authentication failed| USERS[Global Users<br/>O365, Teams, Xbox]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
     class DNS1,DNS2,CDN edgeStyle
@@ -148,7 +148,7 @@ graph LR
 
     A --> B --> C --> D --> E
 
-    classDef timelineStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:2px
+    classDef timelineStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:2px
     class A,B,C,D,E timelineStyle
 ```
 
@@ -250,7 +250,7 @@ flowchart TD
     G --> H[Cache Poisoning<br/>Bad DNS entries cached globally]
     H --> I[Extended Recovery Time<br/>TTL-based delays]
 
-    classDef problem fill:#FF6B6B,stroke:#CC0000,color:#fff
+    classDef problem fill:#FF6B6B,stroke:#8B5CF6,color:#fff
     classDef impact fill:#FFA500,stroke:#FF8C00,color:#fff
     classDef cascade fill:#8B0000,stroke:#660000,color:#fff
 
@@ -372,7 +372,7 @@ graph TB
     AAD2 --> CACHE
     AAD3 --> CACHE
 
-    classDef newStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef newStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     class DNS1,DNS2,DNS3,HEALTH,AAD1,AAD2,AAD3,CACHE newStyle
 ```
 

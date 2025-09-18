@@ -57,10 +57,10 @@ graph TB
     API_GW --> HYSTRIX
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN_US,CDN_EU,CDN_ASIA,AWS_CF edgeStyle
     class API_GW,USER_SVC,REC_SVC,STREAM_SVC,BILLING_SVC serviceStyle
@@ -105,7 +105,7 @@ graph TB
     EDGE2 --> ISP3
 
     classDef contentStyle fill:#9966CC,stroke:#663399,color:#fff
-    classDef cdnStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef cdnStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef metricStyle fill:#FF6600,stroke:#CC3300,color:#fff
 
     class STUDIO,ENCODING,CDN_ORIGIN contentStyle
@@ -149,9 +149,9 @@ graph TB
     REGION_US --> RUNBOOK
     AZ3 --> ROLLBACK
 
-    classDef chaosStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef prodStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef monitorStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef chaosStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef prodStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef monitorStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class MONKEY,GORILLA,KONG,LATENCY chaosStyle
     class AZ1,AZ2,AZ3,REGION_US,REGION_EU prodStyle
@@ -228,10 +228,10 @@ graph TB
     LOCATION_SVC --> CONSUL
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class RIDER_APP,DRIVER_APP,WEB_APP,LOAD_BAL edgeStyle
     class API_GATEWAY,MATCHING_SVC,LOCATION_SVC,TRIP_SVC,PAYMENT_SVC,PRICING_SVC serviceStyle
@@ -279,8 +279,8 @@ graph TB
     LOCATION_PROCESSOR --> DRIVER_INDEX
 
     classDef geoStyle fill:#9966CC,stroke:#663399,color:#fff
-    classDef matchStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef eventStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef matchStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef eventStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class S2_CELL,DRIVER_INDEX,LOCATION_UPDATE geoStyle
     class REQUEST,RADIUS_SEARCH,FILTER,RANK,DISPATCH matchStyle
@@ -316,9 +316,9 @@ graph TB
     Phase1 --> Phase2
     Phase2 --> Phase3
 
-    classDef phase1Style fill:#CC0000,stroke:#990000,color:#fff
-    classDef phase2Style fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef phase3Style fill:#00AA00,stroke:#007700,color:#fff
+    classDef phase1Style fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef phase2Style fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef phase3Style fill:#10B981,stroke:#059669,color:#fff
 
     class MONO,MONO_DB,PROB1,PROB2 phase1Style
     class USER_SVC,TRIP_SVC,PAY_SVC,MATCH_SVC,HTTP phase2Style
@@ -361,9 +361,9 @@ graph TB
     SCALE_OUT --> CACHE_WARM
     CACHE_WARM --> TRAFFIC_SHAPE
 
-    classDef hotStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef balanceStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef recoveryStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef hotStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef balanceStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef recoveryStyle fill:#10B981,stroke:#059669,color:#fff
 
     class AIRPORT,STADIUM,MONITOR,THRESHOLD hotStyle
     class SPLIT,REDISTRIBUTE,SHED,CIRCUIT balanceStyle
@@ -442,10 +442,10 @@ graph TB
     ORDER --> XRAY
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CF,ALB,WAF,ROUTE53 edgeStyle
     class GATEWAY,CATALOG,CART,ORDER,INVENTORY,PAYMENT,SHIPPING serviceStyle
@@ -493,8 +493,8 @@ graph TB
     CACHE --> STATIC
 
     classDef predictionStyle fill:#9966CC,stroke:#663399,color:#fff
-    classDef loadStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef responseStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef loadStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef responseStyle fill:#10B981,stroke:#059669,color:#fff
 
     class FORECAST,CAPACITY,PRESCALE,WARMUP predictionStyle
     class PRIORITY,SHED,QUEUE,CIRCUIT loadStyle
@@ -536,9 +536,9 @@ graph TB
     BACKUP --> BATCH
     SESSION --> PRELOAD
 
-    classDef operationStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef consistencyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef operationStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef consistencyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
 
     class ADD,UPDATE,REMOVE,CHECKOUT operationStyle
     class EVENTUAL,CONFLICT,BACKUP,SESSION consistencyStyle
@@ -584,9 +584,9 @@ graph LR
     PERSONALIZE --> AB_TEST
     AB_TEST --> FALLBACK
 
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef processStyle fill:#9966CC,stroke:#663399,color:#fff
-    classDef servingStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef servingStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CLICK,VIEW,PURCHASE,KINESIS dataStyle
     class SPARK,SAGEMAKER,LAMBDA,BATCH processStyle
@@ -660,10 +660,10 @@ graph TB
     CONN_MGR --> ALERTS
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DNS,NGINX,SSL,GEOIP edgeStyle
     class CONN_MGR,MSG_ROUTER,PRESENCE,GROUP_MGR,MEDIA_SVC serviceStyle
@@ -713,8 +713,8 @@ graph TB
     ISOLATE --> PRESERVE
 
     classDef actorStyle fill:#9966CC,stroke:#663399,color:#fff
-    classDef flowStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef faultStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef flowStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef faultStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class USER1,USER2,USER3,USERN,REGISTRY actorStyle
     class RECEIVE,LOOKUP,DELIVER,OFFLINE,ACK flowStyle
@@ -761,8 +761,8 @@ graph TB
     PRESENCE_SYNC --> FEDERATION
     FEDERATION --> BACKUP_SYNC
 
-    classDef regionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef crossStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef regionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef crossStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class US_LB,US_CHAT,US_DB,US_METRICS,EU_LB,EU_CHAT,EU_DB,EU_METRICS,ASIA_LB,ASIA_CHAT,ASIA_DB,ASIA_METRICS regionStyle
     class ROUTE,PRESENCE_SYNC,FEDERATION,BACKUP_SYNC crossStyle
@@ -806,8 +806,8 @@ graph TB
     MESSAGE_PASS --> LOCK_FREE
 
     classDef memStyle fill:#9966CC,stroke:#663399,color:#fff
-    classDef netStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef concStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef netStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef concStyle fill:#10B981,stroke:#059669,color:#fff
 
     class SMALL_HEAP,FREQ_GC,BINARY_OPT,SHARED_TERMS memStyle
     class TCP_NODELAY,LARGE_BUFFERS,KEEPALIVE,COMPRESSION netStyle
@@ -860,10 +860,10 @@ graph LR
     Phase2 --> Phase3
     Phase3 --> Phase4
 
-    classDef phase1Style fill:#CC0000,stroke:#990000,color:#fff
-    classDef phase2Style fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef phase3Style fill:#00AA00,stroke:#007700,color:#fff
-    classDef phase4Style fill:#0066CC,stroke:#004499,color:#fff
+    classDef phase1Style fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef phase2Style fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef phase3Style fill:#10B981,stroke:#059669,color:#fff
+    classDef phase4Style fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class MONOLITH,SINGLE_DB,SIMPLE phase1Style
     class SERVICES,MULTI_DB,LOAD_BAL phase2Style

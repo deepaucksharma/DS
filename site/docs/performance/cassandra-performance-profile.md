@@ -28,8 +28,8 @@ graph TB
         STCS_PERF2[Best for: Write-heavy<br/>Worst for: Read-heavy<br/>Space efficiency: Poor<br/>Operational complexity: Low]
     end
 
-    classDef levelStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef levelStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class STCS1,STCS2,STCS3,STCS4 levelStyle
     class STCS_PERF1,STCS_PERF2 perfStyle
@@ -59,8 +59,8 @@ graph TB
         LCS_PERF2[Best for: Read-heavy<br/>Worst for: Write-heavy<br/>Space efficiency: Excellent<br/>Operational complexity: High]
     end
 
-    classDef levelStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef perfStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef levelStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef perfStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class LCS1,LCS2,LCS3,LCS4 levelStyle
     class LCS_PERF1,LCS_PERF2 perfStyle
@@ -93,9 +93,9 @@ graph TB
         TWCS_PERF2[Best for: Time-series<br/>Optimal for: TTL data<br/>Space efficiency: Good<br/>Query patterns: Time-range]
     end
 
-    classDef windowStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef ttlStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef windowStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef ttlStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class TW1,TW2,TW3,TW4 windowStyle
     class TTL ttlStyle
@@ -122,9 +122,9 @@ graph LR
         RH3[TWCS Performance<br/>Throughput: 60K ops/sec<br/>Latency p99: 15ms<br/>SSTables scanned: 2-4]
     end
 
-    classDef stcsStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef lcsStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef twcsStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stcsStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef lcsStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef twcsStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class WH1,RH1 stcsStyle
     class WH2,RH2 lcsStyle
@@ -159,10 +159,10 @@ graph TB
         A1[Node failures tolerated<br/>CL=ONE: 2 nodes can fail<br/>CL=QUORUM: 1 node can fail<br/>CL=ALL: 0 nodes can fail]
     end
 
-    classDef oneStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef quorumStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef allStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef availStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef oneStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef quorumStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef allStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef availStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class W1,R1 oneStyle
     class W2,R2,W4 quorumStyle
@@ -199,9 +199,9 @@ graph TB
         AE1 --> AE2 --> AE3
     end
 
-    classDef readRepairStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef antiEntropyStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfImpactStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef readRepairStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef antiEntropyStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfImpactStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class RR1,RR2,RR3,RR4 readRepairStyle
     class AE1,AE2 antiEntropyStyle
@@ -238,8 +238,8 @@ graph TB
         RF --> N3
     end
 
-    classDef nodeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef replicationStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef nodeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef replicationStyle fill:#10B981,stroke:#059669,color:#fff
 
     class N1,N2,N3,N4,N5,N6 nodeStyle
     class RF replicationStyle
@@ -273,9 +273,9 @@ graph LR
     B2 --> D2 --> A2
     B3 --> D3
 
-    classDef beforeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef duringStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef afterStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef beforeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef duringStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef afterStyle fill:#10B981,stroke:#059669,color:#fff
 
     class B1,B2,B3 beforeStyle
     class D1,D2,D3 duringStyle
@@ -309,9 +309,9 @@ graph TB
     T2 --> P1
     V2 --> P2
 
-    classDef traditionalStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef vnodesStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef perfStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef traditionalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef vnodesStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef perfStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class T1,T2 traditionalStyle
     class V1,V2 vnodesStyle
@@ -342,8 +342,8 @@ graph TB
         AP3[No TTL<br/>Data grows indefinitely<br/>Storage costs increase<br/>Performance degrades]
     end
 
-    classDef optimalStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef antipatternStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef optimalStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef antipatternStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class TS1,TS2,TS3 optimalStyle
     class AP1,AP2,AP3 antipatternStyle
@@ -378,9 +378,9 @@ graph LR
         IQ2 --> OS2
     end
 
-    classDef efficientStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef inefficientStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef optimizationStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef efficientStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef inefficientStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef optimizationStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class EQ1,EQ2 efficientStyle
     class IQ1,IQ2 inefficientStyle
@@ -423,9 +423,9 @@ graph TB
         PO2[Hardware optimization<br/>Local NVMe SSDs<br/>25Gbps networking<br/>Dedicated compaction nodes]
     end
 
-    classDef clusterStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef workloadStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef optimStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef clusterStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef workloadStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef optimStyle fill:#10B981,stroke:#059669,color:#fff
 
     class USE1,USW2,EUW1 clusterStyle
     class WC1,WC2 workloadStyle
@@ -465,10 +465,10 @@ graph TB
     HW1 --> PERF1
     HW2 --> PERF1
 
-    classDef jvmStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef cassStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef hwStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef perfStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef jvmStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef cassStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef hwStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef perfStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class JVM1,JVM2 jvmStyle
     class CASS1,CASS2 cassStyle
@@ -500,8 +500,8 @@ graph LR
         O3[500K → 1M<br/>• NVMe storage<br/>• Network optimization<br/>• Application-level tuning]
     end
 
-    classDef phaseStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef optimStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef phaseStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef optimStyle fill:#10B981,stroke:#059669,color:#fff
 
     class P1,P2,P3,P4 phaseStyle
     class O1,O2,O3 optimStyle

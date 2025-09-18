@@ -7,7 +7,7 @@ This diagram details Netflix's production operations including Spinnaker deploym
 ```mermaid
 graph TB
     subgraph DeploymentPipeline["Spinnaker Deployment Pipeline"]
-        style DeploymentPipeline fill:#E3F2FD,stroke:#0066CC,color:#000
+        style DeploymentPipeline fill:#E3F2FD,stroke:#3B82F6,color:#000
 
         GitCommit["Git Commit<br/>━━━━━<br/>Developer push to main<br/>Automatic trigger<br/>5,000+ commits/day<br/>Branch protection rules"]
 
@@ -21,7 +21,7 @@ graph TB
     end
 
     subgraph MonitoringObservability["Monitoring & Observability"]
-        style MonitoringObservability fill:#E8F5E8,stroke:#00AA00,color:#000
+        style MonitoringObservability fill:#E8F5E8,stroke:#10B981,color:#000
 
         Atlas["Atlas Metrics Platform<br/>━━━━━<br/>2.5M metrics/second<br/>1.3B time series<br/>7-day retention<br/>Sub-second querying"]
 
@@ -35,7 +35,7 @@ graph TB
     end
 
     subgraph IncidentResponse["Incident Response & On-Call"]
-        style IncidentResponse fill:#FFE6E6,stroke:#CC0000,color:#000
+        style IncidentResponse fill:#FFE6E6,stroke:#8B5CF6,color:#000
 
         OnCallTiers["On-Call Tier Structure<br/>━━━━━<br/>L1: Service teams (24/7)<br/>L2: Platform teams<br/>L3: Senior engineers<br/>L4: Architecture team"]
 
@@ -49,7 +49,7 @@ graph TB
     end
 
     subgraph ChaosEngineering["Chaos Engineering Operations"]
-        style ChaosEngineering fill:#FFF3E0,stroke:#FF8800,color:#000
+        style ChaosEngineering fill:#FFF3E0,stroke:#F59E0B,color:#000
 
         ChaosSchedule["Chaos Schedule<br/>━━━━━<br/>Daily: 1,000+ experiments<br/>Weekly: Region failures<br/>Monthly: Kong exercises<br/>Quarterly: DR tests"]
 
@@ -126,10 +126,10 @@ graph TB
     SecurityMonitoring --> IncidentResponse
 
     %% Apply operational colors
-    classDef deployStyle fill:#E3F2FD,stroke:#0066CC,color:#000,font-weight:bold
-    classDef monitorStyle fill:#E8F5E8,stroke:#00AA00,color:#000,font-weight:bold
-    classDef incidentStyle fill:#FFE6E6,stroke:#CC0000,color:#000,font-weight:bold
-    classDef chaosStyle fill:#FFF3E0,stroke:#FF8800,color:#000,font-weight:bold
+    classDef deployStyle fill:#E3F2FD,stroke:#3B82F6,color:#000,font-weight:bold
+    classDef monitorStyle fill:#E8F5E8,stroke:#10B981,color:#000,font-weight:bold
+    classDef incidentStyle fill:#FFE6E6,stroke:#8B5CF6,color:#000,font-weight:bold
+    classDef chaosStyle fill:#FFF3E0,stroke:#F59E0B,color:#000,font-weight:bold
     classDef capacityStyle fill:#F3E5F5,stroke:#9C27B0,color:#000,font-weight:bold
     classDef securityStyle fill:#E1F5FE,stroke:#00BCD4,color:#000,font-weight:bold
 

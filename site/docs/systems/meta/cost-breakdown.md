@@ -61,9 +61,9 @@ graph TB
     POWER -.->|"1.2 PUE average"| DATACENTER
     GPU_ACCELERATORS -.->|"$25K per A100 GPU"| ML_SERVERS
 
-    classDef costStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serverStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef driverStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef costStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serverStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef driverStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SERVERS,POWER,DATACENTER,MAINTENANCE costStyle
     class WEB_SERVERS,DB_SERVERS,ML_SERVERS,STORAGE_SERVERS,CACHE_SERVERS serverStyle
@@ -110,9 +110,9 @@ graph TB
     BANDWIDTH -.->|"$5M/month per tier 1"| TIER1_ISPS
     SUBSEA_CABLES -.->|"15 owned cables"| DIRECT_CONNECT
 
-    classDef costStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef infraStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef metricStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef costStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef infraStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef metricStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class EDGE_SERVERS,BANDWIDTH,COLOCATION,SUBSEA_CABLES costStyle
     class POPS_200,TIER1_ISPS,IX_PEERING,DIRECT_CONNECT infraStyle
@@ -160,9 +160,9 @@ graph TB
     HDD_STORAGE -.->|"$25/TB"| TIERED_STORAGE
     TAPE_ARCHIVE -.->|"$5/TB"| ENCODING
 
-    classDef costStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef techStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef optStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef costStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef techStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef optStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class HAYSTACK_COST,F4_COST,DATABASE_COST,BACKUP_COST costStyle
     class NVME_SSD,SATA_SSD,HDD_STORAGE,TAPE_ARCHIVE techStyle
@@ -216,9 +216,9 @@ graph LR
     INDIA -.->|"Lower infrastructure costs"| LATAM
     SEA -.->|"Emerging market pricing"| AFRICA
 
-    classDef highStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef mediumStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef lowStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef highStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef mediumStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef lowStyle fill:#10B981,stroke:#059669,color:#fff
 
     class US_WEST,EUROPE,JAPAN highStyle
     class US_EAST,CANADA,AUSTRALIA mediumStyle
@@ -266,9 +266,9 @@ graph TB
     H100_CLUSTERS -.->|"$40K per GPU"| COMPUTER_VISION
     ENGAGEMENT_LIFT -.->|"5:1 ROI"| REVENUE_IMPACT
 
-    classDef gpuStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef workloadStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef roiStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef gpuStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef workloadStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef roiStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class A100_CLUSTERS,H100_CLUSTERS,CUSTOM_CHIPS,INTERCONNECT gpuStyle
     class RECOMMENDATION,COMPUTER_VISION,NLP_PROCESSING,CONTENT_MODERATION workloadStyle
@@ -308,8 +308,8 @@ graph LR
     %% Cumulative savings
     SAVE1 -.->|"Cumulative: $3.6B saved"| SAVE6
 
-    classDef optStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef saveStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef optStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef saveStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class OPT2019,OPT2020,OPT2021,OPT2022,OPT2023,OPT2024 optStyle
     class SAVE1,SAVE2,SAVE3,SAVE4,SAVE5,SAVE6 saveStyle

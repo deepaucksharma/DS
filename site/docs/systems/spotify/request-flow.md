@@ -134,8 +134,8 @@ graph TB
     RankingService --> PersonalCache
     RegionalCache --> FallbackRecs
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class UserEvent,FeatureExtractor,MLModel,Personalization,RankingService serviceStyle
     class RegionalCache,PersonalCache,FallbackRecs stateStyle

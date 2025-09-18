@@ -55,10 +55,10 @@ graph TB
     Lambda --> XRay
 
     %% Apply 4-plane colors
-    classDef globalStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef replicationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef consistencyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef monitoringStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef globalStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef replicationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef consistencyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef monitoringStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class USEast,USWest,EUWest,APSouth globalStyle
     class Streams,Lambda,KCL replicationStyle
@@ -154,10 +154,10 @@ graph TB
     QUORUM --> AE
     ALL --> HH
 
-    classDef nodeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef replicationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef consistencyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef repairStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef nodeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef replicationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef consistencyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef repairStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class N1,N2,N3,N4,N5,N6 nodeStyle
     class RF,PR,DC replicationStyle
@@ -261,10 +261,10 @@ graph LR
     ConflictRes --> ConflictRate
     CompactionOpt --> ThroughputMetrics
 
-    classDef geoStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef crdtStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef syncStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef monitorStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef geoStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef crdtStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef syncStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef monitorStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class USCluster,EUCluster,AsiaCluster geoStyle
     class StringCRDT,CounterCRDT,SetCRDT,HashCRDT crdtStyle
@@ -316,10 +316,10 @@ graph TB
     %% Repair mechanisms
     ReadRepair --> ActiveAntiEntropy --> HandoffProcess
 
-    classDef ringStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef vectorStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef tunableStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef repairStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef ringStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef vectorStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef tunableStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef repairStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class RN1,RN2,RN3,RN4 ringStyle
     class VC1,VC2,VC3 vectorStyle
@@ -370,10 +370,10 @@ graph TB
     Pull --> Versioning
     Purge --> EventualProp
 
-    classDef originStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef edgeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef propagationStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef consistencyStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef originStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef edgeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef propagationStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef consistencyStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class Origin,CMS originStyle
     class USEdge,EUEdge,AsiaEdge edgeStyle
@@ -515,10 +515,10 @@ graph LR
         end
     end
 
-    classDef ecommerceStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef socialStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef contentStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef analyticsStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef ecommerceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef socialStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef contentStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef analyticsStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EC1,EC2,EC3,EC4 ecommerceStyle
     class SM1,SM2,SM3,SM4 socialStyle
@@ -617,10 +617,10 @@ graph TB
         end
     end
 
-    classDef monitoringStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef capacityStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef drStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef skillsStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef monitoringStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef capacityStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef drStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef skillsStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MR1,MR2,MR3,MR4 monitoringStyle
     class CP1,CP2,CP3,CP4 capacityStyle

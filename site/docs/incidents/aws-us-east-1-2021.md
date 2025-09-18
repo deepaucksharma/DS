@@ -51,26 +51,26 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #0066CC"
+    subgraph "Edge Plane - Blue #3B82F6"
         EDGE1[CloudFront Edge<br/>Global CDN]
         EDGE2[Route 53<br/>DNS Service]
         WAF[AWS WAF<br/>Web Firewall]
     end
 
-    subgraph "Service Plane - Green #00AA00"
+    subgraph "Service Plane - Green #10B981"
         ELB[Elastic Load Balancer<br/>Application Gateway]
         API[API Gateway<br/>REST/GraphQL]
         LAMBDA[Lambda Functions<br/>Serverless Compute]
     end
 
-    subgraph "State Plane - Orange #FF8800"
+    subgraph "State Plane - Orange #F59E0B"
         KINESIS[(Kinesis Data Streams<br/>Real-time Analytics<br/>PRIMARY FAILURE)]
         DDB[(DynamoDB<br/>NoSQL Database)]
         S3[(S3 Storage<br/>Object Store)]
         RDS[(RDS MySQL<br/>Relational DB)]
     end
 
-    subgraph "Control Plane - Red #CC0000"
+    subgraph "Control Plane - Red #8B5CF6"
         CW[CloudWatch<br/>Monitoring Service]
         EC2[EC2 Control API<br/>Virtual Machines]
         IAM[Identity Access Mgmt<br/>Authentication]
@@ -99,10 +99,10 @@ graph TB
     API -.->|Service unavailable<br/>500M+ users affected| CUSTOMERS[Netflix, Disney+<br/>Robinhood, Ring<br/>Alexa, IoT devices]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef networkStyle fill:#4B0082,stroke:#301934,color:#fff,stroke-width:4px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
@@ -163,7 +163,7 @@ graph LR
 
     A --> B --> C --> D --> E --> F
 
-    classDef timelineStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:2px
+    classDef timelineStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:2px
     class A,B,C,D,E,F timelineStyle
 ```
 
@@ -243,7 +243,7 @@ flowchart TD
     I --> K[Complete Network Collapse<br/>All devices overwhelmed]
     J --> K
 
-    classDef hardware fill:#FF6B6B,stroke:#CC0000,color:#fff
+    classDef hardware fill:#FF6B6B,stroke:#8B5CF6,color:#fff
     classDef cascade fill:#FFA500,stroke:#FF8C00,color:#fff
     classDef collapse fill:#8B0000,stroke:#660000,color:#fff
 
@@ -395,7 +395,7 @@ graph TB
     ROUTER --> KIN2
     ROUTER --> KIN3
 
-    classDef newStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef newStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     class NET1,NET2,NET3,NET4,NET5,MONITOR,KIN1,KIN2,KIN3,ROUTER newStyle
 ```
 

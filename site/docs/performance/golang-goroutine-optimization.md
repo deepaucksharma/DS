@@ -50,10 +50,10 @@ graph TB
     MemoryManager -.->|"Heap: 3.2GB stable<br/>GC pause: 2ms p99<br/>Memory efficiency: 95%"| OptimalGC[Optimal GC Performance]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CloudFront,ALB edgeStyle
     class RegistryAPI,PushService,PullService serviceStyle
@@ -98,7 +98,7 @@ graph TB
     %% Apply styles
     classDef beforeStyle fill:#FF6B6B,stroke:#E55555,color:#fff
     classDef afterStyle fill:#4ECDC4,stroke:#45B7B8,color:#fff
-    classDef poolStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef poolStyle fill:#10B981,stroke:#059669,color:#fff
     classDef channelStyle fill:#FFA726,stroke:#FF8F00,color:#fff
 
     class Unbounded,Spawn,OOM beforeStyle
@@ -144,7 +144,7 @@ graph LR
     %% Apply styles
     classDef beforeStyle fill:#FF6B6B,stroke:#E55555,color:#fff
     classDef afterStyle fill:#4ECDC4,stroke:#45B7B8,color:#fff
-    classDef poolStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef poolStyle fill:#10B981,stroke:#059669,color:#fff
     classDef gcStyle fill:#9B59B6,stroke:#8E44AD,color:#fff
 
     class Alloc1,GC1,Pressure beforeStyle
@@ -194,7 +194,7 @@ graph TB
 
     %% Apply styles
     classDef contextStyle fill:#4ECDC4,stroke:#45B7B8,color:#fff
-    classDef stageStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stageStyle fill:#10B981,stroke:#059669,color:#fff
     classDef shutdownStyle fill:#FFA726,stroke:#FF8F00,color:#fff
     classDef errorStyle fill:#9B59B6,stroke:#8E44AD,color:#fff
 
@@ -242,7 +242,7 @@ graph TB
 
     %% Apply styles
     classDef profilingStyle fill:#4ECDC4,stroke:#45B7B8,color:#fff
-    classDef kpiStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef kpiStyle fill:#10B981,stroke:#059669,color:#fff
     classDef monitoringStyle fill:#FFA726,stroke:#FF8F00,color:#fff
     classDef continuousStyle fill:#9B59B6,stroke:#8E44AD,color:#fff
 

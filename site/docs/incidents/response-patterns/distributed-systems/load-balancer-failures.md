@@ -125,11 +125,11 @@ graph TB
     RECOVERY -.->|"Scale down emergency"| BACKEND_5
 
     %% 4-plane styling
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef failedStyle fill:#FF0000,stroke:#CC0000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef failedStyle fill:#FF0000,stroke:#8B5CF6,color:#fff
     classDef healthyStyle fill:#00FF00,stroke:#00CC00,color:#fff
     classDef emergencyStyle fill:#FFA500,stroke:#CC8800,color:#fff
 

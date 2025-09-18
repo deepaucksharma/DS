@@ -90,7 +90,7 @@ graph LR
     end
 
     %% Apply colors
-    classDef dnsStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef dnsStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     class A,B,C,D,E,F,G,H,I dnsStyle
 ```
 
@@ -114,7 +114,7 @@ graph TB
     end
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     class USER,INTERNET,BGP,POP1,POP2,POP3,OPTIMAL edgeStyle
 ```
 
@@ -143,8 +143,8 @@ graph TB
     end
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef blockStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef blockStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class REQUEST,L3,L7,BOT,WAF,RATE,PASS serviceStyle
     class BLOCK1,BLOCK2,BLOCK3,BLOCK4,BLOCK5 blockStyle
@@ -170,7 +170,7 @@ graph TB
     end
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     class TRIGGER,ISOLATE,FETCH,KV_READ,ORIGIN,PROCESS,KV_WRITE,RESPONSE serviceStyle
 ```
 
@@ -194,9 +194,9 @@ graph LR
     end
 
     %% Apply colors
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef hitStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef missStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef hitStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef missStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class REQUEST,L1,L2,ORIGIN stateStyle
     class HIT1,HIT2 hitStyle

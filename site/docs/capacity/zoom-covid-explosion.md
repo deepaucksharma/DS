@@ -23,12 +23,12 @@ graph TB
     APR1 -->|"Global adoption"| APR2
     APR2 -->|"Stabilization"| MAY
 
-    style FEB fill:#00AA00
+    style FEB fill:#10B981
     style MAR1 fill:#FFAA00
-    style MAR2 fill:#FF8800
+    style MAR2 fill:#F59E0B
     style APR1 fill:#FF4400
-    style APR2 fill:#CC0000
-    style MAY fill:#0066CC
+    style APR2 fill:#8B5CF6
+    style MAY fill:#3B82F6
 ```
 
 ## Pre-COVID Architecture (February 2020)
@@ -62,10 +62,10 @@ graph TB
     end
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef computeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef networkStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef storageStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef computeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef networkStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef storageStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DC1,DC2,DC3,DC4 edgeStyle
     class MMR,WEB,PHONE computeStyle
@@ -109,10 +109,10 @@ graph TB
     Problems --> Emergency
     Emergency --> Metrics
 
-    style CAP fill:#CC0000
-    style NET fill:#CC0000
-    style DB fill:#CC0000
-    style SUPPLY fill:#CC0000
+    style CAP fill:#8B5CF6
+    style NET fill:#8B5CF6
+    style DB fill:#8B5CF6
+    style SUPPLY fill:#8B5CF6
 ```
 
 **Emergency Actions Taken**:
@@ -168,9 +168,9 @@ graph TB
     Bottlenecks --> Solutions
 
     %% Apply colors
-    classDef loadStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef bottleneckStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef loadStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef bottleneckStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class SCHOOLS,ENTERPRISE,GOVT,HEALTH loadStyle
     class WEBRTC,TURN,MYSQL,REDIS bottleneckStyle
@@ -210,10 +210,10 @@ graph TB
     end
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef meetingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef networkStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef dataStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef meetingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef networkStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef dataStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AWS_EDGE,AZURE_EDGE,ORACLE_EDGE,COLO_EDGE edgeStyle
     class MMR_FLEET,WEBRTC_SCALE,RECORDING,PHONE_BRIDGE meetingStyle

@@ -41,10 +41,10 @@ graph TB
     end
 
     %% Apply four-plane colors for cost categories
-    classDef computeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef networkStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef mlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef computeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef networkStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef mlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class GCPCompute,AWSCompute,AzureCompute computeStyle
     class FastlyCDN,CloudFlareCDN,NetworkEgress networkStyle
@@ -86,7 +86,7 @@ graph TB
         Spot[Spot/Preemptible<br/>10% of compute<br/>$24M at 70% discount<br/>Batch workloads]
     end
 
-    classDef computeStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef computeStyle fill:#10B981,stroke:#059669,color:#fff
     classDef pricingStyle fill:#9966CC,stroke:#7744AA,color:#fff
 
     class GKENodes,MLWorkloads,BigQueryCompute,CloudFunctions,EC2Instances,LambdaFunctions,ECSFargate,AzureVMs,AzureFunctions,AzureContainer computeStyle
@@ -129,7 +129,7 @@ graph TB
         end
     end
 
-    classDef networkStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef networkStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef metricsStyle fill:#9966CC,stroke:#7744AA,color:#fff
 
     class FastlyPrimary,CloudFlareSecondary,CDNOptimization,GCPEgress,AWSEgress,CrossCloudTransfer networkStyle
@@ -181,7 +181,7 @@ graph TB
         DeduplicationSavings[Deduplication<br/>Same song versions<br/>15% storage saved<br/>Global catalog optimization]
     end
 
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef optimizationStyle fill:#9966CC,stroke:#7744AA,color:#fff
 
     class GCSStandard,GCSNearline,GCSColdline,CassandraSSD,PostgreSQLSSD,RedisMem,CrossRegionBackup,LongTermArchive,SnapshotStorage storageStyle
@@ -227,7 +227,7 @@ graph TB
         BatchOptimization[Batch size optimization<br/>TPU utilization: 85%<br/>Training time reduction<br/>Cost per model: -40%]
     end
 
-    classDef mlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef mlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     classDef optimizationStyle fill:#9966CC,stroke:#7744AA,color:#fff
 
     class TPUClusters,GPUInstances,AutoMLServices,ModelServing,FeatureServing,EdgeInference,BigQueryProcessing,DataflowJobs,DataprocClusters mlStyle
@@ -267,9 +267,9 @@ graph TB
         FutureCost[2025 target<br/>$0.85 per user<br/>15% further reduction<br/>AI-driven efficiency]
     end
 
-    classDef revenueStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef costStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef marginStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef revenueStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef costStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef marginStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class PremiumRevenue,FreeRevenue revenueStyle
     class PremiumCosts,FreeCosts,HistoricalCost,CurrentCost,FutureCost costStyle

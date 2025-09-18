@@ -13,7 +13,7 @@
 ```mermaid
 graph TB
     subgraph Detection["T+0: Detection Phase - 14:23 UTC"]
-        style Detection fill:#FFE5E5,stroke:#CC0000,color:#000
+        style Detection fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
         Start["14:23:00<br/>━━━━━<br/>Deployment Initiated<br/>EVCache v3.2.1<br/>Rolling update across<br/>6 regions"]
 
@@ -23,7 +23,7 @@ graph TB
     end
 
     subgraph Diagnosis["T+5min: Diagnosis Phase"]
-        style Diagnosis fill:#FFF5E5,stroke:#FF8800,color:#000
+        style Diagnosis fill:#FFF5E5,stroke:#F59E0B,color:#000
 
         Triage["14:28:00<br/>━━━━━<br/>Incident Commander<br/>Severity: SEV-1<br/>War room opened<br/>25 engineers joined"]
 
@@ -43,7 +43,7 @@ graph TB
     end
 
     subgraph Recovery["T+35min: Recovery Phase"]
-        style Recovery fill:#E5FFE5,stroke:#00AA00,color:#000
+        style Recovery fill:#E5FFE5,stroke:#10B981,color:#000
 
         Stable1["14:58:00<br/>━━━━━<br/>Partial Recovery<br/>Cache hit rate: 75%<br/>Error rate: 18% → 5%<br/>HD streaming resumed"]
 
@@ -85,10 +85,10 @@ graph TB
     CassandraImpact -.-> UserImpact
 
     %% Apply timeline colors
-    classDef detectStyle fill:#FFE5E5,stroke:#CC0000,color:#000,font-weight:bold
-    classDef diagnoseStyle fill:#FFF5E5,stroke:#FF8800,color:#000,font-weight:bold
+    classDef detectStyle fill:#FFE5E5,stroke:#8B5CF6,color:#000,font-weight:bold
+    classDef diagnoseStyle fill:#FFF5E5,stroke:#F59E0B,color:#000,font-weight:bold
     classDef mitigateStyle fill:#FFFFE5,stroke:#CCCC00,color:#000,font-weight:bold
-    classDef recoverStyle fill:#E5FFE5,stroke:#00AA00,color:#000,font-weight:bold
+    classDef recoverStyle fill:#E5FFE5,stroke:#10B981,color:#000,font-weight:bold
     classDef impactStyle fill:#F0F0F0,stroke:#666666,color:#000
 
     class Start,Alert1,Alert2 detectStyle

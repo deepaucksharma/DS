@@ -7,7 +7,7 @@ This diagram documents Netflix's complete storage architecture with all database
 ```mermaid
 graph TB
     subgraph DataIngestion["Data Ingestion Layer"]
-        style DataIngestion fill:#E6F3FF,stroke:#0066CC,color:#000
+        style DataIngestion fill:#E6F3FF,stroke:#3B82F6,color:#000
 
         ViewingData["Viewing Events<br/>━━━━━<br/>500B events/day<br/>Real-time ingestion<br/>Kafka: 8M msg/sec"]
 
@@ -16,8 +16,8 @@ graph TB
         UserEvents["User Interactions<br/>━━━━━<br/>Search, ratings, browsing<br/>1T events/day<br/>Kinesis Streams"]
     end
 
-    subgraph CachingLayer["L1 Caching Layer - Orange #FF8800"]
-        style CachingLayer fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph CachingLayer["L1 Caching Layer - Orange #F59E0B"]
+        style CachingLayer fill:#F59E0B,stroke:#D97706,color:#fff
 
         EVCache1["EVCache - Hot Data<br/>━━━━━<br/>50TB RAM total<br/>95% hit rate<br/>0.5ms p99 latency<br/>r6gd.16xlarge × 200"]
 
@@ -26,8 +26,8 @@ graph TB
         Redis["Redis Clusters<br/>━━━━━<br/>Session storage<br/>30TB memory<br/>0.3ms p99 latency<br/>r6g.8xlarge × 100"]
     end
 
-    subgraph PrimaryStorage["Primary Storage - Orange #FF8800"]
-        style PrimaryStorage fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph PrimaryStorage["Primary Storage - Orange #F59E0B"]
+        style PrimaryStorage fill:#F59E0B,stroke:#D97706,color:#fff
 
         CassandraUser["Cassandra - User Data<br/>━━━━━<br/>3,000 nodes<br/>40PB data<br/>RF=3, Strong consistency<br/>i3en.24xlarge"]
 
@@ -38,8 +38,8 @@ graph TB
         DynamoDB["DynamoDB Global Tables<br/>━━━━━<br/>Real-time recommendations<br/>500TB provisioned<br/>Single-digit ms latency<br/>Multi-region active-active"]
     end
 
-    subgraph SearchStorage["Search & Analytics - Orange #FF8800"]
-        style SearchStorage fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph SearchStorage["Search & Analytics - Orange #F59E0B"]
+        style SearchStorage fill:#F59E0B,stroke:#D97706,color:#fff
 
         ES1["Elasticsearch - Content Search<br/>━━━━━<br/>1,500 nodes<br/>8PB indexed data<br/>750B documents<br/>i3.8xlarge clusters"]
 
@@ -48,8 +48,8 @@ graph TB
         Druid["Apache Druid<br/>━━━━━<br/>Real-time analytics<br/>100TB segments<br/>OLAP queries<br/>r5.12xlarge × 200"]
     end
 
-    subgraph ObjectStorage["Object Storage - Orange #FF8800"]
-        style ObjectStorage fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph ObjectStorage["Object Storage - Orange #F59E0B"]
+        style ObjectStorage fill:#F59E0B,stroke:#D97706,color:#fff
 
         S3Video["S3 - Video Masters<br/>━━━━━<br/>800PB stored<br/>50M video files<br/>Glacier for archives<br/>Standard-IA transition"]
 
@@ -58,8 +58,8 @@ graph TB
         S3Logs["S3 - Log Archives<br/>━━━━━<br/>50PB compressed<br/>7-year retention<br/>Glacier Deep Archive<br/>LZ4 compression"]
     end
 
-    subgraph DataProcessing["Stream Processing - Green #00AA00"]
-        style DataProcessing fill:#00AA00,stroke:#007700,color:#fff
+    subgraph DataProcessing["Stream Processing - Green #10B981"]
+        style DataProcessing fill:#10B981,stroke:#059669,color:#fff
 
         Kafka["Apache Kafka<br/>━━━━━<br/>500 brokers<br/>100TB/day throughput<br/>7-day retention<br/>r5.8xlarge clusters"]
 
@@ -68,8 +68,8 @@ graph TB
         Spark["Apache Spark<br/>━━━━━<br/>Batch ETL jobs<br/>10PB/day processing<br/>ML feature engineering<br/>r5.12xlarge × 1000"]
     end
 
-    subgraph BackupRecovery["Backup & Recovery - Red #CC0000"]
-        style BackupRecovery fill:#CC0000,stroke:#990000,color:#fff
+    subgraph BackupRecovery["Backup & Recovery - Red #8B5CF6"]
+        style BackupRecovery fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         CassBackup["Cassandra Backups<br/>━━━━━<br/>Incremental snapshots<br/>Cross-region replication<br/>RPO: 15 minutes<br/>RTO: 4 hours"]
 
@@ -111,10 +111,10 @@ graph TB
     ES1 -.->|"Daily snapshots"| ESSnapshots
 
     %% Apply 4-plane colors
-    classDef cacheStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef processStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef backupStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef cacheStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef processStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef backupStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class EVCache1,EVCache2,Redis,CassandraUser,CassandraContent,CassandraViewing,DynamoDB,ES1,ES2,Druid,S3Video,S3Images,S3Logs cacheStyle
     class Kafka,Flink,Spark processStyle

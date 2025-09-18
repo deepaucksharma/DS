@@ -31,9 +31,9 @@ flowchart LR
     SingleMachine --> Distributed
     Distributed --> ProductionReality
 
-    classDef singleStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef distStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef realityStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef singleStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef distStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef realityStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SM_MEM,SM_CLOCK,SM_FAIL singleStyle
     class DS_NET,DS_CLOCK,DS_FAIL distStyle
@@ -83,10 +83,10 @@ flowchart TB
     CPSystems --> Hybrid
     APSystems --> Hybrid
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef cpStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef apStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef hybridStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef cpStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef apStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef hybridStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class PART problemStyle
     class BANK,STRIPE,COCKROACH cpStyle
@@ -116,9 +116,9 @@ flowchart LR
     Strong --> Medium
     Medium --> Weak
 
-    classDef strongStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef mediumStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef weakStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef strongStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef mediumStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef weakStyle fill:#10B981,stroke:#059669,color:#fff
 
     class LIN,SER strongStyle
     class SEQ,CAUS mediumStyle

@@ -56,10 +56,10 @@ graph TB
     MONITORING --> DEAD_LETTER
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class API,VALIDATE,AUTH,RATE_LIMIT edgeStyle
     class ORDER_SVC,INVENTORY_SVC,EMAIL_SVC,PAYMENT_SVC serviceStyle
@@ -178,8 +178,8 @@ graph TB
     BUSINESS_PROCESS --> ERROR_HANDLE
 
     classDef genStyle fill:#9966CC,stroke:#663399,color:#fff
-    classDef pubStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef conStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef pubStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef conStyle fill:#10B981,stroke:#059669,color:#fff
 
     class ORDER_CREATE,BUSINESS_LOGIC,OUTBOX_INSERT,TRANSACTION_COMMIT genStyle
     class POLL,BATCH,SERIALIZE,KAFKA_PUBLISH,MARK_PUBLISHED pubStyle
@@ -254,10 +254,10 @@ graph TB
     PROJECTOR --> READ_DB
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT,API_GW,LOAD_BAL,CDN edgeStyle
     class COMMAND_API,QUERY_API,DOMAIN_SVC,PROJECTION_SVC serviceStyle
@@ -383,8 +383,8 @@ graph TB
     SEARCH_INDEX --> CACHING
 
     classDef eventStyle fill:#9966CC,stroke:#663399,color:#fff
-    classDef projectionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef optimizeStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef projectionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef optimizeStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class COMMAND,EVENT_GEN,EVENT_PERSIST,EVENT_PUBLISH eventStyle
     class ORDER_VIEW,CUSTOMER_VIEW,ANALYTICS_VIEW,SEARCH_INDEX projectionStyle
@@ -429,9 +429,9 @@ graph TB
     ASYNC_COMMANDS --> EVENTUAL_CONSISTENCY
     FAST_QUERIES --> HYPERMEDIA
 
-    classDef commandStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef queryStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef responseStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef commandStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef queryStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef responseStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CREATE_ORDER,UPDATE_ORDER,CANCEL_ORDER,ADD_ITEM commandStyle
     class GET_ORDER,SEARCH_ORDERS,CUSTOMER_ORDERS,ORDER_ANALYTICS queryStyle
@@ -504,10 +504,10 @@ graph TB
     THRESHOLD_MONITOR --> ALERT_MGR
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT,PROXY,TIMEOUT,RETRY edgeStyle
     class PRIMARY_SVC,FALLBACK_SVC,HEALTH_CHECK,METRICS_COL serviceStyle
@@ -626,10 +626,10 @@ graph TB
     DB_CIRCUIT --> DEGRADED_MODE
     API_CIRCUIT --> QUEUE_REQUEST
 
-    classDef appStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serviceStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef resourceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef fallbackStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef appStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serviceStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef resourceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef fallbackStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class APP_CIRCUIT,APP_FALLBACK,APP_HEALTH appStyle
     class AUTH_CIRCUIT,DB_CIRCUIT,CACHE_CIRCUIT,API_CIRCUIT serviceStyle
@@ -682,9 +682,9 @@ graph TB
     CRITICAL --> NOTIFY_ONCALL
     RECOVERING --> INCIDENT_CREATE
 
-    classDef metricStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef alertStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef actionStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef metricStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef alertStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef actionStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SUCCESS_RATE,FAILURE_RATE,LATENCY_P99,CIRCUIT_STATUS metricStyle
     class DEGRADED,CRITICAL,RECOVERING,HEALTHY alertStyle

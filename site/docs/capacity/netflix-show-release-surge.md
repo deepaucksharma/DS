@@ -54,10 +54,10 @@ graph TB
     SPINNAKER --> CHAOS
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class OCN,ISP,POP edgeStyle
     class APIGW,REC,META,AUTH serviceStyle
@@ -101,9 +101,9 @@ graph TB
     REVENUE --> CONTENT
 
     %% Apply colors
-    classDef timeline fill:#E6F3FF,stroke:#0066CC,color:#000
-    classDef metrics fill:#E6FFE6,stroke:#00AA00,color:#000
-    classDef impact fill:#FFE6CC,stroke:#FF8800,color:#000
+    classDef timeline fill:#E6F3FF,stroke:#3B82F6,color:#000
+    classDef metrics fill:#E6FFE6,stroke:#10B981,color:#000
+    classDef impact fill:#FFE6CC,stroke:#F59E0B,color:#000
 
     class T0,T1,T8,T12,T24 timeline
     class VIEWERS,STARTS,BANDWIDTH,REGIONS metrics

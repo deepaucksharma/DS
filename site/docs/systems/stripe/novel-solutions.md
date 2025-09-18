@@ -6,8 +6,8 @@ This diagram showcases Stripe's breakthrough architectural innovations that revo
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         IdempotencyEdge["Edge Idempotency Cache<br/>━━━━━<br/>Cloudflare Workers<br/>Sub-millisecond check<br/>99.99% cache hit rate<br/>Global key distribution"]
 
@@ -16,8 +16,8 @@ graph TB
         RequestDedup["Request Deduplication<br/>━━━━━<br/>Content-based hashing<br/>300ms window detection<br/>Browser retry handling<br/>Network duplicate prevention"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         subgraph IdempotencySystem["Idempotency Innovation - 100% Duplicate Prevention"]
             IdempotencyOrchestrator["Idempotency Orchestrator<br/>━━━━━<br/>24-hour key lifecycle<br/>Consistent hashing<br/>Distributed locks<br/>Conflict resolution"]
@@ -44,8 +44,8 @@ graph TB
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         subgraph IdempotencyStorage["Idempotency Storage Layer"]
             ShardedRedis["Sharded Redis Cluster<br/>━━━━━<br/>Consistent hashing<br/>50 billion keys daily<br/>24-hour TTL<br/>Cross-region replication"]
@@ -68,8 +68,8 @@ graph TB
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         IdempotencyMonitor["Idempotency Monitor<br/>━━━━━<br/>Duplicate rate tracking<br/>Key collision detection<br/>Performance metrics<br/>SLA monitoring"]
 
@@ -106,10 +106,10 @@ graph TB
     SuccessPredictor -.->|"A/B experiments<br/>Model testing"| ExperimentFramework
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class IdempotencyEdge,RateLimitingEdge,RequestDedup edgeStyle
     class IdempotencyOrchestrator,KeyDistribution,ConflictResolver,RoutingEngine,SuccessPredictor,CostOptimizer,QueryPlanner,DataVirtualization,CacheIntelligence serviceStyle

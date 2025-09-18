@@ -6,8 +6,8 @@ This diagram showcases Discord's breakthrough architectural innovations that rev
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         AdaptiveRouting["Adaptive Message Routing<br/>━━━━━<br/>Geographic optimization<br/>Latency-based selection<br/>Real-time path analysis<br/>Sub-100ms global delivery"]
 
@@ -16,8 +16,8 @@ graph TB
         ShardAffinity["Connection Affinity<br/>━━━━━<br/>Sticky WebSocket routing<br/>Guild-based affinity<br/>Failover optimization<br/>Connection preservation"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         subgraph ElixirInnovation["Elixir/OTP Innovation - Massive Concurrency"]
             ActorSystem["Actor System<br/>━━━━━<br/>200M+ lightweight processes<br/>Fault-tolerant supervision<br/>Let-it-crash philosophy<br/>Hot code swapping"]
@@ -44,8 +44,8 @@ graph TB
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         subgraph ScyllaInnovation["ScyllaDB Innovation - 90% Cost Reduction"]
             CassandraCompatible["Cassandra Compatibility<br/>━━━━━<br/>Drop-in replacement<br/>Same CQL interface<br/>Zero application changes<br/>Seamless migration"]
@@ -70,8 +70,8 @@ graph TB
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         ElixirMonitoring["Elixir Process Monitor<br/>━━━━━<br/>Process health tracking<br/>Supervisor alerts<br/>Memory monitoring<br/>Performance profiling"]
 
@@ -113,10 +113,10 @@ graph TB
     ShardCoordination -.->|"Shard metrics<br/>Load distribution<br/>Balance optimization"| ShardBalancer
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class AdaptiveRouting,VoiceEdgeIntelligence,ShardAffinity edgeStyle
     class ActorSystem,SupervisionTrees,GenServerPatterns,ConsistentHashing,HotGuildHandling,ShardCoordination,OpusOptimization,P2PMeshNetwork,JitterBuffering serviceStyle

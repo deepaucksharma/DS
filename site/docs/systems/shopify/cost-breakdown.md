@@ -8,7 +8,7 @@ Shopify operates one of the world's largest e-commerce platforms with estimated 
 
 ```mermaid
 graph TB
-    subgraph "Revenue Streams #00AA00"
+    subgraph "Revenue Streams #10B981"
         SUBSCRIPTION[Subscription Revenue<br/>$29-2000/month plans<br/>$2.4B annually<br/>Recurring revenue]
         MERCHANT_SOLUTIONS[Merchant Solutions<br/>Payment processing<br/>Shopify Capital<br/>$5.1B annually]
         PLUS_ENTERPRISE[Shopify Plus<br/>Enterprise customers<br/>Higher margins<br/>Premium features]
@@ -17,7 +17,7 @@ graph TB
         TOTAL_REVENUE[Total Revenue<br/>$7.6B annually<br/>24% YoY growth<br/>Diversified streams]
     end
 
-    subgraph "Infrastructure Costs #FF8800"
+    subgraph "Infrastructure Costs #F59E0B"
         subgraph "Compute Costs (45%)"
             CLOUD_COMPUTE[Cloud Computing<br/>$67M annually<br/>AWS multi-region<br/>Auto-scaling]
             APP_SERVERS[Application Servers<br/>10K+ instances<br/>Ruby/Rails stack<br/>Container orchestration]
@@ -39,14 +39,14 @@ graph TB
         end
     end
 
-    subgraph "Operational Costs #0066CC"
+    subgraph "Operational Costs #3B82F6"
         ENGINEERING[Engineering<br/>$2.5B annually<br/>7000+ engineers<br/>Platform development]
         OPERATIONS[Operations<br/>$300M annually<br/>24/7 support<br/>Infrastructure management]
         SECURITY[Security & Compliance<br/>$100M annually<br/>PCI DSS<br/>Data protection]
         FACILITIES[Facilities & Other<br/>$200M annually<br/>Global offices<br/>Supporting functions]
     end
 
-    subgraph "Cost Per Unit Economics #CC0000"
+    subgraph "Cost Per Unit Economics #8B5CF6"
         COST_PER_MERCHANT[Cost per Merchant<br/>$7/month average<br/>Decreasing with scale<br/>Multi-tenant efficiency]
         COST_PER_TRANSACTION[Cost per Transaction<br/>$0.15 average<br/>Payment processing<br/>Platform overhead]
         COST_PER_GMV[Cost per GMV Dollar<br/>0.06% of GMV<br/>Infrastructure efficiency<br/>Scale advantages]
@@ -77,10 +77,10 @@ graph TB
     FACILITIES --> COST_PER_GMV
 
     %% Apply colors
-    classDef revenueStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef operationalStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef unitStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef revenueStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef operationalStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef unitStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SUBSCRIPTION,MERCHANT_SOLUTIONS,PLUS_ENTERPRISE,APP_ECOSYSTEM,TOTAL_REVENUE revenueStyle
     class CLOUD_COMPUTE,APP_SERVERS,DATABASE_COSTS,REDIS_COSTS,CDN_COSTS,LOAD_BALANCING,MONITORING,BACKUP_DR infraStyle
@@ -128,8 +128,8 @@ graph TB
     CUSTOM_INTEGRATIONS --> ECONOMIES_SCALE
 
     %% Apply multi-tenant colors
-    classDef sharedStyle fill:#66CC66,stroke:#00AA00,color:#fff
-    classDef dedicatedStyle fill:#FF9966,stroke:#CC6600,color:#fff
+    classDef sharedStyle fill:#66CC66,stroke:#10B981,color:#fff
+    classDef dedicatedStyle fill:#FF9966,stroke:#D97706,color:#fff
     classDef efficiencyStyle fill:#6666CC,stroke:#0000AA,color:#fff
 
     class SHARED_COMPUTE,SHARED_DATABASE,SHARED_CDN,SHARED_SEARCH sharedStyle
@@ -178,9 +178,9 @@ graph TB
     PLUS_TOTAL --> EFFICIENCY_GAIN
 
     %% Apply pod colors
-    classDef standardStyle fill:#CCE6FF,stroke:#0066CC,color:#000
+    classDef standardStyle fill:#CCE6FF,stroke:#3B82F6,color:#000
     classDef plusStyle fill:#FFCCFF,stroke:#CC00CC,color:#000
-    classDef comparisonStyle fill:#CCFFCC,stroke:#00AA00,color:#000
+    classDef comparisonStyle fill:#CCFFCC,stroke:#10B981,color:#000
 
     class POD_COMPUTE,POD_DATABASE,POD_CACHE,POD_NETWORK standardStyle
     class PLUS_COMPUTE,PLUS_DATABASE,PLUS_CACHE,PLUS_NETWORK plusStyle
@@ -230,8 +230,8 @@ graph TB
     PAYMENT_INFRASTRUCTURE --> NET_PAYMENT_MARGIN
 
     %% Apply payment colors
-    classDef revenueStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef costStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef revenueStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef costStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SHOPIFY_PAYMENTS,THIRD_PARTY,PAYMENT_REVENUE revenueStyle
     class PROCESSING_COSTS,FRAUD_PREVENTION,PAYMENT_INFRASTRUCTURE,NET_PAYMENT_MARGIN costStyle
@@ -278,8 +278,8 @@ graph TB
     BLACK_FRIDAY_PEAK --> EDGE_OPTIMIZATION
 
     %% Apply Black Friday colors
-    classDef bfCostStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef optimizationStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef bfCostStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef optimizationStyle fill:#10B981,stroke:#059669,color:#fff
 
     class BASELINE_COSTS,PEAK_PREPARATION,BLACK_FRIDAY_PEAK,COST_AMORTIZATION bfCostStyle
     class AUTO_SCALING,RESERVED_CAPACITY,SPOT_INSTANCES,EDGE_OPTIMIZATION optimizationStyle
@@ -335,8 +335,8 @@ graph TB
     CACHE_COMPRESSION --> VITESS_SHARDING
 
     %% Apply optimization colors
-    classDef dbStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef cacheStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef dbStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef cacheStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class VITESS_SHARDING,READ_REPLICAS,MYSQL_TUNING,STORAGE_TIERING dbStyle
     class MULTI_LAYER_CACHE,CACHE_WARMING,INTELLIGENT_TTL,CACHE_COMPRESSION cacheStyle
@@ -375,7 +375,7 @@ graph TB
     AI_OPTIMIZATION --> ENERGY_EFFICIENCY
 
     %% Apply automation colors
-    classDef automationStyle fill:#66CC66,stroke:#00AA00,color:#fff
+    classDef automationStyle fill:#66CC66,stroke:#10B981,color:#fff
     classDef efficiencyStyle fill:#6666CC,stroke:#0000AA,color:#fff
 
     class INFRASTRUCTURE_AUTOMATION,DEPLOYMENT_AUTOMATION,MONITORING_AUTOMATION,SCALING_AUTOMATION automationStyle
@@ -416,8 +416,8 @@ graph LR
     PROJECTED_2026 --> OPERATIONAL_EXCELLENCE
 
     %% Apply trend colors
-    classDef costTrendStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef driverStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef costTrendStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef driverStyle fill:#10B981,stroke:#059669,color:#fff
 
     class COST_2020,COST_2022,COST_2024,PROJECTED_2026 costTrendStyle
     class SCALE_ECONOMIES,TECHNOLOGY_EFFICIENCY,OPERATIONAL_EXCELLENCE driverStyle

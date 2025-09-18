@@ -7,7 +7,7 @@ This diagram shows Uber's complete infrastructure cost breakdown supporting 25M 
 ```mermaid
 graph TB
     subgraph EdgePlane["Edge Plane - $35M/month (21%)"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         CDN["Global CDN<br/>━━━━━<br/>$25M/month<br/>3,000+ edge servers<br/>70 countries<br/>$1.00 per TB"]
 
@@ -17,7 +17,7 @@ graph TB
     end
 
     subgraph ServicePlane["Service Plane - $60M/month (35%)"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         Matching["DISCO Matching<br/>━━━━━<br/>$15M/month<br/>c5.24xlarge fleet<br/>CPU-intensive<br/>$0.75 per match"]
 
@@ -31,7 +31,7 @@ graph TB
     end
 
     subgraph StatePlane["State Plane - $50M/month (29%)"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         Schemaless["Schemaless MySQL<br/>━━━━━<br/>$18M/month<br/>10K+ shards<br/>db.r6gd.16xlarge<br/>$1.80 per GB-month"]
 
@@ -47,7 +47,7 @@ graph TB
     end
 
     subgraph ControlPlane["Control Plane - $15M/month (9%)"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         Monitoring["M3 Metrics Platform<br/>━━━━━<br/>$6M/month<br/>10M metrics/sec<br/>m5.24xlarge<br/>$0.60 per metric/month"]
 

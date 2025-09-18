@@ -9,13 +9,13 @@ Shopify's architecture is designed to handle massive traffic spikes (100,000+ RP
 ```mermaid
 graph TB
     subgraph "Global Failure Domains"
-        subgraph "Tier 1: Regional Failures #CC0000"
+        subgraph "Tier 1: Regional Failures #8B5CF6"
             REGION_NA[North America<br/>Primary region<br/>60% of traffic<br/>Core infrastructure]
             REGION_EU[Europe/EMEA<br/>Secondary region<br/>25% of traffic<br/>Compliance center]
             REGION_APAC[Asia Pacific<br/>Growth region<br/>15% of traffic<br/>Expansion focus]
         end
 
-        subgraph "Tier 2: Pod Failures #FF8800"
+        subgraph "Tier 2: Pod Failures #F59E0B"
             POD_A[Pod A<br/>10K merchants<br/>Dedicated resources<br/>Isolated blast radius]
             POD_B[Pod B<br/>10K merchants<br/>Dedicated resources<br/>Isolated blast radius]
             POD_PLUS[Shopify Plus Pod<br/>Enterprise merchants<br/>Premium SLA<br/>Enhanced isolation]
@@ -34,7 +34,7 @@ graph TB
         end
     end
 
-    subgraph "Cascading Failure Prevention #00AA00"
+    subgraph "Cascading Failure Prevention #10B981"
         CIRCUIT_BREAKERS[Circuit Breakers<br/>Service protection<br/>Fail-fast behavior<br/>Graceful degradation]
         RATE_LIMITING[Rate Limiting<br/>Traffic shaping<br/>DoS protection<br/>Fair resource allocation]
         BULKHEADS[Bulkhead Isolation<br/>Resource partitioning<br/>Tenant isolation<br/>Blast radius containment]
@@ -53,11 +53,11 @@ graph TB
     FALLBACKS --> DB_SHARD_FAIL
 
     %% Apply colors based on impact severity
-    classDef criticalStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef highStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef criticalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef highStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef mediumStyle fill:#FFCC00,stroke:#CC9900,color:#000
     classDef lowStyle fill:#FFFF99,stroke:#CCCC00,color:#000
-    classDef protectionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef protectionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class REGION_NA,REGION_EU,REGION_APAC criticalStyle
     class POD_A,POD_B,POD_PLUS highStyle
@@ -110,8 +110,8 @@ graph TB
     end
 
     %% Apply incident colors
-    classDef incidentStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef causeStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef incidentStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef causeStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef impactStyle fill:#FFCC00,stroke:#CC9900,color:#000
 
     class FLASH_SALE,TRAFFIC_SPIKE,INVENTORY_RACE,CHECKOUT_FAILURES,MITIGATION incidentStyle
@@ -167,9 +167,9 @@ graph TB
     end
 
     %% Apply outage colors
-    classDef outageStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef technicalStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef resolutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef outageStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef technicalStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef resolutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class MAINTENANCE,UPGRADE_FAILURE,FAILOVER_ISSUES,MERCHANT_IMPACT_2021,RECOVERY_PLAN outageStyle
     class SCHEMA_CORRUPTION,REPLICA_LAG,CONNECTION_POOL technicalStyle
@@ -230,8 +230,8 @@ graph TB
     DATA_SEPARATION --> DEGRADED_MODE
 
     %% Apply pod colors
-    classDef failureStyle fill:#FF6666,stroke:#CC0000,color:#fff
-    classDef isolationStyle fill:#66CC66,stroke:#00AA00,color:#fff
+    classDef failureStyle fill:#FF6666,stroke:#8B5CF6,color:#fff
+    classDef isolationStyle fill:#66CC66,stroke:#10B981,color:#fff
     classDef failoverStyle fill:#6666CC,stroke:#0000AA,color:#fff
 
     class POD_HARDWARE,POD_SOFTWARE,POD_DATABASE,POD_OVERLOAD failureStyle
@@ -310,9 +310,9 @@ graph TB
     OFFLINE_MODE --> MOBILE_APP
 
     %% Apply fallback colors
-    classDef storefrontStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef checkoutStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef adminStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef storefrontStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef checkoutStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef adminStyle fill:#10B981,stroke:#059669,color:#fff
 
     class PRODUCT_CACHE,STATIC_PAGES,CDN_FALLBACK storefrontStyle
     class SIMPLE_CHECKOUT,PAYMENT_QUEUE,OFFLINE_MODE checkoutStyle
@@ -371,10 +371,10 @@ graph TB
     DATA_SYNC --> COMPLIANCE
 
     %% Apply geographic colors
-    classDef naStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef euStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef apacStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef globalStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef naStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef euStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef apacStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef globalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class NA_PRIMARY,NA_SECONDARY naStyle
     class EU_DATACENTER,EU_BACKUP euStyle
@@ -432,8 +432,8 @@ graph TB
     MITIGATION --> P2_SLA
 
     %% Apply response colors
-    classDef processStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef slaStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef processStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef slaStyle fill:#10B981,stroke:#059669,color:#fff
 
     class DETECTION,SEVERITY,WAR_ROOM,INVESTIGATION,MITIGATION,COMMUNICATION,RECOVERY,POSTMORTEM processStyle
     class P0_SLA,P1_SLA,P2_SLA slaStyle
@@ -479,8 +479,8 @@ graph TB
     PERFORMANCE_BF --> VOLUME_BF
 
     %% Apply Black Friday colors
-    classDef prepStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef successStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef prepStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef successStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CAPACITY_PLANNING,LOAD_TESTING,QUEUE_SYSTEM,PAYMENT_REDUNDANCY,MONITORING_ENHANCED,ROLLBACK_PLANS prepStyle
     class UPTIME_BF,PERFORMANCE_BF,VOLUME_BF successStyle

@@ -90,8 +90,8 @@ graph TB
         Team1[Team Size<br/>3 founders<br/>Full-stack development<br/>Everyone on-call]
     end
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class Heroku,EmailBasic serviceStyle
     class PostgresDB,S3Basic stateStyle
@@ -166,9 +166,9 @@ graph TB
         Team2[Team Size<br/>15-30 engineers<br/>Product teams forming<br/>DevOps practices]
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CloudFront,ELB edgeStyle
     class WebApp,APIv1,BackgroundJobs,Search,Messaging,Reviews serviceStyle
@@ -264,10 +264,10 @@ graph TB
         Team3[Team Size<br/>100+ engineers<br/>Service teams<br/>International operations]
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MultiCDN,Route53,RegionalLB edgeStyle
     class UserService,ListingService,BookingService,SearchService,MessageService,PaymentService serviceStyle
@@ -332,10 +332,10 @@ graph TB
         Team[Engineering Organization<br/>1000+ engineers<br/>Platform teams<br/>Global operations]
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ServiceMesh,KubernetesClusters,APIGateway edgeStyle
     class PersonalizationAI,ComputerVision,NLPPlatform,MLOps serviceStyle

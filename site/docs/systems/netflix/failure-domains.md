@@ -7,7 +7,7 @@ This diagram maps the blast radius of each component failure, cascading failure 
 ```mermaid
 graph TB
     subgraph BlastRadius1["Blast Radius: Edge Failure"]
-        style BlastRadius1 fill:#FFE6E6,stroke:#CC0000,color:#000
+        style BlastRadius1 fill:#FFE6E6,stroke:#8B5CF6,color:#000
 
         OCAFail["Open Connect Failure<br/>━━━━━<br/>Blast Radius: 5-15% users<br/>Geography: Regional<br/>Cascade Probability: 15%<br/>MTTR: 10 minutes"]
 
@@ -17,7 +17,7 @@ graph TB
     end
 
     subgraph BlastRadius2["Blast Radius: Service Plane"]
-        style BlastRadius2 fill:#FFECB3,stroke:#FF8800,color:#000
+        style BlastRadius2 fill:#FFECB3,stroke:#F59E0B,color:#000
 
         PlayAPIFail["Playback API Failure<br/>━━━━━<br/>Blast Radius: ALL video requests<br/>Cascade: Recommendation degradation<br/>Circuit Breaker: Hystrix<br/>Timeout: 3 seconds"]
 
@@ -27,7 +27,7 @@ graph TB
     end
 
     subgraph BlastRadius3["Blast Radius: Data Plane"]
-        style BlastRadius3 fill:#E8F5E8,stroke:#00AA00,color:#000
+        style BlastRadius3 fill:#E8F5E8,stroke:#10B981,color:#000
 
         CassandraFail["Cassandra Cluster Failure<br/>━━━━━<br/>Blast Radius: User profiles<br/>RF=3 Protection<br/>Node Failure: 0% impact<br/>AZ Failure: 5% degradation"]
 
@@ -37,7 +37,7 @@ graph TB
     end
 
     subgraph BlastRadius4["Blast Radius: Control Plane"]
-        style BlastRadius4 fill:#E3F2FD,stroke:#0066CC,color:#000
+        style BlastRadius4 fill:#E3F2FD,stroke:#3B82F6,color:#000
 
         SpinnakerFail["Spinnaker Deployment Halt<br/>━━━━━<br/>Blast Radius: New deployments<br/>Rollback capability intact<br/>Production: Stable<br/>Development: Blocked"]
 
@@ -88,10 +88,10 @@ graph TB
     PlayAPIFail -.->|"Service boundary"| ServiceIsolation
 
     %% Apply failure-specific colors
-    classDef edgeFailure fill:#FFE6E6,stroke:#CC0000,color:#000,font-weight:bold
-    classDef serviceFailure fill:#FFECB3,stroke:#FF8800,color:#000,font-weight:bold
-    classDef dataFailure fill:#E8F5E8,stroke:#00AA00,color:#000,font-weight:bold
-    classDef controlFailure fill:#E3F2FD,stroke:#0066CC,color:#000,font-weight:bold
+    classDef edgeFailure fill:#FFE6E6,stroke:#8B5CF6,color:#000,font-weight:bold
+    classDef serviceFailure fill:#FFECB3,stroke:#F59E0B,color:#000,font-weight:bold
+    classDef dataFailure fill:#E8F5E8,stroke:#10B981,color:#000,font-weight:bold
+    classDef controlFailure fill:#E3F2FD,stroke:#3B82F6,color:#000,font-weight:bold
     classDef circuitBreaker fill:#F3E5F5,stroke:#9C27B0,color:#000,font-weight:bold
     classDef isolation fill:#E8EAF6,stroke:#3F51B5,color:#000,font-weight:bold
 

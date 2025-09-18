@@ -46,8 +46,8 @@ graph TB
     %% Customer impact
     MERCHANTS -.->|"Payment declined"<br/>500M+ cardholders affected| CUSTOMERS[European Consumers<br/>Business Travelers<br/>Online Shoppers<br/>ATM Users]
 
-    classDef hardwareStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:3px
-    classDef paymentStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef hardwareStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:3px
+    classDef paymentStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
     class SWITCH,AUTH,SETTLE,FRAUD hardwareStyle

@@ -7,7 +7,7 @@ This diagram showcases Netflix's groundbreaking innovations: Chaos Engineering, 
 ```mermaid
 graph TB
     subgraph ChaosEngineering["Chaos Engineering - Simian Army Suite"]
-        style ChaosEngineering fill:#FFE6E6,stroke:#CC0000,color:#000
+        style ChaosEngineering fill:#FFE6E6,stroke:#8B5CF6,color:#000
 
         ChaosMonkey["Chaos Monkey<br/>━━━━━<br/>Random instance termination<br/>1,000+ terminations/day<br/>Production chaos testing<br/>Patent: US9,317,404"]
 
@@ -21,7 +21,7 @@ graph TB
     end
 
     subgraph AdaptiveBitrate["Adaptive Bitrate Streaming (ABR)"]
-        style AdaptiveBitrate fill:#E8F5E8,stroke:#00AA00,color:#000
+        style AdaptiveBitrate fill:#E8F5E8,stroke:#10B981,color:#000
 
         ClientBuffer["Client Buffer Analysis<br/>━━━━━<br/>Real-time buffer monitoring<br/>2-second measurement windows<br/>Bandwidth estimation<br/>Quality decision engine"]
 
@@ -33,7 +33,7 @@ graph TB
     end
 
     subgraph OpenConnect["Open Connect CDN Architecture"]
-        style OpenConnect fill:#E3F2FD,stroke:#0066CC,color:#000
+        style OpenConnect fill:#E3F2FD,stroke:#3B82F6,color:#000
 
         GlobalPOP["18,000+ Points of Presence<br/>━━━━━<br/>175+ countries deployed<br/>ISP partnerships<br/>Free edge server program<br/>95% traffic served locally"]
 
@@ -45,7 +45,7 @@ graph TB
     end
 
     subgraph CosmosEncoding["Cosmos Video Platform"]
-        style CosmosEncoding fill:#FFF3E0,stroke:#FF8800,color:#000
+        style CosmosEncoding fill:#FFF3E0,stroke:#F59E0B,color:#000
 
         EncodingPipeline["Massive Encoding Pipeline<br/>━━━━━<br/>100,000+ EC2 instances<br/>Per-title optimization<br/>Multiple codec support<br/>AV1/HEVC/H.264"]
 
@@ -102,10 +102,10 @@ graph TB
     DataPlatform -.->|"Monitors"| EncodingPipeline
 
     %% Apply innovation-specific colors
-    classDef chaosStyle fill:#FFE6E6,stroke:#CC0000,color:#000,font-weight:bold
-    classDef abrStyle fill:#E8F5E8,stroke:#00AA00,color:#000,font-weight:bold
-    classDef cdnStyle fill:#E3F2FD,stroke:#0066CC,color:#000,font-weight:bold
-    classDef encodingStyle fill:#FFF3E0,stroke:#FF8800,color:#000,font-weight:bold
+    classDef chaosStyle fill:#FFE6E6,stroke:#8B5CF6,color:#000,font-weight:bold
+    classDef abrStyle fill:#E8F5E8,stroke:#10B981,color:#000,font-weight:bold
+    classDef cdnStyle fill:#E3F2FD,stroke:#3B82F6,color:#000,font-weight:bold
+    classDef encodingStyle fill:#FFF3E0,stroke:#F59E0B,color:#000,font-weight:bold
     classDef mlStyle fill:#F3E5F5,stroke:#9C27B0,color:#000,font-weight:bold
     classDef ossStyle fill:#E1F5FE,stroke:#00BCD4,color:#000,font-weight:bold
 

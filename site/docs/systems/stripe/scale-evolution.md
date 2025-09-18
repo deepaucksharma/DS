@@ -7,7 +7,7 @@ This diagram shows Stripe's architecture evolution from processing $0 in 2010 to
 ```mermaid
 graph TB
     subgraph Scale2010["2010-2011: The Beginning - 50 payments/day"]
-        style Scale2010 fill:#e6f3ff,stroke:#0066CC,color:#333
+        style Scale2010 fill:#e6f3ff,stroke:#3B82F6,color:#333
 
         Heroku2010["Heroku Dyno<br/>━━━━━<br/>Ruby on Rails<br/>Single instance<br/>SQLite database<br/>$0/month infrastructure"]
 
@@ -15,7 +15,7 @@ graph TB
     end
 
     subgraph Scale2012["2012-2013: Early Growth - 1K payments/day"]
-        style Scale2012 fill:#e6ffe6,stroke:#00AA00,color:#333
+        style Scale2012 fill:#e6ffe6,stroke:#10B981,color:#333
 
         AWS2012["AWS EC2 m1.small<br/>━━━━━<br/>Single Rails app<br/>PostgreSQL RDS<br/>Manual scaling<br/>$500/month infrastructure"]
 
@@ -25,7 +25,7 @@ graph TB
     end
 
     subgraph Scale2014["2014-2015: Product-Market Fit - 10K payments/day"]
-        style Scale2014 fill:#ffe6e6,stroke:#CC0000,color:#333
+        style Scale2014 fill:#ffe6e6,stroke:#8B5CF6,color:#333
 
         LoadBalancer2014["ELB Load Balancer<br/>━━━━━<br/>Multi-instance Rails<br/>Auto-scaling groups<br/>Health checks<br/>$2K/month infrastructure"]
 
@@ -37,7 +37,7 @@ graph TB
     end
 
     subgraph Scale2016["2016-2017: International Expansion - 100K payments/day"]
-        style Scale2016 fill:#fff0e6,stroke:#FF8800,color:#333
+        style Scale2016 fill:#fff0e6,stroke:#F59E0B,color:#333
 
         Kong2016["Kong API Gateway<br/>━━━━━<br/>Rate limiting<br/>Authentication<br/>Request validation<br/>Multi-region routing"]
 
@@ -100,10 +100,10 @@ graph TB
     MongoDB2020 -.->|"Global distribution<br/>Compliance needs"| PaymentInfra2024
 
     %% Apply colors for different time periods
-    classDef scale2010 fill:#e6f3ff,stroke:#0066CC,color:#333,font-weight:bold
-    classDef scale2012 fill:#e6ffe6,stroke:#00AA00,color:#333,font-weight:bold
-    classDef scale2014 fill:#ffe6e6,stroke:#CC0000,color:#333,font-weight:bold
-    classDef scale2016 fill:#fff0e6,stroke:#FF8800,color:#333,font-weight:bold
+    classDef scale2010 fill:#e6f3ff,stroke:#3B82F6,color:#333,font-weight:bold
+    classDef scale2012 fill:#e6ffe6,stroke:#10B981,color:#333,font-weight:bold
+    classDef scale2014 fill:#ffe6e6,stroke:#8B5CF6,color:#333,font-weight:bold
+    classDef scale2016 fill:#fff0e6,stroke:#F59E0B,color:#333,font-weight:bold
     classDef scale2018 fill:#f0e6ff,stroke:#9900CC,color:#333,font-weight:bold
     classDef scale2020 fill:#e6f9ff,stroke:#0099CC,color:#333,font-weight:bold
     classDef scale2024 fill:#ffe6f9,stroke:#CC0066,color:#333,font-weight:bold

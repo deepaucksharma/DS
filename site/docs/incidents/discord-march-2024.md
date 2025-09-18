@@ -51,27 +51,27 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #0066CC"
+    subgraph "Edge Plane - Blue #3B82F6"
         GATEWAY[Discord Gateway<br/>WebSocket Connections]
         CDN[Discord CDN<br/>Media Delivery]
         VOICE[Voice Servers<br/>RTC Infrastructure]
     end
 
-    subgraph "Service Plane - Green #00AA00"
+    subgraph "Service Plane - Green #10B981"
         MSGAPI[Message API<br/>Text Processing]
         VOICEAPI[Voice API<br/>Audio Processing]
         VIDEOAPI[Video API<br/>Screen Share]
         GAMEAPI[Game Activity API<br/>Rich Presence]
     end
 
-    subgraph "State Plane - Orange #FF8800"
+    subgraph "State Plane - Orange #F59E0B"
         CASSANDRA[(Cassandra Cluster<br/>Message Storage<br/>PRIMARY FAILURE)]
         REDIS[(Redis Cluster<br/>Session Cache)]
         POSTGRES[(PostgreSQL<br/>User & Guild Data)]
         SCYLLA[(ScyllaDB<br/>Voice Metadata)]
     end
 
-    subgraph "Control Plane - Red #CC0000"
+    subgraph "Control Plane - Red #8B5CF6"
         MONITORING[Datadog Monitoring<br/>Metrics & Alerts]
         CONFIG[Configuration Service<br/>Feature Flags]
         DEPLOY[Deployment Pipeline<br/>Auto-deployment]
@@ -110,10 +110,10 @@ graph TB
     GATEWAY -.->|Complete service failure<br/>200M+ users affected| CUSTOMERS[Gaming Communities<br/>Corporate Teams<br/>Creator Streams<br/>Educational Groups<br/>Social Servers]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef shardStyle fill:#4B0082,stroke:#301934,color:#fff,stroke-width:4px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
@@ -167,7 +167,7 @@ graph LR
 
     A --> B --> C --> D --> E --> F
 
-    classDef splitBrainStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:2px
+    classDef splitBrainStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:2px
     class A,B,C,D,E,F splitBrainStyle
 ```
 
@@ -249,7 +249,7 @@ flowchart TD
     I --> J[Service Degradation<br/>Cannot determine truth]
     J --> K[Complete Service Failure<br/>Safety mechanism activated]
 
-    classDef network fill:#FF6B6B,stroke:#CC0000,color:#fff
+    classDef network fill:#FF6B6B,stroke:#8B5CF6,color:#fff
     classDef partition fill:#FFA500,stroke:#FF8C00,color:#fff
     classDef conflict fill:#8B0000,stroke:#660000,color:#fff
 
@@ -429,7 +429,7 @@ graph TB
     GRACEFUL --> QUEUE
     QUEUE --> FALLBACK
 
-    classDef newStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef newStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     class COORD1,COORD2,COORD3,DETECT,SCYLLA1,SCYLLA2,SCYLLA3,SYNC,GRACEFUL,QUEUE,FALLBACK newStyle
 ```
 

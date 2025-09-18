@@ -40,9 +40,9 @@ graph TB
         SCALE1 --> SCALE2 --> SCALE3
     end
 
-    classDef osStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef networkStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef scaleStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef osStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef networkStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef scaleStyle fill:#10B981,stroke:#059669,color:#fff
 
     class OS1,OS2,OS3 osStyle
     class NET1,NET2,NET3 networkStyle
@@ -85,10 +85,10 @@ graph LR
         MASSIVE1 --> MASSIVE2
     end
 
-    classDef smallStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef mediumStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef largeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef massiveStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef smallStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef mediumStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef largeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef massiveStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SMALL1,SMALL2 smallStyle
     class MEDIUM1,MEDIUM2 mediumStyle
@@ -132,9 +132,9 @@ graph TB
         HIER1 --> HIER2 --> HIER3
     end
 
-    classDef simpleStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef roomStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef hierStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef simpleStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef roomStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef hierStyle fill:#10B981,stroke:#059669,color:#fff
 
     class SIMPLE1,SIMPLE2,SIMPLE3 simpleStyle
     class ROOM1,ROOM2,ROOM3 roomStyle
@@ -171,9 +171,9 @@ graph LR
         NET1 --> NET2 --> NET3
     end
 
-    classDef batchStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef memStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef netStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef batchStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef memStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef netStyle fill:#10B981,stroke:#059669,color:#fff
 
     class BATCH1,BATCH2 batchStyle
     class MEM1,MEM2 memStyle
@@ -216,9 +216,9 @@ graph TB
         INTEL1 --> INTEL2 --> INTEL3
     end
 
-    classDef naiveStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef backoffStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef intelStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef naiveStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef backoffStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef intelStyle fill:#10B981,stroke:#059669,color:#fff
 
     class NAIVE1,NAIVE2,NAIVE3 naiveStyle
     class BACKOFF1,BACKOFF2,BACKOFF3 backoffStyle
@@ -253,9 +253,9 @@ graph LR
         QUEUE1 --> QUEUE2
     end
 
-    classDef lifecycleStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef heartbeatStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef queueStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef lifecycleStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef heartbeatStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef queueStyle fill:#10B981,stroke:#059669,color:#fff
 
     class LIFECYCLE1,LIFECYCLE2 lifecycleStyle
     class HEARTBEAT1,HEARTBEAT2 heartbeatStyle
@@ -296,9 +296,9 @@ graph TB
         TRADE1 --> TRADE2
     end
 
-    classDef noCompStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef compStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef tradeStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef noCompStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef compStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef tradeStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class NO_COMP1,NO_COMP2,NO_COMP3 noCompStyle
     class PMD1,PMD2,PMD3 compStyle
@@ -333,9 +333,9 @@ graph LR
         IOT1 --> IOT2
     end
 
-    classDef hbnStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef mobStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef iotStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef hbnStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef mobStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef iotStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class HBN1,HBN2 hbnStyle
     class MOB1,MOB2 mobStyle
@@ -376,9 +376,9 @@ graph TB
         PERF1 --> PERF2
     end
 
-    classDef gatewayStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef scaleStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef gatewayStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef scaleStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
 
     class GATEWAY1,GATEWAY2,GATEWAY3 gatewayStyle
     class SCALE1,SCALE2,SCALE3 scaleStyle
@@ -412,9 +412,9 @@ graph LR
     SYS2 --> RESULTS1
     APP2 --> RESULTS1
 
-    classDef sysStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef appStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef resultStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef sysStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef appStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef resultStyle fill:#10B981,stroke:#059669,color:#fff
 
     class SYS1,SYS2 sysStyle
     class APP1,APP2 appStyle
@@ -451,7 +451,7 @@ graph TB
         PROTO_OPT[Protocol tuning<br/>• Compression configuration<br/>• Heartbeat optimization<br/>• Frame size tuning<br/>• Binary protocols]
     end
 
-    classDef optStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef optStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class SYS_OPT,APP_OPT,INFRA_OPT,PROTO_OPT optStyle
 ```

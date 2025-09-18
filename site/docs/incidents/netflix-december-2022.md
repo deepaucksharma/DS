@@ -43,27 +43,27 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #0066CC"
+    subgraph "Edge Plane - Blue #3B82F6"
         CDN[Netflix CDN<br/>Global Cache Network<br/>POISONED CACHE]
         EDGE[Edge Servers<br/>Regional PoPs]
         DEVICE[Client Devices<br/>Smart TVs, Phones]
     end
 
-    subgraph "Service Plane - Green #00AA00"
+    subgraph "Service Plane - Green #10B981"
         PLAYBACK[Playback Service<br/>Video Streaming]
         METADATA[Metadata Service<br/>Content Information]
         RECOMMENDATION[Recommendation<br/>Content Discovery]
         BILLING[Billing Service<br/>Subscription Management]
     end
 
-    subgraph "State Plane - Orange #FF8800"
+    subgraph "State Plane - Orange #F59E0B"
         CONTENT[(Content Database<br/>Video Metadata)]
         PROFILES[(User Profiles<br/>Viewing History)]
         ANALYTICS[(Analytics Store<br/>Viewing Data)]
         ASSETS[(Video Assets<br/>Encoded Streams)]
     end
 
-    subgraph "Control Plane - Red #CC0000"
+    subgraph "Control Plane - Red #8B5CF6"
         MONITORING[System Monitoring<br/>Performance Metrics]
         DEPLOYMENT[Deployment System<br/>Code & Config Deploy]
         AUTOSCALE[Auto-scaling<br/>Capacity Management]
@@ -88,10 +88,10 @@ graph TB
     PLAYBACK -.->|"Title not available"<br/>40M+ viewers affected| VIEWERS[Christmas Day Families<br/>Holiday Streamers<br/>International Users<br/>Binge Watchers]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
     class CDN,EDGE,DEVICE edgeStyle

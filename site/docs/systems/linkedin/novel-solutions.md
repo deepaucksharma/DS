@@ -110,7 +110,7 @@ graph TB
     TOPIC1 -.->|"Multiple consumers<br/>Independent processing<br/>Replay capability"| HADOOP_C
 
     classDef producerStyle fill:#E8F5E8,stroke:#388E3C,color:#000
-    classDef kafkaStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef kafkaStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef consumerStyle fill:#E3F2FD,stroke:#1976D2,color:#000
 
     class WEB_P,DB_P,APP_P producerStyle
@@ -264,7 +264,7 @@ graph TB
     classDef clientStyle fill:#E8F5E8,stroke:#388E3C,color:#000
     classDef routingStyle fill:#E3F2FD,stroke:#1976D2,color:#000
     classDef storageStyle fill:#FFF3E0,stroke:#F57C00,color:#000
-    classDef replicationStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef replicationStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef viewStyle fill:#F3E5F5,stroke:#7B1FA2,color:#000
 
     class ESP_CLIENT clientStyle
@@ -365,7 +365,7 @@ graph TB
 
     classDef sourceStyle fill:#E8F5E8,stroke:#388E3C,color:#000
     classDef processStyle fill:#FFF3E0,stroke:#F57C00,color:#000
-    classDef veniceStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef veniceStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef clientStyle fill:#E3F2FD,stroke:#1976D2,color:#000
 
     class ESPRESSO_SOURCE,KAFKA_STREAM sourceStyle
@@ -423,7 +423,7 @@ graph TB
     PROFILE_ENRICHMENT -.->|"Exactly-once processing<br/>Stateful computations<br/>Fault tolerance"| ENRICHED_EVENTS
 
     classDef inputStyle fill:#E8F5E8,stroke:#388E3C,color:#000
-    classDef jobStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef jobStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef stateStyle fill:#FFF3E0,stroke:#F57C00,color:#000
     classDef outputStyle fill:#E3F2FD,stroke:#1976D2,color:#000
 
@@ -485,7 +485,7 @@ graph TB
     TYPE_SAFETY -.->|"Compile-time safety<br/>API evolution<br/>Developer productivity"| BATCH_SUPPORT
 
     classDef clientStyle fill:#E8F5E8,stroke:#388E3C,color:#000
-    classDef frameworkStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef frameworkStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef serviceStyle fill:#E3F2FD,stroke:#1976D2,color:#000
     classDef dataStyle fill:#FFF3E0,stroke:#F57C00,color:#000
 
@@ -544,7 +544,7 @@ graph TB
     %% Market impact
     KAFKA_CORE -.->|"Market value: $10B+<br/>50,000+ companies<br/>DefacTo streaming standard"| CONFLUENT
 
-    classDef coreStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef coreStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef adopterStyle fill:#E8F5E8,stroke:#388E3C,color:#000
     classDef toolStyle fill:#E3F2FD,stroke:#1976D2,color:#000
 

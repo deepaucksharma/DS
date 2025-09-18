@@ -48,10 +48,10 @@ graph TB
     GP --> CB
 
     %% Apply 4-plane colors
-    classDef detectionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef repairStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef coordinationStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef optimizationStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef detectionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef repairStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef coordinationStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef optimizationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class RD,PD,GD detectionStyle
     class RR,AE,HH repairStyle
@@ -153,10 +153,10 @@ graph TB
     R1 --> O3
     R4 --> O4
 
-    classDef constructionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef comparisonStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef reconciliationStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef optimizationStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef constructionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef comparisonStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef reconciliationStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef optimizationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class TC1,TC2,TC3,TC4 constructionStyle
     class C1,C2,C3,C4 comparisonStyle
@@ -207,10 +207,10 @@ graph LR
     PO2 --> RW2
     PO3 --> RW3
 
-    classDef roundStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stateStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef optimizeStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef exampleStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef roundStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stateStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef optimizeStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef exampleStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class GR1,GR2,GR3 roundStyle
     class SE1,SE2,SE3 stateStyle
@@ -319,10 +319,10 @@ graph TB
     HD3 --> HM3
     HD4 --> HM4
 
-    classDef normalStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef failureStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef deliveryStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef managementStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef normalStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef failureStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef deliveryStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef managementStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class NO1,NO2,NO3,NO4 normalStyle
     class NF1,NF2,NF3,NF4 failureStyle
@@ -410,10 +410,10 @@ graph TB
     HHI2 --> O3
     AEI4 --> O4
 
-    classDef readRepairStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef antiEntropyStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef hintedHandoffStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef optimizationStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef readRepairStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef antiEntropyStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef hintedHandoffStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef optimizationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class RRI1,RRI2,RRI3,RRI4 readRepairStyle
     class AEI1,AEI2,AEI3,AEI4 antiEntropyStyle
@@ -716,10 +716,10 @@ graph LR
         end
     end
 
-    classDef readRepairStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef antiEntropyStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef hintedHandoffStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef hybridStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef readRepairStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef antiEntropyStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef hintedHandoffStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef hybridStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class RR1,RR2,RR3 readRepairStyle
     class AE1,AE2,AE3 antiEntropyStyle

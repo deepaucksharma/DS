@@ -113,11 +113,11 @@ graph TB
     end
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef problemStyle fill:#FF0000,stroke:#CC0000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef problemStyle fill:#FF0000,stroke:#8B5CF6,color:#fff
 
     class ELB,CF edgeStyle
     class MONO,TRIP,USER,PAY,MATCH,PRICING,NOTIF serviceStyle
@@ -181,10 +181,10 @@ graph TB
     PAY_SVC --> MYSQL_PAY
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ELB,API edgeStyle
     class MONO,TRIP_SVC,USER_SVC,PAY_SVC serviceStyle
@@ -268,10 +268,10 @@ graph TB
     MATCH_SVC --> KAFKA
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ELB_US,ELB_EU,API_GW edgeStyle
     class TRIP_SVC,USER_SVC,PAY_SVC,MATCH_SVC,PRICING_SVC,NOTIF_SVC,GEO_SVC,MONO serviceStyle
@@ -383,10 +383,10 @@ graph TB
     CHAOS -.-> CITY_US
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,ALB,MESH edgeStyle
     class IDENTITY,CONFIG,ROUTING,TRIP_V2,DRIVER,RIDER,MATCHING,PRICING_V2,PAYMENTS,CITY_US,CITY_EU,CITY_ASIA serviceStyle
@@ -504,10 +504,10 @@ graph TB
     CHAOS -.-> CITY_SERVICES
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,ALB,GATEWAY edgeStyle
     class AUTH,CONFIG,DISCOVERY,GATEWAY_SVC,TRIP,MATCHING,PRICING,PAYMENTS,DRIVER,RIDER,CITY_SERVICES,REGULATORY,LOCALIZATION serviceStyle

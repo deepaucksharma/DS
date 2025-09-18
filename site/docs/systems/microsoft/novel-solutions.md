@@ -61,10 +61,10 @@ graph TB
     HIGH_AVAILABILITY -.->|"Sub-second failover"| SIMPLIFIED_DEVELOPMENT
     AUTOMATIC_SCALING -.->|"Resource optimization"| OPERATIONAL_EXCELLENCE
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef innovationStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef benefitStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef innovationStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef benefitStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class STATE_MANAGEMENT,SERVICE_ORCHESTRATION,FAULT_TOLERANCE,DEPLOYMENT_COMPLEXITY problemStyle
     class ACTOR_MODEL,RELIABLE_COLLECTIONS,STATEFUL_SERVICES,CLUSTER_MANAGER solutionStyle
@@ -129,10 +129,10 @@ graph TB
     CONSISTENCY_SPECTRUM -.->|"Strong to eventual"| PARTITION_MANAGEMENT
     DEVELOPER_PRODUCTIVITY -.->|"Multi-API support"| GLOBAL_SCALE
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef innovationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef breakthroughStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef impactStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef innovationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef breakthroughStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef impactStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CAP_THEOREM,GLOBAL_LATENCY,CONSISTENCY_MODELS,SLA_GUARANTEES problemStyle
     class MULTI_MASTER,ATOM_RECORD_SEQUENCE,CONSISTENCY_SPECTRUM,GLOBAL_DISTRIBUTION innovationStyle
@@ -197,10 +197,10 @@ graph LR
     LINEAR_SCALABILITY -.->|"1000+ nodes"| FAULT_TOLERANCE
     HIGH_THROUGHPUT -.->|"Millions msg/sec"| SIMPLIFIED_PROGRAMMING
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef modelStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef innovationStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef benefitStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef modelStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef innovationStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef benefitStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SHARED_STATE,RACE_CONDITIONS,DEADLOCK_ISSUES,SCALING_COMPLEXITY problemStyle
     class VIRTUAL_ACTORS,SINGLE_THREADED,LOCATION_TRANSPARENCY,AUTOMATIC_ACTIVATION modelStyle
@@ -265,10 +265,10 @@ graph TB
     DEPLOYMENT_RELIABILITY -.->|"Sub-minute deployments"| COMPLIANCE_AUTOMATION
     COST_OPTIMIZATION -.->|"Resource tagging"| INFRASTRUCTURE_CONSISTENCY
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef featureStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef benefitStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef featureStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef benefitStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class IMPERATIVE_SCRIPTS,DEPENDENCY_HELL,STATE_DRIFT,ROLLBACK_COMPLEXITY problemStyle
     class DECLARATIVE_TEMPLATES,DEPENDENCY_GRAPH,IDEMPOTENT_DEPLOYMENT,RESOURCE_PROVIDERS solutionStyle
@@ -333,10 +333,10 @@ graph TB
     ENHANCED_PRODUCTIVITY -.->|"Industry standard"| REDUCED_BUGS
     IMPROVED_TOOLING -.->|"IntelliSense support"| BETTER_REFACTORING
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef featureStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef benefitStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef featureStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef benefitStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class DYNAMIC_TYPING,RUNTIME_ERRORS,REFACTORING_DIFFICULTY,TOOLING_LIMITATIONS problemStyle
     class OPTIONAL_TYPING,COMPILE_TIME_CHECKING,ADVANCED_TYPES,JAVASCRIPT_SUPERSET solutionStyle
@@ -401,10 +401,10 @@ graph LR
     UNIVERSAL_IDE -.->|"70% market share"| RAPID_EXTENSIBILITY
     CLOUD_DEVELOPMENT -.->|"GitHub Codespaces"| CROSS_PLATFORM
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef innovationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef featureStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef impactStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef innovationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef featureStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef impactStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class PERFORMANCE_ISSUES,LANGUAGE_SILOS,EXTENSION_COMPLEXITY,REMOTE_DEVELOPMENT problemStyle
     class ELECTRON_ARCHITECTURE,LANGUAGE_SERVER,EXTENSION_MARKETPLACE,REMOTE_CAPABILITIES innovationStyle
@@ -469,10 +469,10 @@ graph TB
     REDUCED_COMPLEXITY -.->|"Single SDK"| FASTER_DEVELOPMENT
     ECOSYSTEM_GROWTH -.->|"1M+ developers"| UNIFIED_EXPERIENCE
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef featureStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef valueStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef featureStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef valueStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class MULTIPLE_ENDPOINTS,AUTH_COMPLEXITY,DATA_SILOS,DEVELOPER_FRICTION problemStyle
     class UNIFIED_ENDPOINT,SINGLE_AUTH,CONNECTED_DATA,CONSISTENT_API solutionStyle
@@ -611,10 +611,10 @@ graph TB
     AI_INFRASTRUCTURE --> HOLOLENS_PLATFORM
     PROMPT_ENGINEERING --> MIXED_REALITY
 
-    classDef aiStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef quantumStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef sustainableStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef spatialStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef aiStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef quantumStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef sustainableStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef spatialStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class COPILOT_PLATFORM,MULTIMODAL_AI,AI_INFRASTRUCTURE,PROMPT_ENGINEERING aiStyle
     class AZURE_QUANTUM,TOPOLOGICAL_QUBITS,QUANTUM_ALGORITHMS,QUANTUM_NETWORKING quantumStyle

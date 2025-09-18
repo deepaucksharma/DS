@@ -77,8 +77,8 @@ graph TB
         Team1[Team Size<br/>2-5 engineers<br/>Everyone on-call]
     end
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class LB,App serviceStyle
     class DB,Files stateStyle
@@ -139,9 +139,9 @@ graph TB
         Team2[Team Size<br/>15-30 engineers<br/>On-call rotation]
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CDN,ELB edgeStyle
     class WebApp,API,StreamSvc,Search,Social serviceStyle
@@ -235,10 +235,10 @@ graph TB
         Team3[Team Size<br/>200+ engineers<br/>Squad model<br/>24/7 operations]
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class FastlyCDN,AWSALB edgeStyle
     class Gateway,UserMS,PlaylistMS,StreamMS,SearchMS,RecoMS,DiscoveryMS,AdMS serviceStyle
@@ -309,10 +309,10 @@ graph TB
         Team[Engineering Organization<br/>2000+ engineers<br/>200+ autonomous squads<br/>Platform engineering focus]
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MultiCDN,EdgeCompute edgeStyle
     class Backstage,CoreSquads,MLSquads,ContentSquads,InfraSquads,ServiceMesh2,FeatureStore,ModelServing,AutoML serviceStyle

@@ -155,7 +155,7 @@ graph TB
     HERON_PROD -.->|"Throughput: 10M events/sec<br/>Latency: p99 <100ms<br/>Cost per event: $0.000001"| KAFKA_BROKERS
     KAFKA_BROKERS -.->|"Storage: 100TB/day<br/>Retention: 7 days<br/>Compression: 75%"| KAFKA_STORAGE
 
-    classDef heronStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef heronStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef kafkaStyle fill:#FFF3E0,stroke:#F57C00,color:#000
     classDef serviceStyle fill:#E8F5E8,stroke:#388E3C,color:#000
 

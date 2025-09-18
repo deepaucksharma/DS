@@ -36,9 +36,9 @@ graph TD
     N --> S[Data Reconciliation]
     O --> T[Emergency Procedures]
 
-    style A fill:#CC0000,stroke:#990000,color:#fff
-    style I fill:#FF8800,stroke:#CC6600,color:#fff
-    style S fill:#00AA00,stroke:#007700,color:#fff
+    style A fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    style I fill:#F59E0B,stroke:#D97706,color:#fff
+    style S fill:#10B981,stroke:#059669,color:#fff
 ```
 
 ## Immediate Triage Commands (First 5 Minutes)

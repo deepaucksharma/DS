@@ -161,7 +161,7 @@ graph TB
     KAFKA_MAIN -.->|"Throughput: 7T msgs/day<br/>Cost per million msgs: $0.025"| KAFKA_ANALYTICS
     KAFKA_LOGS -.->|"Compression ratio: 4:1<br/>Actual storage: 2.5 PB"| KAFKA_BACKUP
 
-    classDef kafkaStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef kafkaStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef storageStyle fill:#FFF3E0,stroke:#F57C00,color:#000
     classDef toolingStyle fill:#E8F5E8,stroke:#388E3C,color:#000
 

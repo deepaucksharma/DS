@@ -9,20 +9,20 @@ Cloudflare's global architecture is designed with multiple failure domains to en
 ```mermaid
 graph TB
     subgraph "Global Failure Domains"
-        subgraph "Tier 1: Regional Failures #CC0000"
+        subgraph "Tier 1: Regional Failures #8B5CF6"
             REGION_NA[North America<br/>100+ PoPs<br/>Blast radius: 15% traffic]
             REGION_EU[Europe<br/>80+ PoPs<br/>Blast radius: 25% traffic]
             REGION_ASIA[Asia Pacific<br/>70+ PoPs<br/>Blast radius: 35% traffic]
             REGION_OTHER[Other Regions<br/>35+ PoPs<br/>Blast radius: 25% traffic]
         end
 
-        subgraph "Tier 2: Metro Failures #FF8800"
+        subgraph "Tier 2: Metro Failures #F59E0B"
             METRO_NYC[NYC Metro<br/>4 PoPs<br/>Blast radius: 2% traffic]
             METRO_LON[London Metro<br/>3 PoPs<br/>Blast radius: 3% traffic]
             METRO_SIN[Singapore Metro<br/>2 PoPs<br/>Blast radius: 4% traffic]
         end
 
-        subgraph "Tier 3: PoP Failures #FF8800"
+        subgraph "Tier 3: PoP Failures #F59E0B"
             POP_JFK[JFK PoP<br/>20 servers<br/>400 Gbps capacity]
             POP_LHR[LHR PoP<br/>30 servers<br/>600 Gbps capacity]
             POP_NRT[NRT PoP<br/>15 servers<br/>300 Gbps capacity]
@@ -35,7 +35,7 @@ graph TB
         end
     end
 
-    subgraph "Cascading Failure Prevention #00AA00"
+    subgraph "Cascading Failure Prevention #10B981"
         CIRCUIT[Circuit Breakers<br/>Per-service protection]
         BULKHEAD[Bulkhead Isolation<br/>Resource partitioning]
         BACKPRESSURE[Backpressure Control<br/>Load shedding]
@@ -54,10 +54,10 @@ graph TB
     FALLBACK --> SERVER_1
 
     %% Apply colors based on blast radius
-    classDef criticalStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef highStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef criticalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef highStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef mediumStyle fill:#FFCC00,stroke:#CC9900,color:#000
-    classDef protectionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef protectionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class REGION_NA,REGION_EU,REGION_ASIA,REGION_OTHER criticalStyle
     class METRO_NYC,METRO_LON,METRO_SIN,POP_JFK,POP_LHR,POP_NRT highStyle
@@ -94,8 +94,8 @@ graph TB
     end
 
     %% Apply incident colors
-    classDef incidentStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef impactStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef incidentStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef impactStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class T1,T2,T3,T4,T5,REGEX,CPU incidentStyle
     class GLOBAL,REVENUE impactStyle
@@ -129,8 +129,8 @@ graph TB
     end
 
     %% Apply colors
-    classDef incidentStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serviceStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef incidentStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serviceStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CHANGE,LEAK,BLACKHOLE,DETECTION,MITIGATION incidentStyle
     class DNS_IMPACT,CDN_IMPACT,WORKERS_IMPACT serviceStyle
@@ -175,9 +175,9 @@ graph TB
     SCALE --> VALIDATE
 
     %% Apply colors
-    classDef detectionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef responseStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef recoveryStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef detectionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef responseStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef recoveryStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class HEALTH,METRICS,TRAFFIC detectionStyle
     class ALERT,REROUTE,SCALE responseStyle
@@ -202,9 +202,9 @@ graph TB
     end
 
     %% Apply colors
-    classDef normalStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef failureStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef recoveryStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef normalStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef failureStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef recoveryStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class PRIMARY,SERVICE_A normalStyle
     class FAILURE,CIRCUIT_OPEN failureStyle
@@ -246,8 +246,8 @@ graph LR
     end
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef resourceStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef resourceStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CDN,DNS,WORKERS,SECURITY serviceStyle
     class CPU_CDN,CPU_WORKERS,CPU_SECURITY,CPU_MGMT resourceStyle

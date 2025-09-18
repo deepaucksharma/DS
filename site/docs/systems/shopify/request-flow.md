@@ -205,8 +205,8 @@ graph TB
     STEP6 --> ABANDONMENT
 
     %% Apply checkout colors
-    classDef stepStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef optimizationStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stepStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef optimizationStyle fill:#10B981,stroke:#059669,color:#fff
 
     class STEP1,STEP2,STEP3,STEP4,STEP5,STEP6 stepStyle
     class MOBILE,SHOP_PAY,AUTOCOMPLETE,ABANDONMENT optimizationStyle
@@ -261,8 +261,8 @@ graph TB
     ORDER_COMPLETE --> MULTI_CHANNEL
 
     %% Apply inventory colors
-    classDef inventoryStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef challengeStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef inventoryStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef challengeStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ADD_CART,CHECKOUT_START,PAYMENT_AUTH,ORDER_COMPLETE inventoryStyle
     class OVERSELL,FLASH_SALE,MULTI_CHANNEL challengeStyle
@@ -304,8 +304,8 @@ graph TB
     end
 
     %% Apply payment colors
-    classDef paymentStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef fraudStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef paymentStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef fraudStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SHOP_PAY,SHOPIFY_PAYMENTS,THIRD_PARTY,ROUTING,PROCESSOR,RESULT paymentStyle
     class RISK_SCORING,FRAUD_RULES,MANUAL_REVIEW fraudStyle
@@ -348,8 +348,8 @@ graph TB
     INVALIDATION --> WARMING
 
     %% Apply cache colors
-    classDef cacheStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef performanceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef cacheStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef performanceStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CDN_CACHE,PAGE_CACHE,FRAGMENT_CACHE,OBJECT_CACHE,SESSION_CACHE cacheStyle
     class HIT_RATES,INVALIDATION,WARMING performanceStyle
@@ -396,8 +396,8 @@ graph TB
     CYBER_MONDAY --> MONITORING
 
     %% Apply scaling colors
-    classDef trafficStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef scalingStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef trafficStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef scalingStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class BASELINE,RAMPUP,PEAK_PREP,BLACK_FRIDAY,CYBER_MONDAY trafficStyle
     class INFRASTRUCTURE,OPTIMIZATION,MONITORING scalingStyle

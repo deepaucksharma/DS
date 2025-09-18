@@ -93,9 +93,9 @@ graph TB
     EDGE -.->|"Hit ratio: 95%"| CDN
     HAY -.->|"Storage: 500B+ photos"| HAY
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class UP,PROC serviceStyle
     class APP,EDGE,CDN edgeStyle
@@ -145,9 +145,9 @@ graph TB
     QUEUE -.->|"100B+ msgs/day"| QUEUE
     CRYPTO -.->|"Signal Protocol"| CRYPTO
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class S_MSG,R_MSG,ROUTER serviceStyle
     class S_EDGE,R_EDGE,PUSH edgeStyle
@@ -208,9 +208,9 @@ graph LR
     CACHE_L -.->|"Hit ratio: 80%"| TAO_Q
     TAO_G -.->|"p99: 1ms"| MYSQL_B
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class MOBILE,WEB,THIRD edgeStyle
     class GRAPHQL,REST,RATE,AUTH,RESOLVER,BATCH serviceStyle
@@ -267,9 +267,9 @@ graph TB
     CDN_L -.->|"Global: 200+ PoPs"| VIEWERS
     CHAT -.->|"Messages: 1M/min"| REACTIONS
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class ENCODER,INGEST,TRANSCODE,MANIFEST serviceStyle
     class CREATOR,CDN_L,VIEWERS edgeStyle
@@ -326,8 +326,8 @@ graph LR
     RANK --> GLOBAL_CACHE
     GLOBAL_CACHE --> PREFETCH
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class MULTIPLY,NORMALIZE,RANK serviceStyle
     class AFFINITY,WEIGHT,DECAY,USER_CACHE,GLOBAL_CACHE,PREFETCH stateStyle

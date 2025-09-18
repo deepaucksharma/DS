@@ -23,8 +23,8 @@ graph TB
     end
 
     %% Apply colors
-    classDef kafkaStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef kinesisStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef kafkaStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef kinesisStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class KF_BROKER,KF_ZK,KF_TOPIC,KF_CONSUMER kafkaStyle
     class KIN_STREAM,KIN_FIREHOSE,KIN_ANALYTICS,KIN_VIDEO kinesisStyle

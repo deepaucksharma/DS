@@ -8,7 +8,7 @@ Shopify has pioneered numerous breakthrough technologies that redefined e-commer
 
 ```mermaid
 graph TB
-    subgraph "Platform Innovations #00AA00"
+    subgraph "Platform Innovations #10B981"
         subgraph "Developer Experience Revolution"
             LIQUID[Liquid Templating<br/>Safe template language<br/>Sandboxed execution<br/>Non-programmer friendly]
             THEME_STORE[Theme Store<br/>Marketplace ecosystem<br/>Developer revenue<br/>Design standardization]
@@ -22,7 +22,7 @@ graph TB
         end
     end
 
-    subgraph "Commerce Innovations #0066CC"
+    subgraph "Commerce Innovations #3B82F6"
         subgraph "Shop Pay Ecosystem"
             SHOP_PAY[Shop Pay<br/>Cross-merchant payments<br/>1-click checkout<br/>40M+ consumers]
             SHOP_NETWORK[Shop Network<br/>Consumer discovery<br/>Social commerce<br/>Merchant benefits]
@@ -36,7 +36,7 @@ graph TB
         end
     end
 
-    subgraph "Scale Solutions #FF8800"
+    subgraph "Scale Solutions #F59E0B"
         subgraph "Database Innovations"
             VITESS_ADOPTION[Vitess at Scale<br/>130+ MySQL shards<br/>Horizontal scaling<br/>Zero-downtime migration]
             MULTI_TENANT_SHARDING[Multi-tenant Sharding<br/>Merchant isolation<br/>Resource efficiency<br/>Performance guarantees]
@@ -50,7 +50,7 @@ graph TB
         end
     end
 
-    subgraph "Business Model Innovations #CC0000"
+    subgraph "Business Model Innovations #8B5CF6"
         subgraph "Revenue Diversification"
             SHOPIFY_CAPITAL[Shopify Capital<br/>Merchant financing<br/>Revenue-based loans<br/>Data-driven underwriting]
             PLUS_ENTERPRISE[Shopify Plus<br/>Enterprise platform<br/>Dedicated resources<br/>Premium support]
@@ -75,10 +75,10 @@ graph TB
     INTERNATIONAL_COMMERCE --> B2B_PLATFORM
 
     %% Apply innovation colors
-    classDef platformStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef commerceStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef scaleStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef businessStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef platformStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef commerceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef scaleStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef businessStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LIQUID,THEME_STORE,APP_PLATFORM,COMPONENT_BOUNDARIES,RAILS_AT_SCALE,FEATURE_FLAGS platformStyle
     class SHOP_PAY,SHOP_NETWORK,ACCELERATED_CHECKOUT,FULFILLMENT_NETWORK,SHOP_PROMISE,LOCAL_DELIVERY commerceStyle
@@ -122,9 +122,9 @@ graph TB
     OBJECTS --> SECURITY
 
     %% Apply template colors
-    classDef problemStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef featureStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef problemStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef featureStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class PHP_TEMPLATES,RUBY_ERB,ASP_CLASSIC problemStyle
     class SAFE_EXECUTION,DESIGNER_FRIENDLY,PLATFORM_AGNOSTIC solutionStyle
@@ -181,9 +181,9 @@ graph TB
     NETWORK_EFFECTS --> SHOP_CARD
 
     %% Apply Shop Pay colors
-    classDef problemStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef innovationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef ecosystemStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef problemStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef innovationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef ecosystemStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class GUEST_CHECKOUT,MERCHANT_SILOS,PAYMENT_FRICTION problemStyle
     class ONE_CLICK,CROSS_MERCHANT,FRAUD_PROTECTION innovationStyle
@@ -240,9 +240,9 @@ graph TB
     PERFORMANCE_OPTIMIZATION --> OPERATIONAL_EXCELLENCE
 
     %% Apply Vitess colors
-    classDef challengeStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef innovationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef scaleStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef challengeStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef innovationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef scaleStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class SINGLE_DB,MANUAL_SHARDING,DOWNTIME_MIGRATIONS challengeStyle
     class HORIZONTAL_SCALING,QUERY_ROUTING,ONLINE_DDL innovationStyle
@@ -300,9 +300,9 @@ graph TB
     MIGRATION_TOOLS --> MONITORING_ISOLATION
 
     %% Apply pod colors
-    classDef traditionalStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef podStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef managementStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef traditionalStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef podStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef managementStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class SHARED_EVERYTHING,DATABASE_SHARING,OPERATIONAL_COMPLEXITY traditionalStyle
     class RESOURCE_ISOLATION,BLAST_RADIUS_CONTAINMENT,TENANT_DENSITY podStyle
@@ -345,9 +345,9 @@ graph TB
     DEVELOPER_EXPERIENCE --> COMPLIANCE_AUTOMATION
 
     %% Apply deployment colors
-    classDef challengeStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef shipitStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef featureStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef challengeStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef shipitStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef featureStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class MANUAL_DEPLOYMENTS,BIG_BANG_RELEASES,DEPLOYMENT_FEAR challengeStyle
     class CONTINUOUS_DEPLOYMENT,GRADUAL_ROLLOUTS,AUTOMATED_ROLLBACK shipitStyle
@@ -404,9 +404,9 @@ graph TB
     TRANSPARENT_TERMS --> PORTFOLIO_MANAGEMENT
 
     %% Apply capital colors
-    classDef traditionalStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef innovationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef platformStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef traditionalStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef innovationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef platformStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class BANK_LOANS,FACTORING,MERCHANT_ADVANCES traditionalStyle
     class DATA_DRIVEN,REVENUE_BASED,INSTANT_APPROVAL innovationStyle
@@ -462,8 +462,8 @@ graph TB
     HYDROGEN --> DEVELOPER_ECOSYSTEM
 
     %% Apply open source colors
-    classDef projectStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef impactStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef projectStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef impactStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class ACTIVEMERCHANT,LIQUID_OSS,REACT_NATIVE,POLARIS,HYDROGEN,SHOPIFY_CLI projectStyle
     class DEVELOPER_ECOSYSTEM,INDUSTRY_STANDARDS,EDUCATIONAL_IMPACT impactStyle
@@ -519,7 +519,7 @@ graph TB
 
     %% Apply future colors
     classDef futureStyle fill:#E6CCFF,stroke:#9900CC,color:#000
-    classDef evolutionStyle fill:#CCFFCC,stroke:#00AA00,color:#000
+    classDef evolutionStyle fill:#CCFFCC,stroke:#10B981,color:#000
 
     class AI_PERSONALIZATION,VOICE_COMMERCE,AR_SHOPPING,BLOCKCHAIN_COMMERCE futureStyle
     class EDGE_COMMERCE,AUTONOMOUS_OPERATIONS,QUANTUM_SECURITY evolutionStyle

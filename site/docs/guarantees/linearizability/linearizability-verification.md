@@ -60,10 +60,10 @@ graph TB
     LP --> RP
 
     %% Apply 4-plane colors
-    classDef testStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef systemStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef analysisStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef testStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef systemStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef analysisStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class TG,TC,TR testStyle
     class LB,N1,N2,N3 systemStyle
@@ -146,9 +146,9 @@ graph TB
     LP3 --> V2
     LP4 --> V2
 
-    classDef historyStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef pointStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef validStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef historyStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef pointStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef validStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class O1,O2,O3,O4 historyStyle
     class LP1,LP2,LP3,LP4 pointStyle
@@ -198,10 +198,10 @@ graph LR
     RS --> SC
     SC --> BG
 
-    classDef modelStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef implStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef genStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef verifyStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef modelStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef implStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef genStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef verifyStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AM,AS modelStyle
     class API,RS implStyle
@@ -256,10 +256,10 @@ graph TB
     LV --> AH
     AH --> AR
 
-    classDef testStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef faultStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef validateStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef testStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef faultStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef validateStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CD,TH,MG testStyle
     class MS,CS,ZK serviceStyle
@@ -348,9 +348,9 @@ graph LR
     DB1 --> CM
     CM --> AM
 
-    classDef loadStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef systemStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef monitorStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef loadStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef systemStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef monitorStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LG1,LG2,LG3 loadStyle
     class Proxy,DB1,DB2,DB3 systemStyle
@@ -382,9 +382,9 @@ graph TB
         T4[Used by AWS, Azure<br/>for critical systems]
     end
 
-    classDef jepsenStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef fdbStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef tlaStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef jepsenStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef fdbStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef tlaStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class J1,J2,J3,J4 jepsenStyle
     class F1,F2,F3,F4 fdbStyle
@@ -450,9 +450,9 @@ graph TB
     V1 --> V2
     V2 --> V3
 
-    classDef nodeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef operationStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef violationStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef nodeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef operationStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef violationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class N1,N2,N3 nodeStyle
     class P1,P2,P3 operationStyle
@@ -488,10 +488,10 @@ graph LR
         PT3[Continuous monitoring<br/>linearizability checks]
     end
 
-    classDef unitStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef integrationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef chaosStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef prodStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef unitStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef integrationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef chaosStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef prodStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class UT1,UT2,UT3 unitStyle
     class IT1,IT2,IT3 integrationStyle

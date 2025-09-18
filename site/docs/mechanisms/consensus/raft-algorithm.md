@@ -160,7 +160,7 @@ graph TB
     SM --> |"Applied entries are identical on all nodes"| SM_DESC["• Only committed entries are applied<br/>• Deterministic state machine<br/>• Same sequence produces same state"]
 
     %% Apply control plane color for safety properties
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     class LE,LAS,LM,LCS,SM controlStyle
 ```
 
@@ -188,7 +188,7 @@ graph LR
     LRF --> LRF_VAL
 
     %% Apply state plane color for metrics
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class TPS,LAT,LEF,LRF,TPS_VAL,LAT_VAL,LEF_VAL,LRF_VAL stateStyle
 ```
 

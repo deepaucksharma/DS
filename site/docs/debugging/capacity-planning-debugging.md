@@ -41,10 +41,10 @@ flowchart TD
     CapacityValidation --> CapacityForecast[7. Capacity Forecast<br/>Future capacity planning<br/>⏱️ 15 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CapacityAlert,CapacityAssessment edgeStyle
     class CPUAnalysis,MemoryAnalysis,NetworkAnalysis serviceStyle
@@ -95,10 +95,10 @@ flowchart TD
     AutoScalingConfig --> CapacityMonitoring[7. Capacity Monitoring<br/>Continuous capacity oversight<br/>⏱️ 5 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ResourceTrends,TrendCollection edgeStyle
     class CPUTrends,MemoryTrends,LinearGrowth serviceStyle
@@ -149,10 +149,10 @@ flowchart TD
     ScalingValidation --> ScalingMonitoring[7. Scaling Monitoring<br/>Continuous scaling oversight<br/>⏱️ 8 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AutoScalingIssue,ScalingAssessment edgeStyle
     class HorizontalScaling,VerticalScaling,ScalingLatency serviceStyle
@@ -203,10 +203,10 @@ flowchart TD
     PreventiveMeasures --> PredictiveValidation[7. Predictive Validation<br/>Model accuracy verification<br/>⏱️ 10 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PerformancePredict,BaselineEstablishment edgeStyle
     class DatabaseBottleneck,APIBottleneck,TrendAnalysis serviceStyle

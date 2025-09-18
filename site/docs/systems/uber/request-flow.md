@@ -6,8 +6,8 @@ This diagram shows the complete request flow for Uber's ride matching system, fr
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         RiderApp["Rider Mobile App<br/>━━━━━<br/>iOS/Android<br/>130M MAU<br/>Real-time location<br/>WebSocket connection"]
 
@@ -18,8 +18,8 @@ graph TB
         LB["Load Balancer<br/>━━━━━<br/>HAProxy clusters<br/>Geo-aware routing<br/>Health checks<br/>p99: 5ms"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         AuthGW["Auth Gateway<br/>━━━━━<br/>JWT validation<br/>Rate limiting<br/>1M req/sec<br/>p99: 50ms"]
 
@@ -34,8 +34,8 @@ graph TB
         Dispatch["Dispatch Service<br/>━━━━━<br/>Driver assignment<br/>Push notifications<br/>Trip state machine<br/>p99: 200ms"]
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         GeoCache["Geo Cache (Redis)<br/>━━━━━<br/>Hot driver locations<br/>50TB geo data<br/>TTL: 30 seconds<br/>p99: 1ms"]
 
@@ -46,8 +46,8 @@ graph TB
         MapData["Map Data Store<br/>━━━━━<br/>Road networks<br/>Traffic patterns<br/>Route optimization<br/>PostgreSQL + PostGIS"]
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         Metrics["M3 Metrics<br/>━━━━━<br/>Real-time monitoring<br/>Latency tracking<br/>SLO alerting"]
 
@@ -89,10 +89,10 @@ graph TB
     LocationSvc -.->|"Location latency"| Metrics
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class RiderApp,DriverApp,CDN,LB edgeStyle
     class AuthGW,LocationSvc,Gauss,DISCO,Pricing,Dispatch serviceStyle

@@ -77,10 +77,10 @@ graph TB
     end
 
     %% Apply styling for different categories
-    classDef openSourceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef proprietaryStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef architecturalStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef platformStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef openSourceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef proprietaryStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef architecturalStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef platformStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class Airflow,Superset,Druid,Nerve,Synapse,SmartStack,Chronos,Deployinator,InterfaceBuilder openSourceStyle
     class DynamicPricing,SearchRanking,TrustSafety,DatabaseSharding,EventDriven,CacheStrategy,ImageRecognition,PersonalizationEngine,LocalizationPlatform proprietaryStyle
@@ -139,10 +139,10 @@ graph TB
     TaskState --> KubernetesExecutor
     ConnectionPool --> TaskExecution
 
-    classDef webStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef schedulerStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef metadataStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef workerStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef webStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef schedulerStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef metadataStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef workerStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class FlaskApp,RBAC,API webStyle
     class TaskScheduler,DependencyEngine,ExecutorInterface schedulerStyle
@@ -216,10 +216,10 @@ graph TB
     MetadataDB --> AuthorizationEngine
     CacheLayer --> AuditLogging
 
-    classDef frontendStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef apiStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef securityStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef frontendStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef apiStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef securityStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ReactApp,ChartLibrary,DashboardEngine frontendStyle
     class FlaskAPI,SQLEngine,ConnectorFramework apiStyle
@@ -288,10 +288,10 @@ graph TB
     PriceElasticity --> AutoPricing
     RevenueOptimization --> ABTesting
 
-    classDef dataStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef featureStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef mlStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef pricingStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef dataStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef featureStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef mlStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef pricingStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MarketData,HostData,BookingData,ExternalData dataStyle
     class PropertyFeatures,MarketFeatures,BehavioralFeatures featureStyle
@@ -364,10 +364,10 @@ graph TB
     TextModeration --> IncidentResponse
     ReviewModeration --> CommunityReporting
 
-    classDef identityStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef riskStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef moderationStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef responseStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef identityStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef riskStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef moderationStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef responseStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DocumentVerification,BiometricMatching,BackgroundChecks identityStyle
     class UserRiskModel,PropertyRiskModel,BookingRiskModel riskStyle

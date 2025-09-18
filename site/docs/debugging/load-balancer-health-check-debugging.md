@@ -41,10 +41,10 @@ flowchart TD
     HealthValidation --> HealthOptimization[7. Health Optimization<br/>Prevent future failures<br/>⏱️ 6 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class HealthCheckFailure,HealthCheckAssessment edgeStyle
     class BackendAnalysis,NetworkAnalysis,ConfigAnalysis serviceStyle
@@ -91,10 +91,10 @@ flowchart TD
     NGINXReload --> NGINXValidation[7. NGINX Validation<br/>Health check recovery<br/>⏱️ 8 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class NGINXHealthIssue,NGINXStatusCheck edgeStyle
     class Backend1,Backend2,UpstreamTimeout serviceStyle
@@ -141,10 +141,10 @@ flowchart TD
     AutoScaling --> ALBValidation[7. ALB Validation<br/>Target group health verification<br/>⏱️ 8 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALBHealthFailure,ALBMetricsCollection edgeStyle
     class HealthyTargets,UnhealthyTargets,InstanceFailure serviceStyle
@@ -195,10 +195,10 @@ flowchart TD
     HAProxyReload --> HAProxyValidation[7. HAProxy Validation<br/>Server health recovery<br/>⏱️ 10 min]
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class HAProxyHealthIssue,HAProxyStatsCheck edgeStyle
     class ServerUP,ServerDOWN,ServerConnectivity serviceStyle

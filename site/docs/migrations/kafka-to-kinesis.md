@@ -86,9 +86,9 @@ graph TB
     end
 
     %% Apply colors
-    classDef producerStyle fill:#51CF66,stroke:#00AA00,color:#fff
+    classDef producerStyle fill:#51CF66,stroke:#10B981,color:#fff
     classDef kafkaStyle fill:#000000,stroke:#333333,color:#fff
-    classDef consumerStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef consumerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef costStyle fill:#FFE066,stroke:#CC9900,color:#000
 
     class APP1,APP2,APP3 producerStyle
@@ -166,10 +166,10 @@ graph TB
     KINESIS_ANALYTICS -.->|Real-time insights| LAMBDA1
 
     %% Apply colors
-    classDef producerStyle fill:#51CF66,stroke:#00AA00,color:#fff
+    classDef producerStyle fill:#51CF66,stroke:#10B981,color:#fff
     classDef kinesisStyle fill:#FF9900,stroke:#CC7700,color:#fff
-    classDef consumerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef consumerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class APP1,APP2,APP3 producerStyle
     class STREAM1,STREAM2,STREAM3,KINESIS_ANALYTICS,KINESIS_FIREHOSE kinesisStyle
@@ -542,9 +542,9 @@ graph TB
     KCL_TUNING --> PARALLEL_PROCESSING
 
     %% Apply colors
-    classDef optimizationStyle fill:#51CF66,stroke:#00AA00,color:#fff
+    classDef optimizationStyle fill:#51CF66,stroke:#10B981,color:#fff
     classDef shardStyle fill:#FF9900,stroke:#CC7700,color:#fff
-    classDef consumerStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef consumerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class SHARD_COUNT,AUTO_SCALE,SHARD_SPLIT shardStyle
     class BATCHING,COMPRESSION,PARTITION_KEY optimizationStyle
@@ -626,7 +626,7 @@ graph TB
     %% Apply colors
     classDef kafkaStyle fill:#000000,stroke:#333333,color:#fff
     classDef kinesisStyle fill:#FF9900,stroke:#CC7700,color:#fff
-    classDef optimizationStyle fill:#51CF66,stroke:#00AA00,color:#fff
+    classDef optimizationStyle fill:#51CF66,stroke:#10B981,color:#fff
 
     class KAFKA_COMPUTE,KAFKA_STORAGE,KAFKA_NETWORK,KAFKA_OPS,KAFKA_TOTAL kafkaStyle
     class KINESIS_SHARDS,KINESIS_RECORDS,KINESIS_RETRIEVAL,KINESIS_STORAGE,KINESIS_TOTAL kinesisStyle
@@ -717,10 +717,10 @@ flowchart TD
     REMEDIATE --> RETRY
 
     %% Apply colors
-    classDef lowRisk fill:#51CF66,stroke:#00AA00,color:#fff
+    classDef lowRisk fill:#51CF66,stroke:#10B981,color:#fff
     classDef mediumRisk fill:#FFE066,stroke:#CC9900,color:#000
-    classDef highRisk fill:#FF6B6B,stroke:#CC0000,color:#fff
-    classDef actionStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef highRisk fill:#FF6B6B,stroke:#8B5CF6,color:#fff
+    classDef actionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class LOW,MONITOR lowRisk
     class MEDIUM,PARTIAL mediumRisk

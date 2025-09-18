@@ -48,10 +48,10 @@ graph TB
     CoL1 --> CoL2
 
     %% Apply 4-plane colors
-    classDef producerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef brokerStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef consumerStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef coordinationStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef producerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef brokerStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef consumerStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef coordinationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PL1,PL2,PL3 producerStyle
     class BL1,BL2,BL3 brokerStyle
@@ -182,9 +182,9 @@ graph TB
     FM2 --> R2
     FM3 --> R3
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef mechanismStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef resolutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef mechanismStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef resolutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class ZP1,ZP2,ZP3 problemStyle
     class FM1,FM2,FM3 mechanismStyle
@@ -268,10 +268,10 @@ graph LR
     PT3 --> SS1
     PT1 --> SS2
 
-    classDef inputStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef processingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef outputStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef stateStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef inputStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef processingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef outputStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef stateStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class IT1,IT2 inputStyle
     class PT1,PT2,PT3 processingStyle
@@ -364,10 +364,10 @@ graph TB
     OS1 --> EOG2
     OS2 --> EOG3
 
-    classDef ingestionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef processingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef outputStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef guaranteeStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef ingestionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef processingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef outputStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef guaranteeStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DI1,DI2,DI3 ingestionStyle
     class SP1,SP2,SP3 processingStyle
@@ -498,10 +498,10 @@ graph TB
     RU1 --> OS2
     SF1 --> OS3
 
-    classDef throughputStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef resourceStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef scalabilityStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef optimizationStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef throughputStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef resourceStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef scalabilityStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef optimizationStyle fill:#10B981,stroke:#059669,color:#fff
 
     class TI1,TI2,TI3 throughputStyle
     class RU1,RU2,RU3 resourceStyle
@@ -543,10 +543,10 @@ graph LR
     BM1 --> AR2
     PM3 --> AR3
 
-    classDef producerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef brokerStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef consumerStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef alertingStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef producerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef brokerStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef consumerStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef alertingStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PM1,PM2,PM3 producerStyle
     class BM1,BM2,BM3 brokerStyle

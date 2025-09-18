@@ -7,7 +7,7 @@ This diagram shows Discord's architectural evolution from a gaming chat app in 2
 ```mermaid
 graph TB
     subgraph Scale2015["2015: Gaming Chat App - 1M users"]
-        style Scale2015 fill:#e6f3ff,stroke:#0066CC,color:#333
+        style Scale2015 fill:#e6f3ff,stroke:#3B82F6,color:#333
 
         SimpleNodeJS["Node.js Backend<br/>━━━━━<br/>Single server<br/>Socket.io WebSockets<br/>PostgreSQL database<br/>$1K/month infrastructure"]
 
@@ -17,7 +17,7 @@ graph TB
     end
 
     subgraph Scale2016["2016: Rapid Growth - 10M users"]
-        style Scale2016 fill:#e6ffe6,stroke:#00AA00,color:#333
+        style Scale2016 fill:#e6ffe6,stroke:#10B981,color:#333
 
         NodeCluster["Node.js Cluster<br/>━━━━━<br/>5 server instances<br/>Load balancer<br/>Sticky sessions<br/>$10K/month infrastructure"]
 
@@ -29,7 +29,7 @@ graph TB
     end
 
     subgraph Scale2017["2017: Voice Launch - 25M users"]
-        style Scale2017 fill:#ffe6e6,stroke:#CC0000,color:#333
+        style Scale2017 fill:#ffe6e6,stroke:#8B5CF6,color:#333
 
         ElixirTransition["Elixir/Phoenix<br/>━━━━━<br/>Actor model<br/>Fault tolerance<br/>Massive concurrency<br/>Gateway rewrite"]
 
@@ -41,7 +41,7 @@ graph TB
     end
 
     subgraph Scale2018["2018: Community Platform - 50M users"]
-        style Scale2018 fill:#fff0e6,stroke:#FF8800,color:#333
+        style Scale2018 fill:#fff0e6,stroke:#F59E0B,color:#333
 
         MicroservicesArch["Microservices SOA<br/>━━━━━<br/>50+ services<br/>Domain boundaries<br/>Independent scaling<br/>Team autonomy"]
 
@@ -110,10 +110,10 @@ graph TB
     VoiceGlobal -.->|"AI enhancement<br/>Quality features"| VoiceEvolution
 
     %% Apply colors for different time periods
-    classDef scale2015 fill:#e6f3ff,stroke:#0066CC,color:#333,font-weight:bold
-    classDef scale2016 fill:#e6ffe6,stroke:#00AA00,color:#333,font-weight:bold
-    classDef scale2017 fill:#ffe6e6,stroke:#CC0000,color:#333,font-weight:bold
-    classDef scale2018 fill:#fff0e6,stroke:#FF8800,color:#333,font-weight:bold
+    classDef scale2015 fill:#e6f3ff,stroke:#3B82F6,color:#333,font-weight:bold
+    classDef scale2016 fill:#e6ffe6,stroke:#10B981,color:#333,font-weight:bold
+    classDef scale2017 fill:#ffe6e6,stroke:#8B5CF6,color:#333,font-weight:bold
+    classDef scale2018 fill:#fff0e6,stroke:#F59E0B,color:#333,font-weight:bold
     classDef scale2019 fill:#f0e6ff,stroke:#9900CC,color:#333,font-weight:bold
     classDef scale2020 fill:#e6f9ff,stroke:#0099CC,color:#333,font-weight:bold
     classDef scale2024 fill:#ffe6f9,stroke:#CC0066,color:#333,font-weight:bold

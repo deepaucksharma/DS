@@ -8,7 +8,7 @@ Cloudflare has pioneered numerous breakthrough technologies that redefined edge 
 
 ```mermaid
 graph TB
-    subgraph "Platform Innovations #00AA00"
+    subgraph "Platform Innovations #10B981"
         subgraph "Workers Runtime Revolution"
             V8_ISOLATES[V8 Isolates<br/>Sub-millisecond startup<br/>50k+ per server<br/>Zero cold starts]
             WASM_SUPPORT[WebAssembly Support<br/>Multi-language execution<br/>Rust, C++, Go, Python<br/>Near-native performance]
@@ -22,7 +22,7 @@ graph TB
         end
     end
 
-    subgraph "Network Innovations #0066CC"
+    subgraph "Network Innovations #3B82F6"
         subgraph "Routing Intelligence"
             ARGO[Argo Smart Routing<br/>30% performance improvement<br/>Real-time path optimization<br/>Congestion avoidance]
             ANYCAST_PLUS[Anycast++<br/>Health-aware routing<br/>Capacity-based selection<br/>Sub-second failover]
@@ -36,7 +36,7 @@ graph TB
         end
     end
 
-    subgraph "Security Breakthroughs #CC0000"
+    subgraph "Security Breakthroughs #8B5CF6"
         subgraph "AI-Powered Protection"
             BOT_MANAGEMENT[Bot Management 2.0<br/>ML behavior analysis<br/>99.9% accuracy<br/>Zero false positives]
             THREAT_INTEL[Threat Intelligence<br/>Global attack correlation<br/>Real-time updates<br/>Predictive blocking]
@@ -50,7 +50,7 @@ graph TB
         end
     end
 
-    subgraph "Storage Innovations #FF8800"
+    subgraph "Storage Innovations #F59E0B"
         subgraph "R2 Object Storage"
             EGRESS_FREE[Zero Egress Fees<br/>S3-compatible API<br/>Multi-region replication<br/>Cost revolution]
             EVENTUAL_CONSISTENCY[Smart Consistency<br/>Configurable models<br/>Strong when needed<br/>Eventually consistent default]
@@ -72,10 +72,10 @@ graph TB
     EGRESS_FREE --> GLOBAL_KV
 
     %% Apply innovation colors
-    classDef platformStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef networkStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef securityStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef platformStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef networkStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef securityStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class V8_ISOLATES,WASM_SUPPORT,EDGE_COMPUTE,DURABLE_OBJECTS,LIVE_MIGRATION,TRANSACTIONS platformStyle
     class ARGO,ANYCAST_PLUS,MAGIC_TRANSIT,ROUGHTIME,ESNI,QUIC_OPTIMIZATION networkStyle
@@ -120,9 +120,9 @@ graph TB
     INSTANT_SCALE --> SECURITY
 
     %% Apply comparison colors
-    classDef traditionalStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef workersStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef benefitStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef traditionalStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef workersStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef benefitStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class CONTAINER,LANG_RUNTIME,SCALING traditionalStyle
     class ISOLATE,JS_ENGINE,INSTANT_SCALE workersStyle
@@ -172,9 +172,9 @@ graph TB
     LIVE_MIGRATE --> MIGRATION_TECH
 
     %% Apply problem/solution colors
-    classDef problemStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef implementationStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef problemStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef implementationStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class DATABASE,REPLICATION,CACHING problemStyle
     class SINGLETON,SQLITE_EDGE,LIVE_MIGRATE solutionStyle
@@ -224,9 +224,9 @@ graph TB
     ADAPTIVE --> RELIABILITY
 
     %% Apply routing colors
-    classDef traditionalStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef smartStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef benefitStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef traditionalStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef smartStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef benefitStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class STATIC,GEOGRAPHIC,LOAD_BALANCE traditionalStyle
     class REAL_TIME,PATH_OPTIMIZATION,ADAPTIVE smartStyle
@@ -267,9 +267,9 @@ graph TB
     GLOBAL_DIST --> INNOVATION_UNLOCK
 
     %% Apply economic colors
-    classDef expensiveStyle fill:#FF6666,stroke:#CC0000,color:#fff
-    classDef innovativeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef impactStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef expensiveStyle fill:#FF6666,stroke:#8B5CF6,color:#fff
+    classDef innovativeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef impactStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class AWS_S3,AZURE_BLOB,GCP_STORAGE expensiveStyle
     class ZERO_EGRESS,S3_COMPAT,GLOBAL_DIST innovativeStyle
@@ -310,9 +310,9 @@ graph TB
     THREAT_CORRELATION --> COVERAGE
 
     %% Apply detection colors
-    classDef traditionalStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef aiStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef performanceStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef traditionalStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef aiStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef performanceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class RATE_LIMITING,IP_REPUTATION,CAPTCHA traditionalStyle
     class BEHAVIORAL_ML,DEVICE_SIGNALS,THREAT_CORRELATION aiStyle
@@ -353,9 +353,9 @@ graph TB
     ZERO_CONFIG --> RELIABILITY
 
     %% Apply VPN colors
-    classDef problemStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef advantageStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef problemStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef advantageStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class SLOW_VPNS,PRIVACY_CONCERNS,COMPLEX_SETUP problemStyle
     class WIREGUARD,ANYCAST_VPN,ZERO_CONFIG solutionStyle
@@ -420,7 +420,7 @@ graph TB
 
     %% Apply future colors
     classDef innovationStyle fill:#E6CCFF,stroke:#9900CC,color:#000
-    classDef researchStyle fill:#CCFFCC,stroke:#00AA00,color:#000
+    classDef researchStyle fill:#CCFFCC,stroke:#10B981,color:#000
 
     class QUANTUM_SAFE,EDGE_AI,WEB3_GATEWAY,AUTONOMOUS_NET innovationStyle
     class NEUROMORPHIC,PHOTONIC,DNA_STORAGE researchStyle

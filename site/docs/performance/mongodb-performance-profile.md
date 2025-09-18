@@ -44,10 +44,10 @@ graph TB
         P1[Total throughput: 500K ops/sec<br/>Query latency p95: 10ms<br/>Chunk migrations: 2/day<br/>Balancer efficiency: 95%]
     end
 
-    classDef routerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef configStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef shardStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef metricStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef routerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef configStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef shardStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef metricStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class QR1,QR2 routerStyle
     class CS1 configStyle
@@ -77,9 +77,9 @@ graph TB
         C2[Performance benefits<br/>Time-based queries efficient<br/>Even distribution maintained<br/>Chunk splitting predictable]
     end
 
-    classDef badStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef goodStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef compoundStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef badStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef goodStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef compoundStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class B1,B2 badStyle
     class G1,G2 goodStyle
@@ -108,8 +108,8 @@ graph LR
         P2[Optimization strategies<br/>Off-peak scheduling<br/>Throttling enabled<br/>Jumbo chunk avoidance]
     end
 
-    classDef migrationStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef migrationStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CM1,CM2,CM3,CM4 migrationStyle
     class P1,P2 perfStyle
@@ -147,10 +147,10 @@ graph TB
         T1[cacheSizeGB = 32<br/>eviction_target = 80<br/>eviction_trigger = 95<br/>eviction_dirty_target = 5]
     end
 
-    classDef cacheStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef componentStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef tuningStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef cacheStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef componentStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef tuningStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CACHE cacheStyle
     class DATA,INDEX,JOURNAL componentStyle
@@ -180,9 +180,9 @@ graph LR
         OV2[Performance impact<br/>Query latency p95: 8ms<br/>Throughput: 90K ops/sec<br/>OOM risk: Elevated]
     end
 
-    classDef underStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef optimalStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef overStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef underStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef optimalStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef overStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class U1,U2 underStyle
     class O1,O2 optimalStyle
@@ -224,10 +224,10 @@ graph TB
     C1 --> C2
     I4 --> C2
 
-    classDef queryStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef compoundStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef intersectionStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef resultStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef queryStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef compoundStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef intersectionStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef resultStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class Q1 queryStyle
     class C1 compoundStyle
@@ -257,9 +257,9 @@ graph LR
         I2[Use cases<br/>Analytics workloads<br/>Variable query patterns<br/>Development/testing]
     end
 
-    classDef singleStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef compoundStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef intersectionStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef singleStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef compoundStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef intersectionStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class S1,S2 singleStyle
     class C1,C2 compoundStyle
@@ -301,10 +301,10 @@ graph TB
         P2[Consumer overhead<br/>Memory per stream: 10MB<br/>Network per stream: 1 Mbps<br/>Lag tolerance: 30 seconds]
     end
 
-    classDef mongoStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef oplogStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef consumerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef mongoStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef oplogStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef consumerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PRIMARY,SECONDARY mongoStyle
     class OPLOG oplogStyle
@@ -340,9 +340,9 @@ graph TB
         OP1 --> OP2
     end
 
-    classDef unfilteredStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef filteredStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef optimizedStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef unfilteredStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef filteredStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef optimizedStyle fill:#10B981,stroke:#059669,color:#fff
 
     class UF1,UF2 unfilteredStyle
     class SF1,SF2 filteredStyle
@@ -383,10 +383,10 @@ graph TB
         SCALE2[Read scaling<br/>Secondary reads: 80%<br/>Read preference: secondary<br/>Write concern: majority]
     end
 
-    classDef apiStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef clusterStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef perfStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef scaleStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef apiStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef clusterStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef perfStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef scaleStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class API apiStyle
     class PAYMENT,CUSTOMER,ANALYTICS clusterStyle
@@ -414,7 +414,7 @@ graph LR
         REPL1[writeConcern: majority<br/>readConcern: local<br/>oplogSizeMB: 51200<br/>heartbeatIntervalMS: 2000]
     end
 
-    classDef configStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef configStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class WT1,SH1,CONN1,REPL1 configStyle
 ```
@@ -448,9 +448,9 @@ graph TB
     RC2 --> COMP1
     TS2 --> COMP1
 
-    classDef regularStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef tsStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef compStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef regularStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef tsStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef compStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class RC1,RC2 regularStyle
     class TS1,TS2 tsStyle
@@ -481,8 +481,8 @@ graph LR
     M1 --> P1
     H1 --> P1
 
-    classDef granularityStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef granularityStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
 
     class S1,M1,H1 granularityStyle
     class P1 perfStyle
@@ -520,10 +520,10 @@ graph TB
 
     M1 --> A1 --> I1 --> V1
 
-    classDef monitorStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef analysisStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef implStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef validStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef monitorStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef analysisStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef implStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef validStyle fill:#10B981,stroke:#059669,color:#fff
 
     class M1 monitorStyle
     class A1 analysisStyle

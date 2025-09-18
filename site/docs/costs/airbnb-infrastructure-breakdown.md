@@ -40,10 +40,10 @@ graph TB
     end
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB,WAF,DNS,IMGS edgeStyle
     class K8S,APIS,ML,BATCH serviceStyle
@@ -64,11 +64,11 @@ graph LR
         API1[Search API<br/>1000 pods<br/>$1M/month]
     end
 
-    style ES fill:#FF8800
-    style ML1 fill:#00AA00
-    style CACHE1 fill:#FF8800
-    style CDN1 fill:#0066CC
-    style API1 fill:#00AA00
+    style ES fill:#F59E0B
+    style ML1 fill:#10B981
+    style CACHE1 fill:#F59E0B
+    style CDN1 fill:#3B82F6
+    style API1 fill:#10B981
 ```
 
 Search Performance Metrics:
@@ -153,12 +153,12 @@ graph TB
         end
     end
 
-    style GPU1 fill:#00AA00
-    style SAGE fill:#00AA00
-    style DATA fill:#FF8800
-    style GPU2 fill:#00AA00
-    style ENDP fill:#00AA00
-    style CACHE2 fill:#FF8800
+    style GPU1 fill:#10B981
+    style SAGE fill:#10B981
+    style DATA fill:#F59E0B
+    style GPU2 fill:#10B981
+    style ENDP fill:#10B981
+    style CACHE2 fill:#F59E0B
 ```
 
 ML Models in Production:
@@ -262,10 +262,10 @@ graph LR
     ASIA --> |"ap-southeast-1"| S1[Singapore<br/>$8M]
     ASIA --> |"ap-northeast-1"| T1[Tokyo<br/>$7M]
 
-    style US fill:#0066CC
-    style EU fill:#00AA00
-    style ASIA fill:#FF8800
-    style OTHER fill:#CC0000
+    style US fill:#3B82F6
+    style EU fill:#10B981
+    style ASIA fill:#F59E0B
+    style OTHER fill:#8B5CF6
 ```
 
 ## Cost Optimization Initiatives
@@ -347,9 +347,9 @@ graph TB
         BREAKDOWN --> B6[Monitoring: $0.01]
     end
 
-    style USERS fill:#0066CC
-    style COST fill:#CC0000
-    style UPU fill:#00AA00
+    style USERS fill:#3B82F6
+    style COST fill:#8B5CF6
+    style UPU fill:#10B981
 ```
 
 ### Revenue vs Infrastructure

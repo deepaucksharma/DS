@@ -44,10 +44,10 @@ graph TB
     PostgresWriter -.->|"Active connections: 4800/5000<br/>96% utilization"| Utilization[High Utilization]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALB,NLB edgeStyle
     class UberApp,MatchingService,PricingService serviceStyle
@@ -137,8 +137,8 @@ graph TB
 
     %% Apply styles
     classDef routingStyle fill:#4ECDC4,stroke:#45B7B8,color:#fff
-    classDef readStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef writeStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef readStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef writeStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef balancingStyle fill:#9B59B6,stroke:#8E44AD,color:#fff
 
     class Request,Router,ReadOnly,ReadWrite routingStyle
@@ -228,7 +228,7 @@ graph TB
 
     %% Apply styles
     classDef paramStyle fill:#4ECDC4,stroke:#45B7B8,color:#fff
-    classDef healthStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef healthStyle fill:#10B981,stroke:#059669,color:#fff
     classDef perfStyle fill:#FFA726,stroke:#FF8F00,color:#fff
     classDef dbStyle fill:#9B59B6,stroke:#8E44AD,color:#fff
 

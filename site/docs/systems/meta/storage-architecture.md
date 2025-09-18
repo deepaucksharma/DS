@@ -49,10 +49,10 @@ graph TB
     SCRIBE -.->|"10TB/day logs"| HIVE
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EDGE_CACHE,HAYSTACK_CACHE,CDN_STORAGE edgeStyle
     class TAO,ROCKSDB,ZIPPYDB serviceStyle
@@ -106,9 +106,9 @@ graph TB
     FOLLOWER_TAO1 -.->|"Read: 1B ops/sec"| FOLLOWER_MYSQL
     ASSOCIATIONS -.->|"500B+ edges"| TIMELINE
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LEADER_TAO,FOLLOWER_TAO1,FOLLOWER_TAO2,FOLLOWER_TAO3 serviceStyle
     class LEADER_MYSQL,FOLLOWER_MYSQL,OBJECTS,ASSOCIATIONS,TIMELINE,METADATA stateStyle
@@ -167,9 +167,9 @@ graph TB
     PRIMARY -.->|"1M photos/sec"| REPLICA1
     CACHE -.->|"Hit ratio: 80%"| STORE
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class UPLOAD_SVC,RESIZE,DIRECTORY,CACHE serviceStyle
     class VARIANTS,STORE,NEEDLES,PRIMARY,REPLICA1,REPLICA2,REPLICA3 stateStyle
@@ -220,8 +220,8 @@ graph LR
     F4_STORAGE -.->|"Access: 10x/day"| COLD_ARCHIVE
     F4_BLOCKS -.->|"Storage savings: 28%"| F4_STORAGE
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class F4_ENCODE serviceStyle
     class HOT_PHOTOS,HOT_ACCESS,F4_BLOCKS,F4_STORAGE,COLD_ARCHIVE,COLD_RETRIEVAL stateStyle
@@ -287,9 +287,9 @@ graph TB
     RAFT -.->|"3-way replication"| SSD1
     SSD1 -.->|"p99: 1ms"| WAL
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class PROXY1,PROXY2,PROXY3,LOAD_BALANCE,RAFT serviceStyle
     class SHARD1,SHARD2,SHARD3,SSD1,BACKUP_S3,WAL stateStyle
@@ -338,9 +338,9 @@ graph TB
     ASYNC_REP -.->|"Read-after-write"| POSTS
     CACHE_INV -.->|"1-2 second lag"| COMMENTS
 
-    classDef strongStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef eventualStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef mechanismStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef strongStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef eventualStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef mechanismStyle fill:#10B981,stroke:#059669,color:#fff
 
     class FINANCIAL,SECURITY,PERMISSIONS,MESSAGING strongStyle
     class POSTS,LIKES,COMMENTS,FEED eventualStyle

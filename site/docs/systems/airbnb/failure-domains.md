@@ -56,10 +56,10 @@ graph TB
     MonitoringBlackout -.->|Blind recovery| DeploymentPipelineDown
 
     %% Apply four-plane colors with thicker borders for failures
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
 
     class CDNOutage,ImageProcessingFail,DNSResolutionFail edgeStyle
     class SearchServiceDown,BookingServiceDegraded,RecommendationFailure,MessageServiceIssues serviceStyle
@@ -200,10 +200,10 @@ graph TB
     USEastDB -.->|Auto-promotion| USWestDB
     USEastSearch -.->|Index switch| USWestSearch
 
-    classDef primaryStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef backupStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef regionalStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef failoverStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef primaryStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef backupStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef regionalStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef failoverStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class USEastAPI,USEastDB,USEastSearch,USEastCache primaryStyle
     class USWestAPI,USWestDB,USWestSearch,USWestCache backupStyle
@@ -263,9 +263,9 @@ graph TB
     OpenState --> AlternativeService
     OpenState --> GracefulDegradation
 
-    classDef serviceStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stateStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef fallbackStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stateStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef fallbackStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class PaymentGateway,EmailService,SMSService,MapService serviceStyle
     class ClosedState,OpenState,HalfOpenState stateStyle
@@ -330,10 +330,10 @@ graph TB
     P2Response -.->|Escalation needed| P1Response
     P1Response -.->|Major impact| P0Response
 
-    classDef p0Style fill:#CC0000,stroke:#990000,color:#fff
-    classDef p1Style fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef p2Style fill:#00AA00,stroke:#007700,color:#fff
-    classDef escalationStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef p0Style fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef p1Style fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef p2Style fill:#10B981,stroke:#059669,color:#fff
+    classDef escalationStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class P0Criteria,P0Response,P0SLA p0Style
     class P1Criteria,P1Response,P1SLA p1Style

@@ -20,27 +20,27 @@
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #0066CC"
+    subgraph "Edge Plane - Blue #3B82F6"
         CLIENT[Zoom Clients<br/>Desktop & Mobile]
         WEB[Web Browser<br/>Zoom Web App]
         PHONE[Phone Dial-in<br/>Audio-only Access]
     end
 
-    subgraph "Service Plane - Green #00AA00"
+    subgraph "Service Plane - Green #10B981"
         MEETINGS[Meeting Service<br/>Room Management<br/>OVERLOADED]
         VIDEO[Video Processing<br/>Stream Management]
         AUDIO[Audio Processing<br/>Voice Optimization]
         RECORDING[Recording Service<br/>Session Capture]
     end
 
-    subgraph "State Plane - Orange #FF8800"
+    subgraph "State Plane - Orange #F59E0B"
         SESSIONS[(Active Sessions<br/>Meeting State)]
         USERS[(User Database<br/>Account Management)]
         RECORDINGS[(Recording Storage<br/>Video Files)]
         ANALYTICS[(Usage Analytics<br/>Performance Data)]
     end
 
-    subgraph "Control Plane - Red #CC0000"
+    subgraph "Control Plane - Red #8B5CF6"
         MONITORING[System Monitoring<br/>Capacity Metrics]
         AUTOSCALE[Auto-scaling<br/>Server Management]
         LOADBALANCE[Load Balancer<br/>Traffic Distribution]
@@ -70,10 +70,10 @@ graph TB
     MEETINGS -.->|"Cannot join meeting"<br/>Education system paralyzed| EDUCATION[Students Worldwide<br/>Teachers & Educators<br/>School Districts<br/>Universities<br/>Corporate Training]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
     class CLIENT,WEB,PHONE edgeStyle

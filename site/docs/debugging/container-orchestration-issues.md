@@ -35,9 +35,9 @@ graph TD
     L --> R[Exit Code Analysis]
     M --> S[Image Pull Secrets]
 
-    style A fill:#CC0000,stroke:#990000,color:#fff
-    style G fill:#FF8800,stroke:#CC6600,color:#fff
-    style J fill:#00AA00,stroke:#007700,color:#fff
+    style A fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    style G fill:#F59E0B,stroke:#D97706,color:#fff
+    style J fill:#10B981,stroke:#059669,color:#fff
 ```
 
 ## Immediate Triage Commands (First 5 Minutes)

@@ -100,10 +100,10 @@ graph TB
     SOC2 --> PCI
 
     %% Apply four-plane colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class Backstage,ServiceCatalog,TechDocs,Scaffolder,Jenkins,Spinnaker,GitOps serviceStyle
     class UnitTests,IntegrationTests,E2ETests,ChaosEngineering,ElasticStack,Jaeger stateStyle
@@ -171,10 +171,10 @@ graph TB
     BlueGreenDeploy -.->|Performance issues| RollbackProcedure
     FullRollout -.->|Critical errors| IncidentResponse
 
-    classDef devStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stagingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef prodStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef postStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef devStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stagingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef prodStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef postStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DevCommit,BuildTest,CodeReview devStyle
     class StagingDeploy,AutomatedTesting,ManualValidation stagingStyle
@@ -253,10 +253,10 @@ graph TB
     S2Response --> S2Investigation
     S2Investigation --> S2Communication
 
-    classDef stockholmStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef nyStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef tokyoStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef escalationStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef stockholmStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef nyStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef tokyoStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef escalationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class StockholmPrimary,StockholmSecondary,StockholmManager stockholmStyle
     class NYPrimary,NYSecondary,NYManager nyStyle
@@ -307,9 +307,9 @@ graph TB
     BudgetExhaustion --> AlertTuning
     BurnRateAlerts --> AlertTuning
 
-    classDef sloStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef budgetStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef alertStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef sloStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef budgetStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef alertStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class StreamingSLO,SearchSLO,RecommendationSLO,AuthSLO sloStyle
     class BudgetMonitoring,BudgetExhaustion,BudgetRecovery budgetStyle
@@ -360,9 +360,9 @@ graph TB
     RecoveryValidation --> CircuitBreakerTest
     DependencyFailure --> TimeoutTest
 
-    classDef chaosStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef autoStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef validationStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef chaosStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef autoStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef validationStyle fill:#10B981,stroke:#059669,color:#fff
 
     class QuarterlyChaos,FailureScenarios,RecoveryValidation chaosStyle
     class LatencyInjection,ResourceExhaustion,DependencyFailure autoStyle

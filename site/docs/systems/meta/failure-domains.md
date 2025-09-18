@@ -56,10 +56,10 @@ graph TB
     LB_CLUSTER -.->|"Blast radius: Service"| APP_CLUSTER
 
     %% Apply colors for failure severity
-    classDef criticalStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef highStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef criticalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef highStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef mediumStyle fill:#FFCC00,stroke:#CC9900,color:#fff
-    classDef lowStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef lowStyle fill:#10B981,stroke:#059669,color:#fff
 
     class BGP,DNS,BACKBONE criticalStyle
     class DC_US_WEST,DC_US_EAST,DC_EUROPE,DC_ASIA highStyle
@@ -153,9 +153,9 @@ graph TB
     CASCADING -.->|"6 hour outage"| RECOVERY
     PHYSICAL_ONLY -.->|"Manual intervention required"| RECOVERY
 
-    classDef normalStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef normalStyle fill:#10B981,stroke:#059669,color:#fff
     classDef warningStyle fill:#FFCC00,stroke:#CC9900,color:#fff
-    classDef criticalStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef criticalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ENGINEER,REVIEW,AUTOMATION normalStyle
     class DEPLOYMENT,BACKBONE_ROUTERS,PEERING warningStyle
@@ -219,9 +219,9 @@ graph TB
     CIRCUIT_BREAKER -.->|"50% error rate trigger"| TAO_PRIMARY
     ML_TIMEOUT -.->|"200ms timeout"| ML_RANKING
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef failureStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef failureStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB1,LB2,LB3,FEED_A,FEED_B,FEED_C,CIRCUIT_BREAKER serviceStyle
     class TAO_PRIMARY,TAO_SECONDARY,ML_RANKING,ADS_SERVICE,HEALTH_CHECK stateStyle
@@ -289,9 +289,9 @@ graph TB
     ROTATION_FAIL -.->|"24h retry window"| FALLBACK_KEY
     SYNC_LOSS -.->|"Requires new key exchange"| MANUAL_RESET
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef failureStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef failureStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ENCRYPT,DECRYPT,RELAY,RETRY_MECHANISM serviceStyle
     class KEY_STORE,KEY_ROTATION,KEY_BACKUP,KEY_RECOVERY,FALLBACK_KEY stateStyle
@@ -362,9 +362,9 @@ graph TB
     THERMAL_MONITORING -.->|"85°F shutdown"| PRECISION_AC
 
     classDef powerStyle fill:#FFCC00,stroke:#CC9900,color:#fff
-    classDef coolingStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef computeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef failureStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef coolingStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef computeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef failureStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class UTILITY,SUBSTATION,UPS_PRIMARY,UPS_SECONDARY,GENERATOR powerStyle
     class CHILLER,COOLING_TOWER,AIR_HANDLER,PRECISION_AC coolingStyle
@@ -491,9 +491,9 @@ graph LR
     NETWORK_PARTITION --> RUNBOOKS
     CAPACITY_SURGE --> ONCALL
 
-    classDef chaosStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef testStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef monitorStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef chaosStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef testStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef monitorStyle fill:#10B981,stroke:#059669,color:#fff
 
     class STORM,DNSCHAOS,POWERCHAOS,DBCHAOS chaosStyle
     class DATACENTER_FAIL,SERVICE_DEGRADE,NETWORK_PARTITION,CAPACITY_SURGE testStyle

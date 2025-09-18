@@ -8,8 +8,8 @@ Shopify powers 1.75+ million merchants globally, processing $235+ billion in gro
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
         subgraph "Global Edge Network"
             CDN[Shopify CDN<br/>CloudFlare + Custom<br/>Static assets<br/>300+ locations]
             EDGE_LB[Edge Load Balancers<br/>Geographic routing<br/>SSL termination<br/>DDoS protection]
@@ -23,8 +23,8 @@ graph TB
         end
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
         subgraph "Core Application Stack"
             STOREFRONT[Storefront Renderer<br/>Liquid templating<br/>Theme engine<br/>Mobile-first design]
             CHECKOUT[Checkout Engine<br/>6-step process<br/>Payment optimization<br/>Conversion focus]
@@ -44,8 +44,8 @@ graph TB
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
         subgraph "Primary Databases (Vitess Sharded)"
             VITESS[Vitess MySQL Cluster<br/>130+ shards<br/>Horizontal scaling<br/>Online schema changes]
             PRODUCTS_DB[Product Catalog<br/>50M+ products<br/>Variant management<br/>Search indexing]
@@ -66,8 +66,8 @@ graph TB
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
         subgraph "Deployment & Configuration"
             SHIPIT[Shipit Deploy System<br/>Continuous deployment<br/>Feature flags<br/>Gradual rollouts]
             CONFIG_MGMT[Configuration Management<br/>Environment-specific<br/>Secret management<br/>Feature toggles]
@@ -117,10 +117,10 @@ graph TB
     COMPLIANCE -->|"Risk scores<br/>ML-based"| FRAUD_DETECTION
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,EDGE_LB,WAF,NA_EDGE,EU_EDGE,APAC_EDGE edgeStyle
     class STOREFRONT,CHECKOUT,ADMIN,API_GATEWAY,PAYMENTS,FULFILLMENT,APP_PLATFORM,WEBHOOKS,PLUS_APIS serviceStyle
@@ -169,8 +169,8 @@ graph TB
     APP_B --> SHARED_PAYMENTS
 
     %% Apply pod colors
-    classDef podStyle fill:#CCE6FF,stroke:#0066CC,color:#000
-    classDef sharedStyle fill:#CCFFCC,stroke:#00AA00,color:#000
+    classDef podStyle fill:#CCE6FF,stroke:#3B82F6,color:#000
+    classDef sharedStyle fill:#CCFFCC,stroke:#10B981,color:#000
 
     class APP_A,DB_A,CACHE_A,APP_B,DB_B,CACHE_B podStyle
     class SHARED_CDN,SHARED_PAYMENTS,SHARED_ANALYTICS sharedStyle
@@ -210,7 +210,7 @@ graph TB
     VTGATE --> SHARD82
 
     %% Apply shard colors
-    classDef routerStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef routerStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     classDef productStyle fill:#FFE6CC,stroke:#CC9900,color:#000
     classDef orderStyle fill:#E6CCFF,stroke:#9900CC,color:#000
     classDef customerStyle fill:#CCFFE6,stroke:#00CC00,color:#000

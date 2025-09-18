@@ -22,9 +22,9 @@ graph TB
     NODEJS --> REDIS
 
     %% Apply colors
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CLIENT,WEBRTC clientStyle
     class NODEJS serviceStyle
@@ -67,9 +67,9 @@ graph TB
     end
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class WS,VOICE edgeStyle
     class GUILD,PRESENCE,MESSAGE serviceStyle
@@ -141,10 +141,10 @@ graph TB
     end
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class GW1,GW2,GW3,ZLBS edgeStyle
     class API,GUILDS,VOICE_NEW serviceStyle
@@ -189,9 +189,9 @@ graph TB
     end
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef innovationStyle fill:#9900CC,stroke:#6600AA,color:#fff
 
     class GATEWAY_RUST,VOICE_RUST,CDN edgeStyle
@@ -260,10 +260,10 @@ graph TB
     end
 
     %% Apply colors
-    classDef loadStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef emergencyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef featureStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef infraStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef loadStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef emergencyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef featureStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef infraStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class USERS,VOICE_PEAK,MESSAGES,STREAMS loadStyle
     class CAPACITY,HIRING,ONCALL emergencyStyle
@@ -316,9 +316,9 @@ graph TB
     end
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef featureStyle fill:#9900CC,stroke:#6600AA,color:#fff
 
     class CLOUDFLARE,WEBRTC_NEXT,QUIC edgeStyle

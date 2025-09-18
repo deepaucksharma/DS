@@ -52,10 +52,10 @@ graph TB
     METRICS -.->|"SLO violations"| ALERTS
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,WAF,LB edge
     class API,FRAUD,ORCHESTRATOR service
@@ -147,10 +147,10 @@ graph TB
     IP3 --> PS3
     IP4 --> PS4
 
-    classDef scenarioStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef communicationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef impossibilityStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef solutionStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef scenarioStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef communicationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef impossibilityStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef solutionStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class S1 scenarioStyle
     class C1,C2,C3,C4 communicationStyle
@@ -259,10 +259,10 @@ graph TB
     MONITOR -.->|"Threshold breaches"| ALARM
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class APP,WEB,API edge
     class CART,PRICING,INVENTORY,PAYMENT service
@@ -318,10 +318,10 @@ graph TB
     SP1 --> SP2 --> SP3 --> SP4
     ST1 --> ST2 --> ST3 --> ST4
 
-    classDef idempotentStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef outboxStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef sagaStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef sourceStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef idempotentStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef outboxStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef sagaStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef sourceStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class IC1,IC2,IC3,IC4 idempotentStyle
     class TO1,TO2,TO3,TO4 outboxStyle
@@ -424,10 +424,10 @@ graph TB
     BP3 --> DP3
     BP4 --> DP4
 
-    classDef antiPatternStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef consequenceStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef bestPracticeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef principleStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef antiPatternStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef consequenceStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef bestPracticeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef principleStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class AP1,AP2,AP3,AP4 antiPatternStyle
     class CE1,CE2,CE3,CE4 consequenceStyle
@@ -465,10 +465,10 @@ graph TB
     THR -.->|"Scaling needs"| COMPLIANCE
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class INFRA,NET edge
     class DEV,TEST service
@@ -558,9 +558,9 @@ flowchart TD
     T6 --> R3
 
     %% Incident response colors
-    classDef incident fill:#FF4444,stroke:#CC0000,color:#fff
-    classDef detection fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef mitigation fill:#00AA00,stroke:#007700,color:#fff
+    classDef incident fill:#FF4444,stroke:#8B5CF6,color:#fff
+    classDef detection fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef mitigation fill:#10B981,stroke:#059669,color:#fff
 
     class T1,T2,T3,T4,T5,T6 incident
     class M1,M2,M3 detection

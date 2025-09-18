@@ -122,10 +122,10 @@ graph TB
     ELK -.-> HERON
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:2px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:2px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:2px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:2px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:2px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:2px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:2px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:2px
 
     class CDN,LB,WAF edgeStyle
     class API_GW,TWEET_SVC,TIMELINE_SVC,SEARCH_SVC,USER_SVC,TREND_SVC,MEDIA_SVC,HERON,STORM,KAFKA serviceStyle
@@ -179,9 +179,9 @@ graph TB
     %% Traffic distribution
     US_EAST -.->|"Read/Write: 50%<br/>Latency: <50ms<br/>Availability: 99.9%"| US_WEST
 
-    classDef primaryStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef regionStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef replicationStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef primaryStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef regionStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef replicationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class US_EAST primaryStyle
     class US_WEST,EU_WEST,AP_NORTHEAST regionStyle

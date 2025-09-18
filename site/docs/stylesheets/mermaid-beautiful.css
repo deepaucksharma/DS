@@ -6,15 +6,15 @@
 
 /* CSS Variables for theming */
 :root {
-  /* Light mode colors - 4-plane architecture */
-  --mermaid-edge-primary: #0066CC;
-  --mermaid-edge-secondary: #4A90E2;
-  --mermaid-service-primary: #00AA00;
-  --mermaid-service-secondary: #4CAF50;
-  --mermaid-state-primary: #FF8800;
-  --mermaid-state-secondary: #FFA726;
-  --mermaid-control-primary: #CC0000;
-  --mermaid-control-secondary: #E53935;
+  /* Light mode colors - 4-plane architecture (Tailwind-inspired palette) */
+  --mermaid-edge-primary: #3B82F6;      /* Blue-500: Professional, calming */
+  --mermaid-edge-secondary: #60A5FA;    /* Blue-400: Lighter variant */
+  --mermaid-service-primary: #10B981;   /* Emerald-500: Fresh, active */
+  --mermaid-service-secondary: #34D399; /* Emerald-400: Lighter variant */
+  --mermaid-state-primary: #F59E0B;     /* Amber-500: Warm, data-focused */
+  --mermaid-state-secondary: #FBBF24;   /* Amber-400: Lighter variant */
+  --mermaid-control-primary: #8B5CF6;   /* Violet-500: Distinctive, calm */
+  --mermaid-control-secondary: #A78BFA; /* Violet-400: Lighter variant */
 
   /* Semantic colors */
   --mermaid-success: #4CAF50;
@@ -35,14 +35,14 @@
 
 /* Dark mode colors */
 [data-md-color-scheme="slate"] {
-  --mermaid-edge-primary: #64B5F6;
-  --mermaid-edge-secondary: #90CAF9;
-  --mermaid-service-primary: #66BB6A;
-  --mermaid-service-secondary: #81C784;
-  --mermaid-state-primary: #FFB74D;
-  --mermaid-state-secondary: #FFCC80;
-  --mermaid-control-primary: #EF5350;
-  --mermaid-control-secondary: #E57373;
+  --mermaid-edge-primary: #60A5FA;      /* Blue-400: Bright but not harsh */
+  --mermaid-edge-secondary: #93C5FD;    /* Blue-300: Softer blue */
+  --mermaid-service-primary: #34D399;   /* Emerald-400: Vibrant in dark */
+  --mermaid-service-secondary: #6EE7B7; /* Emerald-300: Gentle green */
+  --mermaid-state-primary: #FBBF24;     /* Amber-400: Warm glow */
+  --mermaid-state-secondary: #FCD34D;   /* Amber-300: Soft yellow */
+  --mermaid-control-primary: #A78BFA;   /* Violet-400: Gentle purple */
+  --mermaid-control-secondary: #C4B5FD; /* Violet-300: Light purple */
 
   --mermaid-background: #1e1e1e;
   --mermaid-foreground: #e0e0e0;

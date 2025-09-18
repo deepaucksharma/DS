@@ -55,26 +55,26 @@ graph TB
         GENERATOR[Backup Generators<br/>Emergency Power]
     end
 
-    subgraph "Edge Plane - Blue #0066CC"
+    subgraph "Edge Plane - Blue #3B82F6"
         LB[Oracle Load Balancer<br/>Traffic Distribution]
         CDN[Oracle CDN<br/>Content Delivery]
         DNS[Oracle DNS Service<br/>Domain Resolution]
     end
 
-    subgraph "Service Plane - Green #00AA00"
+    subgraph "Service Plane - Green #10B981"
         COMPUTE[OCI Compute<br/>Virtual Machines]
         CONTAINER[Container Engine<br/>Kubernetes Service]
         FUNCTIONS[Oracle Functions<br/>Serverless Compute]
     end
 
-    subgraph "State Plane - Orange #FF8800"
+    subgraph "State Plane - Orange #F59E0B"
         AUTONOMOUS[(Autonomous Database<br/>Oracle's Flagship)]
         OBJECT[(Object Storage<br/>Blob Storage)]
         BLOCK[(Block Storage<br/>Persistent Volumes)]
         MYSQL[(MySQL Database<br/>Managed Service)]
     end
 
-    subgraph "Control Plane - Red #CC0000"
+    subgraph "Control Plane - Red #8B5CF6"
         CONSOLE[OCI Console<br/>Management Interface]
         API[OCI REST API<br/>Control Interface]
         MONITOR[OCI Monitoring<br/>Observability Stack]
@@ -105,10 +105,10 @@ graph TB
 
     %% Apply four-plane colors
     classDef physicalStyle fill:#8B4513,stroke:#654321,color:#fff,stroke-width:4px
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
     class POWER,UPS,COOLING,GENERATOR physicalStyle
@@ -168,7 +168,7 @@ graph LR
 
     A --> B --> C --> D --> E --> F
 
-    classDef emergencyStyle fill:#FF0000,stroke:#CC0000,color:#fff,stroke-width:3px
+    classDef emergencyStyle fill:#FF0000,stroke:#8B5CF6,color:#fff,stroke-width:3px
     class A,B,C,D,E,F emergencyStyle
 ```
 
@@ -241,8 +241,8 @@ flowchart TD
 
     C -.->|Insufficient cooling<br/>Temperature spike| J[THERMAL SHUTDOWN<br/>Hardware Protection]
 
-    classDef normalFlow fill:#00AA00,stroke:#007700,color:#fff
-    classDef failurePoint fill:#FF6B6B,stroke:#CC0000,color:#fff
+    classDef normalFlow fill:#10B981,stroke:#059669,color:#fff
+    classDef failurePoint fill:#FF6B6B,stroke:#8B5CF6,color:#fff
     classDef emergency fill:#8B0000,stroke:#660000,color:#fff
 
     class A,B,C,D,E,F normalFlow
@@ -415,7 +415,7 @@ graph TB
     ALERT --> THROTTLE
     MIGRATE --> SHUTDOWN
 
-    classDef newStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef newStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     class COOL1,COOL2,COOL3,COOL4,COOL5,PREDICT,AUTO,ALERT,MIGRATE,THROTTLE,SHUTDOWN newStyle
 ```
 

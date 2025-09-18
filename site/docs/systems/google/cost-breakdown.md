@@ -159,7 +159,7 @@ graph LR
     RecommendationInfra -.->|11%| YouTubeTotal
     LiveStreaming -.->|6.1%| YouTubeTotal
 
-    classDef youtubeStyle fill:#ff0000,stroke:#cc0000,color:#fff
+    classDef youtubeStyle fill:#ff0000,stroke:#8B5CF6,color:#fff
     class VideoStorage,VideoProcessing,ContentDelivery,RecommendationInfra,LiveStreaming,YouTubeTotal youtubeStyle
 ```
 
@@ -309,7 +309,7 @@ graph TB
     PlayStore -.->|ROI: 8.3x| OtherRevenue
 
     classDef searchStyle fill:#4285f4,stroke:#1a73e8,color:#fff
-    classDef youtubeStyle fill:#ff0000,stroke:#cc0000,color:#fff
+    classDef youtubeStyle fill:#ff0000,stroke:#8B5CF6,color:#fff
     classDef cloudStyle fill:#34a853,stroke:#137333,color:#fff
     classDef otherStyle fill:#fbbc04,stroke:#f9ab00,color:#000
 

@@ -40,8 +40,8 @@ graph TB
     %% Customer impact
     MEETINGS -.->|"Cannot join meeting"<br/>280M+ users affected| BUSINESS[Global Enterprises<br/>Remote Teams<br/>Educational Institutions<br/>Government Agencies]
 
-    classDef certStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef certStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
     class CERT,CA,RENEWAL certStyle

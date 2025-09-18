@@ -48,10 +48,10 @@ graph TB
     LoadBalanceAlgorithms -.->|"Load distribution variance: <5%<br/>Failover time: <200ms<br/>Session stickiness: 99.9%"| IntelligentRouting[Intelligent Load Distribution]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class Route53,CloudFront2 edgeStyle
     class ALB_US,ALB_EU,ALB_AP serviceStyle
@@ -98,7 +98,7 @@ graph TB
     %% Apply styles
     classDef oldStyle fill:#FF6B6B,stroke:#E55555,color:#fff
     classDef newStyle fill:#4ECDC4,stroke:#45B7B8,color:#fff
-    classDef intelligentStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef intelligentStyle fill:#10B981,stroke:#059669,color:#fff
     classDef affinityStyle fill:#9B59B6,stroke:#8E44AD,color:#fff
 
     class RoundRobin,Server1,Server2,Server3 oldStyle
@@ -189,7 +189,7 @@ graph TB
     %% Apply styles
     classDef beforeStyle fill:#FF6B6B,stroke:#E55555,color:#fff
     classDef afterStyle fill:#4ECDC4,stroke:#45B7B8,color:#fff
-    classDef healthStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef healthStyle fill:#10B981,stroke:#059669,color:#fff
     classDef managementStyle fill:#9B59B6,stroke:#8E44AD,color:#fff
 
     class SimpleTargets,UniformHealth,NoSegmentation beforeStyle
@@ -239,7 +239,7 @@ graph TB
     classDef beforeStyle fill:#FF6B6B,stroke:#E55555,color:#fff
     classDef afterStyle fill:#4ECDC4,stroke:#45B7B8,color:#fff
     classDef certStyle fill:#FFA726,stroke:#FF8F00,color:#fff
-    classDef protocolStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef protocolStyle fill:#10B981,stroke:#059669,color:#fff
     classDef securityStyle fill:#9B59B6,stroke:#8E44AD,color:#fff
 
     class TLSBefore,SlowHandshake beforeStyle

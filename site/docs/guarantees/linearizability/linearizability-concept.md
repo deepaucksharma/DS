@@ -46,10 +46,10 @@ graph TB
     MON -.->|"SLO alerts"| ALERT
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB edge
     class API,COORD,TXN service
@@ -139,10 +139,10 @@ graph TB
     CHECKER -.->|"Pass/Fail results"| REPORTER
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,PROXY edge
     class JEPSEN,NEMESIS,CLIENT service
@@ -192,10 +192,10 @@ graph TB
     THR -.->|"Scale planning"| COMP
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class INFRA,NET edge
     class DEV,OPS service
@@ -240,9 +240,9 @@ flowchart TD
     T6 --> R3
 
     %% Incident response colors
-    classDef incident fill:#FF4444,stroke:#CC0000,color:#fff
-    classDef detection fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef recovery fill:#00AA00,stroke:#007700,color:#fff
+    classDef incident fill:#FF4444,stroke:#8B5CF6,color:#fff
+    classDef detection fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef recovery fill:#10B981,stroke:#059669,color:#fff
 
     class T1,T2,T3,T4,T5,T6 incident
     class M1,M2,M3 detection

@@ -115,13 +115,13 @@ graph TB
     EMERGENCY_SCALING -.->|"Add capacity"| REPLICA_CLUSTER
 
     %% 4-plane styling
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     classDef healthyStyle fill:#00FF00,stroke:#00CC00,color:#fff
     classDef degradedStyle fill:#FFA500,stroke:#CC8800,color:#fff
-    classDef criticalStyle fill:#FF0000,stroke:#CC0000,color:#fff
+    classDef criticalStyle fill:#FF0000,stroke:#8B5CF6,color:#fff
 
     class WRITE_APP,READ_APP,CRITICAL_READS edgeStyle
     class LOAD_BALANCER,PRIMARY_PROXY,READ_BALANCER,REPLICA_PROXY,REPL_MONITOR,CONFLICT_RESOLVER serviceStyle

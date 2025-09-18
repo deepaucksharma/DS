@@ -67,7 +67,7 @@ We now operate a dual-track system to handle both updates and new creation:
 3. Validate against 4-plane architecture (NOT 5-plane)
 4. Ensure all have SLO labels
 5. **NEW**: Apply interactive design system:
-   - Use standard color scheme (#0066CC, #00AA00, #FF8800, #CC0000)
+   - Use improved color scheme (#3B82F6, #10B981, #F59E0B, #8B5CF6)
    - Add clickable nodes where applicable
    - Include emojis for visual clarity (🌐, ⚙️, 💾, 🎛️)
    - Ensure minimum 400px height for zoom/pan
@@ -175,10 +175,10 @@ graph TB
     SVC --> CACHE
     SVC --> MON
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:2px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:2px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:2px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:2px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:2px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:2px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:2px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:2px
 
     class CDN,LB edgeStyle
     class API,SVC serviceStyle
@@ -251,11 +251,11 @@ tracker.export_status_report("json")
 
 Every diagram MUST:
 - ✅ Follow **4-plane architecture** (Edge, Service, State, Control - NO Stream Plane)
-- ✅ Use correct color scheme:
-  - Edge: #0066CC (Blue)
-  - Service: #00AA00 (Green)
-  - State: #FF8800 (Orange)
-  - Control: #CC0000 (Red)
+- ✅ Use correct color scheme (Tailwind-inspired for better aesthetics):
+  - Edge: #3B82F6 (Blue)
+  - Service: #10B981 (Emerald)
+  - State: #F59E0B (Amber)
+  - Control: #8B5CF6 (Violet)
 - ✅ Include SLO labels on edges (p50, p99, p999)
 - ✅ Show real metrics from production
 - ✅ Be under 500KB uncompressed

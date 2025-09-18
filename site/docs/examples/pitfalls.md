@@ -44,8 +44,8 @@ graph TB
     SHARED_DB --> DEPLOY_TOGETHER
     CUSTOMER_SVC --> CASCADE_FAIL
 
-    classDef serviceStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef problemStyle fill:#FF6666,stroke:#CC0000,color:#fff
+    classDef serviceStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef problemStyle fill:#FF6666,stroke:#8B5CF6,color:#fff
 
     class ORDER_SVC,CUSTOMER_SVC,INVENTORY_SVC,PRICING_SVC,PAYMENT_SVC serviceStyle
     class SYNC_DEPS,SHARED_DB,DEPLOY_TOGETHER,CASCADE_FAIL problemStyle
@@ -97,10 +97,10 @@ graph TB
     EVENT_BUS --> PAYMENT_QUEUE
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class API_GW,LOAD_BAL edgeStyle
     class ORDER_SVC,CUSTOMER_SVC,INVENTORY_SVC,PRICING_SVC,PAYMENT_SVC serviceStyle
@@ -203,10 +203,10 @@ graph TB
     COMPOSITE_SVC --> BATCH_MONITOR
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT,BFF,CACHE,CDN edgeStyle
     class USER_SVC,POST_SVC,FRIEND_SVC,COMPOSITE_SVC serviceStyle
@@ -312,9 +312,9 @@ graph TB
     SHARED_DB --> PERFORMANCE_BOTTLENECK
     SHARED_DB --> SCALING_LIMITATION
 
-    classDef serviceStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef dbStyle fill:#FF6666,stroke:#CC0000,color:#fff
-    classDef problemStyle fill:#FF9999,stroke:#CC0000,color:#fff
+    classDef serviceStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef dbStyle fill:#FF6666,stroke:#8B5CF6,color:#fff
+    classDef problemStyle fill:#FF9999,stroke:#8B5CF6,color:#fff
 
     class ORDER_SVC,INVENTORY_SVC,NOTIFICATION_SVC,BILLING_SVC,ANALYTICS_SVC serviceStyle
     class SHARED_DB,ORDERS_TABLE,INVENTORY_TABLE,NOTIFICATIONS_TABLE,BILLING_TABLE dbStyle
@@ -372,10 +372,10 @@ graph TB
     SAGA_COORDINATOR --> MONITORING
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class API_GW,CLIENT edgeStyle
     class ORDER_SVC,INVENTORY_SVC,NOTIFICATION_SVC,BILLING_SVC,ANALYTICS_SVC serviceStyle
@@ -427,9 +427,9 @@ graph TB
     INVENTORY_EVENT --> ANALYTICS_UPDATE
     PAYMENT_EVENT --> ANALYTICS_UPDATE
 
-    classDef transactionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef compensationStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef eventualStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef transactionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef compensationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef eventualStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class ORDER_START,INVENTORY_RESERVE,PAYMENT_PROCESS,NOTIFICATION_SEND transactionStyle
     class PAYMENT_FAIL,UNRESERVE_INVENTORY,CANCEL_ORDER,SEND_FAILURE_NOTIFICATION compensationStyle
@@ -535,10 +535,10 @@ graph TB
     SAGA_ORCHESTRATOR --> COMPENSATION
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT,API_GW,RESPONSE edgeStyle
     class CHECKOUT_SVC,CART_SVC,PAYMENT_SVC,INVENTORY_SVC,SHIPPING_SVC serviceStyle
@@ -589,9 +589,9 @@ graph TB
     ERROR_RESPONSES --> POOR_EXPERIENCE
     POOR_EXPERIENCE --> LOST_REVENUE
 
-    classDef systemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef failureStyle fill:#FF6666,stroke:#CC0000,color:#fff
-    classDef impactStyle fill:#FF9999,stroke:#CC0000,color:#fff
+    classDef systemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef failureStyle fill:#FF6666,stroke:#8B5CF6,color:#fff
+    classDef impactStyle fill:#FF9999,stroke:#8B5CF6,color:#fff
 
     class ORDER_SVC,PAYMENT_SVC,INVENTORY_SVC,USER_SVC systemStyle
     class PAYMENT_DOWN,THREADS_BLOCKED,MEMORY_EXHAUSTED,SYSTEM_CRASH failureStyle
@@ -652,10 +652,10 @@ graph TB
     HEALTH_CHECK --> ALERT_MGR
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT,LOAD_BAL,RATE_LIMIT edgeStyle
     class ORDER_SVC,PAYMENT_CIRCUIT,INVENTORY_CIRCUIT,USER_CIRCUIT serviceStyle
@@ -710,9 +710,9 @@ graph TB
     PROPER_TIMEOUTS --> TEAM_AUTONOMY
     CIRCUIT_PROTECTION --> OPERATIONAL_EXCELLENCE
 
-    classDef antiStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef practiceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef resultStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef antiStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef practiceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef resultStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class DISTRIBUTED_MONOLITH,CHATTY_APIS,SHARED_DATABASE,SYNC_EVERYWHERE,NO_TIMEOUTS,NO_CIRCUITS antiStyle
     class EVENT_DRIVEN,BATCH_APIS,DATABASE_PER_SERVICE,ASYNC_MESSAGING,PROPER_TIMEOUTS,CIRCUIT_PROTECTION practiceStyle

@@ -52,10 +52,10 @@ graph TB
     end
 
     %% Apply cost category colors
-    classDef computeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef networkStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef specializedStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef computeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef networkStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef specializedStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AWSCompute,GCPCompute,AzureCompute computeStyle
     class DatabaseStorage,ImageStorage,ArchiveStorage storageStyle
@@ -164,9 +164,9 @@ graph TB
         ArchiveData[Archive Data - 7 years<br/>S3 Deep Archive<br/>Compliance retention<br/>$0.00099/GB/month<br/>Legal requirements]
     end
 
-    classDef databaseStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef contentStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef specializedStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef databaseStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef contentStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef specializedStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef lifecycleStyle fill:#9966CC,stroke:#7744AA,color:#fff
 
     class MySQLPrimary,MySQLReplicas,BackupSnapshots databaseStyle
@@ -214,9 +214,9 @@ graph TB
         LatinAmerica[Latin America<br/>$7M annually<br/>5% of traffic<br/>Cost-optimized delivery<br/>Regional caching]
     end
 
-    classDef cdnStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef transferStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef optimizationStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef cdnStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef transferStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef optimizationStyle fill:#10B981,stroke:#059669,color:#fff
     classDef regionalStyle fill:#9966CC,stroke:#7744AA,color:#fff
 
     class CloudFrontPrimary,FastlyDynamic cdnStyle
@@ -262,8 +262,8 @@ graph TB
         FeatureStoreOptimization[Feature Store Optimization<br/>Intelligent caching<br/>Batch vs real-time<br/>Cost-aware serving<br/>Storage tiering]
     end
 
-    classDef trainingStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef inferenceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef trainingStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef inferenceStyle fill:#10B981,stroke:#059669,color:#fff
     classDef optimizationStyle fill:#9966CC,stroke:#7744AA,color:#fff
 
     class RecommendationTraining,ImageAnalysis,FraudDetection trainingStyle
@@ -303,9 +303,9 @@ graph TB
         end
     end
 
-    classDef userStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef transactionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef revenueStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef userStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef transactionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef revenueStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class RegisteredUsers,ActiveUsers,PowerUsers userStyle
     class BookingCost,SearchCost,MessageCost transactionStyle

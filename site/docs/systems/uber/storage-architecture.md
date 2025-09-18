@@ -6,16 +6,16 @@ This diagram shows Uber's complete storage architecture supporting 25M trips/day
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         AppCache["Client-Side Cache<br/>━━━━━<br/>Mobile app caching<br/>User preferences<br/>Offline capability<br/>5-minute TTL"]
 
         CDNCache["CDN Edge Cache<br/>━━━━━<br/>Static map tiles<br/>Driver photos<br/>99% hit rate<br/>24-hour TTL"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         WriteAPI["Write API Layer<br/>━━━━━<br/>Transaction coordination<br/>Consistency guarantees<br/>Rate limiting<br/>1M writes/sec"]
 
@@ -24,8 +24,8 @@ graph TB
         StreamProcessor["Stream Processor<br/>━━━━━<br/>Kafka consumers<br/>Real-time ETL<br/>50M events/sec<br/>Apache Flink"]
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         subgraph SchemalessCluster["Schemaless (MySQL Abstraction Layer)"]
             SchemalessWriter["Schemaless Writer<br/>━━━━━<br/>MySQL 8.0 clusters<br/>10,000+ shards<br/>ACID transactions<br/>100TB active data"]
@@ -62,8 +62,8 @@ graph TB
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         BackupService["Backup Orchestrator<br/>━━━━━<br/>Automated backups<br/>Cross-region replication<br/>RPO: 15 minutes<br/>RTO: 2 hours"]
 
@@ -108,10 +108,10 @@ graph TB
     ShardManager -.->|"Shard operations"| SchemalessWriter
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class AppCache,CDNCache edgeStyle
     class WriteAPI,ReadAPI,StreamProcessor serviceStyle

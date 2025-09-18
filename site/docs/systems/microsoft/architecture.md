@@ -59,10 +59,10 @@ graph TB
     SECURITY_CENTER -->|"Threat protection"| AZURE_AD
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AZURE_CDN,FRONT_DOOR,WAF,EDGE_ZONES edgeStyle
     class API_MGMT,APP_SERVICE,TEAMS,OFFICE365,AZURE_AD,FUNCTIONS serviceStyle
@@ -151,10 +151,10 @@ graph TB
     AAD -.->|"1.5B identities"| SECURITY
     ONEDRIVE -.->|"1EB+ storage"| COMPLIANCE
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef backendStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef backendStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class WEB_CLIENT,DESKTOP_APPS,MOBILE_APPS,TEAMS_CLIENT clientStyle
     class EXCHANGE_ONLINE,SHAREPOINT_ONLINE,ONEDRIVE,TEAMS_SERVICE,POWER_PLATFORM serviceStyle
@@ -218,10 +218,10 @@ graph LR
     AKS -.->|"100K+ clusters"| AZURE_FUNCTIONS
     API_MANAGEMENT -.->|"Billion calls/month"| APPLICATION_GATEWAY
 
-    classDef computeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef containerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serverlessStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef integrationStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef computeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef containerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serverlessStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef integrationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class VIRTUAL_MACHINES,VMSS,BATCH,CONTAINER_INSTANCES computeStyle
     class AKS,SERVICE_FABRIC,CONTAINER_APPS,RED_HAT_OPENSHIFT containerStyle
@@ -285,10 +285,10 @@ graph TB
     ML_SERVICE -.->|"AutoML capabilities"| COGNITIVE_SERVICES
     PURVIEW -.->|"Data governance"| FORM_RECOGNIZER
 
-    classDef ingestStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef analyticsStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef aiStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef ingestStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef analyticsStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef aiStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EVENT_HUBS,IOT_HUB,DATA_FACTORY,STREAM_ANALYTICS ingestStyle
     class DATA_LAKE,BLOB_STORAGE,SQL_DW,COSMOS_MULTI storageStyle
@@ -381,10 +381,10 @@ graph TB
     SENTINEL -.->|"5TB+ data/day"| DEFENDER_CLOUD
     KEY_VAULT -.->|"Billions of secrets"| FIREWALL
 
-    classDef identityStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef deviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef appStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef infraStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef identityStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef deviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef appStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef infraStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AZURE_AD_SEC,CONDITIONAL_ACCESS,PRIVILEGED_ACCESS,IDENTITY_PROTECTION identityStyle
     class INTUNE,ENDPOINT_MANAGER,AUTOPILOT,COMPLIANCE_MANAGER deviceStyle

@@ -54,10 +54,10 @@ graph TB
     CW -.->|"Alarms"| LAMBDA
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CF,R53,ALB edge
     class APIGW,SDK,AUTH service
@@ -169,10 +169,10 @@ graph TB
     METRICS -.->|"SLO violations"| ALERT
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN1,CDN2,ORIGIN edge
     class METADATA,SYNC,CONFLICT service
@@ -242,10 +242,10 @@ graph TB
     EC1 --- PI2
     SC1 --- PI3
 
-    classDef weakStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef eventualStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef strongStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef performanceStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef weakStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef eventualStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef strongStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef performanceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class WC1,WC2 weakStyle
     class EC1,EC2 eventualStyle
@@ -283,9 +283,9 @@ graph TB
     TC --> MT
     RT --> EC
 
-    classDef writeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef readStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef consistencyStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef writeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef readStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef consistencyStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class TW,FG,TC writeStyle
     class TL,LT,RT readStyle
@@ -327,9 +327,9 @@ graph LR
     T3 --> O3
     T4 --> O4
 
-    classDef factorStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef timeStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef optimizeStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef factorStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef timeStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef optimizeStyle fill:#10B981,stroke:#059669,color:#fff
 
     class F1,F2,F3,F4 factorStyle
     class T1,T2,T3,T4 timeStyle
@@ -380,10 +380,10 @@ graph TB
     ALERT -.->|"Auto-remediation"| RUNBOOK
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SDK,PROXY,LB edge
     class KAFKA,STORM,RULES service
@@ -524,9 +524,9 @@ graph TB
     R1 --> R3
     R2 --> R3
 
-    classDef cost fill:#CC0000,stroke:#990000,color:#fff
-    classDef benefit fill:#00AA00,stroke:#007700,color:#fff
-    classDef roi fill:#0066CC,stroke:#004499,color:#fff
+    classDef cost fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef benefit fill:#10B981,stroke:#059669,color:#fff
+    classDef roi fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class C1,C2,C3 cost
     class B1,B2,B3 benefit
@@ -570,9 +570,9 @@ flowchart TD
     T4 --> R3
 
     %% Incident response colors
-    classDef incident fill:#FF4444,stroke:#CC0000,color:#fff
-    classDef detection fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef mitigation fill:#00AA00,stroke:#007700,color:#fff
+    classDef incident fill:#FF4444,stroke:#8B5CF6,color:#fff
+    classDef detection fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef mitigation fill:#10B981,stroke:#059669,color:#fff
 
     class T1,T2,T3,T4,T5,T6 incident
     class M1,M2,M3 detection

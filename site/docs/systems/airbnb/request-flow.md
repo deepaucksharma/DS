@@ -147,10 +147,10 @@ graph TB
     DiversityEngine --> BusinessRules
     BusinessRules --> FinalRanking
 
-    classDef queryStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef candidateStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef mlStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef optimizeStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef queryStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef candidateStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef mlStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef optimizeStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class QueryParser,LocationService,InventoryFilter queryStyle
     class GeoSearch,AvailabilityCheck,InitialRanking candidateStyle
@@ -257,9 +257,9 @@ graph TB
     QuickCheck --> DetailedCheck
     DetailedCheck --> InventoryLocking
 
-    classDef sourceStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef syncStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef apiStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef sourceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef syncStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef apiStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class AirbnbCalendar,ExternalCalendars,ManualBlocks sourceStyle
     class CalendarMerger,RealTimeUpdater,ConflictResolver syncStyle

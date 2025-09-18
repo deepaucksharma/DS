@@ -79,9 +79,9 @@ graph TB
     end
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class FW,LB,SW edgeStyle
     class WEB,APP,DB_SRV serviceStyle
@@ -125,7 +125,7 @@ graph TB
     VM2 -.->|AWS SMS<br/>Server Migration Service| EC2_2
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     class VM1,VM2,EC2_1,EC2_2 serviceStyle
 ```
 
@@ -157,9 +157,9 @@ graph TB
     ECS --> RDS
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class OLD_APP,ECS serviceStyle
     class OLD_DB,RDS stateStyle
@@ -209,9 +209,9 @@ graph TB
     ORDER_SVC --> S3
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class MONO,USER_SVC,ORDER_SVC,PAYMENT_SVC serviceStyle
     class DYNAMO,S3,SQS stateStyle
@@ -284,10 +284,10 @@ graph TB
     SHARED_VPC --> DNS
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class FW_PREM,RTR,DX,VPN,TGW edgeStyle
     class PROD_SUB,STAGE_SUB,AD serviceStyle
@@ -375,9 +375,9 @@ graph TB
     CW --> XRAY
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class TGW,DX,DNS53 edgeStyle
     class SSO,IAM serviceStyle
@@ -431,9 +431,9 @@ graph TB
     ECR --> S3_ARTIFACTS
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DEV_EC2,TEST_EC2 serviceStyle
     class DEV_VPC,TEST_VPC,DEV_RDS,TEST_RDS,ECR,S3_ARTIFACTS stateStyle
@@ -487,9 +487,9 @@ graph TB
     MSSQL_OLD -.->|DMS| RDS_MSSQL
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class WEB_OLD,WEB_NEW,APP_OLD,ECS serviceStyle
     class ORACLE_OLD,RDS_ORACLE,MSSQL_OLD,RDS_MSSQL,ASG stateStyle
@@ -534,9 +534,9 @@ graph TB
     VALID --> METRICS
 
     %% Apply colors
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SRC_DB,TGT_DB,SRC_LOGS stateStyle
     class DMS_INST,DMS_TASK serviceStyle
@@ -611,7 +611,7 @@ graph TB
 
     %% Apply colors
     classDef costStyle fill:#FFE066,stroke:#CC9900,color:#000
-    classDef savingsStyle fill:#51CF66,stroke:#00AA00,color:#fff
+    classDef savingsStyle fill:#51CF66,stroke:#10B981,color:#fff
 
     class CAPEX,OPEX,COMPUTE,STORAGE,NETWORK costStyle
     class TOTAL_PREM,TOTAL_CLOUD savingsStyle
@@ -685,9 +685,9 @@ graph TB
     CONFIG --> INSPECTOR
 
     %% Apply colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SSO,IAM,SECRETS,GUARD,CONFIG,INSPECTOR controlStyle
     class VPC,NACL,WAF edgeStyle
@@ -737,9 +737,9 @@ graph TB
     BACKUP --> GLACIER
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PROD,DR serviceStyle
     class RDS_PRIMARY,RDS_DR,S3_PRIMARY,S3_DR stateStyle
@@ -791,8 +791,8 @@ graph TB
     ALARM --> SNS
 
     %% Apply colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
 
     class XRAY,CW_APP,CW_INFRA,PERF,RUM,SYNTH controlStyle
     class ALARM,SNS serviceStyle
@@ -856,9 +856,9 @@ graph TB
     end
 
     %% Apply colors based on risk level
-    classDef highRisk fill:#FF6B6B,stroke:#CC0000,color:#fff
+    classDef highRisk fill:#FF6B6B,stroke:#8B5CF6,color:#fff
     classDef mediumRisk fill:#FFE066,stroke:#CC9900,color:#000
-    classDef lowRisk fill:#51CF66,stroke:#00AA00,color:#fff
+    classDef lowRisk fill:#51CF66,stroke:#10B981,color:#fff
 
     class DATA_LOSS,PERF_DEG,SEC_BREACH highRisk
     class VENDOR_LOCK mediumRisk

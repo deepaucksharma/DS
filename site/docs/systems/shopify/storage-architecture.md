@@ -8,7 +8,7 @@ Shopify's storage architecture handles 1.75+ million merchants with billions of 
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Data Access Layer #0066CC"
+    subgraph "Edge Plane - Data Access Layer #3B82F6"
         subgraph "Application Cache Layer"
             REDIS_CLUSTER[Redis Clusters<br/>50+ instances<br/>Session + Cart storage<br/>Hot data caching]
             MEMCACHED[Memcached<br/>Fragment caching<br/>Query result cache<br/>Computed data]
@@ -21,7 +21,7 @@ graph TB
         end
     end
 
-    subgraph "Service Plane - Data Services #00AA00"
+    subgraph "Service Plane - Data Services #10B981"
         subgraph "Data Access Layer"
             VITESS_GATEWAY[VTGate (Vitess)<br/>Query routing<br/>Connection pooling<br/>Query optimization]
             READ_REPLICAS[Read Replica Router<br/>Load balancing<br/>Lag monitoring<br/>Failover logic]
@@ -35,7 +35,7 @@ graph TB
         end
     end
 
-    subgraph "State Plane - Persistent Storage #FF8800"
+    subgraph "State Plane - Persistent Storage #F59E0B"
         subgraph "Vitess Sharded MySQL (130+ Shards)"
             subgraph "Product Shards (40 shards)"
                 PRODUCT_SHARD1[Product Shard 1<br/>MySQL 8.0<br/>SSD storage<br/>2 read replicas]
@@ -79,7 +79,7 @@ graph TB
         end
     end
 
-    subgraph "Control Plane - Storage Management #CC0000"
+    subgraph "Control Plane - Storage Management #8B5CF6"
         subgraph "Shard Management"
             SHARD_MANAGER[Shard Manager<br/>Rebalancing<br/>Split operations<br/>Health monitoring]
             TOPOLOGY_MGR[Topology Manager<br/>Master/replica config<br/>Failover coordination<br/>Capacity planning]
@@ -119,10 +119,10 @@ graph TB
     CAPACITY_MONITOR --> REPLICATION_MONITOR
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class REDIS_CLUSTER,MEMCACHED,CDN_CACHE,ELASTIC_CACHE,ANALYTICS_CACHE edgeStyle
     class VITESS_GATEWAY,READ_REPLICAS,WRITE_ROUTER,SEARCH_API,INDEX_BUILDER,ANALYTICS_API serviceStyle
@@ -170,9 +170,9 @@ graph TB
     MYSQL1 -.->|Binlog replication| MYSQL3
 
     %% Apply Vitess colors
-    classDef gatewayStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef tabletStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef mysqlStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef gatewayStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef tabletStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef mysqlStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class VTGATE1,VTGATE2,VTGATE3 gatewayStyle
     class VTTABLET1,VTTABLET2,VTTABLET3 tabletStyle
@@ -215,7 +215,7 @@ graph LR
 
     %% Apply sharding colors
     classDef shardingStyle fill:#FFE6CC,stroke:#CC9900,color:#000
-    classDef challengeStyle fill:#FFCCCC,stroke:#CC0000,color:#000
+    classDef challengeStyle fill:#FFCCCC,stroke:#8B5CF6,color:#000
 
     class PRODUCT_HASH,ORDER_HASH,CUSTOMER_HASH,SHOP_HASH shardingStyle
     class JOINS,TRANSACTIONS,ANALYTICS challengeStyle
@@ -260,8 +260,8 @@ graph TB
     POD_B_CACHE --> SHARED_CDN
 
     %% Apply pod colors
-    classDef podAStyle fill:#CCE6FF,stroke:#0066CC,color:#000
-    classDef podBStyle fill:#CCFFCC,stroke:#00AA00,color:#000
+    classDef podAStyle fill:#CCE6FF,stroke:#3B82F6,color:#000
+    classDef podBStyle fill:#CCFFCC,stroke:#10B981,color:#000
     classDef sharedStyle fill:#FFE6CC,stroke:#CC9900,color:#000
 
     class POD_A_APP,POD_A_DB,POD_A_CACHE podAStyle
@@ -316,8 +316,8 @@ graph TB
     INVALIDATION_STRATEGY --> MEMORY_MGMT
 
     %% Apply cache colors
-    classDef cacheStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef metricsStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef cacheStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef metricsStyle fill:#10B981,stroke:#059669,color:#fff
 
     class RUBY_CACHE,LOCAL_REDIS,DISTRIBUTED_REDIS,QUERY_CACHE,EDGE_CACHE cacheStyle
     class HIT_RATES,INVALIDATION_STRATEGY,MEMORY_MGMT metricsStyle
@@ -364,8 +364,8 @@ graph TB
     ANALYTICS --> OPTIMIZATION
 
     %% Apply capacity colors
-    classDef growthStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef capacityStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef growthStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef capacityStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class PRODUCTS,ORDERS,CUSTOMERS,ANALYTICS growthStyle
     class CURRENT,PROJECTED,OPTIMIZATION capacityStyle
@@ -411,9 +411,9 @@ graph TB
     EVENTUAL --> FINANCIAL
 
     %% Apply consistency colors
-    classDef acidStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef crossShardStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef challengeStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef acidStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef crossShardStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef challengeStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ATOMIC,CONSISTENT,ISOLATED,DURABLE acidStyle
     class SAGA,TWO_PHASE,EVENTUAL crossShardStyle
@@ -456,8 +456,8 @@ graph TB
     MEDIA_BACKUP --> TESTING
 
     %% Apply backup colors
-    classDef backupStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef recoveryStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef backupStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef recoveryStyle fill:#10B981,stroke:#059669,color:#fff
 
     class MYSQL_BACKUP,BINLOG_BACKUP,SHARD_BACKUP,REDIS_BACKUP,ELASTIC_BACKUP,MEDIA_BACKUP backupStyle
     class RTO,RPO,TESTING recoveryStyle

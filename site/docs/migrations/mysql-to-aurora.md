@@ -65,8 +65,8 @@ graph TB
     end
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef metricStyle fill:#FFE066,stroke:#CC9900,color:#000
 
     class APP,PROXY serviceStyle
@@ -116,8 +116,8 @@ graph TB
     WRITE_OLTP --> SEASONAL
 
     %% Apply colors
-    classDef readStyle fill:#51CF66,stroke:#00AA00,color:#fff
-    classDef writeStyle fill:#FF6B6B,stroke:#CC0000,color:#fff
+    classDef readStyle fill:#51CF66,stroke:#10B981,color:#fff
+    classDef writeStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff
     classDef peakStyle fill:#FFE066,stroke:#CC9900,color:#000
 
     class READ_SIMPLE,READ_COMPLEX,READ_ANALYTICS readStyle
@@ -183,9 +183,9 @@ graph TB
     STORAGE --> CLONE
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef endpointStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef endpointStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef backupStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class APP serviceStyle
@@ -288,7 +288,7 @@ graph TB
     %% Apply colors
     classDef mysqlStyle fill:#336791,stroke:#25496b,color:#fff
     classDef auroraStyle fill:#FF9900,stroke:#CC7700,color:#fff
-    classDef monitorStyle fill:#51CF66,stroke:#00AA00,color:#fff
+    classDef monitorStyle fill:#51CF66,stroke:#10B981,color:#fff
     classDef timelineStyle fill:#FFE066,stroke:#CC9900,color:#000
 
     class MYSQL_MASTER mysqlStyle
@@ -500,9 +500,9 @@ graph TB
 
     %% Apply colors
     classDef awsStyle fill:#FF9900,stroke:#CC7700,color:#fff
-    classDef customStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef alertStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef dashboardStyle fill:#51CF66,stroke:#00AA00,color:#fff
+    classDef customStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef alertStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef dashboardStyle fill:#51CF66,stroke:#10B981,color:#fff
 
     class CW,PI,ENHANCED awsStyle
     class CUSTOM,LOGS customStyle
@@ -570,7 +570,7 @@ graph TB
     %% Apply colors
     classDef mysqlStyle fill:#336791,stroke:#25496b,color:#fff
     classDef auroraStyle fill:#FF9900,stroke:#CC7700,color:#fff
-    classDef optimizationStyle fill:#51CF66,stroke:#00AA00,color:#fff
+    classDef optimizationStyle fill:#51CF66,stroke:#10B981,color:#fff
 
     class EC2_COST,EBS_COST,DATA_COST,MYSQL_TOTAL mysqlStyle
     class AURORA_COMPUTE,AURORA_STORAGE,AURORA_FEATURES,AURORA_TOTAL auroraStyle

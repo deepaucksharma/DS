@@ -48,27 +48,27 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #0066CC"
+    subgraph "Edge Plane - Blue #3B82F6"
         API[Stripe API Gateway<br/>Payment Endpoints]
         WEBHOOK[Webhook Service<br/>Event Delivery]
         DASHBOARD[Stripe Dashboard<br/>Merchant Interface]
     end
 
-    subgraph "Service Plane - Green #00AA00"
+    subgraph "Service Plane - Green #10B981"
         PAYMENT[Payment Processing<br/>Core Transaction Engine]
         CHARGE[Charge Service<br/>Card Processing]
         TRANSFER[Transfer Service<br/>Payout Processing]
         CONNECT[Connect Service<br/>Platform Payments]
     end
 
-    subgraph "State Plane - Orange #FF8800"
+    subgraph "State Plane - Orange #F59E0B"
         POSTGRES[(PostgreSQL Cluster<br/>Transaction Records<br/>CONNECTION CRISIS)]
         REDIS[(Redis Cluster<br/>Session Cache)]
         KAFKA[(Kafka Streams<br/>Event Processing)]
         VAULT[(Vault Database<br/>Sensitive Data)]
     end
 
-    subgraph "Control Plane - Red #CC0000"
+    subgraph "Control Plane - Red #8B5CF6"
         MONITORING[DataDog Monitoring<br/>System Metrics]
         CONFIG[Configuration Service<br/>Feature Flags]
         SCHEDULER[Job Scheduler<br/>Async Processing]
@@ -106,10 +106,10 @@ graph TB
     API -.->|Payment processing failed<br/>100M+ transactions| CUSTOMERS[E-commerce Sites<br/>SaaS Platforms<br/>Marketplaces<br/>Mobile Apps<br/>Subscription Services]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef financialStyle fill:#4B0082,stroke:#301934,color:#fff,stroke-width:4px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
@@ -164,7 +164,7 @@ graph LR
 
     A --> B --> C --> D --> E --> F
 
-    classDef connectionStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:2px
+    classDef connectionStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:2px
     class A,B,C,D,E,F connectionStyle
 ```
 
@@ -248,9 +248,9 @@ flowchart TD
     F -.->|CONNECTION LEAK<br/>Not released properly| J[Hung Connection<br/>Idle in transaction]
     J -.->|Accumulates over time<br/>Eventually exhausts pool| C
 
-    classDef normal fill:#00AA00,stroke:#007700,color:#fff
+    classDef normal fill:#10B981,stroke:#059669,color:#fff
     classDef problem fill:#FFA500,stroke:#FF8C00,color:#fff
-    classDef failure fill:#FF6B6B,stroke:#CC0000,color:#fff
+    classDef failure fill:#FF6B6B,stroke:#8B5CF6,color:#fff
 
     class A,B,D,F,G normal
     class C,J problem
@@ -443,7 +443,7 @@ graph TB
     BREAKER1 --> QUEUE
     QUEUE --> RETRY
 
-    classDef newStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef newStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     class POOL1,POOL2,POOL3,MONITOR,PRIMARY,REPLICA1,REPLICA2,REPLICA3,BREAKER1,QUEUE,RETRY newStyle
 ```
 

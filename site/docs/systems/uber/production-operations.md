@@ -6,8 +6,8 @@ This diagram shows Uber's complete production operations including uDeploy deplo
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         GlobalDNS["Global DNS<br/>━━━━━<br/>Route53 + CloudFlare<br/>Health-based routing<br/>TTL: 60 seconds<br/>Failover: 30 seconds"]
 
@@ -16,8 +16,8 @@ graph TB
         HealthChecks["Edge Health Checks<br/>━━━━━<br/>Deep health validation<br/>5-second intervals<br/>Multi-region probes<br/>Auto-traffic routing"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         subgraph CellA["Cell A (US-West-2a)"]
             ServiceA["Matching Service<br/>━━━━━<br/>100 instances<br/>c5.24xlarge<br/>Kubernetes pods<br/>Version: v2.47.3"]
@@ -38,8 +38,8 @@ graph TB
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         ConfigService["Configuration Service<br/>━━━━━<br/>Real-time config updates<br/>Feature flag management<br/>Circuit breaker settings<br/>A/B test parameters"]
 
@@ -48,8 +48,8 @@ graph TB
         ServiceRegistry["Service Registry<br/>━━━━━<br/>Consul + etcd<br/>Health monitoring<br/>Service discovery<br/>Load balancer config"]
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         subgraph DeploymentPipeline["uDeploy - Deployment Pipeline"]
             GitLab["GitLab CI/CD<br/>━━━━━<br/>Source control<br/>Merge requests<br/>Automated testing<br/>Security scanning"]

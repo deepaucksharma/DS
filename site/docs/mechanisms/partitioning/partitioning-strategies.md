@@ -56,10 +56,10 @@ graph TB
     SHARD_002 -.->|"Backup data"| BACKUP
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB,PROXY edge
     class SHARD_SVC,ROUTER,MIGRATOR service
@@ -126,10 +126,10 @@ graph TB
     CASSANDRA_2 -.->|"Compaction jobs"| COMPACTION
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class WEBSOCKET,API,CDN edge
     class HASH_SVC,MSG_SVC,FANOUT service
@@ -198,10 +198,10 @@ graph TB
     SF_DB -.->|"Backup data"| BACKUP
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MOBILE,REGIONAL_LB,API_GW edge
     class CITY_ROUTER,TRIP_SVC,PRICING_SVC service
@@ -327,10 +327,10 @@ graph TB
     QUERY2 --> RANGE3
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class REC1,REC2,REC3,REC4 edgeStyle
     class QUERY1,QUERY2 serviceStyle
@@ -435,10 +435,10 @@ graph TB
     AP_DB <--> SYNC
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class NA_USERS,EU_USERS,AP_USERS,GLOBAL_LB edgeStyle
     class NA_LB,EU_LB,AP_LB,NA_APP,EU_APP,AP_APP serviceStyle
@@ -689,10 +689,10 @@ graph TB
     end
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class HASH_CASES edgeStyle
     class RANGE_CASES serviceStyle

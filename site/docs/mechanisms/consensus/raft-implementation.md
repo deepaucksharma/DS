@@ -64,10 +64,10 @@ graph TB
     RAFT3 --> STORE3
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT1,CLIENT2,CLIENT3 edgeStyle
     class KAPI,SCHED,CM,API1,API2,API3 serviceStyle
@@ -185,10 +185,10 @@ graph TB
     FOLLOWER2 --> CATALOG3
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class WEB,API,DB,CLIENT1,CLIENT2,CLIENT3 edgeStyle
     class DNS1,DNS2,DNS3,HTTP1,HTTP2,HTTP3 serviceStyle
@@ -301,10 +301,10 @@ graph TB
     APP2 --> SQL2
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class APP1,APP2 edgeStyle
     class SQL1,SQL2,SQL3 serviceStyle
@@ -340,7 +340,7 @@ graph LR
     end
 
     %% Apply state plane color for performance metrics
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class ETCD_TPS,ETCD_LAT,ETCD_SIZE,CONSUL_TPS,CONSUL_LAT,CONSUL_SIZE,CRDB_TPS,CRDB_LAT,CRDB_SIZE,FACTORS stateStyle
 ```
 
@@ -382,8 +382,8 @@ graph TB
     N4 <--> N5
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class N1,N2,N3,N4,N5 edgeStyle
     class SINGLE,AZ_FAIL,NETWORK controlStyle

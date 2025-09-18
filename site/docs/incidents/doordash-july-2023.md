@@ -41,8 +41,8 @@ graph TB
     %% Customer impact
     TRACKING -.->|"Driver location unknown"<br/>25M+ users affected| CUSTOMERS[Hungry Customers<br/>Delivery Drivers<br/>Restaurant Partners<br/>Corporate Customers]
 
-    classDef locationStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef locationStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
     class GPS,MAPS,GEOFENCE,ETA locationStyle

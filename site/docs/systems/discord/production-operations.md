@@ -7,7 +7,7 @@ This diagram details Discord's production operations including their deployment 
 ```mermaid
 graph TB
     subgraph DeploymentPipeline["Discord Deployment Pipeline"]
-        style DeploymentPipeline fill:#E3F2FD,stroke:#0066CC,color:#000
+        style DeploymentPipeline fill:#E3F2FD,stroke:#3B82F6,color:#000
 
         GitCommit["Git Commit<br/>━━━━━<br/>Developer push to main<br/>Automatic CI trigger<br/>3,000+ commits/day<br/>Branch protection: required"]
 
@@ -23,7 +23,7 @@ graph TB
     end
 
     subgraph MonitoringObservability["Monitoring & Observability"]
-        style MonitoringObservability fill:#E8F5E8,stroke:#00AA00,color:#000
+        style MonitoringObservability fill:#E8F5E8,stroke:#10B981,color:#000
 
         InfluxDB["InfluxDB Time Series<br/>━━━━━<br/>5M metrics/second<br/>Real-time ingestion<br/>30-day retention<br/>Custom Discord metrics"]
 
@@ -37,7 +37,7 @@ graph TB
     end
 
     subgraph IncidentResponse["Incident Response & On-Call"]
-        style IncidentResponse fill:#FFE6E6,stroke:#CC0000,color:#000
+        style IncidentResponse fill:#FFE6E6,stroke:#8B5CF6,color:#000
 
         OnCallRotation["On-Call Rotation<br/>━━━━━<br/>L1: Feature teams (24/7)<br/>L2: Platform team<br/>L3: Infrastructure team<br/>L4: Engineering leadership"]
 
@@ -51,7 +51,7 @@ graph TB
     end
 
     subgraph VoiceOperations["Voice Infrastructure Operations"]
-        style VoiceOperations fill:#FFF3E0,stroke:#FF8800,color:#000
+        style VoiceOperations fill:#FFF3E0,stroke:#F59E0B,color:#000
 
         VoiceMonitoring["Voice Quality Monitoring<br/>━━━━━<br/>MOS score tracking<br/>Jitter/latency metrics<br/>Packet loss detection<br/>Real-time diagnostics"]
 
@@ -130,10 +130,10 @@ graph TB
     APISecurityOps --> ComplianceOps
 
     %% Apply control plane colors
-    classDef deploymentStyle fill:#E3F2FD,stroke:#0066CC,color:#000,font-weight:bold
-    classDef monitoringStyle fill:#E8F5E8,stroke:#00AA00,color:#000,font-weight:bold
-    classDef incidentStyle fill:#FFE6E6,stroke:#CC0000,color:#000,font-weight:bold
-    classDef voiceStyle fill:#FFF3E0,stroke:#FF8800,color:#000,font-weight:bold
+    classDef deploymentStyle fill:#E3F2FD,stroke:#3B82F6,color:#000,font-weight:bold
+    classDef monitoringStyle fill:#E8F5E8,stroke:#10B981,color:#000,font-weight:bold
+    classDef incidentStyle fill:#FFE6E6,stroke:#8B5CF6,color:#000,font-weight:bold
+    classDef voiceStyle fill:#FFF3E0,stroke:#F59E0B,color:#000,font-weight:bold
     classDef messageStyle fill:#F3E5F5,stroke:#9C27B0,color:#000,font-weight:bold
     classDef securityStyle fill:#E1F5FE,stroke:#00BCD4,color:#000,font-weight:bold
 

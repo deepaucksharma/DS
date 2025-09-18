@@ -6,8 +6,8 @@ This diagram represents Zoom's actual production architecture serving 300+ milli
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         GlobalCDN["Zoom Global CDN<br/>━━━━━<br/>5,000+ edge servers<br/>100+ countries<br/>Multi-cloud strategy<br/>Cost: $50M/month"]
 
@@ -18,8 +18,8 @@ graph TB
         WebRTCGateways["WebRTC Gateways<br/>━━━━━<br/>Media session establishment<br/>STUN/TURN servers<br/>ICE candidate gathering<br/>NAT traversal: 99.9%"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         subgraph MeetingServices["Meeting Management Services"]
             MeetingController["Meeting Controller<br/>━━━━━<br/>Session orchestration<br/>500K+ concurrent meetings<br/>Java/Spring Boot<br/>r5.12xlarge fleet"]
@@ -48,8 +48,8 @@ graph TB
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         subgraph DatabaseLayer["Database Infrastructure"]
             PostgreSQLCluster["PostgreSQL Clusters<br/>━━━━━<br/>User/meeting metadata<br/>Multi-master setup<br/>10TB+ per cluster<br/>db.r6g.16xlarge"]
@@ -74,8 +74,8 @@ graph TB
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         subgraph MonitoringInfra["Monitoring Infrastructure"]
             PrometheusStack["Prometheus Stack<br/>━━━━━<br/>Metrics collection<br/>10M+ metrics/min<br/>Alert management<br/>Multi-DC federation"]
@@ -135,10 +135,10 @@ graph TB
     SecurityMonitoring -.->|"Threat detection<br/>Compliance"| IdentityManagement
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class GlobalCDN,LoadBalancers,EdgeGateways,WebRTCGateways edgeStyle
     class MeetingController,ParticipantManager,SchedulingService,MediaRouter,TranscodingCluster,RecordingService,ScreenShareService,TranscriptionAI,BackgroundAI,AnalyticsEngine serviceStyle

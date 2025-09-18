@@ -16,8 +16,8 @@ graph TB
         PhoneDialIn["Phone Dial-in<br/>━━━━━<br/>PSTN bridge<br/>Global phone numbers<br/>Audio-only fallback"]
     end
 
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         GlobalDNS["Global DNS<br/>━━━━━<br/>Anycast routing<br/>Geo-location aware<br/>p99: 5ms resolution<br/>99.99% availability"]
 
@@ -28,8 +28,8 @@ graph TB
         WebRTCGW["WebRTC Gateway<br/>━━━━━<br/>STUN/TURN servers<br/>ICE candidate gathering<br/>NAT traversal: 99.9%<br/>Media negotiation"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         subgraph AuthenticationLayer["Authentication Layer"]
             AuthService["Authentication Service<br/>━━━━━<br/>SSO integration<br/>OAuth 2.0 + SAML<br/>MFA support<br/>p99: 100ms response"]
@@ -60,8 +60,8 @@ graph TB
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         UserDB["User Database<br/>━━━━━<br/>PostgreSQL clusters<br/>User profiles & settings<br/>Meeting preferences<br/>p99: 10ms read"]
 
@@ -74,8 +74,8 @@ graph TB
         MetricsDB["Metrics Database<br/>━━━━━<br/>Cassandra clusters<br/>Call quality data<br/>Performance metrics<br/>Time-series data"]
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         QualityMonitoring["Quality Monitoring<br/>━━━━━<br/>Real-time QoS tracking<br/>Network diagnostics<br/>Performance alerts<br/>SLA monitoring"]
 
@@ -137,10 +137,10 @@ graph TB
     LoadBalancer -.->|"Health checks<br/>Service status"| MeetingController
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class GlobalDNS,CDNEdge,EdgeLB,WebRTCGW edgeStyle
     class AuthService,SessionManager,MeetingJoinAPI,MeetingController,PermissionEngine,MediaRouter,TranscodingEngine,RecordingOrchestrator,TranscriptionService,BackgroundService serviceStyle

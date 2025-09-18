@@ -7,7 +7,7 @@ This diagram shows Netflix's architectural evolution from 1K users (2007) to 260
 ```mermaid
 graph TB
     subgraph Scale1K["2007-2008: 1K Users - Single Server Era"]
-        style Scale1K fill:#E3F2FD,stroke:#0066CC,color:#000
+        style Scale1K fill:#E3F2FD,stroke:#3B82F6,color:#000
 
         Single["Single Rails Server<br/>━━━━━<br/>1x m1.large EC2<br/>MySQL 5.0 on same server<br/>$500/month AWS<br/>DVD-by-mail + streaming pilot"]
 
@@ -15,7 +15,7 @@ graph TB
     end
 
     subgraph Scale10K["2008-2009: 10K Users - Database Separation"]
-        style Scale10K fill:#E8F5E8,stroke:#00AA00,color:#000
+        style Scale10K fill:#E8F5E8,stroke:#10B981,color:#000
 
         WebServer["Rails Web Servers<br/>━━━━━<br/>3x m1.large instances<br/>ELB load balancer<br/>$2,000/month<br/>First scaling crisis"]
 
@@ -25,7 +25,7 @@ graph TB
     end
 
     subgraph Scale100K["2009-2010: 100K Users - CDN Introduction"]
-        style Scale100K fill:#FFF3E0,stroke:#FF8800,color:#000
+        style Scale100K fill:#FFF3E0,stroke:#F59E0B,color:#000
 
         WebTier["Rails Application Tier<br/>━━━━━<br/>10x m1.large instances<br/>Auto Scaling Groups<br/>$8,000/month compute<br/>Memcached layer added"]
 
@@ -113,9 +113,9 @@ graph TB
     Crisis6 -.->|"Learned: Elastic scaling"| ExabyteStorage
 
     %% Apply colors for different eras
-    classDef era2007 fill:#E3F2FD,stroke:#0066CC,color:#000,font-weight:bold
-    classDef era2009 fill:#E8F5E8,stroke:#00AA00,color:#000,font-weight:bold
-    classDef era2010 fill:#FFF3E0,stroke:#FF8800,color:#000,font-weight:bold
+    classDef era2007 fill:#E3F2FD,stroke:#3B82F6,color:#000,font-weight:bold
+    classDef era2009 fill:#E8F5E8,stroke:#10B981,color:#000,font-weight:bold
+    classDef era2010 fill:#FFF3E0,stroke:#F59E0B,color:#000,font-weight:bold
     classDef era2012 fill:#F3E5F5,stroke:#9C27B0,color:#000,font-weight:bold
     classDef era2015 fill:#E1F5FE,stroke:#00BCD4,color:#000,font-weight:bold
     classDef era2020 fill:#FCE4EC,stroke:#E91E63,color:#000,font-weight:bold

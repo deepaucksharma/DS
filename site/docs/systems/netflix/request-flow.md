@@ -12,8 +12,8 @@ graph TB
         Web["Web Browser<br/>━━━━━<br/>Chrome/Safari/Edge<br/>HTML5 Video<br/>MSE/EME"]
     end
 
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         OCA["Open Connect Appliance<br/>━━━━━<br/>18,000+ edge servers<br/>Cache Hit Rate: 95%<br/>Response Time: 8ms p50"]
 
@@ -24,8 +24,8 @@ graph TB
         WAF["CloudFlare WAF<br/>━━━━━<br/>DDoS Protection<br/>Rate Limiting<br/>Bot Detection: 99.8%"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         PlayAPI["Playback API<br/>━━━━━<br/>Video Stream Orchestration<br/>2M req/sec peak<br/>SLA: p99 < 50ms"]
 
@@ -38,8 +38,8 @@ graph TB
         Falcor["Falcor GraphQL Gateway<br/>━━━━━<br/>Data Layer Orchestration<br/>800K req/sec<br/>SLA: p99 < 100ms"]
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         EVCache["EVCache<br/>━━━━━<br/>L1 Cache Layer<br/>Hit Rate: 95%<br/>Response: 0.5ms p99"]
 
@@ -50,8 +50,8 @@ graph TB
         S3["AWS S3<br/>━━━━━<br/>Video Master Storage<br/>1 Exabyte<br/>GET: 100ms p99"]
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         Atlas["Atlas Monitoring<br/>━━━━━<br/>Real-time Metrics<br/>2.5M metrics/sec<br/>Alert Latency: 5s"]
 
@@ -103,10 +103,10 @@ graph TB
     Falcor -.->|"GraphQL Metrics"| Atlas
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class OCA,Zuul1,Zuul2,WAF edgeStyle
     class PlayAPI,UserAPI,RecsAPI,SearchAPI,Falcor serviceStyle

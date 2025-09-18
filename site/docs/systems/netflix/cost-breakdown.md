@@ -6,16 +6,16 @@ This diagram shows Netflix's actual monthly infrastructure costs serving 260+ mi
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC<br/>Monthly Cost: $48M"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6<br/>Monthly Cost: $48M"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         OpenConnect["Open Connect CDN<br/>━━━━━<br/>$40M/month<br/>18,000 edge servers<br/>$2,222/server/month<br/>200Tbps capacity"]
 
         CloudFront["AWS CloudFront Backup<br/>━━━━━<br/>$8M/month<br/>450+ PoPs<br/>15% traffic during outages<br/>$0.085/GB transfer"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00<br/>Monthly Cost: $35M"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981<br/>Monthly Cost: $35M"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         ComputeAPI["Playback APIs<br/>━━━━━<br/>$12M/month<br/>r6i.8xlarge × 500<br/>$24,000/instance/month<br/>2M req/sec capacity"]
 
@@ -24,8 +24,8 @@ graph TB
         ComputeML["ML/Personalization<br/>━━━━━<br/>$8M/month<br/>p4d.24xlarge × 200<br/>$40,000/instance/month<br/>GPU inference"]
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800<br/>Monthly Cost: $50M"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B<br/>Monthly Cost: $50M"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         S3Costs["AWS S3 Storage<br/>━━━━━<br/>$20M/month<br/>1 Exabyte stored<br/>$0.023/GB/month<br/>Video masters + backups"]
 
@@ -36,8 +36,8 @@ graph TB
         ElasticCosts["Elasticsearch<br/>━━━━━<br/>$7M/month<br/>i3.8xlarge × 3,500<br/>$2,000/node/month<br/>15PB indexed data"]
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000<br/>Monthly Cost: $12M"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6<br/>Monthly Cost: $12M"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         MonitoringCosts["Atlas Monitoring<br/>━━━━━<br/>$4M/month<br/>m5.12xlarge × 200<br/>$20,000/instance/month<br/>2.5M metrics/sec"]
 
@@ -70,10 +70,10 @@ graph TB
     ChaosCosts -.->|"Prevents $100M<br/>outage costs/year"| ComputeAPI
 
     %% Apply standard colors with cost styling
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
     classDef networkStyle fill:#9966CC,stroke:#663399,color:#fff,font-weight:bold
 
     class OpenConnect,CloudFront edgeStyle
@@ -118,8 +118,8 @@ graph LR
     CapEx -->|"ROI: 192%<br/>Payback: 6 months"| BandwidthSave
     CapEx -->|"Churn reduction<br/>0.5% improvement"| LatencySave
 
-    classDef investStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef savingsStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef investStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef savingsStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CapEx investStyle
     class BandwidthSave,LatencySave savingsStyle
@@ -159,9 +159,9 @@ graph TB
     ServiceCost --> TotalCost
     StateCost --> TotalCost
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef totalStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class EdgeCost edgeStyle

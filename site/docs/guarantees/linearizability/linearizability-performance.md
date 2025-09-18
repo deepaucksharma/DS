@@ -51,10 +51,10 @@ graph TB
     L -.->|Failure detection| TO
 
     %% Apply 4-plane colors
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef consensusStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef networkStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef consensusStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef networkStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class C1,C2,C3 clientStyle
     class L,F1,F2 consensusStyle
@@ -91,9 +91,9 @@ graph TB
     W1 --> W2 --> W3 --> W4 --> W5 --> W6
     R1 --> R2 --> R3 --> R4
 
-    classDef writeStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef readStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef comparisonStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef writeStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef readStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef comparisonStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class W1,W2,W3,W4,W5,W6 writeStyle
     class R1,R2,R3,R4 readStyle
@@ -129,10 +129,10 @@ graph LR
         SL4[Cross-DC Latency<br/>200ms+ round trips]
     end
 
-    classDef baselineStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef eventualStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef strongStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef constraintStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef baselineStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef eventualStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef strongStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef constraintStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SN1,SN2,SN3 baselineStyle
     class EC1,EC2 eventualStyle
@@ -165,9 +165,9 @@ graph TB
         FD4[Consistency<br/>Strict serializability<br/>ACID guarantees]
     end
 
-    classDef spannerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef cockroachStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef faunaStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef spannerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef cockroachStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef faunaStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class GS1,GS2,GS3,GS4 spannerStyle
     class CR1,CR2,CR3,CR4 cockroachStyle
@@ -206,10 +206,10 @@ graph LR
         MO4[Consensus Health<br/>Election frequency, log lag]
     end
 
-    classDef readStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef writeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef systemStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef monitorStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef readStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef writeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef systemStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef monitorStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class RO1,RO2,RO3,RO4 readStyle
     class WO1,WO2,WO3,WO4 writeStyle
@@ -270,9 +270,9 @@ graph TB
         S3[Single DC → Multi DC<br/>Throughput: -60%<br/>Latency: +300%]
     end
 
-    classDef setupStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef resultStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef scalingStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef setupStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef resultStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef scalingStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class B1,B2,B3 setupStyle
     class R1,R2,R3 resultStyle
@@ -301,9 +301,9 @@ graph LR
         OCC3[Performance Optimization<br/>Limited by consensus<br/>Vertical scaling limits<br/>-70% peak performance]
     end
 
-    classDef infraStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef opsStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef opportunityStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef infraStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef opsStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef opportunityStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class IC1,IC2,IC3 infraStyle
     class OC1,OC2,OC3 opsStyle
@@ -358,9 +358,9 @@ graph TB
         CM3[Quorum Status<br/>Available replicas<br/>Monitor majority health]
     end
 
-    classDef latencyStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef throughputStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef consensusStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef latencyStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef throughputStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef consensusStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class LM1,LM2,LM3 latencyStyle
     class TM1,TM2,TM3 throughputStyle
@@ -385,8 +385,8 @@ graph TB
         AL4[Gaming Systems<br/>Low latency critical<br/>Temporary inconsistency OK]
     end
 
-    classDef useStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef avoidStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef useStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef avoidStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class UL1,UL2,UL3,UL4 useStyle
     class AL1,AL2,AL3,AL4 avoidStyle

@@ -8,7 +8,7 @@ Cloudflare operates one of the world's most complex distributed systems with 285
 
 ```mermaid
 graph TB
-    subgraph "Control Plane - Operations Command #CC0000"
+    subgraph "Control Plane - Operations Command #8B5CF6"
         subgraph "Deployment Systems"
             QUICKSILVER[Quicksilver<br/>Global config distribution<br/>30-second propagation<br/>Atomic updates]
             EDGE_DEPLOY[Edge Deployment<br/>Gradual rollout system<br/>Canary testing<br/>Auto-rollback]
@@ -28,7 +28,7 @@ graph TB
         end
     end
 
-    subgraph "Service Plane - Operations Services #00AA00"
+    subgraph "Service Plane - Operations Services #10B981"
         subgraph "Automation Systems"
             HEALING[Self-Healing<br/>Automatic remediation<br/>Circuit breakers<br/>Graceful degradation]
             SCALING[Auto-Scaling<br/>Load-based triggers<br/>Predictive scaling<br/>Resource optimization]
@@ -42,7 +42,7 @@ graph TB
         end
     end
 
-    subgraph "Edge Plane - Global Operations #0066CC"
+    subgraph "Edge Plane - Global Operations #3B82F6"
         subgraph "285+ PoPs Worldwide"
             HEALTH_CHECK[Health Monitoring<br/>Every 10 seconds<br/>Multi-protocol checks<br/>Dependency mapping]
             TRAFFIC_MGMT[Traffic Management<br/>Load distribution<br/>Capacity allocation<br/>Performance optimization]
@@ -56,7 +56,7 @@ graph TB
         end
     end
 
-    subgraph "State Plane - Operations Data #FF8800"
+    subgraph "State Plane - Operations Data #F59E0B"
         subgraph "Metrics & Logs"
             METRICS_DB[Metrics Database<br/>ClickHouse cluster<br/>100TB+ daily<br/>Real-time queries]
             LOG_STORAGE[Log Storage<br/>Elasticsearch cluster<br/>Structured logging<br/>Full-text search]
@@ -92,10 +92,10 @@ graph TB
     RUNBOOK_DB --> INCIDENT_DB
 
     %% Apply four-plane colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class QUICKSILVER,EDGE_DEPLOY,CONFIG_API,GRAFANA,PROMETHEUS,PAGERDUTY,STATUS_PAGE,WAR_ROOM,POSTMORTEM controlStyle
     class HEALING,SCALING,FAILOVER,CHAOS,LOAD_TEST,CANARY serviceStyle
@@ -145,8 +145,8 @@ graph TB
     SAFETY --> OBSERVABILITY
 
     %% Apply deployment colors
-    classDef pipelineStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef metricsStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef pipelineStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef metricsStyle fill:#10B981,stroke:#059669,color:#fff
 
     class DEV,CI,STAGING,CANARY,GRADUAL,GLOBAL,MONITOR pipelineStyle
     class SPEED,SAFETY,OBSERVABILITY metricsStyle
@@ -184,8 +184,8 @@ graph LR
     APPLICATION --> FEATURES
 
     %% Apply config colors
-    classDef configStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef typeStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef configStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef typeStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CONFIG_CHANGE,VALIDATION,PROPAGATION,APPLICATION configStyle
     class SECURITY,ROUTING,FEATURES typeStyle
@@ -227,9 +227,9 @@ graph TB
     DASHBOARDS --> ESCALATION
 
     %% Apply monitoring colors
-    classDef collectionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef aggregationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef alertingStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef collectionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef aggregationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef alertingStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EDGE_METRICS,SYSTEM_METRICS,APP_METRICS collectionStyle
     class STREAM_PROC,TIME_SERIES,DASHBOARDS aggregationStyle
@@ -264,8 +264,8 @@ graph LR
     THROUGHPUT --> CUSTOMER_IMPACT
 
     %% Apply SLI colors
-    classDef sliStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef businessStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef sliStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef businessStyle fill:#10B981,stroke:#059669,color:#fff
 
     class AVAILABILITY,LATENCY,ERROR_RATE,THROUGHPUT sliStyle
     class CACHE_HIT,ATTACK_BLOCK,CUSTOMER_IMPACT businessStyle
@@ -321,8 +321,8 @@ graph TB
     RECOVERY --> RECOVERY_TIME
 
     %% Apply incident colors
-    classDef processStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef slaStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef processStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef slaStyle fill:#10B981,stroke:#059669,color:#fff
 
     class DETECTION,TRIAGE,WAR_ROOM_START,INVESTIGATION,MITIGATION,RECOVERY,POSTMORTEM processStyle
     class DETECT_TIME,RESPONSE_TIME,MITIGATION_TIME,RECOVERY_TIME slaStyle
@@ -374,9 +374,9 @@ graph TB
     CUSTOMER_IMPACT --> LEARNING
 
     %% Apply chaos colors
-    classDef chaosStyle fill:#FF6666,stroke:#CC0000,color:#fff
-    classDef testingStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef learningStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef chaosStyle fill:#FF6666,stroke:#8B5CF6,color:#fff
+    classDef testingStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef learningStyle fill:#10B981,stroke:#059669,color:#fff
 
     class SERVER_FAILURE,NETWORK_CHAOS,SERVICE_OUTAGE chaosStyle
     class POP_FAILURE,REGION_CHAOS,CUSTOMER_IMPACT testingStyle
@@ -427,8 +427,8 @@ graph TB
     SECURITY_OPS --> CUSTOMER_OPS
 
     %% Apply team colors
-    classDef nocStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef specialistStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef nocStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef specialistStyle fill:#10B981,stroke:#059669,color:#fff
 
     class SF_NOC,SF_ONCALL,LON_NOC,LON_SUPPORT,SIN_NOC,SIN_EXPANSION nocStyle
     class SECURITY_OPS,NETWORK_OPS,PLATFORM_OPS,CUSTOMER_OPS specialistStyle

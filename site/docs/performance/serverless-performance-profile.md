@@ -40,9 +40,9 @@ graph TB
         PROVISIONED1 --> PROVISIONED2 --> PROVISIONED3
     end
 
-    classDef coldStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef warmStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef provisionedStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef coldStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef warmStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef provisionedStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class COLD1,COLD2,COLD3 coldStyle
     class WARM1,WARM2,WARM3 warmStyle
@@ -79,9 +79,9 @@ graph LR
         ARCH1 --> ARCH2 --> ARCH3
     end
 
-    classDef codeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef keepAliveStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef archStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef codeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef keepAliveStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef archStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CODE1,CODE2 codeStyle
     class KEEPALIVE1,KEEPALIVE2 keepAliveStyle
@@ -124,9 +124,9 @@ graph TB
         SCALING1 --> SCALING2 --> SCALING3
     end
 
-    classDef accountStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef functionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef scalingStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef accountStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef functionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef scalingStyle fill:#10B981,stroke:#059669,color:#fff
 
     class ACCOUNT1,ACCOUNT2,ACCOUNT3 accountStyle
     class FUNCTION1,FUNCTION2,FUNCTION3 functionStyle
@@ -167,9 +167,9 @@ graph TB
         API1 --> API2 --> API3
     end
 
-    classDef queueStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef streamStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef apiStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef queueStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef streamStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef apiStyle fill:#10B981,stroke:#059669,color:#fff
 
     class QUEUE1,QUEUE2,QUEUE3 queueStyle
     class STREAM1,STREAM2,STREAM3 streamStyle
@@ -212,9 +212,9 @@ graph TB
         MEM3GB_1 --> MEM3GB_2 --> MEM3GB_3
     end
 
-    classDef mem128Style fill:#CC0000,stroke:#990000,color:#fff
-    classDef mem1gbStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef mem3gbStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef mem128Style fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef mem1gbStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef mem3gbStyle fill:#10B981,stroke:#059669,color:#fff
 
     class MEM128_1,MEM128_2,MEM128_3 mem128Style
     class MEM1GB_1,MEM1GB_2,MEM1GB_3 mem1gbStyle
@@ -251,9 +251,9 @@ graph LR
         SWEET1 --> SWEET2
     end
 
-    classDef costStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef perfStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef sweetStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef costStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef perfStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef sweetStyle fill:#10B981,stroke:#059669,color:#fff
 
     class COST1,COST2 costStyle
     class PERF1,PERF2 perfStyle
@@ -296,9 +296,9 @@ graph TB
         EVENT_1 --> EVENT_2 --> EVENT_3
     end
 
-    classDef s3Style fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef apiStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDf eventStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef s3Style fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef apiStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDf eventStyle fill:#10B981,stroke:#059669,color:#fff
 
     class S3_1,S3_2,S3_3 s3Style
     class API_1,API_2,API_3 apiStyle
@@ -333,9 +333,9 @@ graph LR
         REALTIME1 --> REALTIME2
     end
 
-    classDev batchStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef streamStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef realtimeStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDev batchStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef streamStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef realtimeStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class BATCH1,BATCH2 batchStyle
     class STREAM1,STREAM2 streamStyle
@@ -380,9 +380,9 @@ graph TB
         OPT1 --> OPT2 --> OPT3
     end
 
-    classDef statsStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef useCaseStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef optStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef statsStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef useCaseStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef optStyle fill:#10B981,stroke:#059669,color:#fff
 
     class STATS1,STATS2,STATS3 statsStyle
     class UC1,UC2,UC3,UC4 useCaseStyle
@@ -417,9 +417,9 @@ graph LR
         COST_OPT1 --> COST_OPT2
     end
 
-    classDef coldStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef concStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef costStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef coldStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef concStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef costStyle fill:#10B981,stroke:#059669,color:#fff
 
     class COLD_MIT1,COLD_MIT2 coldStyle
     class CONC1,CONC2 concStyle
@@ -450,7 +450,7 @@ graph TB
 
     L1 --> L2 --> L3 --> L4
 
-    classDf levelStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDf levelStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class L1,L2,L3,L4 levelStyle
 ```

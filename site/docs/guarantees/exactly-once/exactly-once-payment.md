@@ -48,10 +48,10 @@ graph TB
     PN3 --> CompL3
 
     %% Apply 4-plane colors
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef gatewayStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef networkStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef complianceStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef gatewayStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef networkStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef complianceStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CL1,CL2,CL3 clientStyle
     class PG1,PG2,PG3 gatewayStyle
@@ -155,10 +155,10 @@ graph TB
     AC2 --> CR2
     AC3 --> CR3
 
-    classDef initiationStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef ledgerStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef commitStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef complianceStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef initiationStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef ledgerStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef commitStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef complianceStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class TI1,TI2,TI3 initiationStyle
     class DEL1,DEL2,DEL3 ledgerStyle
@@ -258,10 +258,10 @@ graph LR
     SP2 --> RM2
     SP3 --> RM3
 
-    classDef executionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef clearingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef settlementStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef riskStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef executionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef clearingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef settlementStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef riskStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class TE1,TE2,TE3 executionStyle
     class CP1,CP2,CP3 clearingStyle
@@ -609,10 +609,10 @@ graph TB
         end
     end
 
-    classDef auditStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef reportingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef retentionStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef accessStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef auditStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef reportingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef retentionStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef accessStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AR1,AR2,AR3 auditStyle
     class RR1,RR2,RR3 reportingStyle
@@ -686,10 +686,10 @@ graph LR
     AS2 --> MM2
     MM3 --> AT3
 
-    classDef latencyStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef availabilityStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef monitoringStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef alertingStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef latencyStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef availabilityStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef monitoringStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef alertingStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LS1,LS2,LS3 latencyStyle
     class AS1,AS2,AS3 availabilityStyle

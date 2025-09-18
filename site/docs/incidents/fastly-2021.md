@@ -18,7 +18,7 @@
 ```mermaid
 graph TB
     subgraph Detection["T+0: Detection Phase - 09:47 UTC"]
-        style Detection fill:#FFE5E5,stroke:#CC0000,color:#000
+        style Detection fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
         Start["09:47:00<br/>━━━━━<br/>Config Change<br/>Customer service config<br/>Invalid service setting<br/>Edge compute deployment"]
 
@@ -28,7 +28,7 @@ graph TB
     end
 
     subgraph Diagnosis["T+5min: Diagnosis Phase"]
-        style Diagnosis fill:#FFF5E5,stroke:#FF8800,color:#000
+        style Diagnosis fill:#FFF5E5,stroke:#F59E0B,color:#000
 
         Incident["09:52:00<br/>━━━━━<br/>Major Incident<br/>SEV-0 declared<br/>Global service disruption<br/>Customer escalations"]
 
@@ -48,7 +48,7 @@ graph TB
     end
 
     subgraph Recovery["T+25min: Recovery Phase"]
-        style Recovery fill:#E5FFE5,stroke:#00AA00,color:#000
+        style Recovery fill:#E5FFE5,stroke:#10B981,color:#000
 
         TrafficNormal["10:20:00<br/>━━━━━<br/>Traffic Normalizing<br/>95% of sites accessible<br/>Cache hit rate improving<br/>Performance stabilizing"]
 
@@ -72,7 +72,7 @@ graph TB
 
     %% Major Site Impact
     subgraph SiteImpact["Major Website Impact"]
-        style SiteImpact fill:#FFE0E0,stroke:#990000,color:#000
+        style SiteImpact fill:#FFE0E0,stroke:#7C3AED,color:#000
 
         NewsMedia["News & Media<br/>━━━━━<br/>❌ CNN, BBC, Guardian<br/>❌ Twitch streaming<br/>❌ Spotify music"]
 
@@ -125,12 +125,12 @@ graph TB
     CompilerBug -.-> ProcessCrash
 
     %% Apply timeline colors
-    classDef detectStyle fill:#FFE5E5,stroke:#CC0000,color:#000,font-weight:bold
-    classDef diagnoseStyle fill:#FFF5E5,stroke:#FF8800,color:#000,font-weight:bold
+    classDef detectStyle fill:#FFE5E5,stroke:#8B5CF6,color:#000,font-weight:bold
+    classDef diagnoseStyle fill:#FFF5E5,stroke:#F59E0B,color:#000,font-weight:bold
     classDef mitigateStyle fill:#FFFFE5,stroke:#CCCC00,color:#000,font-weight:bold
-    classDef recoverStyle fill:#E5FFE5,stroke:#00AA00,color:#000,font-weight:bold
+    classDef recoverStyle fill:#E5FFE5,stroke:#10B981,color:#000,font-weight:bold
     classDef cdnStyle fill:#F0F0F0,stroke:#666666,color:#000
-    classDef siteStyle fill:#FFE0E0,stroke:#990000,color:#000
+    classDef siteStyle fill:#FFE0E0,stroke:#7C3AED,color:#000
     classDef bugStyle fill:#F0F0F0,stroke:#666666,color:#000
 
     class Start,Alert1,Alert2 detectStyle
@@ -223,7 +223,7 @@ grep "edge_compute" /var/log/fastly/service-compiler.log | tail -20
 ```mermaid
 graph TB
     subgraph NormalFlow["Normal CDN Flow - Before Incident"]
-        style NormalFlow fill:#E5FFE5,stroke:#00AA00,color:#000
+        style NormalFlow fill:#E5FFE5,stroke:#10B981,color:#000
 
         User1["Global Users<br/>Making requests"]
         EdgePoP1["Edge PoPs<br/>120 locations<br/>95% cache hit rate"]
@@ -234,7 +234,7 @@ graph TB
     end
 
     subgraph IncidentFlow["During Incident - CDN Failure"]
-        style IncidentFlow fill:#FFE5E5,stroke:#CC0000,color:#000
+        style IncidentFlow fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
         User2["Global Users<br/>Same request volume"]
         EdgePoP2["Edge PoPs<br/>❌ 102/120 offline<br/>❌ Cache unavailable"]
@@ -255,8 +255,8 @@ graph TB
         EdgePoP3 -.->|"60% cache miss"| Origin3
     end
 
-    classDef normalStyle fill:#E5FFE5,stroke:#00AA00,color:#000
-    classDef incidentStyle fill:#FFE5E5,stroke:#CC0000,color:#000
+    classDef normalStyle fill:#E5FFE5,stroke:#10B981,color:#000
+    classDef incidentStyle fill:#FFE5E5,stroke:#8B5CF6,color:#000
     classDef recoveryStyle fill:#FFFFE5,stroke:#CCCC00,color:#000
 
     class User1,EdgePoP1,Origin1 normalStyle
@@ -428,9 +428,9 @@ graph TB
         ReducedLoad --> NormalLoad
     end
 
-    classDef coldStyle fill:#FFE5E5,stroke:#CC0000,color:#000
+    classDef coldStyle fill:#FFE5E5,stroke:#8B5CF6,color:#000
     classDef warmStyle fill:#FFFFE5,stroke:#CCCC00,color:#000
-    classDef steadyStyle fill:#E5FFE5,stroke:#00AA00,color:#000
+    classDef steadyStyle fill:#E5FFE5,stroke:#10B981,color:#000
 
     class ColdCache,OriginOverload coldStyle
     class PopularContent,ReducedLoad warmStyle

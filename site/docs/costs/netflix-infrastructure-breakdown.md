@@ -20,10 +20,10 @@ graph TB
     end
 
     %% Apply colors for cost categories
-    classDef computeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef cdnStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef dataStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef computeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef cdnStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef dataStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class COMPUTE computeStyle
     class CDN cdnStyle
@@ -55,7 +55,7 @@ graph TB
     PEERING --> COVERAGE
 
     %% Apply plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     class OC,AWS_CF,PEERING,EDGE_SEC edgeStyle
 ```
 
@@ -85,7 +85,7 @@ graph TB
     end
 
     %% Apply plane colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     class STREAM,API,ENCODE,ML,ECS,K8S,LAMBDA serviceStyle
 ```
 
@@ -114,7 +114,7 @@ graph TB
     end
 
     %% Apply plane colors
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class S3_HOT,EBS,CACHE,S3_GLACIER,BACKUP,LOGS stateStyle
 ```
 
@@ -150,7 +150,7 @@ graph TB
     end
 
     %% Apply plane colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     class KAFKA,SPARK,DRUID,VPC,LOAD_BAL,ROUTE53,MONITOR,SECURITY,CHAOS controlStyle
 ```
 

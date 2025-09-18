@@ -35,10 +35,10 @@ graph TB
         P12_RANGE --> P12_COSTS
     end
 
-    classDef partitionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef benefitStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef costStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef totalStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef partitionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef benefitStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef costStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef totalStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class P3_1,P3_2,P3_3,P12_RANGE partitionStyle
     class P3_TOTAL totalStyle
@@ -72,9 +72,9 @@ graph LR
     OP1 --> OP2
     OVP1 --> OVP2
 
-    classDef underStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef optimalStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef overStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef underStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef optimalStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef overStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class UP1,UP2 underStyle
     class OP1,OP2 optimalStyle
@@ -109,9 +109,9 @@ graph TB
         CP1 --> CP2
     end
 
-    classDef roundRobinStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef keyBasedStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef customStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef roundRobinStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef keyBasedStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef customStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class RR1,RR2 roundRobinStyle
     class KB1,KB2 keyBasedStyle
@@ -155,10 +155,10 @@ graph TB
         LB2 --> OPT
     end
 
-    classDef smallStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef mediumStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef largeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef optStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef smallStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef mediumStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef largeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef optStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SB1,SB2 smallStyle
     class MB1,MB2 mediumStyle
@@ -194,9 +194,9 @@ graph LR
         BAL1 --> BAL2
     end
 
-    classDef lowLatencyStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef highThroughputStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef balancedStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef lowLatencyStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef highThroughputStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef balancedStyle fill:#10B981,stroke:#059669,color:#fff
 
     class LL1,LL2 lowLatencyStyle
     class HT1,HT2 highThroughputStyle
@@ -237,9 +237,9 @@ graph TB
         L3 --> L_TOTAL
     end
 
-    classDef healthyStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef laggingStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef totalStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef healthyStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef laggingStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef totalStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class H1,H2,H3 healthyStyle
     class L1,L2,L3 laggingStyle
@@ -276,9 +276,9 @@ graph TB
         APP1 --> APP2
     end
 
-    classDef scaleStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef tuneStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef appStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef scaleStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef tuneStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef appStyle fill:#10B981,stroke:#059669,color:#fff
 
     class SCALE1,SCALE2,SCALE3 scaleStyle
     class TUNE1,TUNE2 tuneStyle
@@ -323,10 +323,10 @@ graph TB
         GZIP1 --> GZIP2
     end
 
-    classDef noneStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef snappyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef lz4Style fill:#00AA00,stroke:#007700,color:#fff
-    classDef gzipStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef noneStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef snappyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef lz4Style fill:#10B981,stroke:#059669,color:#fff
+    classDef gzipStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class NONE1,NONE2 noneStyle
     class SNAPPY1,SNAPPY2 snappyStyle
@@ -370,8 +370,8 @@ graph LR
         BALANCED --> BALANCED_REC
     end
 
-    classDef requirementStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef recommendationStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef requirementStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef recommendationStyle fill:#10B981,stroke:#059669,color:#fff
 
     class HT_LL,NET_CONST,CPU_CONST,BALANCED requirementStyle
     class HT_LL_REC,NET_CONST_REC,CPU_CONST_REC,BALANCED_REC recommendationStyle
@@ -407,9 +407,9 @@ graph TB
         PERF2[Storage efficiency<br/>Total data: 2 PB/day<br/>Retention: 7 days<br/>Compression ratio: 3:1<br/>Cost per TB: $10/month]
     end
 
-    classDef dcStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef mirrorStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef dcStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef mirrorStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
 
     class DC1,DC2,DC3 dcStyle
     class MIRROR mirrorStyle
@@ -454,10 +454,10 @@ graph TB
         HW1 --> HW2
     end
 
-    classDef brokerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef jvmStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef osStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef hwStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef brokerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef jvmStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef osStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef hwStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class BROKER1,BROKER2,BROKER3 brokerStyle
     class JVM1,JVM2 jvmStyle
@@ -489,8 +489,8 @@ graph LR
         OPT3[2018-2024<br/>• NVMe storage<br/>• Network optimization<br/>• Application-level batching]
     end
 
-    classDef phaseStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef optStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef phaseStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef optStyle fill:#10B981,stroke:#059669,color:#fff
 
     class PHASE1,PHASE2,PHASE3,PHASE4 phaseStyle
     class OPT1,OPT2,OPT3 optStyle
@@ -520,7 +520,7 @@ graph TB
 
     L1 --> L2 --> L3 --> L4
 
-    classDef levelStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef levelStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class L1,L2,L3,L4 levelStyle
 ```

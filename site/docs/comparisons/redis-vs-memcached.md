@@ -61,10 +61,10 @@ graph TB
     end
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class RLB,MLB edgeStyle
     class RAPP,MAPP serviceStyle
@@ -176,16 +176,16 @@ graph LR
         M5[Operational Simplicity<br/>No persistence]
     end
 
-    style R1 fill:#FF8800
-    style R2 fill:#FF8800
-    style R3 fill:#FF8800
-    style R4 fill:#FF8800
-    style R5 fill:#FF8800
-    style M1 fill:#00AA00
-    style M2 fill:#00AA00
-    style M3 fill:#00AA00
-    style M4 fill:#00AA00
-    style M5 fill:#00AA00
+    style R1 fill:#F59E0B
+    style R2 fill:#F59E0B
+    style R3 fill:#F59E0B
+    style R4 fill:#F59E0B
+    style R5 fill:#F59E0B
+    style M1 fill:#10B981
+    style M2 fill:#10B981
+    style M3 fill:#10B981
+    style M4 fill:#10B981
+    style M5 fill:#10B981
 ```
 
 ## Migration Stories

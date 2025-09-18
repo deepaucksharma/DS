@@ -41,8 +41,8 @@ graph TB
     %% Customer impact
     CHECKOUT -.->|"PayPal temporarily unavailable"<br/>400M+ users affected| CUSTOMERS[E-commerce Shoppers<br/>Small Business Owners<br/>Freelance Workers<br/>International Transfers]
 
-    classDef dnsStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef dnsStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
     class DNS,CDN,LOADBALANCER,SERVERS dnsStyle

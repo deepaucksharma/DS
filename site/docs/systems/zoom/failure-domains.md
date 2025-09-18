@@ -7,7 +7,7 @@ This diagram maps the blast radius of each component failure, cascading failure 
 ```mermaid
 graph TB
     subgraph BlastRadius1["Blast Radius: Edge Infrastructure Failure"]
-        style BlastRadius1 fill:#FFE6E6,stroke:#CC0000,color:#000
+        style BlastRadius1 fill:#FFE6E6,stroke:#8B5CF6,color:#000
 
         CDNFailure["CDN Edge Failure<br/>━━━━━<br/>Blast Radius: 5-20% regional users<br/>Geography: Single region/country<br/>Cascade Probability: 10%<br/>MTTR: 5 minutes"]
 
@@ -19,7 +19,7 @@ graph TB
     end
 
     subgraph BlastRadius2["Blast Radius: Service Layer Failure"]
-        style BlastRadius2 fill:#FFECB3,stroke:#FF8800,color:#000
+        style BlastRadius2 fill:#FFECB3,stroke:#F59E0B,color:#000
 
         AuthServiceFailure["Authentication Service Down<br/>━━━━━<br/>Blast Radius: ALL new joins<br/>Existing meetings: Continue<br/>SSO dependency failure<br/>Circuit breaker: 10s timeout"]
 
@@ -33,7 +33,7 @@ graph TB
     end
 
     subgraph BlastRadius3["Blast Radius: Data Layer Failure"]
-        style BlastRadius3 fill:#E8F5E8,stroke:#00AA00,color:#000
+        style BlastRadius3 fill:#E8F5E8,stroke:#10B981,color:#000
 
         PostgreSQLFailure["PostgreSQL Cluster Failure<br/>━━━━━<br/>Blast Radius: Meeting metadata<br/>Read replicas: 3 per cluster<br/>Failover time: 30s<br/>Data loss: Zero (WAL)"]
 
@@ -45,7 +45,7 @@ graph TB
     end
 
     subgraph BlastRadius4["Blast Radius: Infrastructure Failure"]
-        style BlastRadius4 fill:#E3F2FD,stroke:#0066CC,color:#000
+        style BlastRadius4 fill:#E3F2FD,stroke:#3B82F6,color:#000
 
         K8sClusterFailure["Kubernetes Cluster Failure<br/>━━━━━<br/>Blast Radius: Regional services<br/>Multi-cluster deployment<br/>Pod migration: 60s<br/>Stateful services protected"]
 
@@ -109,10 +109,10 @@ graph TB
     SecurityIncident -.->|"Tenant boundary"| TenantIsolation
 
     %% Apply failure-specific colors
-    classDef edgeFailure fill:#FFE6E6,stroke:#CC0000,color:#000,font-weight:bold
-    classDef serviceFailure fill:#FFECB3,stroke:#FF8800,color:#000,font-weight:bold
-    classDef dataFailure fill:#E8F5E8,stroke:#00AA00,color:#000,font-weight:bold
-    classDef infraFailure fill:#E3F2FD,stroke:#0066CC,color:#000,font-weight:bold
+    classDef edgeFailure fill:#FFE6E6,stroke:#8B5CF6,color:#000,font-weight:bold
+    classDef serviceFailure fill:#FFECB3,stroke:#F59E0B,color:#000,font-weight:bold
+    classDef dataFailure fill:#E8F5E8,stroke:#10B981,color:#000,font-weight:bold
+    classDef infraFailure fill:#E3F2FD,stroke:#3B82F6,color:#000,font-weight:bold
     classDef circuitBreaker fill:#F3E5F5,stroke:#9C27B0,color:#000,font-weight:bold
     classDef isolation fill:#E8EAF6,stroke:#3F51B5,color:#000,font-weight:bold
 

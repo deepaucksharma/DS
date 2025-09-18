@@ -40,9 +40,9 @@ graph TB
         COMPLEX1 --> COMPLEX2 --> COMPLEX3
     end
 
-    classDef simpleStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef mediumStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef complexStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef simpleStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef mediumStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef complexStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SIMPLE1,SIMPLE2,SIMPLE3 simpleStyle
     class MEDIUM1,MEDIUM2,MEDIUM3 mediumStyle
@@ -81,9 +81,9 @@ graph TB
         OPT1 --> OPT2
     end
 
-    classDef staticStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef dynamicStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef optStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef staticStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef dynamicStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef optStyle fill:#10B981,stroke:#059669,color:#fff
 
     class STATIC1,STATIC2,STATIC3 staticStyle
     class DYNAMIC1,DYNAMIC2,DYNAMIC3 dynamicStyle
@@ -116,8 +116,8 @@ graph TB
         SOLUTION1 --> SOLUTION2 --> SOLUTION3
     end
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class PROBLEM1,PROBLEM2,PROBLEM3 problemStyle
     class SOLUTION1,SOLUTION2,SOLUTION3 solutionStyle
@@ -159,10 +159,10 @@ graph LR
         DB1 --> DB2
     end
 
-    classDef dataLoaderStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef queryPlanStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef fieldBatchStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dbOptStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef dataLoaderStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef queryPlanStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef fieldBatchStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dbOptStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DL1,DL2 dataLoaderStyle
     class QP1,QP2 queryPlanStyle
@@ -198,8 +198,8 @@ graph TB
         METRICS1 --> METRICS2 --> METRICS3
     end
 
-    classDef flowStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef metricsStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef flowStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef metricsStyle fill:#10B981,stroke:#059669,color:#fff
 
     class REQUEST1,BATCH1,EXECUTE1,RESOLVE1 flowStyle
     class METRICS1,METRICS2,METRICS3 metricsStyle
@@ -237,9 +237,9 @@ graph TB
         ERROR1 --> ERROR2
     end
 
-    classDef batchStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef cacheStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef errorStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef batchStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef cacheStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef errorStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class BS1,BS2,BS3 batchStyle
     class CACHE1,CACHE2,CACHE3 cacheStyle
@@ -279,10 +279,10 @@ graph TB
         CHALLENGE1 --> CHALLENGE2 --> CHALLENGE3
     end
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serverStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef pubsubStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef challengeStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serverStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef pubsubStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef challengeStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT1,CLIENT2,CLIENT1000 clientStyle
     class GRAPHQL_SERVER serverStyle
@@ -318,9 +318,9 @@ graph LR
         OPTIMIZED1 --> OPTIMIZED2
     end
 
-    classDef singleStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef horizontalStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef optimizedStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef singleStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef horizontalStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef optimizedStyle fill:#10B981,stroke:#059669,color:#fff
 
     class SINGLE1,SINGLE2 singleStyle
     class HORIZONTAL1,HORIZONTAL2 horizontalStyle
@@ -357,9 +357,9 @@ graph TB
         INFRA_OPT1 --> INFRA_OPT2
     end
 
-    classDef connStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef msgStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef infraStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef connStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef msgStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef infraStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CONN_OPT1,CONN_OPT2 connStyle
     class MSG_OPT1,MSG_OPT2,MSG_OPT3 msgStyle
@@ -400,9 +400,9 @@ graph TB
         RESOURCE1 --> RESOURCE2
     end
 
-    classDef statsStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef optStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDev resourceStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef statsStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef optStyle fill:#10B981,stroke:#059669,color:#fff
+    classDev resourceStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class STATS1,STATS2,STATS3 statsStyle
     class OPT1,OPT2,OPT3 optStyle
@@ -436,9 +436,9 @@ graph LR
     CALC2 --> QUERY_OPT1
     RATE2 --> QUERY_OPT1
 
-    classDef calcStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef rateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef optStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef calcStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef rateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef optStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CALC1,CALC2 calcStyle
     class RATE1,RATE2 rateStyle
@@ -469,7 +469,7 @@ graph TB
 
     L1 --> L2 --> L3 --> L4
 
-    classDef levelStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef levelStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class L1,L2,L3,L4 levelStyle
 ```

@@ -42,10 +42,10 @@ graph TB
     end
 
     %% Apply colors
-    classDef consistencyStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef orderStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef durabilityStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef performanceStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef consistencyStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef orderStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef durabilityStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef performanceStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LW,ST,RYW,MR,BS,EC consistencyStyle
     class PKO,CO,TO orderStyle
@@ -74,9 +74,9 @@ graph TB
     AP --> PL
 
     %% Apply colors
-    classDef strongStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef weakStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef balanceStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef strongStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef weakStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef balanceStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CP,PC strongStyle
     class AP,PA weakStyle
@@ -122,10 +122,10 @@ graph LR
     Analytics --> |Netflix, Uber| Data[Data Platforms]
 
     %% Apply colors
-    classDef financialStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef socialStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef gamingStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef analyticsStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef financialStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef socialStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef gamingStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef analyticsStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class F1,F2,F3,F4 financialStyle
     class S1,S2,S3,S4 socialStyle

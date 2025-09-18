@@ -60,8 +60,8 @@ graph TB
     MYSQL_SINGLE -.->|"Storage: 100MB"| PROFILES
     PHOTOS -.->|"Photos: 1K total"| MESSAGING
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class LAPTOP,APACHE,PHP_SIMPLE serviceStyle
     class MYSQL_SINGLE,PROFILES,PHOTOS,MESSAGING stateStyle
@@ -104,9 +104,9 @@ graph TB
     MEMCACHED -.->|"Hit ratio: 80%"| MYSQL_MASTER
     NFS -.->|"Photos: 10M files"| CDN_BASIC
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class LB,WEB1,WEB2,WEB3 serviceStyle
     class MYSQL_MASTER,MYSQL_SLAVE,MEMCACHED,NFS stateStyle
@@ -159,9 +159,9 @@ graph TB
     SHARD1 -.->|"Storage: 1TB each"| SHARD2
     MEMCACHE_L1 -.->|"Hit ratio: 95%"| MEMCACHE_L2
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CDN_US,CDN_EU,CDN_ASIA edgeStyle
     class DC_WEST,DC_EAST,DC_EU serviceStyle
@@ -219,9 +219,9 @@ graph TB
     GRAPH_API -.->|"1B API calls/day"| RATE_LIMIT
     HAYSTACK_V1 -.->|"100B+ photos"| MYSQL_CLUSTER
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class IOS_APP,ANDROID_APP,MOBILE_WEB,PUSH_SERVICE edgeStyle
     class GRAPH_API,REST_API,RATE_LIMIT,OAUTH,FEED_SERVICE,PHOTO_SERVICE,MESSAGE_SERVICE,NOTIFICATION_SERVICE serviceStyle
@@ -281,10 +281,10 @@ graph TB
     TAO_V3 -.->|"1T+ edges"| HAYSTACK_V3
     F4_STORAGE -.->|"Exabyte scale"| ZIPPYDB_V2
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN_200,EDGE_COMPUTE,SMART_ROUTING edgeStyle
     class FACEBOOK,INSTAGRAM,WHATSAPP,MESSENGER,THREADS,PYTORCH_SERVE serviceStyle
@@ -368,9 +368,9 @@ graph LR
     CAP4 --> SCALE4
     CAP5 --> SCALE5
 
-    classDef dbStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef capStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef scaleStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef dbStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef capStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef scaleStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class MYSQL_SINGLE,MYSQL_SHARDED,TAO_V1,TAO_V2,TAO_V3 dbStyle
     class CAP1,CAP2,CAP3,CAP4,CAP5 capStyle
@@ -434,9 +434,9 @@ graph TB
     MEMCACHE_FLEET --> CACHE_PERF
     MULTI_DC --> GLOBAL_PERF
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef resultStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef resultStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class DB_OVERLOAD,PHOTO_STORAGE,CACHE_MISSES,SINGLE_DC problemStyle
     class MYSQL_SHARDING,HAYSTACK_V1,MEMCACHE_FLEET,MULTI_DC solutionStyle

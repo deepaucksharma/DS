@@ -42,10 +42,10 @@ graph TB
     SC --- U3
     LC --- U4
 
-    classDef eventualStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef causalStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef sequentialStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef linearStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef eventualStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef causalStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef sequentialStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef linearStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EC,P1,U1 eventualStyle
     class CC,P2,U2 causalStyle
@@ -86,10 +86,10 @@ graph TB
     AP --- APE
     CA --- CAE
 
-    classDef capStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef cpStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef apStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef caStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef capStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef cpStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef apStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef caStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class C,A,P capStyle
     class CP,CPE cpStyle
@@ -136,10 +136,10 @@ graph LR
     R3 --> E2
     R4 --> E4
 
-    classDef requirementStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef linearStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef eventualStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef causalStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef requirementStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef linearStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef eventualStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef causalStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class R1,R2,R3,R4 requirementStyle
     class L1,L2,L3,L4 linearStyle
@@ -181,9 +181,9 @@ graph TB
     NO --- PM2
     RS --- PM2
 
-    classDef criticalStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef eventualStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef metricsStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef criticalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef eventualStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef metricsStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class PS,IS,LS criticalStyle
     class AN,NO,RS eventualStyle
@@ -218,9 +218,9 @@ graph TB
     PH --- PG2
     MS --- PG3
 
-    classDef eventualStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef linearStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef performanceStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef eventualStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef linearStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef performanceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class NF,PH,MS eventualStyle
     class AC,PY,SE linearStyle
@@ -261,10 +261,10 @@ graph TB
     PD --- BI2
     SC --- BI3
 
-    classDef inventoryStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef catalogStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef hybridStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef impactStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef inventoryStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef catalogStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef hybridStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef impactStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class IV,OR,PR inventoryStyle
     class PD,RV,RC catalogStyle
@@ -301,9 +301,9 @@ graph TB
     ES2 --> PG
     ES3 --> PG
 
-    classDef linearStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef eventualStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef gapStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef linearStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef eventualStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef gapStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class LS1,LS2,LS3 linearStyle
     class ES1,ES2,ES3 eventualStyle
@@ -343,9 +343,9 @@ graph LR
     EC3 --> ROI2
     EC4 --> ROI2
 
-    classDef linearCostStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef eventualCostStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef roiStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef linearCostStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef eventualCostStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef roiStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class LC1,LC2,LC3,LC4 linearCostStyle
     class EC1,EC2,EC3,EC4 eventualCostStyle
@@ -430,8 +430,8 @@ graph TB
     TB1 --- UC2
     GC1 --- UC3
 
-    classDef hybridStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef useCaseStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef hybridStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef useCaseStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class PU1,PU2,TB1,TB2,GC1,GC2 hybridStyle
     class UC1,UC2,UC3 useCaseStyle
@@ -456,8 +456,8 @@ graph LR
         NC4[Social Features<br/>Comments, likes<br/>Activity feeds<br/>→ Eventual]
     end
 
-    classDef criticalStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef nonCriticalStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef criticalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef nonCriticalStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CO1,CO2,CO3,CO4 criticalStyle
     class NC1,NC2,NC3,NC4 nonCriticalStyle

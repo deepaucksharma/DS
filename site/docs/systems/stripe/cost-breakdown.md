@@ -6,8 +6,8 @@ This diagram shows Stripe's complete infrastructure cost breakdown for processin
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC - $3.5M/month"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6 - $3.5M/month"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         CloudflareCDN["Cloudflare CDN<br/>━━━━━<br/>$2.5M/month<br/>330+ PoPs globally<br/>200TB/month transfer<br/>$0.004 per API call"]
 
@@ -16,8 +16,8 @@ graph TB
         LoadBalancing["AWS Load Balancing<br/>━━━━━<br/>$200K/month<br/>Regional ALBs<br/>Health checking<br/>$0.0003 per request"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00 - $8M/month"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981 - $8M/month"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         ComputeInstances["EC2 Compute Fleet<br/>━━━━━<br/>$4.5M/month<br/>2000+ instances<br/>Mixed instance types<br/>65% reserved, 35% on-demand"]
 
@@ -30,8 +30,8 @@ graph TB
         WebhookService["Webhook Infrastructure<br/>━━━━━<br/>$500K/month<br/>8M webhooks/day<br/>SQS queues<br/>Retry mechanisms"]
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800 - $10.5M/month"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B - $10.5M/month"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         MongoDBAtlas["MongoDB Atlas<br/>━━━━━<br/>$8.2M/month<br/>M700 clusters<br/>100TB payment data<br/>Multi-region replication"]
 
@@ -42,8 +42,8 @@ graph TB
         S3Storage["S3 Compliance Storage<br/>━━━━━<br/>$200K/month<br/>500TB archives<br/>7-year retention<br/>Lifecycle policies"]
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000 - $3M/month"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6 - $3M/month"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         Monitoring["Monitoring Stack<br/>━━━━━<br/>$1.5M/month<br/>Datadog enterprise<br/>1M+ metrics/min<br/>Custom dashboards"]
 
@@ -72,10 +72,10 @@ graph TB
     Monitoring -.->|"Log ingestion<br/>Metric storage"| LoggingELK
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
     classDef externalStyle fill:#f9f9f9,stroke:#999,color:#333,font-weight:bold
 
     class CloudflareCDN,WAFSecurity,LoadBalancing edgeStyle

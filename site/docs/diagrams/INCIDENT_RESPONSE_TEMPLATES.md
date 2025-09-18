@@ -22,9 +22,9 @@ graph TB
     end
 
     style Start fill:#ff0000,color:#fff
-    style CheckLB fill:#ff8800
-    style CheckInstances fill:#ff8800
-    style CheckApp fill:#ff8800
+    style CheckLB fill:#F59E0B
+    style CheckInstances fill:#F59E0B
+    style CheckApp fill:#F59E0B
 ```
 
 ### 🔥 Template 2: Database is Slow
@@ -46,8 +46,8 @@ graph LR
     end
 
     style Symptom fill:#ff6600
-    style QuickFix fill:#00aa00
-    style Scale fill:#00aa00
+    style QuickFix fill:#10B981
+    style Scale fill:#10B981
 ```
 
 ### ⚡ Template 3: Latency Spike - Trace the Path
@@ -113,8 +113,8 @@ graph TB
 
     style T0 fill:#ffaa00
     style T3 fill:#ff0000
-    style T6 fill:#cc0000
-    style R1 fill:#00aa00
+    style T6 fill:#8B5CF6
+    style R1 fill:#10B981
 ```
 
 ### 🔄 Template 5: Circuit Breaker States
@@ -184,7 +184,7 @@ graph LR
     end
 
     style Start fill:#ff6600
-    style Fix fill:#00aa00
+    style Fix fill:#10B981
 ```
 
 ### 🌐 Template 7: Multi-Region Failure
@@ -216,8 +216,8 @@ graph TB
     style USE1_LB fill:#ff0000
     style USE1_APP fill:#ff0000
     style USE1_DB fill:#ff0000
-    style USW2_LB fill:#00aa00
-    style USW2_APP fill:#00aa00
+    style USW2_LB fill:#10B981
+    style USW2_APP fill:#10B981
 ```
 
 ### 🔍 Template 8: Distributed Tracing Debug

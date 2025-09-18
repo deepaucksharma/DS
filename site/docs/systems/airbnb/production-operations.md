@@ -110,10 +110,10 @@ graph TB
     PCI --> ISO27001
 
     %% Apply four-plane colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class Spinnaker,DeploymentPipelines,ConfigManagement,ReleaseManagement,UnitTests,IntegrationTests,E2ETests,LoadTesting,SecurityScanning,CodeReview,PerformanceGates serviceStyle
     class DataDog,Prometheus,Grafana,Splunk,Jaeger,ELKStack stateStyle
@@ -172,10 +172,10 @@ graph TB
     BlueGreenSwitch -.->|Health check failure| RollbackProcedure
     FullRollout -.->|Performance degradation| RollbackProcedure
 
-    classDef devStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef stagingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef prodStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef rollbackStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef devStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef stagingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef prodStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef rollbackStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class FeatureBranch,CodeReview,BuildPipeline devStyle
     class StagingDeploy,E2EValidation,SecurityTesting stagingStyle
@@ -254,10 +254,10 @@ graph TB
     P1Response --> P1Investigation
     P1Investigation --> P1Updates
 
-    classDef sfStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef dublinStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef singaporeStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef escalationStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef sfStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef dublinStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef singaporeStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef escalationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SFPrimary,SFSecondary,SFManager sfStyle
     class DublinPrimary,DublinSecondary,DublinManager dublinStyle
@@ -312,10 +312,10 @@ graph TB
     PaymentSLO --> BudgetRecovery
     BookingFlowSLO --> BudgetTracking
 
-    classDef coreStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef businessStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef budgetStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef coreStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef businessStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef budgetStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class BookingSLO,SearchSLO,PaymentSLO,MessageSLO coreStyle
     class BookingFlowSLO,SearchDiscoverySLO,HostExperienceSLO businessStyle
@@ -363,9 +363,9 @@ graph TB
     ForensicAnalysis --> DataGovernance
     ContainmentResponse --> AuditSupport
 
-    classDef detectionStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef responseStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef complianceStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef detectionStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef responseStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef complianceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class SIEM,NetworkMonitoring,EndpointSecurity detectionStyle
     class AlertTriage,ForensicAnalysis,ContainmentResponse responseStyle

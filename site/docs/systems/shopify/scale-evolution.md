@@ -69,7 +69,7 @@ graph TB
 
     %% Apply genesis colors
     classDef genesisStyle fill:#FFE6CC,stroke:#CC9900,color:#000
-    classDef metricsStyle fill:#CCFFCC,stroke:#00AA00,color:#000
+    classDef metricsStyle fill:#CCFFCC,stroke:#10B981,color:#000
 
     class USER,RAILS_APP,MYSQL_DB,SHARED_HOST genesisStyle
     class STORES_2006,REVENUE_2006,TEAM_2006 metricsStyle
@@ -118,7 +118,7 @@ graph TB
     RAILS_MONOLITH --> API
 
     %% Apply platform colors
-    classDef platformStyle fill:#CCE6FF,stroke:#0066CC,color:#000
+    classDef platformStyle fill:#CCE6FF,stroke:#3B82F6,color:#000
     classDef featureStyle fill:#E6CCFF,stroke:#9900CC,color:#000
 
     class CUSTOMERS,RAILS_MONOLITH,MYSQL_MASTER,MYSQL_SLAVE,CDN platformStyle
@@ -168,8 +168,8 @@ graph TB
     CDN_STRAIN --> BLACK_FRIDAY
 
     %% Apply crisis colors
-    classDef crisisStyle fill:#FFCCCC,stroke:#CC0000,color:#000
-    classDef symptomStyle fill:#FF9999,stroke:#990000,color:#000
+    classDef crisisStyle fill:#FFCCCC,stroke:#8B5CF6,color:#000
+    classDef symptomStyle fill:#FF9999,stroke:#7C3AED,color:#000
 
     class MERCHANTS,RAILS_STRAIN,DB_PROBLEMS,CACHE_ISSUES,CDN_STRAIN crisisStyle
     class SLOW_PAGES,CHECKOUT_FAILURES,ADMIN_TIMEOUTS,BLACK_FRIDAY symptomStyle
@@ -218,8 +218,8 @@ graph TB
     MODULAR_MONOLITH --> API_MODULE
 
     %% Apply modular colors
-    classDef modularStyle fill:#CCFFCC,stroke:#00AA00,color:#000
-    classDef componentStyle fill:#CCE6FF,stroke:#0066CC,color:#000
+    classDef modularStyle fill:#CCFFCC,stroke:#10B981,color:#000
+    classDef componentStyle fill:#CCE6FF,stroke:#3B82F6,color:#000
 
     class MERCHANTS_2018,MODULAR_MONOLITH,VITESS_CLUSTER,REDIS_CLUSTERS,ELASTICSEARCH modularStyle
     class STOREFRONT_MODULE,CHECKOUT_MODULE,ADMIN_MODULE,API_MODULE componentStyle
@@ -327,8 +327,8 @@ graph TB
     RAILS_7 --> PERFORMANCE
 
     %% Apply Rails colors
-    classDef railsStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef contributionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef railsStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef contributionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class RAILS_1,RAILS_2,RAILS_3,RAILS_4,RAILS_5,RAILS_6,RAILS_7 railsStyle
     class ACTIVEMERCHANT,LIQUID,SHIPIT,PERFORMANCE contributionStyle
@@ -401,7 +401,7 @@ graph LR
     REVENUE_GROWTH --> CUSTOMER_LTV
 
     %% Apply cost/revenue colors
-    classDef costStyle fill:#FF6666,stroke:#CC0000,color:#fff
+    classDef costStyle fill:#FF6666,stroke:#8B5CF6,color:#fff
     classDef revenueStyle fill:#66FF66,stroke:#00CC00,color:#000
 
     class COST_2010,COST_2015,COST_2020,COST_2024 costStyle
@@ -452,8 +452,8 @@ graph TB
     BF_2023 --> RELIABILITY
 
     %% Apply Black Friday colors
-    classDef bfStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef achievementStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef bfStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef achievementStyle fill:#10B981,stroke:#059669,color:#fff
 
     class BF_2015,BF_2018,BF_2021,BF_2023 bfStyle
     class INFRASTRUCTURE,PERFORMANCE,RELIABILITY achievementStyle
@@ -491,7 +491,7 @@ graph TB
 
     %% Apply future colors
     classDef futureStyle fill:#E6CCFF,stroke:#9900CC,color:#000
-    classDef projectionStyle fill:#CCFFCC,stroke:#00AA00,color:#000
+    classDef projectionStyle fill:#CCFFCC,stroke:#10B981,color:#000
 
     class AI_NATIVE,GLOBAL_COMMERCE,WEB3_INTEGRATION,VOICE_COMMERCE,AR_VR_SHOPPING futureStyle
     class MERCHANTS_2030,GMV_2030,TEAM_2030 projectionStyle

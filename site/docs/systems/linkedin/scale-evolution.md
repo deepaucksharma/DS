@@ -136,7 +136,7 @@ graph TB
     LB -.->|"Peak: 10K concurrent<br/>Cost: $50K/month"| MYSQL_MASTER
     MYSQL_MASTER -.->|"Replication lag: 2-5 seconds<br/>Data inconsistency issues"| MYSQL_SLAVE1
 
-    classDef lbStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef lbStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef webStyle fill:#E8F5E8,stroke:#388E3C,color:#000
     classDef dbStyle fill:#FFF3E0,stroke:#F57C00,color:#000
     classDef cacheStyle fill:#FCE4EC,stroke:#C2185B,color:#000
@@ -204,10 +204,10 @@ graph TB
     ORACLE_MAIN -.->|"Data: 1TB<br/>Cost: $500K/year licensing"| MEMCACHED_CLUSTER
     LUCENE -.->|"Index: 100M profiles<br/>Search latency: <200ms"| WEB_SERVICE
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef searchStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef searchStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB_TIER edgeStyle
     class WEB_SERVICE,MEMBER_SERVICE,CONNECT_SERVICE,MESSAGING_SERVICE serviceStyle
@@ -313,10 +313,10 @@ graph TB
     %% Migration annotation
     ORACLE_LEGACY -.->|"Migration in progress<br/>90% data moved to Espresso"| ESPRESSO
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN_GLOBAL,LB_GLOBAL,API_GW edgeStyle
     class MEMBER_MS,CONNECT_MS,FEED_MS,SEARCH_MS,JOB_MS,MSG_MS serviceStyle
@@ -403,10 +403,10 @@ graph TB
     %% Microsoft integration
     AZURE_ML -.->|"Enterprise integration<br/>Microsoft ecosystem"| RECOM_ENGINE
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MULTI_CDN,EDGE_COMPUTE,ISTIO,API_GW_V2 edgeStyle
     class K8S,MEMBER_V2,FEED_V2,SEARCH_V2,RECOM_ENGINE serviceStyle

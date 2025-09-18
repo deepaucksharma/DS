@@ -41,8 +41,8 @@ graph TB
     %% Customer impact
     POSTS -.->|"Reddit is down"<br/>1.7B+ users affected| USERS[Internet Communities<br/>News Readers<br/>Meme Creators<br/>Technical Communities]
 
-    classDef migrationStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef migrationStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
     class MIGRATION,POSTS_DB,USERS_DB,VOTES_DB migrationStyle

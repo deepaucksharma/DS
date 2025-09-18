@@ -30,9 +30,9 @@ graph TB
     PL --> |"AWS DynamoDB<br/>Gaming"| Fast
 
     %% Apply colors
-    classDef strongStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef eventualStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef fastStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef strongStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef eventualStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef fastStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class C,PC,Strong strongStyle
     class A,PA,Eventually eventualStyle
@@ -69,9 +69,9 @@ graph TB
     Amdahl --> Discord
 
     %% Apply colors
-    classDef safeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef warningStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef dangerStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef safeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef warningStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef dangerStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class Safe safeStyle
     class Danger warningStyle
@@ -111,9 +111,9 @@ graph LR
     Brooks --> Netflix
 
     %% Apply colors
-    classDef teamStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef processStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef exampleStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef teamStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef processStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef exampleStyle fill:#10B981,stroke:#059669,color:#fff
 
     class Team1,Team2,Team3,Team4,Small teamStyle
     class Large,Delay processStyle

@@ -6,16 +6,16 @@ This diagram shows Discord's complete storage architecture managing 12+ trillion
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         CDNCache["CDN Cache Layer<br/>━━━━━<br/>Cloudflare + GCP CDN<br/>Media file caching<br/>Avatar/emoji cache<br/>99% hit rate"]
 
         RegionalCache["Regional Cache<br/>━━━━━<br/>Geographic distribution<br/>Message cache<br/>Guild metadata<br/>Sub-50ms latency"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         CacheOrchestrator["Cache Orchestrator<br/>━━━━━<br/>Multi-tier coordination<br/>Cache invalidation<br/>Consistency management<br/>Hit ratio optimization"]
 
@@ -26,8 +26,8 @@ graph TB
         SearchCoordinator["Search Coordinator<br/>━━━━━<br/>Elasticsearch routing<br/>Index management<br/>Query optimization<br/>Real-time indexing"]
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         subgraph MessageStorage["Message Storage - Primary"]
             ScyllaCluster["ScyllaDB Cluster<br/>━━━━━<br/>12T+ messages stored<br/>800+ nodes globally<br/>C++ performance<br/>10x faster than Cassandra"]
@@ -64,8 +64,8 @@ graph TB
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         StorageMonitoring["Storage Monitoring<br/>━━━━━<br/>Performance tracking<br/>Capacity monitoring<br/>Health checks<br/>Alert management"]
 
@@ -111,10 +111,10 @@ graph TB
     CapacityPlanner -.->|"Growth analysis<br/>Resource planning"| StorageMonitoring
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class CDNCache,RegionalCache edgeStyle
     class CacheOrchestrator,DataAccessLayer,MigrationManager,SearchCoordinator serviceStyle

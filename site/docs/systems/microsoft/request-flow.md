@@ -111,10 +111,10 @@ graph TB
     SHAREPOINT -.->|"1B+ documents"| AZURE_STORAGE_DOCS
     SEARCH_SVC -.->|"Sub-second search"| COMPLIANCE_SVC
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef edgeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef serviceStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef backendStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef edgeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef serviceStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef backendStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class WEB_OFFICE,DESKTOP_OFFICE,MOBILE_OFFICE,TEAMS_COLLAB clientStyle
     class FRONT_DOOR,CDN_OFFICE,API_GATEWAY,LOAD_BALANCER edgeStyle
@@ -182,10 +182,10 @@ graph LR
     COMPUTE_RP -.->|"VM provision: 90s"| STORAGE_RP
     NETWORK_RP -.->|"VNet setup: 30s"| SQL_RP
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef authStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef armStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef rpStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef authStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef armStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef rpStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class AZURE_CLI,POWERSHELL,PORTAL,REST_API,TERRAFORM clientStyle
     class AAD_AUTH,MSI,SPN,RBAC authStyle
@@ -254,10 +254,10 @@ graph TB
     AZURE_CNI -.->|"Network: 25Gbps"| AZURE_CSI
     AZURE_MONITOR_K8S -.->|"Telemetry: real-time"| AZURE_DEFENDER
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef nodeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef azureStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef nodeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef azureStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class KUBECTL,HELM,DEVOPS_PIPELINE,GITHUB_ACTIONS clientStyle
     class API_SERVER,ETCD,SCHEDULER,CONTROLLER_MGR controlStyle
@@ -326,10 +326,10 @@ graph TB
     REPLICA_SET_1 -.->|"SLA: 99.99%"| REPLICA_SET_2
     INDEX_ENGINE -.->|"Auto-index: real-time"| REPLICA_SET_3
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef routingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef regionStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef storageStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef routingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef regionStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef storageStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DOTNET_SDK,JAVA_SDK,NODE_SDK,REST_API_COSMOS clientStyle
     class GATEWAY,ROUTING_ENGINE,CONSISTENCY_MANAGER,PARTITION_ROUTER routingStyle
@@ -436,10 +436,10 @@ graph LR
     STORAGE_BINDING -.->|"I/O optimized"| COSMOS_BINDING
     MONITOR_INTEGRATION -.->|"Real-time telemetry"| SERVICE_BUS_BINDING
 
-    classDef triggerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef runtimeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef executionStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef integrationStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef triggerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef runtimeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef executionStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef integrationStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class HTTP_TRIGGER,TIMER_TRIGGER,BLOB_TRIGGER,QUEUE_TRIGGER,EVENT_TRIGGER triggerStyle
     class SCALE_CONTROLLER,FUNCTION_HOST,RUNTIME_STACK,BINDING_ENGINE runtimeStyle
@@ -508,9 +508,9 @@ graph TB
     EDGE_PRESENCE --> ADAPTIVE_BITRATE
     BANDWIDTH_MGMT --> WEBRTC
 
-    classDef mediaStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef networkStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef qualityStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef mediaStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef networkStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef qualityStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class WEBRTC,TURN_RELAY,MEDIA_PROCESSOR,CODEC_OPT mediaStyle
     class ANYCAST,BGP_OPT,CDN_MEDIA,EDGE_PRESENCE networkStyle

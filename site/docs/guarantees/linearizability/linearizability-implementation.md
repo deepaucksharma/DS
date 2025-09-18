@@ -54,10 +54,10 @@ graph TB
     LC -.->|Compact| LL
 
     %% Apply 4-plane colors
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class C1,C2,C3 clientStyle
     class L,F1,F2 serviceStyle
@@ -156,10 +156,10 @@ graph TB
     GC -.-> A1
 
     %% Apply 4-plane colors
-    classDef proposerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef acceptorStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef learnerStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef proposerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef acceptorStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef learnerStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class P1,P2 proposerStyle
     class A1,A2,A3 acceptorStyle
@@ -212,10 +212,10 @@ graph LR
     H -.-> E1
 
     %% Apply 4-plane colors
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EC,LB clientStyle
     class E1,E2,E3 serviceStyle
@@ -248,9 +248,9 @@ graph TB
         PM4[Cross-DC: 50-200ms<br/>WAN latency]
     end
 
-    classDef raftStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef paxosStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef raftStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef paxosStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class R1,R2,R3,R4 raftStyle
     class P1,P2,P3,P4 paxosStyle
@@ -328,9 +328,9 @@ graph LR
         L2 --> F2_2[Follower 2<br/>Catches up via log]
     end
 
-    classDef majorityStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef minorityStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef healStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef majorityStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef minorityStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef healStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class L,F1 majorityStyle
     class F2 minorityStyle

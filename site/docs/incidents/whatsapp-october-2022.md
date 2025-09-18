@@ -48,27 +48,27 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #0066CC"
+    subgraph "Edge Plane - Blue #3B82F6"
         EDGE1[WhatsApp Edge Servers<br/>Global PoPs]
         CDN[Facebook CDN<br/>Content Delivery]
         LB[Load Balancers<br/>Traffic Distribution]
     end
 
-    subgraph "Service Plane - Green #00AA00"
+    subgraph "Service Plane - Green #10B981"
         MSGAPI[Messaging API<br/>Core Message Service]
         VOICEAPI[Voice API<br/>Calling Service]
         STATUSAPI[Status API<br/>Story Service]
         BUSINESSAPI[Business API<br/>WhatsApp Business]
     end
 
-    subgraph "State Plane - Orange #FF8800"
+    subgraph "State Plane - Orange #F59E0B"
         MSGDB[(Message Database<br/>Cassandra Clusters)]
         USERDB[(User Database<br/>MySQL Shards)]
         MEDIA[(Media Storage<br/>Distributed Storage)]
         CACHE[(Message Cache<br/>Redis Clusters)]
     end
 
-    subgraph "Control Plane - Red #CC0000"
+    subgraph "Control Plane - Red #8B5CF6"
         MONITORING[Facebook Monitoring<br/>Internal Metrics]
         CONFIG[Configuration Service<br/>Feature Flags]
         DEPLOY[Deployment System<br/>Code & Config Deploy]
@@ -106,10 +106,10 @@ graph TB
     MSGAPI -.->|Complete service failure<br/>2.2B users affected| CUSTOMERS[Personal Messages<br/>Business Communication<br/>Voice Calls<br/>Status Updates<br/>Group Chats]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef networkStyle fill:#4B0082,stroke:#301934,color:#fff,stroke-width:4px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
@@ -165,7 +165,7 @@ graph LR
 
     A --> B --> C --> D --> E --> F
 
-    classDef propagationStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:2px
+    classDef propagationStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:2px
     class A,B,C,D,E,F propagationStyle
 ```
 
@@ -256,7 +256,7 @@ flowchart TD
     G --> H[DNS Resolution Fails<br/>No route to IP addresses]
     H --> I[Complete Service Unreachable<br/>All connections timeout]
 
-    classDef configError fill:#FF6B6B,stroke:#CC0000,color:#fff
+    classDef configError fill:#FF6B6B,stroke:#8B5CF6,color:#fff
     classDef bgpImpact fill:#FFA500,stroke:#FF8C00,color:#fff
     classDef globalImpact fill:#8B0000,stroke:#660000,color:#fff
 
@@ -400,7 +400,7 @@ graph TB
     ANYCAST --> PEERING
     ANYCAST --> SATELLITE
 
-    classDef newStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef newStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     class VALIDATE,STAGE,MONITOR,ROLLBACK,BGP1,BGP2,BGP3,ANYCAST,DIRECT,PEERING,SATELLITE newStyle
 ```
 

@@ -62,10 +62,10 @@ graph TB
     DEV_PRODUCTIVITY -.->|"Graph API simplicity"| COST_REDUCTION
     CACHE_COHERENCE -.->|"99.9% consistency"| ASYNC_REPLICATION
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef innovationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef benefitStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef featureStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef innovationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef benefitStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef featureStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class TRADITIONAL,SCALING_ISSUES,GRAPH_QUERIES,CONSISTENCY problemStyle
     class OBJECTS,ASSOCIATIONS,CACHING_LAYER,MYSQL_BACKING innovationStyle
@@ -131,10 +131,10 @@ graph TB
     STORAGE_EFFICIENCY -.->|"1% metadata only"| THROUGHPUT_10X
     DIRECTORY -.->|"In-memory mapping"| CACHE
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef gainStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef componentStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef gainStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef componentStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class POSIX_FS,METADATA_OVERHEAD,INODE_EXHAUSTION,RANDOM_IO problemStyle
     class NEEDLE_FORMAT,SEQUENTIAL_IO,MINIMAL_METADATA,VOLUME_ORGANIZATION solutionStyle
@@ -196,10 +196,10 @@ graph LR
     PERF_5X -.->|"From 2009-2013"| MEMORY_SAVE
     TYPE_SAFETY_95 -.->|"80% of FB codebase"| DEV_VELOCITY
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef hhvmStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef hackStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef resultStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef hhvmStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef hackStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef resultStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class INTERPRETED,TYPE_SAFETY,PERFORMANCE,SCALING_ISSUES problemStyle
     class JIT_COMPILER,BYTECODE,MEMORY_OPT,RUNTIME_OPT hhvmStyle
@@ -261,10 +261,10 @@ graph TB
     ECOSYSTEM -.->|"Most popular UI library"| INDUSTRY_ADOPTION
     REACT_NATIVE -.->|"Learn once, write anywhere"| FRAMEWORK_INFLUENCE
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef innovationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef featureStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef impactStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef innovationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef featureStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef impactStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class IMPERATIVE,STATE_COMPLEXITY,PERFORMANCE,DEBUGGING problemStyle
     class VIRTUAL_DOM,COMPONENT_MODEL,UNIDIRECTIONAL,DECLARATIVE innovationStyle
@@ -326,10 +326,10 @@ graph TB
     COST_SAVINGS_28 -.->|"$2B saved annually"| DURABILITY_INCREASE
     NAME_NODE -.->|"Metadata management"| BACKOFF_NODE
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef innovationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef benefitStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef archStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef innovationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef benefitStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef archStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class HAYSTACK_COST,REPLICATION_3X,ACCESS_PATTERNS,COST_LINEAR problemStyle
     class ERASURE_CODING,GEOGRAPHICAL_DIST,BLOCK_STORAGE,FAILURE_TOLERANCE innovationStyle
@@ -391,10 +391,10 @@ graph LR
     RESEARCH_STANDARD -.->|"70% research papers"| PRODUCTION_SCALE
     OPEN_SOURCE -.->|"100K+ GitHub stars"| AI_ACCELERATION
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef featureStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef impactStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef featureStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef impactStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class STATIC_GRAPHS,DEBUGGING_HARD,RESEARCH_PROD_GAP,PERFORMANCE_TRADEOFFS problemStyle
     class DYNAMIC_GRAPHS,PYTHONIC_API,EAGER_EXECUTION,AUTOGRAD solutionStyle
@@ -456,10 +456,10 @@ graph TB
     CAPACITY_PLANNING -.->|"$1B+ savings"| GROWTH_FORECASTING
     AD_REVENUE -.->|"10% accuracy improvement"| RESOURCE_ALLOCATION
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef innovationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef featureStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef businessStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef innovationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef featureStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef businessStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class DOMAIN_EXPERTISE,PARAMETER_TUNING,SCALE_ISSUES,INTERPRETABILITY problemStyle
     class ADDITIVE_MODEL,TREND_COMPONENT,SEASONALITY,HOLIDAY_EFFECTS innovationStyle

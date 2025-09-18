@@ -6,8 +6,8 @@ This diagram represents Uber's actual production architecture serving 25+ millio
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         CDN["Global CDN<br/>━━━━━<br/>3,000+ Edge Servers<br/>70+ Countries<br/>50Tbps Peak Bandwidth<br/>Cost: $25M/month"]
 
@@ -16,8 +16,8 @@ graph TB
         Gateway["API Gateway<br/>━━━━━<br/>Go-based<br/>1.5M req/sec<br/>Circuit Breaking<br/>Rate Limiting"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         Matching["DISCO Matching Engine<br/>━━━━━<br/>200K matches/sec<br/>H3 Spatial Indexing<br/>Go microservice<br/>c5.24xlarge fleet<br/>Cost: $15M/month"]
 
@@ -30,8 +30,8 @@ graph TB
         Maps["Maps & Routing<br/>━━━━━<br/>Gauss ETA Service<br/>100M route calculations/day<br/>C++ optimization engine<br/>c5n.24xlarge"]
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         Schemaless["Schemaless (MySQL)<br/>━━━━━<br/>10,000+ shards<br/>100TB+ active data<br/>MySQL 8.0 clusters<br/>db.r6gd.16xlarge<br/>Cost: $30M/month"]
 
@@ -44,8 +44,8 @@ graph TB
         Analytics["Analytics Store<br/>━━━━━<br/>Hadoop/Hive/Spark<br/>10EB historical data<br/>Presto queries<br/>i3en.24xlarge fleet"]
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         uDeploy["uDeploy<br/>━━━━━<br/>10K deployments/week<br/>Cell-based rollouts<br/>Go-based orchestration"]
 
@@ -82,10 +82,10 @@ graph TB
     Cadence -.->|"Workflows"| Pricing
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class CDN,LB,Gateway edgeStyle
     class Matching,Supply,Demand,Pricing,Maps serviceStyle

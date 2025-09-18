@@ -42,27 +42,27 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #0066CC"
+    subgraph "Edge Plane - Blue #3B82F6"
         STOREFRONT[Merchant Storefronts<br/>1M+ Stores]
         CDN[Shopify CDN<br/>Global Content Delivery]
         MOBILE[Mobile Apps<br/>Shop App]
     end
 
-    subgraph "Service Plane - Green #00AA00"
+    subgraph "Service Plane - Green #10B981"
         CHECKOUT[Checkout Service<br/>Payment Processing<br/>OVERLOADED]
         CART[Shopping Cart<br/>Session Management]
         INVENTORY[Inventory Service<br/>Stock Management]
         SHIPPING[Shipping Service<br/>Logistics Calculation]
     end
 
-    subgraph "State Plane - Orange #FF8800"
+    subgraph "State Plane - Orange #F59E0B"
         ORDERS[(Orders Database<br/>Transaction Records)]
         PRODUCTS[(Product Database<br/>Catalog Data)]
         CUSTOMERS[(Customer Database<br/>User Accounts)]
         ANALYTICS[(Analytics Store<br/>Sales Data)]
     end
 
-    subgraph "Control Plane - Red #CC0000"
+    subgraph "Control Plane - Red #8B5CF6"
         MONITORING[System Monitoring<br/>Performance Metrics]
         AUTOSCALE[Auto-scaling<br/>Capacity Management]
         ALERTS[Alert System<br/>Incident Management]
@@ -99,10 +99,10 @@ graph TB
     CHECKOUT -.->|Lost sales opportunity<br/>$100M+ revenue impact| MERCHANTS[E-commerce Stores<br/>Retail Brands<br/>SMB Merchants<br/>Enterprise Clients]
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef paymentStyle fill:#4B0082,stroke:#301934,color:#fff,stroke-width:4px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 

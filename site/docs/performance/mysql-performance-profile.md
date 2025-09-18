@@ -52,10 +52,10 @@ graph TB
     Monitoring --> Backup
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ProxySQL,HAProxy,MaxScale edgeStyle
     class QueryCache,QueryParser,QueryExec serviceStyle
@@ -123,9 +123,9 @@ graph LR
     C1 --> C2
     C2 --> C3
 
-    classDef beforeStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef afterStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef configStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef beforeStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef afterStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef configStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class B1 beforeStyle
     class A1 afterStyle
@@ -163,9 +163,9 @@ graph TB
         P2[Network overhead<br/>Bandwidth: 50 Mbps<br/>Message size: 1-2KB avg<br/>Round-trip time: 2ms]
     end
 
-    classDef masterStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef commStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef masterStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef commStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class M1,M2,M3 masterStyle
     class GC,GL commStyle
@@ -199,9 +199,9 @@ graph LR
         G4[Failover: Automatic<br/>RTO: 30 seconds<br/>Data loss: None]
     end
 
-    classDef traditionalStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef groupStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef metricStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef traditionalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef groupStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef metricStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class T1,T2,T3 traditionalStyle
     class G1,G2,G3 groupStyle
@@ -240,9 +240,9 @@ graph TB
         M3[Backup strategy<br/>Incremental per partition<br/>Recovery granularity improved]
     end
 
-    classDef partitionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef queryStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef maintStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef partitionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef queryStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef maintStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class P1,P2,P3,P4 partitionStyle
     class Q1,Q2 queryStyle
@@ -275,9 +275,9 @@ graph TB
         S2[Partition benefits<br/>Parallel processing<br/>Reduced lock scope<br/>Better cache locality]
     end
 
-    classDef hashStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef loadStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef compStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef hashStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef loadStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef compStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class H1,H2,H3,H4 hashStyle
     class L1,L2 loadStyle
@@ -311,9 +311,9 @@ graph LR
         PI2[Thread pool<br/>Max connections: 10000<br/>Memory: 128MB threads<br/>Context switches: 5K/sec]
     end
 
-    classDef traditionalStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef poolStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef metricStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef traditionalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef poolStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef metricStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class CT1,CT2,CT3,T1,T2,T1000 traditionalStyle
     class TP1,TP2,TP3,P1,W1,W2 poolStyle
@@ -344,8 +344,8 @@ graph TB
     S2 --> R2
     S3 --> R3
 
-    classDef strategyStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef resultStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef strategyStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef resultStyle fill:#10B981,stroke:#059669,color:#fff
 
     class S1,S2,S3 strategyStyle
     class R1,R2,R3 resultStyle
@@ -382,10 +382,10 @@ graph TB
         P2[Scaling characteristics<br/>Linear scaling to 200+ shards<br/>No cross-shard transactions<br/>Automatic failover: 30s]
     end
 
-    classDef appStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef schemaStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef shardStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef perfStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef appStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef schemaStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef shardStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef perfStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class APP appStyle
     class SCHEMA schemaStyle
@@ -417,8 +417,8 @@ graph LR
     P1 --> RES1
     R1 --> RES1
 
-    classDef configStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef resultStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef configStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef resultStyle fill:#10B981,stroke:#059669,color:#fff
 
     class I1,P1,R1 configStyle
     class RES1 resultStyle
@@ -453,9 +453,9 @@ graph TB
     SQ2 --> IO1
     IO2 --> R1
 
-    classDef analysisStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef optimStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef resultStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef analysisStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef optimStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef resultStyle fill:#10B981,stroke:#059669,color:#fff
 
     class SQ1,SQ2 analysisStyle
     class IO1,IO2 optimStyle

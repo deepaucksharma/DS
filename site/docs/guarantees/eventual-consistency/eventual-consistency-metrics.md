@@ -48,10 +48,10 @@ graph TB
     HS --> DA
 
     %% Apply 4-plane colors
-    classDef collectionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef processingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef alertStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef collectionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef processingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef alertStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class TC,VT,ET collectionStyle
     class CT,DT,PT processingStyle
@@ -93,10 +93,10 @@ graph TB
         end
     end
 
-    classDef timeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef consistencyStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef systemStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef businessStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef timeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef consistencyStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef systemStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef businessStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class TM1,TM2,TM3,TM4 timeStyle
     class CM1,CM2,CM3,CM4 consistencyStyle
@@ -187,10 +187,10 @@ graph LR
     PM2 --> QM1
     QM2 --> CoM1
 
-    classDef replicationStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef performanceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef qualityStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef costStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef replicationStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef performanceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef qualityStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef costStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class RM1,RM2,RM3 replicationStyle
     class PM1,PM2,PM3 performanceStyle
@@ -232,10 +232,10 @@ graph TB
     UEM2 --> SHM1
     SHM2 --> BM1
 
-    classDef feedStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef uxStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef systemStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef businessStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef feedStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef uxStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef systemStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef businessStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class FM1,FM2,FM3 feedStyle
     class UEM1,UEM2,UEM3 uxStyle
@@ -472,10 +472,10 @@ graph TB
     AS1 --> AI1
     AS2 --> AI2
 
-    classDef healthStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef trendStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef alertStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef actionStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef healthStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef trendStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef alertStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef actionStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class HI1,HI2,HI3 healthStyle
     class TG1,TG2,TG3 trendStyle
@@ -517,10 +517,10 @@ graph LR
     SD2 --> MW2 --> ST2 --> CM2
     SD3 --> MW3 --> ST3 --> CM3
 
-    classDef slaStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef measureStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef trackStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef consequenceStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef slaStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef measureStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef trackStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef consequenceStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SD1,SD2,SD3 slaStyle
     class MW1,MW2,MW3 measureStyle
@@ -567,10 +567,10 @@ graph TB
     DI3 --> ML3 --> P3 --> AA3
     DI4 --> ML4 --> P4 --> AA4
 
-    classDef inputStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef mlStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef predictionStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef actionStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef inputStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef mlStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef predictionStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef actionStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DI1,DI2,DI3,DI4 inputStyle
     class ML1,ML2,ML3,ML4 mlStyle

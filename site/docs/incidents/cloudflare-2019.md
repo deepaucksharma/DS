@@ -18,7 +18,7 @@
 ```mermaid
 graph TB
     subgraph Detection["T+0: Detection Phase - 13:42 UTC"]
-        style Detection fill:#FFE5E5,stroke:#CC0000,color:#000
+        style Detection fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
         Start["13:42:00<br/>━━━━━<br/>WAF Rule Deployment<br/>New regex pattern<br/>.*(?:(?:\\r\\n)?[ \\t])*<br/>Customer XSS protection"]
 
@@ -28,7 +28,7 @@ graph TB
     end
 
     subgraph Diagnosis["T+3min: Diagnosis Phase"]
-        style Diagnosis fill:#FFF5E5,stroke:#FF8800,color:#000
+        style Diagnosis fill:#FFF5E5,stroke:#F59E0B,color:#000
 
         Incident["13:45:00<br/>━━━━━<br/>Major Incident<br/>SEV-0 declared<br/>Global traffic loss<br/>Customer escalations"]
 
@@ -48,7 +48,7 @@ graph TB
     end
 
     subgraph Recovery["T+15min: Recovery Phase"]
-        style Recovery fill:#E5FFE5,stroke:#00AA00,color:#000
+        style Recovery fill:#E5FFE5,stroke:#10B981,color:#000
 
         FullTraffic["14:05:00<br/>━━━━━<br/>Complete Recovery<br/>All PoPs operational<br/>Traffic: 100% normal<br/>Performance restored"]
 
@@ -81,7 +81,7 @@ graph TB
 
     %% Customer Impact
     subgraph CustomerImpact["Customer Service Impact"]
-        style CustomerImpact fill:#FFE0E0,stroke:#990000,color:#000
+        style CustomerImpact fill:#FFE0E0,stroke:#7C3AED,color:#000
 
         WebsitesDown["Major Websites<br/>━━━━━<br/>❌ Discord: 100% down<br/>❌ Shopify: 85% down<br/>❌ Medium: 90% down"]
 
@@ -115,13 +115,13 @@ graph TB
     AsiaPac -.-> EndUsers
 
     %% Apply timeline colors
-    classDef detectStyle fill:#FFE5E5,stroke:#CC0000,color:#000,font-weight:bold
-    classDef diagnoseStyle fill:#FFF5E5,stroke:#FF8800,color:#000,font-weight:bold
+    classDef detectStyle fill:#FFE5E5,stroke:#8B5CF6,color:#000,font-weight:bold
+    classDef diagnoseStyle fill:#FFF5E5,stroke:#F59E0B,color:#000,font-weight:bold
     classDef mitigateStyle fill:#FFFFE5,stroke:#CCCC00,color:#000,font-weight:bold
-    classDef recoverStyle fill:#E5FFE5,stroke:#00AA00,color:#000,font-weight:bold
+    classDef recoverStyle fill:#E5FFE5,stroke:#10B981,color:#000,font-weight:bold
     classDef regexStyle fill:#F0F0F0,stroke:#666666,color:#000
     classDef globalStyle fill:#F0F0F0,stroke:#666666,color:#000
-    classDef customerStyle fill:#FFE0E0,stroke:#990000,color:#000
+    classDef customerStyle fill:#FFE0E0,stroke:#7C3AED,color:#000
 
     class Start,Alert1,Alert2 detectStyle
     class Incident,RootCause,RegexIssue diagnoseStyle
@@ -244,8 +244,8 @@ graph TB
     end
 
     %% Style the comparison
-    classDef goodStyle fill:#E5FFE5,stroke:#00AA00,color:#000
-    classDef badStyle fill:#FFE5E5,stroke:#CC0000,color:#000
+    classDef goodStyle fill:#E5FFE5,stroke:#10B981,color:#000
+    classDef badStyle fill:#FFE5E5,stroke:#8B5CF6,color:#000
     classDef exampleStyle fill:#F0F8FF,stroke:#4169E1,color:#000
 
     class GoodPattern,GoodInput,GoodPerformance goodStyle

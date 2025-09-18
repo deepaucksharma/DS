@@ -77,10 +77,10 @@ graph TB
     LAG_MON -->|SLA: <500ms lag| ALERT
     REBUILD -->|Recovery alerts| ALERT
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class WRITE_LB,READ_LB,CDN edgeStyle
     class WRITE_API,READ_API,CDC,PROJECTOR serviceStyle
@@ -165,10 +165,10 @@ graph TB
     PROJECTOR -->|Processing metrics| PERFORMANCE_MON
     REPLAYER -->|Replay speed: 50K/s| PERFORMANCE_MON
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class API,QUERY_API edgeStyle
     class COMMAND_HANDLER,PROJECTOR,SNAPSHOTTER,REPLAYER serviceStyle
@@ -252,10 +252,10 @@ graph TB
     NOTIF_SVC -->|SLA: 99.5%| MONITORING
     MESH -->|Request tracing| TRACING
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class API_GW,EXT_LB edgeStyle
     class USER_SVC,ORDER_SVC,PAY_SVC,NOTIF_SVC,MESH serviceStyle
@@ -345,10 +345,10 @@ graph TB
     C1_API -.->|Cell failure, Recovery: 30min| EVACUATION
     EVACUATION -.->|Migrate 50K users| C2_API
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class GLOBAL_LB,CELL_ROUTER edgeStyle
     class C1_LB,C1_API,C2_LB,C2_API,C3_LB,C3_API serviceStyle
@@ -395,10 +395,10 @@ flowchart TD
     GEOGRAPHIC -->|Global Users| EDGE_COMPUTING[Edge Computing<br/>Global latency<br/>Data locality]
     GEOGRAPHIC -->|Regional| MULTI_REGION[Multi-Region<br/>Regional failover<br/>Data sovereignty]
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class START,CONSISTENCY,AUDIT,READ_PATTERN,TEAM_STRUCTURE,LOAD_PATTERN,SCALE_REQ,GEOGRAPHIC edgeStyle
     class STRONG_REQ,EVENTUAL_REQ serviceStyle
@@ -455,9 +455,9 @@ graph LR
     TOTAL --> ANNUAL
     TOTAL --> SCALING
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class VOLUME,TEAM,INFRA,OPS edgeStyle
     class BASE,VARIABLE,TEAM_COST,TOTAL serviceStyle
@@ -570,10 +570,10 @@ graph TB
     API_GW -->|Request tracing| XRAY
     AUTH_FN -->|Memory optimization| LAMBDA_INSIGHTS
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,API_GW,WAF edgeStyle
     class AUTH_FN,USER_FN,ORDER_FN,EMAIL_FN,CRON_FN serviceStyle
@@ -676,10 +676,10 @@ graph TB
     REALTIME_VIEWS -->|p99: 100ms| QUERY_API
     QUERY_API -->|Combined view| UNIFIED_VIEW
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EVENTS,BATCH_DATA edgeStyle
     class SPARK,FLINK,QUERY_API serviceStyle
@@ -731,9 +731,9 @@ graph LR
     VIEW1 -->|p99: 10ms| API
     VIEW2 -->|p99: 50ms| API
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SOURCES edgeStyle
     class PROCESSOR1,PROCESSOR2,REPROCESSOR,API serviceStyle

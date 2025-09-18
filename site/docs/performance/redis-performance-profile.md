@@ -38,9 +38,9 @@ graph TB
         P2[Scaling benefits<br/>Linear read scaling<br/>Automatic sharding<br/>No single point of failure]
     end
 
-    classDef masterStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef replicaStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef masterStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef replicaStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
 
     class M1,M2,M3 masterStyle
     class R1,R2,R3 replicaStyle
@@ -80,10 +80,10 @@ graph TB
         F2[Split-brain prevention<br/>Quorum enforcement<br/>Automatic promotion<br/>Client reconnection]
     end
 
-    classDef sentinelStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef masterStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef replicaStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef failoverStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef sentinelStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef masterStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef replicaStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef failoverStyle fill:#10B981,stroke:#059669,color:#fff
 
     class S1,S2,S3 sentinelStyle
     class MASTER masterStyle
@@ -118,9 +118,9 @@ graph LR
     RC2 --> UC1
     RS2 --> UC2
 
-    classDef clusterStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef sentinelStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef usecaseStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef clusterStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef sentinelStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef usecaseStyle fill:#10B981,stroke:#059669,color:#fff
 
     class RC1,RC2 clusterStyle
     class RS1,RS2 sentinelStyle
@@ -151,8 +151,8 @@ graph TB
         RDBP3[Data loss window<br/>Maximum: Save interval<br/>Typical: 5-15 minutes<br/>Acceptable for: Caches]
     end
 
-    classDef processStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef impactStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef processStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef impactStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class RDB1,RDB2,RDB3 processStyle
     class RDBP1,RDBP2,RDBP3 impactStyle
@@ -184,10 +184,10 @@ graph TB
         AOF2 --> AOFP3
     end
 
-    classDef processStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef alwaysStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef everysecStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef noStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef processStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef alwaysStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef everysecStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef noStyle fill:#10B981,stroke:#059669,color:#fff
 
     class AOF1,AOF2,AOF3 processStyle
     class AOFP1 alwaysStyle
@@ -215,10 +215,10 @@ graph LR
         NONE1[Disk usage: None<br/>Recovery time: N/A<br/>Data loss risk: Total<br/>Performance impact: None]
     end
 
-    classDef rdbStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef aofStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef bothStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef noneStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef rdbStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef aofStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef bothStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef noneStyle fill:#10B981,stroke:#059669,color:#fff
 
     class RDB_ONLY1 rdbStyle
     class AOF_ONLY1 aofStyle
@@ -258,9 +258,9 @@ graph TB
         BP2[Script optimization<br/>Minimize key access<br/>Batch operations<br/>Consider alternative approaches]
     end
 
-    classDef scriptStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef complexityStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef practicesStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef scriptStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef complexityStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef practicesStyle fill:#10B981,stroke:#059669,color:#fff
 
     class LUA1,LUA2,LUA3 scriptStyle
     class SIMPLE,COMPLEX,LOOPS complexityStyle
@@ -289,9 +289,9 @@ graph LR
         TRANS_APP2[Performance<br/>Latency: Sum of commands<br/>Throughput: Good<br/>Blocking: Transaction only]
     end
 
-    classDef luaStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef pipelineStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef transStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef luaStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef pipelineStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef transStyle fill:#10B981,stroke:#059669,color:#fff
 
     class LUA_APP1,LUA_APP2 luaStyle
     class PIPE_APP1,PIPE_APP2 pipelineStyle
@@ -326,8 +326,8 @@ graph TB
         OPT3[Expiration optimization<br/>TTL policies<br/>LRU eviction<br/>Memory monitoring]
     end
 
-    classDef memoryStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef optimStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef memoryStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef optimStyle fill:#10B981,stroke:#059669,color:#fff
 
     class MEM1,MEM2,MEM3,MEM_TOTAL memoryStyle
     class OPT1,OPT2,OPT3 optimStyle
@@ -359,9 +359,9 @@ graph TB
     STR2 --> PERF1
     HASH2 --> PERF2
 
-    classDef stringStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef hashStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stringStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef hashStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
 
     class STR1,STR2 stringStyle
     class HASH1,HASH2 hashStyle
@@ -390,9 +390,9 @@ graph LR
         OTHER2[allkeys-random<br/>Random eviction<br/>No pattern consideration<br/>Lowest CPU overhead]
     end
 
-    classDef lruStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef lfuStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef otherStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef lruStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef lfuStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef otherStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class LRU1,LRU2 lruStyle
     class LFU1,LFU2 lfuStyle
@@ -432,10 +432,10 @@ graph TB
         METRICS2[Memory efficiency<br/>Storage per timeline: 2KB<br/>Compression ratio: 3:1<br/>Total cached timelines: 100M]
     end
 
-    classDef userStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef redisStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef fallbackStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef metricsStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef userStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef redisStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef fallbackStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef metricsStyle fill:#10B981,stroke:#059669,color:#fff
 
     class USER userStyle
     class REDIS1,REDIS2,REDIS3 redisStyle
@@ -478,9 +478,9 @@ graph TB
         POP3 --> RESULTS3
     end
 
-    classDef keyStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef strategyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef resultStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef keyStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef strategyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef resultStyle fill:#10B981,stroke:#059669,color:#fff
 
     class KEY1,KEY2 keyStyle
     class POP1,POP2,POP3 strategyStyle
@@ -507,7 +507,7 @@ graph LR
         MON_CONF1[latency-monitor-threshold: 100<br/>slowlog-log-slower-than: 10000<br/>slowlog-max-len: 128<br/>client-output-buffer-limit: 256mb]
     end
 
-    classDef configStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef configStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class MEM_CONF1,NET_CONF1,PERF_CONF1,MON_CONF1 configStyle
 ```
@@ -544,10 +544,10 @@ graph TB
 
     MON1 --> TUNE1 --> IMPL1 --> VAL1
 
-    classDef monitorStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef tuneStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef implStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef valStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef monitorStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef tuneStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef implStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef valStyle fill:#10B981,stroke:#059669,color:#fff
 
     class MON1 monitorStyle
     class TUNE1 tuneStyle

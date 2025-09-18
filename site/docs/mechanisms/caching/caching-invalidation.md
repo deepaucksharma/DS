@@ -31,10 +31,10 @@ graph TB
     end
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class TTL,SLIDING edgeStyle
     class MANUAL,PUBLISH serviceStyle
@@ -284,10 +284,10 @@ graph TB
     BULK_EVENT --> EVENT_BUS
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class APP edgeStyle
     class CACHE1,CACHE2,CACHE3,CACHE_MGR serviceStyle
@@ -634,10 +634,10 @@ graph TB
     CASCADE --> DASHBOARD
 
     %% Apply colors
-    classDev edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDf serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDev edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDf serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class USER_PROFILE,USER_PREFS,USER_POSTS,USER_FOLLOWERS edgeStyle
     class FEED_DATA,RECOMMENDATIONS,NOTIFICATIONS serviceStyle

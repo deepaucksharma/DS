@@ -8,7 +8,7 @@ Cloudflare's storage architecture is designed for edge computing at global scale
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Data Access Layer #0066CC"
+    subgraph "Edge Plane - Data Access Layer #3B82F6"
         subgraph "285+ Global PoPs"
             CACHE_L1[L1 Cache<br/>RAM: 32GB/server<br/>Latency: 0.1ms]
             CACHE_L2[L2 Cache<br/>SSD: 100TB/PoP<br/>Latency: 1-5ms]
@@ -21,7 +21,7 @@ graph TB
         end
     end
 
-    subgraph "Service Plane - Storage Services #00AA00"
+    subgraph "Service Plane - Storage Services #10B981"
         subgraph "Workers Storage APIs"
             KV_API[Workers KV API<br/>REST + JavaScript]
             R2_API[R2 S3-Compatible API<br/>GetObject/PutObject]
@@ -35,7 +35,7 @@ graph TB
         end
     end
 
-    subgraph "State Plane - Persistent Storage #FF8800"
+    subgraph "State Plane - Persistent Storage #F59E0B"
         subgraph "R2 Object Storage"
             R2_GLOBAL[R2 Global Storage<br/>Multi-region replication<br/>99.999999999% durability]
             R2_METADATA[R2 Metadata Store<br/>Object index<br/>Strong consistency]
@@ -58,7 +58,7 @@ graph TB
         end
     end
 
-    subgraph "Control Plane - Storage Management #CC0000"
+    subgraph "Control Plane - Storage Management #8B5CF6"
         subgraph "Replication Control"
             REPLICA_MGR[Replication Manager<br/>Multi-region coordination]
             CONSISTENCY[Consistency Manager<br/>Conflict resolution]
@@ -102,10 +102,10 @@ graph TB
     BACKUP --> R2_GLOBAL
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CACHE_L1,CACHE_L2,WORKER_MEM,DURABLE_EDGE,KV_EDGE edgeStyle
     class KV_API,R2_API,DURABLE_API,ANALYTICS_PROC,COMPRESS,ENCRYPT serviceStyle
@@ -135,8 +135,8 @@ graph TB
     end
 
     %% Apply colors
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CLIENT,R2_GATEWAY,AUTH,BUCKET_MGR serviceStyle
     class METADATA,BLOB_STORE,META_REPLICA,BLOB_REPLICA,LIFECYCLE,GLACIER stateStyle
@@ -167,8 +167,8 @@ graph TB
     end
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class WORKER,KV_CLIENT,KV_GATEWAY serviceStyle
     class LOCAL_CACHE,REGIONAL,GLOBAL_STORE,REPLICATION,CONFLICT stateStyle
@@ -198,8 +198,8 @@ graph TB
     end
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class WORKER_REQ,DO_RUNTIME,MIGRATION,LOAD_BALANCER,WEBSOCKET serviceStyle
     class SQLITE,PERSISTENCE,BACKUP stateStyle
@@ -229,8 +229,8 @@ graph TB
     end
 
     %% Apply colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class REQUESTS,SAMPLING,PIPELINE,REAL_TIME,EXPORT serviceStyle
     class CLICKHOUSE,RETENTION,HISTORICAL stateStyle
@@ -256,9 +256,9 @@ graph LR
     DO -.->|Medium| R2
 
     %% Apply colors
-    classDef fastStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef mediumStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef slowStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef fastStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef mediumStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef slowStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class L1,L2 fastStyle
     class KV,DO mediumStyle
@@ -294,8 +294,8 @@ graph TB
     end
 
     %% Apply colors
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PRIMARY,SYNC_REPLICA,ASYNC_REPLICA,SNAPSHOT,ARCHIVE stateStyle
     class RESTORE,COMPLIANCE controlStyle

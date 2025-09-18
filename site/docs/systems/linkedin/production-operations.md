@@ -53,7 +53,7 @@ graph TB
     classDef sourceStyle fill:#E8F5E8,stroke:#388E3C,color:#000
     classDef artifactStyle fill:#FFF3E0,stroke:#F57C00,color:#000
     classDef envStyle fill:#E3F2FD,stroke:#1976D2,color:#000
-    classDef toolStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef toolStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class GITHUB,CI_PIPELINE sourceStyle
     class NEXUS,DOCKER_REGISTRY artifactStyle
@@ -117,7 +117,7 @@ graph TB
     KAFKA_METRICS -.->|"Scale: 100M metrics/min<br/>Latency: p99 <10ms<br/>99.99% availability"| SAMZA_AGGREGATION
 
     classDef collectionStyle fill:#E8F5E8,stroke:#388E3C,color:#000
-    classDef ingestionStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef ingestionStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef processingStyle fill:#FFF3E0,stroke:#F57C00,color:#000
     classDef storageStyle fill:#F3E5F5,stroke:#7B1FA2,color:#000
     classDef uiStyle fill:#E3F2FD,stroke:#1976D2,color:#000
@@ -179,7 +179,7 @@ graph TB
     TREATMENT_ROUTER -.->|"Experiments: 1000+ active<br/>Users: 1B+ enrolled<br/>Decisions: 10B+/day"| EVENT_TRACKING
 
     classDef managementStyle fill:#E8F5E8,stroke:#388E3C,color:#000
-    classDef splittingStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef splittingStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef collectionStyle fill:#FFF3E0,stroke:#F57C00,color:#000
     classDef analysisStyle fill:#E3F2FD,stroke:#1976D2,color:#000
     classDef safetyStyle fill:#FFEBEE,stroke:#D32F2F,color:#000
@@ -339,7 +339,7 @@ graph TB
     TRAFFIC_FORECASTING -.->|"Accuracy: 95%<br/>Lead time: 3 months<br/>Cost savings: $200M/year"| HPA
 
     classDef analyticsStyle fill:#E8F5E8,stroke:#388E3C,color:#000
-    classDef scalingStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef scalingStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef reservationStyle fill:#FFF3E0,stroke:#F57C00,color:#000
     classDef targetStyle fill:#E3F2FD,stroke:#1976D2,color:#000
 

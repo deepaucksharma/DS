@@ -35,10 +35,10 @@ graph TB
     end
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class WW_UPDATE,WW_DELETE,WW_INSERT edgeStyle
     class WR_READ,WR_PHANTOM,WR_NONREP serviceStyle
@@ -113,8 +113,8 @@ graph LR
     CONCURRENT --> TIE_BREAK
 
     %% Apply colors
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class E1,E2,E3 stateStyle
     class CONCURRENT,ORDERED,TIE_BREAK controlStyle
@@ -185,7 +185,7 @@ graph TB
     TRANSFORM --> FINAL
 
     %% Apply service plane color for operations
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     class DOC_INIT,OP1,OP2,TRANSFORM,FINAL serviceStyle
 ```
 
@@ -218,7 +218,7 @@ graph TB
     MERGE --> PROPS
 
     %% Apply state plane color for data structures
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class R1_STATE,R2_STATE,MERGE,PROPS stateStyle
 ```
 

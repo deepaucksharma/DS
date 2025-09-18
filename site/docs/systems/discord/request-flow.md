@@ -6,8 +6,8 @@ This diagram shows Discord's complete message flow from user input to delivery, 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         ClientApp["Discord Client<br/>━━━━━<br/>Web/Mobile/Desktop<br/>WebSocket connection<br/>Message composition<br/>Rate limiting client"]
 
@@ -16,8 +16,8 @@ graph TB
         LoadBalancer["Discord Load Balancer<br/>━━━━━<br/>Connection affinity<br/>Health checking<br/>Failover routing<br/>Shard distribution"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         Gateway["Discord Gateway<br/>━━━━━<br/>WebSocket handler<br/>200M+ connections<br/>Elixir GenServer<br/>Per-connection process"]
 
@@ -34,8 +34,8 @@ graph TB
         BotService["Bot Service<br/>━━━━━<br/>Bot message handling<br/>Command processing<br/>API rate limiting<br/>Webhook delivery"]
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         UserCache["User Session Cache<br/>━━━━━<br/>Redis cluster<br/>200M+ active sessions<br/>Connection state<br/>Presence data"]
 
@@ -50,8 +50,8 @@ graph TB
         SearchIndex["Search Index<br/>━━━━━<br/>Elasticsearch<br/>Message history<br/>Full-text search<br/>Async indexing"]
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         RateLimiter["Rate Limiter<br/>━━━━━<br/>Token bucket algorithm<br/>Per-user limits<br/>Guild-based limits<br/>Anti-spam protection"]
 
@@ -113,10 +113,10 @@ graph TB
     MessageDB -.->|"Audit logging<br/>Compliance data"| AuditLogger
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
     classDef externalStyle fill:#f9f9f9,stroke:#999,color:#333,font-weight:bold
 
     class ClientApp,CloudflareEdge,LoadBalancer edgeStyle

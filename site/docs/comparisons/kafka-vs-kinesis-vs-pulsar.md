@@ -62,10 +62,10 @@ graph TB
     ZOOKEEPER -.->|"Metadata updates: 500/sec<br/>Leader election: <2s"| KAFKA_CLUSTER
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PRODUCER,LB edgeStyle
     class KAFKA_CLUSTER,SCHEMA_REG,CONNECT serviceStyle
@@ -118,10 +118,10 @@ graph TB
     LAMBDA -.->|"Batch size: 100-10K<br/>Parallel: 10 per shard<br/>Error handling: DLQ"| KINESIS_DATA
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class KINESIS_AGENT,API_GW edgeStyle
     class KINESIS_DATA,KINESIS_ANALYTICS,LAMBDA serviceStyle
@@ -170,10 +170,10 @@ graph TB
     TIERED_STORAGE -.->|"Offload policy: >4GB/segment<br/>Access latency: 100-200ms<br/>Cost reduction: 75%"| BOOKKEEPER
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PULSAR_PROXY,CLIENT_LIBS edgeStyle
     class PULSAR_BROKERS,FUNCTIONS serviceStyle

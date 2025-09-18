@@ -53,10 +53,10 @@ graph TB
     REC -->|"$0.01/recommendation"| DYNAMO
 
     %% 4-Plane Colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
 
     class CDN,LB,WAF edgeStyle
     class API,MS,REC serviceStyle
@@ -153,8 +153,8 @@ graph TB
     OPT2 --> Y2025
     OPT3 --> Y2026
 
-    classDef projectionStyle fill:#E6F3FF,stroke:#0066CC,color:#000
-    classDef optimizationStyle fill:#E6FFE6,stroke:#00AA00,color:#000
+    classDef projectionStyle fill:#E6F3FF,stroke:#3B82F6,color:#000
+    classDef optimizationStyle fill:#E6FFE6,stroke:#10B981,color:#000
 
     class Y2024,Y2025,Y2026 projectionStyle
     class OPT1,OPT2,OPT3 optimizationStyle

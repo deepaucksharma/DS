@@ -37,10 +37,10 @@ graph TB
     end
 
     %% Apply 4-plane colors
-    classDef networkStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef nodeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef systemStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef appStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef networkStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef nodeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef systemStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef appStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class NF1,NF2,NF3,NF4 networkStyle
     class NoF1,NoF2,NoF3,NoF4 nodeStyle
@@ -118,9 +118,9 @@ graph TB
     PP --> OP
     SP1 --> NP
 
-    classDef beforeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef duringStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef afterStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef beforeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef duringStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef afterStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class P1,S1,S2 beforeStyle
     class PP,SP1,SP2 duringStyle
@@ -205,9 +205,9 @@ graph LR
     TT --> WU
     WU --> GO
 
-    classDef skewStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef orderStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef skewStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef orderStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class N1,N2,N3 skewStyle
     class O1,O2,O3 orderStyle
@@ -249,9 +249,9 @@ graph TB
     I3 --> M3
     I4 --> M4
 
-    classDef corruptionStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef impactStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef mitigationStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef corruptionStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef impactStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef mitigationStyle fill:#10B981,stroke:#059669,color:#fff
 
     class C1,C2,C3,C4 corruptionStyle
     class I1,I2,I3,I4 impactStyle
@@ -333,9 +333,9 @@ graph TB
     R1 --> R2
     R2 --> R3
 
-    classDef networkStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef failureStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef resolutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef networkStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef failureStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef resolutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class L,F1,F2 networkStyle
     class S1,S2,S3,S4 failureStyle
@@ -370,10 +370,10 @@ graph LR
         PV3[Monitoring & Alerting<br/>Early warning systems<br/>Proactive intervention]
     end
 
-    classDef detectionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef responseStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef recoveryStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef preventionStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef detectionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef responseStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef recoveryStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef preventionStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class FD1,FD2,FD3 detectionStyle
     class FR1,FR2,FR3 responseStyle
@@ -478,9 +478,9 @@ graph TB
     C3 --> BP3
     C4 --> BP4
 
-    classDef antiStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef consequenceStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef practiceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef antiStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef consequenceStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef practiceStyle fill:#10B981,stroke:#059669,color:#fff
 
     class AP1,AP2,AP3,AP4 antiStyle
     class C1,C2,C3,C4 consequenceStyle

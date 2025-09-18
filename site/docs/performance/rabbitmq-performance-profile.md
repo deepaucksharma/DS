@@ -42,10 +42,10 @@ graph TB
         CRITICAL1 --> CRITICAL2
     end
 
-    classDef shallowStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef mediumStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef deepStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef criticalStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef shallowStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef mediumStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef deepStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef criticalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SHALLOW1,SHALLOW2 shallowStyle
     class MEDIUM1,MEDIUM2 mediumStyle
@@ -83,9 +83,9 @@ graph TB
         QDP1 --> QDP2
     end
 
-    classDef flowControlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef consumerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef designStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef flowControlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef consumerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef designStyle fill:#10B981,stroke:#059669,color:#fff
 
     class PFC1,PFC2,PFC3 flowControlStyle
     class CS1,CS2 consumerStyle
@@ -132,10 +132,10 @@ graph TB
         PI2[Failover characteristics<br/>Detection time: 60 seconds<br/>Recovery time: 30 seconds<br/>Message loss: None (with confirms)]
     end
 
-    classDef nodeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef queueStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef commStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef perfStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef nodeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef queueStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef commStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef perfStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class N1,N2,N3 nodeStyle
     class N1Q,N2Q,N3Q queueStyle
@@ -172,9 +172,9 @@ graph LR
         CLUSTER2 --> TRADEOFF2
     end
 
-    classDef singleStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef clusterStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef tradeoffStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef singleStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef clusterStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef tradeoffStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SINGLE1,SINGLE2 singleStyle
     class CLUSTER1,CLUSTER2 clusterStyle
@@ -207,9 +207,9 @@ graph TB
         PERF1[Partition detection: 60s<br/>Recovery time: 120s<br/>Message loss: None<br/>Downtime: Minority nodes only]
     end
 
-    classDef scenarioStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef modeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef scenarioStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef modeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
 
     class BEFORE,PARTITION,AFTER scenarioStyle
     class MODE1,MODE2,MODE3 modeStyle
@@ -247,9 +247,9 @@ graph TB
         LAZY2 --> PERF_LAZY
     end
 
-    classDef normalStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef lazyStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef perfStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef normalStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef lazyStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef perfStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class NORMAL1,NORMAL2 normalStyle
     class LAZY1,LAZY2 lazyStyle
@@ -284,9 +284,9 @@ graph LR
         VLP --> VLP_REC
     end
 
-    classDef requirementStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef normalRecStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef lazyRecStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef requirementStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef normalRecStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef lazyRecStyle fill:#10B981,stroke:#059669,color:#fff
 
     class HT_LL,LQ_MC,VLP requirementStyle
     class HT_LL_REC normalRecStyle
@@ -331,10 +331,10 @@ graph TB
         TXN1 --> TXN2
     end
 
-    classDef autoStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef manualStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef confirmStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef txnStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef autoStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef manualStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef confirmStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef txnStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AUTO1,AUTO2 autoStyle
     class MANUAL1,MANUAL2 manualStyle
@@ -370,9 +370,9 @@ graph LR
         OPT_BATCH1 --> OPT_BATCH2
     end
 
-    classDef individualStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef batchStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef optimizedStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef individualStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef batchStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef optimizedStyle fill:#10B981,stroke:#059669,color:#fff
 
     class INDIVIDUAL1,INDIVIDUAL2 individualStyle
     class BATCH1,BATCH2 batchStyle
@@ -413,10 +413,10 @@ graph TB
         PERF2[Resource utilization<br/>CPU: 60% average<br/>Memory: 80% utilization<br/>Network: 100 Mbps<br/>Disk I/O: 500 IOPS]
     end
 
-    classDef serviceStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef configStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef perfStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef serviceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef configStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef perfStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ORDER,RESTAURANT,DELIVERY serviceStyle
     class CLUSTER,EXCHANGES,QUEUES infraStyle
@@ -447,10 +447,10 @@ graph TB
         PERF1[tcp_listen_options.nodelay: true<br/>tcp_listen_options.sndbuf: 196608<br/>tcp_listen_options.recbuf: 196608<br/>collect_statistics_interval: 60000]
     end
 
-    classDef memStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef queueStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef clusterStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef memStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef queueStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef clusterStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
 
     class MEM1 memStyle
     class QUEUE1,QUEUE2 queueStyle
@@ -488,9 +488,9 @@ graph LR
     METRICS2 --> PI2 --> ACTIONS2
     METRICS3 --> PI3
 
-    classDef metricsStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef piStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef actionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef metricsStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef piStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef actionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class METRICS1,METRICS2,METRICS3 metricsStyle
     class PI1,PI2,PI3 piStyle
@@ -527,9 +527,9 @@ graph TB
         IS1 --> IS2
     end
 
-    classDef queueStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef consumerStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef infraStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef queueStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef consumerStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef infraStyle fill:#10B981,stroke:#059669,color:#fff
 
     class QD1,QD2 queueStyle
     class CO1,CO2 consumerStyle

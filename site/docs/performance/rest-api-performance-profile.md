@@ -40,9 +40,9 @@ graph TB
         HTTP3_1 --> HTTP3_PERF --> HTTP3_ADVANTAGES
     end
 
-    classDef http1Style fill:#CC0000,stroke:#990000,color:#fff
-    classDef http2Style fill:#0066CC,stroke:#004499,color:#fff
-    classDef http3Style fill:#00AA00,stroke:#007700,color:#fff
+    classDef http1Style fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef http2Style fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef http3Style fill:#10B981,stroke:#059669,color:#fff
 
     class HTTP1_1,HTTP1_PERF,HTTP1_ISSUES http1Style
     class HTTP2_1,HTTP2_PERF,HTTP2_BENEFITS http2Style
@@ -83,8 +83,8 @@ graph LR
     OPT1 --> OPT2
     OPT2 --> OPT3
 
-    classDef performanceStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef optimizationStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef performanceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef optimizationStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CONCURRENT1,CONCURRENT2,CONCURRENT3,REAL1,REAL2 performanceStyle
     class OPT1,OPT2,OPT3 optimizationStyle
@@ -128,9 +128,9 @@ graph TB
         CACHE2 --> CACHE3
     end
 
-    classDef etagStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDev requestStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef cacheStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef etagStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDev requestStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef cacheStyle fill:#10B981,stroke:#059669,color:#fff
 
     class ETAG1,ETAG2,ETAG3 etagStyle
     class REQ1,REQ2,REQ3 requestStyle
@@ -176,10 +176,10 @@ graph TB
         METRICS1 --> METRICS2
     end
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef cdnStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef appStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef metricsStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef cdnStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef appStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef metricsStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT1,CLIENT2 clientStyle
     class CDN1,CDN2 cdnStyle
@@ -221,9 +221,9 @@ graph TB
         HYBRID1 --> HYBRID2
     end
 
-    classDef offsetStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef cursorStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef hybridStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef offsetStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef cursorStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef hybridStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class OFFSET1,OFFSET2,OFFSET3 offsetStyle
     class CURSOR1,CURSOR2,CURSOR3 cursorStyle
@@ -258,9 +258,9 @@ graph LR
         ENHANCED1 --> ENHANCED2
     end
 
-    classDef basicStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef cursorStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef enhancedStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef basicStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef cursorStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef enhancedStyle fill:#10B981,stroke:#059669,color:#fff
 
     class BASIC1,BASIC2 basicStyle
     class CURSOR1,CURSOR2 cursorStyle
@@ -303,9 +303,9 @@ graph TB
         FIXED1 --> FIXED2 --> FIXED3
     end
 
-    classDef tokenStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef windowStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef fixedStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef tokenStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef windowStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef fixedStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class TOKEN1,TOKEN2,TOKEN3 tokenStyle
     class WINDOW1,WINDOW2,WINDOW3 windowStyle
@@ -341,9 +341,9 @@ graph LR
         OPT1 --> OPT2
     end
 
-    classDef noRlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef withRlStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef optStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef noRlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef withRlStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef optStyle fill:#10B981,stroke:#059669,color:#fff
 
     class NO_RL1,NO_RL2 noRlStyle
     class WITH_RL1,WITH_RL2 withRlStyle
@@ -384,9 +384,9 @@ graph TB
         LATENCY1 --> LATENCY2
     end
 
-    classDef infraStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef optStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef latencyStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef infraStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef optStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef latencyStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class INFRA1,INFRA2,INFRA3 infraStyle
     class OPT1,OPT2,OPT3 optStyle
@@ -421,9 +421,9 @@ graph LR
         RESP_OPT1 --> RESP_OPT2
     end
 
-    classDef designStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef reqOptStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef respOptStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef designStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef reqOptStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef respOptStyle fill:#10B981,stroke:#059669,color:#fff
 
     class DESIGN1,DESIGN2 designStyle
     class REQ_OPT1,REQ_OPT2 reqOptStyle
@@ -460,7 +460,7 @@ graph TB
         CACHING[Caching strategy<br/>• Multi-layer caching<br/>• Cache invalidation<br/>• CDN integration<br/>• Application-level caching]
     end
 
-    classDef optStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef optStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class REQ_PROC1,RESP_OPT,DATA_ACCESS,CACHING optStyle
 ```

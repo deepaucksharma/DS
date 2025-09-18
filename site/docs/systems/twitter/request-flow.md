@@ -229,7 +229,7 @@ graph TB
     TREND_CACHE -.->|"Refresh rate: Every minute<br/>Global trends: Top 10<br/>Geographic: Top 5 per region"| TREND_API
 
     classDef inputStyle fill:#E8F5E8,stroke:#388E3C,color:#000
-    classDef processStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef processStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef storageStyle fill:#FFF3E0,stroke:#F57C00,color:#000
     classDef outputStyle fill:#E3F2FD,stroke:#1976D2,color:#000
 

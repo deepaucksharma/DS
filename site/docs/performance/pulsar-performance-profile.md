@@ -39,10 +39,10 @@ graph TB
         PC3[Automatic tiering<br/>Recent data: Hot storage<br/>Historical data: Cold storage<br/>Transparent to clients]
     end
 
-    classDef hotStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef coldStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef brokerStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef perfStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef hotStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef coldStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef brokerStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef perfStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class BK1,BK2,BK3 hotStyle
     class COLD coldStyle
@@ -78,9 +78,9 @@ graph LR
         BAL1 --> BAL2
     end
 
-    classDef aggStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef consStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef balStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef aggStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef consStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef balStyle fill:#10B981,stroke:#059669,color:#fff
 
     class AGG1,AGG2 aggStyle
     class CONS1,CONS2 consStyle
@@ -125,9 +125,9 @@ graph TB
         RP2[Message ordering<br/>Per-producer ordering: Maintained<br/>Cross-region ordering: Best effort<br/>Conflict resolution: Timestamp-based]
     end
 
-    classDef regionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef replStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef perfStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef regionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef replStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef perfStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class USE1,USW1,EUW1 regionStyle
     class REPL replStyle
@@ -156,9 +156,9 @@ graph LR
     GEO1 --> OVERHEAD1
     OVERHEAD1 --> OVERHEAD2
 
-    classDef localStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef geoStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef overheadStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef localStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef geoStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef overheadStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class LOCAL1 localStyle
     class GEO1 geoStyle
@@ -207,10 +207,10 @@ graph TB
         SIMPLE --> COMPLEX --> IO_BOUND
     end
 
-    classDef threadStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef processStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef k8sStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef funcStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef threadStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef processStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef k8sStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef funcStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class THREAD1,THREAD2 threadStyle
     class PROCESS1,PROCESS2 processStyle
@@ -248,9 +248,9 @@ graph TB
         SL1 --> SL2
     end
 
-    classDef scaleConfigStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef perfStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef limitStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef scaleConfigStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef perfStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef limitStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AS1,AS2 scaleConfigStyle
     class SP1,SP2,SP3 perfStyle
@@ -289,9 +289,9 @@ graph LR
         BENEFITS1 --> BENEFITS2
     end
 
-    classDef kafkaStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef pulsarStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef benefitStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef kafkaStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef pulsarStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef benefitStyle fill:#10B981,stroke:#059669,color:#fff
 
     class KAFKA1,KAFKA2 kafkaStyle
     class PULSAR1,PULSAR2 pulsarStyle
@@ -328,9 +328,9 @@ graph TB
         TUNE1 --> TUNE2
     end
 
-    classDef writeStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef readStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef tuneStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef writeStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef readStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef tuneStyle fill:#10B981,stroke:#059669,color:#fff
 
     class WRITE1,WRITE2,WRITE3 writeStyle
     class READ1,READ2 readStyle
@@ -367,9 +367,9 @@ graph TB
         OA1 --> OA2
     end
 
-    classDef scaleStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef tenantStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef operationalStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef scaleStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef tenantStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef operationalStyle fill:#10B981,stroke:#059669,color:#fff
 
     class SCALE1,SCALE2 scaleStyle
     class MT1,MT2 tenantStyle
@@ -408,9 +408,9 @@ graph LR
         ISOLATION1 --> ISOLATION2
     end
 
-    classDef tenantStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef enforceStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef isolationStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef tenantStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef enforceStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef isolationStyle fill:#10B981,stroke:#059669,color:#fff
 
     class TENANT1,TENANT2,TENANT3 tenantStyle
     class ENFORCE1,ENFORCE2 enforceStyle
@@ -455,9 +455,9 @@ graph TB
         ANALYSIS2 --> OPT1 --> OPT2
     end
 
-    classDef monStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef analysisStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef optStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef monStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef analysisStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef optStyle fill:#10B981,stroke:#059669,color:#fff
 
     class MON1,MON2 monStyle
     class ANALYSIS1,ANALYSIS2 analysisStyle

@@ -6,16 +6,16 @@ This diagram showcases Uber's unique engineering innovations that solved problem
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         GeoHashing["H3 Hexagonal Indexing<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Uber's spatial index system<br/>Replaced lat/lng with hierarchical hex<br/>15 resolution levels<br/>Patent: US10,083,607"]
 
         EdgeOptimization["Edge Optimization<br/>━━━━━<br/>Regional request routing<br/>Geo-aware load balancing<br/>Based on H3 regions<br/>Sub-10ms routing decisions"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         Ringpop["Ringpop<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Gossip-based service discovery<br/>Consistent hash ring<br/>Self-healing membership<br/>Node.js + Go libraries<br/>Open sourced 2015"]
 
@@ -26,8 +26,8 @@ graph TB
         Michelangelo["Michelangelo ML Platform<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>End-to-end ML lifecycle<br/>Feature store + model serving<br/>AutoML capabilities<br/>A/B testing integration"]
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         Schemaless["Schemaless<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>MySQL abstraction layer<br/>Automatic sharding<br/>Multi-region replication<br/>Transparent scaling<br/>Handles 10K+ shards"]
 
@@ -36,8 +36,8 @@ graph TB
         AresDB["AresDB<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>GPU-powered analytics<br/>Real-time OLAP<br/>Columnar storage<br/>CUDA acceleration<br/>Open sourced 2019"]
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         M3["M3 Metrics Platform<br/>━━━━━<br/>🏆 UBER INNOVATION<br/>Distributed time series DB<br/>High cardinality support<br/>10M+ metrics/second<br/>Query federation<br/>Open sourced 2018"]
 

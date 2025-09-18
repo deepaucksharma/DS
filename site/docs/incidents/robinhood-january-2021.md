@@ -48,27 +48,27 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Blue #0066CC"
+    subgraph "Edge Plane - Blue #3B82F6"
         MOBILE[Robinhood Mobile App<br/>13M+ Users]
         WEB[Robinhood Web Platform<br/>Trading Interface]
         API[Robinhood API<br/>Third-party Access]
     end
 
-    subgraph "Service Plane - Green #00AA00"
+    subgraph "Service Plane - Green #10B981"
         TRADING[Trading Service<br/>Order Processing]
         PORTFOLIO[Portfolio Service<br/>Position Management]
         MARKET[Market Data Service<br/>Real-time Quotes]
         EXECUTION[Execution Service<br/>Order Routing]
     end
 
-    subgraph "State Plane - Orange #FF8800"
+    subgraph "State Plane - Orange #F59E0B"
         POSITIONS[(User Positions DB<br/>PostgreSQL)]
         ORDERS[(Order History DB<br/>Time Series)]
         ACCOUNTS[(Account Data<br/>User Balances)]
         CLEARING[(Clearing Records<br/>Settlement Data)]
     end
 
-    subgraph "Control Plane - Red #CC0000"
+    subgraph "Control Plane - Red #8B5CF6"
         RISK[Risk Management<br/>Position Limits]
         COMPLIANCE[Compliance Engine<br/>Regulatory Rules]
         MONITORING[Trading Monitoring<br/>System Health]
@@ -105,10 +105,10 @@ graph TB
     ACCOUNTS --> CLEARING
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef financialStyle fill:#4B0082,stroke:#301934,color:#fff,stroke-width:4px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
@@ -163,7 +163,7 @@ graph LR
 
     A --> B --> C --> D --> E --> F
 
-    classDef crisisStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:2px
+    classDef crisisStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:2px
     class A,B,C,D,E,F crisisStyle
 ```
 
@@ -217,9 +217,9 @@ flowchart TD
     J --> K[Price Impact<br/>Sell pressure only]
     K --> L[Market Distortion<br/>Artificial price suppression]
 
-    classDef normal fill:#00AA00,stroke:#007700,color:#fff
+    classDef normal fill:#10B981,stroke:#059669,color:#fff
     classDef warning fill:#FFA500,stroke:#FF8C00,color:#fff
-    classDef crisis fill:#FF6B6B,stroke:#CC0000,color:#fff
+    classDef crisis fill:#FF6B6B,stroke:#8B5CF6,color:#fff
 
     class A,B,D,H normal
     class C,E warning
@@ -384,7 +384,7 @@ graph TB
     CLEAR2 --> REG2
     CLEAR3 --> REG3
 
-    classDef reformStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef reformStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     class CAPITAL1,CAPITAL2,CAPITAL3,CLEAR1,CLEAR2,CLEAR3,REG1,REG2,REG3 reformStyle
 ```
 

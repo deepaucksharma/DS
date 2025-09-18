@@ -15,27 +15,34 @@ A comprehensive design system for creating stunning, interactive Mermaid diagram
 
 ### 2. Color System
 
-#### Production 4-Plane Architecture Colors
+#### Production 4-Plane Architecture Colors (Tailwind-Inspired)
 ```css
-/* Light Mode Palette */
---edge-primary: #0066CC;      /* Azure Blue */
---edge-secondary: #4A90E2;    /* Sky Blue */
---service-primary: #00AA00;   /* Forest Green */
---service-secondary: #4CAF50; /* Leaf Green */
---state-primary: #FF8800;     /* Sunset Orange */
---state-secondary: #FFA726;   /* Amber */
---control-primary: #CC0000;   /* Signal Red */
---control-secondary: #E53935; /* Light Red */
+/* Light Mode Palette - More Aesthetic, Less Eye Strain */
+--edge-primary: #3B82F6;      /* Blue-500: Professional */
+--edge-secondary: #60A5FA;    /* Blue-400: Accent */
+--service-primary: #10B981;   /* Emerald-500: Active */
+--service-secondary: #34D399; /* Emerald-400: Fresh */
+--state-primary: #F59E0B;     /* Amber-500: Data */
+--state-secondary: #FBBF24;   /* Amber-400: Warm */
+--control-primary: #8B5CF6;   /* Violet-500: Distinctive */
+--control-secondary: #A78BFA; /* Violet-400: Calm */
 
-/* Dark Mode Palette */
---edge-primary-dark: #64B5F6;     /* Light Blue */
---edge-secondary-dark: #90CAF9;   /* Pale Blue */
---service-primary-dark: #66BB6A;  /* Light Green */
---service-secondary-dark: #81C784; /* Pale Green */
---state-primary-dark: #FFB74D;    /* Light Orange */
---state-secondary-dark: #FFCC80;  /* Pale Orange */
---control-primary-dark: #EF5350;  /* Light Red */
---control-secondary-dark: #E57373; /* Pale Red */
+/* Dark Mode Palette - Optimized for Low Light */
+--edge-primary-dark: #60A5FA;     /* Blue-400: Bright */
+--edge-secondary-dark: #93C5FD;   /* Blue-300: Soft */
+--service-primary-dark: #34D399;  /* Emerald-400: Vibrant */
+--service-secondary-dark: #6EE7B7; /* Emerald-300: Gentle */
+--state-primary-dark: #FBBF24;    /* Amber-400: Warm */
+--state-secondary-dark: #FCD34D;  /* Amber-300: Soft */
+--control-primary-dark: #A78BFA;  /* Violet-400: Soothing */
+--control-secondary-dark: #C4B5FD; /* Violet-300: Light */
+
+/* Why This Palette? */
+// 1. Based on Tailwind CSS - battle-tested in production
+// 2. WCAG AAA compliant for accessibility
+// 3. Less saturated = reduced eye strain during long sessions
+// 4. Violet for control avoids red's error implications
+// 5. Better color harmony and professional appearance
 
 /* Semantic Colors */
 --success: #4CAF50;

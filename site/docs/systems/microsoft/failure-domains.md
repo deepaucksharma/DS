@@ -61,10 +61,10 @@ graph TB
     DC_POWER -.->|"Blast radius: Datacenter"| DC_COOLING
 
     %% Apply severity colors
-    classDef criticalStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef highStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef criticalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef highStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef mediumStyle fill:#FFCC00,stroke:#CC9900,color:#fff
-    classDef lowStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef lowStyle fill:#10B981,stroke:#059669,color:#fff
 
     class GLOBAL_DNS,INTERNET_ROUTING,SUBSEA_CABLES,TRAFFIC_MANAGER criticalStyle
     class AZURE_REGION_1,AZURE_REGION_2,AZURE_REGION_3,PAIRED_REGIONS highStyle
@@ -153,10 +153,10 @@ graph TB
     MEDIA_RELAYS -->|"Redundancy: 3x"| STORAGE_BACKEND
     AAD_INTEGRATION -->|"Circuit breaker"| AUTH_FAILURE
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef failureStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef failureStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class WINDOWS_CLIENT,MAC_CLIENT,WEB_CLIENT,MOBILE_CLIENT clientStyle
     class CHAT_SERVICE,CALLING_SERVICE,MEETING_SERVICE,FILE_SERVICE serviceStyle
@@ -219,10 +219,10 @@ graph LR
     DATA_REPLICATION --> AUTO_FAILOVER
     TRAFFIC_SHIFTING --> MANUAL_FAILOVER
 
-    classDef primaryStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef pairedStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef failoverStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef metricsStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef primaryStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef pairedStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef failoverStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef metricsStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EAST_US,WEST_EUROPE,SOUTHEAST_ASIA,AUSTRALIA_EAST primaryStyle
     class WEST_US,NORTH_EUROPE,EAST_ASIA,AUSTRALIA_SOUTHEAST pairedStyle
@@ -288,10 +288,10 @@ graph TB
     REGION_SERVICES --> AZ2
     REGION_SERVICES --> AZ3
 
-    classDef zoneStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef componentStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef failureStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef failoverStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef zoneStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef componentStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef failureStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef failoverStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class AZ1,AZ2,AZ3,REGION_SERVICES zoneStyle
     class AZ1_COMPUTE,AZ1_STORAGE,AZ1_NETWORK,AZ1_POWER componentStyle
@@ -353,10 +353,10 @@ graph TB
     GRADUAL_RESTORATION -->|"Services restored"| CORE_FEATURES
     CORE_FEATURES -->|"Full recovery"| FULL_FEATURES
 
-    classDef normalStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef normalStyle fill:#10B981,stroke:#059669,color:#fff
     classDef degradedStyle fill:#FFCC00,stroke:#CC9900,color:#fff
-    classDef offlineStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef recoveryStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef offlineStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef recoveryStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class FULL_FEATURES,REAL_TIME_SYNC,GLOBAL_SEARCH,AI_FEATURES normalStyle
     class CORE_FEATURES,DELAYED_SYNC,LOCAL_SEARCH,AI_DISABLED degradedStyle
@@ -413,10 +413,10 @@ graph LR
     GEO_RESTORE --> PREMIUM_RTO
     POINT_IN_TIME --> HYPERSCALE_RTO
 
-    classDef tierStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef failureStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef recoveryStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef metricsStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef tierStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef failureStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef recoveryStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef metricsStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class BASIC_TIER,STANDARD_TIER,PREMIUM_TIER,HYPERSCALE_TIER tierStyle
     class HARDWARE_FAILURE,SOFTWARE_BUG,HUMAN_ERROR,REGIONAL_DISASTER failureStyle
@@ -534,10 +534,10 @@ graph TB
     MANUAL_ABORT --> RECOVERY_TIME_MEASUREMENT
     MONITORING_INTEGRATION --> IMPROVEMENT_RECOMMENDATIONS
 
-    classDef experimentStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef scopeStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef safetyStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef resultStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef experimentStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef scopeStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef safetyStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef resultStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class VM_SHUTDOWN,NETWORK_LATENCY,STORAGE_THROTTLING,CPU_STRESS experimentStyle
     class SINGLE_RESOURCE,RESOURCE_GROUP,SUBSCRIPTION,CROSS_REGION scopeStyle

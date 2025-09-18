@@ -56,10 +56,10 @@ graph TB
     FAILOVER -.->|"Promote replica"| POSTGRES_R1
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB,API edge
     class WRITE_SVC,read_SVC,REPL_SVC service
@@ -201,10 +201,10 @@ graph TB
     RANGES_AP -.->|"Backup data"| BACKUP
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class GSLB,ALB_US,ALB_EU,ALB_AP edge
     class CRDB_US,CRDB_EU,CRDB_AP service
@@ -311,10 +311,10 @@ graph LR
     MASTER -.-> TAIL
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT edgeStyle
     class HEAD,MIDDLE1,MIDDLE2,TAIL serviceStyle
@@ -401,10 +401,10 @@ graph TB
     end
 
     %% Apply colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PS_SIMPLE,PS_SINGLE,PS_SCALE,PS_FAILOVER edgeStyle
     class MP_GLOBAL,MP_LATENCY,MP_PARTITION,MP_AVAILABILITY serviceStyle
@@ -444,10 +444,10 @@ graph TB
     PERF_MP -.->|"Write performance"| VALUE_MP
 
     %% Production 4-plane colors
-    classDef edge fill:#0066CC,stroke:#004499,color:#fff
-    classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef state fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef control fill:#CC0000,stroke:#990000,color:#fff
+    classDef edge fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef service fill:#10B981,stroke:#059669,color:#fff
+    classDef state fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef control fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class INFRA_PS,INFRA_MP edge
     class OPS_PS,OPS_MP service

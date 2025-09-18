@@ -63,10 +63,10 @@ graph TB
     STREAM -->|Throughput: 100K/s| MON
     DLQ -->|Error rate: <0.1%| MON
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class API edgeStyle
     class ORDER,CDC serviceStyle
@@ -132,10 +132,10 @@ graph TB
     ORCH -->|Success rate: 95%| MON
     COMP_QUEUE -->|Compensation rate: 5%| MON
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT edgeStyle
     class ORCH,PAY,INV,SHIP serviceStyle
@@ -211,10 +211,10 @@ graph TB
     DB3 -->|TTL: 300s| TTL
     LOCK_MGR -->|Contention alerts| MON
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB edgeStyle
     class INV1,INV2,INV3 serviceStyle
@@ -285,10 +285,10 @@ graph TB
     LAG_MON -->|Trigger rebuild| REBUILD
     REBUILD -->|Recovery: 30min| PROJECTION
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class WRITE_API,READ_API edgeStyle
     class COMMAND,PROJECTION,QUERY serviceStyle
@@ -356,10 +356,10 @@ graph LR
     SERVER2 -->|Latency: p99: 45ms| METRICS
     SERVER3 -->|Degraded: p99: 200ms| HEALTH
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT,LB edgeStyle
     class CB,SERVER1,SERVER2,SERVER3 serviceStyle
@@ -421,10 +421,10 @@ graph LR
     PROCESSOR1 -->|Processing rate: 500K/s| LAG_MON
     PROCESSOR2 -->|Processing rate: 500K/s| LAG_MON
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PRODUCER edgeStyle
     class PROCESSOR1,PROCESSOR2 serviceStyle
@@ -487,10 +487,10 @@ graph TB
     EVENT_STORE -->|Archive after 90 days| ARCHIVE
     REPLAY -->|Rebuild: 30min| VIEW_STORE
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class API edgeStyle
     class AGGREGATE,PROJECTOR,SNAPSHOTTER serviceStyle
@@ -512,18 +512,18 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         REQUEST[Single Request<br/>Fan-out coordinator<br/>SLO: p99 <30s]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         SERVICE1[Service A<br/>p99: 10ms, 99% SLA<br/>Cost: $2K/month]
         SERVICE2[Service B<br/>p99: 15ms, 95% SLA<br/>Cost: $3K/month]
         SERVICE3[Service C<br/>p99: 20ms, 98% SLA<br/>Cost: $2.5K/month]
         AGGREGATOR[Result Aggregator<br/>p99: 5ms merge<br/>Partial results: 90%]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         RESULTS[(Aggregated Results<br/>JSON merge, 10GB/day<br/>Failure metadata)]
     end
 
@@ -538,9 +538,9 @@ graph LR
     SERVICE3 -.->|Timeout: 30s, SLA: 98%| AGGREGATOR
     AGGREGATOR -->|p99: 30s total| RESULTS
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class REQUEST edgeStyle
     class SERVICE1,SERVICE2,SERVICE3,AGGREGATOR serviceStyle
@@ -558,22 +558,22 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         QUERY_API[Analytics API<br/>SQL interface, p99: 2s<br/>10K queries/day]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         QUERY_ENGINE[Query Engine<br/>Apache Spark 3.4<br/>1TB/hour processing]
         ETL[ETL Processor<br/>Airflow orchestration<br/>500GB/day pipeline]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         DWH[(Data Warehouse<br/>Snowflake, 100TB<br/>$50K/month)]
         STAGING[(Staging Area<br/>S3, 10TB buffer<br/>7-day retention)]
         METADATA[(Metadata Store<br/>Apache Atlas<br/>10K entities)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         WORKLOAD[Workload Manager<br/>Resource allocation<br/>Auto-scaling: 10-100 nodes]
         SCHEDULER[Job Scheduler<br/>Airflow 2.7<br/>1K DAGs, 99.9% SLA]
     end
@@ -592,10 +592,10 @@ graph TB
     QUERY_ENGINE -->|Auto-scale: 10-100 nodes| WORKLOAD
     ETL -->|SLA: 99.9%| SCHEDULER
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class QUERY_API edgeStyle
     class QUERY_ENGINE,ETL serviceStyle
@@ -656,10 +656,10 @@ graph TB
     RESULT_STORE -->|Processing metrics| MONITOR
     DLQ -->|Failure rate: <5%| MONITOR
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PRODUCER edgeStyle
     class WORKER1,WORKER2,WORKER3 serviceStyle
@@ -742,10 +742,10 @@ flowchart TD
     SCALE -->|Horizontal| SCALE_PATTERNS[Sharding<br/>CQRS<br/>Microservices]
     SCALE -->|Global| GLOBAL_PATTERNS[CDN<br/>Edge Computing<br/>Multi-region]
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class START,TYPE edgeStyle
     class CONSISTENCY,PERFORMANCE,RELIABILITY,SCALE serviceStyle

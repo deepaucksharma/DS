@@ -6,16 +6,16 @@ This diagram shows Stripe's complete payment request flow from payment intent cr
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         Client["Client Application<br/>━━━━━<br/>Web/Mobile/Server<br/>Stripe.js SDK<br/>TLS 1.3<br/>mTLS for server"]
 
         CloudFlare["Cloudflare Edge<br/>━━━━━<br/>Threat detection<br/>Rate limiting<br/>Request routing<br/>p95: 8ms"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         Kong["Kong API Gateway<br/>━━━━━<br/>Authentication<br/>Rate limiting: 5000/min<br/>Request validation<br/>p99: 25ms"]
 
@@ -30,8 +30,8 @@ graph TB
         WebhookDispatcher["Webhook Dispatcher<br/>━━━━━<br/>Async event delivery<br/>Exponential backoff<br/>Signature signing<br/>p95: 200ms"]
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         IdempotencyCache["Idempotency Cache<br/>━━━━━<br/>Redis Cluster<br/>24h key retention<br/>Sub-ms lookup<br/>99.9% hit rate"]
 
@@ -42,8 +42,8 @@ graph TB
         AuditLog["Audit Log<br/>━━━━━<br/>S3 + DynamoDB<br/>Immutable records<br/>Compliance trail<br/>7-year retention"]
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         Monitoring["Real-time Monitoring<br/>━━━━━<br/>Datadog + Veneur<br/>Payment metrics<br/>SLA tracking<br/>Alert thresholds"]
 
@@ -106,10 +106,10 @@ graph TB
     Kong -.->|"Rate enforcement"| RateLimiter
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
     classDef externalStyle fill:#f9f9f9,stroke:#999,color:#333,font-weight:bold
 
     class Client,CloudFlare edgeStyle

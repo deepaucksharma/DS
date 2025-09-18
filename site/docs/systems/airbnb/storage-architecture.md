@@ -132,10 +132,10 @@ graph TB
     SecurityControls --> S3Documents
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ImageCDN,StaticCDN,DynamicCache edgeStyle
     class DataAccessLayer,CacheAside,SearchLayer serviceStyle
@@ -195,10 +195,10 @@ graph TB
     CrossShardQueries --> BookingShardN
     CrossShardQueries --> ListingShardN
 
-    classDef routingStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef userStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef bookingStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef listingStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef routingStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef userStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef bookingStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef listingStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ShardRouter,ShardManager,CrossShardQueries routingStyle
     class UserShard1,UserShard2,UserShardN userStyle
@@ -254,9 +254,9 @@ graph TB
     SearchAnalyticsTable --> HDFSStorage
     BookingEventsTable --> CompactionEngine
 
-    classDef serverStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef dataStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serverStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef dataStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class RegionServer1,RegionServer2,RegionServerN serverStyle
     class UserEventTable,SearchAnalyticsTable,PricingHistoryTable,BookingEventsTable dataStyle
@@ -328,10 +328,10 @@ graph TB
     AdaptiveDelivery --> LazyLoading
     LazyLoading --> CacheStrategy
 
-    classDef uploadStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef processStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef deliveryStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef uploadStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef processStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef deliveryStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MobileUpload,WebUpload,APIUpload uploadStyle
     class CloudinaryAPI,QualityScoring,ContentModeration,MetadataExtraction processStyle

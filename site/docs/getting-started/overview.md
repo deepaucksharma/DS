@@ -41,10 +41,10 @@ graph TB
     LOG -.-> MS1
     LOG -.-> MS2
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB edgeStyle
     class API,MS1,MS2 serviceStyle
@@ -85,9 +85,9 @@ flowchart LR
     F3 --> S3
     F4 --> S1
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef frameworkStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef frameworkStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class P1,P2,P3 problemStyle
     class F1,F2,F3,F4 frameworkStyle
@@ -126,10 +126,10 @@ flowchart TB
     Capabilities --> Primitives
     Primitives --> Patterns
 
-    classDef lawStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef capStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef primStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef patternStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef lawStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef capStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef primStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef patternStyle fill:#10B981,stroke:#059669,color:#fff
 
     class CAP,LITTLE,AMDAHL lawStyle
     class CONS,PERF,AVAIL capStyle
@@ -185,10 +185,10 @@ flowchart LR
     PRIM3 --> PAT
     PAT --> VAL
 
-    classDef reqStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef capStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef primStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef patStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef reqStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef capStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef primStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef patStyle fill:#10B981,stroke:#059669,color:#fff
     classDef valStyle fill:#9900CC,stroke:#660099,color:#fff
 
     class REQ reqStyle

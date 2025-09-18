@@ -6,8 +6,8 @@ This diagram represents Stripe's actual production architecture processing $1+ t
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         CloudFlare["Cloudflare CDN<br/>━━━━━<br/>330+ PoPs globally<br/>DDoS protection<br/>TLS termination<br/>Cost: $2M/month"]
 
@@ -16,8 +16,8 @@ graph TB
         WAF["Cloudflare WAF<br/>━━━━━<br/>50M+ attack blocks/day<br/>Custom rulesets<br/>Bot management<br/>Cost: $500K/month"]
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         APIGateway["Kong API Gateway<br/>━━━━━<br/>600M+ req/day<br/>Rate limiting: 5000/min<br/>JWT validation<br/>c5.2xlarge fleet"]
 
@@ -30,8 +30,8 @@ graph TB
         FraudDetection["Radar ML Service<br/>━━━━━<br/>Real-time scoring<br/>TensorFlow/Python<br/>p95: 15ms<br/>p3.2xlarge × 20"]
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         MongoDB["MongoDB Atlas<br/>━━━━━<br/>100TB payment data<br/>M700 instances<br/>Multi-region replication<br/>Cost: $8M/month"]
 
@@ -42,8 +42,8 @@ graph TB
         S3Compliance["S3 Compliance Archive<br/>━━━━━<br/>PCI/SOX storage<br/>500TB archives<br/>7-year retention<br/>Cost: $50K/month"]
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         Datadog["Datadog Monitoring<br/>━━━━━<br/>1M+ metrics/min<br/>Custom dashboards<br/>PagerDuty integration<br/>Cost: $500K/month"]
 
@@ -76,10 +76,10 @@ graph TB
     Terraform -.->|"Deploy"| PaymentAPI
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class CloudFlare,ALB,WAF edgeStyle
     class APIGateway,PaymentAPI,IdempotencyService,WebhookService,FraudDetection serviceStyle

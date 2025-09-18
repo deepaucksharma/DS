@@ -41,8 +41,8 @@ graph TB
     %% Customer impact
     MATCHING -.->|"No drivers available"<br/>130M+ users affected| CUSTOMERS[Urban Commuters<br/>Airport Travelers<br/>Delivery Customers<br/>Driver Partners]
 
-    classDef algorithmStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
+    classDef algorithmStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
     classDef impactStyle fill:#8B0000,stroke:#660000,color:#fff,stroke-width:4px
 
     class MATCHING,DISPATCH,ETA,ROUTING,DEMAND algorithmStyle

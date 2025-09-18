@@ -6,8 +6,8 @@ This diagram shows Discord's failure domain boundaries and blast radius containm
 
 ```mermaid
 graph TB
-    subgraph EdgePlane["Edge Plane - Blue #0066CC"]
-        style EdgePlane fill:#0066CC,stroke:#004499,color:#fff
+    subgraph EdgePlane["Edge Plane - Blue #3B82F6"]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
         subgraph GlobalEdgeDomain["Global Edge Domain"]
             CloudFlare_US["Cloudflare US<br/>━━━━━<br/>100+ PoPs<br/>45% traffic<br/>WebSocket termination<br/>Blast radius: US users"]
@@ -26,8 +26,8 @@ graph TB
         end
     end
 
-    subgraph ServicePlane["Service Plane - Green #00AA00"]
-        style ServicePlane fill:#00AA00,stroke:#007700,color:#fff
+    subgraph ServicePlane["Service Plane - Green #10B981"]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
         subgraph GatewayDomain["Gateway Domain - Connection Boundary"]
             Gateway_Primary["Gateway Primary<br/>━━━━━<br/>100M+ connections<br/>us-east-1 cluster<br/>Elixir/Phoenix<br/>Blast radius: 50% users"]
@@ -54,8 +54,8 @@ graph TB
         end
     end
 
-    subgraph StatePlane["State Plane - Orange #FF8800"]
-        style StatePlane fill:#FF8800,stroke:#CC6600,color:#fff
+    subgraph StatePlane["State Plane - Orange #F59E0B"]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
         subgraph DatabaseDomain["Database Domain - Consistency Boundary"]
             ScyllaDB_Primary["ScyllaDB Primary<br/>━━━━━<br/>us-east-1 cluster<br/>400 nodes<br/>6T+ messages<br/>Blast radius: Message persistence"]
@@ -80,8 +80,8 @@ graph TB
         end
     end
 
-    subgraph ControlPlane["Control Plane - Red #CC0000"]
-        style ControlPlane fill:#CC0000,stroke:#990000,color:#fff
+    subgraph ControlPlane["Control Plane - Red #8B5CF6"]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
         subgraph MonitoringDomain["Monitoring Domain"]
             Monitoring_Primary["Datadog Primary<br/>━━━━━<br/>Real-time monitoring<br/>1M+ metrics/min<br/>Alert routing<br/>Blast radius: Observability blind spot"]
@@ -138,10 +138,10 @@ graph TB
     Monitoring_Primary -.->|"Alert failure<br/>Backup monitoring"| Monitoring_Backup
 
     %% Apply standard colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,font-weight:bold
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,font-weight:bold
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,font-weight:bold
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,font-weight:bold
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
     classDef externalStyle fill:#f9f9f9,stroke:#999,color:#333,font-weight:bold
 
     class CloudFlare_US,CloudFlare_EU,CloudFlare_APAC,VoiceEdge_US,VoiceEdge_EU,VoiceEdge_Global edgeStyle

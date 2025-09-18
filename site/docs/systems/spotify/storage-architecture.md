@@ -100,10 +100,10 @@ graph TB
     Security --> PaymentDB
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDNCache,EdgeCache edgeStyle
     class DataAccess,CacheLayer,SearchEngine serviceStyle
@@ -143,7 +143,7 @@ graph TB
     EU2 <--> AP2
     EU3 <--> AP3
 
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class US1,US2,US3,EU1,EU2,EU3,AP1,AP2,AP3 stateStyle
 ```
 
@@ -177,7 +177,7 @@ graph TB
         PGPrimary --> PGRead5
     end
 
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class PGPrimary,PGRead1,PGRead2,PGRead3,PGRead4,PGRead5 stateStyle
 ```
 
@@ -231,8 +231,8 @@ graph LR
     StreamProcessor --> MLFeatures
     StreamProcessor --> Recommendations
 
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class StreamProcessor serviceStyle
     class UserEvents,KafkaIngestion,RealtimeMetrics,MLFeatures,Recommendations stateStyle

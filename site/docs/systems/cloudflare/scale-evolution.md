@@ -103,7 +103,7 @@ graph TB
     CDN -.->|Cache hit rate: 95%| ORIGIN
 
     %% Apply colors
-    classDef modernStyle fill:#CCE6FF,stroke:#0066CC,color:#000
+    classDef modernStyle fill:#CCE6FF,stroke:#3B82F6,color:#000
     class USER,ANYCAST,EDGE,WAF,CDN,ORIGIN,NA,EU,ASIA,OTHER modernStyle
 ```
 
@@ -144,7 +144,7 @@ graph TB
     CDN -.->|Requests: 10M/sec| WORKERS
 
     %% Apply colors
-    classDef scaleStyle fill:#CCFFCC,stroke:#00AA00,color:#000
+    classDef scaleStyle fill:#CCFFCC,stroke:#10B981,color:#000
     class USER,ANYCAST,EDGE,WORKERS,KV,SECURITY,CDN,DNS,SPECTRUM,ACCESS scaleStyle
 ```
 
@@ -242,8 +242,8 @@ graph TB
 
     %% Apply evolution colors
     classDef legacyStyle fill:#FFE6CC,stroke:#CC9900,color:#000
-    classDef modernStyle fill:#CCE6FF,stroke:#0066CC,color:#000
-    classDef advancedStyle fill:#CCFFCC,stroke:#00AA00,color:#000
+    classDef modernStyle fill:#CCE6FF,stroke:#3B82F6,color:#000
+    classDef advancedStyle fill:#CCFFCC,stroke:#10B981,color:#000
     classDef futureStyle fill:#E6CCFF,stroke:#9900CC,color:#000
 
     class NGINX1,HW1 legacyStyle
@@ -275,9 +275,9 @@ graph LR
     COST_2019 -.->|90% reduction| COST_2024
 
     %% Apply cost colors
-    classDef expensiveStyle fill:#FF6666,stroke:#CC0000,color:#fff
+    classDef expensiveStyle fill:#FF6666,stroke:#8B5CF6,color:#fff
     classDef moderateStyle fill:#FFCC66,stroke:#CC9900,color:#000
-    classDef efficientStyle fill:#66CC66,stroke:#00AA00,color:#fff
+    classDef efficientStyle fill:#66CC66,stroke:#10B981,color:#fff
     classDef optimalStyle fill:#66FF66,stroke:#00CC00,color:#000
 
     class COST_2010 expensiveStyle

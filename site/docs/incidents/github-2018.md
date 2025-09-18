@@ -18,7 +18,7 @@
 ```mermaid
 graph TB
     subgraph Detection["T+0: Detection Phase - 16:27 UTC"]
-        style Detection fill:#FFE5E5,stroke:#CC0000,color:#000
+        style Detection fill:#FFE5E5,stroke:#8B5CF6,color:#000
 
         Start["16:27:00<br/>━━━━━<br/>Routine Maintenance<br/>Network configuration<br/>East Coast data center<br/>43-second partition"]
 
@@ -28,7 +28,7 @@ graph TB
     end
 
     subgraph Diagnosis["T+1hr: Diagnosis Phase"]
-        style Diagnosis fill:#FFF5E5,stroke:#FF8800,color:#000
+        style Diagnosis fill:#FFF5E5,stroke:#F59E0B,color:#000
 
         Incident["17:30:00<br/>━━━━━<br/>Major Incident<br/>SEV-1 declared<br/>Database inconsistency<br/>User-facing impact"]
 
@@ -48,7 +48,7 @@ graph TB
     end
 
     subgraph Recovery["T+20hr: Recovery Phase"]
-        style Recovery fill:#E5FFE5,stroke:#00AA00,color:#000
+        style Recovery fill:#E5FFE5,stroke:#10B981,color:#000
 
         PartialRestore["12:00:00<br/>━━━━━<br/>Partial Service<br/>Read operations enabled<br/>Git clone/pull working<br/>Web UI read-only"]
 
@@ -105,10 +105,10 @@ graph TB
     DataConflict -.-> Enterprise
 
     %% Apply timeline colors
-    classDef detectStyle fill:#FFE5E5,stroke:#CC0000,color:#000,font-weight:bold
-    classDef diagnoseStyle fill:#FFF5E5,stroke:#FF8800,color:#000,font-weight:bold
+    classDef detectStyle fill:#FFE5E5,stroke:#8B5CF6,color:#000,font-weight:bold
+    classDef diagnoseStyle fill:#FFF5E5,stroke:#F59E0B,color:#000,font-weight:bold
     classDef mitigateStyle fill:#FFFFE5,stroke:#CCCC00,color:#000,font-weight:bold
-    classDef recoverStyle fill:#E5FFE5,stroke:#00AA00,color:#000,font-weight:bold
+    classDef recoverStyle fill:#E5FFE5,stroke:#10B981,color:#000,font-weight:bold
     classDef dbStyle fill:#F0F0F0,stroke:#666666,color:#000
     classDef serviceStyle fill:#F0F0F0,stroke:#666666,color:#000
 
@@ -246,8 +246,8 @@ graph TB
     end
 
     %% Style the sections
-    classDef normalStyle fill:#E5FFE5,stroke:#00AA00,color:#000
-    classDef partitionStyle fill:#FFE5E5,stroke:#CC0000,color:#000
+    classDef normalStyle fill:#E5FFE5,stroke:#10B981,color:#000
+    classDef partitionStyle fill:#FFE5E5,stroke:#8B5CF6,color:#000
     classDef recoveryStyle fill:#E5E5FF,stroke:#0000CC,color:#000
 
     class EastPrimaryNormal,WestReplicaNormal normalStyle
@@ -333,22 +333,22 @@ automation_improvements:
 ```mermaid
 graph TB
     subgraph Enhanced["New Consensus-Based 4-Plane Architecture"]
-        subgraph Edge["Edge Plane #0066CC"]
+        subgraph Edge["Edge Plane #3B82F6"]
             GitHubLB["GitHub Load Balancer<br/>HAProxy cluster<br/>Connection routing"]
         end
 
-        subgraph Service["Service Plane #00AA00"]
+        subgraph Service["Service Plane #10B981"]
             GitHubApp["GitHub Application<br/>Ruby on Rails<br/>Database connections"]
             API["GitHub API<br/>REST/GraphQL<br/>Request validation"]
         end
 
-        subgraph State["State Plane #FF8800"]
+        subgraph State["State Plane #F59E0B"]
             EastPrimary["East Primary MySQL<br/>Active Master<br/>GTID: Enabled"]
             WestReplica1["West Replica 1<br/>Semi-Sync Standby<br/>Read operations"]
             WestReplica2["West Replica 2<br/>Semi-Sync Standby<br/>Backup operations"]
         end
 
-        subgraph Control["Control Plane #CC0000"]
+        subgraph Control["Control Plane #8B5CF6"]
             Orchestrator["Orchestrator Cluster<br/>3-Node Consensus<br/>Failover Decisions"]
             PartitionDetector["Partition Detector<br/>Cross-DC monitoring<br/>15s alert threshold"]
             Monitoring["Enhanced Monitoring<br/>Split-brain detection<br/>Automated alerts"]
@@ -373,10 +373,10 @@ graph TB
     end
 
     %% Apply 4-plane architecture colors
-    classDef edgeStyle fill:#0066CC,color:#fff
-    classDef serviceStyle fill:#00AA00,color:#fff
-    classDef stateStyle fill:#FF8800,color:#fff
-    classDef controlStyle fill:#CC0000,color:#fff
+    classDef edgeStyle fill:#3B82F6,color:#fff
+    classDef serviceStyle fill:#10B981,color:#fff
+    classDef stateStyle fill:#F59E0B,color:#fff
+    classDef controlStyle fill:#8B5CF6,color:#fff
 
     class GitHubLB edgeStyle
     class GitHubApp,API serviceStyle

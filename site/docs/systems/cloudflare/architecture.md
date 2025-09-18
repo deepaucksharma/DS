@@ -8,7 +8,7 @@ Cloudflare operates the world's largest edge computing platform, protecting and 
 
 ```mermaid
 graph TB
-    subgraph "Edge Plane - Global Network #0066CC"
+    subgraph "Edge Plane - Global Network #3B82F6"
         subgraph "285+ Cities Worldwide"
             CDN[CDN Cache Servers<br/>SSD: 100TB per PoP]
             WAF[Web Application Firewall<br/>DDoS: 76M attacks/day]
@@ -22,7 +22,7 @@ graph TB
         end
     end
 
-    subgraph "Service Plane - Core Services #00AA00"
+    subgraph "Service Plane - Core Services #10B981"
         subgraph "Workers Platform"
             WRUNTIME[Workers Runtime<br/>V8 Isolates, Rust]
             WKV[Workers KV<br/>Eventually consistent]
@@ -42,7 +42,7 @@ graph TB
         end
     end
 
-    subgraph "State Plane - Storage Systems #FF8800"
+    subgraph "State Plane - Storage Systems #F59E0B"
         subgraph "R2 Object Storage"
             R2[R2 Storage<br/>S3 Compatible API<br/>No egress fees]
             R2CACHE[R2 Cache<br/>Global distribution]
@@ -59,7 +59,7 @@ graph TB
         end
     end
 
-    subgraph "Control Plane - Operations #CC0000"
+    subgraph "Control Plane - Operations #8B5CF6"
         subgraph "Configuration"
             CONFIG[Configuration API<br/>30s global propagation]
             QUICKSILVER[Quicksilver<br/>Edge config distribution]
@@ -100,10 +100,10 @@ graph TB
     GRAFANA --> RUM
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,WAF,DNS,WORKERS,BGP,LOAD edgeStyle
     class WRUNTIME,WKV,DURABLE,DDOS,BOTMAN,ZERO,ARGO,COMPRESS,MINIFY serviceStyle

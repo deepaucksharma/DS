@@ -32,9 +32,9 @@ graph TD
     N -->|Python| P[Python Memory Profiling]
     N -->|Go| Q[Go Memory Profiling]
 
-    style A fill:#CC0000,stroke:#990000,color:#fff
-    style H fill:#FF8800,stroke:#CC6600,color:#fff
-    style J fill:#00AA00,stroke:#007700,color:#fff
+    style A fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    style H fill:#F59E0B,stroke:#D97706,color:#fff
+    style J fill:#10B981,stroke:#059669,color:#fff
 ```
 
 ## Immediate Triage Commands (First 5 Minutes)
