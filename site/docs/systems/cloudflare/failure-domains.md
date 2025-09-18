@@ -8,34 +8,34 @@ Cloudflare's global architecture is designed with multiple failure domains to en
 
 ```mermaid
 graph TB
-    subgraph Global Failure Domains
-        subgraph Tier 1: Regional Failures #8B5CF6
+    subgraph Global_Failure_Domains[Global Failure Domains]
+        subgraph Tier_1__Regional_Failures__8B5CF6[Tier 1: Regional Failures #8B5CF6]
             REGION_NA[North America<br/>100+ PoPs<br/>Blast radius: 15% traffic]
             REGION_EU[Europe<br/>80+ PoPs<br/>Blast radius: 25% traffic]
             REGION_ASIA[Asia Pacific<br/>70+ PoPs<br/>Blast radius: 35% traffic]
             REGION_OTHER[Other Regions<br/>35+ PoPs<br/>Blast radius: 25% traffic]
         end
 
-        subgraph Tier 2: Metro Failures #F59E0B
+        subgraph Tier_2__Metro_Failures__F59E0B[Tier 2: Metro Failures #F59E0B]
             METRO_NYC[NYC Metro<br/>4 PoPs<br/>Blast radius: 2% traffic]
             METRO_LON[London Metro<br/>3 PoPs<br/>Blast radius: 3% traffic]
             METRO_SIN[Singapore Metro<br/>2 PoPs<br/>Blast radius: 4% traffic]
         end
 
-        subgraph Tier 3: PoP Failures #F59E0B
+        subgraph Tier_3__PoP_Failures__F59E0B[Tier 3: PoP Failures #F59E0B]
             POP_JFK[JFK PoP<br/>20 servers<br/>400 Gbps capacity]
             POP_LHR[LHR PoP<br/>30 servers<br/>600 Gbps capacity]
             POP_NRT[NRT PoP<br/>15 servers<br/>300 Gbps capacity]
         end
 
-        subgraph Tier 4: Server Failures #FFCC00
+        subgraph Tier_4__Server_Failures__FFCC00[Tier 4: Server Failures #FFCC00]
             SERVER_1[Server Rack A<br/>10 servers<br/>40 Gbps]
             SERVER_2[Server Rack B<br/>10 servers<br/>40 Gbps]
             SERVER_3[Server Rack C<br/>10 servers<br/>40 Gbps]
         end
     end
 
-    subgraph Cascading Failure Prevention #10B981
+    subgraph Cascading_Failure_Prevention__10B981[Cascading Failure Prevention #10B981]
         CIRCUIT[Circuit Breakers<br/>Per-service protection]
         BULKHEAD[Bulkhead Isolation<br/>Resource partitioning]
         BACKPRESSURE[Backpressure Control<br/>Load shedding]
@@ -71,18 +71,18 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Regex Outage Timeline
+    subgraph Regex_Outage_Timeline[Regex Outage Timeline]
         T1[13:42 UTC<br/>WAF Rule Deployment] --> T2[13:43 UTC<br/>CPU Spike to 100%<br/>All PoPs affected]
         T2 --> T3[13:45 UTC<br/>Service Degradation<br/>Global impact]
         T3 --> T4[14:02 UTC<br/>Rule Identified<br/>Emergency rollback]
         T4 --> T5[14:07 UTC<br/>Traffic Recovery<br/>27-minute outage]
 
-        subgraph Root Cause
+        subgraph Root_Cause[Root Cause]
             REGEX[WAF Regex Rule<br/>.?=.*<br/>Catastrophic backtracking]
             CPU[CPU Exhaustion<br/>100% utilization<br/>All worker processes]
         end
 
-        subgraph Blast Radius
+        subgraph Blast_Radius[Blast Radius]
             GLOBAL[Global Impact<br/>100% of traffic<br/>All services affected]
             REVENUE[Revenue Impact<br/>$2M+ estimated<br/>Customer SLA credits]
         end
@@ -111,13 +111,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph BGP Route Leak Incident
+    subgraph BGP_Route_Leak_Incident[BGP Route Leak Incident]
         CHANGE[Route Change<br/>Internal backbone] --> LEAK[BGP Route Leak<br/>Incorrect advertisements]
         LEAK --> BLACKHOLE[Traffic Blackholing<br/>19 PoPs affected]
         BLACKHOLE --> DETECTION[Automated Detection<br/>5-minute delay]
         DETECTION --> MITIGATION[Route Withdrawal<br/>Traffic recovery]
 
-        subgraph Affected Services
+        subgraph Affected_Services[Affected Services]
             DNS_IMPACT[1.1.1.1 DNS<br/>Resolver unavailable]
             CDN_IMPACT[CDN Services<br/>Cache misses]
             WORKERS_IMPACT[Workers Runtime<br/>Execution failures]
@@ -148,19 +148,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Detection Systems
+    subgraph Detection_Systems[Detection Systems]
         HEALTH[Health Checks<br/>Every 10 seconds<br/>HTTP/TCP/ICMP]
         METRICS[Metrics Monitoring<br/>Real-time telemetry<br/>Latency/Error rates]
         TRAFFIC[Traffic Monitoring<br/>Request patterns<br/>Anomaly detection]
     end
 
-    subgraph Response Actions
+    subgraph Response_Actions[Response Actions]
         ALERT[Alert Generation<br/>PagerDuty/Slack<br/>Severity classification]
         REROUTE[Traffic Rerouting<br/>BGP withdrawal<br/>DNS failover]
         SCALE[Auto Scaling<br/>Capacity increase<br/>Load distribution]
     end
 
-    subgraph Recovery Procedures
+    subgraph Recovery_Procedures[Recovery Procedures]
         INVESTIGATE[Root Cause Analysis<br/>Log correlation<br/>Performance profiling]
         REPAIR[Automated Repair<br/>Service restart<br/>Configuration reload]
         VALIDATE[Service Validation<br/>Health verification<br/>Performance testing]
@@ -188,14 +188,14 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Anycast Failover
+    subgraph Anycast_Failover[Anycast Failover]
         PRIMARY[Primary PoP<br/>Normal operation] --> FAILURE[PoP Failure<br/>Health check fails]
         FAILURE --> BGP_WITHDRAW[BGP Route Withdrawal<br/>30-second timeout]
         BGP_WITHDRAW --> REROUTE[Traffic Rerouting<br/>Next closest PoP]
         REROUTE --> SECONDARY[Secondary PoP<br/>Increased load]
     end
 
-    subgraph Service Failover
+    subgraph Service_Failover[Service Failover]
         SERVICE_A[Service Instance A] --> CIRCUIT_OPEN[Circuit Breaker Open<br/>Error threshold exceeded]
         CIRCUIT_OPEN --> SERVICE_B[Service Instance B<br/>Healthy backup]
         SERVICE_B --> LOAD_SHED[Load Shedding<br/>Priority traffic only]
@@ -227,7 +227,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Service Isolation Strategy
+    subgraph Service_Isolation_Strategy[Service Isolation Strategy]
         CDN[CDN Service<br/>Isolated resources]
         DNS[DNS Service<br/>Dedicated infra]
         WORKERS[Workers Platform<br/>Separate compute]
@@ -238,7 +238,7 @@ graph LR
         WORKERS -.->|No impact| SECURITY
     end
 
-    subgraph Resource Partitioning
+    subgraph Resource_Partitioning[Resource Partitioning]
         CPU_CDN[CPU: 40%<br/>CDN processing]
         CPU_WORKERS[CPU: 30%<br/>Workers execution]
         CPU_SECURITY[CPU: 20%<br/>Security filtering]

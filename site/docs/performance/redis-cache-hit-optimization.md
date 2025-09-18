@@ -10,21 +10,21 @@ Redis cache hit rate optimization from Twitter's timeline service - improving hi
 
 ```mermaid
 graph TB
-    subgraph Before Optimization - Low Hit Rate
+    subgraph Before_Optimization___Low_Hit_Rate[Before Optimization - Low Hit Rate]
         App1[Twitter App<br/>400M requests/sec] --> Redis1[Redis Cluster<br/>32 nodes, 2TB memory<br/>Hit Rate: 73%]
         Redis1 --> Miss1[Cache Miss: 27%<br/>108M requests/sec to DB]
         Miss1 --> DB1[(Timeline DB<br/>Cassandra Cluster<br/>Query Time: 45ms)]
         Redis1 --> Hit1[Cache Hit: 73%<br/>292M requests/sec<br/>Response: 0.8ms]
     end
 
-    subgraph After Optimization - High Hit Rate
+    subgraph After_Optimization___High_Hit_Rate[After Optimization - High Hit Rate]
         App2[Twitter App<br/>400M requests/sec] --> Redis2[Redis Cluster<br/>32 nodes, 1.2TB memory<br/>Hit Rate: 96.7%]
         Redis2 --> Miss2[Cache Miss: 3.3%<br/>13M requests/sec to DB]
         Miss2 --> DB2[(Timeline DB<br/>Cassandra Cluster<br/>Query Time: 45ms)]
         Redis2 --> Hit2[Cache Hit: 96.7%<br/>387M requests/sec<br/>Response: 0.3ms]
     end
 
-    subgraph Performance Impact
+    subgraph Performance_Impact[Performance Impact]
         Perf1[Before:<br/>27% misses = 108M DB queries<br/>P99: 12ms timeline load]
         Perf2[After:<br/>3.3% misses = 13M DB queries<br/>P99: 0.8ms timeline load]
         Cost1[Before: $2.1M/month<br/>Cassandra + Redis costs]
@@ -51,28 +51,28 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Memory Usage - Before
+    subgraph Memory_Usage___Before[Memory Usage - Before]
         Mem1[Total Memory: 2TB<br/>Average Object Size: 45KB<br/>Objects Cached: 45M]
         Mem1 --> Hot1[Hot Data: 15%<br/>300GB memory<br/>60% of requests]
         Mem1 --> Warm1[Warm Data: 35%<br/>700GB memory<br/>30% of requests]
         Mem1 --> Cold1[Cold Data: 50%<br/>1TB memory<br/>10% of requests]
     end
 
-    subgraph Memory Usage - After
+    subgraph Memory_Usage___After[Memory Usage - After]
         Mem2[Total Memory: 1.2TB<br/>Average Object Size: 18KB<br/>Objects Cached: 67M]
         Mem2 --> Hot2[Hot Data: 45%<br/>540GB memory<br/>80% of requests]
         Mem2 --> Warm2[Warm Data: 35%<br/>420GB memory<br/>15% of requests]
         Mem2 --> Cold2[Cold Data: 20%<br/>240GB memory<br/>5% of requests]
     end
 
-    subgraph Compression Pipeline
+    subgraph Compression_Pipeline[Compression Pipeline]
         Timeline[Timeline Data<br/>JSON: 45KB<br/>1000 tweets + metadata]
         Timeline --> Strip[Strip Unnecessary Fields<br/>Remove: view counts, ads metadata<br/>Size: 32KB (29% reduction)]
         Strip --> Compress[ZSTD Compression<br/>Level 3 (balanced)<br/>Size: 18KB (60% reduction)]
         Compress --> Dedupe[Deduplication<br/>Shared user objects<br/>Effective Size: 12KB]
     end
 
-    subgraph Intelligent Eviction
+    subgraph Intelligent_Eviction[Intelligent Eviction]
         LRU_Old[Standard LRU<br/>Last access time only<br/>Evicts frequently used data]
         LFU_New[LFU with Aging<br/>Access frequency + recency<br/>Smarter eviction decisions]
         ML_Evict[ML-based Predictor<br/>Predicts re-access probability<br/>99.2% accuracy]
@@ -98,19 +98,19 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Timeline Storage - Before
+    subgraph Timeline_Storage___Before[Timeline Storage - Before]
         User1[User Timeline Request<br/>@jack's home timeline]
         User1 --> Key1[Redis Key:<br/>timeline:12345<br/>String value: JSON]
         Key1 --> JSON1[JSON Object: 45KB<br/>Full tweet objects<br/>Nested user data<br/>All metadata fields]
     end
 
-    subgraph Timeline Storage - After
+    subgraph Timeline_Storage___After[Timeline Storage - After]
         User2[User Timeline Request<br/>@jack's home timeline]
         User2 --> Hash2[Redis Hash:<br/>timeline:12345<br/>Field-level access]
         Hash2 --> Fields[Fields:<br/>tweet_ids: [98,99,100...]<br/>users: compressed user map<br/>timestamps: packed array<br/>metadata: minimal fields]
     end
 
-    subgraph Tweet Object Optimization
+    subgraph Tweet_Object_Optimization[Tweet Object Optimization]
         Tweet_Old[Full Tweet Object<br/>JSON: 2.1KB each<br/>All fields included]
         Tweet_Old --> Tweet_New[Optimized Tweet<br/>Packed binary: 240 bytes<br/>Essential fields only]
 
@@ -119,7 +119,7 @@ graph LR
         Fields_New[Fields Stored:<br/>- User ID reference (8B)<br/>- Tweet text (180B)<br/>- Timestamp (8B)<br/>- Core metadata (44B)]
     end
 
-    subgraph Access Pattern Optimization
+    subgraph Access_Pattern_Optimization[Access Pattern Optimization]
         Pattern1[Random Access<br/>Get full timeline<br/>45KB transfer<br/>Decompress everything]
 
         Pattern2[Selective Access<br/>Get tweet IDs first (240B)<br/>Fetch user data as needed<br/>Progressive loading]
@@ -142,31 +142,31 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Single Request Pattern - Before
+    subgraph Single_Request_Pattern___Before[Single Request Pattern - Before]
         Client1[Twitter Client] --> Req1[Individual Requests<br/>400M requests/sec]
         Req1 --> Redis_Single[Redis Operations<br/>GET timeline:12345<br/>GET timeline:67890<br/>GET timeline:11121<br/>400M individual commands]
         Redis_Single --> Response1[Individual Responses<br/>400M responses<br/>High network overhead]
     end
 
-    subgraph Pipeline Pattern - After
+    subgraph Pipeline_Pattern___After[Pipeline Pattern - After]
         Client2[Twitter Client] --> Batch[Batch Requests<br/>50 timelines per batch<br/>8M batch requests/sec]
         Batch --> Pipeline[Redis Pipeline<br/>MGET timeline:12345 timeline:67890...<br/>50 commands per pipeline<br/>8M pipeline commands]
         Pipeline --> Response2[Batch Responses<br/>8M batch responses<br/>98% network reduction]
     end
 
-    subgraph Connection Multiplexing
+    subgraph Connection_Multiplexing[Connection Multiplexing]
         Conn_Old[Connection per Request<br/>400M connections/sec<br/>High setup overhead<br/>Connection pool exhaustion]
 
         Conn_New[Connection Multiplexing<br/>1000 persistent connections<br/>Pipeline multiplexing<br/>Connection reuse: 99.99%]
     end
 
-    subgraph Command Optimization
+    subgraph Command_Optimization[Command Optimization]
         Cmd_Slow[Slow Commands Used:<br/>KEYS pattern (O(N))<br/>SCAN with large cursor<br/>SORT without LIMIT<br/>Blocking operations]
 
         Cmd_Fast[Fast Commands Used:<br/>HGET/HMGET (O(1))<br/>Direct key access<br/>Pipeline batches<br/>Non-blocking operations]
     end
 
-    subgraph Performance Results
+    subgraph Performance_Results[Performance Results]
         Net1[Network Utilization:<br/>Before: 850 Mbps<br/>Packet rate: 2M pps<br/>Connection overhead: 60%]
 
         Net2[Network Utilization:<br/>After: 180 Mbps<br/>Packet rate: 80K pps<br/>Connection overhead: 2%]
@@ -190,14 +190,14 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Redis Cluster - Before
+    subgraph Redis_Cluster___Before[Redis Cluster - Before]
         App_Old[Application Layer] --> Proxy1[Redis Proxy<br/>Single point bottleneck<br/>10K connections max]
         Proxy1 --> Shard1[Shard 1<br/>Hash range: 0-5460<br/>Memory: 64GB<br/>Hot partition: 80% traffic]
         Proxy1 --> Shard2[Shard 2<br/>Hash range: 5461-10922<br/>Memory: 64GB<br/>Warm partition: 15% traffic]
         Proxy1 --> Shard3[Shard 3<br/>Hash range: 10923-16383<br/>Memory: 64GB<br/>Cold partition: 5% traffic]
     end
 
-    subgraph Redis Cluster - After
+    subgraph Redis_Cluster___After[Redis Cluster - After]
         App_New[Application Layer] --> Direct[Direct Cluster Connection<br/>Client-side sharding<br/>100K connections]
         Direct --> Shard4[Shard 1-8<br/>Consistent hashing<br/>Memory: 32GB each<br/>Even distribution]
         Direct --> Shard5[Shard 9-16<br/>Hash tags for related data<br/>Memory: 32GB each<br/>Co-located timelines]
@@ -205,13 +205,13 @@ graph TB
         Direct --> Shard7[Shard 25-32<br/>Time-based partitioning<br/>Memory: 32GB each<br/>Hot recent data]
     end
 
-    subgraph Consistent Hashing Strategy
+    subgraph Consistent_Hashing_Strategy[Consistent Hashing Strategy]
         Hash_Ring[Consistent Hash Ring<br/>CRC32 with 16384 slots<br/>Virtual nodes: 160 per shard]
         Hash_Ring --> User_Hash[User ID Hashing<br/>hash(user_id) % 16384<br/>Even distribution]
         Hash_Ring --> Timeline_Hash[Timeline Co-location<br/>hash_tag{user_id}<br/>Related data on same shard]
     end
 
-    subgraph Replication and Failover
+    subgraph Replication_and_Failover[Replication and Failover]
         Master1[Master Nodes<br/>32 primary shards<br/>Read/Write operations]
         Master1 --> Slave1[Replica Nodes<br/>32 replica shards<br/>Read-only operations]
         Master1 --> Sentinel[Redis Sentinel<br/>Automatic failover<br/>99.9% uptime guarantee]

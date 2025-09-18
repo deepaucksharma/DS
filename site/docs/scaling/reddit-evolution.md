@@ -8,7 +8,7 @@ Reddit scaled from 100 early adopters (2005) to 500 million monthly active users
 
 ```mermaid
 graph TB
-    subgraph "Dorm Room Architecture"
+    subgraph Dorm_Room_Architecture[""Dorm Room Architecture""]
         subgraph EdgePlane[Edge - Single Server]
             APACHE[Apache<br/>Shared hosting<br/>University connection]
         end
@@ -87,7 +87,7 @@ def calculate_hot_score(ups, downs, created_time):
 
 ```mermaid
 graph TB
-    subgraph "Early Growth Architecture"
+    subgraph Early_Growth_Architecture[""Early Growth Architecture""]
         subgraph EdgePlane[Edge - CDN Introduction]
             AKAMAI[Akamai<br/>$2K/month<br/>Static content]
             LB[HAProxy<br/>2 instances<br/>Load balancing]
@@ -191,7 +191,7 @@ digg_migration_2010:
 
 ```mermaid
 graph TB
-    subgraph "NoSQL Transition Architecture"
+    subgraph NoSQL_Transition_Architecture[""NoSQL Transition Architecture""]
         subgraph EdgePlane[Edge - Enhanced CDN]
             CLOUDFRONT[CloudFront<br/>$10K/month<br/>Global PoPs]
             FASTLY[Fastly<br/>$5K/month<br/>Edge logic]
@@ -334,7 +334,7 @@ class VoteValidator:
 
 ```mermaid
 graph TB
-    subgraph "Microservices Architecture"
+    subgraph Microservices_Architecture[""Microservices Architecture""]
         subgraph EdgePlane[Edge - Multi-Region]
             CLOUDFLARE[CloudFlare<br/>$50K/month<br/>DDoS protection]
             REDDIT_CDN[Reddit CDN<br/>Custom<br/>20 PoPs]
@@ -524,7 +524,7 @@ func (cs *CommentService) LoadCommentTree(linkID string, sort string, limit int)
 
 ```mermaid
 graph TB
-    subgraph "Modern Reddit Infrastructure"
+    subgraph Modern_Reddit_Infrastructure[""Modern Reddit Infrastructure""]
         subgraph EdgePlane[Edge - Global Network]
             FASTLY_GLOBAL[Fastly<br/>$5M/month<br/>Primary CDN]
             CLOUDFLARE_BACKUP[CloudFlare<br/>$2M/month<br/>Backup CDN]
@@ -813,7 +813,7 @@ func (vis *VoteIntegritySystem) detectCoordinatedVoting(ctx context.Context, vot
 
 ```mermaid
 graph LR
-    subgraph "Infrastructure Cost Evolution"
+    subgraph Infrastructure_Cost_Evolution[""Infrastructure Cost Evolution""]
         Y2005[$200/mo<br/>100 users<br/>$2/user]
         Y2010[$5K/mo<br/>100K users<br/>$0.05/user]
         Y2015[$500K/mo<br/>10M users<br/>$0.05/user]

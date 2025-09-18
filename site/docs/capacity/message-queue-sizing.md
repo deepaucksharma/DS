@@ -664,7 +664,7 @@ Uber_RabbitMQ_Architecture:
 
 ```mermaid
 graph TB
-    subgraph LinkedIn Kafka Architecture - 7 Trillion Messages/Day
+    subgraph LinkedIn_Kafka_Architecture___7_Trillion_Messages_Day[LinkedIn Kafka Architecture - 7 Trillion Messages/Day]
         subgraph EdgePlane[Edge Plane]
             API[LinkedIn API<br/>REST + GraphQL<br/>2M QPS peak]
             MOBILE[Mobile Apps<br/>300M+ users<br/>Real-time updates]
@@ -678,7 +678,7 @@ graph TB
         end
 
         subgraph StatePlane[State Plane]
-            subgraph Kafka Cluster 1 (Activity Streams)
+            subgraph Kafka_Cluster_1__Activity_Streams[Kafka Cluster 1 (Activity Streams)]
                 KAFKA1[Kafka Broker 1<br/>r5d.4xlarge<br/>16 cores, 128GB]
                 KAFKA2[Kafka Broker 2<br/>r5d.4xlarge<br/>16 cores, 128GB]
                 KAFKA3[Kafka Broker 3<br/>r5d.4xlarge<br/>16 cores, 128GB]
@@ -686,7 +686,7 @@ graph TB
                 KAFKA5[Kafka Broker 5<br/>r5d.4xlarge<br/>16 cores, 128GB]
             end
 
-            subgraph Kafka Cluster 2 (Real-time Analytics)
+            subgraph Kafka_Cluster_2__Real_time_Analytics[Kafka Cluster 2 (Real-time Analytics)]
                 KAFKA6[Kafka Broker 6<br/>i3.2xlarge<br/>8 cores, 64GB]
                 KAFKA7[Kafka Broker 7<br/>i3.2xlarge<br/>8 cores, 64GB]
                 KAFKA8[Kafka Broker 8<br/>i3.2xlarge<br/>8 cores, 64GB]

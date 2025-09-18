@@ -10,24 +10,24 @@ Nginx async processing optimization from CloudFlare's edge computing platform - 
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - Global Edge Network
+    subgraph Edge_Plane___Global_Edge_Network[Edge Plane - Global Edge Network]
         EdgeNodes[CloudFlare Edge Nodes<br/>300+ locations worldwide<br/>Anycast network topology<br/>DDoS protection layer]
         BGPRouting[BGP Anycast Routing<br/>Automatic failover<br/>Latency-optimized paths<br/>Traffic load balancing]
     end
 
-    subgraph Service Plane - Nginx Processing Layer
+    subgraph Service_Plane___Nginx_Processing_Layer[Service Plane - Nginx Processing Layer]
         NginxMaster[Nginx Master Process<br/>Configuration management<br/>Worker process coordination<br/>Graceful reloads]
         NginxWorkers[Nginx Worker Processes<br/>Event-driven architecture<br/>Async I/O processing<br/>Non-blocking operations]
         EventLoop[Event Loop Engine<br/>epoll/kqueue implementation<br/>Single-threaded efficiency<br/>10K+ concurrent connections]
     end
 
-    subgraph State Plane - Request Processing
+    subgraph State_Plane___Request_Processing[State Plane - Request Processing]
         ConnectionPool[Connection Pool<br/>Keep-alive optimization<br/>HTTP/2 multiplexing<br/>Connection reuse: 95%]
         RequestQueue[Request Queue<br/>Priority-based processing<br/>Rate limiting integration<br/>Backpressure handling]
         ResponseCache[Response Cache<br/>In-memory cache layer<br/>Smart invalidation<br/>Cache hit rate: 98%]
     end
 
-    subgraph Control Plane - Performance Monitoring
+    subgraph Control_Plane___Performance_Monitoring[Control Plane - Performance Monitoring]
         MetricsCollection[Metrics Collection<br/>Real-time performance data<br/>Request latency tracking<br/>Throughput monitoring]
         AdaptiveConfig[Adaptive Configuration<br/>Dynamic parameter tuning<br/>Load-based optimization<br/>Auto-scaling triggers]
         AlertingSystem[Alerting System<br/>Performance thresholds<br/>Anomaly detection<br/>Incident response]
@@ -61,28 +61,28 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Traditional Multi-Process - Before
+    subgraph Traditional_Multi_Process___Before[Traditional Multi-Process - Before]
         TraditionalArch[Traditional Architecture<br/>Process-per-request model<br/>High memory overhead<br/>Context switching cost]
         TraditionalArch --> Process1[Process 1<br/>Memory: 8MB<br/>Request: Single<br/>State: Blocked on I/O]
         TraditionalArch --> Process2[Process 2<br/>Memory: 8MB<br/>Request: Single<br/>State: Blocked on I/O]
         TraditionalArch --> ProcessN[Process N (1000+)<br/>Memory: 8MB each<br/>Total Memory: 8GB<br/>Context switches: High]
     end
 
-    subgraph Event-Driven Architecture - After
+    subgraph Event_Driven_Architecture___After[Event-Driven Architecture - After]
         EventArch[Event-Driven Architecture<br/>Single-threaded event loop<br/>Non-blocking I/O<br/>Asynchronous processing]
         EventArch --> EventLoop2[Event Loop<br/>Memory: 256MB total<br/>Connections: 10,000+<br/>State: Never blocked]
         EventArch --> EventQueue[Event Queue<br/>I/O events<br/>Timer events<br/>Signal events]
         EventArch --> Callbacks[Callback Functions<br/>Request handlers<br/>Non-blocking execution<br/>Event-driven flow]
     end
 
-    subgraph Nginx Worker Process Architecture
+    subgraph Nginx_Worker_Process_Architecture[Nginx Worker Process Architecture]
         WorkerArch[Nginx Worker Process<br/>One per CPU core<br/>Shared-nothing architecture<br/>Lock-free design]
         WorkerArch --> EventMechanism[Event Mechanism<br/>Linux: epoll<br/>BSD: kqueue<br/>Windows: select]
         WorkerArch --> ConnectionHandling[Connection Handling<br/>Accept connections<br/>Process requests<br/>Manage responses]
         WorkerArch --> MemoryManagement[Memory Management<br/>Memory pools<br/>Buffer reuse<br/>Zero-copy operations]
     end
 
-    subgraph Async I/O Operations
+    subgraph Async_I_O_Operations[Async I/O Operations]
         AsyncIO[Async I/O Processing<br/>Non-blocking system calls<br/>Event notification<br/>Callback-driven responses]
         AsyncIO --> FileIO[File I/O Operations<br/>sendfile() optimization<br/>AIO for large files<br/>Zero-copy transfers]
         AsyncIO --> NetworkIO[Network I/O Operations<br/>Non-blocking sockets<br/>Keep-alive connections<br/>Efficient data transfer]
@@ -109,28 +109,28 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Connection Management - Before
+    subgraph Connection_Management___Before[Connection Management - Before]
         ShortConnections[Short-Lived Connections<br/>HTTP/1.0 behavior<br/>Connection per request<br/>High overhead]
         ShortConnections --> TCPHandshake[TCP Handshake<br/>3-way handshake: 1.5 RTT<br/>Connection setup: 3ms<br/>Resource allocation]
         ShortConnections --> RequestResponse[Request/Response<br/>Single request<br/>Connection teardown<br/>Total time: 45ms]
         ShortConnections --> TearDown[Connection Teardown<br/>FIN/ACK sequence<br/>TIME_WAIT state<br/>Resource cleanup]
     end
 
-    subgraph Connection Management - After
+    subgraph Connection_Management___After[Connection Management - After]
         PersistentConnections[Persistent Connections<br/>HTTP/1.1 Keep-Alive<br/>HTTP/2 multiplexing<br/>Connection reuse]
         PersistentConnections --> ReuseConnection[Connection Reuse<br/>Amortized setup cost<br/>Keep-alive: 60 seconds<br/>Resource efficiency]
         PersistentConnections --> Multiplexing[Request Multiplexing<br/>Multiple concurrent requests<br/>Stream prioritization<br/>Total time: 3ms]
         PersistentConnections --> GracefulClose[Graceful Connection Handling<br/>Idle timeout management<br/>Resource optimization<br/>Clean shutdown]
     end
 
-    subgraph Connection Pool Configuration
+    subgraph Connection_Pool_Configuration[Connection Pool Configuration]
         PoolConfig[Connection Pool Settings<br/>Optimized for CloudFlare workload<br/>Global edge requirements<br/>High-throughput design]
         PoolConfig --> KeepAlive[Keep-Alive Settings<br/>keepalive_timeout: 60s<br/>keepalive_requests: 1000<br/>keepalive_disable: none]
         PoolConfig --> WorkerConnections[Worker Connections<br/>worker_connections: 16384<br/>worker_rlimit_nofile: 65535<br/>Multi-accept: on]
         PoolConfig --> BufferSizes[Buffer Optimization<br/>client_body_buffer_size: 128k<br/>client_header_buffer_size: 4k<br/>large_client_header_buffers: 8 16k]
     end
 
-    subgraph HTTP/2 and Protocol Optimization
+    subgraph HTTP_2_and_Protocol_Optimization[HTTP/2 and Protocol Optimization]
         HTTP2Config[HTTP/2 Configuration<br/>Stream multiplexing<br/>Header compression<br/>Server push capability]
         HTTP2Config --> StreamSettings[Stream Settings<br/>http2_max_concurrent_streams: 128<br/>http2_body_preread_size: 64k<br/>http2_idle_timeout: 3m]
         HTTP2Config --> HeaderCompression[HPACK Compression<br/>Dynamic table size: 4096<br/>Static table optimization<br/>Header field compression]
@@ -157,33 +157,33 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Memory Management - Before
+    subgraph Memory_Management___Before[Memory Management - Before]
         DynamicAllocation[Dynamic Memory Allocation<br/>malloc/free per request<br/>Memory fragmentation<br/>GC overhead]
         DynamicAllocation --> RequestBuffer[Request Buffers<br/>Allocated per request<br/>Size: Variable<br/>Fragmentation: High]
         DynamicAllocation --> ResponseBuffer[Response Buffers<br/>Dynamic sizing<br/>Memory leaks possible<br/>Performance unpredictable]
     end
 
-    subgraph Memory Management - After
+    subgraph Memory_Management___After[Memory Management - After]
         MemoryPools[Memory Pool Architecture<br/>Pre-allocated memory pools<br/>Fixed-size allocations<br/>Zero fragmentation]
         MemoryPools --> PoolAllocation[Pool-Based Allocation<br/>Fast allocation/deallocation<br/>Predictable performance<br/>Memory reuse]
         MemoryPools --> BufferPools[Buffer Pool System<br/>Size-categorized pools<br/>Efficient memory usage<br/>Zero memory leaks]
     end
 
-    subgraph Buffer Optimization Strategy
+    subgraph Buffer_Optimization_Strategy[Buffer Optimization Strategy]
         BufferStrategy[Buffer Management Strategy<br/>Size-based categorization<br/>Efficient reuse patterns<br/>Memory-aligned allocations]
         BufferStrategy --> SmallBuffers[Small Buffers (1KB-4KB)<br/>Header processing<br/>Small responses<br/>High-frequency allocation]
         BufferStrategy --> MediumBuffers[Medium Buffers (4KB-64KB)<br/>Standard responses<br/>File serving<br/>Moderate-frequency allocation]
         BufferStrategy --> LargeBuffers[Large Buffers (64KB+)<br/>Large file transfers<br/>Streaming content<br/>Low-frequency allocation]
     end
 
-    subgraph Zero-Copy Operations
+    subgraph Zero_Copy_Operations[Zero-Copy Operations]
         ZeroCopy[Zero-Copy Optimizations<br/>sendfile() system call<br/>DMA transfers<br/>Kernel bypass]
         ZeroCopy --> SendFile[sendfile() Optimization<br/>Direct kernel-to-socket<br/>No user-space copy<br/>CPU usage reduction]
         ZeroCopy --> MemoryMapping[Memory Mapping<br/>mmap() for large files<br/>Virtual memory optimization<br/>Cache-friendly access]
         ZeroCopy --> SpliceOperations[Splice Operations<br/>pipe-based transfers<br/>Zero-copy proxy<br/>High-throughput streaming]
     end
 
-    subgraph Memory Pool Configuration
+    subgraph Memory_Pool_Configuration[Memory Pool Configuration]
         PoolConfig[Memory Pool Configuration<br/>nginx.conf settings<br/>Performance-optimized<br/>Workload-specific tuning]
         PoolConfig --> ConnectionPool[Connection Memory Pool<br/>connection_pool_size: 256<br/>Per-connection allocation<br/>Fixed-size efficiency]
         PoolConfig --> RequestPool[Request Memory Pool<br/>request_pool_size: 4k<br/>Per-request allocation<br/>Fast cleanup]
@@ -212,28 +212,28 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Basic Load Balancing - Before
+    subgraph Basic_Load_Balancing___Before[Basic Load Balancing - Before]
         BasicLB[Basic Round Robin<br/>Simple request distribution<br/>No health awareness<br/>Static configuration]
         BasicLB --> Server1[Backend Server 1<br/>Load: 100 requests<br/>Response time: 50ms<br/>Health: Unknown]
         BasicLB --> Server2[Backend Server 2<br/>Load: 100 requests<br/>Response time: 200ms<br/>Health: Unknown]
         BasicLB --> Server3[Backend Server 3<br/>Load: 100 requests<br/>Response time: 500ms<br/>Health: Unknown]
     end
 
-    subgraph Intelligent Load Balancing - After
+    subgraph Intelligent_Load_Balancing___After[Intelligent Load Balancing - After]
         IntelligentLB[Intelligent Load Balancing<br/>Least connections algorithm<br/>Health-aware routing<br/>Dynamic configuration]
         IntelligentLB --> HealthyServer1[Backend Server 1<br/>Load: 150 requests<br/>Response time: 45ms<br/>Health: Healthy (98%)]
         IntelligentLB --> HealthyServer2[Backend Server 2<br/>Load: 120 requests<br/>Response time: 55ms<br/>Health: Healthy (95%)]
         IntelligentLB --> HealthyServer3[Backend Server 3<br/>Load: 30 requests<br/>Response time: 25ms<br/>Health: Degraded (80%)]
     end
 
-    subgraph Upstream Connection Management
+    subgraph Upstream_Connection_Management[Upstream Connection Management]
         UpstreamMgmt[Upstream Management<br/>Connection pooling<br/>Health monitoring<br/>Failover handling]
         UpstreamMgmt --> ConnectionPooling[Connection Pooling<br/>keepalive: 32<br/>keepalive_requests: 100<br/>keepalive_timeout: 60s]
         UpstreamMgmt --> HealthChecks[Health Checks<br/>health_check interval: 5s<br/>health_check_timeout: 3s<br/>max_fails: 3, fail_timeout: 30s]
         UpstreamMgmt --> FailoverLogic[Failover Logic<br/>backup server configuration<br/>graceful degradation<br/>automatic recovery]
     end
 
-    subgraph Advanced Routing Algorithms
+    subgraph Advanced_Routing_Algorithms[Advanced Routing Algorithms]
         AdvancedRouting[Advanced Routing<br/>Multiple algorithms<br/>Weighted distribution<br/>Session affinity]
         AdvancedRouting --> LeastConn[Least Connections<br/>least_conn directive<br/>Active connection tracking<br/>Load-aware distribution]
         AdvancedRouting --> IPHash[IP Hash<br/>ip_hash directive<br/>Client IP-based routing<br/>Session persistence]
@@ -241,7 +241,7 @@ graph TB
         AdvancedRouting --> Consistent[Consistent Hashing<br/>hash directive<br/>Cache-friendly routing<br/>Minimal redistribution]
     end
 
-    subgraph Upstream Response Handling
+    subgraph Upstream_Response_Handling[Upstream Response Handling]
         ResponseHandling[Response Handling<br/>Efficient data transfer<br/>Error recovery<br/>Performance optimization]
         ResponseHandling --> Buffering[Response Buffering<br/>proxy_buffering on<br/>proxy_buffer_size: 128k<br/>proxy_buffers: 4 256k]
         ResponseHandling --> Compression[Upstream Compression<br/>gzip proxied responses<br/>Bandwidth optimization<br/>CPU vs network trade-off]

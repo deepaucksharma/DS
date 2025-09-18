@@ -7,7 +7,7 @@ Real production deployments reveal Kubernetes dominates container orchestration 
 
 ```mermaid
 graph TB
-    subgraph "Kubernetes Architecture"
+    subgraph Kubernetes_Architecture[""Kubernetes Architecture""]
         subgraph EdgePlane1[Edge Plane]
             INGRESS[Ingress Controller<br/>NGINX/Istio<br/>L7 Load Balancing]
             SERVICE[Service Mesh<br/>Istio/Linkerd<br/>Traffic Management]
@@ -37,7 +37,7 @@ graph TB
         KUBELET --> METRICS
     end
 
-    subgraph "Mesos Architecture"
+    subgraph Mesos_Architecture[""Mesos Architecture""]
         subgraph EdgePlane2[Edge Plane]
             MLBHAP[Marathon-LB<br/>HAProxy<br/>Service discovery]
             CONSUL[Consul<br/>Service registry<br/>Health checks]
@@ -67,7 +67,7 @@ graph TB
         MAGENT --> MMON
     end
 
-    subgraph "Nomad Architecture"
+    subgraph Nomad_Architecture[""Nomad Architecture""]
         subgraph EdgePlane3[Edge Plane]
             FABIO[Fabio<br/>HTTP Load Balancer<br/>Consul integration]
             TRAEFIK[Traefik<br/>Reverse proxy<br/>Dynamic configuration]
@@ -1057,7 +1057,7 @@ func (c *CircleCINomadStrategy) KubernetesVsNomadEvaluation() EvaluationResults 
 
 ```mermaid
 graph TB
-    subgraph "Choose Kubernetes When"
+    subgraph Choose_Kubernetes_When[""Choose Kubernetes When""]
         K1[Ecosystem Richness<br/>Need operators, Helm charts]
         K2[Cloud Native<br/>Multi-cloud standardization]
         K3[Developer Experience<br/>Rich tooling ecosystem]
@@ -1065,7 +1065,7 @@ graph TB
         K5[Talent Availability<br/>Large skill pool]
     end
 
-    subgraph "Choose Mesos When"
+    subgraph Choose_Mesos_When[""Choose Mesos When""]
         M1[Resource Efficiency<br/>90%+ utilization needed]
         M2[Mixed Workloads<br/>Containers + big data + ML]
         M3[Large Scale<br/>10,000+ nodes]
@@ -1073,7 +1073,7 @@ graph TB
         M5[Long-term Investment<br/>Willing to build expertise]
     end
 
-    subgraph "Choose Nomad When"
+    subgraph Choose_Nomad_When[""Choose Nomad When""]
         N1[Operational Simplicity<br/>Small teams, easy management]
         N2[Multi-workload<br/>Docker + VMs + raw binaries]
         N3[Fast Deployment<br/>Sub-minute job scheduling]

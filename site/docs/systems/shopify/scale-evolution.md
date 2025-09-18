@@ -43,7 +43,7 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph 2006 Architecture - Single Store
+    subgraph sg_2006_Architecture___Single_Store[2006 Architecture - Single Store]
         USER[Tobias & Scott<br/>Snowboard enthusiasts<br/>Frustrated with platforms<br/>Building own solution]
 
         RAILS_APP[Rails Application<br/>Ruby on Rails 1.0<br/>Single server<br/>Monolithic design]
@@ -57,7 +57,7 @@ graph TB
         MYSQL_DB --> SHARED_HOST
     end
 
-    subgraph 2006 Metrics
+    subgraph sg_2006_Metrics[2006 Metrics]
         STORES_2006[Stores: 1<br/>Own snowboard shop<br/>Proof of concept<br/>Learning experience]
         REVENUE_2006[Revenue: $0<br/>No customers yet<br/>Self-funded<br/>Nights and weekends]
         TEAM_2006[Team: 2 founders<br/>Tobias & Scott<br/>Learning Ruby<br/>Building MVP]
@@ -85,7 +85,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph 2010 Architecture - 1,000 Stores
+    subgraph sg_2010_Architecture___1_000_Stores[2010 Architecture - 1,000 Stores]
         CUSTOMERS[1,000 Merchants<br/>Small businesses<br/>$100M+ GMV<br/>Growing community]
 
         RAILS_MONOLITH[Rails Monolith<br/>Multi-tenant design<br/>Single codebase<br/>Shared database]
@@ -102,7 +102,7 @@ graph TB
         RAILS_MONOLITH --> CDN
     end
 
-    subgraph Platform Features
+    subgraph Platform_Features[Platform Features]
         THEMES[Theme System<br/>Liquid templating<br/>Customizable designs<br/>Developer ecosystem]
 
         APPS[App Store<br/>Third-party integrations<br/>Revenue sharing<br/>Extended functionality]
@@ -135,7 +135,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph 2015 Architecture - 100K+ Stores
+    subgraph sg_2015_Architecture___100K__Stores[2015 Architecture - 100K+ Stores]
         MERCHANTS[100,000+ Merchants<br/>$3B+ GMV<br/>Black Friday spikes<br/>Performance complaints]
 
         RAILS_STRAIN[Rails Monolith<br/>Single process bottleneck<br/>Database contention<br/>Memory pressure]
@@ -152,7 +152,7 @@ graph TB
         CACHE_ISSUES --> CDN_STRAIN
     end
 
-    subgraph Crisis Symptoms
+    subgraph Crisis_Symptoms[Crisis Symptoms]
         SLOW_PAGES[Slow Page Loads<br/>5+ second response<br/>Customer complaints<br/>Cart abandonment]
 
         CHECKOUT_FAILURES[Checkout Failures<br/>Payment timeouts<br/>Lost revenue<br/>Merchant churn]
@@ -185,7 +185,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph 2018 Architecture - 500K+ Stores
+    subgraph sg_2018_Architecture___500K__Stores[2018 Architecture - 500K+ Stores]
         MERCHANTS_2018[500,000+ Merchants<br/>$20B+ GMV<br/>Global presence<br/>Enterprise customers]
 
         MODULAR_MONOLITH[Modular Monolith<br/>Component boundaries<br/>Shared database<br/>Single deployment]
@@ -202,7 +202,7 @@ graph TB
         MODULAR_MONOLITH --> ELASTICSEARCH
     end
 
-    subgraph Modular Components
+    subgraph Modular_Components[Modular Components]
         STOREFRONT_MODULE[Storefront Module<br/>Theme rendering<br/>Product display<br/>Customer experience]
 
         CHECKOUT_MODULE[Checkout Module<br/>Payment processing<br/>Order creation<br/>Conversion optimization]
@@ -235,7 +235,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph 2024 Architecture - 1.75M+ Stores
+    subgraph sg_2024_Architecture___1_75M__Stores[2024 Architecture - 1.75M+ Stores]
         GLOBAL_MERCHANTS[1.75M+ Merchants<br/>$235B+ GMV<br/>175+ countries<br/>Enterprise + SMB]
 
         PLATFORM_SERVICES[Platform Services<br/>Microservices extraction<br/>Domain boundaries<br/>API-first design]
@@ -252,7 +252,7 @@ graph TB
         PLATFORM_SERVICES --> FULFILLMENT_NETWORK
     end
 
-    subgraph Modern Capabilities
+    subgraph Modern_Capabilities[Modern Capabilities]
         SHOP_PAY[Shop Pay<br/>One-click checkout<br/>40M+ consumers<br/>Cross-merchant network]
 
         AI_FEATURES[AI-Powered Features<br/>Product recommendations<br/>Dynamic pricing<br/>Fraud detection]
@@ -287,7 +287,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Rails Journey at Shopify
+    subgraph Rails_Journey_at_Shopify[Rails Journey at Shopify]
         RAILS_1[Rails 1.0 (2006)<br/>First version<br/>Convention over config<br/>Rapid development]
 
         RAILS_2[Rails 2.0 (2008)<br/>REST routing<br/>Better performance<br/>Plugin ecosystem]
@@ -311,7 +311,7 @@ graph TB
         RAILS_6 --> RAILS_7
     end
 
-    subgraph Shopify's Rails Contributions
+    subgraph Shopify_s_Rails_Contributions[Shopify's Rails Contributions]
         ACTIVEMERCHANT[ActiveMerchant<br/>Payment processing<br/>Gateway abstraction<br/>Open source library]
 
         LIQUID[Liquid Templating<br/>Safe template language<br/>Merchant customization<br/>Sandboxed execution]
@@ -372,7 +372,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Cost Optimization Journey
+    subgraph Cost_Optimization_Journey[Cost Optimization Journey]
         COST_2010[2010: $50/month<br/>High hosting costs<br/>Single tenant overhead<br/>Limited optimization]
 
         COST_2015[2015: $15/month<br/>Better multi-tenancy<br/>Shared infrastructure<br/>Economy of scale]
@@ -391,7 +391,7 @@ graph LR
     COST_2015 -.->|47% reduction| COST_2020
     COST_2020 -.->|37% reduction| COST_2024
 
-    subgraph Revenue per Merchant
+    subgraph Revenue_per_Merchant[Revenue per Merchant]
         REVENUE_GROWTH[Revenue Growth<br/>$29-2000/month plans<br/>Payment processing<br/>App ecosystem<br/>Plus enterprise]
 
         CUSTOMER_LTV[Customer LTV<br/>Multi-year retention<br/>Growing GMV<br/>Expanding usage<br/>Platform stickiness]
@@ -424,7 +424,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Black Friday Performance by Year
+    subgraph Black_Friday_Performance_by_Year[Black Friday Performance by Year]
         BF_2015[Black Friday 2015<br/>Site degradation<br/>Emergency measures<br/>Customer complaints<br/>Learning experience]
 
         BF_2018[Black Friday 2018<br/>$1.5B GMV<br/>Stable performance<br/>Vitess success<br/>Confidence building]
@@ -439,7 +439,7 @@ graph TB
         BF_2021 --> BF_2023
     end
 
-    subgraph Technical Achievements
+    subgraph Technical_Achievements[Technical Achievements]
         INFRASTRUCTURE[Infrastructure<br/>10x capacity scaling<br/>Auto-scaling<br/>Global distribution]
 
         PERFORMANCE[Performance<br/>Sub-200ms response<br/>Queue system<br/>Payment optimization]
@@ -465,7 +465,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph 2025-2030 Evolution
+    subgraph sg_2025_2030_Evolution[2025-2030 Evolution]
         AI_NATIVE[AI-Native Platform<br/>Intelligent automation<br/>Predictive insights<br/>Autonomous optimization]
 
         GLOBAL_COMMERCE[Global Commerce<br/>Unified commerce<br/>Cross-border solutions<br/>Local compliance]
@@ -477,7 +477,7 @@ graph TB
         AR_VR_SHOPPING[AR/VR Shopping<br/>Virtual storefronts<br/>3D product visualization<br/>Immersive experiences]
     end
 
-    subgraph Scale Projections
+    subgraph Scale_Projections[Scale Projections]
         MERCHANTS_2030[5M+ Merchants<br/>Global expansion<br/>SMB to Enterprise<br/>New markets]
 
         GMV_2030[GMV: $1T+<br/>Global commerce<br/>Platform dominance<br/>Economic impact]

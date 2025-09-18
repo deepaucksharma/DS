@@ -8,7 +8,7 @@ Shopify scaled from 5 Snowboard stores (2004) to 4.6 million merchants processin
 
 ```mermaid
 graph TB
-    subgraph Snowboard Store Architecture
+    subgraph Snowboard_Store_Architecture[Snowboard Store Architecture]
         subgraph EdgePlane[Edge - Single Server]
             APACHE[Apache<br/>Shared hosting<br/>$50/month]
         end
@@ -71,7 +71,7 @@ class ShopifyMVP {
 
 ```mermaid
 graph TB
-    subgraph Early SaaS Architecture
+    subgraph Early_SaaS_Architecture[Early SaaS Architecture]
         subgraph EdgePlane[Edge - Simple CDN]
             LB[Load Balancer<br/>HAProxy<br/>2 instances]
             CDN[Basic CDN<br/>$500/month]
@@ -144,7 +144,7 @@ end
 
 ```mermaid
 graph TB
-    subgraph Sharded Rails Architecture
+    subgraph Sharded_Rails_Architecture[Sharded Rails Architecture]
         subgraph EdgePlane[Edge - Global CDN]
             CLOUDFRONT[CloudFront<br/>$20K/month<br/>Global PoPs]
             SHOPIFY_CDN[Shopify CDN<br/>Custom images<br/>10TB/month]
@@ -264,7 +264,7 @@ black_friday_2012:
 
 ```mermaid
 graph TB
-    subgraph Microservices E-commerce Platform
+    subgraph Microservices_E_commerce_Platform[Microservices E-commerce Platform]
         subgraph EdgePlane[Edge - Multi-Region CDN]
             FASTLY[Fastly<br/>$500K/month<br/>Primary CDN]
             CLOUDFLARE[CloudFlare<br/>$200K/month<br/>DDoS protection]
@@ -422,7 +422,7 @@ class CheckoutOptimizer {
 
 ```mermaid
 graph TB
-    subgraph Global Commerce Infrastructure
+    subgraph Global_Commerce_Infrastructure[Global Commerce Infrastructure]
         subgraph EdgePlane[Edge - Worldwide Presence]
             EDGE_GLOBAL[Global Edge Network<br/>200+ PoPs<br/>$20M/month]
             SHOP_APP[Shop App CDN<br/>Mobile optimization<br/>$5M/month]
@@ -665,7 +665,7 @@ class InventoryManager {
 
 ```mermaid
 graph LR
-    subgraph Black Friday Traffic Growth
+    subgraph Black_Friday_Traffic_Growth[Black Friday Traffic Growth]
         BF2008[2008<br/>Site crashed<br/>6 hours down<br/>$500K lost]
         BF2012[2012<br/>Multiple failures<br/>30% checkout fail<br/>$5M lost]
         BF2016[2016<br/>Smooth operations<br/>98.7% uptime<br/>$2.9B GMV]
@@ -719,7 +719,7 @@ black_friday_2023:
 
 ```mermaid
 graph LR
-    subgraph Cost Per Merchant Evolution
+    subgraph Cost_Per_Merchant_Evolution[Cost Per Merchant Evolution]
         Y2006[$40/mo<br/>5 merchants<br/>$8/merchant]
         Y2009[$1K/mo<br/>10K merchants<br/>$0.10/merchant]
         Y2014[$500K/mo<br/>100K merchants<br/>$5/merchant]

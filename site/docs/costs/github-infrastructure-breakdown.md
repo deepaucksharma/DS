@@ -7,7 +7,7 @@ Complete infrastructure cost analysis from GitHub's 2024 operations serving 100M
 
 ```mermaid
 graph TB
-    subgraph Monthly Infrastructure: $95M
+    subgraph Monthly_Infrastructure___95M[Monthly Infrastructure: $95M]
         subgraph EdgePlane[Edge Plane - $22M/month]
             CDN[GitHub CDN<br/>$12M/month<br/>2PB/day transfer]
             LB[Load Balancers<br/>$4M/month<br/>100 regions]
@@ -57,7 +57,7 @@ graph TB
 ### Git Infrastructure: $8M/month
 ```mermaid
 graph LR
-    subgraph Git Service Costs
+    subgraph Git_Service_Costs[Git Service Costs]
         STORAGE[Git Storage<br/>10PB repositories<br/>$3M/month]
         TRANSFER[Data Transfer<br/>50TB/day<br/>$2M/month]
         COMPUTE[Git Operations<br/>5K servers<br/>$2M/month]
@@ -133,7 +133,7 @@ database_costs = {
 ### Code Search Infrastructure: $3M/month
 ```mermaid
 graph TB
-    subgraph Code Search Stack
+    subgraph Code_Search_Stack[Code Search Stack]
         subgraph Index[Indexing - $1.5M/month]
             ES1[Elasticsearch<br/>500 nodes<br/>$1M/month]
             INDEX[Index Pipeline<br/>$500K/month]
@@ -164,7 +164,7 @@ Search Performance:
 
 ```mermaid
 graph LR
-    subgraph Global Infrastructure Distribution
+    subgraph Global_Infrastructure_Distribution[Global Infrastructure Distribution]
         US[US Regions<br/>$48M/month<br/>50%]
         EU[EU Regions<br/>$28M/month<br/>30%]
         ASIA[Asia Regions<br/>$14M/month<br/>15%]
@@ -251,7 +251,7 @@ additional_reduction = "18%"
 
 ```mermaid
 graph TB
-    subgraph Unit Economics
+    subgraph Unit_Economics[Unit Economics]
         USERS[100M Active Users]
         COST[Infrastructure: $95M/month]
 

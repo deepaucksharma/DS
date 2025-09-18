@@ -8,26 +8,26 @@ Conflicts occur when multiple replicas concurrently modify the same data, requir
 
 ```mermaid
 graph TB
-    subgraph Conflict Categories
-        subgraph Write-Write Conflicts
+    subgraph Conflict_Categories[Conflict Categories]
+        subgraph Write_Write_Conflicts[Write-Write Conflicts]
             WW_UPDATE[Concurrent Updates<br/>Same row, different values]
             WW_DELETE[Update vs Delete<br/>One updates, other deletes]
             WW_INSERT[Primary Key Conflicts<br/>Same PK, different data]
         end
 
-        subgraph Write-Read Conflicts
+        subgraph Write_Read_Conflicts[Write-Read Conflicts]
             WR_READ[Dirty Reads<br/>Reading uncommitted data]
             WR_PHANTOM[Phantom Reads<br/>New rows appear/disappear]
             WR_NONREP[Non-Repeatable Reads<br/>Same query, different results]
         end
 
-        subgraph Schema Conflicts
+        subgraph Schema_Conflicts[Schema Conflicts]
             SC_DDL[DDL Conflicts<br/>Concurrent schema changes]
             SC_CONSTRAINT[Constraint Violations<br/>FK/unique violations]
             SC_TYPE[Type Conflicts<br/>Incompatible data types]
         end
 
-        subgraph Ordering Conflicts
+        subgraph Ordering_Conflicts[Ordering Conflicts]
             OC_DEPEND[Dependency Violations<br/>Operations out of order]
             OC_CAUSAL[Causality Violations<br/>Effect before cause]
             OC_TEMPORAL[Temporal Conflicts<br/>Clock skew issues]
@@ -90,14 +90,14 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph Lamport Clock Conflict Detection
-        subgraph Event Timeline
+    subgraph Lamport_Clock_Conflict_Detection[Lamport Clock Conflict Detection]
+        subgraph Event_Timeline[Event Timeline]
             E1[Event 1<br/>Clock: 5<br/>UPDATE name='Alice']
             E2[Event 2<br/>Clock: 5<br/>UPDATE name='Bob']
             E3[Event 3<br/>Clock: 7<br/>UPDATE age=25]
         end
 
-        subgraph Conflict Analysis
+        subgraph Conflict_Analysis[Conflict Analysis]
             CONCURRENT[Same Clock Value<br/>E1 and E2 concurrent<br/>Conflict detected]
             ORDERED[Different Clocks<br/>E3 happens after<br/>No conflict with E1/E2]
         end
@@ -159,12 +159,12 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph Operational Transformation Example
-        subgraph Initial State
+    subgraph Operational_Transformation_Example[Operational Transformation Example]
+        subgraph Initial_State[Initial State]
             DOC_INIT[Document: 'Hello World'<br/>Position: 0123456789AB]
         end
 
-        subgraph Concurrent Operations
+        subgraph Concurrent_Operations[Concurrent Operations]
             OP1[Op1: Insert 'Beautiful ' at pos 6<br/>Result: 'Hello Beautiful World']
             OP2[Op2: Delete 'World' (pos 6-10)<br/>Result: 'Hello ']
         end
@@ -173,7 +173,7 @@ graph TB
             TRANSFORM[Transform Op2 against Op1:<br/>Delete becomes 'Delete pos 16-20'<br/>(adjusted for inserted text)]
         end
 
-        subgraph Final State
+        subgraph Final_State[Final State]
             FINAL[Both replicas converge to:<br/>'Hello Beautiful ']
         end
     end
@@ -195,16 +195,16 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph G-Counter CRDT
-        subgraph Replica 1 State
+    subgraph G_Counter_CRDT[G-Counter CRDT]
+        subgraph Replica_1_State[Replica 1 State]
             R1_STATE[Counter Vector: [5, 2, 0]<br/>- Node 1 contributed: 5<br/>- Node 2 contributed: 2<br/>- Node 3 contributed: 0<br/>Total: 7]
         end
 
-        subgraph Replica 2 State
+        subgraph Replica_2_State[Replica 2 State]
             R2_STATE[Counter Vector: [3, 2, 4]<br/>- Node 1 contributed: 3<br/>- Node 2 contributed: 2<br/>- Node 3 contributed: 4<br/>Total: 9]
         end
 
-        subgraph Merge Operation
+        subgraph Merge_Operation[Merge Operation]
             MERGE[Merge: max(5,3), max(2,2), max(0,4)<br/>Result: [5, 2, 4]<br/>Total: 11]
         end
 

@@ -501,7 +501,7 @@ Cloudflare_Load_Balancer_Architecture:
 
 ```mermaid
 graph TB
-    subgraph AWS ALB Architecture - 1M+ RPS
+    subgraph AWS_ALB_Architecture___1M__RPS[AWS ALB Architecture - 1M+ RPS]
         subgraph EdgePlane[Edge Plane]
             CF[CloudFront CDN<br/>Edge Locations: 400+<br/>Cache Hit: 90%]
             R53[Route 53<br/>DNS Load Balancing<br/>Health Check: 30s]
@@ -514,17 +514,17 @@ graph TB
         end
 
         subgraph StatePlane[State Plane]
-            subgraph US East Targets
+            subgraph US_East_Targets[US East Targets]
                 TG1[Target Group 1<br/>50 instances<br/>c5.2xlarge]
                 TG2[Target Group 2<br/>30 instances<br/>c5.4xlarge]
             end
 
-            subgraph US West Targets
+            subgraph US_West_Targets[US West Targets]
                 TG3[Target Group 3<br/>30 instances<br/>c5.2xlarge]
                 TG4[Target Group 4<br/>20 instances<br/>c5.4xlarge]
             end
 
-            subgraph EU West Targets
+            subgraph EU_West_Targets[EU West Targets]
                 TG5[Target Group 5<br/>20 instances<br/>c5.2xlarge]
                 TG6[Target Group 6<br/>15 instances<br/>c5.4xlarge]
             end

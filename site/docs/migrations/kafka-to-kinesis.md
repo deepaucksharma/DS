@@ -36,14 +36,14 @@
 
 ```mermaid
 graph TB
-    subgraph Current Kafka Cluster Architecture
+    subgraph Current_Kafka_Cluster_Architecture[Current Kafka Cluster Architecture]
         subgraph Producers
             APP1[Order Service<br/>10,000 messages/sec<br/>Average payload: 2KB]
             APP2[User Events<br/>50,000 messages/sec<br/>Average payload: 500B]
             APP3[Analytics Events<br/>25,000 messages/sec<br/>Average payload: 1KB]
         end
 
-        subgraph Kafka Cluster
+        subgraph Kafka_Cluster[Kafka Cluster]
             ZK[Zookeeper Cluster<br/>3 nodes<br/>m5.large<br/>Coordination/metadata]
 
             BROKER1[Kafka Broker 1<br/>m5.2xlarge<br/>8 vCPU, 32GB RAM<br/>2TB NVMe SSD]
@@ -51,7 +51,7 @@ graph TB
             BROKER3[Kafka Broker 3<br/>m5.2xlarge<br/>8 vCPU, 32GB RAM<br/>2TB NVMe SSD]
         end
 
-        subgraph Topics & Partitions
+        subgraph Topics___Partitions[Topics & Partitions]
             TOPIC1[orders-topic<br/>12 partitions<br/>Replication: 3<br/>Retention: 7 days]
             TOPIC2[user-events<br/>24 partitions<br/>Replication: 3<br/>Retention: 30 days]
             TOPIC3[analytics-events<br/>18 partitions<br/>Replication: 3<br/>Retention: 90 days]
@@ -81,7 +81,7 @@ graph TB
     TOPIC3 --> CONSUMER3
 
     %% Current costs
-    subgraph Current Kafka Costs
+    subgraph Current_Kafka_Costs[Current Kafka Costs]
         COSTS[Monthly Infrastructure: $8,000<br/>Operational overhead: 120 hours/month<br/>3 dedicated SREs for Kafka operations]
     end
 
@@ -112,26 +112,26 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Target Kinesis Architecture
-        subgraph Data Producers
+    subgraph Target_Kinesis_Architecture[Target Kinesis Architecture]
+        subgraph Data_Producers[Data Producers]
             APP1[Order Service<br/>Kinesis Producer Library<br/>Batching: 500 records<br/>Compression: GZIP]
             APP2[User Events<br/>Kinesis Agent<br/>File-based ingestion<br/>Auto-retry logic]
             APP3[Analytics Events<br/>Direct API calls<br/>SDK integration<br/>Error handling]
         end
 
-        subgraph Kinesis Data Streams
+        subgraph Kinesis_Data_Streams[Kinesis Data Streams]
             STREAM1[orders-stream<br/>12 shards<br/>1MB/sec per shard<br/>24-hour retention]
             STREAM2[user-events-stream<br/>50 shards<br/>Auto-scaling enabled<br/>168-hour retention]
             STREAM3[analytics-stream<br/>25 shards<br/>Enhanced fanout<br/>8760-hour retention]
         end
 
-        subgraph Enhanced Capabilities
+        subgraph Enhanced_Capabilities[Enhanced Capabilities]
             KINESIS_ANALYTICS[Kinesis Data Analytics<br/>Real-time SQL queries<br/>Tumbling windows<br/>Anomaly detection]
 
             KINESIS_FIREHOSE[Kinesis Data Firehose<br/>S3 delivery<br/>Parquet format<br/>Compression + partitioning]
         end
 
-        subgraph Data Consumers
+        subgraph Data_Consumers[Data Consumers]
             LAMBDA1[Lambda Functions<br/>Event-driven processing<br/>Auto-scaling<br/>DLQ integration]
 
             KCL[Kinesis Client Library<br/>Java/Python consumers<br/>Checkpoint management<br/>Lease coordination]
@@ -139,7 +139,7 @@ graph TB
             ANALYTICS_APP[Analytics Applications<br/>Enhanced fan-out<br/>Sub-second latency<br/>Dedicated throughput]
         end
 
-        subgraph Storage & Analytics
+        subgraph Storage___Analytics[Storage & Analytics]
             S3[S3 Data Lake<br/>Partitioned by date/hour<br/>Parquet format<br/>Lifecycle policies]
 
             REDSHIFT[Redshift<br/>COPY from S3<br/>Scheduled loads<br/>Materialized views]
@@ -235,18 +235,18 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph Topic-by-Topic Migration Strategy
-        subgraph Phase 1: Non-Critical Topics
+    subgraph Topic_by_Topic_Migration_Strategy[Topic-by-Topic Migration Strategy]
+        subgraph Phase_1__Non_Critical_Topics[Phase 1: Non-Critical Topics]
             KAFKA_NC[Kafka Non-Critical<br/>Analytics events<br/>User behavior<br/>Low business impact]
             KINESIS_NC[Kinesis Streams<br/>analytics-stream<br/>user-behavior-stream<br/>Test new architecture]
         end
 
-        subgraph Phase 2: Medium Priority Topics
+        subgraph Phase_2__Medium_Priority_Topics[Phase 2: Medium Priority Topics]
             KAFKA_MP[Kafka Medium Priority<br/>Notification events<br/>Audit logs<br/>Moderate business impact]
             KINESIS_MP[Kinesis Streams<br/>notification-stream<br/>audit-stream<br/>Validate performance]
         end
 
-        subgraph Phase 3: Critical Topics
+        subgraph Phase_3__Critical_Topics[Phase 3: Critical Topics]
             KAFKA_CRIT[Kafka Critical<br/>Order events<br/>Payment events<br/>High business impact]
             KINESIS_CRIT[Kinesis Streams<br/>order-stream<br/>payment-stream<br/>Production validation]
         end
@@ -508,8 +508,8 @@ def process_event_record(event_data: Dict[str, Any], partition_key: str) -> Dict
 
 ```mermaid
 graph TB
-    subgraph Kinesis Performance Optimization
-        subgraph Shard Management
+    subgraph Kinesis_Performance_Optimization[Kinesis Performance Optimization]
+        subgraph Shard_Management[Shard Management]
             SHARD_COUNT[Optimal Shard Count<br/>1 shard = 1MB/sec write<br/>2MB/sec read<br/>1,000 records/sec]
 
             AUTO_SCALE[Auto Scaling<br/>Target utilization: 70%<br/>Scale-out when > 80%<br/>Scale-in when < 50%]
@@ -517,7 +517,7 @@ graph TB
             SHARD_SPLIT[Shard Splitting Strategy<br/>Monitor hot shards<br/>Split at 80% utilization<br/>Avoid over-provisioning]
         end
 
-        subgraph Producer Optimization
+        subgraph Producer_Optimization[Producer Optimization]
             BATCHING[Record Batching<br/>Up to 500 records/batch<br/>Max 5MB per batch<br/>Reduce API calls]
 
             COMPRESSION[Data Compression<br/>GZIP compression<br/>30-50% size reduction<br/>Lower transfer costs]
@@ -525,7 +525,7 @@ graph TB
             PARTITION_KEY[Partition Key Strategy<br/>Uniform distribution<br/>Avoid hot partitions<br/>Use hash-based keys]
         end
 
-        subgraph Consumer Optimization
+        subgraph Consumer_Optimization[Consumer Optimization]
             ENHANCED_FANOUT[Enhanced Fan-Out<br/>Dedicated 2MB/sec per consumer<br/>Push-based delivery<br/>Sub-second latency]
 
             KCL_TUNING[KCL Configuration<br/>maxRecords: 1000<br/>idleTimeBetween: 1000ms<br/>Checkpoint frequency: 60s]
@@ -578,8 +578,8 @@ class KinesisMonitoringSetup:
 
 ```mermaid
 graph TB
-    subgraph Cost Comparison: Kafka vs Kinesis
-        subgraph Current Kafka Costs (Monthly)
+    subgraph Cost_Comparison__Kafka_vs_Kinesis[Cost Comparison: Kafka vs Kinesis]
+        subgraph Current_Kafka_Costs__Monthly[Current Kafka Costs (Monthly)]
             KAFKA_COMPUTE[EC2 Instances<br/>3x m5.2xlarge brokers: $850<br/>3x m5.large Zookeeper: $180<br/>Total: $1,030]
 
             KAFKA_STORAGE[EBS Storage<br/>6TB NVMe SSD: $1,200<br/>Backup storage: $150<br/>Total: $1,350]
@@ -591,7 +591,7 @@ graph TB
             KAFKA_TOTAL[Kafka Total<br/>$9,380/month<br/>Plus significant operational overhead]
         end
 
-        subgraph Kinesis Costs (Monthly)
+        subgraph Kinesis_Costs__Monthly[Kinesis Costs (Monthly)]
             KINESIS_SHARDS[Shard Hours<br/>87 shards × 24h × 30d: $2,261<br/>Auto-scaling optimization: -$400<br/>Total: $1,861]
 
             KINESIS_RECORDS[PUT Records<br/>200M records/month: $1,000<br/>Batch optimization: -$200<br/>Total: $800]
@@ -603,7 +603,7 @@ graph TB
             KINESIS_TOTAL[Kinesis Total<br/>$5,161/month<br/>45% cost reduction<br/>Minimal operational overhead]
         end
 
-        subgraph Migration & Optimization
+        subgraph Migration___Optimization[Migration & Optimization]
             MIGRATION_COST[Migration Costs<br/>3 months × 2 engineers: $75,000<br/>Dual-write overhead: $2,000<br/>Testing & validation: $5,000<br/>Total: $82,000]
 
             OPTIMIZATION[Post-Migration Optimization<br/>Right-sizing shards: -$500/month<br/>Reserved capacity: -$300/month<br/>Enhanced monitoring: +$200/month<br/>Net: -$600/month]

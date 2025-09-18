@@ -7,7 +7,7 @@ Real production deployments reveal REST dominates for simplicity and caching, Gr
 
 ```mermaid
 graph TB
-    subgraph "REST Architecture"
+    subgraph REST_Architecture[""REST Architecture""]
         subgraph EdgePlane1[Edge Plane]
             CDN1[CDN<br/>Cache GET responses<br/>90% hit rate]
             LB1[Load Balancer<br/>HTTP/1.1 & HTTP/2<br/>SSL termination]
@@ -34,7 +34,7 @@ graph TB
         REST_API --> METRICS1
     end
 
-    subgraph "GraphQL Architecture"
+    subgraph GraphQL_Architecture[""GraphQL Architecture""]
         subgraph EdgePlane2[Edge Plane]
             CDN2[CDN<br/>Limited caching<br/>Query complexity]
             LB2[Load Balancer<br/>Single endpoint<br/>/graphql]
@@ -62,7 +62,7 @@ graph TB
         GQL_SERVER --> METRICS2
     end
 
-    subgraph "gRPC Architecture"
+    subgraph gRPC_Architecture[""gRPC Architecture""]
         subgraph EdgePlane3[Edge Plane]
             PROXY[Envoy Proxy<br/>HTTP/2 & TLS<br/>Load balancing]
             MESH[Service Mesh<br/>mTLS encryption<br/>Circuit breakers]
@@ -878,7 +878,7 @@ shopify_production_metrics = {
 
 ```mermaid
 graph TB
-    subgraph "Choose REST When"
+    subgraph Choose_REST_When[""Choose REST When""]
         R1[Simple CRUD<br/>Standard operations]
         R2[HTTP Caching<br/>CDN optimization critical]
         R3[Public APIs<br/>Third-party integration]
@@ -886,7 +886,7 @@ graph TB
         R5[Mobile Offline<br/>Predictable payloads]
     end
 
-    subgraph "Choose GraphQL When"
+    subgraph Choose_GraphQL_When[""Choose GraphQL When""]
     G1[Frontend Flexibility<br/>Multiple clients]
         G2[Over/Under Fetching<br/>Mobile optimization]
         G3[Rapid Iteration<br/>Schema evolution]
@@ -894,7 +894,7 @@ graph TB
         G5[Developer Experience<br/>Type safety important]
     end
 
-    subgraph "Choose gRPC When"
+    subgraph Choose_gRPC_When[""Choose gRPC When""]
         P1[High Performance<br/>Low latency critical]
         P2[Service Mesh<br/>Microservice communication]
         P3[Streaming Data<br/>Real-time updates]

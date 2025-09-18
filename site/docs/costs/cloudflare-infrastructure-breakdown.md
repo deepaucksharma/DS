@@ -7,7 +7,7 @@ Complete infrastructure cost analysis from Cloudflare's 2024 operations serving 
 
 ```mermaid
 graph TB
-    subgraph Monthly Infrastructure: $180M
+    subgraph Monthly_Infrastructure___180M[Monthly Infrastructure: $180M]
         subgraph EdgePlane[Edge Plane - $120M/month]
             EDGE[Edge Servers<br/>$60M/month<br/>330 locations]
             NETWORK[Global Network<br/>$25M/month<br/>100Tbps capacity]
@@ -59,7 +59,7 @@ graph TB
 ### Global Edge Network: $120M/month
 ```mermaid
 graph LR
-    subgraph Edge Infrastructure Costs
+    subgraph Edge_Infrastructure_Costs[Edge Infrastructure Costs]
         SERVERS[Edge Servers<br/>330 locations<br/>$60M/month]
         BANDWIDTH[Internet Transit<br/>100Tbps capacity<br/>$25M/month]
         PEERING[Peering Costs<br/>1000+ networks<br/>$20M/month]
@@ -138,7 +138,7 @@ cost_per_worker_request = 0.0000015
 ### DNS Infrastructure: $5M/month
 ```mermaid
 graph TB
-    subgraph DNS Infrastructure Stack
+    subgraph DNS_Infrastructure_Stack[DNS Infrastructure Stack]
         subgraph Authority[Authoritative DNS - $3M/month]
             AUTH[DNS Servers<br/>330 locations<br/>$2M/month]
             ANYCAST[Anycast Network<br/>Global routing<br/>$1M/month]
@@ -168,7 +168,7 @@ DNS Performance:
 
 ```mermaid
 graph LR
-    subgraph Global Infrastructure Distribution
+    subgraph Global_Infrastructure_Distribution[Global Infrastructure Distribution]
         NA[North America<br/>$72M/month<br/>40%]
         EU[Europe<br/>$54M/month<br/>30%]
         ASIA[Asia Pacific<br/>$36M/month<br/>20%]
@@ -325,7 +325,7 @@ additional_reduction = "12%"
 
 ```mermaid
 graph TB
-    subgraph Unit Economics
+    subgraph Unit_Economics[Unit Economics]
         PROPERTIES[38M Internet Properties]
         COST[Infrastructure: $180M/month]
 

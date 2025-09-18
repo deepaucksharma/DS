@@ -20,33 +20,33 @@
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - Blue #3B82F6
+    subgraph Edge_Plane___Blue__3B82F6[Edge Plane - Blue #3B82F6]
         MOBILE[Spotify Mobile Apps<br/>400M+ Users]
         DESKTOP[Desktop Application<br/>Premium Users]
         WEB[Web Player<br/>Browser-based]
     end
 
-    subgraph Service Plane - Green #10B981
+    subgraph Service_Plane___Green__10B981[Service Plane - Green #10B981]
         PLAYBACK[Playback Service<br/>Music Streaming]
         LICENSE[License Validation<br/>Rights Management<br/>TIMEOUT FAILURE]
         DISCOVERY[Music Discovery<br/>Search & Browse]
         SOCIAL[Social Features<br/>Playlists & Sharing]
     end
 
-    subgraph State Plane - Orange #F59E0B
+    subgraph State_Plane___Orange__F59E0B[State Plane - Orange #F59E0B]
         CATALOG[(Music Catalog<br/>Track Metadata)]
         RIGHTS[(Rights Database<br/>Licensing Data)]
         USERS[(User Database<br/>Accounts & Playlists)]
         ANALYTICS[(Analytics Store<br/>Listening Data)]
     end
 
-    subgraph Control Plane - Red #8B5CF6
+    subgraph Control_Plane___Red__8B5CF6[Control Plane - Red #8B5CF6]
         MONITORING[System Monitoring<br/>Performance Metrics]
         FEATURES[Feature Flags<br/>A/B Testing]
         DEPLOYMENT[Deployment System<br/>Release Management]
     end
 
-    subgraph External Music Infrastructure
+    subgraph External_Music_Infrastructure[External Music Infrastructure]
         LABELS[Record Labels<br/>Content Providers]
         PUBLISHERS[Music Publishers<br/>Rights Holders]
         CDN[Content CDN<br/>Audio File Delivery]

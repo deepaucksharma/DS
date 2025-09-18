@@ -8,29 +8,29 @@ Understanding the fundamental differences between Raft and Paxos is crucial for 
 
 ```mermaid
 graph TB
-    subgraph Raft Approach
-        subgraph Raft Phases
+    subgraph Raft_Approach[Raft Approach]
+        subgraph Raft_Phases[Raft Phases]
             R_LEADER[Leader Election]
             R_REPLICATION[Log Replication]
             R_SAFETY[Safety Rules]
         end
 
-        subgraph Raft Characteristics
+        subgraph Raft_Characteristics[Raft Characteristics]
             R_SIMPLE[Simple to understand]
             R_STRONG[Strong leader model]
             R_SEQUENCE[Sequential log entries]
         end
     end
 
-    subgraph Paxos Approach
-        subgraph Paxos Phases
+    subgraph Paxos_Approach[Paxos Approach]
+        subgraph Paxos_Phases[Paxos Phases]
             P_PREPARE[Prepare Phase]
             P_PROMISE[Promise Phase]
             P_ACCEPT[Accept Phase]
             P_LEARN[Learn Phase]
         end
 
-        subgraph Paxos Characteristics
+        subgraph Paxos_Characteristics[Paxos Characteristics]
             P_COMPLEX[More complex]
             P_SYMMETRIC[Symmetric roles]
             P_INDEPENDENT[Independent proposals]
@@ -138,29 +138,29 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph Performance Comparison (3-node cluster)
-        subgraph Raft Performance
+    subgraph Performance_Comparison__3_node_cluster[Performance Comparison (3-node cluster)]
+        subgraph Raft_Performance[Raft Performance]
             R_TPS[15,000 TPS]
             R_LAT[2-5ms p99]
             R_CPU[30% CPU avg]
             R_NET[100 MB/s]
         end
 
-        subgraph Multi-Paxos Performance
+        subgraph Multi_Paxos_Performance[Multi-Paxos Performance]
             MP_TPS[12,000 TPS]
             MP_LAT[3-8ms p99]
             MP_CPU[40% CPU avg]
             MP_NET[150 MB/s]
         end
 
-        subgraph Basic Paxos Performance
+        subgraph Basic_Paxos_Performance[Basic Paxos Performance]
             BP_TPS[6,000 TPS]
             BP_LAT[5-15ms p99]
             BP_CPU[50% CPU avg]
             BP_NET[200 MB/s]
         end
 
-        subgraph Key Factors
+        subgraph Key_Factors[Key Factors]
             FACTORS[• Leader election overhead<br/>• Message complexity<br/>• CPU for consensus logic<br/>• Network message count]
         end
     end
@@ -179,8 +179,8 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Implementation Complexity Analysis
-        subgraph Raft Implementation
+    subgraph Implementation_Complexity_Analysis[Implementation Complexity Analysis]
+        subgraph Raft_Implementation[Raft Implementation]
             R_LINES[~3,000 LOC]
             R_BUGS[Lower bug density]
             R_TEST[Easier to test]
@@ -188,7 +188,7 @@ graph TB
             R_VERIFY[Formal verification easier]
         end
 
-        subgraph Paxos Implementation
+        subgraph Paxos_Implementation[Paxos Implementation]
             P_LINES[~5,000 LOC]
             P_BUGS[Higher bug density]
             P_TEST[Complex test scenarios]
@@ -196,7 +196,7 @@ graph TB
             P_VERIFY[Complex verification]
         end
 
-        subgraph Common Implementation Issues
+        subgraph Common_Implementation_Issues[Common Implementation Issues]
             ISSUES[• Configuration changes<br/>• Failure detection<br/>• Network partitions<br/>• Performance optimization<br/>• State machine coupling]
         end
     end
@@ -297,14 +297,14 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph Raft Configuration Change
-        subgraph Phase 1: Joint Consensus
+    subgraph Raft_Configuration_Change[Raft Configuration Change]
+        subgraph Phase_1__Joint_Consensus[Phase 1: Joint Consensus]
             OLD_CONFIG[Old Configuration<br/>Nodes: A, B, C]
             NEW_CONFIG[New Configuration<br/>Nodes: A, B, C, D, E]
             JOINT[Joint Consensus<br/>Both configs active]
         end
 
-        subgraph Phase 2: New Configuration
+        subgraph Phase_2__New_Configuration[Phase 2: New Configuration]
             TRANSITION[Transition Complete]
             FINAL[Final Configuration<br/>Nodes: A, B, C, D, E]
         end
@@ -324,7 +324,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Paxos Reconfiguration
+    subgraph Paxos_Reconfiguration[Paxos Reconfiguration]
         subgraph Challenges
             COORD[Need coordination service]
             GLOBAL[Global knowledge required]
@@ -351,8 +351,8 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Decision Matrix
-        subgraph Choose Raft When
+    subgraph Decision_Matrix[Decision Matrix]
+        subgraph Choose_Raft_When[Choose Raft When]
             R_SIMPLE_REQ[Simplicity is priority]
             R_STRONG_LEAD[Strong leadership model fits]
             R_FAST_DEV[Fast development needed]
@@ -360,7 +360,7 @@ graph LR
             R_EDUCATION[Team learning curve matters]
         end
 
-        subgraph Choose Paxos When
+        subgraph Choose_Paxos_When[Choose Paxos When]
             P_SYMMETRIC[Symmetric roles needed]
             P_INDEPENDENT[Independent proposals required]
             P_RESEARCH[Research/academic context]
@@ -368,7 +368,7 @@ graph LR
             P_EXISTING[Existing Paxos infrastructure]
         end
 
-        subgraph Neutral Factors
+        subgraph Neutral_Factors[Neutral Factors]
             PERFORMANCE[Performance (similar)]
             CORRECTNESS[Correctness (both proven)]
             FAULT_TOL[Fault tolerance (equivalent)]

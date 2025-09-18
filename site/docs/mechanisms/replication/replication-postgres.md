@@ -8,22 +8,22 @@ PostgreSQL streaming replication uses Write-Ahead Logging (WAL) to provide real-
 
 ```mermaid
 graph TB
-    subgraph PostgreSQL Streaming Replication Architecture
-        subgraph Primary Server
+    subgraph PostgreSQL_Streaming_Replication_Architecture[PostgreSQL Streaming Replication Architecture]
+        subgraph Primary_Server[Primary Server]
             WAL_WRITER[WAL Writer Process]
             WAL_SENDER[WAL Sender Process]
             WAL_FILES[WAL Files<br/>- 16MB segments<br/>- Sequential writing<br/>- Archived after use]
             POSTGRES_PRIMARY[PostgreSQL Primary<br/>- Accepts writes<br/>- Generates WAL<br/>- Manages replication]
         end
 
-        subgraph Standby Server
+        subgraph Standby_Server[Standby Server]
             WAL_RECEIVER[WAL Receiver Process]
             WAL_REPLAY[Startup Process<br/>(WAL Replay)]
             POSTGRES_STANDBY[PostgreSQL Standby<br/>- Read-only<br/>- Applies WAL changes<br/>- Can serve reads]
             STANDBY_WAL[Standby WAL Files]
         end
 
-        subgraph Network Connection
+        subgraph Network_Connection[Network Connection]
             STREAM[Replication Stream<br/>- TCP connection<br/>- Continuous streaming<br/>- Async/Sync modes]
         end
 

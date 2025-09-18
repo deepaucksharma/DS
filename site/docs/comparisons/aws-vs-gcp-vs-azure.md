@@ -7,7 +7,7 @@ Real production deployments at scale reveal AWS dominates enterprise adoption, G
 
 ```mermaid
 graph TB
-    subgraph AWS Architecture
+    subgraph AWS_Architecture[AWS Architecture]
         subgraph EdgePlane1[Edge Plane]
             CF[CloudFront CDN<br/>400+ Edge Locations<br/>$0.085/GB]
             R53[Route 53<br/>DNS<br/>100% SLA]
@@ -38,7 +38,7 @@ graph TB
         LAMBDA --> DYNAMO
     end
 
-    subgraph GCP Architecture
+    subgraph GCP_Architecture[GCP Architecture]
         subgraph EdgePlane2[Edge Plane]
             CDN2[Cloud CDN<br/>130+ Edge Locations<br/>$0.08/GB]
             DNS2[Cloud DNS<br/>$0.20/M queries]
@@ -69,7 +69,7 @@ graph TB
         RUN --> BQ
     end
 
-    subgraph Azure Architecture
+    subgraph Azure_Architecture[Azure Architecture]
         subgraph EdgePlane3[Edge Plane]
             AZCDN[Azure CDN<br/>118+ Edge Locations<br/>$0.087/GB]
             AZDNS[Azure DNS<br/>$0.50/M queries]
@@ -415,7 +415,7 @@ end
 
 ```mermaid
 graph TB
-    subgraph Choose AWS When
+    subgraph Choose_AWS_When[Choose AWS When]
         A1[Market Leader<br/>Broadest service portfolio]
         A2[Enterprise Migration<br/>Proven at scale]
         A3[Compliance Heavy<br/>Most certifications]
@@ -423,7 +423,7 @@ graph TB
         A5[Cost Optimization<br/>Mature Reserved Instance market]
     end
 
-    subgraph Choose GCP When
+    subgraph Choose_GCP_When[Choose GCP When]
         G1[Data Analytics<br/>BigQuery is unmatched]
         G2[AI/ML Workloads<br/>Best GPU/TPU access]
         G3[Kubernetes Native<br/>GKE is superior]
@@ -431,7 +431,7 @@ graph TB
         G5[Cost Conscious<br/>Sustained use discounts]
     end
 
-    subgraph Choose Azure When
+    subgraph Choose_Azure_When[Choose Azure When]
         Z1[Microsoft Ecosystem<br/>Office 365, Windows]
         Z2[Hybrid Cloud<br/>Best on-premises integration]
         Z3[Enterprise Identity<br/>Active Directory native]

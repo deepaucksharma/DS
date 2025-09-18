@@ -51,33 +51,33 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - Blue #3B82F6
+    subgraph Edge_Plane___Blue__3B82F6[Edge Plane - Blue #3B82F6]
         GATEWAY[Discord Gateway<br/>WebSocket Connections]
         CDN[Discord CDN<br/>Media Delivery]
         VOICE[Voice Servers<br/>RTC Infrastructure]
     end
 
-    subgraph Service Plane - Green #10B981
+    subgraph Service_Plane___Green__10B981[Service Plane - Green #10B981]
         MSGAPI[Message API<br/>Text Processing]
         VOICEAPI[Voice API<br/>Audio Processing]
         VIDEOAPI[Video API<br/>Screen Share]
         GAMEAPI[Game Activity API<br/>Rich Presence]
     end
 
-    subgraph State Plane - Orange #F59E0B
+    subgraph State_Plane___Orange__F59E0B[State Plane - Orange #F59E0B]
         CASSANDRA[(Cassandra Cluster<br/>Message Storage<br/>PRIMARY FAILURE)]
         REDIS[(Redis Cluster<br/>Session Cache)]
         POSTGRES[(PostgreSQL<br/>User & Guild Data)]
         SCYLLA[(ScyllaDB<br/>Voice Metadata)]
     end
 
-    subgraph Control Plane - Red #8B5CF6
+    subgraph Control_Plane___Red__8B5CF6[Control Plane - Red #8B5CF6]
         MONITORING[Datadog Monitoring<br/>Metrics & Alerts]
         CONFIG[Configuration Service<br/>Feature Flags]
         DEPLOY[Deployment Pipeline<br/>Auto-deployment]
     end
 
-    subgraph Cassandra Ring Architecture
+    subgraph Cassandra_Ring_Architecture[Cassandra Ring Architecture]
         SHARD1[Shard 1<br/>US-East Messages<br/>Split-brain Node]
         SHARD2[Shard 2<br/>US-West Messages]
         SHARD3[Shard 3<br/>EU Messages<br/>Split-brain Node]
@@ -156,7 +156,7 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph Split-Brain Timeline
+    subgraph Split_Brain_Timeline[Split-Brain Timeline]
         A[18:52 UTC<br/>Voice channels fail<br/>Cannot join servers]
         B[18:57 UTC<br/>Messages delayed<br/>Delivery inconsistent]
         C[19:02 UTC<br/>Gaming streams drop<br/>Screen share broken]
@@ -394,21 +394,21 @@ curl -I https://media.discord.net/
 
 ```mermaid
 graph TB
-    subgraph NEW: Multi-DC Cassandra with Automated Failover
+    subgraph NEW__Multi_DC_Cassandra_with_Automated_Failover[NEW: Multi-DC Cassandra with Automated Failover]
         COORD1[Coordinator US<br/>Primary control]
         COORD2[Coordinator EU<br/>Backup control]
         COORD3[Coordinator APAC<br/>Emergency control]
         DETECT[Split-Brain Detection<br/>Automated monitoring]
     end
 
-    subgraph NEW: ScyllaDB Migration
+    subgraph NEW__ScyllaDB_Migration[NEW: ScyllaDB Migration]
         SCYLLA1[ScyllaDB US<br/>High performance]
         SCYLLA2[ScyllaDB EU<br/>Low latency]
         SCYLLA3[ScyllaDB APAC<br/>Local processing]
         SYNC[Cross-Region Sync<br/>Eventual consistency]
     end
 
-    subgraph NEW: Service Degradation Framework
+    subgraph NEW__Service_Degradation_Framework[NEW: Service Degradation Framework]
         GRACEFUL[Graceful Degradation<br/>Partial functionality]
         QUEUE[Message Queuing<br/>Offline storage]
         FALLBACK[Voice Fallback<br/>Regional routing]

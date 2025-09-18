@@ -10,7 +10,7 @@ Serverless performance characteristics in production environments, covering cold
 
 ```mermaid
 graph TB
-    subgraph Cold Start Components
+    subgraph Cold_Start_Components[Cold Start Components]
         COLD1[Function initialization<br/>Runtime startup: 100ms<br/>Package download: 200ms<br/>Code initialization: 300ms<br/>Total cold start: 600ms]
 
         COLD2[Runtime comparison<br/>Node.js: 150ms<br/>Python: 200ms<br/>Java: 800ms<br/>C#/.NET: 900ms<br/>.NET Native: 300ms]
@@ -20,7 +20,7 @@ graph TB
         COLD1 --> COLD2 --> COLD3
     end
 
-    subgraph Warm Invocation
+    subgraph Warm_Invocation[Warm Invocation]
         WARM1[Warm invocation flow<br/>Request received<br/>Existing container reused<br/>Handler function executed<br/>Response returned]
 
         WARM2[Performance metrics<br/>Latency: 5-20ms<br/>Memory reuse: Available<br/>CPU: Immediate<br/>Network: Established]
@@ -30,7 +30,7 @@ graph TB
         WARM1 --> WARM2 --> WARM3
     end
 
-    subgraph Provisioned Concurrency
+    subgraph Provisioned_Concurrency[Provisioned Concurrency]
         PROVISIONED1[Pre-warmed containers<br/>Always available<br/>No cold start delay<br/>Cost: Higher<br/>Performance: Consistent]
 
         PROVISIONED2[Configuration<br/>Target utilization: 70%<br/>Min capacity: 10<br/>Max capacity: 1000<br/>Auto-scaling enabled]
@@ -53,7 +53,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Code Optimization
+    subgraph Code_Optimization[Code Optimization]
         CODE1[Minimize package size<br/>Tree shaking<br/>Dependency reduction<br/>Bundle optimization<br/>Lazy loading]
 
         CODE2[Initialization optimization<br/>Move heavy operations<br/>Connection pooling<br/>Shared resources<br/>Caching strategies]
@@ -61,7 +61,7 @@ graph LR
         CODE1 --> CODE2
     end
 
-    subgraph Keep-Alive Strategies
+    subgraph Keep_Alive_Strategies[Keep-Alive Strategies]
         KEEPALIVE1[Periodic invocation<br/>CloudWatch Events<br/>Every 5 minutes<br/>Ping function<br/>Cost: Minimal]
 
         KEEPALIVE2[Concurrent warming<br/>Multiple containers<br/>Parallel requests<br/>Coverage: 90%<br/>Complexity: Medium]
@@ -69,7 +69,7 @@ graph LR
         KEEPALIVE1 --> KEEPALIVE2
     end
 
-    subgraph Architecture Patterns
+    subgraph Architecture_Patterns[Architecture Patterns]
         ARCH1[Monolithic functions<br/>Single large function<br/>Shared initialization<br/>Lower cold start ratio<br/>Higher complexity]
 
         ARCH2[Microfunction approach<br/>Single responsibility<br/>Minimal dependencies<br/>Fast cold starts<br/>Higher cold start frequency]
@@ -94,7 +94,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Account-Level Limits
+    subgraph Account_Level_Limits[Account-Level Limits]
         ACCOUNT1[Default concurrent executions<br/>US regions: 1000<br/>Other regions: 100<br/>Burst limit: 3000<br/>Scaling rate: 1000/min]
 
         ACCOUNT2[Quota increases<br/>Support request required<br/>Business justification<br/>Gradual increases<br/>Maximum: 100,000+]
@@ -104,7 +104,7 @@ graph TB
         ACCOUNT1 --> ACCOUNT2 --> ACCOUNT3
     end
 
-    subgraph Function-Level Concurrency
+    subgraph Function_Level_Concurrency[Function-Level Concurrency]
         FUNCTION1[Reserved concurrency<br/>Dedicated allocation<br/>Guaranteed availability<br/>Isolation from other functions<br/>Cost: Same]
 
         FUNCTION2[Provisioned concurrency<br/>Pre-warmed containers<br/>Immediate execution<br/>No cold starts<br/>Cost: Higher]
@@ -114,7 +114,7 @@ graph TB
         FUNCTION1 --> FUNCTION2 --> FUNCTION3
     end
 
-    subgraph Scaling Behavior
+    subgraph Scaling_Behavior[Scaling Behavior]
         SCALING1[Initial burst<br/>Immediate: 1000 concurrent<br/>Duration: 3000 seconds<br/>After burst: 500/minute<br/>Exponential scaling]
 
         SCALING2[Steady state scaling<br/>Rate: 500 executions/minute<br/>Sustained growth<br/>No burst limit<br/>Linear progression]
@@ -137,7 +137,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Queue-Based Processing
+    subgraph Queue_Based_Processing[Queue-Based Processing]
         QUEUE1[SQS trigger<br/>Batch size: 10<br/>Max concurrency: 1000<br/>Visibility timeout: 30s<br/>DLQ on failure]
 
         QUEUE2[Processing pattern<br/>Message polling<br/>Batch processing<br/>Error handling<br/>Scaling based on queue depth]
@@ -147,7 +147,7 @@ graph TB
         QUEUE1 --> QUEUE2 --> QUEUE3
     end
 
-    subgraph Stream Processing
+    subgraph Stream_Processing[Stream Processing]
         STREAM1[Kinesis/DynamoDB trigger<br/>Shard-based parallelism<br/>Concurrent per shard: 1<br/>Order preservation<br/>Automatic retries]
 
         STREAM2[Processing characteristics<br/>Sequential per shard<br/>Parallel across shards<br/>Checkpoint management<br/>Error handling]
@@ -157,7 +157,7 @@ graph TB
         STREAM1 --> STREAM2 --> STREAM3
     end
 
-    subgraph API Gateway Integration
+    subgraph API_Gateway_Integration[API Gateway Integration]
         API1[Synchronous invocation<br/>Request-response pattern<br/>Timeout: 30s<br/>Client waits<br/>Error propagation]
 
         API2[Performance considerations<br/>Cold start impact: Direct<br/>Concurrent limit: Shared<br/>Response time: Critical<br/>Caching recommended]
@@ -182,7 +182,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph 128MB Configuration
+    subgraph sg_128MB_Configuration[128MB Configuration]
         MEM128_1[Resource allocation<br/>Memory: 128MB<br/>vCPU: 0.083<br/>Network: Limited<br/>Cost: $0.0000002083/sec]
 
         MEM128_2[Performance characteristics<br/>Cold start: 800ms<br/>Execution time: 5000ms<br/>Timeout risk: High<br/>OOM risk: High]
@@ -192,7 +192,7 @@ graph TB
         MEM128_1 --> MEM128_2 --> MEM128_3
     end
 
-    subgraph 1GB Configuration
+    subgraph sg_1GB_Configuration[1GB Configuration]
         MEM1GB_1[Resource allocation<br/>Memory: 1024MB<br/>vCPU: 0.67<br/>Network: Good<br/>Cost: $0.0000016667/sec]
 
         MEM1GB_2[Performance characteristics<br/>Cold start: 600ms<br/>Execution time: 1000ms<br/>Timeout risk: Low<br/>OOM risk: Low]
@@ -202,7 +202,7 @@ graph TB
         MEM1GB_1 --> MEM1GB_2 --> MEM1GB_3
     end
 
-    subgraph 3GB Configuration
+    subgraph sg_3GB_Configuration[3GB Configuration]
         MEM3GB_1[Resource allocation<br/>Memory: 3008MB<br/>vCPU: 2.0<br/>Network: High<br/>Cost: $0.0000050000/sec]
 
         MEM3GB_2[Performance characteristics<br/>Cold start: 400ms<br/>Execution time: 300ms<br/>Timeout risk: None<br/>CPU-bound optimization]
@@ -225,7 +225,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Cost Optimization
+    subgraph Cost_Optimization[Cost Optimization]
         COST1[Lower memory config<br/>128MB - 512MB<br/>Slower execution<br/>Higher risk of timeout<br/>Lower cost per invocation]
 
         COST2[Cost calculation<br/>Execution time: 5s<br/>Memory: 128MB<br/>Cost: $0.0000010415<br/>Monthly: $100 for 1M invocations]
@@ -233,7 +233,7 @@ graph LR
         COST1 --> COST2
     end
 
-    subgraph Performance Optimization
+    subgraph Performance_Optimization[Performance Optimization]
         PERF1[Higher memory config<br/>1GB - 3GB<br/>Faster execution<br/>Better resource headroom<br/>Higher cost per invocation]
 
         PERF2[Performance calculation<br/>Execution time: 1s<br/>Memory: 1GB<br/>Cost: $0.0000016667<br/>Monthly: $1667 for 1M invocations]
@@ -241,7 +241,7 @@ graph LR
         PERF1 --> PERF2
     end
 
-    subgraph Sweet Spot Analysis
+    subgraph Sweet_Spot_Analysis[Sweet Spot Analysis]
         SWEET1[Optimal configuration<br/>Memory: 512MB - 1GB<br/>Balance: Cost vs performance<br/>Execution time: 2s<br/>Reliability: High]
 
         SWEET2[Decision factors<br/>• Execution time variance<br/>• Error rate impact<br/>• SLA requirements<br/>• Cost constraints<br/>• Usage patterns]
@@ -266,7 +266,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph S3 Event Scaling
+    subgraph S3_Event_Scaling[S3 Event Scaling]
         S3_1[S3 bucket events<br/>Object created/deleted<br/>Event fan-out<br/>Parallel processing<br/>No ordering guarantees]
 
         S3_2[Scaling characteristics<br/>Immediate scaling<br/>Concurrent: Object count<br/>Limits: Account concurrency<br/>Performance: Excellent]
@@ -276,7 +276,7 @@ graph TB
         S3_1 --> S3_2 --> S3_3
     end
 
-    subgraph API Gateway Scaling
+    subgraph API_Gateway_Scaling[API Gateway Scaling]
         API_1[HTTP/REST API events<br/>Synchronous invocation<br/>Request-response pattern<br/>Client waits for response<br/>Timeout: 30 seconds]
 
         API_2[Scaling characteristics<br/>Demand-based scaling<br/>Concurrent: Request load<br/>Cold start impact: Direct<br/>Performance: Variable]
@@ -286,7 +286,7 @@ graph TB
         API_1 --> API_2 --> API_3
     end
 
-    subgraph EventBridge Scaling
+    subgraph EventBridge_Scaling[EventBridge Scaling]
         EVENT_1[EventBridge rules<br/>Pattern matching<br/>Event filtering<br/>Multiple targets<br/>Retry policies]
 
         EVENT_2[Scaling behavior<br/>Rule-based triggering<br/>Parallel execution<br/>Fan-out capability<br/>Built-in reliability]
@@ -309,7 +309,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Batch Processing (SQS)
+    subgraph Batch_Processing__SQS[Batch Processing (SQS)]
         BATCH1[Processing model<br/>Batch size: 1-10<br/>Polling interval: Variable<br/>Latency: 0-20s<br/>Throughput: Very high]
 
         BATCH2[Scaling pattern<br/>Queue depth based<br/>Gradual scaling<br/>Cost efficient<br/>High throughput]
@@ -317,7 +317,7 @@ graph LR
         BATCH1 --> BATCH2
     end
 
-    subgraph Stream Processing (Kinesis)
+    subgraph Stream_Processing__Kinesis[Stream Processing (Kinesis)]
         STREAM1[Processing model<br/>Record by record<br/>Shard-based parallelism<br/>Latency: 100ms<br/>Throughput: Shard limited]
 
         STREAM2[Scaling pattern<br/>Shard count based<br/>Linear scaling<br/>Ordered processing<br/>Real-time capable]
@@ -325,7 +325,7 @@ graph LR
         STREAM1 --> STREAM2
     end
 
-    subgraph Real-time (API Gateway)
+    subgraph Real_time__API_Gateway[Real-time (API Gateway)]
         REALTIME1[Processing model<br/>Request-response<br/>Synchronous<br/>Latency: 1ms-30s<br/>Throughput: Concurrent limited]
 
         REALTIME2[Scaling pattern<br/>Demand based<br/>Immediate scaling<br/>Cold start impact<br/>User-facing]
@@ -348,7 +348,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Netflix Lambda Usage Statistics
+    subgraph Netflix_Lambda_Usage_Statistics[Netflix Lambda Usage Statistics]
         STATS1[Function metrics<br/>Active functions: 10,000+<br/>Daily invocations: 1 billion<br/>Peak concurrency: 100,000<br/>Average duration: 2 seconds]
 
         STATS2[Cost optimization<br/>Monthly Lambda costs: $500K<br/>Cost per invocation: $0.0005<br/>Savings vs containers: 60%<br/>Operational overhead: 80% reduction]
@@ -358,7 +358,7 @@ graph TB
         STATS1 --> STATS2 --> STATS3
     end
 
-    subgraph Use Case Categories
+    subgraph Use_Case_Categories[Use Case Categories]
         UC1[Content processing<br/>Video encoding triggers<br/>Thumbnail generation<br/>Metadata extraction<br/>Quality analysis]
 
         UC2[Data pipeline operations<br/>ETL processing<br/>Log aggregation<br/>Metrics collection<br/>Analytics triggers]
@@ -370,7 +370,7 @@ graph TB
         UC1 --> UC2 --> UC3 --> UC4
     end
 
-    subgraph Optimization Strategies
+    subgraph Optimization_Strategies[Optimization Strategies]
         OPT1[Function sizing<br/>Memory: 512MB - 3GB<br/>Duration: 30s - 15min<br/>Language: Python/Java<br/>Package size: < 10MB]
 
         OPT2[Performance tuning<br/>Connection pooling<br/>Caching strategies<br/>Async processing<br/>Error handling]
@@ -393,7 +393,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Cold Start Mitigation
+    subgraph Cold_Start_Mitigation[Cold Start Mitigation]
         COLD_MIT1[Strategies employed<br/>• Function warming<br/>• Provisioned concurrency<br/>• Package optimization<br/>• Runtime selection]
 
         COLD_MIT2[Results achieved<br/>Cold start rate: < 1%<br/>Average cold start: 300ms<br/>P99 cold start: 800ms<br/>Warm invocation: 50ms]
@@ -401,7 +401,7 @@ graph LR
         COLD_MIT1 --> COLD_MIT2
     end
 
-    subgraph Concurrency Management
+    subgraph Concurrency_Management[Concurrency Management]
         CONC1[Concurrency patterns<br/>Reserved: Critical functions<br/>Provisioned: User-facing<br/>Unreserved: Background tasks<br/>Burst handling: Queues]
 
         CONC2[Scaling achievements<br/>Peak concurrency: 100K<br/>Scaling time: < 30s<br/>Throttling rate: < 0.1%<br/>Queue backup: SQS/Kinesis]
@@ -409,7 +409,7 @@ graph LR
         CONC1 --> CONC2
     end
 
-    subgraph Cost Optimization
+    subgraph Cost_Optimization[Cost Optimization]
         COST_OPT1[Cost reduction techniques<br/>• Right-sizing memory<br/>• Duration optimization<br/>• Scheduled scaling<br/>• Usage monitoring]
 
         COST_OPT2[Financial results<br/>Cost reduction: 60% vs EC2<br/>Operational cost: 80% reduction<br/>Engineering efficiency: 3x<br/>Time to market: 50% faster]
@@ -432,19 +432,19 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Level 1: Function Design
+    subgraph Level_1__Function_Design[Level 1: Function Design]
         L1[Function optimization<br/>• Package size reduction<br/>• Dependency minimization<br/>• Initialization optimization<br/>• Runtime selection]
     end
 
-    subgraph Level 2: Resource Configuration
+    subgraph Level_2__Resource_Configuration[Level 2: Resource Configuration]
         L2[Resource tuning<br/>• Memory allocation<br/>• Timeout configuration<br/>• Concurrency settings<br/>• Reserved capacity]
     end
 
-    subgraph Level 3: Architecture Patterns
+    subgraph Level_3__Architecture_Patterns[Level 3: Architecture Patterns]
         L3[Pattern optimization<br/>• Event source selection<br/>• Async vs sync patterns<br/>• Batching strategies<br/>• Error handling]
     end
 
-    subgraph Level 4: Infrastructure Integration
+    subgraph Level_4__Infrastructure_Integration[Level 4: Infrastructure Integration]
         L4[Infrastructure optimization<br/>• VPC configuration<br/>• Database connections<br/>• External service integration<br/>• Monitoring setup]
     end
 

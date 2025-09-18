@@ -48,33 +48,33 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - Blue #3B82F6
+    subgraph Edge_Plane___Blue__3B82F6[Edge Plane - Blue #3B82F6]
         EDGE1[WhatsApp Edge Servers<br/>Global PoPs]
         CDN[Facebook CDN<br/>Content Delivery]
         LB[Load Balancers<br/>Traffic Distribution]
     end
 
-    subgraph Service Plane - Green #10B981
+    subgraph Service_Plane___Green__10B981[Service Plane - Green #10B981]
         MSGAPI[Messaging API<br/>Core Message Service]
         VOICEAPI[Voice API<br/>Calling Service]
         STATUSAPI[Status API<br/>Story Service]
         BUSINESSAPI[Business API<br/>WhatsApp Business]
     end
 
-    subgraph State Plane - Orange #F59E0B
+    subgraph State_Plane___Orange__F59E0B[State Plane - Orange #F59E0B]
         MSGDB[(Message Database<br/>Cassandra Clusters)]
         USERDB[(User Database<br/>MySQL Shards)]
         MEDIA[(Media Storage<br/>Distributed Storage)]
         CACHE[(Message Cache<br/>Redis Clusters)]
     end
 
-    subgraph Control Plane - Red #8B5CF6
+    subgraph Control_Plane___Red__8B5CF6[Control Plane - Red #8B5CF6]
         MONITORING[Facebook Monitoring<br/>Internal Metrics]
         CONFIG[Configuration Service<br/>Feature Flags]
         DEPLOY[Deployment System<br/>Code & Config Deploy]
     end
 
-    subgraph Network Infrastructure
+    subgraph Network_Infrastructure[Network Infrastructure]
         BGP1[BGP Router 1<br/>Primary Route Table]
         BGP2[BGP Router 2<br/>Secondary Route Table]
         BGP3[BGP Router 3<br/>CONFIGURATION ERROR]
@@ -154,7 +154,7 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph BGP Propagation Timeline
+    subgraph BGP_Propagation_Timeline[BGP Propagation Timeline]
         A[15:39 UTC<br/>Initial route withdrawal<br/>10% users affected]
         B[15:42 UTC<br/>Major ISPs update<br/>30% users offline]
         C[15:45 UTC<br/>European routes fail<br/>60% users offline]
@@ -370,21 +370,21 @@ openssl s_client -connect api.whatsapp.com:443 -servername api.whatsapp.com < /d
 
 ```mermaid
 graph TB
-    subgraph NEW: BGP Safety Framework
+    subgraph NEW__BGP_Safety_Framework[NEW: BGP Safety Framework]
         VALIDATE[Configuration Validator<br/>Syntax and logic check]
         STAGE[Staged Deployment<br/>1% -> 10% -> 100%]
         MONITOR[Route Monitor<br/>Real-time BGP watching]
         ROLLBACK[Auto Rollback<br/>On route withdrawal]
     end
 
-    subgraph NEW: Multi-Layer Redundancy
+    subgraph NEW__Multi_Layer_Redundancy[NEW: Multi-Layer Redundancy]
         BGP1[Primary BGP Router<br/>Independent config]
         BGP2[Secondary BGP Router<br/>Independent config]
         BGP3[Tertiary BGP Router<br/>Emergency-only routes]
         ANYCAST[Anycast Network<br/>Distributed routing]
     end
 
-    subgraph NEW: ISP Integration
+    subgraph NEW__ISP_Integration[NEW: ISP Integration]
         DIRECT[Direct ISP Links<br/>Backup connectivity]
         PEERING[Private Peering<br/>Bypass public Internet]
         SATELLITE[Satellite Backup<br/>Emergency connectivity]

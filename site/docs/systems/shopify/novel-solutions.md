@@ -8,56 +8,56 @@ Shopify has pioneered numerous breakthrough technologies that redefined e-commer
 
 ```mermaid
 graph TB
-    subgraph Platform Innovations #10B981
-        subgraph Developer Experience Revolution
+    subgraph Platform_Innovations__10B981[Platform Innovations #10B981]
+        subgraph Developer_Experience_Revolution[Developer Experience Revolution]
             LIQUID[Liquid Templating<br/>Safe template language<br/>Sandboxed execution<br/>Non-programmer friendly]
             THEME_STORE[Theme Store<br/>Marketplace ecosystem<br/>Developer revenue<br/>Design standardization]
             APP_PLATFORM[App Platform<br/>10K+ applications<br/>Revenue sharing model<br/>Extensible architecture]
         end
 
-        subgraph Modular Monolith Architecture
+        subgraph Modular_Monolith_Architecture[Modular Monolith Architecture]
             COMPONENT_BOUNDARIES[Component Boundaries<br/>Clear service isolation<br/>Shared database<br/>Single deployment]
             RAILS_AT_SCALE[Rails at Scale<br/>Performance optimization<br/>Memory management<br/>Concurrent processing]
             FEATURE_FLAGS[Feature Flags<br/>Gradual rollouts<br/>A/B testing<br/>Risk mitigation]
         end
     end
 
-    subgraph Commerce Innovations #3B82F6
-        subgraph Shop Pay Ecosystem
+    subgraph Commerce_Innovations__3B82F6[Commerce Innovations #3B82F6]
+        subgraph Shop_Pay_Ecosystem[Shop Pay Ecosystem]
             SHOP_PAY[Shop Pay<br/>Cross-merchant payments<br/>1-click checkout<br/>40M+ consumers]
             SHOP_NETWORK[Shop Network<br/>Consumer discovery<br/>Social commerce<br/>Merchant benefits]
             ACCELERATED_CHECKOUT[Accelerated Checkout<br/>70% faster completion<br/>Biometric authentication<br/>Fraud protection]
         end
 
-        subgraph Fulfillment Innovation
+        subgraph Fulfillment_Innovation[Fulfillment Innovation]
             FULFILLMENT_NETWORK[Fulfillment Network<br/>3PL integration<br/>Inventory optimization<br/>Shipping intelligence]
             SHOP_PROMISE[Shop Promise<br/>Delivery guarantees<br/>Customer expectations<br/>Merchant accountability]
             LOCAL_DELIVERY[Local Delivery<br/>Same-day fulfillment<br/>Hyperlocal commerce<br/>Sustainability focus]
         end
     end
 
-    subgraph Scale Solutions #F59E0B
-        subgraph Database Innovations
+    subgraph Scale_Solutions__F59E0B[Scale Solutions #F59E0B]
+        subgraph Database_Innovations[Database Innovations]
             VITESS_ADOPTION[Vitess at Scale<br/>130+ MySQL shards<br/>Horizontal scaling<br/>Zero-downtime migration]
             MULTI_TENANT_SHARDING[Multi-tenant Sharding<br/>Merchant isolation<br/>Resource efficiency<br/>Performance guarantees]
             ONLINE_SCHEMA_CHANGES[Online Schema Changes<br/>Zero-downtime DDL<br/>Large table migrations<br/>Production safety]
         end
 
-        subgraph Performance Engineering
+        subgraph Performance_Engineering[Performance Engineering]
             POD_ARCHITECTURE[Pod Architecture<br/>Blast radius isolation<br/>Tenant boundaries<br/>Resource allocation]
             QUEUE_SYSTEM[Queue System<br/>Flash sale handling<br/>Traffic throttling<br/>Fair access control]
             SHIPIT_DEPLOYMENT[Shipit Deployment<br/>Continuous deployment<br/>Gradual rollouts<br/>Automated rollback]
         end
     end
 
-    subgraph Business Model Innovations #8B5CF6
-        subgraph Revenue Diversification
+    subgraph Business_Model_Innovations__8B5CF6[Business Model Innovations #8B5CF6]
+        subgraph Revenue_Diversification[Revenue Diversification]
             SHOPIFY_CAPITAL[Shopify Capital<br/>Merchant financing<br/>Revenue-based loans<br/>Data-driven underwriting]
             PLUS_ENTERPRISE[Shopify Plus<br/>Enterprise platform<br/>Dedicated resources<br/>Premium support]
             PARTNER_ECOSYSTEM[Partner Ecosystem<br/>Developer revenue<br/>Agency programs<br/>Solution providers]
         end
 
-        subgraph Market Expansion
+        subgraph Market_Expansion[Market Expansion]
             INTERNATIONAL_COMMERCE[International Commerce<br/>Multi-currency<br/>Local payments<br/>Compliance automation]
             B2B_PLATFORM[B2B Platform<br/>Wholesale commerce<br/>Trade workflows<br/>Enterprise features]
             POS_INTEGRATION[POS Integration<br/>Omnichannel retail<br/>Unified inventory<br/>Customer journey]
@@ -92,13 +92,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Traditional Templating Problems
+    subgraph Traditional_Templating_Problems[Traditional Templating Problems]
         PHP_TEMPLATES[PHP Templates<br/>Security vulnerabilities<br/>Code execution risks<br/>Merchant damage potential]
         RUBY_ERB[Ruby ERB<br/>Full language access<br/>Server compromise<br/>Complex for designers]
         ASP_CLASSIC[ASP Classic<br/>Tight coupling<br/>Limited flexibility<br/>Platform dependency]
     end
 
-    subgraph Liquid Innovation
+    subgraph Liquid_Innovation[Liquid Innovation]
         SAFE_EXECUTION[Safe Execution<br/>Sandboxed environment<br/>No code execution<br/>Merchant protection]
         DESIGNER_FRIENDLY[Designer Friendly<br/>Simple syntax<br/>No programming knowledge<br/>Visual logic]
         PLATFORM_AGNOSTIC[Platform Agnostic<br/>Open source<br/>Multi-language support<br/>Community adoption]
@@ -109,7 +109,7 @@ graph TB
     RUBY_ERB --> DESIGNER_FRIENDLY
     ASP_CLASSIC --> PLATFORM_AGNOSTIC
 
-    subgraph Liquid Features
+    subgraph Liquid_Features[Liquid Features]
         FILTERS[Filters<br/>Data transformation<br/>Formatting functions<br/>Extensible system]
         TAGS[Control Tags<br/>Conditional logic<br/>Loops and iteration<br/>Template inheritance]
         OBJECTS[Template Objects<br/>Store data access<br/>Product information<br/>Customer details]
@@ -151,13 +151,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Traditional Checkout Problems
+    subgraph Traditional_Checkout_Problems[Traditional Checkout Problems]
         GUEST_CHECKOUT[Guest Checkout<br/>Manual form filling<br/>Multiple steps<br/>High abandonment]
         MERCHANT_SILOS[Merchant Silos<br/>Isolated checkout<br/>No data sharing<br/>Repeated entry]
         PAYMENT_FRICTION[Payment Friction<br/>Credit card entry<br/>Security concerns<br/>Trust issues]
     end
 
-    subgraph Shop Pay Innovation
+    subgraph Shop_Pay_Innovation[Shop Pay Innovation]
         ONE_CLICK[One-Click Checkout<br/>Stored payment methods<br/>Biometric authentication<br/>Express checkout]
         CROSS_MERCHANT[Cross-Merchant Network<br/>Universal wallet<br/>Shared customer data<br/>Network effects]
         FRAUD_PROTECTION[Advanced Fraud Protection<br/>Machine learning<br/>Risk assessment<br/>Chargeback protection]
@@ -168,7 +168,7 @@ graph TB
     MERCHANT_SILOS --> CROSS_MERCHANT
     PAYMENT_FRICTION --> FRAUD_PROTECTION
 
-    subgraph Shop Pay Ecosystem
+    subgraph Shop_Pay_Ecosystem[Shop Pay Ecosystem]
         CONSUMER_APP[Shop App<br/>40M+ downloads<br/>Order tracking<br/>Product discovery]
         MERCHANT_BENEFITS[Merchant Benefits<br/>Higher conversion<br/>Lower acquisition cost<br/>Customer insights]
         NETWORK_EFFECTS[Network Effects<br/>More merchants = more value<br/>Consumer adoption<br/>Viral growth]
@@ -210,13 +210,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Pre-Vitess Challenges
+    subgraph Pre_Vitess_Challenges[Pre-Vitess Challenges]
         SINGLE_DB[Single Database<br/>100K+ merchants<br/>Performance bottleneck<br/>Scaling ceiling]
         MANUAL_SHARDING[Manual Sharding<br/>Application complexity<br/>Operational overhead<br/>Consistency issues]
         DOWNTIME_MIGRATIONS[Downtime Migrations<br/>Schema changes<br/>Business impact<br/>Risk management]
     end
 
-    subgraph Vitess Innovation at Shopify
+    subgraph Vitess_Innovation_at_Shopify[Vitess Innovation at Shopify]
         HORIZONTAL_SCALING[Horizontal Scaling<br/>130+ MySQL shards<br/>Linear scaling<br/>Unlimited growth]
         QUERY_ROUTING[Intelligent Query Routing<br/>VTGate proxy<br/>Automatic sharding<br/>Connection pooling]
         ONLINE_DDL[Online Schema Changes<br/>Zero-downtime DDL<br/>Large table migrations<br/>Production safety]
@@ -227,7 +227,7 @@ graph TB
     MANUAL_SHARDING --> QUERY_ROUTING
     DOWNTIME_MIGRATIONS --> ONLINE_DDL
 
-    subgraph Vitess at Scale
+    subgraph Vitess_at_Scale[Vitess at Scale]
         SHARD_MANAGEMENT[Shard Management<br/>Automated rebalancing<br/>Split operations<br/>Tablet health]
         CONSISTENCY_GUARANTEES[Consistency Guarantees<br/>ACID transactions<br/>Cross-shard coordination<br/>Distributed deadlock detection]
         PERFORMANCE_OPTIMIZATION[Performance Optimization<br/>Query optimization<br/>Connection reuse<br/>Result caching]
@@ -270,13 +270,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Traditional Multi-Tenancy
+    subgraph Traditional_Multi_Tenancy[Traditional Multi-Tenancy]
         SHARED_EVERYTHING[Shared Everything<br/>Single application instance<br/>Resource contention<br/>Noisy neighbor problems]
         DATABASE_SHARING[Database Sharing<br/>Single schema<br/>Row-level isolation<br/>Performance interference]
         OPERATIONAL_COMPLEXITY[Operational Complexity<br/>Single deployment<br/>Blast radius concerns<br/>Debugging challenges]
     end
 
-    subgraph Pod Architecture Innovation
+    subgraph Pod_Architecture_Innovation[Pod Architecture Innovation]
         RESOURCE_ISOLATION[Resource Isolation<br/>Dedicated compute pods<br/>10K merchants per pod<br/>Performance guarantees]
         BLAST_RADIUS_CONTAINMENT[Blast Radius Containment<br/>Failure isolation<br/>Independent scaling<br/>Operational boundaries]
         TENANT_DENSITY[Optimized Tenant Density<br/>Cost efficiency<br/>Resource utilization<br/>Economies of scale]
@@ -287,7 +287,7 @@ graph TB
     DATABASE_SHARING --> BLAST_RADIUS_CONTAINMENT
     OPERATIONAL_COMPLEXITY --> TENANT_DENSITY
 
-    subgraph Pod Management System
+    subgraph Pod_Management_System[Pod Management System]
         AUTOMATED_PROVISIONING[Automated Provisioning<br/>New pod creation<br/>Merchant allocation<br/>Resource scheduling]
         LOAD_BALANCING[Intelligent Load Balancing<br/>Pod health monitoring<br/>Traffic distribution<br/>Capacity management]
         MIGRATION_TOOLS[Live Migration Tools<br/>Zero-downtime moves<br/>Load rebalancing<br/>Maintenance windows]
@@ -315,13 +315,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Traditional Deployment Challenges
+    subgraph Traditional_Deployment_Challenges[Traditional Deployment Challenges]
         MANUAL_DEPLOYMENTS[Manual Deployments<br/>Error-prone process<br/>Long lead times<br/>Risk aversion]
         BIG_BANG_RELEASES[Big Bang Releases<br/>Quarterly deployments<br/>High risk<br/>Long rollback times]
         DEPLOYMENT_FEAR[Deployment Fear<br/>Friday deployment ban<br/>Weekend emergencies<br/>Developer stress]
     end
 
-    subgraph Shipit Innovation
+    subgraph Shipit_Innovation[Shipit Innovation]
         CONTINUOUS_DEPLOYMENT[Continuous Deployment<br/>Multiple deploys daily<br/>Small batch sizes<br/>Reduced risk]
         GRADUAL_ROLLOUTS[Gradual Rollouts<br/>Canary deployments<br/>Feature flags<br/>Progressive exposure]
         AUTOMATED_ROLLBACK[Automated Rollback<br/>Health monitoring<br/>Automatic reversion<br/>Fast recovery]
@@ -332,7 +332,7 @@ graph TB
     BIG_BANG_RELEASES --> GRADUAL_ROLLOUTS
     DEPLOYMENT_FEAR --> AUTOMATED_ROLLBACK
 
-    subgraph Shipit Platform Features
+    subgraph Shipit_Platform_Features[Shipit Platform Features]
         DEPLOYMENT_PIPELINE[Deployment Pipeline<br/>Automated testing<br/>Quality gates<br/>Approval workflows]
         SAFETY_MECHANISMS[Safety Mechanisms<br/>Circuit breakers<br/>Error rate monitoring<br/>Performance tracking]
         DEVELOPER_EXPERIENCE[Developer Experience<br/>One-click deployments<br/>Deployment visibility<br/>Collaborative tools]
@@ -374,13 +374,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Traditional Business Financing
+    subgraph Traditional_Business_Financing[Traditional Business Financing]
         BANK_LOANS[Bank Loans<br/>Lengthy approval process<br/>Credit score requirements<br/>Collateral demands]
         FACTORING[Invoice Factoring<br/>High interest rates<br/>Complex terms<br/>Limited accessibility]
         MERCHANT_ADVANCES[Merchant Cash Advances<br/>Predatory terms<br/>Daily repayments<br/>Hidden fees]
     end
 
-    subgraph Shopify Capital Innovation
+    subgraph Shopify_Capital_Innovation[Shopify Capital Innovation]
         DATA_DRIVEN[Data-Driven Underwriting<br/>Sales history analysis<br/>Real-time performance<br/>Predictive modeling]
         REVENUE_BASED[Revenue-Based Repayment<br/>Percentage of sales<br/>Automatic collection<br/>Flexible terms]
         INSTANT_APPROVAL[Instant Approval<br/>Algorithm-based decisions<br/>No paperwork<br/>Same-day funding]
@@ -391,7 +391,7 @@ graph TB
     FACTORING --> REVENUE_BASED
     MERCHANT_ADVANCES --> INSTANT_APPROVAL
 
-    subgraph Capital Platform Features
+    subgraph Capital_Platform_Features[Capital Platform Features]
         RISK_ASSESSMENT[Advanced Risk Assessment<br/>ML algorithms<br/>Behavioral patterns<br/>Portfolio optimization]
         SEAMLESS_INTEGRATION[Seamless Integration<br/>Built into platform<br/>One-click applications<br/>Automated workflows]
         TRANSPARENT_TERMS[Transparent Terms<br/>No hidden fees<br/>Clear repayment<br/>Merchant education]
@@ -434,7 +434,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Shopify's Open Source Ecosystem
+    subgraph Shopify_s_Open_Source_Ecosystem[Shopify's Open Source Ecosystem]
         ACTIVEMERCHANT[ActiveMerchant<br/>Payment processing<br/>Gateway abstraction<br/>Ruby gem standard]
 
         LIQUID_OSS[Liquid (Open Source)<br/>Template language<br/>Cross-platform support<br/>Community adoption]
@@ -448,7 +448,7 @@ graph TB
         SHOPIFY_CLI[Shopify CLI<br/>Developer tools<br/>App development<br/>Theme development]
     end
 
-    subgraph Community Impact
+    subgraph Community_Impact[Community Impact]
         DEVELOPER_ECOSYSTEM[Developer Ecosystem<br/>200K+ developers<br/>App partners<br/>Theme designers]
 
         INDUSTRY_STANDARDS[Industry Standards<br/>E-commerce patterns<br/>Best practices<br/>Technology adoption]
@@ -495,7 +495,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Next-Generation Commerce Innovations
+    subgraph Next_Generation_Commerce_Innovations[Next-Generation Commerce Innovations]
         AI_PERSONALIZATION[AI Personalization<br/>Individualized experiences<br/>Predictive recommendations<br/>Dynamic pricing]
 
         VOICE_COMMERCE[Voice Commerce<br/>Conversational shopping<br/>Voice assistants<br/>Audio brand experiences]
@@ -505,7 +505,7 @@ graph TB
         BLOCKCHAIN_COMMERCE[Blockchain Commerce<br/>NFT integration<br/>Decentralized identity<br/>Web3 payments]
     end
 
-    subgraph Platform Evolution
+    subgraph Platform_Evolution[Platform Evolution]
         EDGE_COMMERCE[Edge Commerce<br/>Ultra-low latency<br/>Global distribution<br/>Real-time personalization]
 
         AUTONOMOUS_OPERATIONS[Autonomous Operations<br/>Self-healing systems<br/>Predictive scaling<br/>AI-driven optimization]

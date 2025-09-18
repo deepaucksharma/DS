@@ -43,27 +43,27 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - Blue #3B82F6
+    subgraph Edge_Plane___Blue__3B82F6[Edge Plane - Blue #3B82F6]
         CDN[Netflix CDN<br/>Global Cache Network<br/>POISONED CACHE]
         EDGE[Edge Servers<br/>Regional PoPs]
         DEVICE[Client Devices<br/>Smart TVs, Phones]
     end
 
-    subgraph Service Plane - Green #10B981
+    subgraph Service_Plane___Green__10B981[Service Plane - Green #10B981]
         PLAYBACK[Playback Service<br/>Video Streaming]
         METADATA[Metadata Service<br/>Content Information]
         RECOMMENDATION[Recommendation<br/>Content Discovery]
         BILLING[Billing Service<br/>Subscription Management]
     end
 
-    subgraph State Plane - Orange #F59E0B
+    subgraph State_Plane___Orange__F59E0B[State Plane - Orange #F59E0B]
         CONTENT[(Content Database<br/>Video Metadata)]
         PROFILES[(User Profiles<br/>Viewing History)]
         ANALYTICS[(Analytics Store<br/>Viewing Data)]
         ASSETS[(Video Assets<br/>Encoded Streams)]
     end
 
-    subgraph Control Plane - Red #8B5CF6
+    subgraph Control_Plane___Red__8B5CF6[Control Plane - Red #8B5CF6]
         MONITORING[System Monitoring<br/>Performance Metrics]
         DEPLOYMENT[Deployment System<br/>Code & Config Deploy]
         AUTOSCALE[Auto-scaling<br/>Capacity Management]

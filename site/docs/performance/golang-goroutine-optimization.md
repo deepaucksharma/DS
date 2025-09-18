@@ -10,24 +10,24 @@ Go runtime optimization from Docker Hub's container registry service - reducing 
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - CDN & Load Balancers
+    subgraph Edge_Plane___CDN___Load_Balancers[Edge Plane - CDN & Load Balancers]
         CloudFront[CloudFront CDN<br/>Global edge caching<br/>Container layer distribution]
         ALB[AWS ALB<br/>Application Load Balancer<br/>WebSocket support for Docker CLI]
     end
 
-    subgraph Service Plane - Container Registry
+    subgraph Service_Plane___Container_Registry[Service Plane - Container Registry]
         RegistryAPI[Docker Registry API<br/>Go 1.21 microservices<br/>200 instances worldwide]
         PushService[Image Push Service<br/>Blob storage handling<br/>Concurrent uploads]
         PullService[Image Pull Service<br/>Manifest distribution<br/>High-throughput downloads]
     end
 
-    subgraph State Plane - Go Runtime Management
+    subgraph State_Plane___Go_Runtime_Management[State Plane - Go Runtime Management]
         GoroutinePool[Goroutine Pool<br/>Worker pool pattern<br/>2000 max concurrent]
         MemoryManager[Go Memory Manager<br/>GC optimization<br/>GOGC=100, target 3.2GB]
         ChannelBuffers[Channel Buffers<br/>Bounded channels<br/>Backpressure handling]
     end
 
-    subgraph Control Plane - Observability
+    subgraph Control_Plane___Observability[Control Plane - Observability]
         Prometheus2[Prometheus Metrics<br/>Go runtime stats<br/>Goroutine monitoring]
         Jaeger[Jaeger Tracing<br/>Request lifecycle<br/>Goroutine correlation]
         PProf[Go pprof Profiling<br/>CPU and memory profiling<br/>Leak detection]
@@ -65,26 +65,26 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Before: Unbounded Goroutines - Memory Issues
+    subgraph Before__Unbounded_Goroutines___Memory_Issues[Before: Unbounded Goroutines - Memory Issues]
         Unbounded[Unbounded Goroutine Creation<br/>One per request<br/>No limits or pooling<br/>Memory explosion risk]
         Unbounded --> Spawn[Request Handling<br/>go handleRequest(req)<br/>Infinite goroutine creation<br/>Memory: 2KB per goroutine]
         Unbounded --> OOM[Memory Exhaustion<br/>Peak: 50,000 goroutines<br/>Memory: 12GB per instance<br/>OOM kills frequent]
     end
 
-    subgraph After: Worker Pool Pattern - Controlled Concurrency
+    subgraph After__Worker_Pool_Pattern___Controlled_Concurrency[After: Worker Pool Pattern - Controlled Concurrency]
         Bounded[Worker Pool Pattern<br/>Fixed goroutine count<br/>Channel-based work queue<br/>Predictable resource usage]
         Bounded --> WorkerPool[Worker Pool<br/>2,000 worker goroutines<br/>Buffered work channel<br/>Memory: 6.4MB stable]
         Bounded --> Stable[Stable Performance<br/>Peak: 2,000 goroutines<br/>Memory: 3.2GB per instance<br/>Zero OOM incidents]
     end
 
-    subgraph Worker Pool Implementation
+    subgraph Worker_Pool_Implementation[Worker Pool Implementation]
         Pool[Worker Pool Architecture]
         Pool --> Workers[Worker Goroutines<br/>Persistent background workers<br/>Blocking receive on work channel<br/>Graceful shutdown support]
         Pool --> WorkChan[Work Channel<br/>Buffered channel: cap(10000)<br/>Backpressure mechanism<br/>Fair work distribution]
         Pool --> Dispatcher[Work Dispatcher<br/>Intelligent work routing<br/>Load balancing<br/>Priority queues]
     end
 
-    subgraph Channel Buffer Optimization
+    subgraph Channel_Buffer_Optimization[Channel Buffer Optimization]
         Channels[Channel Strategy<br/>Right-sized buffers<br/>Prevent goroutine blocking<br/>Memory efficiency]
         Channels --> SmallBuf[Small Channels<br/>Buffer size: 1-10<br/>Signal channels<br/>Low memory overhead]
         Channels --> MediumBuf[Medium Channels<br/>Buffer size: 100-1000<br/>Work queues<br/>Balanced throughput]
@@ -111,26 +111,26 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Memory Allocation - Before
+    subgraph Memory_Allocation___Before[Memory Allocation - Before]
         Alloc1[High Allocation Rate<br/>Frequent small allocations<br/>Interface{} boxing<br/>String concatenation]
         Alloc1 --> GC1[Frequent GC Cycles<br/>GC every 100ms<br/>Pause time: 15ms<br/>CPU overhead: 25%]
         Alloc1 --> Pressure[Memory Pressure<br/>Heap growth: unbounded<br/>RSS: 12GB per instance<br/>Swap usage: common]
     end
 
-    subgraph Memory Allocation - After
+    subgraph Memory_Allocation___After[Memory Allocation - After]
         Alloc2[Optimized Allocation<br/>Object pooling<br/>Pre-allocated buffers<br/>String builders]
         Alloc2 --> GC2[Efficient GC Cycles<br/>GC every 2 seconds<br/>Pause time: 2ms<br/>CPU overhead: 5%]
         Alloc2 --> Efficient11[Memory Efficiency<br/>Heap growth: controlled<br/>RSS: 3.2GB per instance<br/>Zero swap usage]
     end
 
-    subgraph Object Pooling Strategy
+    subgraph Object_Pooling_Strategy[Object Pooling Strategy]
         ObjectPool[Object Pool Implementation<br/>sync.Pool usage<br/>Buffer reuse<br/>Connection pooling]
         ObjectPool --> BufferPool[Buffer Pool<br/>Pre-allocated byte slices<br/>Size categories: 1KB, 4KB, 16KB<br/>Reuse rate: 98%]
         ObjectPool --> ConnPool[Connection Pool<br/>HTTP client pooling<br/>Database connections<br/>Redis connections]
         ObjectPool --> StructPool[Struct Pooling<br/>Request/response objects<br/>Complex data structures<br/>Reduced allocations]
     end
 
-    subgraph GC Tuning Parameters
+    subgraph GC_Tuning_Parameters[GC Tuning Parameters]
         GCTuning[GC Configuration<br/>Environment variables<br/>Runtime optimization<br/>Workload-specific tuning]
         GCTuning --> GOGC[GOGC=100<br/>Balanced GC frequency<br/>2x heap growth trigger<br/>Memory vs CPU tradeoff]
         GCTuning --> GOMAXPROCS[GOMAXPROCS=auto<br/>CPU core utilization<br/>Container-aware sizing<br/>Optimal parallelism]
@@ -157,13 +157,13 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Context Propagation - Optimized
+    subgraph Context_Propagation___Optimized[Context Propagation - Optimized]
         Request3[Docker Pull Request<br/>Context with timeout<br/>Cancellation propagation]
         Request3 --> Context[Context Management<br/>context.WithTimeout(30s)<br/>Graceful cancellation<br/>Resource cleanup]
         Context --> Layers[Layer Processing<br/>Parallel goroutines<br/>Context cancellation<br/>Early exit on timeout]
     end
 
-    subgraph Request Lifecycle Stages
+    subgraph Request_Lifecycle_Stages[Request Lifecycle Stages]
         Stage1[Authentication<br/>JWT validation<br/>User permissions<br/>5ms average]
         Stage2[Manifest Processing<br/>Image metadata<br/>Layer validation<br/>15ms average]
         Stage3[Blob Storage<br/>S3/GCS operations<br/>Parallel uploads<br/>200ms average]
@@ -174,14 +174,14 @@ graph TB
         Stage3 --> Stage4
     end
 
-    subgraph Graceful Shutdown Pattern
+    subgraph Graceful_Shutdown_Pattern[Graceful Shutdown Pattern]
         Shutdown[Graceful Shutdown<br/>SIGTERM handling<br/>Connection draining<br/>Zero request loss]
         Shutdown --> StopAccept[Stop Accepting<br/>New connections rejected<br/>Existing requests continue<br/>30-second grace period]
         Shutdown --> WaitComplete[Wait for Completion<br/>Active requests finish<br/>Goroutine cleanup<br/>Resource release]
         Shutdown --> ForceExit[Force Exit<br/>Hard timeout reached<br/>Kill remaining goroutines<br/>Process termination]
     end
 
-    subgraph Error Handling and Recovery
+    subgraph Error_Handling_and_Recovery[Error Handling and Recovery]
         ErrorHandle[Error Handling Strategy<br/>Panic recovery<br/>Goroutine isolation<br/>Circuit breakers]
         ErrorHandle --> Recover[Panic Recovery<br/>defer recover()<br/>Error logging<br/>Service continuity]
         ErrorHandle --> Timeout[Timeout Handling<br/>Context deadline<br/>Resource cleanup<br/>Client notification]
@@ -208,28 +208,28 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Runtime Profiling Stack
+    subgraph Runtime_Profiling_Stack[Runtime Profiling Stack]
         Profiling[Go Profiling Tools<br/>Continuous monitoring<br/>Production-safe profiling<br/>Actionable insights]
         Profiling --> PProf2[pprof Integration<br/>HTTP endpoint: /debug/pprof<br/>CPU and memory profiles<br/>Goroutine analysis]
         Profiling --> Trace[Execution Tracing<br/>go tool trace<br/>Goroutine scheduling<br/>GC visualization]
         Profiling --> Metrics[Runtime Metrics<br/>runtime.MemStats<br/>Goroutine counts<br/>GC statistics]
     end
 
-    subgraph Key Performance Indicators
+    subgraph Key_Performance_Indicators[Key Performance Indicators]
         KPIs2[Performance KPIs<br/>Business-critical metrics<br/>SLA monitoring<br/>Alert thresholds]
         KPIs2 --> Goroutines[Goroutine Health<br/>Count: 1,800-2,000<br/>Leak detection: 0<br/>Blocked time: <1ms]
         KPIs2 --> Memory[Memory Efficiency<br/>Heap: 2.8-3.2GB<br/>GC frequency: 2s<br/>Allocation rate: 500MB/s]
         KPIs2 --> Latency[Request Latency<br/>p50: 25ms, p99: 150ms<br/>Timeout rate: <0.01%<br/>Success rate: 99.99%]
     end
 
-    subgraph Automated Monitoring
+    subgraph Automated_Monitoring[Automated Monitoring]
         Monitoring2[Monitoring Infrastructure<br/>Real-time alerting<br/>Trend analysis<br/>Capacity planning]
         Monitoring2 --> GoroutineLeak[Goroutine Leak Detection<br/>Threshold: +100 in 5min<br/>Stack trace capture<br/>Automatic alerts]
         Monitoring2 --> MemoryLeak[Memory Leak Detection<br/>Heap growth rate<br/>RSS monitoring<br/>GC effectiveness]
         Monitoring2 --> Performance4[Performance Regression<br/>Latency percentiles<br/>Throughput trends<br/>Error rate spikes]
     end
 
-    subgraph Continuous Profiling
+    subgraph Continuous_Profiling[Continuous Profiling]
         ContinuousProfiling[Continuous Profiling<br/>Pyroscope integration<br/>Historical analysis<br/>Performance evolution]
         ContinuousProfiling --> CPUProfile[CPU Profiling<br/>Function hot paths<br/>Optimization targets<br/>Performance bottlenecks]
         ContinuousProfiling --> MemProfile[Memory Profiling<br/>Allocation patterns<br/>Leak identification<br/>Optimization opportunities]

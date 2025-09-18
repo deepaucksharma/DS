@@ -7,7 +7,7 @@ Real production deployments at scale reveal MongoDB dominates flexible workloads
 
 ```mermaid
 graph TB
-    subgraph MongoDB Architecture
+    subgraph MongoDB_Architecture[MongoDB Architecture]
         subgraph EdgePlane1[Edge Plane]
             MONGOS[Mongos Routers<br/>Query routing<br/>10 instances]
         end
@@ -44,7 +44,7 @@ graph TB
         MONGOS --> CONFIG
     end
 
-    subgraph Cassandra Architecture
+    subgraph Cassandra_Architecture[Cassandra Architecture]
         subgraph EdgePlane2[Edge Plane]
             LB[Load Balancer<br/>Token-aware<br/>Client-side]
         end
@@ -314,7 +314,7 @@ instagram_migration:
 
 ```mermaid
 graph TB
-    subgraph Choose MongoDB When
+    subgraph Choose_MongoDB_When[Choose MongoDB When]
         M1[Flexible Schema<br/>Documents vary greatly]
         M2[Complex Queries<br/>Aggregation pipelines]
         M3[Transactions<br/>ACID requirements]
@@ -322,7 +322,7 @@ graph TB
         M5[Rapid Development<br/>Schema evolution]
     end
 
-    subgraph Choose Cassandra When
+    subgraph Choose_Cassandra_When[Choose Cassandra When]
         C1[Time Series<br/>Append-only data]
         C2[Write Heavy<br/>100K+ writes/sec]
         C3[Multi-DC<br/>Global distribution]
@@ -506,7 +506,7 @@ class CassandraFailures:
 
 ```mermaid
 graph LR
-    subgraph Cost per TB per Month
+    subgraph Cost_per_TB_per_Month[Cost per TB per Month]
         M_SMALL[MongoDB<br/>< 10TB<br/>$500/TB]
         M_MED[MongoDB<br/>10-100TB<br/>$300/TB]
         M_LARGE[MongoDB<br/>> 100TB<br/>$200/TB]

@@ -8,7 +8,7 @@ Twitch scaled from 3 co-founders streaming to each other (2011) to 2.8 billion h
 
 ```mermaid
 graph TB
-    subgraph "Justin.tv Lifecasting Platform"
+    subgraph Justin_tv_Lifecasting_Platform[""Justin.tv Lifecasting Platform""]
         subgraph EdgePlane[Edge - Basic CDN]
             AKAMAI[Akamai<br/>$30K/month<br/>Video delivery]
             LB[Load Balancer<br/>Single region]
@@ -91,7 +91,7 @@ class JustinTVStreaming:
 
 ```mermaid
 graph TB
-    subgraph "Gaming-Focused Architecture"
+    subgraph Gaming_Focused_Architecture[""Gaming-Focused Architecture""]
         subgraph EdgePlane[Edge - Gaming Optimized]
             LEVEL3[Level 3 CDN<br/>$2M/month<br/>Gaming routes]
             EDGE_SERVERS[Edge Servers<br/>20 locations<br/>Custom caching]
@@ -221,7 +221,7 @@ ffmpeg -i "$INPUT_STREAM" \
 
 ```mermaid
 graph TB
-    subgraph "AWS-Powered Infrastructure"
+    subgraph AWS_Powered_Infrastructure[""AWS-Powered Infrastructure""]
         subgraph EdgePlane[Edge - Global AWS]
             CLOUDFRONT[CloudFront<br/>$50M/year<br/>Global PoPs]
             TWITCH_EDGE[Twitch Edge<br/>Custom AWS<br/>100 locations]
@@ -427,7 +427,7 @@ func (cs *ChatService) processChatMessages(room *ChatRoom) {
 
 ```mermaid
 graph TB
-    subgraph "Pandemic-Scale Infrastructure"
+    subgraph Pandemic_Scale_Infrastructure[""Pandemic-Scale Infrastructure""]
         subgraph EdgePlane[Edge - Massive Scale]
             FASTLY_PRIMARY[Fastly<br/>$100M/year<br/>Primary CDN]
             AWS_CLOUDFRONT[AWS CloudFront<br/>$200M/year<br/>Video delivery]
@@ -810,7 +810,7 @@ class TwitchClipsService implements ClipCreationService {
 
 ```mermaid
 graph LR
-    subgraph "Streaming Protocol Evolution"
+    subgraph Streaming_Protocol_Evolution[""Streaming Protocol Evolution""]
         RTMP_ERA[2011-2015<br/>RTMP Only<br/>30s latency<br/>Flash required]
         HLS_ERA[2015-2018<br/>HLS Adaptive<br/>15s latency<br/>Mobile support]
         LLHLS_ERA[2018-2021<br/>Low Latency HLS<br/>3s latency<br/>Better experience]
@@ -829,7 +829,7 @@ graph LR
 
 ```mermaid
 graph LR
-    subgraph "Infrastructure Cost Growth"
+    subgraph Infrastructure_Cost_Growth[""Infrastructure Cost Growth""]
         Y2011[$50K/mo<br/>10K streamers<br/>$5/streamer]
         Y2014[$5M/mo<br/>1M streamers<br/>$5/streamer]
         Y2018[$50M/mo<br/>15M users<br/>$3.33/user]

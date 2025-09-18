@@ -275,7 +275,7 @@ Netflix_Elasticsearch_Cluster:
 
 ```mermaid
 graph TB
-    subgraph Uber Elasticsearch Architecture
+    subgraph Uber_Elasticsearch_Architecture[Uber Elasticsearch Architecture]
         subgraph EdgePlane[Edge Plane]
             LB[Load Balancer<br/>nginx: 50K req/s]
             CDN[CDN Cache<br/>Location queries]
@@ -287,13 +287,13 @@ graph TB
         end
 
         subgraph StatePlane[State Plane]
-            subgraph Hot Data (7 days)
+            subgraph Hot_Data__7_days[Hot Data (7 days)]
                 ES1[ES Data Node 1<br/>i3.2xlarge<br/>200GB index]
                 ES2[ES Data Node 2<br/>i3.2xlarge<br/>200GB index]
                 ES3[ES Data Node 3<br/>i3.2xlarge<br/>200GB index]
             end
 
-            subgraph Warm Data (30 days)
+            subgraph Warm_Data__30_days[Warm Data (30 days)]
                 ES4[ES Data Node 4<br/>r5d.xlarge<br/>500GB index]
                 ES5[ES Data Node 5<br/>r5d.xlarge<br/>500GB index]
             end

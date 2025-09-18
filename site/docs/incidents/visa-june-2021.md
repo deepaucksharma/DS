@@ -18,14 +18,14 @@
 
 ```mermaid
 graph TB
-    subgraph Visa Payment Network
+    subgraph Visa_Payment_Network[Visa Payment Network]
         AUTH[Payment Authorization<br/>Transaction Processing]
         SWITCH[Network Switch<br/>Data Center Hardware<br/>HARDWARE FAILURE]
         SETTLE[Settlement Service<br/>Bank-to-Bank Transfer]
         FRAUD[Fraud Detection<br/>Risk Analysis]
     end
 
-    subgraph European Infrastructure
+    subgraph European_Infrastructure[European Infrastructure]
         MERCHANTS[Merchant Terminals<br/>Point of Sale]
         ATMS[ATM Network<br/>Cash Withdrawals]
         BANKS[European Banks<br/>Card Issuers]

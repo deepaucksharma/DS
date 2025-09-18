@@ -8,25 +8,25 @@ Real-world failure frequencies and business impact from production systems.
 
 ```mermaid
 flowchart TB
-    subgraph EdgePlane["Edge Plane - Failure Detection"]
+    subgraph EdgePlane[Edge Plane - Failure Detection]
         MON["Monitoring Systems<br/>Detection: <30s average<br/>False Positive: 3%"]
         ALERT["Alert Systems<br/>MTTR: 2-5 minutes<br/>Escalation: 3 levels"]
     end
 
-    subgraph ServicePlane["Service Plane - Failure Types"]
+    subgraph ServicePlane[Service Plane - Failure Types]
         NET["Network Failures<br/>1-2/year<br/>Impact: Split brain"]
         LEADER["Leader Failures<br/>2-3/month<br/>Impact: Write unavail"]
         DISK["Storage Failures<br/>1/month<br/>Impact: Service down"]
         MEM["Memory Issues<br/>1/week<br/>Impact: Degradation"]
     end
 
-    subgraph StatePlane["State Plane - Impact Analysis"]
+    subgraph StatePlane[State Plane - Impact Analysis]
         REVENUE[("Revenue Impact<br/>$10K-$2M per hour<br/>Depends on severity")]
         SLA[("SLA Breaches<br/>99.9% = 43min/month<br/>99.99% = 4.3min/month")]
         REPUTATION[("Brand Damage<br/>Social media mentions<br/>Customer churn")]
     end
 
-    subgraph ControlPlane["Control Plane - Response"]
+    subgraph ControlPlane[Control Plane - Response]
         AUTO["Auto-Recovery<br/>Success Rate: 60%<br/>Safe Actions Only"]
         HUMAN["Human Response<br/>40% of incidents<br/>Complex scenarios"]
         LEARN["Post-mortem<br/>Blameless culture<br/>Action items"]
@@ -74,27 +74,27 @@ Layered failure analysis with automated detection and escalation patterns.
 
 ```mermaid
 flowchart TD
-    subgraph EdgePlane["Edge Plane - Failure Sources"]
+    subgraph EdgePlane[Edge Plane - Failure Sources]
         HW["Hardware Layer<br/>MTBF: 2-5 years<br/>Impact: Infrastructure"]
         SW["Software Layer<br/>MTBF: 1-3 months<br/>Impact: Service logic"]
         NET["Network Layer<br/>MTBF: 2-4 weeks<br/>Impact: Connectivity"]
         OPS["Operational Layer<br/>MTBF: 1-7 days<br/>Impact: Human error"]
     end
 
-    subgraph ServicePlane["Service Plane - Detection Systems"]
+    subgraph ServicePlane[Service Plane - Detection Systems]
         HWMON["Hardware Monitoring<br/>SMART, ECC, Power<br/>Detection: <5min"]
         APPMON["Application Monitoring<br/>Health checks, Metrics<br/>Detection: <30s"]
         NETMON["Network Monitoring<br/>Latency, Packet loss<br/>Detection: <15s"]
         OPSMON["Deployment Monitoring<br/>Change tracking<br/>Detection: <1min"]
     end
 
-    subgraph StatePlane["State Plane - Failure Context"]
+    subgraph StatePlane[State Plane - Failure Context]
         LOGS[("Error Logs<br/>Structured logging<br/>Retention: 90 days")]
         METRICS[("System Metrics<br/>Time series data<br/>Resolution: 15s")]
         TRACES[("Distributed Traces<br/>Request flow<br/>Sample rate: 1%")]
     end
 
-    subgraph ControlPlane["Control Plane - Response"]
+    subgraph ControlPlane[Control Plane - Response]
         AUTO["Automated Recovery<br/>60% success rate<br/>Safe operations"]
         ESCALATE["Human Escalation<br/>Complex scenarios<br/>MTTR: 15-45min"]
         POSTMORTEM["Post-incident<br/>Blameless analysis<br/>Action items"]
@@ -160,24 +160,24 @@ Multi-layered defense against the most common cause of production outages.
 
 ```mermaid
 flowchart TD
-    subgraph EdgePlane["Edge Plane - Load Management"]
+    subgraph EdgePlane[Edge Plane - Load Management]
         LB["Load Balancer<br/>Rate Limiting: 10K/sec<br/>Health Checks: 5s"]
         CDN["CDN Layer<br/>Cache Hit: 95%<br/>DDoS Protection"]
     end
 
-    subgraph ServicePlane["Service Plane - Circuit Protection"]
+    subgraph ServicePlane[Service Plane - Circuit Protection]
         CB["Circuit Breakers<br/>Failure Threshold: 5%<br/>Timeout: 3s"]
         RETRY["Retry Logic<br/>Exponential Backoff<br/>Max Attempts: 3"]
         SHED["Load Shedding<br/>Trigger: 80% capacity<br/>Drop Rate: 10%"]
     end
 
-    subgraph StatePlane["State Plane - Resource Isolation"]
+    subgraph StatePlane[State Plane - Resource Isolation]
         POOL1[("DB Pool 1<br/>Connections: 20<br/>Service: Orders")]
         POOL2[("DB Pool 2<br/>Connections: 20<br/>Service: Users")]
         CACHE[("Cache Layer<br/>TTL: 300s<br/>Hit Rate: 85%")]
     end
 
-    subgraph ControlPlane["Control Plane - Monitoring"]
+    subgraph ControlPlane[Control Plane - Monitoring]
         METRICS["Real-time Metrics<br/>Latency: p99<br/>Error Rate: 5min avg"]
         ALERTS["Alert System<br/>Threshold: 3 std dev<br/>Escalation: 15min"]
         AUTO["Auto-scaling<br/>CPU > 70%: Scale up<br/>Response: <2min"]

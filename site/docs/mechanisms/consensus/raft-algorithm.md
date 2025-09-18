@@ -141,7 +141,7 @@ raft_config:
 
 ```mermaid
 graph TB
-    subgraph Raft Safety Guarantees
+    subgraph Raft_Safety_Guarantees[Raft Safety Guarantees]
         LE[Leader Election Safety]
         LAS[Leader Append-Only Safety]
         LM[Log Matching Property]
@@ -168,14 +168,14 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Key Raft Metrics
+    subgraph Key_Raft_Metrics[Key Raft Metrics]
         TPS[Transactions/sec]
         LAT[Commit Latency p99]
         LEF[Leader Election Frequency]
         LRF[Log Replication Factor]
     end
 
-    subgraph Typical Production Values
+    subgraph Typical_Production_Values[Typical Production Values]
         TPS_VAL[10,000-50,000 TPS<br/>(etcd: ~10k, Consul: ~5k)]
         LAT_VAL[1-10ms p99<br/>(LAN: 1-3ms, WAN: 5-10ms)]
         LEF_VAL[< 1 per day<br/>(Healthy: 0, Issues: > 10/day)]

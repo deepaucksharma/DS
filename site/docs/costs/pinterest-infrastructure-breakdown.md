@@ -7,7 +7,7 @@ Complete infrastructure cost analysis from Pinterest's 2024 operations serving 4
 
 ```mermaid
 graph TB
-    subgraph Monthly Infrastructure: $45M
+    subgraph Monthly_Infrastructure___45M[Monthly Infrastructure: $45M]
         subgraph EdgePlane[Edge Plane - $12M/month]
             CDN[Image CDN<br/>$6M/month<br/>20PB/month]
             LB[Load Balancers<br/>$2M/month<br/>Global LB]
@@ -57,7 +57,7 @@ graph TB
 ### Image Infrastructure: $9M/month
 ```mermaid
 graph LR
-    subgraph Image Service Costs
+    subgraph Image_Service_Costs[Image Service Costs]
         STORAGE[Image Storage<br/>S3 + Glacier<br/>$3M/month]
         CDN_IMG[CDN Delivery<br/>20PB/month<br/>$6M/month]
         PROCESS[Image Processing<br/>Lambda + GPU<br/>$2M/month]
@@ -138,7 +138,7 @@ cost_per_recommendation = 0.002     # $0.002 per recommendation
 ### Feed Generation System: $1.5M/month
 ```mermaid
 graph TB
-    subgraph Feed Infrastructure Stack
+    subgraph Feed_Infrastructure_Stack[Feed Infrastructure Stack]
         subgraph Generation[Generation - $1M/month]
             RANKING[Ranking Service<br/>ML-based scoring<br/>$500K/month]
             FILTER[Content Filter<br/>Safety + quality<br/>$300K/month]
@@ -271,7 +271,7 @@ redis_deployment:
 
 ```mermaid
 graph LR
-    subgraph Global Infrastructure Distribution
+    subgraph Global_Infrastructure_Distribution[Global Infrastructure Distribution]
         US[US Regions<br/>$27M/month<br/>60%]
         EU[EU Regions<br/>$11M/month<br/>24%]
         ASIA[Asia Regions<br/>$5M/month<br/>11%]
@@ -358,7 +358,7 @@ additional_reduction = "19%"
 
 ```mermaid
 graph TB
-    subgraph Unit Economics
+    subgraph Unit_Economics[Unit Economics]
         USERS[450M Monthly Users]
         COST[Infrastructure: $45M/month]
 

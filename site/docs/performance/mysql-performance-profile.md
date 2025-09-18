@@ -102,15 +102,15 @@ mysql -e "SELECT
 
 ```mermaid
 graph LR
-    subgraph Before Optimization
+    subgraph Before_Optimization[Before Optimization]
         B1[innodb_buffer_pool_size = 4GB<br/>innodb_buffer_pool_instances = 1<br/>Hit ratio: 95%<br/>Query latency p95: 15ms]
     end
 
-    subgraph After Optimization
+    subgraph After_Optimization[After Optimization]
         A1[innodb_buffer_pool_size = 48GB<br/>innodb_buffer_pool_instances = 16<br/>Hit ratio: 99.8%<br/>Query latency p95: 2ms]
     end
 
-    subgraph Configuration Changes
+    subgraph Configuration_Changes[Configuration Changes]
         C1[Buffer pool sizing<br/>75% of available RAM<br/>64GB server → 48GB pool]
 
         C2[Instance count<br/>16 instances for better concurrency<br/>Reduces mutex contention]
@@ -138,14 +138,14 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph MySQL Group Replication Cluster
+    subgraph MySQL_Group_Replication_Cluster[MySQL Group Replication Cluster]
         M1[(Master 1<br/>Primary mode<br/>Write load: 30K TPS<br/>Group communication: 50ms)]
 
         M2[(Master 2<br/>Secondary<br/>Read load: 100K QPS<br/>Apply lag: 20ms)]
 
         M3[(Master 3<br/>Secondary<br/>Read load: 80K QPS<br/>Apply lag: 25ms)]
 
-        subgraph Group Communication
+        subgraph Group_Communication[Group Communication]
             GC[XCom Consensus<br/>Paxos protocol<br/>Majority voting<br/>Network partition tolerance]
 
             GL[Group Logging<br/>Binary log events<br/>GTIDs coordination<br/>Conflict detection]
@@ -157,7 +157,7 @@ graph TB
         GC --> GL
     end
 
-    subgraph Performance Metrics
+    subgraph Performance_Metrics[Performance Metrics]
         P1[Transaction certification<br/>Success rate: 99.5%<br/>Conflict rate: 0.5%<br/>Latency overhead: 5ms]
 
         P2[Network overhead<br/>Bandwidth: 50 Mbps<br/>Message size: 1-2KB avg<br/>Round-trip time: 2ms]
@@ -176,7 +176,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Traditional Master-Slave
+    subgraph Traditional_Master_Slave[Traditional Master-Slave]
         T1[Master<br/>Writes: All<br/>Reads: Optional]
         T2[Slave 1<br/>Lag: 100ms<br/>Consistent: Eventually]
         T3[Slave 2<br/>Lag: 200ms<br/>Consistent: Eventually]
@@ -187,7 +187,7 @@ graph LR
         T4[Failover: Manual<br/>RTO: 5-10 minutes<br/>Data loss: Possible]
     end
 
-    subgraph Group Replication
+    subgraph Group_Replication[Group Replication]
         G1[Primary<br/>Writes: All<br/>Synchronous commit]
         G2[Secondary 1<br/>Lag: 20ms<br/>Consistent: Strong]
         G3[Secondary 2<br/>Lag: 25ms<br/>Consistent: Strong]
@@ -214,7 +214,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Partitioned Table - Order History
+    subgraph Partitioned_Table___Order_History[Partitioned Table - Order History]
         P1[Partition 2024_Q1<br/>Rows: 10M<br/>Size: 2GB<br/>Index size: 200MB]
 
         P2[Partition 2024_Q2<br/>Rows: 12M<br/>Size: 2.4GB<br/>Index size: 240MB]
@@ -224,7 +224,7 @@ graph TB
         P4[Partition 2024_Q4<br/>Rows: 18M<br/>Size: 3.6GB<br/>Index size: 360MB]
     end
 
-    subgraph Query Performance
+    subgraph Query_Performance[Query Performance]
         Q1[SELECT * FROM orders<br/>WHERE order_date >= '2024-10-01'<br/>AND order_date < '2024-11-01']
 
         Q2[Partition pruning<br/>Examines: P4 only<br/>Rows scanned: 3M instead of 55M<br/>Query time: 0.5s vs 8s]
@@ -232,7 +232,7 @@ graph TB
         Q1 --> Q2
     end
 
-    subgraph Maintenance Benefits
+    subgraph Maintenance_Benefits[Maintenance Benefits]
         M1[Partition dropping<br/>DELETE old data: 0.1s<br/>vs DELETE command: 2 hours]
 
         M2[Index maintenance<br/>Per-partition indexes<br/>Rebuild time: 10min vs 4 hours]
@@ -253,7 +253,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Hash Partitioned User Table
+    subgraph Hash_Partitioned_User_Table[Hash Partitioned User Table]
         H1[Partition 0<br/>hash user_id % 8 = 0<br/>Rows: 12.5M<br/>Hotness: Even]
 
         H2[Partition 1<br/>hash user_id % 8 = 1<br/>Rows: 12.5M<br/>Hotness: Even]
@@ -263,13 +263,13 @@ graph TB
         H4[Total: 100M users<br/>Even distribution<br/>No hot partitions]
     end
 
-    subgraph Load Balancing Results
+    subgraph Load_Balancing_Results[Load Balancing Results]
         L1[Write distribution<br/>Each partition: 12.5K TPS<br/>No bottlenecks<br/>Linear scaling]
 
         L2[Read distribution<br/>Cache hit ratio: 95%<br/>Buffer pool efficiency<br/>Parallel query execution]
     end
 
-    subgraph vs Single Table
+    subgraph vs_Single_Table[vs Single Table]
         S1[Single table issues<br/>Lock contention<br/>Buffer pool thrashing<br/>Index hotspots]
 
         S2[Partition benefits<br/>Parallel processing<br/>Reduced lock scope<br/>Better cache locality]
@@ -290,13 +290,13 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Connection-per-Thread (Default)
+    subgraph Connection_per_Thread__Default[Connection-per-Thread (Default)]
         CT1[Client 1] --> T1[Thread 1<br/>Memory: 2MB<br/>Context switches: High]
         CT2[Client 2] --> T2[Thread 2<br/>Memory: 2MB<br/>Dedicated connection]
         CT3[Client 1000] --> T1000[Thread 1000<br/>Memory: 2GB total<br/>Scheduler overhead: High]
     end
 
-    subgraph Thread Pool
+    subgraph Thread_Pool[Thread Pool]
         TP1[Client 1] --> P1[Thread Pool<br/>Size: 64 threads<br/>Memory: 128MB]
         TP2[Client 2] --> P1
         TP3[Client 1000] --> P1
@@ -305,7 +305,7 @@ graph LR
         P1 --> W2[Worker 64<br/>Better CPU utilization<br/>Reduced context switching]
     end
 
-    subgraph Performance Impact
+    subgraph Performance_Impact[Performance Impact]
         PI1[Connection-per-thread<br/>Max connections: 1000<br/>Memory: 2GB threads<br/>Context switches: 50K/sec]
 
         PI2[Thread pool<br/>Max connections: 10000<br/>Memory: 128MB threads<br/>Context switches: 5K/sec]
@@ -324,7 +324,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Thread Pool Sizing Strategy
+    subgraph Thread_Pool_Sizing_Strategy[Thread Pool Sizing Strategy]
         S1[thread_pool_size = CPU cores<br/>For CPU-bound workloads<br/>64 cores = 64 threads]
 
         S2[thread_pool_size = 2 × CPU cores<br/>For mixed workloads<br/>64 cores = 128 threads]
@@ -332,7 +332,7 @@ graph TB
         S3[thread_pool_size = 4 × CPU cores<br/>For I/O-bound workloads<br/>64 cores = 256 threads]
     end
 
-    subgraph Real Performance Results
+    subgraph Real_Performance_Results[Real Performance Results]
         R1[CPU-bound sizing<br/>Latency p95: 5ms<br/>Throughput: 80K QPS<br/>CPU utilization: 95%]
 
         R2[Mixed workload sizing<br/>Latency p95: 8ms<br/>Throughput: 120K QPS<br/>CPU utilization: 85%]
@@ -357,12 +357,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Uber Schemaless Layer
+    subgraph Uber_Schemaless_Layer[Uber Schemaless Layer]
         APP[Uber Application<br/>Requests: 1M QPS<br/>Latency target: < 5ms p99]
 
         SCHEMA[Schemaless Layer<br/>Connection pooling<br/>Intelligent routing<br/>Consistent hashing]
 
-        subgraph MySQL Shards
+        subgraph MySQL_Shards[MySQL Shards]
             S1[(Shard 1<br/>Users: 10M<br/>TPS: 50K<br/>Storage: 2TB)]
 
             S2[(Shard 2<br/>Users: 10M<br/>TPS: 50K<br/>Storage: 2TB)]
@@ -376,7 +376,7 @@ graph TB
         SCHEMA --> S16
     end
 
-    subgraph Performance Achievements
+    subgraph Performance_Achievements[Performance Achievements]
         P1[Total throughput: 800K TPS<br/>Read latency p99: 2ms<br/>Write latency p99: 5ms<br/>Availability: 99.99%]
 
         P2[Scaling characteristics<br/>Linear scaling to 200+ shards<br/>No cross-shard transactions<br/>Automatic failover: 30s]
@@ -397,15 +397,15 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph InnoDB Configuration
+    subgraph InnoDB_Configuration[InnoDB Configuration]
         I1[innodb_buffer_pool_size = 48GB<br/>innodb_buffer_pool_instances = 16<br/>innodb_log_file_size = 2GB<br/>innodb_flush_log_at_trx_commit = 1]
     end
 
-    subgraph Performance Configuration
+    subgraph Performance_Configuration[Performance Configuration]
         P1[max_connections = 2000<br/>thread_pool_size = 128<br/>query_cache_type = OFF<br/>innodb_io_capacity = 20000]
     end
 
-    subgraph Replication Configuration
+    subgraph Replication_Configuration[Replication Configuration]
         R1[log_bin = ON<br/>binlog_format = ROW<br/>sync_binlog = 1<br/>gtid_mode = ON]
     end
 
@@ -430,7 +430,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Slow Query Analysis
+    subgraph Slow_Query_Analysis[Slow Query Analysis]
         SQ1[Enable slow_query_log<br/>long_query_time = 0.1<br/>log_queries_not_using_indexes = ON]
 
         SQ2[Query analysis tools<br/>pt-query-digest<br/>Performance Schema<br/>sys schema views]
@@ -438,7 +438,7 @@ graph TB
         SQ1 --> SQ2
     end
 
-    subgraph Index Optimization
+    subgraph Index_Optimization[Index Optimization]
         IO1[Missing index detection<br/>EXPLAIN analysis<br/>Index usage statistics<br/>Duplicate index removal]
 
         IO2[Composite index strategy<br/>Left-most prefix rule<br/>Covering indexes<br/>Index merge optimization]
@@ -446,7 +446,7 @@ graph TB
         IO1 --> IO2
     end
 
-    subgraph Results Achieved
+    subgraph Results_Achieved[Results Achieved]
         R1[Query performance<br/>p95 latency: 15ms → 2ms<br/>Index efficiency: 85% → 99%<br/>Full table scans: 5% → 0.1%]
     end
 

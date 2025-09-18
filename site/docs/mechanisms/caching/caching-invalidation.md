@@ -8,23 +8,23 @@ Cache invalidation ensures data consistency by removing or updating stale cached
 
 ```mermaid
 graph TB
-    subgraph Cache Invalidation Strategies
-        subgraph Time-Based Invalidation
+    subgraph Cache_Invalidation_Strategies[Cache Invalidation Strategies]
+        subgraph Time_Based_Invalidation[Time-Based Invalidation]
             TTL[Time-To-Live (TTL)<br/>✅ Simple to implement<br/>✅ Automatic cleanup<br/>❌ May serve stale data<br/>❌ Fixed expiration time]
             SLIDING[Sliding Window<br/>✅ Adapts to usage<br/>✅ Keep hot data longer<br/>❌ Complex implementation<br/>❌ Unpredictable expiry]
         end
 
-        subgraph Event-Driven Invalidation
+        subgraph Event_Driven_Invalidation[Event-Driven Invalidation]
             MANUAL[Manual Invalidation<br/>✅ Immediate consistency<br/>✅ Precise control<br/>❌ Complex coordination<br/>❌ Application coupling]
             PUBLISH[Publish-Subscribe<br/>✅ Decoupled invalidation<br/>✅ Multi-cache coordination<br/>❌ Message delivery issues<br/>❌ Network dependency]
         end
 
-        subgraph Write-Pattern Invalidation
+        subgraph Write_Pattern_Invalidation[Write-Pattern Invalidation]
             WRITE_THROUGH[Write-Through<br/>✅ Always consistent<br/>✅ Simplified reads<br/>❌ Higher write latency<br/>❌ All writes cached]
             WRITE_AROUND[Write-Around<br/>✅ Fast writes<br/>✅ No write amplification<br/>❌ Cache misses on reads<br/>❌ Manual invalidation needed]
         end
 
-        subgraph Intelligent Invalidation
+        subgraph Intelligent_Invalidation[Intelligent Invalidation]
             DEPENDENCY[Dependency-Based<br/>✅ Precise invalidation<br/>✅ Minimal cache waste<br/>❌ Complex relationships<br/>❌ Maintenance overhead]
             VERSION[Version-Based<br/>✅ Conflict detection<br/>✅ Concurrent updates<br/>❌ Version management<br/>❌ Storage overhead]
         end
@@ -249,21 +249,21 @@ class TTLStrategyManager:
 
 ```mermaid
 graph TB
-    subgraph Event-Driven Cache Invalidation
-        subgraph Data Update Flow
+    subgraph Event_Driven_Cache_Invalidation[Event-Driven Cache Invalidation]
+        subgraph Data_Update_Flow[Data Update Flow]
             APP[Application]
             DB[Database]
             EVENT_BUS[Event Bus<br/>Redis Pub/Sub<br/>Kafka<br/>RabbitMQ]
         end
 
-        subgraph Cache Layer
+        subgraph Cache_Layer[Cache Layer]
             CACHE1[Cache Instance 1]
             CACHE2[Cache Instance 2]
             CACHE3[Cache Instance 3]
             CACHE_MGR[Cache Manager<br/>Subscription Handler<br/>Invalidation Logic]
         end
 
-        subgraph Event Types
+        subgraph Event_Types[Event Types]
             UPDATE_EVENT[Update Events<br/>user.updated<br/>product.price_changed<br/>inventory.stock_changed]
             DELETE_EVENT[Delete Events<br/>user.deleted<br/>product.discontinued]
             BULK_EVENT[Bulk Events<br/>category.products_updated<br/>region.users_migrated]
@@ -593,26 +593,26 @@ if __name__ == "__main__":
 
 ```mermaid
 graph TB
-    subgraph Cache Dependency Graph
-        subgraph User Data Dependencies
+    subgraph Cache_Dependency_Graph[Cache Dependency Graph]
+        subgraph User_Data_Dependencies[User Data Dependencies]
             USER_PROFILE[user:profile:123]
             USER_PREFS[user:preferences:123]
             USER_POSTS[user:posts:123]
             USER_FOLLOWERS[user:followers:123]
         end
 
-        subgraph Derived Data
+        subgraph Derived_Data[Derived Data]
             FEED_DATA[feed:user:123]
             RECOMMENDATIONS[recommendations:123]
             NOTIFICATIONS[notifications:123]
         end
 
-        subgraph Aggregate Data
+        subgraph Aggregate_Data[Aggregate Data]
             USER_STATS[user:stats:123]
             DASHBOARD[dashboard:user:123]
         end
 
-        subgraph Invalidation Cascade
+        subgraph Invalidation_Cascade[Invalidation Cascade]
             TRIGGER[User Profile Updated]
             CASCADE[Cascade Invalidation<br/>1. user:profile:123<br/>2. feed:user:123<br/>3. recommendations:123<br/>4. dashboard:user:123]
         end

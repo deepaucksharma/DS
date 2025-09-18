@@ -77,7 +77,7 @@ sequenceDiagram
 ### 1. DNS Resolution (20ms budget)
 ```mermaid
 graph LR
-    subgraph DNS Resolution Flow
+    subgraph DNS_Resolution_Flow[DNS Resolution Flow]
         A[User Query] --> B[Local Resolver]
         B --> C{Cached?}
         C -->|Yes| D[Return IP]
@@ -103,7 +103,7 @@ graph LR
 ### 2. Anycast Routing (5ms budget)
 ```mermaid
 graph TB
-    subgraph Anycast Network
+    subgraph Anycast_Network[Anycast Network]
         USER[User Request] --> INTERNET[Internet Backbone]
         INTERNET --> BGP[BGP Best Path Selection]
         BGP --> POP1[PoP: San Francisco<br/>Latency: 5ms]
@@ -127,7 +127,7 @@ graph TB
 ### 3. Security Processing (10ms budget)
 ```mermaid
 graph TB
-    subgraph Security Layers
+    subgraph Security_Layers[Security Layers]
         REQUEST[Incoming Request] --> L3[Layer 3/4 DDoS<br/>Volumetric attacks]
         L3 --> L7[Layer 7 DDoS<br/>Application attacks]
         L7 --> BOT[Bot Management<br/>ML-based detection]
@@ -159,7 +159,7 @@ graph TB
 ### 4. Workers Execution (50ms budget)
 ```mermaid
 graph TB
-    subgraph Workers Runtime Environment
+    subgraph Workers_Runtime_Environment[Workers Runtime Environment]
         TRIGGER[Cache Miss Trigger] --> ISOLATE[Create V8 Isolate<br/>Cold start: <1ms]
         ISOLATE --> FETCH[Fetch Event Handler]
         FETCH --> KV_READ[Workers KV Read<br/>1-5ms latency]
@@ -183,7 +183,7 @@ graph TB
 ### 5. Cache Processing (5ms budget)
 ```mermaid
 graph LR
-    subgraph Cache Hierarchy
+    subgraph Cache_Hierarchy[Cache Hierarchy]
         REQUEST[Request] --> L1[L1 Cache<br/>RAM: 32GB]
         L1 --> L2[L2 Cache<br/>SSD: 100TB]
         L2 --> ORIGIN[Origin Fetch]

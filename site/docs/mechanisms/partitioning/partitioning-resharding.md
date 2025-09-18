@@ -8,20 +8,20 @@ Online resharding is the process of redistributing data across partitions while 
 
 ```mermaid
 graph TB
-    subgraph Resharding Complexity Factors
-        subgraph Data Consistency
+    subgraph Resharding_Complexity_Factors[Resharding Complexity Factors]
+        subgraph Data_Consistency[Data Consistency]
             CONSISTENCY[Maintaining Consistency<br/>• Atomic operations<br/>• ACID guarantees<br/>• Read consistency<br/>• Write ordering]
         end
 
-        subgraph System Availability
+        subgraph System_Availability[System Availability]
             AVAILABILITY[Zero Downtime Requirement<br/>• Continuous service<br/>• No client interruption<br/>• Gradual migration<br/>• Rollback capability]
         end
 
-        subgraph Performance Impact
+        subgraph Performance_Impact[Performance Impact]
             PERFORMANCE[Minimizing Performance Impact<br/>• Network bandwidth<br/>• Source partition load<br/>• Target partition load<br/>• Migration duration]
         end
 
-        subgraph Operational Complexity
+        subgraph Operational_Complexity[Operational Complexity]
             OPERATIONS[Managing Complexity<br/>• Coordination overhead<br/>• State management<br/>• Error handling<br/>• Progress monitoring]
         end
     end
@@ -131,17 +131,17 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph Range-Based Partition Split
-        subgraph Before Resharding
+    subgraph Range_Based_Partition_Split[Range-Based Partition Split]
+        subgraph Before_Resharding[Before Resharding]
             BEFORE[Partition A<br/>Range: users_000 - users_999<br/>Size: 100GB<br/>Load: 50,000 QPS]
         end
 
-        subgraph After Resharding
+        subgraph After_Resharding[After Resharding]
             AFTER1[Partition A1<br/>Range: users_000 - users_499<br/>Size: 50GB<br/>Load: 25,000 QPS]
             AFTER2[Partition A2<br/>Range: users_500 - users_999<br/>Size: 50GB<br/>Load: 25,000 QPS]
         end
 
-        subgraph Split Process
+        subgraph Split_Process[Split Process]
             SPLIT_STEPS[
                 1. Determine split point (users_500)<br/>
                 2. Create new partition A2<br/>
@@ -169,16 +169,16 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Hash-Based Resharding (3 to 4 nodes)
-        subgraph Original Hash Ring
+    subgraph Hash_Based_Resharding__3_to_4_nodes[Hash-Based Resharding (3 to 4 nodes)]
+        subgraph Original_Hash_Ring[Original Hash Ring]
             ORIG[3 Nodes<br/>hash(key) % 3<br/>Node 0: 33.3%<br/>Node 1: 33.3%<br/>Node 2: 33.3%]
         end
 
-        subgraph New Hash Ring
+        subgraph New_Hash_Ring[New Hash Ring]
             NEW[4 Nodes<br/>hash(key) % 4<br/>Node 0: 25%<br/>Node 1: 25%<br/>Node 2: 25%<br/>Node 3: 25%]
         end
 
-        subgraph Migration Impact
+        subgraph Migration_Impact[Migration Impact]
             IMPACT[Data Movement<br/>~75% of keys move<br/>Requires careful coordination<br/>High network usage]
         end
     end
@@ -195,12 +195,12 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Consistent Hash Resharding
-        subgraph Adding Node to Ring
+    subgraph Consistent_Hash_Resharding[Consistent Hash Resharding]
+        subgraph Adding_Node_to_Ring[Adding Node to Ring]
             ADD_NODE[Adding Node D<br/>Position: 1,500,000,000<br/>Only affects adjacent ranges<br/>~25% of Node B's data moves]
         end
 
-        subgraph Virtual Node Migration
+        subgraph Virtual_Node_Migration[Virtual Node Migration]
             VNODE_MIG[Virtual Node Migration<br/>Move individual vnodes<br/>Granular data movement<br/>Better load balancing]
         end
 
@@ -687,16 +687,16 @@ if __name__ == "__main__":
 
 ```mermaid
 graph TB
-    subgraph Resharding Bandwidth Control
-        subgraph Traffic Shaping
+    subgraph Resharding_Bandwidth_Control[Resharding Bandwidth Control]
+        subgraph Traffic_Shaping[Traffic Shaping]
             RATE_LIMIT[Rate Limiting<br/>• Bytes per second limit<br/>• Burst allowance<br/>• Priority queuing<br/>• Adaptive throttling]
         end
 
-        subgraph Load Balancing
+        subgraph Load_Balancing[Load Balancing]
             LOAD_BALANCE[Load Distribution<br/>• Spread across time<br/>• Multiple paths<br/>• Parallel transfers<br/>• Off-peak scheduling]
         end
 
-        subgraph Resource Management
+        subgraph Resource_Management[Resource Management]
             RESOURCE_MGMT[Resource Allocation<br/>• Dedicated bandwidth<br/>• CPU throttling<br/>• Memory limits<br/>• I/O prioritization]
         end
 

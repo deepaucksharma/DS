@@ -60,7 +60,7 @@ timeline
 
 ```mermaid
 graph TB
-    subgraph Before: Monolithic Architecture (2014)
+    subgraph Before__Monolithic_Architecture__2014[Before: Monolithic Architecture (2014)]
         subgraph EdgePlane[Edge Plane - CDN & Load Balancing]
             ELB[AWS ELB<br/>50k concurrent connections<br/>Single point of failure]
             CF[CloudFlare CDN<br/>Static assets only<br/>Limited geographic coverage]
@@ -141,7 +141,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Phase 1: Core Service Extraction (6 months)
+    subgraph Phase_1__Core_Service_Extraction__6_months[Phase 1: Core Service Extraction (6 months)]
         subgraph EdgePlane[Edge Plane - Gateway Introduction]
             ELB[AWS ELB<br/>Geographic distribution<br/>Health check improvements]
             API[API Gateway v1<br/>Kong 0.4<br/>Rate limiting + auth<br/>Request routing]
@@ -196,7 +196,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Phase 2: Domain Service Expansion (6 months)
+    subgraph Phase_2__Domain_Service_Expansion__6_months[Phase 2: Domain Service Expansion (6 months)]
         subgraph EdgePlane[Edge Plane - Multi-Region]
             ELB_US[US Load Balancer<br/>us-east-1<br/>Primary region]
             ELB_EU[EU Load Balancer<br/>eu-west-1<br/>European expansion]
@@ -283,7 +283,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Phase 3: Microservices at Scale (12 months)
+    subgraph Phase_3__Microservices_at_Scale__12_months[Phase 3: Microservices at Scale (12 months)]
         subgraph EdgePlane[Edge Plane - Global Distribution]
             CDN[CloudFlare Pro<br/>Global edge locations<br/>API caching<br/>DDoS protection]
             ALB[AWS ALB<br/>Application-aware<br/>Path-based routing<br/>Health checks]
@@ -398,7 +398,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph After: Microservices Architecture (2016)
+    subgraph After__Microservices_Architecture__2016[After: Microservices Architecture (2016)]
         subgraph EdgePlane[Edge Plane - Global Edge]
             CDN[CloudFlare Enterprise<br/>150+ edge locations<br/>Smart routing<br/>API optimization]
             ALB[AWS ALB + Route53<br/>Geographic routing<br/>Health-based failover<br/>Latency-based routing]

@@ -53,8 +53,8 @@ Total Required Capacity = (Base RPS + Peak Factor × Seasonality × Growth)
 
 ```mermaid
 graph TB
-    subgraph API Gateway Request Processing Pipeline
-        subgraph Ingress Processing (5-15ms)
+    subgraph API_Gateway_Request_Processing_Pipeline[API Gateway Request Processing Pipeline]
+        subgraph Ingress_Processing__5_15ms[Ingress Processing (5-15ms)]
             AUTH[Authentication<br/>JWT validation: 2-5ms<br/>API key lookup: 1-3ms<br/>OAuth flow: 10-50ms]
 
             RATE_LIMIT[Rate Limiting<br/>Token bucket: 0.1-1ms<br/>Sliding window: 1-5ms<br/>Distributed counter: 2-10ms]
@@ -62,19 +62,19 @@ graph TB
             VALIDATE[Request Validation<br/>Schema validation: 1-3ms<br/>Header processing: 0.5-1ms<br/>Body parsing: 2-10ms]
         end
 
-        subgraph Routing & Load Balancing (2-8ms)
+        subgraph Routing___Load_Balancing__2_8ms[Routing & Load Balancing (2-8ms)]
             ROUTING[Route Resolution<br/>Path matching: 0.5-2ms<br/>Header routing: 1-3ms<br/>Weighted routing: 1-5ms]
 
             LB[Load Balancing<br/>Round robin: 0.1-0.5ms<br/>Least connections: 1-3ms<br/>Health checks: 2-5ms]
         end
 
-        subgraph Backend Processing (50-500ms)
+        subgraph Backend_Processing__50_500ms[Backend Processing (50-500ms)]
             UPSTREAM[Upstream Service<br/>Database queries: 5-100ms<br/>Business logic: 10-200ms<br/>External APIs: 50-1000ms]
 
             TIMEOUT[Timeout Handling<br/>Circuit breaker: 1-2ms<br/>Retry logic: 10-100ms<br/>Fallback: 5-20ms]
         end
 
-        subgraph Response Processing (3-12ms)
+        subgraph Response_Processing__3_12ms[Response Processing (3-12ms)]
             TRANSFORM[Response Transform<br/>Data mapping: 2-8ms<br/>Compression: 1-5ms<br/>Caching: 0.5-2ms]
 
             LOGGING[Logging & Metrics<br/>Access logs: 1-3ms<br/>Metrics collection: 0.5-2ms<br/>Distributed tracing: 1-5ms]
@@ -91,7 +91,7 @@ graph TB
     TRANSFORM --> LOGGING
 
     %% Processing time annotations
-    subgraph Total Processing Time
+    subgraph Total_Processing_Time[Total Processing Time]
         TOTAL[Total Latency Breakdown<br/>Authentication: 5-25%<br/>Routing: 10-15%<br/>Backend: 60-80%<br/>Response: 5-15%]
     end
 
@@ -125,7 +125,7 @@ Where:
 
 ```mermaid
 graph TB
-    subgraph Circuit Breaker State Machine
+    subgraph Circuit_Breaker_State_Machine[Circuit Breaker State Machine]
         CLOSED[Closed State<br/>Normal operation<br/>Success rate > 95%<br/>Latency < SLA]
 
         OPEN[Open State<br/>Fail fast mode<br/>Error rate > threshold<br/>Duration: 30-60 seconds]
@@ -139,7 +139,7 @@ graph TB
     HALF_OPEN -->|Success rate > 95%<br/>Latency normal| CLOSED
 
     %% Threshold calculations
-    subgraph Threshold Calculations
+    subgraph Threshold_Calculations[Threshold Calculations]
         THRESHOLDS[Failure Threshold: 5-20 errors in 30 seconds<br/>Latency Threshold: 2x normal response time<br/>Recovery Threshold: 90% success rate<br/>Timeout Period: 30-300 seconds]
     end
 

@@ -8,33 +8,33 @@ Understanding Raft performance characteristics is crucial for capacity planning 
 
 ```mermaid
 graph TB
-    subgraph Raft Performance Factors
-        subgraph Network Factors
+    subgraph Raft_Performance_Factors[Raft Performance Factors]
+        subgraph Network_Factors[Network Factors]
             RTT[Network RTT]
             BW[Network Bandwidth]
             JITTER[Network Jitter]
         end
 
-        subgraph Disk I/O Factors
+        subgraph Disk_I_O_Factors[Disk I/O Factors]
             FSYNC[fsync() Latency]
             IOPS[Disk IOPS]
             THROUGHPUT[Disk Throughput]
         end
 
-        subgraph CPU Factors
+        subgraph CPU_Factors[CPU Factors]
             SERIALIZE[Serialization Cost]
             CRYPTO[Encryption Overhead]
             GC[Garbage Collection]
         end
 
-        subgraph Algorithm Factors
+        subgraph Algorithm_Factors[Algorithm Factors]
             BATCH[Batch Size]
             PIPELINE[Pipeline Depth]
             CLUSTER_SIZE[Cluster Size]
         end
     end
 
-    subgraph Performance Outcomes
+    subgraph Performance_Outcomes[Performance Outcomes]
         COMMIT_LAT[Commit Latency]
         THROUGHPUT_OUT[Transactions/sec]
         AVAILABILITY[Availability %]
@@ -89,26 +89,26 @@ gantt
 
 ```mermaid
 graph LR
-    subgraph Cluster Size Impact
-        subgraph 3 Nodes
+    subgraph Cluster_Size_Impact[Cluster Size Impact]
+        subgraph sg_3_Nodes[3 Nodes]
             THREE_TPS[15,000 TPS]
             THREE_LAT[3ms p99]
             THREE_QUORUM[2/3 majority]
         end
 
-        subgraph 5 Nodes
+        subgraph sg_5_Nodes[5 Nodes]
             FIVE_TPS[12,000 TPS]
             FIVE_LAT[5ms p99]
             FIVE_QUORUM[3/5 majority]
         end
 
-        subgraph 7 Nodes
+        subgraph sg_7_Nodes[7 Nodes]
             SEVEN_TPS[8,000 TPS]
             SEVEN_LAT[8ms p99]
             SEVEN_QUORUM[4/7 majority]
         end
 
-        subgraph Trade-off Analysis
+        subgraph Trade_off_Analysis[Trade-off Analysis]
             RELIABILITY[Higher reliability<br/>but lower performance]
             NETWORK[More network overhead<br/>per commit]
             CONSENSUS[Harder to reach<br/>consensus quickly]
@@ -176,33 +176,33 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph Pipeline Configuration Impact
-        subgraph Pipeline Depth: 1 (No Pipelining)
+    subgraph Pipeline_Configuration_Impact[Pipeline Configuration Impact]
+        subgraph Pipeline_Depth__1__No_Pipelining[Pipeline Depth: 1 (No Pipelining)]
             P1_TPS[5,000 TPS]
             P1_LAT[2ms avg latency]
             P1_UTIL[50% network utilization]
         end
 
-        subgraph Pipeline Depth: 4
+        subgraph Pipeline_Depth__4[Pipeline Depth: 4]
             P4_TPS[15,000 TPS]
             P4_LAT[4ms avg latency]
             P4_UTIL[80% network utilization]
         end
 
-        subgraph Pipeline Depth: 16
+        subgraph Pipeline_Depth__16[Pipeline Depth: 16]
             P16_TPS[25,000 TPS]
             P16_LAT[12ms avg latency]
             P16_UTIL[95% network utilization]
         end
 
-        subgraph Pipeline Depth: 64
+        subgraph Pipeline_Depth__64[Pipeline Depth: 64]
             P64_TPS[28,000 TPS]
             P64_LAT[50ms avg latency]
             P64_UTIL[98% network utilization]
         end
     end
 
-    subgraph Sweet Spot Analysis
+    subgraph Sweet_Spot_Analysis[Sweet Spot Analysis]
         OPTIMAL[Pipeline Depth: 8-16<br/>Best throughput/latency balance<br/>Good failure recovery]
     end
 
@@ -225,39 +225,39 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Storage Performance
-        subgraph HDD (7200 RPM)
+    subgraph Storage_Performance[Storage Performance]
+        subgraph HDD__7200_RPM[HDD (7200 RPM)]
             HDD_IOPS[~150 IOPS]
             HDD_FSYNC[~7ms fsync]
             HDD_TPS[~200 TPS max]
         end
 
-        subgraph SSD (SATA)
+        subgraph SSD__SATA[SSD (SATA)]
             SSD_IOPS[~50,000 IOPS]
             SSD_FSYNC[~0.1ms fsync]
             SSD_TPS[~10,000 TPS]
         end
 
-        subgraph NVMe SSD
+        subgraph NVMe_SSD[NVMe SSD]
             NVME_IOPS[~500,000 IOPS]
             NVME_FSYNC[~0.05ms fsync]
             NVME_TPS[~50,000 TPS]
         end
 
-        subgraph Memory (Battery-backed)
+        subgraph Memory__Battery_backed[Memory (Battery-backed)]
             MEM_IOPS[~1,000,000 IOPS]
             MEM_FSYNC[~0.01ms fsync]
             MEM_TPS[~100,000 TPS]
         end
     end
 
-    subgraph Network Performance
-        subgraph 1 Gbps
+    subgraph Network_Performance[Network Performance]
+        subgraph sg_1_Gbps[1 Gbps]
             NET1_BW[125 MB/s]
             NET1_LAT[~0.5ms LAN]
         end
 
-        subgraph 10 Gbps
+        subgraph sg_10_Gbps[10 Gbps]
             NET10_BW[1.25 GB/s]
             NET10_LAT[~0.1ms LAN]
         end
@@ -390,22 +390,22 @@ prometheus_queries:
 
 ```mermaid
 graph LR
-    subgraph Capacity Planning Model
-        subgraph Input Parameters
+    subgraph Capacity_Planning_Model[Capacity Planning Model]
+        subgraph Input_Parameters[Input Parameters]
             TPS_REQ[Required TPS]
             LAT_SLA[Latency SLA]
             AVAIL_SLA[Availability SLA]
             GROWTH[Growth Factor]
         end
 
-        subgraph Hardware Constraints
+        subgraph Hardware_Constraints[Hardware Constraints]
             DISK_IOPS[Disk IOPS Limit]
             NET_BW[Network Bandwidth]
             CPU_CORES[CPU Cores]
             MEMORY[Available Memory]
         end
 
-        subgraph Raft Parameters
+        subgraph Raft_Parameters[Raft Parameters]
             CLUSTER_SIZE[Cluster Size]
             BATCH_SIZE[Batch Size]
             PIPELINE_DEPTH[Pipeline Depth]

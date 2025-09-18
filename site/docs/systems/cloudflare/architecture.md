@@ -8,58 +8,58 @@ Cloudflare operates the world's largest edge computing platform, protecting and 
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - Global Network #3B82F6
-        subgraph 285+ Cities Worldwide
+    subgraph Edge_Plane___Global_Network__3B82F6[Edge Plane - Global Network #3B82F6]
+        subgraph sg_285__Cities_Worldwide[285+ Cities Worldwide]
             CDN[CDN Cache Servers<br/>SSD: 100TB per PoP]
             WAF[Web Application Firewall<br/>DDoS: 76M attacks/day]
             DNS[1.1.1.1 DNS<br/>14ms global average]
             WORKERS[Workers Runtime<br/>V8 Isolates: 50k/second]
         end
 
-        subgraph Anycast Network
+        subgraph Anycast_Network[Anycast Network]
             BGP[BGP Routing<br/>65,000+ routes]
             LOAD[Traffic Distribution<br/>100+ Tbps capacity]
         end
     end
 
-    subgraph Service Plane - Core Services #10B981
-        subgraph Workers Platform
+    subgraph Service_Plane___Core_Services__10B981[Service Plane - Core Services #10B981]
+        subgraph Workers_Platform[Workers Platform]
             WRUNTIME[Workers Runtime<br/>V8 Isolates, Rust]
             WKV[Workers KV<br/>Eventually consistent]
             DURABLE[Durable Objects<br/>SQLite at edge]
         end
 
-        subgraph Security Services
+        subgraph Security_Services[Security Services]
             DDOS[DDoS Protection<br/>Layer 3/4/7]
             BOTMAN[Bot Management<br/>ML-based detection]
             ZERO[Zero Trust<br/>SASE platform]
         end
 
-        subgraph Performance Services
+        subgraph Performance_Services[Performance Services]
             ARGO[Argo Smart Routing<br/>30% faster]
             COMPRESS[Compression<br/>Brotli/Gzip]
             MINIFY[Auto Minification<br/>JS/CSS/HTML]
         end
     end
 
-    subgraph State Plane - Storage Systems #F59E0B
-        subgraph R2 Object Storage
+    subgraph State_Plane___Storage_Systems__F59E0B[State Plane - Storage Systems #F59E0B]
+        subgraph R2_Object_Storage[R2 Object Storage]
             R2[R2 Storage<br/>S3 Compatible API<br/>No egress fees]
             R2CACHE[R2 Cache<br/>Global distribution]
         end
 
-        subgraph KV Store
+        subgraph KV_Store[KV Store]
             KV[Workers KV<br/>Eventually consistent<br/>400+ edge locations]
             KVPROP[KV Propagation<br/>60s global replication]
         end
 
-        subgraph Analytics Storage
+        subgraph Analytics_Storage[Analytics Storage]
             ANALYTICS[Analytics Engine<br/>ClickHouse-based]
             LOGS[Log Push<br/>Real-time streaming]
         end
     end
 
-    subgraph Control Plane - Operations #8B5CF6
+    subgraph Control_Plane___Operations__8B5CF6[Control Plane - Operations #8B5CF6]
         subgraph Configuration
             CONFIG[Configuration API<br/>30s global propagation]
             QUICKSILVER[Quicksilver<br/>Edge config distribution]

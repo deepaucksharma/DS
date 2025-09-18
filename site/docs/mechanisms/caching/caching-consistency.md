@@ -8,20 +8,20 @@ Cache consistency ensures that all cache instances in a distributed system have 
 
 ```mermaid
 graph LR
-    subgraph "Cache Consistency Models"
-        subgraph "Strong Consistency"
+    subgraph Cache_Consistency_Models[""Cache Consistency Models""]
+        subgraph Strong_Consistency[""Strong Consistency""]
             STRONG[Strong Consistency<br/>✅ Immediate consistency<br/>✅ No stale reads<br/>❌ Higher latency<br/>❌ Reduced availability]
         end
 
-        subgraph "Eventual Consistency"
+        subgraph Eventual_Consistency[""Eventual Consistency""]
             EVENTUAL[Eventual Consistency<br/>✅ High availability<br/>✅ Low latency<br/>❌ Temporary inconsistency<br/>❌ Complex conflict resolution]
         end
 
-        subgraph "Weak Consistency"
+        subgraph Weak_Consistency[""Weak Consistency""]
             WEAK[Weak Consistency<br/>✅ Maximum performance<br/>✅ High scalability<br/>❌ No consistency guarantees<br/>❌ Application complexity]
         end
 
-        subgraph "Session Consistency"
+        subgraph Session_Consistency[""Session Consistency""]
             SESSION[Session Consistency<br/>✅ Per-session coherence<br/>✅ Good user experience<br/>❌ Cross-session inconsistency<br/>❌ Session management]
         end
     end

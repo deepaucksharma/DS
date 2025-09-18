@@ -10,7 +10,7 @@ WebSocket performance characteristics in production environments, covering conne
 
 ```mermaid
 graph TB
-    subgraph Operating System Limits
+    subgraph Operating_System_Limits[Operating System Limits]
         OS1[File descriptor limits<br/>Default: 1024<br/>Configured: 100,000<br/>Per connection: 1 FD<br/>Memory per FD: 4KB]
 
         OS2[Memory consumption<br/>Connection overhead: 10KB<br/>Buffer allocation: 16KB<br/>Total per connection: 26KB<br/>100K connections: 2.6GB]
@@ -20,7 +20,7 @@ graph TB
         OS1 --> OS2 --> OS3
     end
 
-    subgraph Network Infrastructure
+    subgraph Network_Infrastructure[Network Infrastructure]
         NET1[Bandwidth limitations<br/>1 Gbps network card<br/>Average message: 1KB<br/>Theoretical max: 125K msg/sec<br/>Practical max: 80K msg/sec]
 
         NET2[Port exhaustion<br/>Ephemeral port range<br/>Local ports: 28,000<br/>Time wait state<br/>Connection cycling]
@@ -30,7 +30,7 @@ graph TB
         NET1 --> NET2 --> NET3
     end
 
-    subgraph Scaling Strategies
+    subgraph Scaling_Strategies[Scaling Strategies]
         SCALE1[Horizontal scaling<br/>Multiple server instances<br/>Load balancing<br/>Connection distribution<br/>Shared state management]
 
         SCALE2[Vertical scaling<br/>Increased memory<br/>More CPU cores<br/>Faster network<br/>System tuning]
@@ -53,7 +53,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Small Scale (< 1K connections)
+    subgraph Small_Scale____1K_connections["Small Scale (< 1K connections)"]
         SMALL1[Resource usage<br/>Memory: 26MB<br/>CPU: 10%<br/>Network: 1 Mbps<br/>Response time: 1ms]
 
         SMALL2[Performance characteristics<br/>Message latency: < 1ms<br/>Connection setup: 2ms<br/>Throughput: 10K msg/sec<br/>Reliability: 99.9%]
@@ -61,7 +61,7 @@ graph LR
         SMALL1 --> SMALL2
     end
 
-    subgraph Medium Scale (1K - 10K connections)
+    subgraph Medium_Scale__1K___10K_connections[Medium Scale (1K - 10K connections)]
         MEDIUM1[Resource usage<br/>Memory: 260MB<br/>CPU: 40%<br/>Network: 10 Mbps<br/>Response time: 5ms]
 
         MEDIUM2[Performance characteristics<br/>Message latency: 2-5ms<br/>Connection setup: 5ms<br/>Throughput: 50K msg/sec<br/>Reliability: 99.5%]
@@ -69,7 +69,7 @@ graph LR
         MEDIUM1 --> MEDIUM2
     end
 
-    subgraph Large Scale (10K - 100K connections)
+    subgraph Large_Scale__10K___100K_connections[Large Scale (10K - 100K connections)]
         LARGE1[Resource usage<br/>Memory: 2.6GB<br/>CPU: 80%<br/>Network: 100 Mbps<br/>Response time: 20ms]
 
         LARGE2[Performance characteristics<br/>Message latency: 10-50ms<br/>Connection setup: 20ms<br/>Throughput: 200K msg/sec<br/>Reliability: 99%]
@@ -77,7 +77,7 @@ graph LR
         LARGE1 --> LARGE2
     end
 
-    subgraph Massive Scale (> 100K connections)
+    subgraph Massive_Scale____100K_connections["Massive Scale (> 100K connections)"]
         MASSIVE1[Resource usage<br/>Memory: 26GB+<br/>CPU: 95%<br/>Network: 1 Gbps<br/>Response time: Variable]
 
         MASSIVE2[Performance characteristics<br/>Message latency: 50-200ms<br/>Connection setup: 100ms+<br/>Throughput: 500K msg/sec<br/>Reliability: 98%]
@@ -102,7 +102,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Simple Broadcast (1:N)
+    subgraph Simple_Broadcast__1_N[Simple Broadcast (1:N)]
         SIMPLE1[Single sender<br/>N recipients<br/>Message: "Hello World"<br/>Size: 12 bytes<br/>Recipients: 10,000]
 
         SIMPLE2[Broadcast process<br/>Serialize once<br/>Send to all connections<br/>Network writes: 10,000<br/>Total bandwidth: 120KB]
@@ -112,7 +112,7 @@ graph TB
         SIMPLE1 --> SIMPLE2 --> SIMPLE3
     end
 
-    subgraph Room-Based Broadcasting
+    subgraph Room_Based_Broadcasting[Room-Based Broadcasting]
         ROOM1[Chat room model<br/>Users per room: 100<br/>Active rooms: 1,000<br/>Total users: 100,000<br/>Message isolation]
 
         ROOM2[Efficient broadcasting<br/>Per-room message queues<br/>Targeted delivery<br/>Reduced network overhead<br/>Better resource utilization]
@@ -122,7 +122,7 @@ graph TB
         ROOM1 --> ROOM2 --> ROOM3
     end
 
-    subgraph Hierarchical Broadcasting
+    subgraph Hierarchical_Broadcasting[Hierarchical Broadcasting]
         HIER1[Tree structure<br/>Root server<br/>Regional servers<br/>Local servers<br/>End users]
 
         HIER2[Message propagation<br/>Root → Regional: 1 message<br/>Regional → Local: 10 messages<br/>Local → Users: 1000 messages<br/>Total efficiency: O(log N)]
@@ -145,7 +145,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Message Batching
+    subgraph Message_Batching[Message Batching]
         BATCH1[Individual sends<br/>Syscalls: 1 per connection<br/>Context switches: High<br/>CPU overhead: 60%<br/>Throughput: 50K msg/sec]
 
         BATCH2[Batched sends<br/>Buffer accumulation<br/>Batch syscalls<br/>CPU overhead: 20%<br/>Throughput: 200K msg/sec]
@@ -153,7 +153,7 @@ graph LR
         BATCH1 --> BATCH2
     end
 
-    subgraph Memory Management
+    subgraph Memory_Management[Memory Management]
         MEM1[Message copying<br/>Per-connection copy<br/>Memory usage: High<br/>GC pressure: High<br/>Latency: Variable]
 
         MEM2[Zero-copy optimization<br/>Shared message buffer<br/>Reference counting<br/>Memory usage: Low<br/>Latency: Consistent]
@@ -161,7 +161,7 @@ graph LR
         MEM1 --> MEM2
     end
 
-    subgraph Network Optimization
+    subgraph Network_Optimization[Network Optimization]
         NET1[TCP Nagle algorithm<br/>Message coalescing<br/>Reduced packets<br/>Higher throughput<br/>Increased latency]
 
         NET2[TCP_NODELAY<br/>Immediate sending<br/>More packets<br/>Lower latency<br/>Reduced throughput]
@@ -186,7 +186,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Naive Reconnection
+    subgraph Naive_Reconnection[Naive Reconnection]
         NAIVE1[Immediate reconnection<br/>No delay<br/>Connection attempts: Unlimited<br/>Success rate: Variable<br/>Server load: High]
 
         NAIVE2[Performance problems<br/>Thundering herd<br/>Server overload<br/>Connection storms<br/>Poor success rate]
@@ -196,7 +196,7 @@ graph TB
         NAIVE1 --> NAIVE2 --> NAIVE3
     end
 
-    subgraph Exponential Backoff
+    subgraph Exponential_Backoff[Exponential Backoff]
         BACKOFF1[Exponential backoff<br/>Initial delay: 1s<br/>Multiplier: 2x<br/>Max delay: 30s<br/>Jitter: ±25%]
 
         BACKOFF2[Reconnection sequence<br/>Attempt 1: 1s delay<br/>Attempt 2: 2s delay<br/>Attempt 3: 4s delay<br/>Attempt 4: 8s delay]
@@ -206,7 +206,7 @@ graph TB
         BACKOFF1 --> BACKOFF2 --> BACKOFF3
     end
 
-    subgraph Intelligent Reconnection
+    subgraph Intelligent_Reconnection[Intelligent Reconnection]
         INTEL1[Context-aware reconnection<br/>Network condition detection<br/>Server health monitoring<br/>Circuit breaker pattern<br/>Adaptive algorithms]
 
         INTEL2[Optimization strategies<br/>Connection pooling<br/>Health checks<br/>Graceful degradation<br/>Fallback mechanisms]
@@ -229,7 +229,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Connection Lifecycle
+    subgraph Connection_Lifecycle[Connection Lifecycle]
         LIFECYCLE1[Connection states<br/>CONNECTING<br/>OPEN<br/>CLOSING<br/>CLOSED<br/>RECONNECTING]
 
         LIFECYCLE2[State transitions<br/>Event-driven<br/>Timeout handling<br/>Error recovery<br/>Graceful shutdown]
@@ -237,7 +237,7 @@ graph LR
         LIFECYCLE1 --> LIFECYCLE2
     end
 
-    subgraph Heartbeat Mechanism
+    subgraph Heartbeat_Mechanism[Heartbeat Mechanism]
         HEARTBEAT1[Ping/Pong protocol<br/>Interval: 30 seconds<br/>Timeout: 5 seconds<br/>Max missed: 3<br/>Automatic recovery]
 
         HEARTBEAT2[Performance impact<br/>Network overhead: Minimal<br/>CPU usage: Low<br/>Detection time: 90s max<br/>False positives: <1%]
@@ -245,7 +245,7 @@ graph LR
         HEARTBEAT1 --> HEARTBEAT2
     end
 
-    subgraph Message Queuing
+    subgraph Message_Queuing[Message Queuing]
         QUEUE1[Offline message queue<br/>Queue size: 1000 messages<br/>TTL: 5 minutes<br/>Persistence: Optional<br/>Priority handling]
 
         QUEUE2[Queue performance<br/>Memory per queue: 100KB<br/>Processing: FIFO<br/>Replay on reconnect<br/>Message deduplication]
@@ -268,7 +268,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph No Compression
+    subgraph No_Compression[No Compression]
         NO_COMP1[Message characteristics<br/>JSON payload: 2KB<br/>Text-based protocol<br/>Redundant data<br/>Human readable]
 
         NO_COMP2[Network impact<br/>Bandwidth: 2KB per message<br/>1M messages: 2GB transfer<br/>Mobile data usage: High<br/>Latency: Network dependent]
@@ -278,7 +278,7 @@ graph TB
         NO_COMP1 --> NO_COMP2 --> NO_COMP3
     end
 
-    subgraph Per-Message Deflate
+    subgraph Per_Message_Deflate[Per-Message Deflate]
         PMD1[Compression configuration<br/>Algorithm: Deflate<br/>Window size: 15<br/>Memory level: 8<br/>Compression ratio: 60%]
 
         PMD2[Message processing<br/>Original size: 2KB<br/>Compressed size: 800B<br/>Compression time: 2ms<br/>Decompression time: 1ms]
@@ -288,7 +288,7 @@ graph TB
         PMD1 --> PMD2 --> PMD3
     end
 
-    subgraph Optimization Trade-offs
+    subgraph Optimization_Trade_offs[Optimization Trade-offs]
         TRADE1[Bandwidth vs CPU<br/>Compression saves 60% bandwidth<br/>Increases CPU usage by 300%<br/>Reduces latency by 45%<br/>Better on slow networks]
 
         TRADE2[Configuration tuning<br/>Compression level: 1-9<br/>Memory usage vs ratio<br/>CPU usage vs latency<br/>Adaptive compression]
@@ -309,7 +309,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph High Bandwidth Networks
+    subgraph High_Bandwidth_Networks[High Bandwidth Networks]
         HBN1[Network characteristics<br/>Bandwidth: 1 Gbps+<br/>Latency: < 10ms<br/>Reliability: High<br/>Cost: Low]
 
         HBN2[Optimal strategy<br/>Compression: Disabled<br/>CPU priority: Processing<br/>Focus: Low latency<br/>Trade-off: Bandwidth for CPU]
@@ -317,7 +317,7 @@ graph LR
         HBN1 --> HBN2
     end
 
-    subgraph Mobile Networks
+    subgraph Mobile_Networks[Mobile Networks]
         MOB1[Network characteristics<br/>Bandwidth: Variable<br/>Latency: 50-200ms<br/>Reliability: Variable<br/>Cost: High per MB]
 
         MOB2[Optimal strategy<br/>Compression: Enabled<br/>Level: Medium (6)<br/>Focus: Bandwidth savings<br/>Trade-off: CPU for bandwidth]
@@ -325,7 +325,7 @@ graph LR
         MOB1 --> MOB2
     end
 
-    subgraph IoT/Embedded
+    subgraph IoT_Embedded[IoT/Embedded]
         IOT1[Device characteristics<br/>CPU: Limited<br/>Memory: Constrained<br/>Power: Battery<br/>Network: Often poor]
 
         IOT2[Optimal strategy<br/>Compression: Minimal<br/>Level: Low (1-3)<br/>Focus: Power efficiency<br/>Trade-off: Balance all resources]
@@ -348,7 +348,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Discord Gateway Infrastructure
+    subgraph Discord_Gateway_Infrastructure[Discord Gateway Infrastructure]
         GATEWAY1[Gateway clusters<br/>Geographic distribution<br/>Connection capacity: 1M per cluster<br/>Load balancing<br/>Health monitoring]
 
         GATEWAY2[Connection management<br/>WebSocket protocol<br/>Heartbeat: 41.25s interval<br/>Automatic reconnection<br/>Session resumption]
@@ -358,7 +358,7 @@ graph TB
         GATEWAY1 --> GATEWAY2 --> GATEWAY3
     end
 
-    subgraph Scaling Techniques
+    subgraph Scaling_Techniques[Scaling Techniques]
         SCALE1[Connection sharding<br/>Guild-based sharding<br/>Shard count: 1000+<br/>Load distribution<br/>Fault isolation]
 
         SCALE2[Message optimization<br/>Binary protocol<br/>Compression enabled<br/>Event batching<br/>Priority queuing]
@@ -368,7 +368,7 @@ graph TB
         SCALE1 --> SCALE2 --> SCALE3
     end
 
-    subgraph Performance Achievements
+    subgraph Performance_Achievements[Performance Achievements]
         PERF1[Connection metrics<br/>Concurrent connections: 5M+<br/>Messages per second: 500K<br/>Average latency: 50ms<br/>99th percentile: 200ms]
 
         PERF2[Reliability metrics<br/>Uptime: 99.95%<br/>Connection success rate: 99.8%<br/>Message delivery: 99.99%<br/>Reconnection time: < 5s]
@@ -389,7 +389,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph System-Level Tuning
+    subgraph System_Level_Tuning[System-Level Tuning]
         SYS1[File descriptor limits<br/>fs.file-max: 2097152<br/>nofile: 1048576<br/>Per-process: 65536<br/>Kernel optimization]
 
         SYS2[Network stack tuning<br/>tcp_max_syn_backlog: 65536<br/>tcp_window_scaling: 1<br/>tcp_timestamps: 1<br/>tcp_sack: 1]
@@ -397,7 +397,7 @@ graph LR
         SYS1 --> SYS2
     end
 
-    subgraph Application Configuration
+    subgraph Application_Configuration[Application Configuration]
         APP1[WebSocket settings<br/>Max frame size: 64KB<br/>Compression: Per-message-deflate<br/>Heartbeat: 41.25s<br/>Timeout: 60s]
 
         APP2[Connection limits<br/>Max connections: 1M<br/>Rate limiting: 120/min<br/>Memory limit: 32GB<br/>CPU threads: 32]
@@ -405,7 +405,7 @@ graph LR
         APP1 --> APP2
     end
 
-    subgraph Performance Results
+    subgraph Performance_Results[Performance Results]
         RESULTS1[Achieved metrics<br/>• 1M concurrent connections<br/>• 100K messages/second<br/>• <100ms p95 latency<br/>• 99.95% uptime]
     end
 
@@ -435,11 +435,11 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph System Optimization
+    subgraph System_Optimization[System Optimization]
         SYS_OPT[System tuning<br/>• File descriptor limits<br/>• Network stack optimization<br/>• Memory management<br/>• CPU affinity]
     end
 
-    subgraph Application Design
+    subgraph Application_Design[Application Design]
         APP_OPT[Application optimization<br/>• Efficient broadcasting<br/>• Smart reconnection<br/>• Message batching<br/>• Memory pooling]
     end
 
@@ -447,7 +447,7 @@ graph TB
         INFRA_OPT[Infrastructure design<br/>• Load balancing<br/>• Geographic distribution<br/>• Fault tolerance<br/>• Monitoring]
     end
 
-    subgraph Protocol Optimization
+    subgraph Protocol_Optimization[Protocol Optimization]
         PROTO_OPT[Protocol tuning<br/>• Compression configuration<br/>• Heartbeat optimization<br/>• Frame size tuning<br/>• Binary protocols]
     end
 

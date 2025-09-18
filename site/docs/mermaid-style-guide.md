@@ -204,13 +204,13 @@ pie title Monthly Infrastructure Costs ($250K Total)
 
 ```mermaid
 graph LR
-    subgraph Phase 1: Startup (0-10K users)
+    subgraph Phase_1__Startup__0_10K_users[Phase 1: Startup (0-10K users)]
         A1[Monolith<br/>1 Server<br/>$100/mo]
         A2[MySQL<br/>Single DB<br/>1GB]
         A1 --> A2
     end
 
-    subgraph Phase 2: Growth (10K-100K users)
+    subgraph Phase_2__Growth__10K_100K_users[Phase 2: Growth (10K-100K users)]
         B1[3 App Servers<br/>Load Balanced<br/>$1K/mo]
         B2[MySQL Primary<br/>Read Replica<br/>100GB]
         B3[Redis Cache<br/>2GB<br/>$200/mo]
@@ -218,7 +218,7 @@ graph LR
         B1 --> B3
     end
 
-    subgraph Phase 3: Scale (100K-1M users)
+    subgraph Phase_3__Scale__100K_1M_users[Phase 3: Scale (100K-1M users)]
         C1[Microservices<br/>20 Services<br/>$10K/mo]
         C2[PostgreSQL<br/>Sharded<br/>1TB]
         C3[Redis Cluster<br/>32GB<br/>$2K/mo]
@@ -228,7 +228,7 @@ graph LR
         C1 --> C4
     end
 
-    subgraph Phase 4: Enterprise (1M+ users)
+    subgraph Phase_4__Enterprise__1M__users[Phase 4: Enterprise (1M+ users)]
         D1[200 Microservices<br/>Multi-region<br/>$100K/mo]
         D2[Multi-DB<br/>Postgres+Cassandra<br/>50TB]
         D3[Redis Clusters<br/>500GB RAM<br/>$20K/mo]
@@ -367,7 +367,7 @@ graph TB
 ### 3. Show Cost Information
 ```mermaid
 graph LR
-    subgraph Monthly Costs
+    subgraph Monthly_Costs[Monthly Costs]
         Compute[EC2<br/>m5.xlarge x10<br/>💰 $1,400]
         Storage[S3<br/>10TB<br/>💰 $230]
         Network[CloudFront<br/>1TB transfer<br/>💰 $85]

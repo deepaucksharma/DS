@@ -285,14 +285,14 @@ Linear chain of replicas where writes flow through the chain sequentially.
 
 ```mermaid
 graph LR
-    subgraph Chain Replication Architecture
+    subgraph Chain_Replication_Architecture[Chain Replication Architecture]
         CLIENT[Client]
         HEAD[Head Node<br/>- Receives writes<br/>- First in chain<br/>- Forwards to next]
         MIDDLE1[Middle Node 1<br/>- Processes in order<br/>- Forwards to next<br/>- Maintains state]
         MIDDLE2[Middle Node 2<br/>- Processes in order<br/>- Forwards to next<br/>- Maintains state]
         TAIL[Tail Node<br/>- Last in chain<br/>- Sends ack to client<br/>- Handles reads]
 
-        subgraph Chain Master
+        subgraph Chain_Master[Chain Master]
             MASTER[Chain Master<br/>- Monitors health<br/>- Handles failures<br/>- Reconfigures chain]
         end
     end
@@ -370,29 +370,29 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph Topology Decision Matrix
-        subgraph Primary-Secondary Best For
+    subgraph Topology_Decision_Matrix[Topology Decision Matrix]
+        subgraph Primary_Secondary_Best_For[Primary-Secondary Best For]
             PS_SIMPLE[Simple Consistency Model]
             PS_SINGLE[Single Write Region]
             PS_SCALE[Read Scaling]
             PS_FAILOVER[Automatic Failover]
         end
 
-        subgraph Multi-Primary Best For
+        subgraph Multi_Primary_Best_For[Multi-Primary Best For]
             MP_GLOBAL[Global Distribution]
             MP_LATENCY[Low Write Latency]
             MP_PARTITION[Partition Tolerance]
             MP_AVAILABILITY[High Availability]
         end
 
-        subgraph Chain Replication Best For
+        subgraph Chain_Replication_Best_For[Chain Replication Best For]
             CR_ORDERED[Ordered Processing]
             CR_SIMPLE[Simple Protocol]
             CR_RECOVERY[Fast Recovery]
             CR_BROADCAST[Reliable Broadcast]
         end
 
-        subgraph Trade-offs
+        subgraph Trade_offs[Trade-offs]
             COMPLEXITY[Implementation Complexity<br/>Chain < Primary-Secondary < Multi-Primary]
             CONSISTENCY[Consistency Guarantees<br/>Chain = Primary-Secondary > Multi-Primary]
             AVAILABILITY[Availability<br/>Multi-Primary > Primary-Secondary > Chain]

@@ -164,7 +164,7 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph Shopify's Optimized Checkout Flow
+    subgraph Shopify_s_Optimized_Checkout_Flow[Shopify's Optimized Checkout Flow]
         STEP1[Step 1: Contact Information<br/>Email + SMS opt-in<br/>Guest vs account<br/>Auto-fill detection]
 
         STEP2[Step 2: Shipping Address<br/>Address validation<br/>Auto-complete<br/>Multiple addresses]
@@ -189,7 +189,7 @@ graph TB
         STEP4 -.->|Shop Pay shortcut| STEP6
     end
 
-    subgraph Conversion Optimizations
+    subgraph Conversion_Optimizations[Conversion Optimizations]
         MOBILE[Mobile-First Design<br/>70%+ mobile traffic<br/>Touch-optimized<br/>One-handed operation]
 
         SHOP_PAY[Shop Pay Integration<br/>1-click checkout<br/>Biometric auth<br/>70% faster checkout]
@@ -229,7 +229,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Inventory Management Flow
+    subgraph Inventory_Management_Flow[Inventory Management Flow]
         ADD_CART[Add to Cart<br/>Soft reservation<br/>15-minute timeout<br/>Inventory check]
 
         CHECKOUT_START[Checkout Started<br/>Hard reservation<br/>30-minute timeout<br/>Inventory lock]
@@ -248,7 +248,7 @@ graph TB
         CHECKOUT_START -.->|30 min timeout| RELEASE2[Release hard reservation]
     end
 
-    subgraph Concurrent Inventory Challenges
+    subgraph Concurrent_Inventory_Challenges[Concurrent Inventory Challenges]
         OVERSELL[Oversell Prevention<br/>Atomic operations<br/>Database locks<br/>Queue processing]
 
         FLASH_SALE[Flash Sale Handling<br/>Pre-allocation<br/>Queue system<br/>Waitlist management]
@@ -274,7 +274,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Payment Processing Stack
+    subgraph Payment_Processing_Stack[Payment Processing Stack]
         SHOP_PAY[Shop Pay<br/>Fastest option<br/>Biometric auth<br/>1-click checkout]
 
         SHOPIFY_PAYMENTS[Shopify Payments<br/>Stripe-powered<br/>Competitive rates<br/>Integrated experience]
@@ -291,7 +291,7 @@ graph TB
         PROCESSOR --> RESULT[Payment Result<br/>Success/Decline<br/>Error handling<br/>Retry logic]
     end
 
-    subgraph Fraud Protection
+    subgraph Fraud_Protection[Fraud Protection]
         RISK_SCORING[Risk Scoring<br/>ML-based analysis<br/>Behavioral patterns<br/>Device fingerprinting]
 
         FRAUD_RULES[Fraud Rules<br/>Velocity checking<br/>Geo-location<br/>Historical patterns]
@@ -317,7 +317,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Multi-Layer Caching
+    subgraph Multi_Layer_Caching[Multi-Layer Caching]
         CDN_CACHE[CDN Cache<br/>Static assets<br/>Product images<br/>Theme files<br/>TTL: 1 year]
 
         PAGE_CACHE[Page Cache<br/>Full page HTML<br/>Anonymous users<br/>TTL: 15 minutes]
@@ -335,7 +335,7 @@ graph TB
         OBJECT_CACHE --> SESSION_CACHE
     end
 
-    subgraph Cache Performance
+    subgraph Cache_Performance[Cache Performance]
         HIT_RATES[Cache Hit Rates<br/>CDN: 95%<br/>Page: 70%<br/>Fragment: 90%<br/>Object: 85%]
 
         INVALIDATION[Cache Invalidation<br/>Smart purging<br/>Dependency tracking<br/>Event-driven]
@@ -361,7 +361,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Black Friday Traffic Scaling
+    subgraph Black_Friday_Traffic_Scaling[Black Friday Traffic Scaling]
         BASELINE[Baseline Traffic<br/>10,500 req/sec<br/>Normal operations<br/>Standard capacity]
 
         RAMPUP[Traffic Ramp-up<br/>2x capacity<br/>November prep<br/>Load testing]
@@ -383,7 +383,7 @@ graph TB
         PEAK_PREP -.->|Manual scaling| BLACK_FRIDAY
     end
 
-    subgraph Scaling Measures
+    subgraph Scaling_Measures[Scaling Measures]
         INFRASTRUCTURE[Infrastructure Scaling<br/>5x server capacity<br/>Database read replicas<br/>CDN expansion]
 
         OPTIMIZATION[Code Optimization<br/>Query optimization<br/>Cache tuning<br/>Feature flags]

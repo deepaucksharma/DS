@@ -42,12 +42,12 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph 2010 Architecture - 5 Data Centers
+    subgraph sg_2010_Architecture___5_Data_Centers[2010 Architecture - 5 Data Centers]
         USER[Users<br/>100K websites] --> LB[nginx Load Balancer<br/>Hardware appliances]
         LB --> NGINX[nginx + Lua<br/>Single-threaded<br/>Cache + WAF logic]
         NGINX --> ORIGIN[Origin Servers<br/>Customer infrastructure]
 
-        subgraph Data Centers
+        subgraph Data_Centers[Data Centers]
             DC1[San Francisco<br/>10 servers]
             DC2[Chicago<br/>8 servers]
             DC3[London<br/>6 servers]
@@ -82,7 +82,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph 2015 Architecture - 50+ PoPs
+    subgraph sg_2015_Architecture___50__PoPs[2015 Architecture - 50+ PoPs]
         USER[Users<br/>2M websites] --> ANYCAST[Anycast Network<br/>BGP routing]
         ANYCAST --> EDGE[Edge Servers<br/>Custom Go/C++ stack<br/>Replaced nginx]
 
@@ -90,7 +90,7 @@ graph TB
         WAF --> CDN[CDN Cache<br/>SSD storage<br/>Intelligent purging]
         CDN --> ORIGIN[Origin Protection<br/>DDoS mitigation<br/>SSL termination]
 
-        subgraph Regional Presence
+        subgraph Regional_Presence[Regional Presence]
             NA[North America<br/>20 PoPs<br/>500 servers]
             EU[Europe<br/>15 PoPs<br/>300 servers]
             ASIA[Asia Pacific<br/>10 PoPs<br/>200 servers]
@@ -118,7 +118,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph 2019 Architecture - 100+ PoPs + Workers
+    subgraph sg_2019_Architecture___100__PoPs___Workers[2019 Architecture - 100+ PoPs + Workers]
         USER[Users<br/>10M+ domains] --> ANYCAST[Global Anycast<br/>100+ countries]
         ANYCAST --> EDGE[Edge Computing<br/>Rust-based stack<br/>200+ PoPs]
 
@@ -128,7 +128,7 @@ graph TB
         EDGE --> SECURITY[Security Stack<br/>ML-based detection<br/>Real-time protection]
         SECURITY --> CDN[CDN Platform<br/>100TB+ storage/PoP<br/>HTTP/2 & QUIC]
 
-        subgraph New Services
+        subgraph New_Services[New Services]
             DNS[1.1.1.1 DNS<br/>Fastest resolver<br/>Privacy-focused]
             SPECTRUM[Spectrum<br/>TCP/UDP protection<br/>Gaming & IoT]
             ACCESS[Access<br/>Zero Trust security<br/>Corporate networks]
@@ -159,14 +159,14 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph 2024 Architecture - 285+ PoPs
+    subgraph sg_2024_Architecture___285__PoPs[2024 Architecture - 285+ PoPs]
         USER[Users<br/>20%+ of web] --> GLOBAL[Global Network<br/>100+ Tbps capacity<br/>285+ cities]
 
         GLOBAL --> COMPUTE[Edge Compute<br/>Workers + Durable Objects<br/>R2 Storage]
         GLOBAL --> SECURITY[Security Suite<br/>Zero Trust + SASE<br/>Bot Management]
         GLOBAL --> NETWORK[Network Services<br/>Magic Transit/WAN<br/>WARP for consumers]
 
-        subgraph Full Stack Platform
+        subgraph Full_Stack_Platform[Full Stack Platform]
             WORKERS2[Workers<br/>50k isolates/server<br/>Sub-millisecond startup]
             DURABLE[Durable Objects<br/>Stateful edge compute<br/>Strong consistency]
             R2[R2 Storage<br/>S3-compatible<br/>No egress fees]
@@ -178,7 +178,7 @@ graph TB
         COMPUTE --> R2
         COMPUTE --> ANALYTICS
 
-        subgraph Enterprise Services
+        subgraph Enterprise_Services[Enterprise Services]
             ZERO_TRUST[Zero Trust<br/>Corporate security<br/>50+ countries]
             MAGIC[Magic Network<br/>Enterprise WAN<br/>Private connectivity]
             STREAM[Stream<br/>Video platform<br/>Global distribution]
@@ -211,23 +211,23 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Technology Stack Evolution
-        subgraph 2010-2012: Foundation
+    subgraph Technology_Stack_Evolution[Technology Stack Evolution]
+        subgraph sg_2010_2012__Foundation[2010-2012: Foundation]
             NGINX1[nginx + Lua<br/>Single-threaded<br/>Limited scaling]
             HW1[Hardware LBs<br/>Expensive<br/>Single points of failure]
         end
 
-        subgraph 2013-2016: Custom Stack
+        subgraph sg_2013_2016__Custom_Stack[2013-2016: Custom Stack]
             GO1[Go Services<br/>Better concurrency<br/>Memory management]
             CPP1[C++ Performance<br/>Critical path optimization<br/>Custom protocols]
         end
 
-        subgraph 2017-2020: Edge Platform
+        subgraph sg_2017_2020__Edge_Platform[2017-2020: Edge Platform]
             RUST1[Rust Foundation<br/>Memory safety<br/>Zero-cost abstractions]
             WASM1[WebAssembly<br/>Multi-language support<br/>Sandboxed execution]
         end
 
-        subgraph 2021-2024: Hyperscale
+        subgraph sg_2021_2024__Hyperscale[2021-2024: Hyperscale]
             V81[V8 Isolates<br/>Microsecond startup<br/>50k+ per server]
             SQLITE1[SQLite at Edge<br/>ACID transactions<br/>Automatic sharding]
         end
@@ -258,7 +258,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Cost Optimization Journey
+    subgraph Cost_Optimization_Journey[Cost Optimization Journey]
         COST_2010[2010: $0.001/req<br/>Expensive hardware<br/>Low utilization]
         COST_2015[2015: $0.0001/req<br/>Custom software<br/>Better efficiency]
         COST_2019[2019: $0.00001/req<br/>Edge optimization<br/>Global scale]
@@ -333,13 +333,13 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph 2027 Projections
+    subgraph sg_2027_Projections[2027 Projections]
         TRAFFIC[Traffic: 100M+ req/sec<br/>30%+ internet coverage]
         POPS[PoPs: 400+ cities<br/>Every major metro]
         REVENUE[Revenue: $3B+ annually<br/>Platform dominance]
         TEAM[Team: 5,000+ employees<br/>Global presence]
 
-        subgraph New Capabilities
+        subgraph New_Capabilities[New Capabilities]
             AI[Edge AI Inference<br/>Real-time ML<br/>Model distribution]
             QUANTUM[Quantum-safe crypto<br/>Post-quantum TLS<br/>Future-proof security]
             WEB3[Web3 Gateway<br/>Blockchain nodes<br/>Decentralized apps]

@@ -8,23 +8,23 @@ Replication lag is the delay between a write being committed on the primary and 
 
 ```mermaid
 graph TB
-    subgraph Replication Lag Components
-        subgraph Network Lag
+    subgraph Replication_Lag_Components[Replication Lag Components]
+        subgraph Network_Lag[Network Lag]
             NET_PROP[Network Propagation<br/>- Physical distance<br/>- Bandwidth limitations<br/>- Packet loss/retransmission]
             NET_QUEUE[Network Queuing<br/>- Buffer saturation<br/>- TCP congestion<br/>- Router delays]
         end
 
-        subgraph Processing Lag
+        subgraph Processing_Lag[Processing Lag]
             PROC_PARSE[Parsing Lag<br/>- WAL entry parsing<br/>- Transaction reconstruction<br/>- Validation overhead]
             PROC_APPLY[Apply Lag<br/>- Disk I/O waits<br/>- Lock contention<br/>- CPU scheduling]
         end
 
-        subgraph Storage Lag
+        subgraph Storage_Lag[Storage Lag]
             STOR_WRITE[Write Lag<br/>- fsync() delays<br/>- Disk queue depth<br/>- Storage latency]
             STOR_INDEX[Index Update Lag<br/>- Index maintenance<br/>- B-tree splits<br/>- Statistics updates]
         end
 
-        subgraph Total Lag
+        subgraph Total_Lag[Total Lag]
             TOTAL[Total Replication Lag<br/>Sum of all components<br/>Measured end-to-end]
         end
     end

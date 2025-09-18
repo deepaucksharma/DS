@@ -10,7 +10,7 @@ Amazon DynamoDB query optimization from Amazon's Prime Video team - reducing lat
 
 ```mermaid
 graph TB
-    subgraph Before Optimization - High Latency
+    subgraph Before_Optimization___High_Latency[Before Optimization - High Latency]
         Client1[Client App] --> API1[API Gateway<br/>p99: 85ms]
         API1 --> Lambda1[Lambda Function<br/>Cold Start: 500ms]
         Lambda1 --> DDB1[(DynamoDB Table<br/>Scan Operations<br/>RCU: 4000, WCU: 2000)]
@@ -18,7 +18,7 @@ graph TB
         DDB1 --> GSI2[(GSI-2: timestamp-index<br/>Uneven Distribution)]
     end
 
-    subgraph After Optimization - Low Latency
+    subgraph After_Optimization___Low_Latency[After Optimization - Low Latency]
         Client2[Client App] --> API2[API Gateway<br/>p99: 12ms]
         API2 --> Lambda2[Lambda Function<br/>Provisioned Concurrency<br/>Warm Instances: 100]
         Lambda2 --> DDB2[(DynamoDB Table<br/>Query Operations<br/>RCU: 2000, WCU: 1000)]
@@ -46,17 +46,17 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Scan Pattern - Before
+    subgraph Scan_Pattern___Before[Scan Pattern - Before]
         ScanOp[Scan Operation<br/>FilterExpression] --> FullTable[(Full Table Scan<br/>2.5M items<br/>85ms average)]
         FullTable --> Filter[Client-side Filtering<br/>99.2% waste]
     end
 
-    subgraph Query Pattern - After
+    subgraph Query_Pattern___After[Query Pattern - After]
         QueryOp[Query Operation<br/>KeyConditionExpression] --> TargetItems[(Direct Item Access<br/>50-200 items<br/>12ms average)]
         TargetItems --> NoFilter[No Filtering Needed<br/>100% relevant]
     end
 
-    subgraph Performance Impact
+    subgraph Performance_Impact[Performance Impact]
         Scan[Scan: 85ms, 4000 RCU] --> Cost1[$18K/month]
         Query[Query: 12ms, 2000 RCU] --> Cost2[$9.5K/month]
     end
@@ -75,21 +75,21 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Original GSI Design - Hot Partitions
+    subgraph Original_GSI_Design___Hot_Partitions[Original GSI Design - Hot Partitions]
         GSI_OLD[(GSI-1: user-id-index<br/>Partition Key: user-id<br/>Sort Key: none)]
         GSI_OLD --> Hot1[Partition 1<br/>Power User: 40% traffic<br/>Throttled]
         GSI_OLD --> Hot2[Partition 2<br/>Bot Traffic: 25% traffic<br/>Throttled]
         GSI_OLD --> Cold[Partition 3-N<br/>Normal Users: 35% traffic<br/>Under-utilized]
     end
 
-    subgraph Optimized GSI Design - Even Distribution
+    subgraph Optimized_GSI_Design___Even_Distribution[Optimized GSI Design - Even Distribution]
         GSI_NEW[(GSI-1: composite-key-index<br/>Partition Key: user-id#date<br/>Sort Key: timestamp)]
         GSI_NEW --> Even1[Partition 1<br/>user123#2024-01<br/>Even Load]
         GSI_NEW --> Even2[Partition 2<br/>user123#2024-02<br/>Even Load]
         GSI_NEW --> Even3[Partition 3-N<br/>All Users Distributed<br/>Optimal Utilization]
     end
 
-    subgraph Sparse GSI - Hot Data Only
+    subgraph Sparse_GSI___Hot_Data_Only[Sparse GSI - Hot Data Only]
         GSI_SPARSE[(GSI-2: sparse-index<br/>Condition: active = true<br/>90% reduction in items)]
         GSI_SPARSE --> Active[Active Records Only<br/>250K items vs 2.5M<br/>10x faster queries]
     end
@@ -112,17 +112,17 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Lambda Configuration - Before
+    subgraph Lambda_Configuration___Before[Lambda Configuration - Before]
         Lambda_Old[Lambda Function<br/>Memory: 512MB<br/>Timeout: 30s<br/>Cold Start: 500ms]
         Lambda_Old --> DDB_Client_Old[DynamoDB Client<br/>Default Settings<br/>Connection Pool: 10<br/>Retry: 3x exponential]
     end
 
-    subgraph Lambda Configuration - After
+    subgraph Lambda_Configuration___After[Lambda Configuration - After]
         Lambda_New[Lambda Function<br/>Memory: 1024MB<br/>Timeout: 15s<br/>Provisioned: 100 instances<br/>Warm Start: 2ms]
         Lambda_New --> DDB_Client_New[DynamoDB Client<br/>maxConnections: 50<br/>connectionTimeout: 2000ms<br/>requestTimeout: 1000ms<br/>Retry: 2x with jitter]
     end
 
-    subgraph Connection Pool Metrics
+    subgraph Connection_Pool_Metrics[Connection Pool Metrics]
         Pool_Old[Old Pool<br/>Active: 8-10<br/>Wait Time: 15ms<br/>Timeouts: 5%] --> Impact_Old[Total Latency<br/>85ms p99]
         Pool_New[New Pool<br/>Active: 25-35<br/>Wait Time: 1ms<br/>Timeouts: 0.1%] --> Impact_New[Total Latency<br/>12ms p99]
     end
@@ -145,24 +145,24 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Individual Operations - Before
+    subgraph Individual_Operations___Before[Individual Operations - Before]
         App1[Application] --> Loop[For Loop<br/>1000 items]
         Loop --> Single[(Single PutItem<br/>1000 API calls<br/>Total: 2.5s)]
         Single --> WCU1[WCU Consumed: 1000<br/>Cost: $0.47/million writes]
     end
 
-    subgraph Batch Operations - After
+    subgraph Batch_Operations___After[Batch Operations - After]
         App2[Application] --> Batch[BatchWriteItem<br/>25 batches of 40 items]
         Batch --> Multi[(Batch Operations<br/>25 API calls<br/>Total: 180ms)]
         Multi --> WCU2[WCU Consumed: 1000<br/>Same capacity, 92% faster]
     end
 
-    subgraph Error Handling
+    subgraph Error_Handling[Error Handling]
         Single --> Retry1[Individual Retry<br/>Exponential backoff<br/>High latency on throttle]
         Multi --> Retry2[Batch Retry<br/>Only failed items<br/>Efficient recovery]
     end
 
-    subgraph Performance Impact
+    subgraph Performance_Impact[Performance Impact]
         Loop -.->|"2.5s total<br/>High API call overhead"| Slow[Slow Response]
         Batch -.->|"180ms total<br/>Minimal overhead"| Fast[Fast Response]
     end

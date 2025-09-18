@@ -10,24 +10,24 @@ Memcached cluster optimization from Instagram's photo serving pipeline - improvi
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - CDN & Load Balancers
+    subgraph Edge_Plane___CDN___Load_Balancers[Edge Plane - CDN & Load Balancers]
         CDN[Instagram CDN<br/>150+ PoPs worldwide<br/>Photo cache: 24h TTL]
         LB[AWS ALB<br/>Multi-AZ deployment<br/>Health checks every 5s]
     end
 
-    subgraph Service Plane - Application Layer
+    subgraph Service_Plane___Application_Layer[Service Plane - Application Layer]
         PhotoAPI[Photo Service API<br/>Django + Gunicorn<br/>500 instances]
         ResizeAPI[Image Resize Service<br/>Pillow + ImageMagick<br/>200 instances]
         MetaAPI[Metadata Service<br/>Photo info & permissions<br/>300 instances]
     end
 
-    subgraph State Plane - Cache & Storage
+    subgraph State_Plane___Cache___Storage[State Plane - Cache & Storage]
         MC_Cluster[Memcached Cluster<br/>128 nodes, 16TB total<br/>Hit rate: 97.3%]
         S3[AWS S3<br/>Original photos<br/>Multi-region replication]
         PostgreSQL[(PostgreSQL<br/>Photo metadata<br/>Sharded across 32 DBs)]
     end
 
-    subgraph Control Plane - Monitoring
+    subgraph Control_Plane___Monitoring[Control Plane - Monitoring]
         Grafana[Grafana Dashboards<br/>Cache metrics]
         Prometheus[Prometheus<br/>Metrics collection]
         AlertManager[AlertManager<br/>Cache health alerts]
@@ -62,27 +62,27 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Before: Modulo Hashing - Hot Spots
+    subgraph Before__Modulo_Hashing___Hot_Spots[Before: Modulo Hashing - Hot Spots]
         Hash1[Simple Modulo Hash<br/>key % node_count<br/>Poor distribution]
         Hash1 --> Node1[Node 1<br/>Celebrity photos<br/>85% CPU, 95% memory<br/>Frequent evictions]
         Hash1 --> Node2[Node 2<br/>Regular content<br/>25% CPU, 35% memory<br/>Under-utilized]
         Hash1 --> Node3[Node 3-128<br/>Light load<br/>15% CPU, 20% memory<br/>Mostly idle]
     end
 
-    subgraph After: Consistent Hashing - Even Distribution
+    subgraph After__Consistent_Hashing___Even_Distribution[After: Consistent Hashing - Even Distribution]
         Hash2[Consistent Hashing<br/>SHA-1 with virtual nodes<br/>160 vnodes per server]
         Hash2 --> VNode1[Virtual Nodes<br/>Node 1: vnodes 0-159<br/>Even key distribution]
         Hash2 --> VNode2[Virtual Nodes<br/>Node 2: vnodes 160-319<br/>Balanced load]
         Hash2 --> VNode3[Virtual Nodes<br/>All 128 nodes<br/>40-45% CPU average<br/>75-80% memory usage]
     end
 
-    subgraph Hot Key Detection and Mitigation
+    subgraph Hot_Key_Detection_and_Mitigation[Hot Key Detection and Mitigation]
         HotKey[Hot Key Detector<br/>Track access frequency<br/>>1000 req/sec threshold]
         HotKey --> Replicate[Key Replication<br/>Copy hot keys to 3 nodes<br/>Load balancing reads]
         HotKey --> LocalCache[Local Cache Layer<br/>App-level LRU cache<br/>1 second TTL for hot keys]
     end
 
-    subgraph Load Balancing Strategy
+    subgraph Load_Balancing_Strategy[Load Balancing Strategy]
         Client[Instagram App] --> Router[Smart Client Router<br/>Tracks node health<br/>Failure detection]
         Router --> Primary[Primary Node<br/>Original key location<br/>Healthy routing]
         Router --> Fallback[Replica Nodes<br/>Hot key replicas<br/>Overflow routing]
@@ -109,7 +109,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Memory Management - Before
+    subgraph Memory_Management___Before[Memory Management - Before]
         Mem1[Default Slab Allocation<br/>Fixed slab classes<br/>High fragmentation: 35%]
         Mem1 --> Slab1[Slab 1: 96B chunks<br/>Small photo metadata<br/>Utilization: 45%]
         Mem1 --> Slab2[Slab 2: 120B chunks<br/>Thumbnail data<br/>Utilization: 60%]
@@ -117,7 +117,7 @@ graph TB
         Mem1 --> SlabN[Slab N: 1MB chunks<br/>Large photos<br/>Utilization: 95%]
     end
 
-    subgraph Memory Management - After
+    subgraph Memory_Management___After[Memory Management - After]
         Mem2[Optimized Slab Allocation<br/>Custom slab classes<br/>Low fragmentation: 8%]
         Mem2 --> OSlab1[Slab 1: 88B chunks<br/>Photo metadata<br/>Utilization: 88%]
         Mem2 --> OSlab2[Slab 2: 512B chunks<br/>Thumbnail cache<br/>Utilization: 91%]
@@ -125,14 +125,14 @@ graph TB
         Mem2 --> OSlabN[Slab N: 256KB chunks<br/>Large previews<br/>Utilization: 96%]
     end
 
-    subgraph Compression Strategy
+    subgraph Compression_Strategy[Compression Strategy]
         Photo[Photo Data Analysis<br/>50B photos analyzed<br/>Size distribution study]
         Photo --> Thumb[Thumbnails (150x150)<br/>Avg size: 8KB<br/>Compress with LZ4: 4KB]
         Photo --> Preview[Previews (600x600)<br/>Avg size: 45KB<br/>Compress with ZSTD: 18KB]
         Photo --> Meta[Metadata JSON<br/>Avg size: 2KB<br/>Compress with GZIP: 800B]
     end
 
-    subgraph Intelligent Eviction Policy
+    subgraph Intelligent_Eviction_Policy[Intelligent Eviction Policy]
         LRU_Old[Standard LRU<br/>Recently used only<br/>Poor for viral content]
         LRU_Old --> LFU_Hybrid[LFU + Recency Hybrid<br/>Weighted scoring<br/>Viral content awareness]
         LFU_Hybrid --> Score[Scoring Formula:<br/>score = frequency * 0.7<br/>+ recency * 0.3<br/>+ size_penalty * 0.1]
@@ -158,18 +158,18 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Connection Management - Before
+    subgraph Connection_Management___Before[Connection Management - Before]
         App1[Django App<br/>500 instances] --> Pool1[Connection Pool<br/>10 connections per instance<br/>5000 total connections]
         Pool1 --> MC1[Memcached Nodes<br/>128 nodes<br/>~40 connections each<br/>High connection overhead]
     end
 
-    subgraph Connection Management - After
+    subgraph Connection_Management___After[Connection Management - After]
         App2[Django App<br/>500 instances] --> Pool2[Optimized Pool<br/>2 persistent connections<br/>1000 total connections<br/>Connection multiplexing]
         Pool2 --> Proxy[Memcached Proxy<br/>mcrouter deployment<br/>Connection pooling<br/>Request routing]
         Proxy --> MC2[Memcached Nodes<br/>128 nodes<br/>~8 connections each<br/>Reduced overhead]
     end
 
-    subgraph Protocol Optimization
+    subgraph Protocol_Optimization[Protocol Optimization]
         Binary1[Text Protocol<br/>Human readable<br/>Higher bandwidth<br/>Parsing overhead]
         Binary1 --> Binary2[Binary Protocol<br/>Compact format<br/>30% bandwidth reduction<br/>Faster parsing]
 
@@ -177,14 +177,14 @@ graph LR
         Multi1 --> Multi2[Multi-get Batching<br/>get key1 key2 key3<br/>Single network round trip<br/>85% latency reduction]
     end
 
-    subgraph Request Pipelining
+    subgraph Request_Pipelining[Request Pipelining]
         Sync[Synchronous Requests<br/>Wait for each response<br/>Total latency: sum of all]
         Async[Asynchronous Pipeline<br/>Send multiple requests<br/>Parallel processing<br/>Total latency: max of all]
 
         Pipeline_Metrics[Performance Impact:<br/>Before: 15ms for 10 keys<br/>After: 2ms for 10 keys<br/>87% improvement]
     end
 
-    subgraph Intelligent Request Routing
+    subgraph Intelligent_Request_Routing[Intelligent Request Routing]
         Round_Robin[Round Robin<br/>Equal distribution<br/>Ignores node health]
         Smart_Route[Health-Aware Routing<br/>Monitor response times<br/>Avoid slow nodes<br/>99.97% success rate]
     end
@@ -208,27 +208,27 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Cold Start Problem - Before
+    subgraph Cold_Start_Problem___Before[Cold Start Problem - Before]
         Restart[Memcached Restart<br/>Empty cache<br/>0% hit rate]
         Restart --> Traffic[Full Traffic Load<br/>50B requests/day<br/>All miss to S3]
         Traffic --> S3_Load[S3 Overload<br/>Request rate: 580K/sec<br/>Latency: 2000ms]
         S3_Load --> UX[Poor User Experience<br/>Photo load timeout<br/>App crashes]
     end
 
-    subgraph Intelligent Warming - After
+    subgraph Intelligent_Warming___After[Intelligent Warming - After]
         Smart_Restart[Memcached Restart<br/>Warming algorithm<br/>85% hit rate in 10min]
         Smart_Restart --> Popular[Popular Content<br/>Top 1M photos by views<br/>Preload priority 1]
         Smart_Restart --> Recent[Recent Uploads<br/>Last 4 hours<br/>Preload priority 2]
         Smart_Restart --> UserData[User-specific<br/>Following graph data<br/>Preload priority 3]
     end
 
-    subgraph Warming Algorithm
+    subgraph Warming_Algorithm[Warming Algorithm]
         ML_Model[ML Prediction Model<br/>XGBoost classifier<br/>Predicts photo access probability]
         ML_Model --> Features[Features:<br/>- Upload timestamp<br/>- User follower count<br/>- Engagement velocity<br/>- Hashtag popularity<br/>- Geographic location]
         Features --> Prediction[Access Probability<br/>>70%: Immediate preload<br/>40-70%: Delayed preload<br/><40%: Load on demand]
     end
 
-    subgraph Warming Pipeline
+    subgraph Warming_Pipeline[Warming Pipeline]
         S3_Fetch[S3 Batch Fetch<br/>1000 photos per batch<br/>Parallel processing<br/>Rate limited: 10K/sec]
         S3_Fetch --> Resize[Resize Pipeline<br/>Generate thumbnails<br/>3 size variants<br/>Parallel workers: 200]
         Resize --> Cache_Load[Cache Population<br/>LZ4 compression<br/>Set TTL: 24 hours<br/>Success rate: 99.8%]

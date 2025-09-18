@@ -8,7 +8,7 @@ Twitter scaled from 5,000 tweets per day (2006) to 1 billion tweets daily (2024)
 
 ```mermaid
 graph TB
-    subgraph MVP Architecture - 5K Tweets/Day
+    subgraph MVP_Architecture___5K_Tweets_Day[MVP Architecture - 5K Tweets/Day]
         subgraph EdgePlane[Edge - Single Server]
             APACHE[Apache<br/>1 VPS<br/>$100/month]
         end
@@ -70,7 +70,7 @@ end
 
 ```mermaid
 graph TB
-    subgraph Growing Pains Architecture
+    subgraph Growing_Pains_Architecture[Growing Pains Architecture]
         subgraph EdgePlane[Edge - Load Balanced]
             LB[HAProxy<br/>2 instances<br/>$500/month]
             VARNISH[Varnish Cache<br/>8GB RAM]
@@ -140,7 +140,7 @@ end
 
 ```mermaid
 graph TB
-    subgraph Scala-Powered Architecture
+    subgraph Scala_Powered_Architecture[Scala-Powered Architecture]
         subgraph EdgePlane[Edge - Global CDN]
             CDN[Akamai<br/>$100K/month]
             NGINX[Nginx<br/>50 instances<br/>Geo-distributed]
@@ -221,7 +221,7 @@ object TweetStorage {
 
 ```mermaid
 graph TB
-    subgraph Microservices Architecture
+    subgraph Microservices_Architecture[Microservices Architecture]
         subgraph EdgePlane[Edge - Multi-Region]
             CLOUDFLARE[CloudFlare<br/>$500K/month<br/>200 PoPs]
             TWITTER_CDN[Twitter CDN<br/>Custom<br/>50 datacenters]
@@ -334,7 +334,7 @@ object CelebrityFanout {
 
 ```mermaid
 graph TB
-    subgraph Modern Twitter/X Infrastructure
+    subgraph Modern_Twitter_X_Infrastructure[Modern Twitter/X Infrastructure]
         subgraph EdgePlane[Edge - Global Scale]
             FASTLY[Fastly<br/>Primary CDN<br/>$50M/year]
             CLOUDFLARE2[CloudFlare<br/>Backup CDN<br/>$20M/year]
@@ -514,7 +514,7 @@ class TimelineMixer:
 
 ```mermaid
 graph LR
-    subgraph Infrastructure Spend Evolution
+    subgraph Infrastructure_Spend_Evolution[Infrastructure Spend Evolution]
         Y2006[$2K/mo<br/>5K tweets/day<br/>$0.40/tweet]
         Y2008[$50K/mo<br/>1M tweets/day<br/>$0.05/tweet]
         Y2010[$2M/mo<br/>50M tweets/day<br/>$0.04/tweet]

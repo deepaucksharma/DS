@@ -8,43 +8,43 @@ MongoDB uses horizontal sharding to distribute data across multiple shards (repl
 
 ```mermaid
 graph TB
-    subgraph MongoDB Sharded Cluster Architecture
-        subgraph Client Layer
+    subgraph MongoDB_Sharded_Cluster_Architecture[MongoDB Sharded Cluster Architecture]
+        subgraph Client_Layer[Client Layer]
             APP[Application]
             DRIVER[MongoDB Driver]
         end
 
-        subgraph Routing Layer
+        subgraph Routing_Layer[Routing Layer]
             MONGOS1[mongos Router 1<br/>Query routing<br/>Result aggregation]
             MONGOS2[mongos Router 2<br/>Query routing<br/>Result aggregation]
             MONGOS3[mongos Router 3<br/>Query routing<br/>Result aggregation]
         end
 
-        subgraph Metadata Layer
+        subgraph Metadata_Layer[Metadata Layer]
             CONFIG_RS[Config Server Replica Set<br/>• Cluster metadata<br/>• Chunk mappings<br/>• Shard information<br/>• Balancer state]
         end
 
-        subgraph Data Layer
-            subgraph Shard 1 (Replica Set)
+        subgraph Data_Layer[Data Layer]
+            subgraph Shard_1__Replica_Set[Shard 1 (Replica Set)]
                 SHARD1_P[Primary]
                 SHARD1_S1[Secondary 1]
                 SHARD1_S2[Secondary 2]
             end
 
-            subgraph Shard 2 (Replica Set)
+            subgraph Shard_2__Replica_Set[Shard 2 (Replica Set)]
                 SHARD2_P[Primary]
                 SHARD2_S1[Secondary 1]
                 SHARD2_S2[Secondary 2]
             end
 
-            subgraph Shard 3 (Replica Set)
+            subgraph Shard_3__Replica_Set[Shard 3 (Replica Set)]
                 SHARD3_P[Primary]
                 SHARD3_S1[Secondary 1]
                 SHARD3_S2[Secondary 2]
             end
         end
 
-        subgraph Balancer Process
+        subgraph Balancer_Process[Balancer Process]
             BALANCER[Balancer<br/>• Chunk splitting<br/>• Chunk migration<br/>• Load distribution]
         end
     end
@@ -92,22 +92,22 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph MongoDB Shard Key Strategies
-        subgraph Ranged Sharding
+    subgraph MongoDB_Shard_Key_Strategies[MongoDB Shard Key Strategies]
+        subgraph Ranged_Sharding[Ranged Sharding]
             RANGE_GOOD[Good Range Keys<br/>• Even distribution<br/>• High cardinality<br/>• Non-monotonic<br/>Example: email, user_id]
             RANGE_BAD[Bad Range Keys<br/>• Low cardinality<br/>• Monotonic increase<br/>• Hotspot prone<br/>Example: timestamp, _id]
         end
 
-        subgraph Hashed Sharding
+        subgraph Hashed_Sharding[Hashed Sharding]
             HASH_GOOD[Hashed Key Benefits<br/>• Automatic distribution<br/>• Prevents hotspots<br/>• Works with any key<br/>Example: hashed _id]
             HASH_BAD[Hashed Key Limitations<br/>• No range queries<br/>• Random distribution<br/>• Less intuitive<br/>Loss of locality]
         end
 
-        subgraph Compound Shard Keys
+        subgraph Compound_Shard_Keys[Compound Shard Keys]
             COMPOUND[Compound Keys<br/>• Multiple fields<br/>• Hierarchical distribution<br/>• Better query targeting<br/>Example: {country: 1, city: 1, user_id: 1}]
         end
 
-        subgraph Zone Sharding
+        subgraph Zone_Sharding[Zone Sharding]
             ZONES[Zone-based Sharding<br/>• Geographic distribution<br/>• Hardware-based zones<br/>• Compliance requirements<br/>Example: EU vs US data]
         end
     end
@@ -591,28 +591,28 @@ if __name__ == "__main__":
 
 ```mermaid
 graph TB
-    subgraph MongoDB Zone Sharding
-        subgraph US Region
+    subgraph MongoDB_Zone_Sharding[MongoDB Zone Sharding]
+        subgraph US_Region[US Region]
             US_SHARD1[Shard US-1<br/>Tags: US, East]
             US_SHARD2[Shard US-2<br/>Tags: US, West]
         end
 
-        subgraph EU Region
+        subgraph EU_Region[EU Region]
             EU_SHARD1[Shard EU-1<br/>Tags: EU, West]
             EU_SHARD2[Shard EU-2<br/>Tags: EU, Central]
         end
 
-        subgraph Asia Region
+        subgraph Asia_Region[Asia Region]
             ASIA_SHARD1[Shard ASIA-1<br/>Tags: ASIA, Southeast]
         end
 
-        subgraph Data Routing Rules
+        subgraph Data_Routing_Rules[Data Routing Rules]
             US_RULE[US Users<br/>country: "US"<br/>→ US Region Shards]
             EU_RULE[EU Users<br/>country: "DE", "FR", "UK"<br/>→ EU Region Shards]
             ASIA_RULE[Asia Users<br/>country: "SG", "JP"<br/>→ Asia Region Shards]
         end
 
-        subgraph Compliance Benefits
+        subgraph Compliance_Benefits[Compliance Benefits]
             GDPR[GDPR Compliance<br/>EU data stays in EU]
             LATENCY[Low Latency<br/>Regional data access]
             SOVEREIGNTY[Data Sovereignty<br/>Country-specific rules]

@@ -8,33 +8,33 @@ etcd implements Raft to provide the distributed key-value store that powers Kube
 
 ```mermaid
 graph TB
-    subgraph etcd Cluster (3 nodes)
-        subgraph etcd-1 (Leader)
+    subgraph etcd_Cluster__3_nodes[etcd Cluster (3 nodes)]
+        subgraph etcd_1__Leader[etcd-1 (Leader)]
             RAFT1[Raft Module]
             STORE1[MVCC Store]
             API1[gRPC API]
         end
 
-        subgraph etcd-2 (Follower)
+        subgraph etcd_2__Follower[etcd-2 (Follower)]
             RAFT2[Raft Module]
             STORE2[MVCC Store]
             API2[gRPC API]
         end
 
-        subgraph etcd-3 (Follower)
+        subgraph etcd_3__Follower[etcd-3 (Follower)]
             RAFT3[Raft Module]
             STORE3[MVCC Store]
             API3[gRPC API]
         end
     end
 
-    subgraph Kubernetes Control Plane
+    subgraph Kubernetes_Control_Plane[Kubernetes Control Plane]
         KAPI[kube-apiserver]
         SCHED[kube-scheduler]
         CM[kube-controller-manager]
     end
 
-    subgraph Client Applications
+    subgraph Client_Applications[Client Applications]
         CLIENT1[kubectl]
         CLIENT2[Custom Operators]
         CLIENT3[Monitoring Tools]
@@ -121,9 +121,9 @@ Consul uses Raft for its service catalog and key-value store, providing service 
 
 ```mermaid
 graph TB
-    subgraph Consul Datacenter
-        subgraph Server Nodes (Raft Cluster)
-            subgraph consul-1 (Leader)
+    subgraph Consul_Datacenter[Consul Datacenter]
+        subgraph Server_Nodes__Raft_Cluster[Server Nodes (Raft Cluster)]
+            subgraph consul_1__Leader[consul-1 (Leader)]
                 LEADER[Raft Leader]
                 KV1[KV Store]
                 CATALOG1[Service Catalog]
@@ -131,7 +131,7 @@ graph TB
                 HTTP1[HTTP API]
             end
 
-            subgraph consul-2 (Follower)
+            subgraph consul_2__Follower[consul-2 (Follower)]
                 FOLLOWER1[Raft Follower]
                 KV2[KV Store]
                 CATALOG2[Service Catalog]
@@ -139,7 +139,7 @@ graph TB
                 HTTP2[HTTP API]
             end
 
-            subgraph consul-3 (Follower)
+            subgraph consul_3__Follower[consul-3 (Follower)]
                 FOLLOWER2[Raft Follower]
                 KV3[KV Store]
                 CATALOG3[Service Catalog]
@@ -148,7 +148,7 @@ graph TB
             end
         end
 
-        subgraph Client Nodes
+        subgraph Client_Nodes[Client Nodes]
             CLIENT1[consul-client-1]
             CLIENT2[consul-client-2]
             CLIENT3[consul-client-3]
@@ -251,22 +251,22 @@ CockroachDB uses Raft for replicating ranges of data across multiple nodes.
 
 ```mermaid
 graph TB
-    subgraph CockroachDB Cluster
-        subgraph Node 1
+    subgraph CockroachDB_Cluster[CockroachDB Cluster]
+        subgraph Node_1[Node 1]
             R1_1[Range 1 Replica]
             R2_1[Range 2 Replica]
             R3_1[Range 3 Replica]
             SQL1[SQL Layer]
         end
 
-        subgraph Node 2
+        subgraph Node_2[Node 2]
             R1_2[Range 1 Replica]
             R2_2[Range 2 Replica]
             R4_2[Range 4 Replica]
             SQL2[SQL Layer]
         end
 
-        subgraph Node 3
+        subgraph Node_3[Node 3]
             R1_3[Range 1 Replica]
             R3_3[Range 3 Replica]
             R4_3[Range 4 Replica]
@@ -274,25 +274,25 @@ graph TB
         end
     end
 
-    subgraph Range 1 Raft Group
+    subgraph Range_1_Raft_Group[Range 1 Raft Group]
         R1_1 <--> R1_2
         R1_1 <--> R1_3
         R1_2 <--> R1_3
     end
 
-    subgraph Range 2 Raft Group
+    subgraph Range_2_Raft_Group[Range 2 Raft Group]
         R2_1 <--> R2_2
     end
 
-    subgraph Range 3 Raft Group
+    subgraph Range_3_Raft_Group[Range 3 Raft Group]
         R3_1 <--> R3_3
     end
 
-    subgraph Range 4 Raft Group
+    subgraph Range_4_Raft_Group[Range 4 Raft Group]
         R4_2 <--> R4_3
     end
 
-    subgraph Client Applications
+    subgraph Client_Applications[Client Applications]
         APP1[Application 1]
         APP2[Application 2]
     end
@@ -315,26 +315,26 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Production Raft Performance
-        subgraph etcd (Kubernetes)
+    subgraph Production_Raft_Performance[Production Raft Performance]
+        subgraph etcd__Kubernetes[etcd (Kubernetes)]
             ETCD_TPS[10,000 writes/sec]
             ETCD_LAT[< 10ms p99]
             ETCD_SIZE[8GB recommended]
         end
 
-        subgraph Consul (Service Discovery)
+        subgraph Consul__Service_Discovery[Consul (Service Discovery)]
             CONSUL_TPS[5,000 writes/sec]
             CONSUL_LAT[< 20ms p99]
             CONSUL_SIZE[No limit]
         end
 
-        subgraph CockroachDB (per range)
+        subgraph CockroachDB__per_range[CockroachDB (per range)]
             CRDB_TPS[1,000 writes/sec]
             CRDB_LAT[< 50ms p99]
             CRDB_SIZE[64MB ranges]
         end
 
-        subgraph Factors Affecting Performance
+        subgraph Factors_Affecting_Performance[Factors Affecting Performance]
             FACTORS[• Network latency<br/>• Disk I/O (fsync)<br/>• Batch size<br/>• Cluster size<br/>• Geographic distribution]
         end
     end
@@ -350,23 +350,23 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Multi-AZ Raft Deployment
-        subgraph AZ-1 (us-east-1a)
+    subgraph Multi_AZ_Raft_Deployment[Multi-AZ Raft Deployment]
+        subgraph AZ_1__us_east_1a[AZ-1 (us-east-1a)]
             N1[Node 1]
             N2[Node 2]
         end
 
-        subgraph AZ-2 (us-east-1b)
+        subgraph AZ_2__us_east_1b[AZ-2 (us-east-1b)]
             N3[Node 3]
             N4[Node 4]
         end
 
-        subgraph AZ-3 (us-east-1c)
+        subgraph AZ_3__us_east_1c[AZ-3 (us-east-1c)]
             N5[Node 5]
         end
     end
 
-    subgraph Failure Scenarios
+    subgraph Failure_Scenarios[Failure Scenarios]
         SINGLE[Single node failure:<br/>4/5 nodes = majority]
         AZ_FAIL[AZ failure:<br/>3/5 nodes = majority]
         NETWORK[Network partition:<br/>Largest partition wins]

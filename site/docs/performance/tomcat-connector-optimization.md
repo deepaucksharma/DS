@@ -10,23 +10,23 @@ Tomcat connector optimization from Netflix's API Gateway service - reducing requ
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - Load Balancing
+    subgraph Edge_Plane___Load_Balancing[Edge Plane - Load Balancing]
         ELB[AWS ELB<br/>Application Load Balancer<br/>Cross-AZ traffic distribution]
         CloudFront[CloudFront CDN<br/>Static content caching<br/>Edge locations: 400+]
     end
 
-    subgraph Service Plane - API Gateway Layer
+    subgraph Service_Plane___API_Gateway_Layer[Service Plane - API Gateway Layer]
         Zuul[Netflix Zuul Gateway<br/>1,200 instances<br/>Tomcat embedded servers]
         TomcatConnector[Tomcat NIO Connector<br/>Optimized configuration<br/>maxThreads: 200<br/>acceptorThreadCount: 8]
     end
 
-    subgraph State Plane - Backend Services
+    subgraph State_Plane___Backend_Services[State Plane - Backend Services]
         Microservice1[User Service<br/>Authentication & profiles<br/>100ms avg response]
         Microservice2[Content Service<br/>Video metadata<br/>80ms avg response]
         Microservice3[Recommendation Service<br/>ML-based suggestions<br/>150ms avg response]
     end
 
-    subgraph Control Plane - Monitoring
+    subgraph Control_Plane___Monitoring[Control Plane - Monitoring]
         Micrometer[Micrometer Metrics<br/>JVM and Tomcat stats]
         Atlas[Netflix Atlas<br/>Time-series monitoring<br/>Real-time dashboards]
         Hystrix[Hystrix Circuit Breaker<br/>Fault tolerance<br/>Bulkhead isolation]
@@ -60,26 +60,26 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Before: BIO Connector - Blocking I/O
+    subgraph Before__BIO_Connector___Blocking_I_O[Before: BIO Connector - Blocking I/O]
         BIO[BIO Connector<br/>Blocking I/O model<br/>1 thread per connection<br/>High memory overhead]
         BIO --> Thread1[Thread Pool<br/>maxThreads: 500<br/>Memory: 500MB per instance<br/>Context switching overhead]
         Thread1 --> Block[Blocking Behavior<br/>Thread blocked during I/O<br/>Poor CPU utilization<br/>Scalability limit: 2,000 conn]
     end
 
-    subgraph After: NIO Connector - Non-blocking I/O
+    subgraph After__NIO_Connector___Non_blocking_I_O[After: NIO Connector - Non-blocking I/O]
         NIO[NIO Connector<br/>Non-blocking I/O<br/>Event-driven model<br/>Efficient resource usage]
         NIO --> Thread2[Thread Pool<br/>maxThreads: 200<br/>Memory: 80MB per instance<br/>Efficient thread utilization]
         Thread2 --> NonBlock[Non-blocking Behavior<br/>Threads not blocked on I/O<br/>High CPU utilization<br/>Scalability: 50,000+ conn]
     end
 
-    subgraph Connector Configuration Tuning
+    subgraph Connector_Configuration_Tuning[Connector Configuration Tuning]
         Config[Optimized Configuration]
         Config --> Acceptor[acceptorThreadCount: 8<br/>Dedicated accept threads<br/>Scale with CPU cores<br/>Reduce accept queue contention]
         Config --> Processor[processorCache: 200<br/>Processor object pooling<br/>Reduce GC pressure<br/>Faster request processing]
         Config --> KeepAlive[maxKeepAliveRequests: 100<br/>connectionTimeout: 20000ms<br/>Persistent connections<br/>Reduced connection overhead]
     end
 
-    subgraph Request Processing Pipeline
+    subgraph Request_Processing_Pipeline[Request Processing Pipeline]
         Request2[HTTP Request] --> Accept[Accept Thread<br/>Non-blocking accept<br/>Socket setup<br/>0.1ms processing]
         Accept --> Parse[HTTP Parser<br/>Header parsing<br/>Request validation<br/>2ms processing]
         Parse --> Route[Request Routing<br/>Path matching<br/>Service discovery<br/>1ms processing]
@@ -106,24 +106,24 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Connection Management - Before
+    subgraph Connection_Management___Before[Connection Management - Before]
         Client1[Netflix Client Apps<br/>Mobile + Web + TV<br/>200M active users] --> Short[Short Connections<br/>HTTP/1.1<br/>Connection: close<br/>High overhead]
         Short --> Overhead1[Connection Overhead<br/>TCP handshake: 3ms<br/>TLS handshake: 8ms<br/>Total overhead: 11ms per request]
     end
 
-    subgraph Connection Management - After
+    subgraph Connection_Management___After[Connection Management - After]
         Client2[Netflix Client Apps<br/>Same traffic volume<br/>Optimized clients] --> Long[Persistent Connections<br/>HTTP/1.1 Keep-Alive<br/>Connection pooling<br/>Low overhead]
         Long --> Overhead2[Minimal Overhead<br/>Connection reuse: 95%<br/>Amortized setup cost<br/>Total overhead: 0.5ms per request]
     end
 
-    subgraph Keep-Alive Configuration
+    subgraph Keep_Alive_Configuration[Keep-Alive Configuration]
         KeepAliveConfig[Keep-Alive Settings]
         KeepAliveConfig --> MaxRequests[maxKeepAliveRequests: 100<br/>Requests per connection<br/>Balance efficiency vs fairness<br/>Optimal connection utilization]
         KeepAliveConfig --> Timeout[keepAliveTimeout: 30000ms<br/>30-second idle timeout<br/>Resource cleanup<br/>Prevent connection leaks]
         KeepAliveConfig --> MaxConnections[maxConnections: 50000<br/>50K concurrent connections<br/>Scale with traffic<br/>OS limits consideration]
     end
 
-    subgraph Connection Pool Monitoring
+    subgraph Connection_Pool_Monitoring[Connection Pool Monitoring]
         Monitoring[Connection Metrics]
         Monitoring --> Active[Active Connections<br/>Current: 35,000-45,000<br/>Peak utilization: 90%<br/>Efficient resource usage]
         Monitoring --> Reuse[Connection Reuse Rate<br/>95% of requests<br/>Reuse existing connection<br/>5% establish new connection]
@@ -150,33 +150,33 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Memory Management - Before
+    subgraph Memory_Management___Before[Memory Management - Before]
         Memory1[Default Configuration<br/>Large buffer allocations<br/>High GC pressure<br/>Memory inefficiency]
         Memory1 --> Buffer1[Request Buffers<br/>Size: 8KB default<br/>Allocation: per request<br/>Memory waste: 60%]
         Memory1 --> Response1[Response Buffers<br/>Size: 8KB default<br/>Pooling: disabled<br/>GC pressure: high]
         Memory1 --> DirectMem1[Direct Memory<br/>Off-heap allocation<br/>Poor management<br/>Memory leaks]
     end
 
-    subgraph Memory Management - After
+    subgraph Memory_Management___After[Memory Management - After]
         Memory2[Optimized Configuration<br/>Right-sized buffers<br/>Low GC pressure<br/>Memory efficiency]
         Memory2 --> Buffer2[Request Buffers<br/>Size: 4KB optimized<br/>Pooling: enabled<br/>Memory waste: 15%]
         Memory2 --> Response2[Response Buffers<br/>Size: 4KB optimized<br/>Pooling: enabled<br/>GC pressure: low]
         Memory2 --> DirectMem2[Direct Memory<br/>Managed allocation<br/>Proper cleanup<br/>No memory leaks]
     end
 
-    subgraph Buffer Pool Configuration
+    subgraph Buffer_Pool_Configuration[Buffer Pool Configuration]
         Pool[Buffer Pool Strategy] --> RequestPool[Request Buffer Pool<br/>Size: 1000 buffers<br/>4KB each<br/>Total: 4MB allocated]
         Pool --> ResponsePool[Response Buffer Pool<br/>Size: 1000 buffers<br/>4KB each<br/>Reuse rate: 98%]
         Pool --> DirectPool[Direct Buffer Pool<br/>NIO operations<br/>Off-heap allocation<br/>Automatic cleanup]
     end
 
-    subgraph GC Impact Analysis
+    subgraph GC_Impact_Analysis[GC Impact Analysis]
         GC[Garbage Collection Impact]
         GC --> Before_GC[Before Optimization:<br/>Young GC: 150ms every 2s<br/>Old GC: 800ms every 30s<br/>GC overhead: 12%]
         GC --> After_GC[After Optimization:<br/>Young GC: 50ms every 8s<br/>Old GC: 200ms every 5min<br/>GC overhead: 2.5%]
     end
 
-    subgraph Memory Pool Sizing
+    subgraph Memory_Pool_Sizing[Memory Pool Sizing]
         Sizing[Memory Pool Sizing]
         Sizing --> Heap[Heap Memory<br/>Xmx: 4GB per instance<br/>Young: 1.5GB<br/>Old: 2.5GB]
         Sizing --> NonHeap[Non-Heap Memory<br/>Metaspace: 256MB<br/>Direct: 512MB<br/>Code cache: 128MB]
@@ -203,7 +203,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Protocol Evolution
+    subgraph Protocol_Evolution[Protocol Evolution]
         HTTP11[HTTP/1.1 Implementation<br/>Sequential processing<br/>Head-of-line blocking<br/>Multiple connections needed]
         HTTP11 --> Multiple[Multiple Connections<br/>6 connections per domain<br/>Connection overhead<br/>Resource inefficiency]
 
@@ -211,21 +211,21 @@ graph TB
         HTTP2 --> Single[Single Connection<br/>Multiple concurrent streams<br/>Stream prioritization<br/>Server push capability]
     end
 
-    subgraph Stream Multiplexing Benefits
+    subgraph Stream_Multiplexing_Benefits[Stream Multiplexing Benefits]
         Stream[Stream Management]
         Stream --> Concurrent[Concurrent Streams<br/>maxConcurrentStreams: 1000<br/>Parallel request processing<br/>No head-of-line blocking]
         Stream --> Priority[Stream Prioritization<br/>Weight-based scheduling<br/>Critical requests first<br/>Better user experience]
         Stream --> FlowControl[Flow Control<br/>Window-based backpressure<br/>Prevent overwhelming<br/>Stable performance]
     end
 
-    subgraph Compression and Efficiency
+    subgraph Compression_and_Efficiency[Compression and Efficiency]
         Compress[Compression Strategy]
         Compress --> HPACK[HPACK Header Compression<br/>85% header size reduction<br/>Static + dynamic tables<br/>Bandwidth optimization]
         Compress --> GZIP[Response Compression<br/>GZIP for text content<br/>Brotli for static assets<br/>60% payload reduction]
         Compress --> ServerPush[Server Push<br/>Proactive resource delivery<br/>CSS + JS preloading<br/>Reduced round trips]
     end
 
-    subgraph Performance Metrics
+    subgraph Performance_Metrics[Performance Metrics]
         Metrics[Protocol Performance]
         Metrics --> Latency[Request Latency<br/>HTTP/1.1: 125ms p99<br/>HTTP/2: 18ms p99<br/>86% improvement]
         Metrics --> Throughput[Throughput<br/>HTTP/1.1: 800 req/sec/conn<br/>HTTP/2: 2500 req/sec/conn<br/>213% improvement]

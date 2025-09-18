@@ -7,7 +7,7 @@ Based on production deployments at Twitter, GitHub, Stack Overflow, and Pinteres
 
 ```mermaid
 graph TB
-    subgraph Redis Architecture
+    subgraph Redis_Architecture[Redis Architecture]
         subgraph EdgePlane1[Edge Plane]
             RLB[HAProxy<br/>10K conn/s]
         end
@@ -34,7 +34,7 @@ graph TB
         RSENTINEL --> RMASTER
     end
 
-    subgraph Memcached Architecture
+    subgraph Memcached_Architecture[Memcached Architecture]
         subgraph EdgePlane2[Edge Plane]
             MLB[HAProxy<br/>50K conn/s]
         end
@@ -160,7 +160,7 @@ class RepositoryCache:
 
 ```mermaid
 graph LR
-    subgraph Choose Redis When
+    subgraph Choose_Redis_When[Choose Redis When]
         R1[Complex Data Structures<br/>Lists, Sets, Sorted Sets]
         R2[Persistence Required<br/>RDB/AOF snapshots]
         R3[Pub/Sub Needed<br/>Real-time messaging]
@@ -168,7 +168,7 @@ graph LR
         R5[Geospatial Queries<br/>GEORADIUS commands]
     end
 
-    subgraph Choose Memcached When
+    subgraph Choose_Memcached_When[Choose Memcached When]
         M1[Simple Key-Value<br/>Strings only]
         M2[Maximum Performance<br/>500K+ ops/sec]
         M3[Multi-threaded Needed<br/>48+ CPU cores]

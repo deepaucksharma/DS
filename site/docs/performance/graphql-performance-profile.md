@@ -10,7 +10,7 @@ GraphQL performance characteristics in production environments, covering query c
 
 ```mermaid
 graph TB
-    subgraph Simple Query (Complexity: 5)
+    subgraph Simple_Query__Complexity__5[Simple Query (Complexity: 5)]
         SIMPLE1[Query Structure<br/>query GetUser {<br/>  user(id: "123") {<br/>    name<br/>    email<br/>  }<br/>}]
 
         SIMPLE2[Execution Plan<br/>Single database lookup<br/>Primary key access<br/>Execution time: 2ms<br/>Resource usage: Minimal]
@@ -20,7 +20,7 @@ graph TB
         SIMPLE1 --> SIMPLE2 --> SIMPLE3
     end
 
-    subgraph Medium Query (Complexity: 25)
+    subgraph Medium_Query__Complexity__25[Medium Query (Complexity: 25)]
         MEDIUM1[Query Structure<br/>query GetUserPosts {<br/>  user(id: "123") {<br/>    name<br/>    posts(first: 10) {<br/>      title<br/>      comments(first: 5) {<br/>        content<br/>      }<br/>    }<br/>  }<br/>}]
 
         MEDIUM2[Execution Plan<br/>User lookup: 1 query<br/>Posts lookup: 1 query<br/>Comments lookup: 10 queries<br/>Execution time: 50ms<br/>N+1 problem present]
@@ -30,7 +30,7 @@ graph TB
         MEDIUM1 --> MEDIUM2 --> MEDIUM3
     end
 
-    subgraph Complex Query (Complexity: 100)
+    subgraph Complex_Query__Complexity__100[Complex Query (Complexity: 100)]
         COMPLEX1[Query Structure<br/>query GetUserNetwork {<br/>  users(first: 100) {<br/>    followers(first: 50) {<br/>      following(first: 20) {<br/>        posts(first: 10) {<br/>          likes(first: 100)<br/>        }<br/>      }<br/>    }<br/>  }<br/>}]
 
         COMPLEX2[Execution Plan<br/>Exponential query growth<br/>100 × 50 × 20 × 10 × 100<br/>Potential: 1M database queries<br/>Execution time: 30+ seconds<br/>Resource exhaustion risk]
@@ -53,7 +53,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Static Analysis
+    subgraph Static_Analysis[Static Analysis]
         STATIC1[Query parsing<br/>Abstract syntax tree<br/>Field counting<br/>Depth calculation<br/>Multiplicative factors]
 
         STATIC2[Complexity scoring<br/>Base score per field<br/>Depth multiplier<br/>List multiplier<br/>Connection arguments]
@@ -63,7 +63,7 @@ graph TB
         STATIC1 --> STATIC2 --> STATIC3
     end
 
-    subgraph Dynamic Analysis
+    subgraph Dynamic_Analysis[Dynamic Analysis]
         DYNAMIC1[Runtime monitoring<br/>Execution time tracking<br/>Resource usage measurement<br/>Database query counting<br/>Memory consumption]
 
         DYNAMIC2[Performance feedback<br/>Slow query identification<br/>Resource hotspot detection<br/>Client behavior analysis<br/>Optimization opportunities]
@@ -73,7 +73,7 @@ graph TB
         DYNAMIC1 --> DYNAMIC2 --> DYNAMIC3
     end
 
-    subgraph Optimization Strategies
+    subgraph Optimization_Strategies[Optimization Strategies]
         OPT1[Query optimization<br/>Field selection optimization<br/>Batching recommendations<br/>Caching strategies<br/>Alternative endpoints]
 
         OPT2[Schema design<br/>Connection design<br/>Pagination enforcement<br/>Field deprecation<br/>Type relationships]
@@ -96,7 +96,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph N+1 Problem Query
+    subgraph N_1_Problem_Query[N+1 Problem Query]
         PROBLEM1[GraphQL Query<br/>query GetUserPosts {<br/>  users(first: 10) {<br/>    name<br/>    posts {<br/>      title<br/>    }<br/>  }<br/>}]
 
         PROBLEM2[Naive Resolution<br/>Query 1: SELECT * FROM users LIMIT 10<br/>Query 2: SELECT * FROM posts WHERE user_id = 1<br/>Query 3: SELECT * FROM posts WHERE user_id = 2<br/>...<br/>Query 11: SELECT * FROM posts WHERE user_id = 10<br/>Total: 11 queries]
@@ -106,7 +106,7 @@ graph TB
         PROBLEM1 --> PROBLEM2 --> PROBLEM3
     end
 
-    subgraph DataLoader Solution
+    subgraph DataLoader_Solution[DataLoader Solution]
         SOLUTION1[DataLoader Implementation<br/>Batch loading<br/>Request coalescing<br/>Per-request caching<br/>Automatic deduplication]
 
         SOLUTION2[Optimized Resolution<br/>Query 1: SELECT * FROM users LIMIT 10<br/>Batch collection: user_ids = [1,2,3...10]<br/>Query 2: SELECT * FROM posts WHERE user_id IN (1,2,3...10)<br/>Total: 2 queries]
@@ -127,7 +127,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph DataLoader Strategy
+    subgraph DataLoader_Strategy[DataLoader Strategy]
         DL1[DataLoader benefits<br/>• Automatic batching<br/>• Request-scoped caching<br/>• Deduplication<br/>• Framework agnostic]
 
         DL2[DataLoader limitations<br/>• Single-request scope<br/>• Memory overhead<br/>• Complex for relationships<br/>• Batch size limits]
@@ -135,7 +135,7 @@ graph LR
         DL1 --> DL2
     end
 
-    subgraph Query Planning Strategy
+    subgraph Query_Planning_Strategy[Query Planning Strategy]
         QP1[Static query analysis<br/>• Parse query before execution<br/>• Identify data requirements<br/>• Generate optimal query plan<br/>• Execute minimal queries]
 
         QP2[Implementation complexity<br/>• Schema introspection required<br/>• Complex join planning<br/>• Cache invalidation<br/>• Framework-specific]
@@ -143,7 +143,7 @@ graph LR
         QP1 --> QP2
     end
 
-    subgraph Field-Level Batching
+    subgraph Field_Level_Batching[Field-Level Batching]
         FB1[Selective batching<br/>• Per-field DataLoaders<br/>• Relationship optimization<br/>• Custom batch functions<br/>• Fine-grained control]
 
         FB2[Performance characteristics<br/>• 90% query reduction<br/>• Consistent performance<br/>• Predictable resource usage<br/>• Easy monitoring]
@@ -151,7 +151,7 @@ graph LR
         FB1 --> FB2
     end
 
-    subgraph Database Optimization
+    subgraph Database_Optimization[Database Optimization]
         DB1[Database-level solutions<br/>• Join optimization<br/>• Eager loading<br/>• Materialized views<br/>• Query rewriting]
 
         DB2[Trade-offs<br/>• Database-specific<br/>• Complex schema changes<br/>• Maintenance overhead<br/>• Migration challenges]
@@ -176,7 +176,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph DataLoader Request Flow
+    subgraph DataLoader_Request_Flow[DataLoader Request Flow]
         REQUEST1[GraphQL Request<br/>Query execution begins<br/>Field resolvers called<br/>Data loading triggered]
 
         BATCH1[Batch Collection Phase<br/>DataLoader.load() calls<br/>Keys accumulated: [1,2,3,4,5]<br/>Batch size: 5<br/>Delay: 1ms (event loop)]
@@ -188,7 +188,7 @@ graph TB
         REQUEST1 --> BATCH1 --> EXECUTE1 --> RESOLVE1
     end
 
-    subgraph Performance Metrics
+    subgraph Performance_Metrics[Performance Metrics]
         METRICS1[Without DataLoader<br/>Database queries: 100<br/>Execution time: 500ms<br/>Memory usage: 50MB<br/>CPU usage: High]
 
         METRICS2[With DataLoader<br/>Database queries: 10<br/>Execution time: 50ms<br/>Memory usage: 20MB<br/>CPU usage: Low]
@@ -209,7 +209,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Batch Size Configuration
+    subgraph Batch_Size_Configuration[Batch Size Configuration]
         BS1[Small batches (10 items)<br/>Lower memory usage<br/>More database queries<br/>Good for memory-constrained<br/>Response time: Moderate]
 
         BS2[Medium batches (100 items)<br/>Balanced approach<br/>Optimal for most cases<br/>Good query consolidation<br/>Response time: Fast]
@@ -219,7 +219,7 @@ graph TB
         BS1 --> BS2 --> BS3
     end
 
-    subgraph Caching Strategy
+    subgraph Caching_Strategy[Caching Strategy]
         CACHE1[Request-scoped caching<br/>Default DataLoader behavior<br/>No cross-request sharing<br/>Memory efficient<br/>Consistent within request]
 
         CACHE2[Application-level caching<br/>Shared across requests<br/>Redis/Memcached integration<br/>Complex invalidation<br/>Higher performance]
@@ -229,7 +229,7 @@ graph TB
         CACHE1 --> CACHE2 --> CACHE3
     end
 
-    subgraph Error Handling
+    subgraph Error_Handling[Error Handling]
         ERROR1[Fail-fast strategy<br/>First error fails batch<br/>Simple implementation<br/>Poor user experience<br/>All-or-nothing behavior]
 
         ERROR2[Partial success strategy<br/>Individual item errors<br/>Complex error mapping<br/>Better user experience<br/>Graceful degradation]
@@ -252,7 +252,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Subscription Infrastructure
+    subgraph Subscription_Infrastructure[Subscription Infrastructure]
         CLIENT1[WebSocket Client 1<br/>Subscription: messageAdded<br/>Connection: Persistent<br/>Memory: 10KB]
 
         CLIENT2[WebSocket Client 2<br/>Subscription: messageAdded<br/>Connection: Persistent<br/>Memory: 10KB]
@@ -269,7 +269,7 @@ graph TB
         GRAPHQL_SERVER --> PUB_SUB
     end
 
-    subgraph Scaling Challenges
+    subgraph Scaling_Challenges[Scaling Challenges]
         CHALLENGE1[Connection limits<br/>OS file descriptor limits<br/>Memory per connection<br/>CPU per connection<br/>Network bandwidth]
 
         CHALLENGE2[Message fan-out<br/>1 event → 1000 messages<br/>Network amplification<br/>Serialization overhead<br/>Delivery guarantees]
@@ -294,7 +294,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Single Server Limitations
+    subgraph Single_Server_Limitations[Single Server Limitations]
         SINGLE1[Single server capacity<br/>Max connections: 10K<br/>Memory usage: 100MB<br/>CPU usage: 80%<br/>Network: 100 Mbps]
 
         SINGLE2[Performance degradation<br/>Message latency: 100ms<br/>Connection drops: 5%<br/>Memory pressure: High<br/>CPU saturation: Risk]
@@ -302,7 +302,7 @@ graph LR
         SINGLE1 --> SINGLE2
     end
 
-    subgraph Horizontal Scaling
+    subgraph Horizontal_Scaling[Horizontal Scaling]
         HORIZONTAL1[Multi-server setup<br/>Load balancer<br/>Sticky sessions<br/>Shared pub/sub<br/>State coordination]
 
         HORIZONTAL2[Scaling characteristics<br/>Linear connection scaling<br/>Pub/sub bottleneck<br/>Complex state management<br/>Network overhead]
@@ -310,7 +310,7 @@ graph LR
         HORIZONTAL1 --> HORIZONTAL2
     end
 
-    subgraph Optimized Architecture
+    subgraph Optimized_Architecture[Optimized Architecture]
         OPTIMIZED1[Specialized components<br/>Connection servers<br/>Processing servers<br/>Dedicated pub/sub<br/>Edge deployment]
 
         OPTIMIZED2[Performance results<br/>100K+ connections<br/>Sub-second latency<br/>99.9% uptime<br/>Global distribution]
@@ -331,7 +331,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Connection Optimization
+    subgraph Connection_Optimization[Connection Optimization]
         CONN_OPT1[Connection pooling<br/>Shared connections<br/>Connection multiplexing<br/>Keep-alive optimization<br/>Graceful degradation]
 
         CONN_OPT2[Protocol optimization<br/>WebSocket compression<br/>Binary protocols<br/>Frame aggregation<br/>Ping/pong handling]
@@ -339,7 +339,7 @@ graph TB
         CONN_OPT1 --> CONN_OPT2
     end
 
-    subgraph Message Optimization
+    subgraph Message_Optimization[Message Optimization]
         MSG_OPT1[Message batching<br/>Multiple events per message<br/>Reduced network overhead<br/>Improved throughput<br/>Increased latency]
 
         MSG_OPT2[Message filtering<br/>Server-side filtering<br/>Subscription arguments<br/>Reduced network traffic<br/>Lower client CPU]
@@ -349,7 +349,7 @@ graph TB
         MSG_OPT1 --> MSG_OPT2 --> MSG_OPT3
     end
 
-    subgraph Infrastructure Optimization
+    subgraph Infrastructure_Optimization[Infrastructure Optimization]
         INFRA_OPT1[Pub/sub optimization<br/>Topic partitioning<br/>Message persistence<br/>Delivery guarantees<br/>Scaling policies]
 
         INFRA_OPT2[Load balancing<br/>Geographic distribution<br/>Edge deployment<br/>CDN integration<br/>Regional failover]
@@ -372,7 +372,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph GitHub API Usage Statistics
+    subgraph GitHub_API_Usage_Statistics[GitHub API Usage Statistics]
         STATS1[API requests per day<br/>GraphQL: 1B+ requests<br/>REST: 5B+ requests<br/>Rate limiting: 5K/hour<br/>Enterprise: Higher limits]
 
         STATS2[Query characteristics<br/>Average complexity: 15<br/>95th percentile: 50<br/>Maximum allowed: 100<br/>Rejected queries: 0.1%]
@@ -382,7 +382,7 @@ graph TB
         STATS1 --> STATS2 --> STATS3
     end
 
-    subgraph Performance Optimizations
+    subgraph Performance_Optimizations[Performance Optimizations]
         OPT1[Query complexity analysis<br/>Static analysis<br/>Dynamic monitoring<br/>Rate limiting<br/>Query whitelisting]
 
         OPT2[DataLoader implementation<br/>N+1 problem solved<br/>Automatic batching<br/>Request-scoped caching<br/>90% query reduction]
@@ -392,7 +392,7 @@ graph TB
         OPT1 --> OPT2 --> OPT3
     end
 
-    subgraph Resource Management
+    subgraph Resource_Management[Resource Management]
         RESOURCE1[Infrastructure<br/>Load balancers<br/>Application servers<br/>Database clusters<br/>Cache layers]
 
         RESOURCE2[Monitoring<br/>Real-time metrics<br/>Performance alerts<br/>Capacity planning<br/>Cost optimization]
@@ -413,7 +413,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Complexity Calculation
+    subgraph Complexity_Calculation[Complexity Calculation]
         CALC1[Base field cost: 1<br/>Connection field cost: 2<br/>Nested object multiplier<br/>Argument considerations<br/>Custom field costs]
 
         CALC2[Example calculation<br/>user { // 1<br/>  repositories(first: 10) { // 2 × 10<br/>    issues(first: 5) { // 2 × 5 × 10<br/>      title // 1 × 5 × 10<br/>    }<br/>  }<br/>}<br/>Total: 1 + 20 + 100 + 50 = 171]
@@ -421,7 +421,7 @@ graph LR
         CALC1 --> CALC2
     end
 
-    subgraph Rate Limiting
+    subgraph Rate_Limiting[Rate Limiting]
         RATE1[Rate limit enforcement<br/>Cost per hour: 5000<br/>Remaining: Tracked<br/>Reset time: Hourly<br/>Authenticated users only]
 
         RATE2[Rate limit headers<br/>X-RateLimit-Limit: 5000<br/>X-RateLimit-Remaining: 4950<br/>X-RateLimit-Reset: 1640995200<br/>X-RateLimit-Used: 50]
@@ -429,7 +429,7 @@ graph LR
         RATE1 --> RATE2
     end
 
-    subgraph Query Optimization
+    subgraph Query_Optimization[Query Optimization]
         QUERY_OPT1[Query optimization tips<br/>• Use specific fields only<br/>• Limit connection arguments<br/>• Avoid deeply nested queries<br/>• Consider pagination<br/>• Use fragments for reuse]
     end
 
@@ -451,19 +451,19 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Level 1: Schema Design
+    subgraph Level_1__Schema_Design[Level 1: Schema Design]
         L1[Schema optimization<br/>• Appropriate field types<br/>• Connection design<br/>• Relationship modeling<br/>• Pagination enforcement]
     end
 
-    subgraph Level 2: Query Optimization
+    subgraph Level_2__Query_Optimization[Level 2: Query Optimization]
         L2[Query-level optimization<br/>• Complexity analysis<br/>• DataLoader implementation<br/>• N+1 problem resolution<br/>• Caching strategies]
     end
 
-    subgraph Level 3: Infrastructure
+    subgraph Level_3__Infrastructure[Level 3: Infrastructure]
         L3[Infrastructure optimization<br/>• Server scaling<br/>• Database optimization<br/>• CDN integration<br/>• Monitoring setup]
     end
 
-    subgraph Level 4: Advanced Features
+    subgraph Level_4__Advanced_Features[Level 4: Advanced Features]
         L4[Advanced optimization<br/>• Subscription scaling<br/>• Federation architecture<br/>• Edge deployment<br/>• Custom directives]
     end
 

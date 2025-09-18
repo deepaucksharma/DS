@@ -19,26 +19,26 @@ Netflix spends approximately **$500M annually** on cloud infrastructure (AWS), s
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - $180M/year (36%)
+    subgraph Edge_Plane____180M_year__36[Edge Plane - $180M/year (36%)]
         CDN[Open Connect CDN<br/>$120M/year<br/>40,000+ servers globally<br/>$0.002/GB delivered]
         LB[Load Balancers<br/>$25M/year<br/>AWS ALB + NLB<br/>Multi-AZ deployment]
         WAF[WAF + DDoS Protection<br/>$35M/year<br/>CloudFlare + AWS Shield<br/>99.99% uptime SLA]
     end
 
-    subgraph Service Plane - $150M/year (30%)
+    subgraph Service_Plane____150M_year__30[Service Plane - $150M/year (30%)]
         API[API Gateway<br/>$30M/year<br/>Zuul 2.0<br/>500M+ req/day]
         MS[Microservices<br/>$90M/year<br/>2,800+ services<br/>EC2 c5.xlarge fleet]
         REC[Recommendation Engine<br/>$30M/year<br/>ML inference<br/>p3.8xlarge instances]
     end
 
-    subgraph State Plane - $120M/year (24%)
+    subgraph State_Plane____120M_year__24[State Plane - $120M/year (24%)]
         CASSANDRA[Cassandra Clusters<br/>$45M/year<br/>2,500+ nodes<br/>r5.4xlarge instances]
         ELASTICSEARCH[Elasticsearch<br/>$25M/year<br/>Search + Analytics<br/>200+ TB indexed]
         S3[S3 Object Storage<br/>$35M/year<br/>Video content<br/>1+ EB stored]
         DYNAMO[DynamoDB<br/>$15M/year<br/>User preferences<br/>1M+ RCU/WCU]
     end
 
-    subgraph Control Plane - $50M/year (10%)
+    subgraph Control_Plane____50M_year__10[Control Plane - $50M/year (10%)]
         ATLAS[Atlas Monitoring<br/>$20M/year<br/>Custom telemetry<br/>1B+ metrics/min]
         SPINNAKER[Spinnaker CD<br/>$15M/year<br/>4,000+ deployments/day<br/>Blue-green deploys]
         CHAOS[Chaos Engineering<br/>$10M/year<br/>Chaos Monkey suite<br/>Automated testing]
@@ -70,7 +70,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph User Streaming Session - $0.12 total cost
+    subgraph User_Streaming_Session____0_12_total_cost[User Streaming Session - $0.12 total cost]
         A[User Login<br/>$0.001<br/>DynamoDB lookup]
         B[Content Discovery<br/>$0.009<br/>Recommendation ML]
         C[Video Streaming<br/>$0.10<br/>CDN delivery]
@@ -79,7 +79,7 @@ graph LR
 
     A --> B --> C --> D
 
-    subgraph Cost Breakdown
+    subgraph Cost_Breakdown[Cost Breakdown]
         E[Infrastructure: $0.08 (67%)]
         F[Content Licensing: $0.04 (33%)]
     end
@@ -136,13 +136,13 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph 2024-2026 Cost Projections
+    subgraph sg_2024_2026_Cost_Projections[2024-2026 Cost Projections]
         Y2024[2024: $550M<br/>280M subscribers<br/>10% growth]
         Y2025[2025: $605M<br/>310M subscribers<br/>10% growth]
         Y2026[2026: $665M<br/>340M subscribers<br/>10% growth]
     end
 
-    subgraph Optimization Initiatives
+    subgraph Optimization_Initiatives[Optimization Initiatives]
         OPT1[ARM Graviton Migration<br/>$25M/year savings<br/>20% performance gain]
         OPT2[Video Codec Optimization<br/>$15M/year savings<br/>AV1 implementation]
         OPT3[Edge Computing Expansion<br/>$30M/year savings<br/>Reduce bandwidth costs]
@@ -195,14 +195,14 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Normal Operations - $40M/month
+    subgraph Normal_Operations____40M_month[Normal Operations - $40M/month]
         N1[Standard CDN: $10M]
         N2[Compute: $15M]
         N3[Storage: $10M]
         N4[Network: $5M]
     end
 
-    subgraph Squid Game Launch - $65M/month
+    subgraph Squid_Game_Launch____65M_month[Squid Game Launch - $65M/month]
         S1[Emergency CDN: $25M<br/>+150% capacity]
         S2[Surge Compute: $25M<br/>+67% instances]
         S3[Hot Storage: $10M<br/>No change]

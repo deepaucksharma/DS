@@ -10,19 +10,19 @@ Moving from single machine to distributed introduces fundamental new failure mod
 
 ```mermaid
 flowchart LR
-    subgraph SingleMachine["Single Machine - Predictable"]
+    subgraph SingleMachine[Single Machine - Predictable]
         SM_MEM["Shared Memory<br/>μs latency<br/>atomic operations"]
         SM_CLOCK["Single Clock<br/>nanosecond precision<br/>monotonic time"]
         SM_FAIL["Fail-Stop<br/>process crash<br/>binary: working/dead"]
     end
 
-    subgraph Distributed["Distributed System - Unpredictable"]
+    subgraph Distributed[Distributed System - Unpredictable]
         DS_NET["Network Communication<br/>ms latency, packet loss<br/>no guarantees"]
         DS_CLOCK["Multiple Clocks<br/>drift, skew, leap seconds<br/>NTP synchronization"]
         DS_FAIL["Partial Failures<br/>network partitions<br/>byzantine behaviors"]
     end
 
-    subgraph ProductionReality["Production Reality"]
+    subgraph ProductionReality[Production Reality]
         PROB1["AWS S3 2017<br/>4-hour outage<br/>typo in command"]
         PROB2["GitHub 2018<br/>database failover<br/>24-hour incident"]
         PROB3["Cloudflare 2019<br/>BGP leak<br/>global internet down"]
@@ -57,23 +57,23 @@ During network partitions, choose consistency or availability - not both.
 
 ```mermaid
 flowchart TB
-    subgraph Problem["Network Partition Reality"]
+    subgraph Problem[Network Partition Reality]
         PART["AWS Multi-AZ Partition<br/>2019: 7-hour outage<br/>RDS unavailable"]
     end
 
-    subgraph CPSystems["CP Systems - Choose Consistency"]
+    subgraph CPSystems[CP Systems - Choose Consistency]
         BANK["Chase Bank<br/>$2T deposits<br/>unavailable > incorrect"]
         STRIPE["Stripe Payments<br/>$640B processed<br/>fail-safe design"]
         COCKROACH["CockroachDB<br/>linearizable writes<br/>sacrifice availability"]
     end
 
-    subgraph APSystems["AP Systems - Choose Availability"]
+    subgraph APSystems[AP Systems - Choose Availability]
         NETFLIX["Netflix Streaming<br/>200M subscribers<br/>stale data acceptable"]
         DNS["Route53 DNS<br/>100B queries/day<br/>eventual consistency"]
         DYNAMO["DynamoDB<br/>10T requests/day<br/>last-writer-wins"]
     end
 
-    subgraph Hybrid["Hybrid Approach"]
+    subgraph Hybrid[Hybrid Approach]
         AMAZON["Amazon.com<br/>inventory: CP<br/>recommendations: AP"]
         UBER["Uber Platform<br/>payments: CP<br/>surge pricing: AP"]
     end
@@ -98,17 +98,17 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    subgraph Strong["Strong Consistency - Expensive"]
+    subgraph Strong[Strong Consistency - Expensive]
         LIN["Linearizable<br/>Spanner: 5ms commit<br/>global consensus"]
         SER["Serializable<br/>PostgreSQL ACID<br/>2PL + MVCC"]
     end
 
-    subgraph Medium["Balanced Consistency"]
+    subgraph Medium[Balanced Consistency]
         SEQ["Sequential<br/>MongoDB WiredTiger<br/>causally consistent"]
         CAUS["Causal<br/>CosmosDB<br/>session consistency"]
     end
 
-    subgraph Weak["Weak Consistency - Fast"]
+    subgraph Weak[Weak Consistency - Fast]
         EVEN["Eventual<br/>DynamoDB<br/>sub-ms reads"]
         FIFO["FIFO<br/>Redis Streams<br/>ordered per partition"]
     end

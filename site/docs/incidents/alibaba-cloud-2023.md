@@ -47,33 +47,33 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph Physical Safety Systems
+    subgraph Physical_Safety_Systems[Physical Safety Systems]
         FIRE[Fire Detection System<br/>Smoke Sensors]
         SUPPRESSION[Halon Gas Suppression<br/>ACCIDENTAL ACTIVATION]
         HVAC[HVAC System<br/>Air Circulation]
         EMERGENCY[Emergency Response<br/>DC Security Team]
     end
 
-    subgraph Edge Plane - Blue #3B82F6
+    subgraph Edge_Plane___Blue__3B82F6[Edge Plane - Blue #3B82F6]
         SLB[Server Load Balancer<br/>Traffic Distribution]
         CDN[Alibaba CDN<br/>Content Delivery]
         DNS[Alibaba DNS<br/>Domain Resolution]
     end
 
-    subgraph Service Plane - Green #10B981
+    subgraph Service_Plane___Green__10B981[Service Plane - Green #10B981]
         ECS[Elastic Compute Service<br/>Virtual Machines]
         CONTAINER[Container Service<br/>Kubernetes Platform]
         FUNCTIONS[Function Compute<br/>Serverless Platform]
     end
 
-    subgraph State Plane - Orange #F59E0B
+    subgraph State_Plane___Orange__F59E0B[State Plane - Orange #F59E0B]
         RDS[(ApsaraDB for RDS<br/>Relational Database)]
         REDIS[(ApsaraDB for Redis<br/>In-Memory Cache)]
         OSS[(Object Storage Service<br/>Blob Storage)]
         TABLESTORE[(Table Store<br/>NoSQL Database)]
     end
 
-    subgraph Control Plane - Red #8B5CF6
+    subgraph Control_Plane___Red__8B5CF6[Control Plane - Red #8B5CF6]
         CONSOLE[Alibaba Cloud Console<br/>Management Interface]
         API[OpenAPI Gateway<br/>Control Plane API]
         MONITOR[CloudMonitor<br/>Observability Platform)]
@@ -154,7 +154,7 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph Equipment Damage Timeline
+    subgraph Equipment_Damage_Timeline[Equipment Damage Timeline]
         A[14:30 CST<br/>First server failures<br/>Row A completely offline]
         B[14:35 CST<br/>Gas circulation spreads<br/>Row B servers affected]
         C[14:40 CST<br/>Database servers down<br/>RDS instances crashed]
@@ -390,7 +390,7 @@ aliyun oss ls --endpoint oss-ap-southeast-1.aliyuncs.com
 
 ```mermaid
 graph TB
-    subgraph NEW: Multi-Layer Fire Protection
+    subgraph NEW__Multi_Layer_Fire_Protection[NEW: Multi-Layer Fire Protection]
         DETECT1[Smoke Detection<br/>Optical sensors]
         DETECT2[Heat Detection<br/>Thermal sensors]
         DETECT3[Gas Detection<br/>Chemical sensors]
@@ -398,13 +398,13 @@ graph TB
         OVERRIDE[Manual Override<br/>Emergency stop button]
     end
 
-    subgraph NEW: Clean Agent Suppression
+    subgraph NEW__Clean_Agent_Suppression[NEW: Clean Agent Suppression]
         FM200[FM-200 Clean Agent<br/>Electronics-safe]
         PREACTION[Pre-action System<br/>Equipment shutdown first]
         EXHAUST[Rapid Exhaust System<br/>Quick gas removal]
     end
 
-    subgraph NEW: Equipment Protection
+    subgraph NEW__Equipment_Protection[NEW: Equipment Protection]
         ENCLOSURE[Gas-Resistant Enclosures<br/>Server protection]
         AUTO_SHUTDOWN[Automated Shutdown<br/>Before suppression]
         ISOLATION[Network Isolation<br/>Prevent cascade failures]

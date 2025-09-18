@@ -10,7 +10,7 @@ gRPC performance characteristics in production environments, covering HTTP/2 mul
 
 ```mermaid
 graph TB
-    subgraph HTTP/1.1 Connection Model
+    subgraph HTTP_1_1_Connection_Model[HTTP/1.1 Connection Model]
         HTTP1_CLIENT[Client Application<br/>Max connections: 6<br/>Connection pooling required<br/>Head-of-line blocking]
 
         HTTP1_CONNS[Connection Pool<br/>Connection 1: Request A<br/>Connection 2: Request B<br/>Connection 3: Idle<br/>Connection reuse: Limited]
@@ -20,7 +20,7 @@ graph TB
         HTTP1_CLIENT --> HTTP1_CONNS --> HTTP1_SERVER
     end
 
-    subgraph HTTP/2 Multiplexing Model
+    subgraph HTTP_2_Multiplexing_Model[HTTP/2 Multiplexing Model]
         HTTP2_CLIENT[Client Application<br/>Single connection<br/>Stream multiplexing<br/>No head-of-line blocking]
 
         HTTP2_STREAMS[HTTP/2 Streams<br/>Stream 1: Request A<br/>Stream 2: Request B<br/>Stream 3: Request C<br/>Concurrent processing]
@@ -30,7 +30,7 @@ graph TB
         HTTP2_CLIENT --> HTTP2_STREAMS --> HTTP2_SERVER
     end
 
-    subgraph Performance Comparison
+    subgraph Performance_Comparison[Performance Comparison]
         PERF1[HTTP/1.1 Performance<br/>Connections: 6 per client<br/>Memory: 12MB per client<br/>Latency: 50ms (connection setup)<br/>Throughput: 600 req/sec]
 
         PERF2[HTTP/2 Performance<br/>Connections: 1 per client<br/>Memory: 200KB per client<br/>Latency: 5ms (stream setup)<br/>Throughput: 10K req/sec]
@@ -52,11 +52,11 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Single Connection Stream Management
+    subgraph Single_Connection_Stream_Management[Single Connection Stream Management]
         STREAM_MGT[Stream Management<br/>Max concurrent streams: 100<br/>Flow control: Per stream<br/>Priority scheduling<br/>Back-pressure handling]
     end
 
-    subgraph Stream Performance Characteristics
+    subgraph Stream_Performance_Characteristics[Stream Performance Characteristics]
         STREAM_PERF1[Low-load scenario<br/>Active streams: 10<br/>CPU overhead: 5%<br/>Memory per stream: 2KB<br/>Latency impact: <1ms]
 
         STREAM_PERF2[High-load scenario<br/>Active streams: 100<br/>CPU overhead: 15%<br/>Memory per stream: 2KB<br/>Latency impact: 5ms]
@@ -68,7 +68,7 @@ graph TB
         STREAM_PERF2 --> STREAM_PERF3
     end
 
-    subgraph Flow Control Benefits
+    subgraph Flow_Control_Benefits[Flow Control Benefits]
         FLOW_CTRL1[Window-based flow control<br/>Initial window: 64KB<br/>Dynamic adjustment<br/>Prevents buffer overflow]
 
         FLOW_CTRL2[Per-stream flow control<br/>Independent backpressure<br/>Optimal memory usage<br/>Fair resource allocation]
@@ -91,7 +91,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Protocol Buffers
+    subgraph Protocol_Buffers[Protocol Buffers]
         PROTO1[Message definition<br/>.proto schema<br/>Code generation<br/>Binary format<br/>Schema evolution]
 
         PROTO2[Serialization metrics<br/>Encode time: 100μs<br/>Decode time: 80μs<br/>Message size: 150 bytes<br/>CPU usage: Low]
@@ -111,7 +111,7 @@ graph TB
         JSON1 --> JSON2 --> JSON3
     end
 
-    subgraph Performance Impact
+    subgraph Performance_Impact[Performance Impact]
         IMPACT1[Throughput comparison<br/>Protobuf: 50K msg/sec<br/>JSON: 10K msg/sec<br/>5x performance advantage<br/>Protobuf optimal for high load]
 
         IMPACT2[Resource usage<br/>CPU usage: 5x lower<br/>Memory usage: 3x lower<br/>Network usage: 2.5x lower<br/>Battery usage: 4x lower (mobile)]
@@ -134,7 +134,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Protobuf Schema Evolution
+    subgraph Protobuf_Schema_Evolution[Protobuf Schema Evolution]
         PROTO_EVO1[Version 1<br/>Fields: name, age<br/>Size: 100 bytes<br/>Clients: Old and new]
 
         PROTO_EVO2[Version 2<br/>Fields: name, age, email<br/>Size: 120 bytes<br/>Backward compatible]
@@ -144,7 +144,7 @@ graph LR
         PROTO_EVO1 --> PROTO_EVO2 --> PROTO_EVO3
     end
 
-    subgraph JSON Schema Evolution
+    subgraph JSON_Schema_Evolution[JSON Schema Evolution]
         JSON_EVO1[Version 1<br/>Fields: name, age<br/>Size: 200 bytes<br/>Clients: Manual parsing]
 
         JSON_EVO2[Version 2<br/>Fields: name, age, email<br/>Size: 250 bytes<br/>Client updates required]
@@ -154,7 +154,7 @@ graph LR
         JSON_EVO1 --> JSON_EVO2 --> JSON_EVO3
     end
 
-    subgraph Migration Performance
+    subgraph Migration_Performance[Migration Performance]
         MIGRATION1[Protobuf migration<br/>Zero-downtime deployment<br/>Gradual rollout<br/>Automatic compatibility<br/>No service interruption]
 
         MIGRATION2[JSON migration<br/>Coordinated deployment<br/>Version management<br/>Compatibility testing<br/>Potential service downtime]
@@ -178,7 +178,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Unary RPC
+    subgraph Unary_RPC[Unary RPC]
         UNARY1[Request-response pattern<br/>Single request<br/>Single response<br/>Connection per call<br/>Simple implementation]
 
         UNARY2[Performance characteristics<br/>Latency: Network RTT<br/>Overhead: Connection setup<br/>Throughput: Limited<br/>Resource usage: High]
@@ -188,7 +188,7 @@ graph TB
         UNARY1 --> UNARY2 --> UNARY3
     end
 
-    subgraph Server Streaming
+    subgraph Server_Streaming[Server Streaming]
         SERVER_STREAM1[One request, many responses<br/>Client sends request<br/>Server streams responses<br/>Connection kept alive<br/>Efficient for large datasets]
 
         SERVER_STREAM2[Performance characteristics<br/>Latency: Initial RTT only<br/>Overhead: Minimal<br/>Throughput: High<br/>Resource usage: Moderate]
@@ -198,7 +198,7 @@ graph TB
         SERVER_STREAM1 --> SERVER_STREAM2 --> SERVER_STREAM3
     end
 
-    subgraph Client Streaming
+    subgraph Client_Streaming[Client Streaming]
         CLIENT_STREAM1[Many requests, one response<br/>Client streams requests<br/>Server sends response<br/>Efficient for uploads<br/>Batch processing]
 
         CLIENT_STREAM2[Performance characteristics<br/>Latency: Batch processing<br/>Overhead: Minimal<br/>Throughput: Very high<br/>Resource usage: Low]
@@ -208,7 +208,7 @@ graph TB
         CLIENT_STREAM1 --> CLIENT_STREAM2 --> CLIENT_STREAM3
     end
 
-    subgraph Bidirectional Streaming
+    subgraph Bidirectional_Streaming[Bidirectional Streaming]
         BIDI_STREAM1[Many requests, many responses<br/>Full duplex communication<br/>Independent request/response<br/>Complex but powerful<br/>Real-time interaction]
 
         BIDI_STREAM2[Performance characteristics<br/>Latency: Real-time<br/>Overhead: Very low<br/>Throughput: Maximum<br/>Resource usage: Optimized]
@@ -233,7 +233,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Throughput Comparison
+    subgraph Throughput_Comparison[Throughput Comparison]
         THROUGHPUT1[Unary RPC<br/>1000 calls/sec<br/>Each call: New connection<br/>Total connections: 1000<br/>Memory: 2GB]
 
         THROUGHPUT2[Server Streaming<br/>10000 messages/sec<br/>1 call: 10000 messages<br/>Total connections: 1<br/>Memory: 200MB]
@@ -243,7 +243,7 @@ graph TB
         THROUGHPUT1 --> THROUGHPUT2 --> THROUGHPUT3
     end
 
-    subgraph Latency Analysis
+    subgraph Latency_Analysis[Latency Analysis]
         LATENCY1[Connection overhead<br/>TCP handshake: 1 RTT<br/>TLS handshake: 2 RTT<br/>HTTP/2 setup: 0 RTT<br/>Total: 3 RTT for first call]
 
         LATENCY2[Streaming benefits<br/>First message: 3 RTT<br/>Subsequent messages: 0.5 RTT<br/>Average latency: Decreases over time<br/>Long connections: Amortized cost]
@@ -251,7 +251,7 @@ graph TB
         LATENCY1 --> LATENCY2
     end
 
-    subgraph Resource Utilization
+    subgraph Resource_Utilization[Resource Utilization]
         RESOURCE1[Memory usage<br/>Connection state: 200KB<br/>Per stream: 2KB<br/>Buffer management: Efficient<br/>GC pressure: Low]
 
         RESOURCE2[CPU usage<br/>Serialization: Minimal<br/>Network I/O: Optimized<br/>Context switching: Reduced<br/>Overall: 60% reduction vs HTTP/1.1]
@@ -274,7 +274,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Client-Side Load Balancing
+    subgraph Client_Side_Load_Balancing[Client-Side Load Balancing]
         CLIENT_LB1[gRPC Client<br/>Service discovery<br/>Load balancer policy<br/>Connection management<br/>Health checking]
 
         CLIENT_LB2[Load balancer algorithms<br/>Round robin<br/>Least connection<br/>Weighted round robin<br/>Consistent hash]
@@ -284,7 +284,7 @@ graph TB
         CLIENT_LB1 --> CLIENT_LB2 --> CLIENT_LB3
     end
 
-    subgraph Proxy-Based Load Balancing
+    subgraph Proxy_Based_Load_Balancing[Proxy-Based Load Balancing]
         PROXY_LB1[Load Balancer Proxy<br/>Envoy/NGINX/HAProxy<br/>L7 load balancing<br/>HTTP/2 aware<br/>Connection pooling]
 
         PROXY_LB2[Backend servers<br/>Server pool management<br/>Health checking<br/>Connection distribution<br/>Session affinity]
@@ -292,7 +292,7 @@ graph TB
         PROXY_LB1 --> PROXY_LB2
     end
 
-    subgraph Service Mesh Load Balancing
+    subgraph Service_Mesh_Load_Balancing[Service Mesh Load Balancing]
         MESH_LB1[Service Mesh (Istio)<br/>Intelligent routing<br/>Circuit breakers<br/>Retry policies<br/>Observability]
 
         MESH_LB2[Sidecar proxies<br/>Per-service proxy<br/>mTLS termination<br/>Traffic shaping<br/>Policy enforcement]
@@ -313,7 +313,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Client-Side Load Balancing
+    subgraph Client_Side_Load_Balancing[Client-Side Load Balancing]
         CLIENT_PERF1[Performance characteristics<br/>Latency overhead: 0ms<br/>Throughput: Maximum<br/>Resource usage: Low<br/>Complexity: Medium]
 
         CLIENT_PERF2[Pros and cons<br/>+ No proxy overhead<br/>+ Direct connections<br/>+ Optimal performance<br/>- Complex client logic<br/>- Service discovery needed]
@@ -321,7 +321,7 @@ graph LR
         CLIENT_PERF1 --> CLIENT_PERF2
     end
 
-    subgraph Proxy-Based Load Balancing
+    subgraph Proxy_Based_Load_Balancing[Proxy-Based Load Balancing]
         PROXY_PERF1[Performance characteristics<br/>Latency overhead: 1-2ms<br/>Throughput: High<br/>Resource usage: Medium<br/>Complexity: Low]
 
         PROXY_PERF2[Pros and cons<br/>+ Simple clients<br/>+ Centralized config<br/>+ SSL termination<br/>- Additional hop<br/>- Proxy becomes bottleneck]
@@ -329,7 +329,7 @@ graph LR
         PROXY_PERF1 --> PROXY_PERF2
     end
 
-    subgraph Service Mesh Load Balancing
+    subgraph Service_Mesh_Load_Balancing[Service Mesh Load Balancing]
         MESH_PERF1[Performance characteristics<br/>Latency overhead: 2-5ms<br/>Throughput: Good<br/>Resource usage: High<br/>Complexity: High]
 
         MESH_PERF2[Pros and cons<br/>+ Rich features<br/>+ Observability<br/>+ Security<br/>+ Traffic management<br/>- Higher overhead<br/>- Complex operations]
@@ -350,7 +350,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Connection Pool Configuration
+    subgraph Connection_Pool_Configuration[Connection Pool Configuration]
         POOL1[Pool sizing strategy<br/>Initial connections: 1<br/>Max connections: 10<br/>Connection timeout: 30s<br/>Keep-alive: 60s]
 
         POOL2[Per-server connections<br/>Based on expected load<br/>CPU cores consideration<br/>Memory constraints<br/>Network bandwidth]
@@ -360,7 +360,7 @@ graph TB
         POOL1 --> POOL2 --> POOL3
     end
 
-    subgraph Pool Performance Impact
+    subgraph Pool_Performance_Impact[Pool Performance Impact]
         PERF1[Under-provisioned pool<br/>Connections: 1 per server<br/>Queue buildup: High<br/>Latency: 100ms p95<br/>Throughput: 1K RPS]
 
         PERF2[Optimized pool<br/>Connections: 5 per server<br/>Queue buildup: Low<br/>Latency: 10ms p95<br/>Throughput: 10K RPS]
@@ -389,7 +389,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Google Internal gRPC Usage
+    subgraph Google_Internal_gRPC_Usage[Google Internal gRPC Usage]
         SCALE1[Usage statistics<br/>RPC calls: 10B+ per second<br/>Services: 100K+ globally<br/>Languages: 10+ supported<br/>Datacenters: 100+ worldwide]
 
         SCALE2[Performance requirements<br/>Latency p99: <10ms<br/>Availability: 99.99%<br/>Throughput: 1M RPS per service<br/>Error rate: <0.01%]
@@ -399,7 +399,7 @@ graph TB
         SCALE1 --> SCALE2 --> SCALE3
     end
 
-    subgraph Critical Services Using gRPC
+    subgraph Critical_Services_Using_gRPC[Critical Services Using gRPC]
         SERVICES1[Google Search<br/>Query processing<br/>Index serving<br/>Real-time updates<br/>10K+ RPS per server]
 
         SERVICES2[Gmail<br/>Message delivery<br/>Storage operations<br/>Real-time sync<br/>5K+ RPS per server]
@@ -411,7 +411,7 @@ graph TB
         SERVICES1 --> SERVICES2 --> SERVICES3 --> SERVICES4
     end
 
-    subgraph Performance Optimizations
+    subgraph Performance_Optimizations[Performance Optimizations]
         OPT1[Connection management<br/>Persistent connections<br/>Connection pooling<br/>Health checking<br/>Automatic failover]
 
         OPT2[Serialization optimization<br/>Protocol buffer efficiency<br/>Zero-copy operations<br/>Memory mapping<br/>Compression (gzip)]
@@ -434,7 +434,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Client Configuration
+    subgraph Client_Configuration[Client Configuration]
         CLIENT_CONFIG1[grpc.keepalive_time_ms: 30000<br/>grpc.keepalive_timeout_ms: 5000<br/>grpc.keepalive_permit_without_calls: true<br/>grpc.http2.max_pings_without_data: 0]
 
         CLIENT_CONFIG2[grpc.http2.min_time_between_pings_ms: 10000<br/>grpc.http2.min_ping_interval_without_data_ms: 300000<br/>Connection pool size: 10<br/>Max concurrent streams: 100]
@@ -442,7 +442,7 @@ graph LR
         CLIENT_CONFIG1 --> CLIENT_CONFIG2
     end
 
-    subgraph Server Configuration
+    subgraph Server_Configuration[Server Configuration]
         SERVER_CONFIG1[grpc.keepalive_time_ms: 7200000<br/>grpc.keepalive_timeout_ms: 20000<br/>grpc.keepalive_enforce_policy: true<br/>grpc.http2.min_time_between_pings_ms: 60000]
 
         SERVER_CONFIG2[grpc.http2.max_connection_idle_ms: 300000<br/>Thread pool size: 100<br/>Max concurrent streams: 100<br/>Max frame size: 4194304]
@@ -450,7 +450,7 @@ graph LR
         SERVER_CONFIG1 --> SERVER_CONFIG2
     end
 
-    subgraph Performance Impact
+    subgraph Performance_Impact[Performance Impact]
         PERF_IMPACT1[Optimized settings result in<br/>• 50% reduction in connection overhead<br/>• 30% improvement in throughput<br/>• 60% reduction in memory usage<br/>• 99.9% connection success rate]
     end
 
@@ -468,7 +468,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Microservices Architecture
+    subgraph Microservices_Architecture[Microservices Architecture]
         MICRO1[Service A<br/>gRPC server<br/>Business logic<br/>Health checks<br/>Metrics export]
 
         MICRO2[Service B<br/>gRPC client + server<br/>Downstream calls<br/>Circuit breakers<br/>Timeout handling]
@@ -478,7 +478,7 @@ graph TB
         MICRO1 --> MICRO2 --> MICRO3
     end
 
-    subgraph Deployment Infrastructure
+    subgraph Deployment_Infrastructure[Deployment Infrastructure]
         INFRA1[Kubernetes clusters<br/>Pod-to-pod communication<br/>Service discovery<br/>Load balancing<br/>Rolling updates]
 
         INFRA2[Istio service mesh<br/>mTLS encryption<br/>Traffic policies<br/>Observability<br/>Security policies]
@@ -488,7 +488,7 @@ graph TB
         INFRA1 --> INFRA2 --> INFRA3
     end
 
-    subgraph Operational Practices
+    subgraph Operational_Practices[Operational Practices]
         OPS1[Development practices<br/>Proto-first development<br/>Backward compatibility<br/>Automated testing<br/>Performance benchmarking]
 
         OPS2[Deployment practices<br/>Canary releases<br/>Blue-green deployment<br/>Feature flags<br/>Rollback strategies]
@@ -521,19 +521,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Network Optimization
+    subgraph Network_Optimization[Network Optimization]
         NET_OPT1[Connection management<br/>• Persistent connections<br/>• Proper keep-alive settings<br/>• Connection pooling<br/>• Health check configuration]
     end
 
-    subgraph Serialization Optimization
+    subgraph Serialization_Optimization[Serialization Optimization]
         SER_OPT1[Protocol selection<br/>• Use Protocol Buffers<br/>• Optimize message schemas<br/>• Enable compression for large messages<br/>• Consider message versioning]
     end
 
-    subgraph RPC Pattern Selection
+    subgraph RPC_Pattern_Selection[RPC Pattern Selection]
         RPC_OPT1[Pattern optimization<br/>• Unary for simple operations<br/>• Streaming for bulk data<br/>• Bidirectional for real-time<br/>• Consider batching strategies]
     end
 
-    subgraph Infrastructure Optimization
+    subgraph Infrastructure_Optimization[Infrastructure Optimization]
         INFRA_OPT1[Infrastructure setup<br/>• Proper load balancing<br/>• Service mesh configuration<br/>• Resource allocation<br/>• Monitoring and alerting]
     end
 

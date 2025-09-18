@@ -8,18 +8,18 @@ Database replication strategies determine how data consistency, availability, an
 
 ```mermaid
 graph TB
-    subgraph Replication Strategy Trade-offs
-        subgraph Synchronous Replication
+    subgraph Replication_Strategy_Trade_offs[Replication Strategy Trade-offs]
+        subgraph Synchronous_Replication[Synchronous Replication]
             SYNC_CONS[Strong Consistency<br/>✅ Immediate consistency<br/>❌ Higher latency<br/>❌ Reduced availability]
             SYNC_PERF[Performance Impact<br/>Latency: 2x-5x higher<br/>Throughput: 50-80% of async]
         end
 
-        subgraph Asynchronous Replication
+        subgraph Asynchronous_Replication[Asynchronous Replication]
             ASYNC_CONS[Eventual Consistency<br/>✅ High performance<br/>✅ High availability<br/>❌ Potential data loss]
             ASYNC_PERF[Performance Benefit<br/>Latency: Minimal impact<br/>Throughput: Near single-node]
         end
 
-        subgraph Semi-Synchronous Replication
+        subgraph Semi_Synchronous_Replication[Semi-Synchronous Replication]
             SEMI_CONS[Balanced Approach<br/>✅ Durability guarantee<br/>✅ Reasonable performance<br/>⚠️ Complex configuration]
             SEMI_PERF[Performance Balance<br/>Latency: 1.5x-2x higher<br/>Throughput: 70-90% of async]
         end
@@ -190,14 +190,14 @@ SET GLOBAL rpl_semi_sync_master_timeout = 1000; -- 1 second
 
 ```mermaid
 graph LR
-    subgraph Performance Comparison (3-node cluster)
+    subgraph Performance_Comparison__3_node_cluster[Performance Comparison (3-node cluster)]
         subgraph Synchronous
             SYNC_TPS[5,000 TPS]
             SYNC_LAT[15ms p99]
             SYNC_AVAIL[99.9% (fails if any replica down)]
         end
 
-        subgraph Semi-Synchronous
+        subgraph Semi_Synchronous[Semi-Synchronous]
             SEMI_TPS[8,000 TPS]
             SEMI_LAT[8ms p99]
             SEMI_AVAIL[99.95% (tolerates 1 replica down)]
@@ -209,7 +209,7 @@ graph LR
             ASYNC_AVAIL[99.99% (primary only dependency)]
         end
 
-        subgraph Trade-off Analysis
+        subgraph Trade_off_Analysis[Trade-off Analysis]
             CONSISTENCY[Data Loss Risk<br/>Sync: 0<br/>Semi-sync: Minimal<br/>Async: Up to RPO]
             PERFORMANCE[Performance Impact<br/>Sync: Highest<br/>Semi-sync: Moderate<br/>Async: Minimal]
         end
@@ -282,26 +282,26 @@ use_case_patterns:
 
 ```mermaid
 graph TB
-    subgraph Replication Failure Scenarios
-        subgraph Synchronous Failures
+    subgraph Replication_Failure_Scenarios[Replication Failure Scenarios]
+        subgraph Synchronous_Failures[Synchronous Failures]
             SYNC_FAIL[Secondary Down]
             SYNC_EFFECT[Write Blocking]
             SYNC_RECOVERY[Wait or Timeout]
         end
 
-        subgraph Semi-Sync Failures
+        subgraph Semi_Sync_Failures[Semi-Sync Failures]
             SEMI_FAIL[Some Secondaries Down]
             SEMI_EFFECT[Degraded Performance]
             SEMI_RECOVERY[Fallback to Async]
         end
 
-        subgraph Async Failures
+        subgraph Async_Failures[Async Failures]
             ASYNC_FAIL[Secondary Down]
             ASYNC_EFFECT[No Impact on Writes]
             ASYNC_RECOVERY[Catchup When Available]
         end
 
-        subgraph Network Partition
+        subgraph Network_Partition[Network Partition]
             PARTITION[Primary Isolated]
             SPLIT_BRAIN[Split-Brain Risk]
             FENCING[Fencing Required]

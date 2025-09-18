@@ -429,23 +429,23 @@ Mathematical proof systems for critical distributed system properties.
 
 ```mermaid
 flowchart LR
-    subgraph EdgePlane["Edge Plane - Design Input"]
+    subgraph EdgePlane[Edge Plane - Design Input]
         SPEC["System Specification<br/>TLA+ Models<br/>Alloy Constraints"]
         REQ["Requirements<br/>Safety Properties<br/>Liveness Properties"]
     end
 
-    subgraph ServicePlane["Service Plane - Verification Tools"]
+    subgraph ServicePlane[Service Plane - Verification Tools]
         TLA["TLA+ Model Checker<br/>State Space: 10^6 states<br/>Duration: 5-30min"]
         ALLOY["Alloy Analyzer<br/>SAT Solving<br/>Counterexample: <1min"]
         SPIN["SPIN Verifier<br/>Promela Models<br/>Memory: 8GB limit"]
     end
 
-    subgraph StatePlane["State Plane - Verification Results"]
+    subgraph StatePlane[State Plane - Verification Results]
         PROOF[("Proof Artifacts<br/>Verified Properties<br/>Counterexamples")]
         TRACE[("Execution Traces<br/>Error Scenarios<br/>State Transitions")]
     end
 
-    subgraph ControlPlane["Control Plane - Integration"]
+    subgraph ControlPlane[Control Plane - Integration]
         CI["CI Integration<br/>Automated Verification<br/>Regression Detection"]
         CERT["Certification Evidence<br/>Compliance Reports<br/>Audit Trail"]
     end
@@ -502,25 +502,25 @@ Multi-layered verification ensures system correctness from design through produc
 
 ```mermaid
 flowchart TB
-    subgraph EdgePlane["Edge Plane - Verification Inputs"]
+    subgraph EdgePlane[Edge Plane - Verification Inputs]
         DESIGN["Design Specs<br/>TLA+ Models<br/>Property Definitions"]
         PROD["Production Data<br/>Real Traffic<br/>User Behavior"]
     end
 
-    subgraph ServicePlane["Service Plane - Verification Layers"]
+    subgraph ServicePlane[Service Plane - Verification Layers]
         FORMAL["Formal Methods<br/>Mathematical Proofs<br/>Model Checking"]
         UNIT["Unit Testing<br/>Property-based Tests<br/>Component Isolation"]
         INTEGRATION["Integration Testing<br/>End-to-end Flows<br/>System Interactions"]
         CHAOS["Chaos Engineering<br/>Failure Injection<br/>Recovery Validation"]
     end
 
-    subgraph StatePlane["State Plane - Verification Evidence"]
+    subgraph StatePlane[State Plane - Verification Evidence]
         PROOF[("Proof Artifacts<br/>Verified Properties<br/>Test Results")]
         METRICS[("Quality Metrics<br/>Coverage Reports<br/>Performance Data")]
         AUDIT[("Audit Trail<br/>Compliance Evidence<br/>Incident History")]
     end
 
-    subgraph ControlPlane["Control Plane - Continuous Validation"]
+    subgraph ControlPlane[Control Plane - Continuous Validation]
         MONITOR["Production Monitoring<br/>Invariant Checking<br/>Real-time Validation"]
         ALERT["Violation Detection<br/>Automated Response<br/>Incident Escalation"]
         IMPROVE["Continuous Improvement<br/>Gap Analysis<br/>Strategy Evolution"]

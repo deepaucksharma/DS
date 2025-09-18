@@ -18,14 +18,14 @@
 
 ```mermaid
 graph TB
-    subgraph Uber Platform
+    subgraph Uber_Platform[Uber Platform]
         RIDERS[Rider App<br/>Trip Requests]
         DRIVERS[Driver App<br/>Trip Acceptance]
         MATCHING[Matching Engine<br/>Rider-Driver Pairing<br/>MEMORY LEAK]
         PRICING[Dynamic Pricing<br/>Surge Calculation]
     end
 
-    subgraph Core Algorithms
+    subgraph Core_Algorithms[Core Algorithms]
         DISPATCH[Dispatch Algorithm<br/>Optimal Matching]
         ETA[ETA Calculation<br/>Arrival Estimation]
         ROUTING[Route Optimization<br/>Trip Planning]

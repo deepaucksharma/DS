@@ -7,7 +7,7 @@ Complete infrastructure cost analysis from Slack's 2024 operations serving 20M+ 
 
 ```mermaid
 graph TB
-    subgraph Monthly Infrastructure: $78M
+    subgraph Monthly_Infrastructure___78M[Monthly Infrastructure: $78M]
         subgraph EdgePlane[Edge Plane - $18M/month]
             CDN[CloudFront CDN<br/>$8M/month<br/>500TB/day]
             LB[Load Balancers<br/>$4M/month<br/>ELB fleet]
@@ -57,7 +57,7 @@ graph TB
 ### Real-time Messaging Infrastructure: $8M/month
 ```mermaid
 graph LR
-    subgraph Real-time Service Costs
+    subgraph Real_time_Service_Costs[Real-time Service Costs]
         WS[WebSocket Fleet<br/>50K connections<br/>$4M/month]
         GATEWAY[Message Gateway<br/>Load balancing<br/>$2M/month]
         PRESENCE[Presence Service<br/>User status<br/>$1M/month]
@@ -138,7 +138,7 @@ cost_per_file_upload = 0.004  # $0.004 per file processed and stored
 ### Enterprise Features: $5M/month
 ```mermaid
 graph TB
-    subgraph Enterprise Infrastructure Stack
+    subgraph Enterprise_Infrastructure_Stack[Enterprise Infrastructure Stack]
         subgraph Compliance[Compliance - $2M/month]
             DLP[Data Loss Prevention<br/>$800K/month]
             AUDIT[Audit Logging<br/>$600K/month]
@@ -256,7 +256,7 @@ monthly_db_cost_savings = "$25M"     # Without cache, would need 10x DB capacity
 
 ```mermaid
 graph LR
-    subgraph Global Infrastructure Distribution
+    subgraph Global_Infrastructure_Distribution[Global Infrastructure Distribution]
         US[US Regions<br/>$42M/month<br/>54%]
         EU[EU Regions<br/>$20M/month<br/>26%]
         ASIA[Asia Regions<br/>$12M/month<br/>15%]
@@ -343,7 +343,7 @@ additional_reduction = "15%"
 
 ```mermaid
 graph TB
-    subgraph Unit Economics
+    subgraph Unit_Economics[Unit Economics]
         USERS[20M Daily Active Users]
         COST[Infrastructure: $78M/month]
 

@@ -296,22 +296,22 @@ print("Partition distribution:", partitioner.get_partition_stats())
 
 ```mermaid
 graph TB
-    subgraph Range Partitioning by Timestamp
-        subgraph Time Ranges
+    subgraph Range_Partitioning_by_Timestamp[Range Partitioning by Timestamp]
+        subgraph Time_Ranges[Time Ranges]
             RANGE1[Partition 1<br/>2024-01-01 to 2024-03-31<br/>Q1 Data]
             RANGE2[Partition 2<br/>2024-04-01 to 2024-06-30<br/>Q2 Data]
             RANGE3[Partition 3<br/>2024-07-01 to 2024-09-30<br/>Q3 Data]
             RANGE4[Partition 4<br/>2024-10-01 to 2024-12-31<br/>Q4 Data]
         end
 
-        subgraph Incoming Records
+        subgraph Incoming_Records[Incoming Records]
             REC1[Order: 2024-02-15<br/>Amount: $150]
             REC2[Order: 2024-05-20<br/>Amount: $75]
             REC3[Order: 2024-08-10<br/>Amount: $200]
             REC4[Order: 2024-11-05<br/>Amount: $90]
         end
 
-        subgraph Query Optimization
+        subgraph Query_Optimization[Query Optimization]
             QUERY1[Query: Q2 2024 orders<br/>Only hits Partition 2]
             QUERY2[Query: 2024-05-01 to 2024-08-31<br/>Hits Partitions 2 & 3]
         end
@@ -386,29 +386,29 @@ WHERE order_date >= '2024-06-01';
 
 ```mermaid
 graph TB
-    subgraph Geographic Partitioning Architecture
-        subgraph North America Region
+    subgraph Geographic_Partitioning_Architecture[Geographic Partitioning Architecture]
+        subgraph North_America_Region[North America Region]
             NA_LB[Load Balancer<br/>us-east-1]
             NA_APP[Application Servers<br/>us-east-1a, us-east-1b]
             NA_DB[Database Cluster<br/>Primary: us-east-1a<br/>Replica: us-east-1c]
             NA_USERS[North American Users<br/>Latency: 10-30ms]
         end
 
-        subgraph Europe Region
+        subgraph Europe_Region[Europe Region]
             EU_LB[Load Balancer<br/>eu-west-1]
             EU_APP[Application Servers<br/>eu-west-1a, eu-west-1b]
             EU_DB[Database Cluster<br/>Primary: eu-west-1a<br/>Replica: eu-west-1c]
             EU_USERS[European Users<br/>Latency: 10-30ms]
         end
 
-        subgraph Asia-Pacific Region
+        subgraph Asia_Pacific_Region[Asia-Pacific Region]
             AP_LB[Load Balancer<br/>ap-southeast-1]
             AP_APP[Application Servers<br/>ap-southeast-1a, ap-southeast-1b]
             AP_DB[Database Cluster<br/>Primary: ap-southeast-1a<br/>Replica: ap-southeast-1c]
             AP_USERS[Asia-Pacific Users<br/>Latency: 10-30ms]
         end
 
-        subgraph Cross-Region Services
+        subgraph Cross_Region_Services[Cross-Region Services]
             GLOBAL_LB[Global Load Balancer<br/>GeoDNS routing]
             SYNC[Cross-Region Sync<br/>- User profiles<br/>- Global catalog<br/>- Analytics aggregation]
         end
@@ -666,24 +666,24 @@ for key, target in migrations.items():
 
 ```mermaid
 graph TB
-    subgraph Partitioning Strategy Selection
-        subgraph Use Hash When
+    subgraph Partitioning_Strategy_Selection[Partitioning Strategy Selection]
+        subgraph Use_Hash_When[Use Hash When]
             HASH_CASES[✅ Even data distribution needed<br/>✅ Simple key-value operations<br/>✅ No range queries required<br/>✅ Minimal hotspot risk<br/>Examples: User profiles, Session storage]
         end
 
-        subgraph Use Range When
+        subgraph Use_Range_When[Use Range When]
             RANGE_CASES[✅ Range queries are common<br/>✅ Time-series data<br/>✅ Natural data ordering exists<br/>✅ Data lifecycle management needed<br/>Examples: Logs, Time-series, Analytics]
         end
 
-        subgraph Use Geographic When
+        subgraph Use_Geographic_When[Use Geographic When]
             GEO_CASES[✅ Data sovereignty required<br/>✅ Latency optimization critical<br/>✅ Regional user bases<br/>✅ Compliance with local laws<br/>Examples: User data, Financial records]
         end
 
-        subgraph Use Directory When
+        subgraph Use_Directory_When[Use Directory When]
             DIR_CASES[✅ Flexible partitioning needed<br/>✅ Complex rebalancing requirements<br/>✅ Custom assignment logic<br/>✅ Frequent partition changes<br/>Examples: Multi-tenant systems, Dynamic workloads]
         end
 
-        subgraph Hybrid Approaches
+        subgraph Hybrid_Approaches[Hybrid Approaches]
             HYBRID[Combination Strategies<br/>• Geographic + Hash<br/>• Range + Hash<br/>• Directory + Geographic<br/>Trade complexity for optimization]
         end
     end

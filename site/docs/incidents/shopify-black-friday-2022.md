@@ -42,33 +42,33 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - Blue #3B82F6
+    subgraph Edge_Plane___Blue__3B82F6[Edge Plane - Blue #3B82F6]
         STOREFRONT[Merchant Storefronts<br/>1M+ Stores]
         CDN[Shopify CDN<br/>Global Content Delivery]
         MOBILE[Mobile Apps<br/>Shop App]
     end
 
-    subgraph Service Plane - Green #10B981
+    subgraph Service_Plane___Green__10B981[Service Plane - Green #10B981]
         CHECKOUT[Checkout Service<br/>Payment Processing<br/>OVERLOADED]
         CART[Shopping Cart<br/>Session Management]
         INVENTORY[Inventory Service<br/>Stock Management]
         SHIPPING[Shipping Service<br/>Logistics Calculation]
     end
 
-    subgraph State Plane - Orange #F59E0B
+    subgraph State_Plane___Orange__F59E0B[State Plane - Orange #F59E0B]
         ORDERS[(Orders Database<br/>Transaction Records)]
         PRODUCTS[(Product Database<br/>Catalog Data)]
         CUSTOMERS[(Customer Database<br/>User Accounts)]
         ANALYTICS[(Analytics Store<br/>Sales Data)]
     end
 
-    subgraph Control Plane - Red #8B5CF6
+    subgraph Control_Plane___Red__8B5CF6[Control Plane - Red #8B5CF6]
         MONITORING[System Monitoring<br/>Performance Metrics]
         AUTOSCALE[Auto-scaling<br/>Capacity Management]
         ALERTS[Alert System<br/>Incident Management]
     end
 
-    subgraph External Payment Network
+    subgraph External_Payment_Network[External Payment Network]
         STRIPE[Stripe Payments<br/>Card Processing]
         PAYPAL[PayPal<br/>Digital Wallet]
         BANKS[Banking Partners<br/>Transaction Settlement]

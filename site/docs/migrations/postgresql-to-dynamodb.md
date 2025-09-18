@@ -36,7 +36,7 @@
 
 ```mermaid
 graph TB
-    subgraph Current PostgreSQL Architecture
+    subgraph Current_PostgreSQL_Architecture[Current PostgreSQL Architecture]
         APP[Applications<br/>Django/Rails<br/>ORM-based queries]
         
         PG_MASTER[(PostgreSQL Master<br/>db.r5.4xlarge<br/>16 vCPU, 128GB RAM<br/>2TB SSD)]
@@ -45,7 +45,7 @@ graph TB
         
         PG_SLAVE2[(Read Replica 2<br/>db.r5.2xlarge<br/>8 vCPU, 64GB RAM<br/>Analytics queries)]
         
-        subgraph Current Schema
+        subgraph Current_Schema[Current Schema]
             USERS[Users Table<br/>5M records<br/>50 columns<br/>Complex joins]
             
             ORDERS[Orders Table<br/>20M records<br/>30 columns<br/>Foreign keys]
@@ -66,7 +66,7 @@ graph TB
     PG_MASTER --> PRODUCTS
 
     %% Current costs and performance
-    subgraph Current State Metrics
+    subgraph Current_State_Metrics[Current State Metrics]
         COST[Monthly Cost: $8,000<br/>IOPS: 10,000<br/>Latency: 10-50ms p95<br/>Connections: 500 max]
     end
 
@@ -117,13 +117,13 @@ LIMIT 100;
 
 ```mermaid
 graph TB
-    subgraph DynamoDB Single Table Design
-        subgraph Primary Keys
+    subgraph DynamoDB_Single_Table_Design[DynamoDB Single Table Design]
+        subgraph Primary_Keys[Primary Keys]
             PK[Partition Key (PK)<br/>USER#12345<br/>ORDER#67890<br/>PRODUCT#ABC123]
             SK[Sort Key (SK)<br/>PROFILE<br/>ORDER#2024-01-15<br/>CATEGORY#electronics]
         end
         
-        subgraph Global Secondary Indexes
+        subgraph Global_Secondary_Indexes[Global Secondary Indexes]
             GSI1[GSI1<br/>PK: GSI1PK (email)<br/>SK: GSI1SK (created_at)<br/>Query by email]
             
             GSI2[GSI2<br/>PK: GSI2PK (status)<br/>SK: GSI2SK (updated_at)<br/>Query by status]
@@ -131,7 +131,7 @@ graph TB
             GSI3[GSI3<br/>PK: GSI3PK (category)<br/>SK: GSI3SK (price)<br/>Query products by category]
         end
         
-        subgraph Access Patterns
+        subgraph Access_Patterns[Access Patterns]
             AP1[Get user profile<br/>PK=USER#id, SK=PROFILE]
             AP2[Get user orders<br/>PK=USER#id, SK begins_with ORDER#]
             AP3[Get order items<br/>PK=ORDER#id, SK begins_with ITEM#]
@@ -253,10 +253,10 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph Dual-Write Migration Architecture
+    subgraph Dual_Write_Migration_Architecture[Dual-Write Migration Architecture]
         APP[Application Layer<br/>Django/FastAPI<br/>Modified DAO layer]
         
-        subgraph Write Path
+        subgraph Write_Path[Write Path]
             PG_WRITE[PostgreSQL<br/>Primary write path<br/>ACID guarantees]
             
             KINESIS[Kinesis Data Streams<br/>Change capture<br/>1MB/sec throughput]
@@ -266,7 +266,7 @@ graph TB
             DDB_WRITE[DynamoDB<br/>Secondary write path<br/>Eventually consistent]
         end
         
-        subgraph Read Path
+        subgraph Read_Path[Read Path]
             PG_READ[PostgreSQL<br/>Primary read path<br/>Complex queries]
             
             DDB_READ[DynamoDB<br/>Simple key lookups<br/>Performance testing]
@@ -305,16 +305,16 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Read Migration Strategy
-        subgraph Feature Flags
+    subgraph Read_Migration_Strategy[Read Migration Strategy]
+        subgraph Feature_Flags[Feature Flags]
             FF[Feature Flag Service<br/>LaunchDarkly/ConfigCat<br/>Gradual rollout control]
         end
         
-        subgraph Application Layer
+        subgraph Application_Layer[Application Layer]
             APP[Application Code<br/>Abstracted data access<br/>Repository pattern]
         end
         
-        subgraph Data Access Layer
+        subgraph Data_Access_Layer[Data Access Layer]
             DAO[Data Access Objects<br/>Interface-based design<br/>Strategy pattern]
             
             PG_DAO[PostgreSQL DAO<br/>SQL queries<br/>Complex joins]
@@ -322,7 +322,7 @@ graph TB
             DDB_DAO[DynamoDB DAO<br/>NoSQL queries<br/>Single-table design]
         end
         
-        subgraph Data Sources
+        subgraph Data_Sources[Data Sources]
             PG[(PostgreSQL<br/>Legacy queries<br/>Backup reads)]
             
             DDB[(DynamoDB<br/>Primary reads<br/>High performance)]
@@ -472,26 +472,26 @@ user_stats.sort(key=lambda x: x['avg_order'], reverse=True)
 
 ```mermaid
 graph TB
-    subgraph DynamoDB Performance Architecture
-        subgraph Partition Strategy
+    subgraph DynamoDB_Performance_Architecture[DynamoDB Performance Architecture]
+        subgraph Partition_Strategy[Partition Strategy]
             HOT[Hot Partition Detection<br/>CloudWatch metrics<br/>UserErrors.UserExceptions]
             
             DIST[Write Distribution<br/>Random suffix strategy<br/>Time-based partitioning]
         end
         
-        subgraph Caching Layer
+        subgraph Caching_Layer[Caching Layer]
             DAX[DynamoDB Accelerator (DAX)<br/>Microsecond latency<br/>$0.25/hour per node]
             
             ELASTICACHE[ElastiCache Redis<br/>Application-level cache<br/>Complex query results]
         end
         
-        subgraph Read Optimization
+        subgraph Read_Optimization[Read Optimization]
             PARALLEL[Parallel Scans<br/>Multiple workers<br/>Segment-based processing]
             
             PROJECTION[Projection Expressions<br/>Reduce data transfer<br/>Specific attributes only]
         end
         
-        subgraph Write Optimization
+        subgraph Write_Optimization[Write Optimization]
             BATCH[Batch Operations<br/>25 items per batch<br/>Reduced API calls]
             
             ASYNC[Async Writes<br/>Non-blocking operations<br/>Error handling]
@@ -504,7 +504,7 @@ graph TB
     BATCH --> ASYNC
 
     %% Performance metrics
-    subgraph Performance Targets
+    subgraph Performance_Targets[Performance Targets]
         METRICS[Latency: <10ms p99<br/>Throughput: 100K RPS<br/>Cost: 40% reduction]
     end
 
@@ -727,8 +727,8 @@ class DynamoDBService:
 
 ```mermaid
 graph TB
-    subgraph Cost Analysis: PostgreSQL vs DynamoDB
-        subgraph PostgreSQL Costs (Monthly)
+    subgraph Cost_Analysis__PostgreSQL_vs_DynamoDB[Cost Analysis: PostgreSQL vs DynamoDB]
+        subgraph PostgreSQL_Costs__Monthly[PostgreSQL Costs (Monthly)]
             PG_COMPUTE[RDS Compute<br/>db.r5.4xlarge: $1,200<br/>Read replicas: $1,600<br/>Total: $2,800]
             
             PG_STORAGE[Storage Costs<br/>2TB SSD: $400<br/>Backup: $200<br/>Total: $600]
@@ -738,7 +738,7 @@ graph TB
             PG_TOTAL[PostgreSQL Total<br/>$5,000/month<br/>+ operational overhead]
         end
         
-        subgraph DynamoDB Costs (Monthly)
+        subgraph DynamoDB_Costs__Monthly[DynamoDB Costs (Monthly)]
             DDB_READS[Read Capacity<br/>18,000 RCU provisioned<br/>$1,800/month<br/>vs $30,000 on-demand]
             
             DDB_WRITES[Write Capacity<br/>7,150 WCU provisioned<br/>$3,600/month<br/>vs $15,000 on-demand]
@@ -750,7 +750,7 @@ graph TB
             DDB_TOTAL[DynamoDB Total<br/>$9,200/month provisioned<br/>$46,500/month on-demand]
         end
         
-        subgraph Optimization Strategies
+        subgraph Optimization_Strategies[Optimization Strategies]
             AUTO_SCALE[Auto Scaling<br/>-30% capacity costs<br/>$6,400/month optimized]
             
             RESERVED[Reserved Capacity<br/>-25% additional savings<br/>$4,800/month with RI]
@@ -1028,8 +1028,8 @@ class DynamoDBLoadTester:
 
 ```mermaid
 graph TB
-    subgraph DynamoDB Monitoring Stack
-        subgraph Native Metrics
+    subgraph DynamoDB_Monitoring_Stack[DynamoDB Monitoring Stack]
+        subgraph Native_Metrics[Native Metrics]
             CONSUMED[ConsumedReadCapacityUnits<br/>ConsumedWriteCapacityUnits<br/>Real-time utilization]
             
             THROTTLES[ReadThrottledEvents<br/>WriteThrottledEvents<br/>Capacity exceeded alerts]
@@ -1037,7 +1037,7 @@ graph TB
             ERRORS[UserErrors<br/>SystemErrors<br/>ClientError tracking]
         end
         
-        subgraph Custom Metrics
+        subgraph Custom_Metrics[Custom Metrics]
             LATENCY[Custom Latency Metrics<br/>Application-level timing<br/>End-to-end operations]
             
             BUSINESS[Business Metrics<br/>Orders per minute<br/>User registrations/hour]

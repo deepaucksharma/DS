@@ -8,7 +8,7 @@ Discord scaled from 10 friends gaming together (2015) to 600M users (2024) by re
 
 ```mermaid
 graph TB
-    subgraph MVP Architecture - 10 Users
+    subgraph MVP_Architecture___10_Users[MVP Architecture - 10 Users]
         subgraph EdgePlane[Edge - Single Server]
             NGINX[Nginx<br/>1 VPS<br/>$20/month]
         end
@@ -62,7 +62,7 @@ class DiscordMVP:
 
 ```mermaid
 graph TB
-    subgraph Growing Pains Architecture
+    subgraph Growing_Pains_Architecture[Growing Pains Architecture]
         subgraph EdgePlane[Edge - Load Balanced]
             CF[CloudFlare<br/>Free tier]
             LB[HAProxy<br/>2 instances]
@@ -121,7 +121,7 @@ elixir_benefits = {
 
 ```mermaid
 graph TB
-    subgraph Elixir-Powered Architecture
+    subgraph Elixir_Powered_Architecture[Elixir-Powered Architecture]
         subgraph EdgePlane[Edge - Global CDN]
             CDN[CloudFlare<br/>Pro $200/mo]
             LB3[AWS ALB<br/>Multi-region]
@@ -189,7 +189,7 @@ end
 
 ```mermaid
 graph TB
-    subgraph Pandemic-Scale Architecture
+    subgraph Pandemic_Scale_Architecture[Pandemic-Scale Architecture]
         subgraph EdgePlane[Edge - Multi-Region]
             CLOUDFLARE[CloudFlare Enterprise<br/>500TB/month<br/>$50K/month]
             GSLB[Global LB<br/>5 regions]
@@ -264,7 +264,7 @@ pandemic_surge:
 
 ```mermaid
 graph TB
-    subgraph Modern Discord Infrastructure
+    subgraph Modern_Discord_Infrastructure[Modern Discord Infrastructure]
         subgraph EdgePlane[Edge - Global Presence]
             CF2[CloudFlare<br/>1PB/day<br/>$200K/mo]
             POP[280 PoPs<br/>WebRTC SFU]
@@ -405,7 +405,7 @@ messages_v3:
 
 ```mermaid
 graph LR
-    subgraph Infrastructure Spend Growth
+    subgraph Infrastructure_Spend_Growth[Infrastructure Spend Growth]
         Y2015[$99/mo<br/>10 users<br/>$9.90/user]
         Y2016[$5K/mo<br/>100K users<br/>$0.05/user]
         Y2017[$50K/mo<br/>1M users<br/>$0.05/user]

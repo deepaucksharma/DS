@@ -7,7 +7,7 @@ Real production deployments reveal MySQL dominates web applications with unmatch
 
 ```mermaid
 graph TB
-    subgraph "MySQL Architecture"
+    subgraph MySQL_Architecture[""MySQL Architecture""]
         subgraph EdgePlane1[Edge Plane]
             PROXY1[ProxySQL<br/>Connection pooling<br/>Query routing]
             LB1[Load Balancer<br/>Read/Write split<br/>Health checks]
@@ -40,7 +40,7 @@ graph TB
         MASTER1 --> MONITOR1
     end
 
-    subgraph "PostgreSQL Architecture"
+    subgraph PostgreSQL_Architecture[""PostgreSQL Architecture""]
         subgraph EdgePlane2[Edge Plane]
             PGPOOL[PgPool-II<br/>Connection pooling<br/>Load balancing]
             PGBOUNCER[PgBouncer<br/>Lightweight pooling<br/>Transaction pooling]
@@ -1607,7 +1607,7 @@ stripe_postgresql_config = {
 
 ```mermaid
 graph TB
-    subgraph "Choose MySQL When"
+    subgraph Choose_MySQL_When[""Choose MySQL When""]
         M1[Simple Web Apps<br/>CRUD operations]
         M2[Read-Heavy Workloads<br/>High QPS requirements]
         M3[Rapid Development<br/>Quick prototyping]
@@ -1615,7 +1615,7 @@ graph TB
         M5[Team Expertise<br/>MySQL skills available]
     end
 
-    subgraph "Choose PostgreSQL When"
+    subgraph Choose_PostgreSQL_When[""Choose PostgreSQL When""]
         P1[Complex Data Types<br/>JSON, arrays, geospatial]
         P2[Advanced Analytics<br/>Window functions, CTEs]
         P3[Data Integrity Critical<br/>Financial, compliance]

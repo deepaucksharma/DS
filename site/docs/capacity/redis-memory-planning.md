@@ -530,7 +530,7 @@ Twitter_Redis_Architecture:
 
 ```mermaid
 graph TB
-    subgraph Instagram Redis Architecture
+    subgraph Instagram_Redis_Architecture[Instagram Redis Architecture]
         subgraph EdgePlane[Edge Plane]
             CDN[CDN Cache<br/>Static assets only]
             LB[Load Balancer<br/>HAProxy: 2M conn/sec]
@@ -542,19 +542,19 @@ graph TB
         end
 
         subgraph StatePlane[State Plane]
-            subgraph Session Cluster (Primary)
+            subgraph Session_Cluster__Primary[Session Cluster (Primary)]
                 REDIS1[Redis Node 1<br/>r6g.4xlarge<br/>128GB memory]
                 REDIS2[Redis Node 2<br/>r6g.4xlarge<br/>128GB memory]
                 REDIS3[Redis Node 3<br/>r6g.4xlarge<br/>128GB memory]
                 REDIS4[Redis Node 4<br/>r6g.4xlarge<br/>128GB memory]
             end
 
-            subgraph Profile Cache
+            subgraph Profile_Cache[Profile Cache]
                 PROFILE1[Profile Cache 1<br/>r6g.2xlarge<br/>64GB memory]
                 PROFILE2[Profile Cache 2<br/>r6g.2xlarge<br/>64GB memory]
             end
 
-            subgraph Feed Cache
+            subgraph Feed_Cache[Feed Cache]
                 FEED1[Feed Cache 1<br/>r6g.8xlarge<br/>256GB memory]
                 FEED2[Feed Cache 2<br/>r6g.8xlarge<br/>256GB memory]
             end

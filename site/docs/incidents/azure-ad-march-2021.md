@@ -51,25 +51,25 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - Blue #3B82F6
+    subgraph Edge_Plane___Blue__3B82F6[Edge Plane - Blue #3B82F6]
         DNS1[Primary DNS<br/>ns1.azure.com]
         DNS2[Secondary DNS<br/>ns2.azure.com]
         CDN[Azure CDN<br/>Global Points]
     end
 
-    subgraph Service Plane - Green #10B981
+    subgraph Service_Plane___Green__10B981[Service Plane - Green #10B981]
         LB[Azure Load Balancer<br/>Global Gateway]
         AAD[Azure AD Service<br/>Authentication Hub]
         GRAPH[Microsoft Graph API<br/>Identity Services]
     end
 
-    subgraph State Plane - Orange #F59E0B
+    subgraph State_Plane___Orange__F59E0B[State Plane - Orange #F59E0B]
         COSMOS[(Cosmos DB<br/>Identity Store<br/>Multi-region)]
         CACHE[(Redis Cache<br/>Token Store<br/>Distributed)]
         BLOB[(Blob Storage<br/>Config Store)]
     end
 
-    subgraph Control Plane - Red #8B5CF6
+    subgraph Control_Plane___Red__8B5CF6[Control Plane - Red #8B5CF6]
         MON[Azure Monitor<br/>Alerting System]
         ARM[Azure Resource Manager<br/>Control API]
         DEPLOY[Deployment Service<br/>Config Management]
@@ -138,7 +138,7 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph Impact Timeline
+    subgraph Impact_Timeline[Impact Timeline]
         A[09:58 UTC<br/>First DNS failures<br/>30% success rate]
         B[10:15 UTC<br/>Teams login issues<br/>50% failure rate]
         C[10:30 UTC<br/>Office 365 down<br/>80% failure rate]
@@ -346,14 +346,14 @@ az ad signed-in-user show --query userPrincipalName
 
 ```mermaid
 graph TB
-    subgraph NEW: Multi-Layer DNS Protection
+    subgraph NEW__Multi_Layer_DNS_Protection[NEW: Multi-Layer DNS Protection]
         DNS1[Primary DNS<br/>Automated validation]
         DNS2[Secondary DNS<br/>Independent config]
         DNS3[Tertiary DNS<br/>Static fallback]
         HEALTH[Health Monitor<br/>Continuous validation]
     end
 
-    subgraph NEW: Authentication Resilience
+    subgraph NEW__Authentication_Resilience[NEW: Authentication Resilience]
         AAD1[Primary AAD<br/>East US]
         AAD2[Secondary AAD<br/>West US]
         AAD3[Tertiary AAD<br/>Europe]

@@ -8,7 +8,7 @@ Pinterest scaled from 5,000 pins (2010) to 5 billion pins and 500 million monthl
 
 ```mermaid
 graph TB
-    subgraph "Early Pinterest Architecture"
+    subgraph Early_Pinterest_Architecture[""Early Pinterest Architecture""]
         subgraph EdgePlane[Edge - Simple Setup]
             NGINX[Nginx<br/>Load balancer<br/>$200/month]
             S3_CDN[S3 + CloudFront<br/>Image delivery<br/>$1K/month]
@@ -91,7 +91,7 @@ class User(models.Model):
 
 ```mermaid
 graph TB
-    subgraph "Viral Growth Architecture"
+    subgraph Viral_Growth_Architecture[""Viral Growth Architecture""]
         subgraph EdgePlane[Edge - CDN Scaling]
             CLOUDFRONT[CloudFront<br/>$20K/month<br/>Global image delivery]
             ELB[Elastic Load Balancer<br/>Multi-AZ<br/>Auto-scaling]
@@ -259,7 +259,7 @@ def process_pin_image(pin_id, source_url):
 
 ```mermaid
 graph TB
-    subgraph "ML-Powered Discovery Architecture"
+    subgraph ML_Powered_Discovery_Architecture[""ML-Powered Discovery Architecture""]
         subgraph EdgePlane[Edge - Global CDN]
             FASTLY[Fastly<br/>$5M/month<br/>Image optimization]
             CLOUDFRONT_GLOBAL[CloudFront<br/>$10M/month<br/>Global delivery]
@@ -488,7 +488,7 @@ class VisualSearchEngine:
 
 ```mermaid
 graph TB
-    subgraph "Mobile-First Architecture"
+    subgraph Mobile_First_Architecture[""Mobile-First Architecture""]
         subgraph EdgePlane[Edge - Mobile Optimized]
             CLOUDFLARE[CloudFlare<br/>$20M/year<br/>Mobile optimization]
             PINTEREST_CDN[Pinterest CDN<br/>Custom edge network<br/>100 PoPs]
@@ -933,7 +933,7 @@ class AdvancedImageProcessor:
 
 ```mermaid
 graph LR
-    subgraph "Pinterest Cost Evolution"
+    subgraph Pinterest_Cost_Evolution[""Pinterest Cost Evolution""]
         Y2010[$5K/mo<br/>1K users<br/>$5/user]
         Y2012[$100K/mo<br/>1M users<br/>$0.10/user]
         Y2016[$4M/mo<br/>100M users<br/>$0.04/user]

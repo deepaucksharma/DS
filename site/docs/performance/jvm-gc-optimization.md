@@ -10,24 +10,24 @@ JVM garbage collection optimization from LinkedIn's messaging platform - reducin
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - Load Balancers
+    subgraph Edge_Plane___Load_Balancers[Edge Plane - Load Balancers]
         HAProxy[HAProxy Load Balancer<br/>Multi-region deployment<br/>Health check: 2s interval]
         CloudFlare[CloudFlare CDN<br/>Static asset caching<br/>DDoS protection]
     end
 
-    subgraph Service Plane - Messaging Services
+    subgraph Service_Plane___Messaging_Services[Service Plane - Messaging Services]
         MessageAPI[Message API Service<br/>Spring Boot microservices<br/>800 instances across regions]
         DeliveryService[Message Delivery<br/>Kafka consumer groups<br/>Real-time processing]
         NotificationService[Push Notification Service<br/>High-throughput batch processing<br/>Memory-intensive operations]
     end
 
-    subgraph State Plane - JVM Memory Management
+    subgraph State_Plane___JVM_Memory_Management[State Plane - JVM Memory Management]
         G1GC[G1 Garbage Collector<br/>Optimized configuration<br/>MaxGCPauseMillis: 10ms]
         HeapMemory[Heap Memory Layout<br/>Young: 2GB, Old: 6GB<br/>Total: 8GB per instance]
         DirectMemory[Direct Memory<br/>Off-heap allocation<br/>NIO operations: 2GB]
     end
 
-    subgraph Control Plane - Monitoring
+    subgraph Control_Plane___Monitoring[Control Plane - Monitoring]
         Prometheus[Prometheus Metrics<br/>GC performance tracking<br/>Real-time alerting]
         Grafana[Grafana Dashboards<br/>GC pause visualization<br/>Memory allocation trends]
         GCLogger[GC Logging<br/>Detailed pause analysis<br/>Performance profiling]
@@ -64,28 +64,28 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Before: Parallel GC - High Pause Times
+    subgraph Before__Parallel_GC___High_Pause_Times[Before: Parallel GC - High Pause Times]
         ParallelGC[Parallel Old GC<br/>Stop-the-world collection<br/>Full heap scanning<br/>High pause times]
         ParallelGC --> YoungPause[Young Generation GC<br/>Pause time: 100-200ms<br/>Frequency: every 2 seconds<br/>Application impact: high]
         ParallelGC --> OldPause[Old Generation GC<br/>Pause time: 1.2-3.5 seconds<br/>Frequency: every 10 minutes<br/>Service unavailability]
         ParallelGC --> FullPause[Full GC Events<br/>Pause time: 5-15 seconds<br/>Frequency: daily<br/>Complete service outage]
     end
 
-    subgraph After: G1GC - Low Pause Times
+    subgraph After__G1GC___Low_Pause_Times[After: G1GC - Low Pause Times]
         G1GC2[G1 Garbage Collector<br/>Concurrent collection<br/>Region-based management<br/>Predictable pause times]
         G1GC2 --> YoungG1[Young Generation GC<br/>Pause time: 3-8ms<br/>Frequency: every 5 seconds<br/>Minimal impact]
         G1GC2 --> ConcurrentG1[Concurrent Marking<br/>Background processing<br/>No stop-the-world<br/>Zero application impact]
         G1GC2 --> MixedG1[Mixed GC Collections<br/>Pause time: 5-15ms<br/>Frequency: as needed<br/>Predictable cleanup]
     end
 
-    subgraph G1GC Configuration Tuning
+    subgraph G1GC_Configuration_Tuning[G1GC Configuration Tuning]
         Config[G1GC Configuration<br/>Scientifically optimized<br/>Based on allocation patterns]
         Config --> PauseTarget[MaxGCPauseMillis: 10ms<br/>Aggressive pause target<br/>95% achievement rate<br/>Excellent user experience]
         Config --> HeapRegion[G1HeapRegionSize: 16MB<br/>Optimal for message objects<br/>Efficient region management<br/>Reduced fragmentation]
         Config --> Ergonomics[G1UseAdaptiveSizePolicy: true<br/>Dynamic heap sizing<br/>Traffic-based adaptation<br/>Automatic optimization]
     end
 
-    subgraph Memory Allocation Optimization
+    subgraph Memory_Allocation_Optimization[Memory Allocation Optimization]
         Allocation[Allocation Strategy]
         Allocation --> TLAB[Thread Local Allocation Buffers<br/>Size: 2MB per thread<br/>Reduced synchronization<br/>Faster allocation]
         Allocation --> LargeObjects[Large Object Handling<br/>Direct old generation<br/>Humongous objects: >8MB<br/>Bypass young generation]
@@ -112,28 +112,28 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Memory Layout - Before Optimization
+    subgraph Memory_Layout___Before_Optimization[Memory Layout - Before Optimization]
         Heap1[JVM Heap: 8GB<br/>Fixed sizing<br/>Poor utilization<br/>Frequent resizing]
         Heap1 --> Young1[Young Generation: 1GB<br/>Eden: 700MB<br/>Survivor: 300MB<br/>Collection frequency: 2s]
         Heap1 --> Old1[Old Generation: 7GB<br/>Tenured space<br/>High fragmentation<br/>Long collection times]
         Heap1 --> Perm1[Permanent Generation: 256MB<br/>Class metadata<br/>Method area<br/>OutOfMemoryError risk]
     end
 
-    subgraph Memory Layout - After Optimization
+    subgraph Memory_Layout___After_Optimization[Memory Layout - After Optimization]
         Heap2[JVM Heap: 8GB<br/>G1 region-based<br/>512 regions × 16MB<br/>Dynamic management]
         Heap2 --> Young2[Young Generation: 2GB<br/>Eden regions: 120<br/>Survivor regions: 8<br/>Collection frequency: 5s]
         Heap2 --> Old2[Old Generation: 6GB<br/>Old regions: 384<br/>Low fragmentation<br/>Concurrent collection]
         Heap2 --> Meta2[Metaspace: Unlimited<br/>Native memory<br/>Class metadata<br/>Automatic expansion]
     end
 
-    subgraph Region-Based Management
+    subgraph Region_Based_Management[Region-Based Management]
         Regions[G1 Heap Regions<br/>16MB each, 512 total<br/>Flexible allocation<br/>Efficient collection]
         Regions --> Eden[Eden Regions (120)<br/>New object allocation<br/>Fast allocation path<br/>Regular collection]
         Regions --> Survivor[Survivor Regions (8)<br/>Aging space<br/>Promotion tracking<br/>Generational filtering]
         Regions --> OldRegions[Old Regions (384)<br/>Long-lived objects<br/>Concurrent marking<br/>Selective collection]
     end
 
-    subgraph Off-Heap Memory Optimization
+    subgraph Off_Heap_Memory_Optimization[Off-Heap Memory Optimization]
         OffHeap[Off-Heap Strategy<br/>Reduce GC pressure<br/>Direct memory usage<br/>NIO operations]
         OffHeap --> DirectBuffer[Direct ByteBuffers<br/>2GB allocation<br/>NIO channel operations<br/>Zero-copy networking]
         OffHeap --> MemoryMap[Memory-Mapped Files<br/>1GB for message logs<br/>OS-managed caching<br/>Persistence layer]
@@ -160,27 +160,27 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Thread Pool Configuration
+    subgraph Thread_Pool_Configuration[Thread Pool Configuration]
         ThreadPool[Optimized Thread Pools<br/>Based on workload analysis<br/>Right-sized for allocation patterns]
         ThreadPool --> APIThreads[API Handler Threads<br/>Pool size: 200<br/>TLAB size: 2MB<br/>Allocation rate: 100MB/s per thread]
         ThreadPool --> ConsumerThreads[Kafka Consumer Threads<br/>Pool size: 50<br/>TLAB size: 4MB<br/>Allocation rate: 300MB/s per thread]
         ThreadPool --> ProcessorThreads[Message Processor Threads<br/>Pool size: 100<br/>TLAB size: 1MB<br/>Low allocation workload]
     end
 
-    subgraph TLAB Optimization
+    subgraph TLAB_Optimization[TLAB Optimization]
         TLAB[Thread Local Allocation Buffers<br/>Minimize synchronization<br/>Fast allocation path<br/>Reduced contention]
         TLAB --> TLABSize[TLAB Sizing<br/>TLABSize: 2MB default<br/>ResizeTLAB: true<br/>Adaptive to thread behavior]
         TLAB --> TLABWaste[TLAB Waste Management<br/>TLABWasteTargetPercent: 1%<br/>Minimal memory waste<br/>Efficient utilization]
     end
 
-    subgraph Allocation Rate Management
+    subgraph Allocation_Rate_Management[Allocation Rate Management]
         AllocRate[Allocation Patterns<br/>Monitoring and optimization<br/>Object lifecycle analysis]
         AllocRate --> ShortLived[Short-lived Objects (80%)<br/>Request/response objects<br/>Stay in young generation<br/>Fast collection]
         AllocRate --> MediumLived[Medium-lived Objects (15%)<br/>Session objects<br/>Cache entries<br/>Survivor space aging]
         AllocRate --> LongLived[Long-lived Objects (5%)<br/>Connection pools<br/>Configuration objects<br/>Direct to old generation]
     end
 
-    subgraph GC Ergonomics and Auto-tuning
+    subgraph GC_Ergonomics_and_Auto_tuning[GC Ergonomics and Auto-tuning]
         Ergonomics[GC Ergonomics<br/>Automatic adaptation<br/>Performance-based tuning<br/>Self-optimization]
         Ergonomics --> AdaptiveSize[Adaptive Size Policy<br/>Dynamic generation sizing<br/>Based on allocation patterns<br/>Throughput optimization]
         Ergonomics --> PauseGoals[Pause Time Goals<br/>MaxGCPauseMillis: 10ms<br/>GCTimeRatio: 99<br/>Predictable performance]
@@ -207,28 +207,28 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph GC Monitoring Infrastructure
+    subgraph GC_Monitoring_Infrastructure[GC Monitoring Infrastructure]
         Monitor[GC Monitoring Stack<br/>Comprehensive observability<br/>Real-time analysis<br/>Predictive alerting]
         Monitor --> GCLog[GC Logging<br/>-Xlog:gc*:gc.log<br/>Detailed pause analysis<br/>Allocation tracking]
         Monitor --> JFR[Java Flight Recorder<br/>Low-overhead profiling<br/>Allocation profiling<br/>Object lifecycle tracking]
         Monitor --> Metrics[JVM Metrics Export<br/>Micrometer integration<br/>Prometheus format<br/>Grafana visualization]
     end
 
-    subgraph Key Performance Indicators
+    subgraph Key_Performance_Indicators[Key Performance Indicators]
         KPIs[GC Performance KPIs<br/>Service level objectives<br/>Business impact metrics]
         KPIs --> PauseTime[Pause Time Distribution<br/>p50: 4ms, p99: 8ms<br/>p99.9: 15ms, max: 25ms<br/>SLO: 95% < 10ms]
         KPIs --> Throughput[GC Throughput<br/>Application time: 99.5%<br/>GC overhead: 0.5%<br/>Target: >99% application time]
         KPIs --> Frequency[Collection Frequency<br/>Young GC: every 5s<br/>Mixed GC: every 30s<br/>Concurrent marking: continuous]
     end
 
-    subgraph Automated Analysis and Alerting
+    subgraph Automated_Analysis_and_Alerting[Automated Analysis and Alerting]
         Analysis[Automated GC Analysis<br/>Pattern recognition<br/>Anomaly detection<br/>Performance regression alerts]
         Analysis --> Regression[Performance Regression Detection<br/>Week-over-week comparison<br/>Statistical analysis<br/>Automated alerts]
         Analysis --> Capacity[Capacity Planning<br/>Heap utilization trends<br/>Growth rate analysis<br/>Scaling recommendations]
         Analysis --> Tuning[Auto-tuning Recommendations<br/>Parameter optimization<br/>A/B testing results<br/>Performance improvements]
     end
 
-    subgraph Real-time Dashboards
+    subgraph Real_time_Dashboards[Real-time Dashboards]
         Dashboard[GC Performance Dashboard<br/>Real-time visualization<br/>Historical trends<br/>Drill-down analysis]
         Dashboard --> LiveMetrics[Live GC Metrics<br/>Current pause times<br/>Allocation rates<br/>Memory utilization]
         Dashboard --> Trends[Historical Trends<br/>30-day performance<br/>Seasonal patterns<br/>Traffic correlation]

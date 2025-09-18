@@ -8,24 +8,24 @@ Apache Cassandra uses a sophisticated partitioning scheme based on consistent ha
 
 ```mermaid
 graph TB
-    subgraph Cassandra Ring Architecture
-        subgraph Hash Ring (0 to 2^127-1)
+    subgraph Cassandra_Ring_Architecture[Cassandra Ring Architecture]
+        subgraph Hash_Ring__0_to_2_127_1[Hash Ring (0 to 2^127-1)]
             RING[Token Ring<br/>128-bit MD5 hash space<br/>Tokens distributed across nodes]
         end
 
-        subgraph Physical Nodes
+        subgraph Physical_Nodes[Physical Nodes]
             NODE1[Node 1 (10.0.1.10)<br/>256 virtual nodes<br/>Tokens: 123...456, 789...012, ...]
             NODE2[Node 2 (10.0.1.11)<br/>256 virtual nodes<br/>Tokens: 234...567, 890...123, ...]
             NODE3[Node 3 (10.0.1.12)<br/>256 virtual nodes<br/>Tokens: 345...678, 901...234, ...]
             NODE4[Node 4 (10.0.1.13)<br/>256 virtual nodes<br/>Tokens: 456...789, 012...345, ...]
         end
 
-        subgraph Data Distribution
+        subgraph Data_Distribution[Data Distribution]
             PARTITION[Partition Key Hashing<br/>hash(partition_key) → token<br/>Data placed on ring position]
             REPLICATION[Replication Strategy<br/>RF=3: Next N nodes clockwise<br/>NetworkTopologyStrategy]
         end
 
-        subgraph Client Operations
+        subgraph Client_Operations[Client Operations]
             CLIENT[Client Queries<br/>Coordinator node selection<br/>Token-aware routing]
             COORDINATOR[Coordinator Node<br/>Query coordination<br/>Response aggregation]
         end
@@ -61,16 +61,16 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Cassandra Virtual Nodes (VNodes)
-        subgraph Traditional Single Token per Node
+    subgraph Cassandra_Virtual_Nodes__VNodes[Cassandra Virtual Nodes (VNodes)]
+        subgraph Traditional_Single_Token_per_Node[Traditional Single Token per Node]
             SINGLE[Single Token Assignment<br/>Node A: token 25%<br/>Node B: token 50%<br/>Node C: token 75%<br/>Node D: token 100%<br/><br/>Problems:<br/>• Hotspots possible<br/>• Slow rebalancing<br/>• Manual token management]
         end
 
-        subgraph Virtual Nodes (Default: 256 per node)
+        subgraph Virtual_Nodes__Default__256_per_node[Virtual Nodes (Default: 256 per node)]
             VIRTUAL[Virtual Node Assignment<br/>Node A: 256 random tokens<br/>Node B: 256 random tokens<br/>Node C: 256 random tokens<br/>Node D: 256 random tokens<br/><br/>Benefits:<br/>• Even load distribution<br/>• Fast rebalancing<br/>• Automatic token assignment]
         end
 
-        subgraph Token Ownership
+        subgraph Token_Ownership[Token Ownership]
             OWNERSHIP[Token Ownership Examples<br/>Node A owns tokens:<br/>• 12,345,678...90,123,456<br/>• 23,456,789...01,234,567<br/>• 34,567,890...12,345,678<br/>• ... (253 more)<br/><br/>Data Range: Each token owns<br/>range from previous token<br/>to current token (clockwise)]
         end
     end
@@ -303,25 +303,25 @@ if __name__ == "__main__":
 
 ```mermaid
 graph TB
-    subgraph Cassandra NetworkTopologyStrategy
-        subgraph Multi-Datacenter Setup
-            subgraph DC1 (Primary)
+    subgraph Cassandra_NetworkTopologyStrategy[Cassandra NetworkTopologyStrategy]
+        subgraph Multi_Datacenter_Setup[Multi-Datacenter Setup]
+            subgraph DC1__Primary[DC1 (Primary)]
                 DC1_RACK1[Rack 1<br/>cassandra-1<br/>cassandra-2]
                 DC1_RACK2[Rack 2<br/>cassandra-3<br/>cassandra-4]
                 DC1_RACK3[Rack 3<br/>cassandra-5<br/>cassandra-6]
             end
 
-            subgraph DC2 (Secondary)
+            subgraph DC2__Secondary[DC2 (Secondary)]
                 DC2_RACK1[Rack 1<br/>cassandra-7<br/>cassandra-8]
                 DC2_RACK2[Rack 2<br/>cassandra-9<br/>cassandra-10]
             end
         end
 
-        subgraph Replication Configuration
+        subgraph Replication_Configuration[Replication Configuration]
             RF_CONFIG[Replication Factor<br/>DC1: RF=3<br/>DC2: RF=2<br/><br/>Total replicas: 5<br/>Rack-aware placement]
         end
 
-        subgraph Data Placement Rules
+        subgraph Data_Placement_Rules[Data Placement Rules]
             PLACEMENT[Placement Rules<br/>1. First replica: calculated node<br/>2. Subsequent replicas: next nodes<br/>3. Rack diversity within DC<br/>4. DC placement per RF config]
         end
     end
@@ -579,23 +579,23 @@ if __name__ == "__main__":
 
 ```mermaid
 graph TB
-    subgraph Cassandra Hotspot Mitigation
-        subgraph Partition Key Design
+    subgraph Cassandra_Hotspot_Mitigation[Cassandra Hotspot Mitigation]
+        subgraph Partition_Key_Design[Partition Key Design]
             GOOD_KEYS[Good Partition Keys<br/>• High cardinality<br/>• Even distribution<br/>• Include tenant/shard ID<br/>Example: tenant_id + user_id]
             BAD_KEYS[Bad Partition Keys<br/>• Low cardinality<br/>• Skewed distribution<br/>• Sequential values<br/>Example: timestamp only]
         end
 
-        subgraph Virtual Node Benefits
+        subgraph Virtual_Node_Benefits[Virtual Node Benefits]
             VNODE_BENEFITS[Virtual Node Mitigation<br/>• Distribute hotspots<br/>• Multiple small ranges per node<br/>• Faster rebalancing<br/>• Better failure recovery]
         end
 
-        subgraph Schema Design Patterns
+        subgraph Schema_Design_Patterns[Schema Design Patterns]
             BUCKETING[Time Bucketing<br/>partition_key = date_bucket + id<br/>WHERE date_bucket = '2024-01'<br/>AND id = 'user123']
 
             SHARDING[Manual Sharding<br/>partition_key = shard_id + business_key<br/>shard_id = hash(user_id) % 100<br/>Distribute across 100 shards]
         end
 
-        subgraph Monitoring and Detection
+        subgraph Monitoring_and_Detection[Monitoring and Detection]
             MONITORING[Hotspot Detection<br/>• Per-node request rates<br/>• CPU/memory utilization<br/>• Token range statistics<br/>• Compaction patterns]
         end
     end

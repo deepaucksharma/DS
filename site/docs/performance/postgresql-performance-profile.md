@@ -10,7 +10,7 @@ PostgreSQL performance characteristics in production environments, covering conn
 
 ```mermaid
 graph TB
-    subgraph Before PgBouncer - Direct Connections
+    subgraph Before_PgBouncer___Direct_Connections[Before PgBouncer - Direct Connections]
         APP1[App Server 1<br/>100 connections]
         APP2[App Server 2<br/>100 connections]
         APP3[App Server 3<br/>100 connections]
@@ -22,7 +22,7 @@ graph TB
         APP3 --> PG1
     end
 
-    subgraph After PgBouncer - Pooled Connections
+    subgraph After_PgBouncer___Pooled_Connections[After PgBouncer - Pooled Connections]
         APP4[App Server 1<br/>100 connections]
         APP5[App Server 2<br/>100 connections]
         APP6[App Server 3<br/>100 connections]
@@ -56,19 +56,19 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Session Pooling
+    subgraph Session_Pooling[Session Pooling]
         S1[Client] --> S2[PgBouncer<br/>Session Mode]
         S2 --> S3[PostgreSQL<br/>1:1 mapping]
         S4[Latency: 2ms overhead<br/>Transactions: All supported<br/>Memory: High]
     end
 
-    subgraph Transaction Pooling
+    subgraph Transaction_Pooling[Transaction Pooling]
         T1[Client] --> T2[PgBouncer<br/>Transaction Mode]
         T2 --> T3[PostgreSQL<br/>Shared connections]
         T4[Latency: 0.5ms overhead<br/>Transactions: Limited<br/>Memory: Low]
     end
 
-    subgraph Statement Pooling
+    subgraph Statement_Pooling[Statement Pooling]
         ST1[Client] --> ST2[PgBouncer<br/>Statement Mode]
         ST2 --> ST3[PostgreSQL<br/>Highly shared]
         ST4[Latency: 0.2ms overhead<br/>Transactions: None<br/>Memory: Minimal]
@@ -91,7 +91,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph OLTP Query Pattern - Instagram Photo Upload
+    subgraph OLTP_Query_Pattern___Instagram_Photo_Upload[OLTP Query Pattern - Instagram Photo Upload]
         Q1[SELECT user_id, username<br/>FROM users<br/>WHERE user_id = $1]
         Q1 --> I1[B-tree index on user_id<br/>Rows examined: 1<br/>Execution time: 0.2ms]
 
@@ -102,7 +102,7 @@ graph TB
         Q3 --> I3[Row-level lock<br/>Index update: 0.2ms<br/>Total: 0.8ms]
     end
 
-    subgraph Performance Characteristics
+    subgraph Performance_Characteristics[Performance Characteristics]
         P1[Target: < 1ms p95<br/>Achieved: 0.8ms p95<br/>QPS: 50K per core<br/>Index size: 2GB]
     end
 
@@ -119,7 +119,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph OLAP Query Pattern - Daily Analytics
+    subgraph OLAP_Query_Pattern___Daily_Analytics[OLAP Query Pattern - Daily Analytics]
         Q1[SELECT date_trunc 'day', created_at,<br/>COUNT, AVG revenue<br/>FROM orders<br/>WHERE created_at >= NOW - INTERVAL '30 days'<br/>GROUP BY 1 ORDER BY 1]
 
         Q1 --> P1[Parallel Query Plan<br/>Workers: 8<br/>Shared buffers: 2GB<br/>Work_mem: 256MB per worker]
@@ -132,7 +132,7 @@ graph TB
         I2 --> R1
     end
 
-    subgraph Optimization Strategy
+    subgraph Optimization_Strategy[Optimization Strategy]
         O1[Partitioning by date<br/>Index on created_at<br/>Materialized views<br/>Columnar storage pg_column]
         O1 --> O2[Before: 45 seconds<br/>After: 3 seconds<br/>Memory: 4GB → 1GB]
     end
@@ -154,15 +154,15 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Primary Database
+    subgraph Primary_Database[Primary Database]
         P1[(Primary<br/>Write load: 50K TPS<br/>WAL generation: 2GB/hour<br/>Checkpoint frequency: 5min)]
     end
 
-    subgraph Synchronous Replica
+    subgraph Synchronous_Replica[Synchronous Replica]
         S1[(Sync Replica<br/>Apply lag: 2ms p95<br/>Network: 1Gbps<br/>Disk: NVMe SSD)]
     end
 
-    subgraph Asynchronous Replicas
+    subgraph Asynchronous_Replicas[Asynchronous Replicas]
         A1[(Async Replica 1<br/>Apply lag: 100ms p95<br/>Network: 100Mbps<br/>Disk: SSD)]
         A2[(Async Replica 2<br/>Apply lag: 500ms p95<br/>Network: 10Mbps<br/>Disk: HDD)]
     end
@@ -171,7 +171,7 @@ graph LR
     P1 -->|WAL streaming<br/>Latency: 50ms| A1
     P1 -->|WAL streaming<br/>Latency: 200ms| A2
 
-    subgraph Lag Monitoring
+    subgraph Lag_Monitoring[Lag Monitoring]
         M1[pg_stat_replication<br/>sent_lsn - flush_lsn<br/>Alert: > 1GB lag<br/>Critical: > 5GB lag]
     end
 
@@ -190,7 +190,7 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Hot Standby Conflicts
+    subgraph Hot_Standby_Conflicts[Hot Standby Conflicts]
         C1[Long running query<br/>on standby: 10 minutes]
         C2[Vacuum cleanup<br/>on primary removes rows]
         C3[WAL record conflicts<br/>with standby query]
@@ -202,7 +202,7 @@ graph TB
         C3 --> R2[WAL apply delay<br/>Recovery may lag behind<br/>Risk: Replica divergence]
     end
 
-    subgraph Conflict Resolution Settings
+    subgraph Conflict_Resolution_Settings[Conflict Resolution Settings]
         S1[hot_standby_feedback = on<br/>Prevents cleanup conflicts<br/>Side effect: Primary bloat]
 
         S2[max_standby_streaming_delay = 5min<br/>Allows longer queries<br/>Side effect: Replication lag]
@@ -225,7 +225,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Table Growth Pattern
+    subgraph Table_Growth_Pattern[Table Growth Pattern]
         T1[Initial state<br/>1M rows, 500MB<br/>Dead tuples: 0]
         T2[After updates<br/>1M rows, 750MB<br/>Dead tuples: 30%]
         T3[After vacuum<br/>1M rows, 500MB<br/>Dead tuples: 0]
@@ -235,7 +235,7 @@ graph TB
         T3 --> T4
     end
 
-    subgraph Autovacuum Configuration
+    subgraph Autovacuum_Configuration[Autovacuum Configuration]
         A1[autovacuum_vacuum_threshold = 50<br/>autovacuum_vacuum_scale_factor = 0.2<br/>Trigger at 20% dead tuples]
 
         A2[autovacuum_max_workers = 4<br/>autovacuum_work_mem = 1GB<br/>Parallel maintenance]
@@ -243,7 +243,7 @@ graph TB
         A3[autovacuum_naptime = 1min<br/>Check frequency<br/>Balance between lag and overhead]
     end
 
-    subgraph Performance Impact
+    subgraph Performance_Impact[Performance Impact]
         P1[Before optimization<br/>Query performance degrades 40%<br/>Autovacuum blocks reads]
 
         P2[After optimization<br/>Query performance stable<br/>Background maintenance]
@@ -262,7 +262,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph VACUUM (Standard)
+    subgraph VACUUM__Standard[VACUUM (Standard)]
         V1[Operation: Mark dead tuples<br/>Lock level: Share Update Exclusive<br/>Duration: Minutes<br/>Space reclaim: Partial]
 
         V2[I/O Pattern<br/>Sequential reads<br/>Minimal writes<br/>Index updates only]
@@ -270,7 +270,7 @@ graph LR
         V3[Concurrent access<br/>Reads: Allowed<br/>Writes: Allowed<br/>DDL: Blocked]
     end
 
-    subgraph VACUUM FULL
+    subgraph VACUUM_FULL[VACUUM FULL]
         VF1[Operation: Rewrite table<br/>Lock level: Access Exclusive<br/>Duration: Hours<br/>Space reclaim: Complete]
 
         VF2[I/O Pattern<br/>Full table rewrite<br/>Heavy I/O load<br/>Rebuild all indexes]
@@ -278,7 +278,7 @@ graph LR
         VF3[Concurrent access<br/>Reads: Blocked<br/>Writes: Blocked<br/>DDL: Blocked]
     end
 
-    subgraph Production Usage
+    subgraph Production_Usage[Production Usage]
         U1[Standard VACUUM<br/>Daily automated<br/>Low impact<br/>Maintenance windows not required]
 
         U2[VACUUM FULL<br/>Monthly/quarterly<br/>Scheduled downtime<br/>Major space reclamation]
@@ -299,11 +299,11 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Database Server Configuration
+    subgraph Database_Server_Configuration[Database Server Configuration]
         HW1[Server: AWS RDS db.r6i.24xlarge<br/>CPU: 96 vCPUs Intel Xeon<br/>Memory: 768 GB<br/>Network: 50 Gbps<br/>Storage: gp3 20,000 IOPS]
     end
 
-    subgraph PostgreSQL Configuration
+    subgraph PostgreSQL_Configuration[PostgreSQL Configuration]
         PG1[shared_buffers = 192GB<br/>effective_cache_size = 576GB<br/>work_mem = 256MB<br/>maintenance_work_mem = 2GB]
 
         PG2[max_connections = 400<br/>max_wal_size = 16GB<br/>checkpoint_timeout = 15min<br/>checkpoint_completion_target = 0.9]
@@ -311,7 +311,7 @@ graph TB
         PG3[random_page_cost = 1.1<br/>effective_io_concurrency = 200<br/>max_worker_processes = 96<br/>max_parallel_workers = 32]
     end
 
-    subgraph Workload Characteristics
+    subgraph Workload_Characteristics[Workload Characteristics]
         W1[Read/Write ratio: 95/5<br/>Average query time: 0.8ms<br/>Connection lifetime: 30 minutes<br/>Peak QPS: 100,000]
 
         W2[Primary use cases<br/>User profile lookups<br/>Timeline generation<br/>Photo metadata queries<br/>Like/comment counts]
@@ -330,7 +330,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Scale Evolution
+    subgraph Scale_Evolution[Scale Evolution]
         S1[Week 1<br/>1K TPS<br/>Single server<br/>Basic config]
 
         S2[Month 1<br/>10K TPS<br/>Read replicas added<br/>Connection pooling]
@@ -342,7 +342,7 @@ graph LR
         S1 --> S2 --> S3 --> S4
     end
 
-    subgraph Key Optimizations
+    subgraph Key_Optimizations[Key Optimizations]
         O1[1K → 10K TPS<br/>• PgBouncer deployment<br/>• Read replica scaling<br/>• Query optimization]
 
         O2[10K → 50K TPS<br/>• Table partitioning<br/>• Index optimization<br/>• Connection pooling tuning]

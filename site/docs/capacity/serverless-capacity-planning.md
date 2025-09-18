@@ -901,7 +901,7 @@ Netflix_Serverless_Architecture:
 
 ```mermaid
 graph TB
-    subgraph Airbnb Serverless Data Processing Pipeline
+    subgraph Airbnb_Serverless_Data_Processing_Pipeline[Airbnb Serverless Data Processing Pipeline]
         subgraph EdgePlane[Edge Plane]
             API[Airbnb API<br/>REST endpoints<br/>100K RPS peak]
             MOBILE[Mobile Apps<br/>iOS/Android<br/>Real-time events]
@@ -911,7 +911,7 @@ graph TB
         subgraph ServicePlane[Service Plane]
             GATEWAY[API Gateway<br/>Request routing<br/>Rate limiting: 10K RPS]
 
-            subgraph Lambda Functions
+            subgraph Lambda_Functions[Lambda Functions]
                 AUTH[Auth Function<br/>256MB, 200ms avg<br/>2M invocations/day]
                 SEARCH[Search Function<br/>1024MB, 500ms avg<br/>5M invocations/day]
                 BOOKING[Booking Function<br/>512MB, 800ms avg<br/>500K invocations/day]
@@ -933,7 +933,7 @@ graph TB
             CODE[CodePipeline<br/>CI/CD automation<br/>Blue/green deployment]
         end
 
-        subgraph Event Processing
+        subgraph Event_Processing[Event Processing]
             SQS[SQS Queues<br/>Async processing<br/>Dead letter queues]
             SNS[SNS Topics<br/>Event fanout<br/>Multi-subscriber]
             KINESIS[Kinesis Streams<br/>Real-time analytics<br/>User behavior]

@@ -7,7 +7,7 @@ Complete infrastructure cost analysis from Dropbox's 2024 operations serving 700
 
 ```mermaid
 graph TB
-    subgraph Monthly Infrastructure: $62M
+    subgraph Monthly_Infrastructure___62M[Monthly Infrastructure: $62M]
         subgraph EdgePlane[Edge Plane - $8M/month]
             CDN[Global CDN<br/>$3M/month<br/>100TB/day]
             LB[Load Balancers<br/>$2M/month<br/>Global traffic]
@@ -58,7 +58,7 @@ graph TB
 ### Magic Pocket Storage: $15M/month
 ```mermaid
 graph LR
-    subgraph Magic Pocket Infrastructure
+    subgraph Magic_Pocket_Infrastructure[Magic Pocket Infrastructure]
         STORAGE[Custom Storage<br/>2.5EB capacity<br/>$8M/month]
         NETWORK[Storage Network<br/>Redundancy<br/>$3M/month]
         COMPUTE[Storage Compute<br/>Processing<br/>$2M/month]
@@ -133,7 +133,7 @@ queries_per_second = 8000
 ### Search Infrastructure: $5M/month
 ```mermaid
 graph TB
-    subgraph Search Stack
+    subgraph Search_Stack[Search Stack]
         subgraph Indexing[Content Indexing - $3M/month]
             OCR[OCR Processing<br/>Images to text<br/>$1M/month]
             NLP[Text Extraction<br/>Documents<br/>$1M/month]
@@ -219,7 +219,7 @@ hardware_specs = {
 
 ```mermaid
 graph LR
-    subgraph Global Infrastructure Distribution
+    subgraph Global_Infrastructure_Distribution[Global Infrastructure Distribution]
         US[US Regions<br/>$35M/month<br/>56%]
         EU[EU Regions<br/>$15M/month<br/>24%]
         ASIA[Asia Regions<br/>$8M/month<br/>13%]
@@ -306,7 +306,7 @@ additional_reduction = "19%"
 
 ```mermaid
 graph TB
-    subgraph Unit Economics
+    subgraph Unit_Economics[Unit Economics]
         USERS[700M Registered<br/>16.5M Paying]
         COST[Infrastructure: $62M/month]
 

@@ -5,7 +5,7 @@
 
 ```mermaid
 graph TB
-    subgraph 🔴 SERVICE DOWN - Debugging Path
+    subgraph SERVICE_DOWN___Debugging_Path[🔴 SERVICE DOWN - Debugging Path]
         Start[Service Unreachable] -->|1| CheckLB[Check Load Balancer<br/>━━━━━<br/>📊 AWS Console → EC2 → LB<br/>✓ Health checks failing?<br/>✓ Target groups healthy?]
 
         CheckLB -->|Unhealthy| CheckInstances[Check Instances<br/>━━━━━<br/>📊 kubectl get pods<br/>📊 kubectl describe pod<br/>✓ OOMKilled?<br/>✓ CrashLoopBackOff?]
@@ -31,7 +31,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph 🐌 DATABASE SLOW - Investigation Flow
+    subgraph DATABASE_SLOW___Investigation_Flow[🐌 DATABASE SLOW - Investigation Flow]
         Symptom[High Latency<br/>━━━━━<br/>⚠️ p99 > 1s<br/>⚠️ Timeouts] -->|1| Connections[Check Connections<br/>━━━━━<br/>📊 SHOW PROCESSLIST;<br/>📊 Active: 450/500<br/>🚨 Pool exhausted?]
 
         Connections -->|2| SlowQueries[Find Slow Queries<br/>━━━━━<br/>📊 SHOW SLOW QUERIES;<br/>📊 SELECT * FROM pg_stat_statements<br/>📊 ORDER BY total_time DESC;]
@@ -88,7 +88,7 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph ⚡ CASCADE FAILURE - Timeline
+    subgraph CASCADE_FAILURE___Timeline[⚡ CASCADE FAILURE - Timeline]
         T0[Initial Trigger<br/>━━━━━<br/>12:00 - DB replica lag<br/>Lag: 5s → 60s] -->|Slow reads| T1[Service Degradation<br/>━━━━━<br/>12:02 - API timeouts<br/>Error rate: 0.1% → 5%]
 
         T1 -->|Retries| T2[Load Amplification<br/>━━━━━<br/>12:03 - Retry storm<br/>Request rate: 10K → 50K/s]
@@ -102,7 +102,7 @@ graph TB
         T5 -->|Platform Down| T6[Full Outage<br/>━━━━━<br/>12:10 - All services affected<br/>Impact: 100% users]
     end
 
-    subgraph 🔧 RECOVERY SEQUENCE
+    subgraph RECOVERY_SEQUENCE[🔧 RECOVERY SEQUENCE]
         R1[Stop Incoming Traffic<br/>━━━━━<br/>🔧 Enable maintenance mode]
         R2[Fix Root Cause<br/>━━━━━<br/>🔧 Restart DB replica]
         R3[Reset Circuit Breakers<br/>━━━━━<br/>🔧 Clear error counts]
@@ -169,7 +169,7 @@ stateDiagram-v2
 
 ```mermaid
 graph LR
-    subgraph 💾 MEMORY LEAK - Investigation
+    subgraph MEMORY_LEAK___Investigation[💾 MEMORY LEAK - Investigation]
         Start[OOM Kills<br/>━━━━━<br/>Pods restarting<br/>Every 2-3 hours] --> Heap[Heap Dump<br/>━━━━━<br/>📊 jmap -dump:format=b,file=/tmp/heap.hprof PID<br/>📊 kubectl cp pod:/tmp/heap.hprof ./heap.hprof]
 
         Heap --> Analyze[Analyze Heap<br/>━━━━━<br/>🔧 Eclipse MAT<br/>🔧 jhat heap.hprof<br/>📊 Dominator tree<br/>📊 Leak suspects]
@@ -191,19 +191,19 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph US-East-1 🔴 DOWN
+    subgraph US_East_1___DOWN[US-East-1 🔴 DOWN]
         USE1_LB[Load Balancer<br/>━━━━━<br/>❌ Unhealthy]
         USE1_APP[Application<br/>━━━━━<br/>❌ No response]
         USE1_DB[(Database<br/>━━━━━<br/>❌ Unreachable)]
     end
 
-    subgraph US-West-2 ✅ FAILOVER
+    subgraph US_West_2___FAILOVER[US-West-2 ✅ FAILOVER]
         USW2_LB[Load Balancer<br/>━━━━━<br/>✅ Healthy<br/>🔧 Receiving traffic]
         USW2_APP[Application<br/>━━━━━<br/>✅ Running<br/>⚠️ 2x normal load]
         USW2_DB[(Database<br/>━━━━━<br/>✅ Promoted to primary<br/>⚠️ Replication lag)]
     end
 
-    subgraph 📋 FAILOVER CHECKLIST
+    subgraph FAILOVER_CHECKLIST[📋 FAILOVER CHECKLIST]
         Step1[1. Confirm East is down<br/>━━━━━<br/>☐ Multiple availability zones<br/>☐ Not just monitoring]
         Step2[2. Update DNS<br/>━━━━━<br/>☐ Route53 health check<br/>☐ TTL considerations]
         Step3[3. Promote West DB<br/>━━━━━<br/>☐ Check replication lag<br/>☐ Accept data loss?]

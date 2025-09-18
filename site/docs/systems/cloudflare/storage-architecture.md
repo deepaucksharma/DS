@@ -8,64 +8,64 @@ Cloudflare's storage architecture is designed for edge computing at global scale
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - Data Access Layer #3B82F6
-        subgraph 285+ Global PoPs
+    subgraph Edge_Plane___Data_Access_Layer__3B82F6[Edge Plane - Data Access Layer #3B82F6]
+        subgraph sg_285__Global_PoPs[285+ Global PoPs]
             CACHE_L1[L1 Cache<br/>RAM: 32GB/server<br/>Latency: 0.1ms]
             CACHE_L2[L2 Cache<br/>SSD: 100TB/PoP<br/>Latency: 1-5ms]
             WORKER_MEM[Workers Memory<br/>128MB/isolate<br/>V8 heap]
         end
 
-        subgraph Edge Storage
+        subgraph Edge_Storage[Edge Storage]
             DURABLE_EDGE[Durable Objects<br/>SQLite at Edge<br/>Strong consistency]
             KV_EDGE[KV Cache<br/>Local copies<br/>Eventually consistent]
         end
     end
 
-    subgraph Service Plane - Storage Services #10B981
-        subgraph Workers Storage APIs
+    subgraph Service_Plane___Storage_Services__10B981[Service Plane - Storage Services #10B981]
+        subgraph Workers_Storage_APIs[Workers Storage APIs]
             KV_API[Workers KV API<br/>REST + JavaScript]
             R2_API[R2 S3-Compatible API<br/>GetObject/PutObject]
             DURABLE_API[Durable Objects API<br/>WebSocket + HTTP]
         end
 
-        subgraph Data Processing
+        subgraph Data_Processing[Data Processing]
             ANALYTICS_PROC[Analytics Processing<br/>Stream processing]
             COMPRESS[Compression Service<br/>Brotli/Gzip/LZ4]
             ENCRYPT[Encryption Service<br/>AES-256-GCM]
         end
     end
 
-    subgraph State Plane - Persistent Storage #F59E0B
-        subgraph R2 Object Storage
+    subgraph State_Plane___Persistent_Storage__F59E0B[State Plane - Persistent Storage #F59E0B]
+        subgraph R2_Object_Storage[R2 Object Storage]
             R2_GLOBAL[R2 Global Storage<br/>Multi-region replication<br/>99.999999999% durability]
             R2_METADATA[R2 Metadata Store<br/>Object index<br/>Strong consistency]
             R2_LIFECYCLE[R2 Lifecycle<br/>Auto-tiering<br/>Deletion policies]
         end
 
-        subgraph Workers KV Global
+        subgraph Workers_KV_Global[Workers KV Global]
             KV_GLOBAL[KV Global Store<br/>400+ edge locations<br/>Eventually consistent]
             KV_REPLICATION[KV Replication<br/>60s propagation<br/>Anti-entropy]
         end
 
-        subgraph Durable Objects Global
+        subgraph Durable_Objects_Global[Durable Objects Global]
             DO_PERSISTENCE[DO Persistent Storage<br/>SQLite + WAL<br/>Automatic snapshots]
             DO_MIGRATION[DO Migration System<br/>Live object movement<br/>Zero-downtime]
         end
 
-        subgraph Analytics Storage
+        subgraph Analytics_Storage[Analytics Storage]
             CLICKHOUSE[ClickHouse Cluster<br/>Time-series data<br/>100TB+ daily]
             LOGS_STORAGE[Log Storage<br/>Compressed archives<br/>90-day retention]
         end
     end
 
-    subgraph Control Plane - Storage Management #8B5CF6
-        subgraph Replication Control
+    subgraph Control_Plane___Storage_Management__8B5CF6[Control Plane - Storage Management #8B5CF6]
+        subgraph Replication_Control[Replication Control]
             REPLICA_MGR[Replication Manager<br/>Multi-region coordination]
             CONSISTENCY[Consistency Manager<br/>Conflict resolution]
             BACKUP[Backup Controller<br/>Point-in-time recovery]
         end
 
-        subgraph Performance Monitoring
+        subgraph Performance_Monitoring[Performance Monitoring]
             STORAGE_METRICS[Storage Metrics<br/>Latency/Throughput]
             QUOTA_MGR[Quota Management<br/>Per-account limits]
             HEALTH_CHECK[Health Monitoring<br/>Storage node status]
@@ -119,7 +119,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph R2 Architecture
+    subgraph R2_Architecture[R2 Architecture]
         CLIENT[Client Applications] --> R2_GATEWAY[R2 Gateway<br/>S3-Compatible API]
         R2_GATEWAY --> AUTH[Authentication<br/>API Keys/IAM]
         AUTH --> BUCKET_MGR[Bucket Manager<br/>Namespace isolation]
@@ -153,7 +153,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Workers KV Architecture
+    subgraph Workers_KV_Architecture[Workers KV Architecture]
         WORKER[Workers Runtime] --> KV_CLIENT[KV Client API<br/>JavaScript bindings]
         KV_CLIENT --> KV_GATEWAY[KV Gateway<br/>Load balancing]
 
@@ -184,7 +184,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Durable Objects Architecture
+    subgraph Durable_Objects_Architecture[Durable Objects Architecture]
         WORKER_REQ[Workers Request] --> DO_RUNTIME[DO Runtime<br/>V8 Isolate + State]
         DO_RUNTIME --> SQLITE[SQLite Instance<br/>In-memory + WAL<br/>ACID transactions]
 
@@ -215,7 +215,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Analytics Architecture
+    subgraph Analytics_Architecture[Analytics Architecture]
         REQUESTS[50M+ requests/sec] --> SAMPLING[Smart Sampling<br/>1% to 100%<br/>Adaptive rates]
         SAMPLING --> PIPELINE[Stream Processing<br/>Real-time aggregation]
 
@@ -241,7 +241,7 @@ graph TB
 ### Latency Characteristics
 ```mermaid
 graph LR
-    subgraph Read Latency by Storage Type
+    subgraph Read_Latency_by_Storage_Type[Read Latency by Storage Type]
         L1[L1 Cache<br/>0.1ms<br/>RAM access]
         L2[L2 Cache<br/>1-5ms<br/>SSD access]
         KV[Workers KV<br/>1-5ms<br/>Edge read]
@@ -282,7 +282,7 @@ graph LR
 ### Backup Strategies
 ```mermaid
 graph TB
-    subgraph Backup and Recovery
+    subgraph Backup_and_Recovery[Backup and Recovery]
         PRIMARY[Primary Storage] --> SYNC_REPLICA[Synchronous Replicas<br/>Same region<br/>0 RPO]
         PRIMARY --> ASYNC_REPLICA[Asynchronous Replicas<br/>Cross-region<br/><60s RPO]
 

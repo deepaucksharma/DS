@@ -10,24 +10,24 @@ AWS Application Load Balancer optimization from Slack's real-time messaging plat
 
 ```mermaid
 graph TB
-    subgraph Edge Plane - Global Load Distribution
+    subgraph Edge_Plane___Global_Load_Distribution[Edge Plane - Global Load Distribution]
         Route53[Route 53 DNS<br/>Latency-based routing<br/>Health check integration<br/>Global traffic steering]
         CloudFront2[CloudFront CDN<br/>Static asset acceleration<br/>API endpoint caching<br/>WebSocket termination]
     end
 
-    subgraph Service Plane - Load Balancer Layer
+    subgraph Service_Plane___Load_Balancer_Layer[Service Plane - Load Balancer Layer]
         ALB_US[ALB US-East (Primary)<br/>Cross-AZ distribution<br/>Target groups: 8<br/>Active connections: 500K]
         ALB_EU[ALB EU-West (Secondary)<br/>Regional failover<br/>Target groups: 6<br/>Active connections: 300K]
         ALB_AP[ALB AP-Southeast (Tertiary)<br/>APAC traffic<br/>Target groups: 4<br/>Active connections: 200K]
     end
 
-    subgraph State Plane - Backend Services
+    subgraph State_Plane___Backend_Services[State Plane - Backend Services]
         MessageService[Message Service<br/>Real-time processing<br/>WebSocket connections<br/>200 instances per region]
         ChannelService[Channel Service<br/>Channel management<br/>HTTP/2 connections<br/>150 instances per region]
         UserService[User Service<br/>Authentication & presence<br/>Keep-alive connections<br/>100 instances per region]
     end
 
-    subgraph Control Plane - Traffic Intelligence
+    subgraph Control_Plane___Traffic_Intelligence[Control Plane - Traffic Intelligence]
         WAF[AWS WAF<br/>DDoS protection<br/>Bot filtering<br/>Rate limiting]
         TargetHealth[Target Health Monitoring<br/>Health check frequency: 10s<br/>Unhealthy threshold: 2<br/>Automatic failover]
         LoadBalanceAlgorithms[Advanced Algorithms<br/>Least outstanding requests<br/>Weighted routing<br/>Sticky sessions]
@@ -63,28 +63,28 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph Round Robin - Before Optimization
+    subgraph Round_Robin___Before_Optimization[Round Robin - Before Optimization]
         RoundRobin[Round Robin Algorithm<br/>Simple rotation<br/>No load awareness<br/>Uneven distribution]
         RoundRobin --> Server1[Server 1<br/>CPU: 85%<br/>Connections: 1000<br/>Response: 15ms]
         RoundRobin --> Server2[Server 2<br/>CPU: 45%<br/>Connections: 1000<br/>Response: 5ms]
         RoundRobin --> Server3[Server 3<br/>CPU: 25%<br/>Connections: 1000<br/>Response: 3ms]
     end
 
-    subgraph Least Outstanding Requests - After Optimization
+    subgraph Least_Outstanding_Requests___After_Optimization[Least Outstanding Requests - After Optimization]
         LOR[Least Outstanding Requests<br/>Active request tracking<br/>Real-time load awareness<br/>Optimal distribution]
         LOR --> ServerA[Server A<br/>CPU: 65%<br/>Active requests: 45<br/>Response: 4ms]
         LOR --> ServerB[Server B<br/>CPU: 62%<br/>Active requests: 42<br/>Response: 4ms]
         LOR --> ServerC[Server C<br/>CPU: 68%<br/>Active requests: 48<br/>Response: 5ms]
     end
 
-    subgraph Intelligent Target Selection
+    subgraph Intelligent_Target_Selection[Intelligent Target Selection]
         Selection[Target Selection Logic<br/>Multi-factor decision making<br/>Predictive routing<br/>Performance optimization]
         Selection --> HealthScore[Health Score Calculation<br/>Response time: 40%<br/>CPU utilization: 30%<br/>Active connections: 20%<br/>Error rate: 10%]
         Selection --> Prediction[Request Prediction<br/>ML-based load forecasting<br/>Traffic pattern analysis<br/>Capacity planning]
         Selection --> Failover[Failover Logic<br/>Circuit breaker integration<br/>Gradual traffic shifting<br/>Zero-downtime recovery]
     end
 
-    subgraph Session Affinity Optimization
+    subgraph Session_Affinity_Optimization[Session Affinity Optimization]
         Affinity[Session Affinity<br/>Application-controlled stickiness<br/>Cookie-based routing<br/>WebSocket persistence]
         Affinity --> WebSocket[WebSocket Affinity<br/>Persistent connections<br/>User session continuity<br/>Message ordering]
         Affinity --> HTTP[HTTP Session Stickiness<br/>Application cookies<br/>User state consistency<br/>Cache locality]
@@ -111,24 +111,24 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph Connection Management - Before
+    subgraph Connection_Management___Before[Connection Management - Before]
         ShortConn[Short-Lived Connections<br/>Connection per request<br/>High overhead<br/>TCP handshake: 3ms]
         ShortConn --> Overhead1[Connection Overhead<br/>Setup: 3ms per request<br/>Teardown: 1ms per request<br/>Resource waste: 40%]
     end
 
-    subgraph Connection Management - After
+    subgraph Connection_Management___After[Connection Management - After]
         PersistentConn[Persistent Connections<br/>HTTP/1.1 Keep-Alive<br/>HTTP/2 multiplexing<br/>Connection reuse: 95%]
         PersistentConn --> Overhead2[Minimal Overhead<br/>Setup: 0.1ms amortized<br/>Multiplexed requests<br/>Resource efficiency: 95%]
     end
 
-    subgraph ALB Connection Pool Configuration
+    subgraph ALB_Connection_Pool_Configuration[ALB Connection Pool Configuration]
         PoolConfig[Connection Pool Settings<br/>Optimized for Slack workload<br/>Real-time messaging requirements]
         PoolConfig --> IdleTimeout[Idle Timeout: 60 seconds<br/>Balance efficiency vs resource usage<br/>Prevent connection exhaustion<br/>Handle client disconnects]
         PoolConfig --> MaxConnections[Max Connections: 100K per ALB<br/>Scale with traffic patterns<br/>Auto-scaling integration<br/>Regional load distribution]
         PoolConfig --> RequestTimeout[Request Timeout: 30 seconds<br/>WebSocket upgrade handling<br/>Long-polling support<br/>Real-time message delivery]
     end
 
-    subgraph Backend Connection Optimization
+    subgraph Backend_Connection_Optimization[Backend Connection Optimization]
         BackendConn[Backend Connection Management<br/>Target group optimization<br/>Health check integration<br/>Graceful draining]
         BackendConn --> HealthyTargets[Healthy Target Pool<br/>Continuous health monitoring<br/>Sub-second failover<br/>Load-aware routing]
         BackendConn --> ConnectionReuse[Connection Reuse<br/>Backend connection pooling<br/>HTTP/2 to backends<br/>Efficient resource utilization]
@@ -155,27 +155,27 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph Target Group Strategy - Before
+    subgraph Target_Group_Strategy___Before[Target Group Strategy - Before]
         SimpleTargets[Single Target Group<br/>All instances together<br/>No service differentiation<br/>Uniform health checks]
         SimpleTargets --> UniformHealth[Uniform Health Checks<br/>HTTP GET /health<br/>30-second interval<br/>Basic availability check]
         SimpleTargets --> NoSegmentation[No Traffic Segmentation<br/>Mixed workloads<br/>Resource contention<br/>Performance interference]
     end
 
-    subgraph Target Group Strategy - After
+    subgraph Target_Group_Strategy___After[Target Group Strategy - After]
         SegmentedTargets[Segmented Target Groups<br/>Service-specific groups<br/>Workload optimization<br/>Independent scaling]
         SegmentedTargets --> MessageTG[Message Service TG<br/>WebSocket workloads<br/>High-frequency health checks<br/>Connection persistence]
         SegmentedTargets --> APITG[API Service TG<br/>HTTP request/response<br/>Standard health checks<br/>Request routing]
         SegmentedTargets --> StaticTG[Static Content TG<br/>File serving<br/>Lightweight health checks<br/>Cache-friendly routing]
     end
 
-    subgraph Advanced Health Check Configuration
+    subgraph Advanced_Health_Check_Configuration[Advanced Health Check Configuration]
         AdvancedHealth[Advanced Health Checks<br/>Multi-dimensional monitoring<br/>Application-aware checks<br/>Predictive failure detection]
         AdvancedHealth --> CustomEndpoints[Custom Health Endpoints<br/>/health/detailed checks<br/>Service-specific metrics<br/>Dependency validation]
         AdvancedHealth --> MultilayerCheck[Multi-layer Health Checks<br/>L4 connectivity check<br/>L7 application check<br/>Business logic validation]
         AdvancedHealth --> PredictiveHealth[Predictive Health Scoring<br/>Performance trend analysis<br/>Resource utilization patterns<br/>Early warning system]
     end
 
-    subgraph Intelligent Target Management
+    subgraph Intelligent_Target_Management[Intelligent Target Management]
         TargetMgmt[Target Management<br/>Automated lifecycle handling<br/>Performance-based routing<br/>Capacity-aware distribution]
         TargetMgmt --> AutoScaling[Auto Scaling Integration<br/>Target registration automation<br/>Scaling event coordination<br/>Smooth capacity transitions]
         TargetMgmt --> WeightedRouting[Weighted Routing<br/>Performance-based weights<br/>Canary deployment support<br/>A/B testing capabilities]
@@ -202,7 +202,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph TLS Termination Optimization
+    subgraph TLS_Termination_Optimization[TLS Termination Optimization]
         TLSBefore[TLS Configuration - Before<br/>TLS 1.2 only<br/>RSA certificates<br/>Cipher suite: Default]
         TLSBefore --> SlowHandshake[TLS Handshake<br/>RTT: 2-3 rounds<br/>CPU intensive<br/>Latency: 15-25ms]
 
@@ -210,21 +210,21 @@ graph TB
         TLSAfter --> FastHandshake[TLS 1.3 Handshake<br/>RTT: 1-2 rounds<br/>Hardware acceleration<br/>Latency: 5-8ms]
     end
 
-    subgraph Certificate Management
+    subgraph Certificate_Management[Certificate Management]
         CertMgmt[Certificate Strategy<br/>AWS Certificate Manager<br/>Automated renewal<br/>Multi-domain support]
         CertMgmt --> ECDSACerts[ECDSA Certificates<br/>Smaller key sizes<br/>Faster computation<br/>Better performance]
         CertMgmt --> AutoRenewal[Automatic Renewal<br/>Zero-downtime renewal<br/>Health check integration<br/>Proactive monitoring]
         CertMgmt --> SNIOptimization[SNI Optimization<br/>Multi-domain support<br/>Reduced certificate overhead<br/>Flexible routing]
     end
 
-    subgraph Protocol Optimization
+    subgraph Protocol_Optimization[Protocol Optimization]
         ProtocolOpt[Protocol Configuration<br/>HTTP/2 enabled<br/>ALPN negotiation<br/>Connection multiplexing]
         ProtocolOpt --> HTTP2Benefits[HTTP/2 Benefits<br/>Request multiplexing<br/>Header compression<br/>Server push capability]
         ProtocolOpt --> WebSocketOpt[WebSocket Optimization<br/>Upgrade handling<br/>Persistent connections<br/>Real-time messaging]
         ProtocolOpt --> CompressionOpt[Compression Optimization<br/>GZIP enabled<br/>Content-type aware<br/>CPU vs bandwidth tradeoff]
     end
 
-    subgraph Security and Performance Balance
+    subgraph Security_and_Performance_Balance[Security and Performance Balance]
         SecurityPerf[Security-Performance Balance<br/>Optimal cipher selection<br/>Hardware acceleration<br/>Performance monitoring]
         SecurityPerf --> CipherSelection[Cipher Suite Selection<br/>AES-GCM preferred<br/>Hardware acceleration<br/>Forward secrecy]
         SecurityPerf --> HardwareAccel[Hardware Acceleration<br/>AWS Nitro system<br/>Dedicated crypto processing<br/>CPU offloading]
