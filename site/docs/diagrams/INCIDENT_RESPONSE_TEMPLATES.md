@@ -170,7 +170,7 @@ stateDiagram-v2
 ```mermaid
 graph LR
     subgraph "💾 MEMORY LEAK - Investigation"
-        Start[OOM Kills<br/>━━━━━<br/>Pods restarting<br/>Every 2-3 hours] --> Heap[Heap Dump<br/>━━━━━<br/>📊 jmap -dump:format=b<br/>📊 kubectl cp pod:/heap.hprof .]
+        Start[OOM Kills<br/>━━━━━<br/>Pods restarting<br/>Every 2-3 hours] --> Heap[Heap Dump<br/>━━━━━<br/>📊 jmap -dump:format=b,file=/tmp/heap.hprof PID<br/>📊 kubectl cp pod:/tmp/heap.hprof ./heap.hprof]
 
         Heap --> Analyze[Analyze Heap<br/>━━━━━<br/>🔧 Eclipse MAT<br/>🔧 jhat heap.hprof<br/>📊 Dominator tree<br/>📊 Leak suspects]
 

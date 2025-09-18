@@ -28,10 +28,11 @@ def get_user_recommendations(user_id):
 
 **Implementation Checklist**:
 - [ ] Circuit breakers on all external dependencies
-- [ ] Timeouts on all network calls
-- [ ] Retry logic with exponential backoff
+- [ ] Timeouts on all network calls (typically 3x p99 latency)
+- [ ] Retry logic with exponential backoff (1s, 2s, 4s, 8s + jitter)
 - [ ] Fallback strategies for critical paths
 - [ ] Bulkheads to isolate failures
+- [ ] Connection pool sizing: `pool_size = (workers × avg_time) / target_latency`
 
 ### 2. Embrace Eventual Consistency
 

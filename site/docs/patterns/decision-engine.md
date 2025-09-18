@@ -2,6 +2,23 @@
 
 The Decision Engine provides algorithmic approaches to system design, replacing intuition with mathematical models and proven heuristics.
 
+## Cache Type Decision Matrix
+
+```mermaid
+graph TD
+    START[Need Caching?] -->|Data Size?| SIZE{Data Size}
+
+    SIZE -->|<100MB| LOCAL[Local Memory<br/>Cost: $0<br/>Latency: 0.01ms]
+    SIZE -->|100MB-10GB| REDIS[Redis Single<br/>Cost: $50/mo<br/>Latency: 1ms]
+    SIZE -->|10GB-1TB| CLUSTER[Redis Cluster<br/>Cost: $500/mo<br/>Latency: 2ms]
+    SIZE -->|>1TB| CDN[CDN + Tiered<br/>Cost: $5000/mo<br/>Latency: 10ms]
+
+    LOCAL -->|Use When| LU[Single server<br/>Read-heavy<br/>Static data]
+    REDIS -->|Use When| RU[Multi-server<br/>Session data<br/>Leaderboards]
+    CLUSTER -->|Use When| CU[Large datasets<br/>Sharded access<br/>HA required]
+    CDN -->|Use When| DU[Global users<br/>Media files<br/>Static assets]
+```
+
 ## The Master Algorithm
 
 ```python

@@ -146,6 +146,14 @@ For any execution, there exists a total order of all operations such that:
 | Rust | Raft-rs | Custom state machine | 100K ops/sec | TiKV, PingCAP |
 | Python | PySyncObj | Replicated objects | 5K ops/sec | Small clusters |
 
+#### Production Reality Check
+
+**What Actually Happens Under Load:**
+- At 1-10K ops/sec: Linearizability works as advertised (etcd, Consul)
+- At 10-50K ops/sec: Latency increases 5-10x, consider relaxing consistency
+- At 50K+ ops/sec: Most systems downgrade to eventual consistency or shard
+- **Real Example**: Twitter switched from strong to eventual consistency for timeline generation at 400K tweets/sec
+
 #### Cost Analysis
 
 **Infrastructure Costs (3-node cluster - AWS us-east-1 pricing 2024)**
@@ -243,6 +251,7 @@ No ordering guarantees during propagation period.
 - Performance: 20M requests/sec at any scale
 - Cost: $0.25/GB/month (40% cheaper than strong consistency)
 - Use case: User sessions, game leaderboards, product catalogs
+- **Cost Breakdown**: Read: $0.25/million, Write: $1.25/million (vs Strong: $0.50/$2.50)
 
 **Netflix Content Delivery**
 - CDN propagation: 5-30 minutes globally

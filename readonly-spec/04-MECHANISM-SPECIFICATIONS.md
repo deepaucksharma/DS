@@ -15,7 +15,7 @@ This document specifies the **20 fundamental mechanisms (primitives)** that serv
 | **Partitioning** | 3 | Data distribution | +0-5ms | Medium | Vitess: 10K shards |
 | **Replication** | 3 | Redundancy & availability | +2ms (same DC), +50ms (cross-region) | High | FB: 5-way replication |
 | **Consensus** | 2 | Agreement protocols | +10ms p50, +100ms p99 | Very High | etcd: 10K nodes max |
-| **Messaging** | 4 | Communication patterns | +1-100ms | Medium | Kafka: 7T events/day |
+| **Messaging** | 4 | Communication patterns | +1-100ms | Medium | Kafka: 7T events/day, 4K partitions/cluster max |
 | **Caching** | 2 | Performance optimization | -99% (p50: 0.2ms hit) | Low | FB: 99.25% hit rate |
 | **Isolation** | 3 | Fault boundaries | +1-5ms | Medium | Netflix: 30% capacity saved |
 | **Coordination** | 3 | Distributed state | +5-20ms | High | ZK: 50K watches/node |
@@ -42,8 +42,9 @@ graph TB
 | **Requires** | PartitionFunction, RouteTable |
 | **Throughput** | Linear with partitions |
 | **Consistency** | Per-partition strong |
-| **Failure Mode** | Partition unavailable |
-| **Recovery** | Rebalance partitions |
+| **Failure Mode** | Partition unavailable, Hot partition (celebrity problem) |
+| **Recovery** | Rebalance partitions, Split hot shards |
+| **Real Incident** | Uber 2017: Manhattan hot shard during rush hour |
 
 #### Production Implementations
 
@@ -324,7 +325,7 @@ graph LR
 |----------|-------|
 | **Provides** | HighAvailability, ReadScaling |
 | **Requires** | ReplicationProtocol, ConflictResolution |
-| **Latency** | +2-10ms write, 0ms read |
+| **Latency** | Same-DC: +2ms, Cross-region: +50-200ms, Global: +300ms |
 | **Consistency** | Configurable (sync/async) |
 | **Failure Mode** | Split-brain risk |
 | **Recovery** | Leader election |
@@ -518,8 +519,9 @@ stateDiagram-v2
 | **Requires** | MajorityQuorum, StableStorage |
 | **Latency** | 5-50ms per decision |
 | **Availability** | N/2+1 nodes required |
-| **Failure Mode** | Loss of quorum |
-| **Recovery** | Wait for quorum |
+| **Failure Mode** | Loss of quorum, Split brain, Leader flapping |
+| **Recovery** | Wait for quorum, Force reconfigure |
+| **Real Incident** | Cloudflare 2020: etcd exhausted at 3.2M req/s, 27min outage |
 
 #### Production Implementations
 
@@ -824,8 +826,9 @@ graph TB
 | **Requires** | InvalidationStrategy, TTLConfig |
 | **Hit Rate** | 80-95% typical |
 | **Latency** | <1ms L1, <10ms L2, <50ms L3 |
-| **Failure Mode** | Stale data |
-| **Recovery** | Cache warming |
+| **Failure Mode** | Stale data, Cache stampede |
+| **Recovery** | Cache warming, Jittered expiry |
+| **Invalidation Lag** | CDN: 5-30s, Redis: <100ms, Local: Immediate |
 
 #### Production Implementations
 
