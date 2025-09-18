@@ -5,11 +5,11 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
-         <loc>https://ds-framework.dev/capacity/amazon-black-friday-capacity/</loc>
+         <loc>https://ds-framework.dev/mermaid-style-guide/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
-         <loc>https://ds-framework.dev/capacity/amazon-black-friday/</loc>
+         <loc>https://ds-framework.dev/capacity/amazon-black-friday-capacity/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -57,6 +57,10 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/capacity/zoom-covid-explosion/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/case-studies/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
@@ -85,6 +89,10 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/comparisons/kafka-vs-kinesis/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/comparisons/postgresql-vs-dynamodb/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
@@ -94,6 +102,10 @@
     </url>
     <url>
          <loc>https://ds-framework.dev/costs/netflix-infrastructure-breakdown/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
+         <loc>https://ds-framework.dev/costs/spotify-infrastructure-breakdown/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
@@ -829,19 +841,19 @@
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
+         <loc>https://ds-framework.dev/scaling/discord-scale-journey/</loc>
+         <lastmod>2025-09-18</lastmod>
+    </url>
+    <url>
          <loc>https://ds-framework.dev/scaling/instagram-evolution/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
-         <loc>https://ds-framework.dev/scaling/instagram/</loc>
+         <loc>https://ds-framework.dev/scaling/twitter-scale-journey/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>
          <loc>https://ds-framework.dev/scaling/whatsapp-evolution/</loc>
-         <lastmod>2025-09-18</lastmod>
-    </url>
-    <url>
-         <loc>https://ds-framework.dev/scaling/whatsapp/</loc>
          <lastmod>2025-09-18</lastmod>
     </url>
     <url>

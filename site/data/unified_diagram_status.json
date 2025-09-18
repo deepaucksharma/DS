@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2025-09-18T22:37:12.354351",
+    "last_updated": "2025-09-18T22:46:15.760761",
     "last_spec_check": null,
     "total_target": 900,
     "creation_start_date": "2025-09-18T18:08:06.407613"
@@ -9484,6 +9484,80 @@
         "Contains placeholder text: Test",
         "No MTTR/MTTD metrics documented",
         "Insufficient cost/resource info (found 1/5 patterns)",
+        "Generic term 'Database' without specific technology",
+        "Generic term 'Cache' without specific technology",
+        "Generic term 'Queue' without specific technology",
+        "Generic term 'Service' without specific technology",
+        "Generic term 'API' without specific technology",
+        "Generic term 'Storage' without specific technology",
+        "No technology version numbers found"
+      ]
+    },
+    "costs/spotify-infrastructure-breakdown": {
+      "status": "needs_update",
+      "category": "costs",
+      "created_date": "2025-09-18T22:46:13.909677",
+      "last_updated": "2025-09-18T22:46:13.909699",
+      "last_reviewed": null,
+      "spec_version": "d41d8cd9",
+      "file_path": "costs/spotify-infrastructure-breakdown.md",
+      "diagram_count": 9,
+      "content_hash": "6d3e59bf",
+      "compliance_score": 42,
+      "issues": [
+        "Section 9: Excessive text (16 lines) between diagrams",
+        "Contains code blocks that should be visual representations or tables",
+        "Insufficient failure coverage: timeout",
+        "No MTTR/MTTD metrics documented",
+        "Diagram 8: Has edges but no SLO labels",
+        "Generic term 'Cache' without specific technology",
+        "Generic term 'Service' without specific technology",
+        "Generic term 'API' without specific technology",
+        "Generic term 'Storage' without specific technology",
+        "No technology version numbers found"
+      ]
+    },
+    "scaling/discord-scale-journey": {
+      "status": "needs_update",
+      "category": "scaling",
+      "created_date": "2025-09-18T22:46:15.721987",
+      "last_updated": "2025-09-18T22:46:15.722004",
+      "last_reviewed": null,
+      "spec_version": "d41d8cd9",
+      "file_path": "scaling/discord-scale-journey.md",
+      "diagram_count": 9,
+      "content_hash": "76685bf5",
+      "compliance_score": 42,
+      "issues": [
+        "Section 9: Excessive text (19 lines) between diagrams",
+        "Contains code blocks that should be visual representations or tables",
+        "Insufficient failure coverage: none",
+        "No MTTR/MTTD metrics documented",
+        "Diagram 1: Has edges but no SLO labels",
+        "Diagram 2: Has edges but no SLO labels",
+        "Generic term 'Database' without specific technology",
+        "Generic term 'Cache' without specific technology",
+        "Generic term 'Service' without specific technology",
+        "Generic term 'API' without specific technology",
+        "Generic term 'Storage' without specific technology",
+        "No technology version numbers found"
+      ]
+    },
+    "scaling/twitter-scale-journey": {
+      "status": "needs_update",
+      "category": "scaling",
+      "created_date": "2025-09-18T22:46:15.733887",
+      "last_updated": "2025-09-18T22:46:15.733907",
+      "last_reviewed": null,
+      "spec_version": "d41d8cd9",
+      "file_path": "scaling/twitter-scale-journey.md",
+      "diagram_count": 7,
+      "content_hash": "2307db25",
+      "compliance_score": 57,
+      "issues": [
+        "No MTTR/MTTD metrics documented",
+        "Diagram 1: Has edges but no SLO labels",
+        "Diagram 7: Has edges but no SLO labels",
         "Generic term 'Database' without specific technology",
         "Generic term 'Cache' without specific technology",
         "Generic term 'Queue' without specific technology",
