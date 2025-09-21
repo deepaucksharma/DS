@@ -51,6 +51,26 @@ ds-framework.dev/
 
 ---
 
+## Core Architectural Concepts
+
+### 4-Plane Architecture (MANDATORY)
+All diagrams MUST use these exact colors:
+
+- **Edge Plane** (Blue #0066CC): CDN, WAF, Load Balancers, API Gateways
+- **Service Plane** (Green #00AA00): Business Logic, Microservices, Application Logic
+- **State Plane** (Orange #FF8800): Databases, Caches, Storage, Message Queues
+- **Control Plane** (Red #CC0000): Monitoring, Config, Automation, Observability
+
+**Note**: The architecture has been simplified from 5 planes to 4 planes. The former "Stream Plane" components are now part of the State Plane.
+
+### Content Organization
+- **Guarantees**: What the system promises (consistency, availability, etc.)
+- **Mechanisms**: How guarantees are implemented (consensus, replication, etc.)
+- **Patterns**: Complete architectural solutions combining mechanisms
+- **Systems**: Real-world implementations (Netflix, Uber, etc.)
+
+---
+
 ## Page Specifications
 
 ### 1. Home Page (/)
@@ -95,7 +115,7 @@ Each mechanism page contains:
 
 | Diagram Code | Type | Purpose | Node Count | Required Elements |
 |--------------|------|---------|------------|-------------------|
-| M-PL | Plane Placement | Where it lives | 5 planes | Requires/provides labels |
+| M-PL | Plane Placement | Where it lives | 4 planes | Requires/provides labels |
 | M-FL | Internal Flow | Processing pipeline | 30-50 | Stages, queues, workers |
 | M-SQ | Sequence | Hot/cold/failure paths | 20-30 msgs | Latency annotations |
 | M-ST | State Machine | Internal states | 10-15 | Transitions, timeouts |
@@ -113,7 +133,7 @@ Each pattern page contains:
 | Diagram Code | Type | Purpose | Node Count | Required Elements |
 |--------------|------|---------|------------|-------------------|
 | P-L0 | Global Flow | Full architecture | 100-120 | All planes, mechanisms |
-| P-L1 | Plane Views | Per-plane detail | 4×40 | Edge/Service/Stream/State |
+| P-L1 | Plane Views | Per-plane detail | 4×40 | Edge/Service/State/Control |
 | P-SQ1 | Happy Path | Success sequence | 20-25 | End-to-end latencies |
 | P-SQ2 | Failure Path | Degradation flow | 25-30 | Mitigation steps |
 | P-BP | Backpressure | Control ladder | 10-12 | Full stack controls |

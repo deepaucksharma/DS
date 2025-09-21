@@ -40,7 +40,7 @@ class UnifiedStatusTracker:
         self.tracking_data = self.load_tracking_data()
         self.spec_compliance = self.load_spec_compliance()
 
-        # Define expected diagram distribution
+        # Define expected diagram distribution with updated navigation structure
         self.expected_distribution = {
             "systems": {
                 "total": 240,  # 30 systems × 8 diagrams
@@ -53,13 +53,14 @@ class UnifiedStatusTracker:
             },
             "incidents": {"total": 100},
             "debugging": {"total": 100},
-            "patterns": {"total": 80},
+            "patterns": {"total": 80},  # Includes foundation, guarantees, mechanisms
             "performance": {"total": 80},
             "scaling": {"total": 80},
             "costs": {"total": 60},
             "migrations": {"total": 60},
             "capacity": {"total": 60},
-            "comparisons": {"total": 40}
+            "comparisons": {"total": 40},
+            "production": {"total": 20}  # New top-level production category
         }
 
     def load_tracking_data(self) -> Dict:
@@ -266,11 +267,11 @@ class UnifiedStatusTracker:
         return self.tracking_data["diagrams"][diagram_id]
 
     def get_category(self, file_path: str) -> str:
-        """Determine category from file path"""
+        """Determine category from file path with updated navigation structure"""
         parts = Path(file_path).parts
         if len(parts) > 0:
             category = parts[0]
-            # Map to standard categories
+            # Map to standard categories based on new navigation structure
             category_map = {
                 "systems": "systems",
                 "incidents": "incidents",
@@ -282,13 +283,16 @@ class UnifiedStatusTracker:
                 "migrations": "migrations",
                 "capacity": "capacity",
                 "comparisons": "comparisons",
+                # Foundation categories now under Home parent
                 "guarantees": "patterns",
                 "mechanisms": "patterns",
                 "foundation": "patterns",
                 "getting-started": "patterns",
-                "production": "patterns",
+                # Production is now its own top-level category
+                "production": "production",
                 "examples": "patterns",
-                "reference": "patterns"
+                "reference": "patterns",
+                "case-studies": "patterns"
             }
             return category_map.get(category, "other")
         return "unknown"

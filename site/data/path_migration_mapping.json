@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-09-21",
+    "description": "Migration mapping for navigation structure v5.0 update",
+    "purpose": "Maps old categories and paths to new navigation structure"
+  },
+  "category_mapping": {
+    "old_to_new": {
+      "debugging": "operations/debugging",
+      "production": "operations/production",
+      "systems": "systems",
+      "incidents": "incidents",
+      "performance": "performance",
+      "scaling": "scaling",
+      "capacity": "capacity",
+      "migrations": "migrations",
+      "costs": "costs",
+      "comparisons": "comparisons",
+      "patterns": "home/patterns",
+      "guarantees": "home/guarantees",
+      "mechanisms": "home/mechanisms",
+      "foundation": "home/foundation",
+      "examples": "home/examples",
+      "reference": "home/reference",
+      "other": "home/foundation"
+    },
+    "new_categories": [
+      "home/foundation",
+      "home/guarantees",
+      "home/mechanisms",
+      "home/patterns",
+      "home/examples",
+      "home/reference",
+      "systems",
+      "incidents",
+      "operations/debugging",
+      "operations/production",
+      "performance",
+      "scaling",
+      "capacity",
+      "migrations",
+      "costs",
+      "comparisons"
+    ]
+  },
+  "path_transformations": {
+    "patterns/": "home/patterns/",
+    "guarantees/": "home/guarantees/",
+    "mechanisms/": "home/mechanisms/",
+    "foundation/": "home/foundation/",
+    "examples/": "home/examples/",
+    "reference/": "home/reference/",
+    "debugging/": "operations/debugging/",
+    "production/": "operations/production/"
+  },
+  "navigation_hierarchy": {
+    "Home": {
+      "subcategories": ["foundation", "guarantees", "mechanisms", "patterns", "examples", "reference"],
+      "target_counts": {
+        "foundation": 8,
+        "guarantees": 18,
+        "mechanisms": 30,
+        "patterns": 66,
+        "examples": 15,
+        "reference": 10
+      }
+    },
+    "Operations": {
+      "subcategories": ["debugging", "production"],
+      "target_counts": {
+        "debugging": 100,
+        "production": 30
+      }
+    }
+  },
+  "validation_rules": {
+    "category_validation": {
+      "allowed_top_level": ["home", "systems", "incidents", "operations", "performance", "scaling", "capacity", "migrations", "costs", "comparisons"],
+      "required_subcategories": {
+        "home": ["foundation", "guarantees", "mechanisms", "patterns", "examples", "reference"],
+        "operations": ["debugging", "production"]
+      }
+    },
+    "path_validation": {
+      "must_exist_patterns": [
+        "systems/*/architecture.md",
+        "systems/*/request-flow.md",
+        "systems/*/storage-architecture.md",
+        "systems/*/failure-domains.md",
+        "systems/*/scale-evolution.md",
+        "systems/*/cost-breakdown.md",
+        "systems/*/novel-solutions.md",
+        "systems/*/production-operations.md"
+      ]
+    }
+  },
+  "backward_compatibility": {
+    "legacy_category_support": true,
+    "grace_period_weeks": 4,
+    "migration_warnings": {
+      "show_warnings": true,
+      "deprecation_notices": [
+        "Category 'debugging' moved to 'operations/debugging'",
+        "Category 'patterns' moved to 'home/patterns'",
+        "Category 'other' mapped to 'home/foundation'"
+      ]
+    },
+    "legacy_path_redirects": {
+      "patterns/": "home/patterns/",
+      "debugging/": "operations/debugging/"
+    }
+  },
+  "system_counts": {
+    "tier1_systems": 10,
+    "tier2_systems": 10,
+    "tier3_systems": 10,
+    "diagrams_per_system": 8,
+    "total_system_diagrams": 240
+  }
+}

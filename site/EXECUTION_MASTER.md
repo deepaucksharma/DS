@@ -75,20 +75,21 @@ python scripts/unified_status_tracker.py --export weekly_report  # Export for re
 
 ---
 
-## 🏗️ Content Distribution
+## 🏗️ Content Distribution (v5.0 Navigation)
 
-| Category | Count | Purpose | Timeline |
-|----------|-------|---------|----------|
-| **Incident Anatomies** | 100 | Learn from real failures | Weeks 9-10 |
-| **Scale Journeys** | 80 | Evolution with growth | Weeks 7-8 |
-| **Cost Breakdowns** | 60 | Infrastructure economics | Weeks 5-6 |
-| **Performance Profiles** | 80 | Real bottlenecks & metrics | Weeks 5-6 |
-| **Migration Playbooks** | 60 | Transformation strategies | Weeks 7-8 |
-| **Debugging Guides** | 100 | Troubleshooting maps | Weeks 9-10 |
-| **Capacity Models** | 60 | Planning for scale | Weeks 11-12 |
-| **Architecture Deep-Dives** | 240 | 30 systems × 8 diagrams | Weeks 3-6 |
-| **Pattern Implementations** | 80 | Patterns in production | Weeks 1-2 |
-| **Technology Comparisons** | 40 | Real trade-offs | Weeks 11-12 |
+| Category | Count | Purpose | Nav Location | Timeline |
+|----------|-------|---------|--------------|----------|
+| **Systems Architecture** | 240 | 30 systems × 8 diagrams | Systems | Weeks 3-6 |
+| **Incident Anatomies** | 100 | Learn from real failures | Incidents | Weeks 9-10 |
+| **Debugging Guides** | 100 | Troubleshooting maps | Debugging | Weeks 9-10 |
+| **Performance Profiles** | 80 | Real bottlenecks & metrics | Performance | Weeks 5-6 |
+| **Scale Journeys** | 80 | Evolution with growth | Scaling | Weeks 7-8 |
+| **Pattern Implementations** | 80 | Patterns in production | Home > Patterns | Weeks 1-2 |
+| **Capacity Models** | 60 | Planning for scale | Capacity | Weeks 11-12 |
+| **Migration Playbooks** | 60 | Transformation strategies | Migrations | Weeks 7-8 |
+| **Cost Breakdowns** | 60 | Infrastructure economics | Costs | Weeks 5-6 |
+| **Technology Comparisons** | 40 | Real trade-offs | Comparisons | Weeks 11-12 |
+| **Production Practices** | 20 | Best practices & reality | Production | Weeks 1-2 |
 
 ---
 
@@ -366,34 +367,59 @@ ls -la site/site/stylesheets/mermaid-beautiful.css
 
 ---
 
-## 📁 File Organization
+## 📁 File Organization (v5.0 Navigation Structure)
 
 ```
 site/
 ├── EXECUTION_MASTER.md           # THIS FILE
 ├── docs/                         # All diagrams go here
-│   ├── patterns/                 # Pattern Implementation diagrams
-│   │   ├── cqrs/                # CQRS pattern variations
-│   │   ├── event-sourcing/      # Event sourcing implementations
-│   │   └── sagas/               # Saga pattern examples
+│   ├── foundation/              # Fundamental concepts (Home)
+│   ├── getting-started/         # Quick start guides (Home)
+│   ├── guarantees/              # System guarantees (Home)
+│   │   ├── linearizability/    # Linearizability concepts
+│   │   ├── eventual-consistency/# Eventual consistency patterns
+│   │   └── exactly-once/        # Exactly-once delivery
+│   ├── mechanisms/              # Implementation mechanisms (Home)
+│   │   ├── replication/        # Replication strategies
+│   │   ├── load-balancing/     # Load balancing algorithms
+│   │   ├── partitioning/       # Data partitioning
+│   │   ├── consensus/          # Consensus protocols
+│   │   └── caching/            # Caching patterns
+│   ├── patterns/                # Architecture patterns (Home)
+│   ├── examples/                # Implementation examples (Home)
+│   ├── reference/               # API and glossary (Home)
 │   ├── systems/                 # Architecture Deep-Dives (30 companies)
 │   │   ├── netflix/             # 8 Netflix diagrams
 │   │   ├── uber/                # 8 Uber diagrams
 │   │   └── [28 more companies]  # 8 diagrams each
 │   ├── incidents/               # Incident Anatomies (100)
-│   │   ├── aws-outages/         # AWS service outages
-│   │   ├── github-incidents/    # GitHub split-brain, etc.
-│   │   └── cloudflare-issues/   # BGP leaks, memory issues
-│   ├── performance/             # Performance Profiles (80)
-│   ├── costs/                   # Cost Breakdowns (60)
-│   ├── scaling/                 # Scale Journeys (80)
-│   ├── migrations/              # Migration Playbooks (60)
-│   ├── debugging/               # Debugging Guides (100)
-│   ├── capacity/                # Capacity Models (60)
-│   └── comparisons/             # Technology Comparisons (40)
-├── scripts/                     # Automation tools
-├── data/                        # Progress tracking
-└── .github/workflows/           # CI/CD automation
+│   │   ├── high-profile/       # Major outages
+│   │   ├── cloud-providers/    # AWS, Azure, GCP incidents
+│   │   ├── financial-services/  # Banking and payment failures
+│   │   ├── communication/      # Messaging platform outages
+│   │   └── response-patterns/  # Common response strategies
+│   ├── debugging/               # Debugging Guides (100) - Standalone
+│   │   ├── performance-issues/  # CPU, memory, latency
+│   │   ├── data-issues/        # Consistency, replication
+│   │   ├── infrastructure/     # Container, k8s, cloud
+│   │   ├── application-issues/ # API, Lambda, services
+│   │   ├── messaging-queuing/  # Kafka, Redis, queues
+│   │   ├── distributed-systems/# Tracing, dependencies
+│   │   ├── monitoring/         # Metrics and observability
+│   │   ├── capacity-scale/    # Capacity and scaling
+│   │   └── security/          # Security incidents
+│   ├── performance/            # Performance Profiles (80)
+│   ├── scaling/               # Scale Journeys (80)
+│   ├── capacity/              # Capacity Models (60)
+│   ├── migrations/            # Migration Playbooks (60)
+│   ├── costs/                 # Cost Breakdowns (60)
+│   ├── comparisons/           # Technology Comparisons (40)
+│   ├── case-studies/          # In-depth analyses
+│   └── production/            # Best practices (20)
+├── scripts/                   # Automation tools
+├── data/                      # Progress tracking (v5.0)
+├── execution/                 # Daily workflow guides
+└── .github/workflows/         # CI/CD automation
 ```
 
 ---

@@ -91,6 +91,7 @@ Current: {'█' * int(progress_pct/5)}{'░' * (20-int(progress_pct/5))} {curren
 | **Migrations** | {categories.get('migrations', 0)} | {self._status_indicator(categories.get('migrations', 0), 60)} |
 | **Capacity** | {categories.get('capacity', 0)} | {self._status_indicator(categories.get('capacity', 0), 60)} |
 | **Comparisons** | {categories.get('comparisons', 0)} | {self._status_indicator(categories.get('comparisons', 0), 40)} |
+| **Production** | {categories.get('production', 0)} | {self._status_indicator(categories.get('production', 0), 20)} |
 
 ## 📊 Status Distribution
 
@@ -228,6 +229,7 @@ Current: {'█' * int(progress_pct/5)}{'░' * (20-int(progress_pct/5))} {curren
 ║  Patterns:      {str(metrics['category_breakdown'].get('patterns', 0)).rjust(3)} diagrams
 ║  Incidents:     {str(metrics['category_breakdown'].get('incidents', 0)).rjust(3)} diagrams
 ║  Debugging:     {str(metrics['category_breakdown'].get('debugging', 0)).rjust(3)} diagrams
+║  Production:    {str(metrics['category_breakdown'].get('production', 0)).rjust(3)} diagrams
 ╠══════════════════════════════════════════════════════════╣
 ║  Compliance:    {metrics['current_status']['compliance']['average_score']:.1f}%
 ║  Velocity:      {metrics['timeline']['current_velocity']} diagrams/week

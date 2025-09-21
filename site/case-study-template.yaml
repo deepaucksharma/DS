@@ -1,0 +1,61 @@
+# Case Study: DISCORD - Message Storage at Scale
+# Generated: 2025-09-21
+
+id: CS-DISCORD
+name: discord
+title: Message Storage at Scale
+category: # e.g., streaming, payments, real-time
+created: 2025-09-21T11:12:30.323108
+confidence: B  # A/B/C based on source quality
+
+scale:
+  users: # e.g., 238M subscribers
+  throughput: # e.g., 25M trips/day
+  data_volume: # e.g., 10PB stored
+  availability: # e.g., 99.99%
+
+sources:
+  - url:
+    type: blog|paper|talk
+    date:
+    confidence: A|B|C
+
+architecture:
+  patterns:
+    - # e.g., CQRS
+    - # e.g., Event Sourcing
+  mechanisms:
+    - # e.g., Consistent Hashing
+    - # e.g., Gossip Protocol
+  guarantees:
+    - # e.g., Eventual Consistency
+    - # e.g., At-least-once delivery
+
+diagrams:
+  planned:
+    - type: system_overview
+      title: "discord Global Architecture"
+      complexity: high
+    - type: data_flow
+      title: "discord Data Pipeline"
+      complexity: medium
+    - type: failure_scenario
+      title: "discord Failure Recovery"
+      complexity: high
+    - type: scaling_approach
+      title: "discord Scaling Strategy"
+      complexity: medium
+  total_count: 12  # Target 10-15 per case study
+
+implementation_notes: |
+  # Key insights from source materials
+  -
+  -
+
+production_metrics: |
+  # Real metrics from production
+  -
+  -
+
+status: draft  # draft|approved|in_progress|completed
+priority: high  # high|medium|low based on value

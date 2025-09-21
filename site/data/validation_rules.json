@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-09-21",
+    "description": "Validation rules for navigation structure v5.0",
+    "purpose": "Ensures data integrity and backward compatibility"
+  },
+  "navigation_validation": {
+    "allowed_top_level_categories": [
+      "home",
+      "systems",
+      "incidents",
+      "operations",
+      "performance",
+      "scaling",
+      "capacity",
+      "migrations",
+      "costs",
+      "comparisons"
+    ],
+    "required_subcategories": {
+      "home": ["foundation", "guarantees", "mechanisms", "patterns", "examples", "reference"],
+      "operations": ["debugging", "production"]
+    },
+    "category_patterns": {
+      "home/*": "^home/(foundation|guarantees|mechanisms|patterns|examples|reference)$",
+      "operations/*": "^operations/(debugging|production)$",
+      "systems/*": "^systems$"
+    }
+  },
+  "path_validation": {
+    "required_system_diagrams": [
+      "architecture.md",
+      "request-flow.md",
+      "storage-architecture.md",
+      "failure-domains.md",
+      "scale-evolution.md",
+      "cost-breakdown.md",
+      "novel-solutions.md",
+      "production-operations.md"
+    ],
+    "path_patterns": {
+      "systems": "^systems/[a-z-]+/(architecture|request-flow|storage-architecture|failure-domains|scale-evolution|cost-breakdown|novel-solutions|production-operations)\\.md$",
+      "incidents": "^incidents/[a-z0-9-]+\\.md$",
+      "operations/debugging": "^operations/debugging/[a-z0-9-]+\\.md$",
+      "operations/production": "^operations/production/[a-z0-9-]+\\.md$"
+    }
+  },
+  "count_validation": {
+    "expected_totals": {
+      "total_diagrams": 900,
+      "systems": 240,
+      "incidents": 100,
+      "operations": 130,
+      "performance": 80,
+      "scaling": 80,
+      "capacity": 60,
+      "migrations": 60,
+      "costs": 60,
+      "comparisons": 40,
+      "home": 60
+    },
+    "system_validation": {
+      "total_systems": 30,
+      "diagrams_per_system": 8,
+      "required_system_types": [
+        "architecture",
+        "request-flow",
+        "storage-architecture",
+        "failure-domains",
+        "scale-evolution",
+        "cost-breakdown",
+        "novel-solutions",
+        "production-operations"
+      ]
+    }
+  },
+  "backward_compatibility": {
+    "legacy_support": {
+      "enabled": true,
+      "grace_period_weeks": 4,
+      "deprecation_warnings": true
+    },
+    "legacy_category_mappings": {
+      "debugging": "operations/debugging",
+      "patterns": "home/patterns",
+      "guarantees": "home/guarantees",
+      "mechanisms": "home/mechanisms",
+      "other": "home/foundation"
+    },
+    "migration_tracking": {
+      "track_legacy_paths": true,
+      "store_migration_history": true,
+      "validate_redirects": true
+    }
+  },
+  "data_integrity": {
+    "required_fields": {
+      "diagram_entry": [
+        "status",
+        "category",
+        "file_path",
+        "last_updated",
+        "diagram_count"
+      ]
+    },
+    "status_values": [
+      "not_created",
+      "needs_update",
+      "in_review",
+      "up_to_date"
+    ],
+    "compliance_thresholds": {
+      "minimum_compliance_score": 80,
+      "4_plane_architecture_required": true,
+      "production_metrics_required": true
+    }
+  },
+  "validation_scripts": {
+    "pre_commit_checks": [
+      "validate_category_structure",
+      "validate_file_paths",
+      "validate_system_completeness",
+      "check_backward_compatibility"
+    ],
+    "weekly_audits": [
+      "full_navigation_audit",
+      "migration_status_check",
+      "data_consistency_check",
+      "performance_metrics_validation"
+    ]
+  }
+}

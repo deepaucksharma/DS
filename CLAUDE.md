@@ -33,25 +33,31 @@ The codebase has two main components:
 1. **Site Documentation** (`/site/`): MkDocs-based documentation site for the Distributed Systems Framework
 2. **Atlas Specifications** (`/readonly-spec/`): Ultra-detailed specifications for building the 900+ diagram system
 
-### Site Directory Structure
+### Site Directory Structure (v5.0 Navigation)
 ```
 site/
 ├── docs/                    # Markdown documentation with embedded Mermaid
-│   ├── guarantees/         # System guarantees
-│   ├── mechanisms/         # Implementation mechanisms
-│   ├── patterns/           # Architecture patterns
+│   ├── foundation/         # Fundamental concepts
+│   ├── getting-started/    # Quick start guides
+│   ├── guarantees/         # System guarantees (under Home)
+│   ├── mechanisms/         # Implementation mechanisms (under Home)
+│   ├── patterns/           # Architecture patterns (under Home)
+│   ├── examples/           # Implementation examples (under Home)
+│   ├── reference/          # API and glossary (under Home)
 │   ├── systems/            # Architecture Deep-Dives (30 companies)
 │   │   ├── netflix/        # 8 Netflix diagrams
 │   │   ├── uber/           # 8 Uber diagrams
 │   │   └── [28 more]       # 8 diagrams each
 │   ├── incidents/          # Incident Anatomies (100)
+│   ├── debugging/          # Debugging Guides (100) - standalone
 │   ├── performance/        # Performance Profiles (80)
-│   ├── costs/              # Cost Breakdowns (60)
 │   ├── scaling/            # Scale Journeys (80)
-│   ├── migrations/         # Migration Playbooks (60)
-│   ├── debugging/          # Debugging Guides (100)
 │   ├── capacity/           # Capacity Models (60)
-│   └── comparisons/        # Technology Comparisons (40)
+│   ├── migrations/         # Migration Playbooks (60)
+│   ├── costs/              # Cost Breakdowns (60)
+│   ├── comparisons/        # Technology Comparisons (40)
+│   ├── case-studies/       # In-depth analyses
+│   └── production/         # Production best practices
 ├── scripts/                # Automation tools
 ├── data/                   # Progress tracking
 ├── EXECUTION_MASTER.md     # Primary execution guide
@@ -176,11 +182,29 @@ All diagrams MUST use these exact colors:
 
 **Note**: The "Stream Plane" has been removed from specifications.
 
-### Content Organization
+### Content Organization (v5.0 Navigation)
+
+#### Home Section
+- **Foundation**: Universal laws, capabilities, primitives
+- **Getting Started**: Overview, quick start, concepts
 - **Guarantees**: What the system promises (consistency, availability, etc.)
 - **Mechanisms**: How guarantees are implemented (consensus, replication, etc.)
 - **Patterns**: Complete architectural solutions combining mechanisms
-- **Systems**: Real-world implementations (Netflix, Uber, etc.)
+- **Examples**: Case studies, implementations, pitfalls
+- **Reference**: API reference, glossary, further reading
+
+#### Main Sections
+- **Systems**: Real-world implementations (30 companies × 8 diagrams)
+- **Incidents**: Learn from real failures (100 diagrams)
+- **Debugging**: Troubleshooting guides (100 diagrams)
+- **Performance**: Bottlenecks and optimizations (80 diagrams)
+- **Scaling**: Growth evolution stories (80 diagrams)
+- **Capacity**: Planning for scale (60 diagrams)
+- **Migrations**: Transformation playbooks (60 diagrams)
+- **Costs**: Infrastructure economics (60 diagrams)
+- **Comparisons**: Technology trade-offs (40 diagrams)
+- **Case Studies**: In-depth analyses
+- **Production**: Best practices and reality checks
 
 ## Common Commands
 
