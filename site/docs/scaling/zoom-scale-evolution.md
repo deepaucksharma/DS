@@ -77,6 +77,8 @@ graph TB
 | Uptime | 99.8% | Status page |
 | Monthly cost | $10K-50K | AWS billing |
 | Team size | 5 engineers | Company history |
+| 3 AM Incidents | 2-3/month | Engineering logs |
+| Debug Time | 4-6 hours/incident | Incident reports |
 
 ### What Broke
 - **Media server crashes** under load (>50 participants)
@@ -89,6 +91,9 @@ graph TB
 **Impact**: Complete media server failure, meeting dropped
 **Resolution**: Emergency media server architecture redesign
 **Lesson**: Custom media infrastructure needed for scale
+**3 AM Debugging**: `top` showed media server at 100% CPU with memory leaks
+**Debug Commands**: `gdb` attach to crashed processes, core dump analysis
+**Production Fix**: Emergency C++ memory pool allocation rewrite
 
 ## Phase 2: Product-Market Fit (2015-2017)
 **Scale: 100K-1M daily participants, 1K-50K concurrent meetings**
@@ -199,6 +204,9 @@ graph TB
 **Impact**: 2 hours of degraded service, 30% meeting drop rate
 **Resolution**: Media server load balancing redesign
 **Lesson**: Enterprise use cases require different architecture
+**3 AM Debugging**: Media servers hitting connection limits, TCP SYN flood
+**Debug Tools**: `netstat -an | grep ESTABLISHED | wc -l` showing max connections
+**Production Fix**: Emergency HAProxy config changes for connection pooling
 
 ## Phase 3: Growth Acceleration (2017-2019)
 **Scale: 1M-10M daily participants, 50K-500K concurrent meetings**
@@ -314,6 +322,9 @@ graph TB
 **Impact**: 6 hours of degraded video quality globally
 **Resolution**: Emergency CDN partnership expansion
 **Lesson**: Bandwidth is the ultimate constraint for video
+**3 AM Debugging**: CloudFront CDN showing 503 errors, bandwidth exhausted
+**Debug Tools**: AWS CloudWatch showing 95th percentile latency spikes
+**Production Fix**: Emergency partnership with Cloudflare and Azure CDN
 
 ## Phase 4: COVID-19 Explosion (2019-2021)
 **Scale: 10M-300M daily participants, 500K-30M concurrent meetings**
@@ -466,6 +477,10 @@ graph TB
 **Impact**: 12 hours partial outage, 50M users affected
 **Resolution**: Complete authentication system rebuild
 **Lesson**: Black swan events require different architectural thinking
+**3 AM War Room**: 200+ engineers online, all hands debugging
+**Debug Tools**: Distributed tracing showed auth bottleneck at OAuth provider
+**Production Fix**: Emergency horizontal auth scaling + circuit breakers
+**Real-time Metrics**: 100K auth requests/second vs normal 1K/second
 
 ## Phase 5: Platform Maturation (2021-2023)
 **Scale: 300M daily participants, 30M concurrent meetings**

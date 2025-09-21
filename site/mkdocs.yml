@@ -618,6 +618,16 @@ nav:
       - NATS Performance Profile: performance/nats-performance-profile.md
       - Pulsar Performance Profile: performance/pulsar-performance-profile.md
       - SQS SNS Performance Profile: performance/sqs-sns-performance-profile.md
+      - gRPC 10M RPS Performance: performance/grpc-10m-rps-performance.md
+      - DynamoDB 100K WCU Performance: performance/dynamodb-100k-wcu-performance.md
+      - GraphQL Query Optimization: performance/graphql-query-optimization.md
+      - React SSR Performance: performance/react-ssr-performance.md
+      - Go GC Tuning Performance: performance/golang-gc-tuning-performance.md
+      - Cloudflare Workers Edge Performance: performance/cloudflare-workers-edge-performance.md
+      - Aurora PostgreSQL 100TB Performance: performance/aurora-postgres-100tb-performance.md
+      - Flink Stream Processing Performance: performance/flink-stream-processing-performance.md
+      - Istio Service Mesh Performance: performance/istio-service-mesh-performance.md
+      - S3 Multipart Upload Performance: performance/s3-multipart-upload-performance.md
 
   - Scaling:
     - Airbnb Scale Evolution: scaling/airbnb-scale-evolution.md
@@ -650,6 +660,21 @@ nav:
     - Twitter Scale Journey: scaling/twitter-scale-journey.md
     - WhatsApp Scale Journey: scaling/whatsapp-evolution.md
     - Zoom Scale Evolution: scaling/zoom-scale-evolution.md
+    - Lyft Scale Evolution: scaling/lyft-scale-evolution.md
+    - Notion Scale Evolution: scaling/notion-scale-evolution.md
+    - Canva Scale Evolution: scaling/canva-scale-evolution.md
+    - Figma Scale Evolution: scaling/figma-scale-evolution.md
+    - Duolingo Scale Evolution: scaling/duolingo-scale-evolution.md
+    - Peloton Scale Evolution: scaling/peloton-scale-evolution.md
+    - Etsy Scale Evolution: scaling/etsy-scale-evolution.md
+    - Atlassian Scale Evolution: scaling/atlassian-scale-evolution.md
+    - GrubHub Scale Evolution: scaling/grubhub-scale-evolution.md
+    - Bumble Scale Evolution: scaling/bumble-scale-evolution.md
+    - SoundCloud Scale Evolution: scaling/soundcloud-scale-evolution.md
+    - Medium Scale Evolution: scaling/medium-scale-evolution.md
+    - Coursera Scale Evolution: scaling/coursera-scale-evolution.md
+    - MongoDB Scale Evolution: scaling/mongodb-scale-evolution.md
+    - Vercel Scale Evolution: scaling/vercel-scale-evolution.md
 
   - Capacity:
     - Infrastructure Sizing:
@@ -682,6 +707,12 @@ nav:
       - World Cup Streaming Capacity: capacity/world-cup-streaming-capacity.md
       - Gaming Launch Day Scaling: capacity/gaming-launch-day-scaling.md
       - Crypto Exchange Surge Trading: capacity/crypto-exchange-surge-trading.md
+      - Slack Enterprise Onboarding: capacity/slack-enterprise-onboarding.md
+      - Discord Game Launch Surge: capacity/discord-game-launch-surge.md
+      - Shopify Flash Sale Capacity: capacity/shopify-flash-sale-capacity.md
+      - Reddit AMA Traffic Surge: capacity/reddit-ama-traffic-surge.md
+      - Twitch Esports Tournament: capacity/twitch-esports-tournament.md
+      - OpenAI ChatGPT Launch Scaling: capacity/openai-chatgpt-launch-scaling.md
 
   - Migrations:
     - Overview: migrations/index.md
@@ -757,6 +788,16 @@ nav:
     - Twitter X Infrastructure Breakdown: costs/twitter-x-infrastructure-breakdown.md
     - Uber Infrastructure Breakdown: costs/uber-infrastructure-breakdown.md
     - Zoom Infrastructure Breakdown: costs/zoom-infrastructure-breakdown.md
+    - Databricks Infrastructure Breakdown: costs/databricks-infrastructure-breakdown.md
+    - Snowflake Infrastructure Breakdown: costs/snowflake-infrastructure-breakdown.md
+    - MongoDB Atlas Infrastructure Breakdown: costs/mongodb-atlas-infrastructure-breakdown.md
+    - Vercel Infrastructure Breakdown: costs/vercel-infrastructure-breakdown.md
+    - Notion Infrastructure Breakdown: costs/notion-infrastructure-breakdown.md
+    - Figma Infrastructure Breakdown: costs/figma-infrastructure-breakdown.md
+    - Canva Infrastructure Breakdown: costs/canva-infrastructure-breakdown.md
+    - Duolingo Infrastructure Breakdown: costs/duolingo-infrastructure-breakdown.md
+    - Peloton Infrastructure Breakdown: costs/peloton-infrastructure-breakdown.md
+    - Etsy Infrastructure Breakdown: costs/etsy-infrastructure-breakdown.md
 
   - Comparisons:
     - Database:
@@ -807,3 +848,11 @@ nav:
 
 plugins:
   - search
+  - mermaid2:
+      arguments:
+        theme: 'default'
+        themeVariables:
+          primaryColor: '#3B82F6'
+          secondaryColor: '#10B981'
+          tertiaryColor: '#F59E0B'
+          primaryTextColor: '#fff'

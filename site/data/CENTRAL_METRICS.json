@@ -1,11 +1,9 @@
 {
   "metadata": {
-    "last_updated": "2025-09-21T11:12:09.038234",
+    "last_updated": "2025-09-21T12:41:44.326021",
     "description": "Single source of truth for ALL Atlas project metrics. Updated ONLY by scripts.",
     "update_script": "scripts/unified_status_tracker.py",
-    "warning": "DO NOT manually edit this file. All updates must come from automated scripts.",
-    "navigation_version": "v5.0",
-    "migration_notes": "Updated for new navigation structure with Operations parent category"
+    "warning": "DO NOT manually edit this file. All updates must come from automated scripts."
   },
   "targets": {
     "total_diagrams": 900,
@@ -16,8 +14,8 @@
     "weekly_hours": 60
   },
   "current_status": {
-    "diagrams_created": 529,
-    "files_created": 627,
+    "diagrams_created": 605,
+    "files_created": 703,
     "systems_documented": {
       "complete": 30,
       "partial": 0,
@@ -28,116 +26,58 @@
       "streamlined_from": 26
     },
     "compliance": {
-      "average_score": 34.73684210526316,
+      "average_score": 32.051209103840684,
       "fully_compliant": 0,
-      "needs_updates": 626,
-      "non_compliant": 593
+      "needs_updates": 702,
+      "non_compliant": 675
     }
   },
   "progress_percentages": {
-    "overall": 58.77777777777777,
+    "overall": 67.22222222222223,
     "systems": 100.0,
     "specifications": 100.0,
-    "quality_compliance": 34.73684210526316
+    "quality_compliance": 32.051209103840684
   },
   "status_distribution": {
     "not_created": 233,
-    "needs_update": 528,
+    "needs_update": 604,
     "in_review": 1,
     "up_to_date": 0
   },
   "category_breakdown": {
-    "home": {
-      "foundation": 8,
-      "guarantees": 18,
-      "mechanisms": 30,
-      "patterns": 66,
-      "examples": 15,
-      "reference": 10
-    },
     "systems": 142,
-    "incidents": 66,
-    "operations": {
-      "debugging": 59,
-      "production": 0
-    },
-    "performance": 38,
-    "scaling": 33,
-    "capacity": 32,
-    "migrations": 35,
-    "costs": 28,
-    "comparisons": 25
+    "incidents": 71,
+    "debugging": 5,
+    "patterns": 5,
+    "performance": 53,
+    "scaling": 48,
+    "costs": 43,
+    "migrations": 40,
+    "capacity": 38,
+    "comparisons": 25,
+    "production": 5
   },
   "timeline": {
     "project_start": "2025-09-18",
     "current_week": 1,
     "weeks_remaining": 36,
     "estimated_completion": "2025-09-28",
-    "current_velocity": 1851.5,
-    "required_velocity": 10.6
+    "current_velocity": 2117.5,
+    "required_velocity": 8.428571428571429
   },
   "quality_metrics": {
-    "with_slo_labels": 762,
-    "with_cost_data": 762,
-    "with_failure_scenarios": 762,
-    "following_4_plane": 762,
+    "with_slo_labels": 838,
+    "with_cost_data": 838,
+    "with_failure_scenarios": 838,
+    "following_4_plane": 838,
     "production_ready": 0,
     "emergency_ready": 1
   },
   "execution": {
-    "last_review": "2025-09-21T11:12:09.039042",
-    "next_milestone": "Week 2: 629 diagrams",
+    "last_review": "2025-09-21T12:41:44.327001",
+    "next_milestone": "Week 2: 705 diagrams",
     "blockers": [],
     "3am_test_time": "< 3 minutes",
     "navigation_clicks": 3
-  },
-  "category_totals": {
-    "home": 147,
-    "systems": 142,
-    "incidents": 66,
-    "operations": 59,
-    "performance": 38,
-    "scaling": 33,
-    "capacity": 32,
-    "migrations": 35,
-    "costs": 28,
-    "comparisons": 25
-  },
-  "navigation_structure": {
-    "top_level_categories": [
-      "Home",
-      "Systems",
-      "Incidents",
-      "Operations",
-      "Performance",
-      "Scaling",
-      "Capacity",
-      "Migrations",
-      "Costs",
-      "Comparisons"
-    ],
-    "home_subcategories": [
-      "Getting Started",
-      "Foundation",
-      "Guarantees",
-      "Mechanisms",
-      "Patterns",
-      "Examples",
-      "Reference"
-    ],
-    "operations_subcategories": [
-      "Debugging",
-      "Production"
-    ]
-  },
-  "migration_info": {
-    "navigation_version": "v5.0",
-    "migration_date": "2025-09-21T11:13:23.822130",
-    "changes": [
-      "Added Operations parent category with Debugging and Production subcategories",
-      "Reorganized Home to include Foundation, Guarantees, Mechanisms, Patterns, Examples, Reference",
-      "Updated category breakdown to reflect hierarchical structure",
-      "Preserved all existing metrics and counts"
-    ]
   }
 }

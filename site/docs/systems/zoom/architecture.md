@@ -108,17 +108,17 @@ graph TB
 
     EdgeGateways -->|"API requests<br/>1M+ req/sec"| MeetingController
     MeetingController -->|"User auth<br/>Session mgmt"| ParticipantManager
-    MeetingController -->|"Meeting scheduling<br/>Calendar sync"| SchedulingService
+    MeetingController -->|"Meeting scheduling<br/>Calendar sync"| SchedulingEngine
 
     MediaRouter -->|"Video transcoding<br/>Real-time"| TranscodingCluster
-    MediaRouter -->|"Recording pipeline<br/>Cloud storage"| RecordingService
-    MediaRouter -->|"Screen sharing<br/>Annotation"| ScreenShareService
+    MediaRouter -->|"Recording pipeline<br/>Cloud storage"| RecordingEngine
+    MediaRouter -->|"Screen sharing<br/>Annotation"| ScreenShareEngine
 
     ParticipantManager -->|"User metadata<br/>CRUD operations"| PostgreSQLCluster
     MeetingController -->|"Session state<br/>Real-time"| RedisCluster
     MediaRouter -->|"Quality metrics<br/>Time series"| CassandraCluster
 
-    RecordingService -->|"Video storage<br/>1EB+ capacity"| S3ObjectStore
+    RecordingEngine -->|"Video storage<br/>1EB+ capacity"| S3ObjectStore
     AnalyticsEngine -->|"Search indexing<br/>Meeting metadata"| ElasticSearch
     MeetingController -->|"Meeting events<br/>Real-time stream"| KafkaCluster
 

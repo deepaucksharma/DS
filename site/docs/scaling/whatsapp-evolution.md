@@ -26,7 +26,7 @@ graph TB
         SSH[SSH + Scripts<br/>Manual Monitoring]
     end
 
-    %% Apply colors
+    %% Apply updated Tailwind colors
     classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
@@ -49,8 +49,10 @@ graph TB
 
 **Philosophy**: "No ads, no gimmicks" - Jan Koum
 **What Worked**: Erlang's actor model perfect for messaging
-**Cost**: $99/month
+**Cost**: $99/month (DigitalOcean droplet + bandwidth)
 **Team**: 2 engineers (Brian Acton, Jan Koum)
+**3 AM Debugging**: Single server restart fixed 90% of issues
+**Incident Response**: SSH into server, check Erlang processes, restart if needed
 
 ## Phase 2: The $0.99 Era (2011) - 1 Million Users
 
@@ -78,7 +80,7 @@ graph TB
         ALERT[PagerDuty<br/>On-Call Rotation]
     end
 
-    %% Apply colors
+    %% Apply updated Tailwind colors
     classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
@@ -105,8 +107,10 @@ graph TB
 **What Broke**: Mnesia fragmentation limits at 1M users
 **The Fix**: Custom partitioning scheme, moved profiles to MySQL
 **Revenue**: $0.99/year subscription model working
-**Cost**: $10,000/month
-**Team**: 6 engineers
+**Cost**: $10,000/month (AWS infrastructure + SoftLayer bandwidth)
+**Team**: 6 engineers (2 backend, 2 mobile, 1 ops, 1 Erlang specialist)
+**3 AM Debugging**: Custom Erlang monitoring showed process bottlenecks
+**Incident Response**: Hot code reload capability prevented downtime
 
 ## Phase 3: The Hockey Stick (2013) - 200 Million Users
 
@@ -135,7 +139,7 @@ graph TB
         NAGIOS[Nagios<br/>Alerting<br/>5-person on-call]
     end
 
-    %% Apply colors
+    %% Apply updated Tailwind colors
     classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
@@ -162,8 +166,10 @@ graph TB
 **The Record**: Single server handling 2M concurrent connections
 **What Broke**: MySQL sharding complexity explosion
 **The Fix**: Hired ex-Yahoo engineers who built custom sharding
-**Cost**: $200,000/month
-**Team**: 32 engineers
+**Cost**: $200,000/month (MySQL sharding cost explosion)
+**Team**: 32 engineers (20 backend, 8 mobile, 4 ops)
+**3 AM Debugging**: Shard routing failures required manual DB failovers
+**Incident Response**: 24/7 on-call rotation established
 **Valuation**: $1.5 billion
 
 ## Phase 4: Facebook Acquisition (2014) - 600 Million Users
@@ -195,7 +201,7 @@ graph TB
         ONCALL[OnCall Platform<br/>50 engineers]
     end
 
-    %% Apply colors
+    %% Apply updated Tailwind colors
     classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
@@ -225,8 +231,11 @@ graph TB
 **Promise Kept**: No ads, E2E encryption maintained
 **What Changed**: Access to Facebook infrastructure
 **What Didn't**: Still running Erlang core!
-**Cost**: $2 million/month
-**Team**: 50 engineers (famous 50)
+**Cost**: $2 million/month (Facebook infrastructure access)
+**Team**: 50 engineers (30 backend, 10 mobile, 5 security, 5 ops)
+**3 AM Debugging**: Scuba analytics provided real-time incident insights
+**Incident Response**: Facebook SRE support for critical issues
+**Security**: End-to-end encryption added 15% CPU overhead
 
 ## Phase 5: Current Scale (2024) - 2 Billion Users
 
@@ -260,7 +269,7 @@ graph TB
         PROPHET[Prophet Forecasting<br/>Capacity planning<br/>Auto-scaling]
     end
 
-    %% Apply colors
+    %% Apply updated Tailwind colors
     classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
@@ -295,9 +304,12 @@ graph TB
 - 1 billion voice calls per day
 - 500 million Status updates daily
 
-**Infrastructure Cost**: $50 million/month
-**Team Size**: 500 engineers (10x growth post-acquisition)
+**Infrastructure Cost**: $50 million/month (Meta-scale efficiency)
+**Team Size**: 500 engineers (300 backend, 100 mobile, 50 security, 50 ops)
+**3 AM Debugging**: Prophet forecasting prevents 80% of capacity issues
+**Incident Response**: AI-assisted triage routes issues to correct teams
 **Revenue**: $30+ billion/year (Business API & Payments)
+**Privacy Cost**: E2E encryption adds 2x storage overhead but zero ads
 
 ## Scale Evolution Summary
 
@@ -349,6 +361,9 @@ graph TB
 - **Impact**: 500M users offline
 - **Fix**: Emergency router firmware update
 - **Learning**: Redundant network paths aren't enough
+- **3 AM Reality**: Engineers had to physically drive to data center
+- **Debug Tools**: `netstat -rn` showed impossible routing table
+- **Recovery**: Manual BGP announcement override required
 
 ### The 2017 Encryption Backdoor Fight
 - **Pressure**: Governments demanding access

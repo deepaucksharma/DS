@@ -258,6 +258,47 @@ graph TB
 | Viral | 2018-2020 | 5000-20000 | 8000 | 2000 | 1000 |
 | Global | 2020-2023 | 20000-40000+ | 15000 | 5000 | 3000 |
 
+## Production War Stories
+
+### Critical Incident: The TikTok Boom Overflow
+**Date**: April 15, 2020
+**Trigger**: COVID-19 lockdown causing 500% user growth in 2 weeks
+**Impact**: 8 hours of degraded video upload performance globally
+**Resolution**: Emergency CDN capacity expansion across 3 providers
+**Lesson**: Pandemic behaviors can break all scaling assumptions
+**3 AM Debugging**: Video processing queues backing up to 48-hour delays
+**Debug Tools**: Kubernetes showing `OOMKilled` across video transcoding pods
+**Production Fix**: Emergency spot instance scaling + reduced quality fallback
+
+### Critical Incident: The India Ban Crisis
+**Date**: June 29, 2020
+**Trigger**: Indian government ban affecting 200M users instantly
+**Impact**: Complete service shutdown in largest market
+**Resolution**: Geofencing implementation, data sovereignty compliance
+**Lesson**: Geopolitical risks require architecture-level contingency planning
+**3 AM Reality**: Legal teams and engineers coordinating data deletion
+**Debug Tools**: DNS queries showing traffic redirect patterns
+**Production Fix**: Emergency regional data center isolation protocols
+
+### Critical Incident: The Algorithm Transparency Debate
+**Date**: September 14, 2020
+**Trigger**: US government demands for algorithm disclosure
+**Impact**: 6 months of uncertainty affecting infrastructure planning
+**Resolution**: Code restructuring for potential divestiture scenarios
+**Lesson**: Regulatory compliance can force complete architectural redesign
+**3 AM Debugging**: Auditing every line of recommendation algorithm code
+**Production Fix**: Creation of sanitized algorithm versions for compliance
+
+### Critical Incident: The Creator Exodus Threat
+**Date**: August 10, 2021
+**Trigger**: Instagram Reels launch causing creator migration concerns
+**Impact**: 15% drop in content creation, algorithm performance degraded
+**Resolution**: Emergency creator incentive program, new monetization features
+**Lesson**: Content creator retention is as critical as user retention
+**3 AM Metrics**: Real-time dashboards showing content velocity dropping
+**Debug Tools**: ML model performance degrading due to reduced training data
+**Production Fix**: Algorithm tuning to optimize for smaller content pools
+
 ## Key Lessons Learned
 
 ### Technical Lessons

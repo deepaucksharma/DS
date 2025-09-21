@@ -82,6 +82,8 @@ graph TB
 | Average delivery time | 45-60 minutes | Manual tracking |
 | Monthly cost | $100-500 | Heroku billing |
 | Team size | 2 engineers | Company history |
+| 3 AM Incidents | 1-2/week | Manual tracking |
+| Debug Tools | Heroku logs, New Relic | Basic monitoring |
 
 ### What Broke
 - **Manual order dispatch** became bottleneck at >20 orders/day
@@ -94,6 +96,9 @@ graph TB
 **Impact**: 3-hour delivery delays, angry customers
 **Resolution**: Manual order batching, recruited more Dashers
 **Lesson**: Three-sided marketplace complexity grows exponentially
+**3 AM Debugging**: Heroku app showing 100% memory usage, dyno restarts
+**Debug Tools**: `heroku logs --tail` showing Rails ActiveRecord timeouts
+**Production Fix**: Emergency Heroku dyno scaling from 1x to 4x instances
 
 ## Phase 2: Multi-City Expansion (2014-2016)
 **Scale: 10K users, 100-1K orders/day, 5 cities**
@@ -190,6 +195,9 @@ graph TB
 **Impact**: 4 hours of degraded service, 40% order delays
 **Resolution**: Database connection pooling, city-based sharding
 **Lesson**: Geographic scaling requires data architecture changes
+**3 AM Debugging**: PostgreSQL showing connection pool exhaustion
+**Debug Tools**: `SELECT * FROM pg_stat_activity` showing 200+ idle connections
+**Production Fix**: Emergency PgBouncer deployment with connection multiplexing
 
 ## Phase 3: Market Leadership Battle (2016-2018)
 **Scale: 100K-1M users, 1K-50K orders/day, 50+ cities**
@@ -307,6 +315,9 @@ graph TB
 **Impact**: 6 hours partial outage, millions in lost revenue
 **Resolution**: Auto-scaling implementation, circuit breakers
 **Lesson**: Sports events create predictable but extreme load spikes
+**3 AM War Room**: 50+ engineers on Slack debugging in real-time
+**Debug Tools**: Kubernetes pods showing OOMKilled status, message queue backing up
+**Production Fix**: Emergency horizontal pod autoscaler tuning, Kafka partition scaling
 
 ## Phase 4: National Dominance (2018-2020)
 **Scale: 1M-10M users, 50K-500K orders/day, 300+ cities**
@@ -441,6 +452,9 @@ graph TB
 **Impact**: 12 hours of degraded performance globally
 **Resolution**: Emergency capacity scaling, algorithm tuning
 **Lesson**: Black swan events require elastic architecture
+**3 AM Reality**: CEO Tony Xu personally monitoring the incident room
+**Debug Tools**: Datadog dashboards showing 500% traffic spike, ML models failing
+**Production Fix**: Emergency algorithm bypass, manual dispatch override enabled
 
 ## Phase 5: Pandemic Acceleration (2020-2022)
 **Scale: 10M-25M users, 500K-3M orders/day, 4,000+ cities**
