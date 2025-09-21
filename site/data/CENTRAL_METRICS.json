@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2025-09-21T13:32:53.458658",
+    "last_updated": "2025-09-21T19:59:50.803200",
     "description": "Single source of truth for ALL Atlas project metrics. Updated ONLY by scripts.",
     "update_script": "scripts/unified_status_tracker.py",
     "warning": "DO NOT manually edit this file. All updates must come from automated scripts."
@@ -14,8 +14,8 @@
     "weekly_hours": 60
   },
   "current_status": {
-    "diagrams_created": 660,
-    "files_created": 758,
+    "diagrams_created": 753,
+    "files_created": 851,
     "systems_documented": {
       "complete": 30,
       "partial": 0,
@@ -26,31 +26,31 @@
       "streamlined_from": 26
     },
     "compliance": {
-      "average_score": 31.526385224274406,
+      "average_score": 30.63454759106933,
       "fully_compliant": 0,
-      "needs_updates": 757,
-      "non_compliant": 730
+      "needs_updates": 850,
+      "non_compliant": 823
     }
   },
   "progress_percentages": {
-    "overall": 73.33333333333333,
+    "overall": 83.66666666666667,
     "systems": 100.0,
     "specifications": 100.0,
-    "quality_compliance": 31.526385224274406
+    "quality_compliance": 30.63454759106933
   },
   "status_distribution": {
     "not_created": 233,
-    "needs_update": 659,
+    "needs_update": 752,
     "in_review": 1,
     "up_to_date": 0
   },
   "category_breakdown": {
     "systems": 142,
-    "incidents": 71,
-    "debugging": 29,
-    "patterns": 27,
-    "performance": 53,
-    "scaling": 48,
+    "incidents": 75,
+    "debugging": 62,
+    "patterns": 62,
+    "performance": 65,
+    "scaling": 57,
     "costs": 43,
     "migrations": 40,
     "capacity": 38,
@@ -62,20 +62,20 @@
     "current_week": 1,
     "weeks_remaining": 36,
     "estimated_completion": "2025-09-28",
-    "current_velocity": 2310.0,
-    "required_velocity": 6.857142857142857
+    "current_velocity": 1757.0,
+    "required_velocity": 4.2
   },
   "quality_metrics": {
-    "with_slo_labels": 893,
-    "with_cost_data": 893,
-    "with_failure_scenarios": 893,
-    "following_4_plane": 893,
+    "with_slo_labels": 986,
+    "with_cost_data": 986,
+    "with_failure_scenarios": 986,
+    "following_4_plane": 986,
     "production_ready": 0,
     "emergency_ready": 1
   },
   "execution": {
-    "last_review": "2025-09-21T13:32:53.460077",
-    "next_milestone": "Week 2: 760 diagrams",
+    "last_review": "2025-09-21T19:59:50.804502",
+    "next_milestone": "Week 2: 853 diagrams",
     "blockers": [],
     "3am_test_time": "< 3 minutes",
     "navigation_clicks": 3
