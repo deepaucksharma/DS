@@ -16,23 +16,23 @@ Square's scaling journey from 10 coffee shops to 4M+ merchants globally represen
 
 ```mermaid
 graph TB
-    subgraph HardwareMVP[Hardware MVP - #3B82F6]
+    subgraph HardwareMVP["Hardware MVP"]
         SQUARE_READER[Square Reader<br/>Audio jack dongle<br/>Magnetic stripe]
         MOBILE_APP[Mobile App<br/>iOS/Android<br/>Simple checkout]
     end
 
-    subgraph PaymentCore[Payment Core - #10B981]
+    subgraph PaymentCore["Payment Core"]
         PAYMENT_API[Payment API<br/>Transaction processing<br/>Card authorization]
         MERCHANT_DASH[Merchant Dashboard<br/>Sales analytics<br/>Transaction history]
     end
 
-    subgraph SimpleInfra[Simple Infrastructure - #F59E0B]
+    subgraph SimpleInfra["Simple Infrastructure"]
         POSTGRES[(PostgreSQL<br/>Transaction data<br/>Merchant accounts)]
         REDIS[(Redis<br/>Session cache<br/>Real-time data)]
         S3[(S3<br/>Receipt storage<br/>Backup data)]
     end
 
-    subgraph PaymentNetwork[Payment Network - #9966CC]
+    subgraph PaymentNetwork["Payment Network"]
         CARD_NETWORKS[Card Networks<br/>Visa/Mastercard<br/>Authorization)]
         BANKS[Acquiring Banks<br/>Settlement<br/>Funding)]
     end
@@ -65,20 +65,20 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph ExpandedHardware[Expanded Hardware - #3B82F6]
+    subgraph ExpandedHardware["Expanded Hardware"]
         SQUARE_STAND[Square Stand<br/>iPad point of sale<br/>Professional setup]
         SQUARE_REGISTER[Square Register<br/>All-in-one system<br/>Receipt printer]
         CHIP_READER[Chip Reader<br/>EMV compliance<br/>Security upgrade]
     end
 
-    subgraph BusinessPlatform[Business Platform - #10B981]
+    subgraph BusinessPlatform["Business Platform"]
         POS_SOFTWARE[POS Software<br/>Inventory management<br/>Employee management]
         ANALYTICS[Analytics Platform<br/>Sales insights<br/>Customer data]
         INVOICES[Invoicing System<br/>Online payments<br/>Recurring billing]
         PAYROLL[Payroll Service<br/>Employee payments<br/>Tax compliance]
     end
 
-    subgraph ScaledInfra[Scaled Infrastructure - #F59E0B]
+    subgraph ScaledInfra["Scaled Infrastructure"]
         MICROSERVICES[Microservices<br/>API-first architecture<br/>Independent scaling]
         DATABASE_CLUSTER[(Database Cluster<br/>Sharded by merchant<br/>High availability)]
         KAFKA_STREAMS[(Kafka Streams<br/>Real-time processing<br/>Event sourcing)]
@@ -110,19 +110,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph FinancialPlatform[Financial Platform - #3B82F6]
+    subgraph FinancialPlatform["Financial Platform"]
         SQUARE_BANKING[Square Banking<br/>Business accounts<br/>Debit cards]
         SQUARE_LOANS[Square Loans<br/>Automated underwriting<br/>Data-driven lending]
         SQUARE_PAYROLL[Square Payroll<br/>Full-service payroll<br/>Benefits management]
     end
 
-    subgraph AdvancedPayments[Advanced Payments - #10B981]
+    subgraph AdvancedPayments["Advanced Payments"]
         ONLINE_PAYMENTS[Online Payments<br/>E-commerce integration<br/>API platform]
         MOBILE_PAYMENTS[Mobile Payments<br/>Contactless/NFC<br/>Digital wallets]
         OMNICHANNEL[Omnichannel<br/>Unified commerce<br/>Cross-platform]
     end
 
-    subgraph MLPlatform[ML Platform - #F59E0B]
+    subgraph MLPlatform["ML Platform"]
         FRAUD_DETECTION[Fraud Detection<br/>Real-time scoring<br/>Behavioral analysis]
         UNDERWRITING[Automated Underwriting<br/>Alternative data<br/>Risk assessment]
         PERSONALIZATION[Personalization<br/>Merchant insights<br/>Custom recommendations]

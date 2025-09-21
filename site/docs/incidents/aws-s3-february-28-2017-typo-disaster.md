@@ -56,12 +56,12 @@ graph TB
         WEBN[1000+ Other Sites<br/>❌ Broken layouts<br/>🌐 Missing assets]
     end
 
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane["Edge Plane"]
         CF[CloudFront CDN<br/>❌ Origin fetch fails<br/>📡 502 Bad Gateway]
         ELB[Elastic Load Balancer<br/>❌ Health checks fail<br/>⚖️ Cannot route traffic]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane["Service Plane"]
         subgraph S3Core[S3 Core Services - TOTAL FAILURE]
             S3API[S3 API Gateway<br/>❌ All endpoints down<br/>🔌 Cannot process requests]
             S3WEB[S3 Web Console<br/>❌ Admin interface dead<br/>🖥️ Cannot manage buckets]

@@ -16,23 +16,23 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         APP1[Application 1<br/>Transaction T1]
         APP2[Application 2<br/>Transaction T2]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         MYSQL[MySQL Server 8.0<br/>InnoDB Storage Engine]
         MONITOR[MySQL Monitor<br/>SHOW ENGINE INNODB STATUS]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         TABLE1[Orders Table<br/>Primary Key: order_id<br/>Index: customer_id]
         TABLE2[Order_Items Table<br/>Foreign Key: order_id<br/>Index: product_id]
         LOCKS[Lock Manager<br/>Row-level locks<br/>Gap locks]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         DEADLOCKLOG[Deadlock Log<br/>InnoDB Monitor output]
         METRICS[Performance Schema<br/>Lock statistics]
         ALERTS[Deadlock Alerts<br/>Error rate monitoring]

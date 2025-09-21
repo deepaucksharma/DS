@@ -44,14 +44,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         GATES[Gate Systems<br/>Airport Operations]
         MOBILE[Mobile Apps<br/>Customer Interface]
         WEB[Website<br/>Booking + Check-in]
         KIOSKS[Airport Kiosks<br/>Self-Service]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         BOOKING[Booking System<br/>Reservations]
         CHECKIN[Check-in System<br/>Passenger Processing]
         OPS[Operations Control<br/>Flight Management]
@@ -59,7 +59,7 @@ graph TB
         MAINT[Maintenance<br/>Aircraft Management]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         PASSDB[(Passenger Database<br/>Customer Records)]
         FLIGHTDB[(Flight Database<br/>Schedule Management)]
         CREWDB[(Crew Database<br/>Personnel Tracking)]
@@ -67,7 +67,7 @@ graph TB
         BAGGAGE[(Baggage System<br/>Tracking Database)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         LEGACY[Legacy Systems<br/>30+ Year Old Code]
         WEATHER[Weather Integration<br/>External Data)]
         COMMS[Communication<br/>Internal Messaging]

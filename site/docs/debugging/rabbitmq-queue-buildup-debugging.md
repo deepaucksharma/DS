@@ -16,23 +16,23 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         PRODUCER1[Producer 1<br/>Publishing: 1000 msg/s]
         PRODUCER2[Producer 2<br/>Publishing: 500 msg/s]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         RABBITMQ[RabbitMQ Cluster<br/>3 nodes<br/>Memory: 4GB each]
         MGMT[Management UI<br/>Queue monitoring]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         QUEUE1[Work Queue<br/>Messages: 50,000<br/>Growing: +200/s]
         QUEUE2[Priority Queue<br/>Messages: 10,000<br/>Stable]
         DLQ[Dead Letter Queue<br/>Failed messages: 500]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CONSUMER1[Consumer 1<br/>Processing: 300 msg/s<br/>Status: Healthy]
         CONSUMER2[Consumer 2<br/>Processing: 150 msg/s<br/>Status: Slow]
         CONSUMER3[Consumer 3<br/>Processing: 0 msg/s<br/>Status: Failed]

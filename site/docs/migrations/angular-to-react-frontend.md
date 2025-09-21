@@ -17,12 +17,12 @@ This playbook guides the migration from Angular (v8-12) to React (v18+) with mod
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CDN[CloudFront CDN<br/>Angular build artifacts<br/>Lazy-loaded chunks<br/>Asset optimization]
         NGINX[Nginx<br/>SPA routing<br/>Gzip compression<br/>Security headers]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         ANGULAR_APP[Angular 12 Application<br/>TypeScript 4.3<br/>RxJS 7<br/>Angular Material UI<br/>~2MB bundle size]
         
         ANGULAR_MODULES[Angular Modules<br/>Feature modules<br/>Shared modules<br/>Core module<br/>Lazy loading]
@@ -30,7 +30,7 @@ graph TB
         ANGULAR_SERVICES[Angular Services<br/>HTTP interceptors<br/>State management<br/>Dependency injection]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         NGRX[NgRx Store<br/>State management<br/>Effects for side effects<br/>Selectors<br/>DevTools]
         
         LOCAL_STORAGE[Local Storage<br/>User preferences<br/>Session data<br/>Cache management]
@@ -38,7 +38,7 @@ graph TB
         API_CACHE[HTTP Cache<br/>Angular HTTP interceptors<br/>Response caching<br/>Offline support]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         ANGULAR_CLI[Angular CLI<br/>Webpack configuration<br/>Build optimization<br/>Development server]
         
         JASMINE_KARMA[Jasmine + Karma<br/>Unit testing<br/>Code coverage<br/>Test automation]
@@ -83,12 +83,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CDN[CloudFront CDN<br/>React build artifacts<br/>Code splitting<br/>Asset optimization]
         NGINX[Nginx<br/>Same SPA routing<br/>Gzip compression<br/>Security headers]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         REACT_APP[React 18 Application<br/>TypeScript 5<br/>Functional components<br/>React Hooks<br/>~800KB bundle size]
         
         REACT_COMPONENTS[React Components<br/>Reusable components<br/>Custom hooks<br/>Component composition<br/>Code splitting]
@@ -96,7 +96,7 @@ graph TB
         REACT_SERVICES[React Services<br/>Axios HTTP client<br/>Custom hooks<br/>Context providers]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         ZUSTAND[Zustand Store<br/>Lightweight state<br/>TypeScript support<br/>DevTools integration<br/>Async actions]
         
         REACT_QUERY[React Query<br/>Server state management<br/>Caching<br/>Background updates<br/>Optimistic updates]
@@ -104,7 +104,7 @@ graph TB
         LOCAL_STORAGE[Local Storage<br/>User preferences<br/>Session data<br/>Zustand persistence]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         VITE[Vite Build Tool<br/>Fast development<br/>Hot module replacement<br/>ESM support<br/>Plugin ecosystem]
         
         VITEST[Vitest + RTL<br/>Fast unit testing<br/>React Testing Library<br/>Component testing]

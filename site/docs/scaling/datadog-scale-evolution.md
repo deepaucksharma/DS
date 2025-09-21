@@ -18,17 +18,17 @@ Datadog's scaling journey from a monitoring startup to processing 18 trillion da
 
 ```mermaid
 graph TB
-    subgraph BasicMonitoring[Basic Monitoring Platform - #3B82F6]
+    subgraph BasicMonitoring["Basic Monitoring Platform"]
         AGENT[Datadog Agent<br/>Python daemon<br/>System metrics]
         WEB_UI[Web Interface<br/>Dashboards<br/>Basic alerting]
     end
 
-    subgraph SimpleInfra[Simple Infrastructure - #10B981]
+    subgraph SimpleInfra["Simple Infrastructure"]
         API_SERVER[API Server<br/>Metric ingestion<br/>Query processing]
         WORKER[Background Worker<br/>Alert processing<br/>Data aggregation]
     end
 
-    subgraph TimeSeriesData[Time Series Storage - #F59E0B]
+    subgraph TimeSeriesData["Time Series Storage"]
         CASSANDRA[(Cassandra<br/>Time series data<br/>High write throughput)]
         REDIS[(Redis<br/>Real-time cache<br/>Alert state)]
         POSTGRES[(PostgreSQL<br/>Metadata<br/>User accounts)]
@@ -69,19 +69,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph AdvancedPlatform[Advanced Platform - #3B82F6]
+    subgraph AdvancedPlatform["Advanced Platform"]
         AGENT_V2[Enhanced Agent<br/>Multi-language<br/>Custom metrics]
         DASHBOARD[Advanced Dashboards<br/>Real-time updates<br/>Custom visualizations]
         ALERTING[Alerting Engine<br/>Complex conditions<br/>Multiple channels]
     end
 
-    subgraph ScalableServices[Scalable Services - #10B981]
+    subgraph ScalableServices["Scalable Services"]
         INGESTION[Ingestion Service<br/>High throughput<br/>Batching optimization]
         QUERY_ENGINE[Query Engine<br/>Time series queries<br/>Aggregation functions]
         NOTIFICATION[Notification Service<br/>Email/SMS/Webhooks<br/>Escalation policies]
     end
 
-    subgraph DistributedData[Distributed Data - #F59E0B]
+    subgraph DistributedData["Distributed Data"]
         CASSANDRA_CLUSTER[(Cassandra Cluster<br/>Sharded by metric<br/>Multi-datacenter)]
         ELASTICSEARCH[(Elasticsearch<br/>Log analysis<br/>Search capabilities)]
         KAFKA[(Apache Kafka<br/>Event streaming<br/>Reliable delivery)]
@@ -119,27 +119,27 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph ObservabilityPlatform[Full-Stack Observability - #3B82F6]
+    subgraph ObservabilityPlatform["Full-Stack Observability"]
         UNIFIED_AGENT[Unified Agent<br/>Metrics + Logs + Traces<br/>Low overhead]
         CORRELATION[Data Correlation<br/>Cross-platform insights<br/>Unified timeline]
         ML_INSIGHTS[ML-Powered Insights<br/>Anomaly detection<br/>Predictive alerting]
     end
 
-    subgraph MicroservicesArch[Microservices Architecture - #10B981]
+    subgraph MicroservicesArch["Microservices Architecture"]
         INGESTION_MESH[Ingestion Mesh<br/>Multiple protocols<br/>Auto-scaling]
         STORAGE_LAYER[Storage Layer<br/>Custom time series DB<br/>Optimized compression]
         QUERY_FEDERATION[Query Federation<br/>Cross-data source<br/>Unified API]
         REAL_TIME[Real-time Processing<br/>Stream analytics<br/>Immediate alerting]
     end
 
-    subgraph BigDataPlatform[Big Data Platform - #F59E0B]
+    subgraph BigDataPlatform["Big Data Platform"]
         TIME_SERIES_DB[(Custom TSDB<br/>Optimized for metrics<br/>Compression algorithms)]
         DISTRIBUTED_LOGS[(Distributed Logs<br/>Indexed storage<br/>Fast search)]
         TRACE_STORAGE[(Trace Storage<br/>Distributed tracing<br/>Span relationships)]
         ANALYTICS_DB[(Analytics Database<br/>ClickHouse<br/>Fast aggregations)]
     end
 
-    subgraph MLPlatform[ML Platform - #9966CC]
+    subgraph MLPlatform["ML Platform"]
         ANOMALY_DETECTION[Anomaly Detection<br/>Statistical models<br/>Seasonal patterns]
         FORECASTING[Forecasting Engine<br/>Capacity planning<br/>Trend analysis]
         OUTLIER_DETECTION[Outlier Detection<br/>Host behavior<br/>Service performance]

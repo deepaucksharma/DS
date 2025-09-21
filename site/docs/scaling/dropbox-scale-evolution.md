@@ -16,18 +16,18 @@ Dropbox's scaling journey from 100K beta users to 700M+ registered users represe
 
 ```mermaid
 graph TB
-    subgraph ClientApps[Client Applications - #3B82F6]
+    subgraph ClientApps["Client Applications"]
         DESKTOP[Desktop Client<br/>Windows/Mac/Linux<br/>File system monitoring]
         WEB[Web Interface<br/>File browser<br/>Basic sharing]
     end
 
-    subgraph SyncCore[Sync Core - #10B981]
+    subgraph SyncCore["Sync Core"]
         SYNC_ENGINE[Sync Engine<br/>File delta detection<br/>Conflict resolution]
         METADATA_SVC[Metadata Service<br/>File attributes<br/>Version tracking]
         NOTIFICATION_SVC[Notification Service<br/>Real-time updates<br/>Event distribution]
     end
 
-    subgraph StorageLayer[Storage Layer - #F59E0B]
+    subgraph StorageLayer["Storage Layer"]
         MYSQL[(MySQL<br/>File metadata<br/>User accounts)]
         S3[(Amazon S3<br/>File content<br/>Block storage)]
         MEMCACHED[(Memcached<br/>Metadata cache<br/>Session storage)]
@@ -65,19 +65,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph ScaledClients[Scaled Clients - #3B82F6]
+    subgraph ScaledClients["Scaled Clients"]
         MULTI_PLATFORM[Multi-Platform Clients<br/>Desktop + Mobile<br/>Consistent experience]
         MOBILE_APPS[Mobile Apps<br/>iOS/Android<br/>Camera upload]
         SELECTIVE_SYNC[Selective Sync<br/>Folder selection<br/>Storage optimization]
     end
 
-    subgraph DistributedSync[Distributed Sync - #10B981]
+    subgraph DistributedSync["Distributed Sync"]
         SYNC_CLUSTER[Sync Service Cluster<br/>Auto-scaling<br/>Load balancing]
         CONFLICT_RESOLUTION[Conflict Resolution<br/>Merge algorithms<br/>User notification]
         BATCH_PROCESSOR[Batch Processor<br/>Large file handling<br/>Background processing]
     end
 
-    subgraph ScaledStorage[Scaled Storage - #F59E0B]
+    subgraph ScaledStorage["Scaled Storage"]
         MYSQL_CLUSTER[(MySQL Cluster<br/>Master-slave setup<br/>Read scaling)]
         S3_MULTI_REGION[(S3 Multi-Region<br/>Geographic distribution<br/>Disaster recovery)]
         REDIS_CLUSTER[(Redis Cluster<br/>Real-time cache<br/>Session management)]
@@ -117,26 +117,26 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EnterprisePlatform[Enterprise Platform - #3B82F6]
+    subgraph EnterprisePlatform["Enterprise Platform"]
         DROPBOX_BUSINESS[Dropbox Business<br/>Team management<br/>Admin controls]
         SMART_SYNC[Smart Sync<br/>Cloud-only files<br/>Local space optimization]
         PAPER[Dropbox Paper<br/>Collaborative docs<br/>Real-time editing]
     end
 
-    subgraph CollaborationServices[Collaboration Services - #10B981]
+    subgraph CollaborationServices["Collaboration Services"]
         REAL_TIME_COLLAB[Real-time Collaboration<br/>Operational transforms<br/>Conflict-free editing]
         COMMENT_SYSTEM[Comment System<br/>File annotations<br/>Review workflows]
         ACTIVITY_FEED[Activity Feed<br/>Team updates<br/>Notification system]
     end
 
-    subgraph AdvancedInfra[Advanced Infrastructure - #F59E0B]
+    subgraph AdvancedInfra["Advanced Infrastructure"]
         MICROSERVICES[Microservices Architecture<br/>Service mesh<br/>Independent scaling]
         DISTRIBUTED_DB[(Distributed Database<br/>Sharded by team<br/>Consistent hashing)]
         OBJECT_STORAGE[(Object Storage<br/>Custom file system<br/>Deduplication)]
         SEARCH_ENGINE[(Search Engine<br/>Elasticsearch<br/>Content indexing)]
     end
 
-    subgraph SecurityCompliance[Security & Compliance - #9966CC]
+    subgraph SecurityCompliance["Security & Compliance"]
         ENCRYPTION[End-to-End Encryption<br/>Client-side encryption<br/>Zero-knowledge]
         AUDIT_LOGGING[Audit Logging<br/>Compliance tracking<br/>Activity monitoring]
         SSO_INTEGRATION[SSO Integration<br/>SAML/OAuth<br/>Enterprise identity]

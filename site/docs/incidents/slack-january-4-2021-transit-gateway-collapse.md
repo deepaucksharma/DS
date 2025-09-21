@@ -53,12 +53,12 @@ graph TB
         WEB[Web Clients<br/>🌐 First login Monday]
     end
 
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane["Edge Plane"]
         ALB[Application Load Balancer<br/>✅ Healthy<br/>📊 20x normal traffic]
         CF[CloudFlare CDN<br/>✅ Healthy<br/>📈 Static assets OK]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane["Service Plane"]
         subgraph WebTier[Web Tier - Auto Scaling]
             WEB1[Web Server Pod 1<br/>⚠️ CPU: 15% (waiting)]
             WEB2[Web Server Pod 2<br/>⚠️ CPU: 15% (waiting)]
@@ -84,7 +84,7 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane["State Plane"]
         subgraph Databases[Database Layer]
             PG[PostgreSQL Clusters<br/>✅ Healthy but slow<br/>📊 Connection timeouts]
             REDIS[Redis Clusters<br/>✅ Healthy but slow<br/>📊 Network lag]
@@ -95,7 +95,7 @@ graph TB
         end
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane["Control Plane"]
         subgraph Provision[Provisioning Crisis]
             PROV[Provision Service<br/>❌ Linux file limit hit<br/>❌ AWS quota exceeded<br/>💥 Can't add capacity]
         end

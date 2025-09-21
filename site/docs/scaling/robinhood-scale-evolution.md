@@ -16,24 +16,24 @@ Robinhood's scaling journey from 10K beta users to 23M+ registered users represe
 
 ```mermaid
 graph TB
-    subgraph MobileFirst[Mobile-First Platform - #3B82F6]
+    subgraph MobileFirst["Mobile-First Platform"]
         IOS_APP[iOS App<br/>Native Swift<br/>Simple trading]
         ANDROID_APP[Android App<br/>Native Kotlin<br/>Unified experience]
     end
 
-    subgraph TradingCore[Trading Core - #10B981]
+    subgraph TradingCore["Trading Core"]
         ORDER_SVC[Order Service<br/>Trade execution<br/>Market connectivity]
         ACCOUNT_SVC[Account Service<br/>User management<br/>Portfolio tracking]
         MARKET_DATA[Market Data<br/>Real-time quotes<br/>Price updates]
     end
 
-    subgraph DataLayer[Data Layer - #F59E0B]
+    subgraph DataLayer["Data Layer"]
         POSTGRES[(PostgreSQL<br/>User accounts<br/>Trade history)]
         REDIS[(Redis<br/>Real-time cache<br/>Session data)]
         S3[(S3<br/>Document storage<br/>Compliance data)]
     end
 
-    subgraph ExternalConnections[External Systems - #9966CC]
+    subgraph ExternalConnections["External Systems"]
         CLEARING[Clearing House<br/>Trade settlement<br/>Regulatory compliance]
         MARKET_FEEDS[Market Data Feeds<br/>Real-time prices<br/>Order book data]
         BANKING[Banking APIs<br/>ACH transfers<br/>Account funding]
@@ -62,18 +62,18 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph ScaledPlatform[Scaled Platform - #3B82F6]
+    subgraph ScaledPlatform["Scaled Platform"]
         MOBILE_CLUSTER[Mobile App Cluster<br/>Real-time updates<br/>Push notifications]
         WEB_PLATFORM[Web Platform<br/>Desktop trading<br/>Advanced charts]
     end
 
-    subgraph TradingInfra[Trading Infrastructure - #10B981]
+    subgraph TradingInfra["Trading Infrastructure"]
         MATCHING_ENGINE[Matching Engine<br/>High-frequency trading<br/>Microsecond latency]
         RISK_MGMT[Risk Management<br/>Position limits<br/>Margin requirements]
         SETTLEMENT[Settlement System<br/>T+2 processing<br/>Automated reconciliation]
     end
 
-    subgraph DistributedData[Distributed Data - #F59E0B]
+    subgraph DistributedData["Distributed Data"]
         POSTGRES_CLUSTER[(PostgreSQL Cluster<br/>Sharded by user<br/>Read replicas)]
         TIME_SERIES[(Time Series DB<br/>Market data<br/>Portfolio history)]
         KAFKA[(Apache Kafka<br/>Event streaming<br/>Audit trails)]
@@ -106,26 +106,26 @@ graph TB
 ### Crisis Response Architecture
 ```mermaid
 graph TB
-    subgraph CrisisScale[Crisis-Scale Platform - #3B82F6]
+    subgraph CrisisScale["Crisis-Scale Platform"]
         MOBILE_SURGE[Mobile App Cluster<br/>50x normal traffic<br/>Auto-scaling enabled]
         WEB_EMERGENCY[Emergency Web Platform<br/>Fallback during app issues<br/>Basic trading functionality]
     end
 
-    subgraph TradingUnderPressure[Trading Under Pressure - #10B981]
+    subgraph TradingUnderPressure["Trading Under Pressure"]
         ORDER_QUEUE[Order Queue System<br/>Priority-based processing<br/>Rate limiting per user]
         RISK_CIRCUIT[Risk Circuit Breakers<br/>Real-time position monitoring<br/>Automatic liquidation]
         CLEARING_BRIDGE[Clearing House Bridge<br/>NSCC integration<br/>Collateral management]
         LIQUIDITY_MGR[Liquidity Manager<br/>Real-time cash flows<br/>Margin call automation]
     end
 
-    subgraph CrisisData[Crisis Data Management - #F59E0B]
+    subgraph CrisisData["Crisis Data Management"]
         TRADE_LOGS[(Trade Audit Logs<br/>Immutable records<br/>Regulatory compliance)]
         RISK_ANALYTICS[(Risk Analytics DB<br/>Real-time calculations<br/>Position monitoring)]
         MARKET_FEED[(Market Data Feed<br/>Low-latency quotes<br/>Circuit breaker signals)]
         CUSTOMER_COMMS[(Customer Communications<br/>SMS/Email/Push<br/>Crisis messaging)]
     end
 
-    subgraph RegulatoryOverwatch[Regulatory Oversight - #8B5CF6]
+    subgraph RegulatoryOverwatch["Regulatory Oversight"]
         SEC_REPORTING[SEC Reporting<br/>Real-time trade reports<br/>Suspicious activity]
         FINRA_BRIDGE[FINRA Integration<br/>Order audit trails<br/>Market surveillance]
         LEGAL_HOLDS[Legal Hold System<br/>Data preservation<br/>Investigation support]
@@ -196,41 +196,41 @@ graph TB
 ### Current Platform Architecture
 ```mermaid
 graph TB
-    subgraph CustomerFacing[Customer Experience - #3B82F6]
+    subgraph CustomerFacing["Customer Experience"]
         MOBILE_V2[Robinhood Mobile<br/>React Native<br/>Advanced trading tools]
         WEB_PLATFORM[Web Platform<br/>Desktop trading<br/>Options strategies]
         API_GATEWAY[Public API<br/>Third-party integrations<br/>Rate limiting]
     end
 
-    subgraph TradingServices[Trading Services - #10B981]
+    subgraph TradingServices["Trading Services"]
         EQUITY_ENGINE[Equity Trading Engine<br/>High-frequency execution<br/>Smart order routing]
         OPTIONS_ENGINE[Options Trading Engine<br/>Multi-leg strategies<br/>Greeks calculations]
         CRYPTO_ENGINE[Crypto Trading Engine<br/>24/7 markets<br/>Real-time settlement]
         FRACTIONAL_ENGINE[Fractional Shares<br/>Dollar-based investing<br/>Auto-investing]
     end
 
-    subgraph FinancialServices[Financial Services - #10B981]
+    subgraph FinancialServices["Financial Services"]
         CASH_MGMT[Cash Management<br/>FDIC-insured accounts<br/>Debit card integration]
         RETIREMENT[Retirement Accounts<br/>IRA management<br/>Tax optimization]
         LENDING[Margin Lending<br/>Securities-based credit<br/>Dynamic rates]
         CREDIT_CARDS[Credit Cards<br/>Rewards program<br/>Real-time approvals]
     end
 
-    subgraph DataInfrastructure[Data & Analytics - #F59E0B]
+    subgraph DataInfrastructure["Data & Analytics"]
         REAL_TIME_DB[(Real-time Database<br/>Position tracking<br/>Sub-millisecond updates)]
         ANALYTICS_WAREHOUSE[(Analytics Warehouse<br/>Snowflake<br/>Customer insights)]
         RISK_ENGINE[(Risk Engine<br/>Real-time monitoring<br/>Portfolio analysis)]
         MARKET_DATA[(Market Data<br/>Multiple feeds<br/>Low-latency)]
     end
 
-    subgraph ComplianceOps[Compliance & Operations - #8B5CF6]
+    subgraph ComplianceOps["Compliance & Operations"]
         REGULATORY[Regulatory Reporting<br/>Automated compliance<br/>Audit trails]
         KYC_AML[KYC/AML Engine<br/>Identity verification<br/>Transaction monitoring]
         FRAUD_DETECTION[Fraud Detection<br/>ML-based scoring<br/>Real-time alerts]
         CUSTOMER_SUPPORT[Customer Support<br/>AI-powered chatbots<br/>24/7 availability]
     end
 
-    subgraph AIMLPlatform[AI/ML Platform - #9966CC]
+    subgraph AIMLPlatform["AI/ML Platform"]
         RECOMMENDATION[Investment Recommendations<br/>Personalized portfolios<br/>Risk-adjusted returns]
         PRICE_PREDICTION[Price Prediction<br/>Technical analysis<br/>Market sentiment]
         CUSTOMER_INSIGHTS[Customer Insights<br/>Behavioral analysis<br/>Churn prediction]

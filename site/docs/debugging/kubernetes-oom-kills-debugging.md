@@ -16,24 +16,24 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         USER[User Traffic<br/>Ingress Load]
         INGRESS[Ingress Controller<br/>nginx-ingress]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         KUBECTL[kubectl CLI<br/>Cluster Analysis]
         METRICS[Metrics Server<br/>Prometheus/Grafana]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         NODE1[Node 1<br/>Available Memory: 2GB<br/>Pressure: Normal]
         NODE2[Node 2<br/>Available Memory: 512MB<br/>Pressure: HIGH]
         POD1[Pod: app-pod-1<br/>Memory Request: 1GB<br/>Memory Limit: 2GB<br/>Status: Running]
         POD2[Pod: app-pod-2<br/>Memory Request: 1GB<br/>Memory Limit: 2GB<br/>Status: OOMKilled]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         KUBELET[Kubelet<br/>Node Resource Manager]
         EVENTS[Kubernetes Events<br/>OOMKilling events]
         LOGS[Container Logs<br/>Application stderr]

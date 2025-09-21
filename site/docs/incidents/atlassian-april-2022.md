@@ -43,26 +43,26 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[Load Balancer<br/>ALB + CloudFront]
         CDN[Global CDN<br/>CloudFront + Fastly]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         API[API Gateway<br/>Kong + AWS ALB]
         JIRA[Jira Service<br/>Java/Spring Boot]
         CONF[Confluence Service<br/>Java/Spring Boot]
         AUTH[Auth Service<br/>OAuth 2.0 + SAML]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         MAINDB[(Main Database<br/>PostgreSQL RDS)]
         USERDB[(User Database<br/>PostgreSQL RDS)]
         FILESTORE[(File Storage<br/>S3 + EFS)]
         BACKUP[(Backup System<br/>S3 Cross-Region)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MAINT[Maintenance Scripts<br/>Python + Cron]
         MON[Monitoring<br/>DataDog + PagerDuty]
         DEPLOY[Deployment<br/>Jenkins + Docker]

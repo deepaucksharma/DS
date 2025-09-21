@@ -104,21 +104,15 @@ site/
 │   │   ├── system-patterns.md # 21 patterns × 10 diagrams = 210
 │   │   ├── micro-patterns.md  # Implementation details
 │   │   └── decision-engine.md # Decision trees
-│   ├── examples/
-│   │   ├── case-studies/      # 50+ case studies × 12 diagrams = 600+
-│   │   ├── implementation/    # Real code examples
-│   │   └── pitfalls/         # Anti-patterns
-│   └── production/
-│       ├── incidents/         # Real incident analyses
-│       ├── migrations/        # Migration strategies
-│       └── best-practices/    # Production wisdom
+│   └── examples/
+│       ├── implementation/    # Real code examples
+│       └── pitfalls/         # Anti-patterns
 ├── scripts/
 │   ├── manual_source_discovery.py  # Find high-value content
 │   ├── diagram_generator.py        # Generate Mermaid diagrams
 │   └── progress_tracker.py         # Track progress
 └── data/
     ├── sources/               # Source registry
-    ├── case-studies/         # Case study YAML
     └── progress.json         # Progress tracking
 ```
 

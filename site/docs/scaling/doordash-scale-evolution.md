@@ -19,26 +19,26 @@ DoorDash's scaling journey from a small food delivery startup at Stanford to the
 ### Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         HEROKU[Heroku App<br/>Basic load balancing]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         RAILS[Rails Monolith<br/>1x dyno<br/>All-in-one app]
         WORKER[Background Worker<br/>Sidekiq]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         POSTGRES[(PostgreSQL<br/>Heroku Postgres<br/>10GB)]
         REDIS[(Redis<br/>Heroku Redis<br/>25MB)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         LOGS[Heroku Logs]
         METRICS[New Relic]
     end
 
-    subgraph ExternalServices[External - #800080]
+    subgraph ExternalServices["External"]
         TWILIO[Twilio SMS<br/>Driver coordination]
         STRIPE[Stripe<br/>Payment processing]
         GOOGLE[Google Maps<br/>Routing]
@@ -106,12 +106,12 @@ graph TB
 ### Enhanced Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ALB[Application Load Balancer<br/>AWS ALB]
         CF[CloudFront CDN<br/>Static assets]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         WEB1[Web App 1<br/>m4.large<br/>Rails + API]
         WEB2[Web App 2<br/>m4.large<br/>Rails + API]
         MOBILE_API[Mobile API<br/>m4.medium<br/>Rails API]
@@ -119,20 +119,20 @@ graph TB
         WORKER[Background Jobs<br/>m4.medium<br/>Sidekiq cluster]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         POSTGRES_M[(PostgreSQL Master<br/>db.m4.large<br/>500GB SSD)]
         POSTGRES_R[(PostgreSQL Replica<br/>db.m4.medium<br/>Read queries)]
         REDIS_M[(Redis Master<br/>cache.m4.large<br/>Real-time data)]
         REDIS_R[(Redis Replica<br/>cache.m4.medium<br/>Session cache)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         DATADOG[DataDog<br/>Monitoring + APM]
         LOGS[Centralized Logging<br/>ELK Stack]
         DEPLOY[Deployment<br/>Capistrano]
     end
 
-    subgraph ExternalServices[External Services - #800080]
+    subgraph ExternalServices["External Services"]
         TWILIO[Twilio<br/>SMS + Voice]
         STRIPE[Stripe Connect<br/>Multi-party payments]
         GOOGLE_API[Google Maps API<br/>Routing + ETA]
@@ -205,13 +205,13 @@ graph TB
 ### Microservices Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ALB[Global Load Balancer<br/>Route 53 + ALB]
         CDN[CloudFront CDN<br/>Global edge locations]
         WAF[AWS WAF<br/>DDoS protection]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         subgraph UserServices[User Services]
             USER_SVC[User Service<br/>Authentication]
             RESTAURANT_SVC[Restaurant Service<br/>Menu management]
@@ -235,7 +235,7 @@ graph TB
         API_GATEWAY[API Gateway<br/>Kong + rate limiting]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         subgraph OrderData[Order Data]
             ORDER_DB[(Order Database<br/>PostgreSQL<br/>Partitioned by city)]
             ORDER_CACHE[(Order Cache<br/>Redis Cluster<br/>Real-time state)]
@@ -257,7 +257,7 @@ graph TB
         end
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MONITORING[Comprehensive Monitoring<br/>DataDog + Custom]
         LOGGING[Distributed Logging<br/>ELK + Fluentd]
         DEPLOYMENT[Blue-Green Deploy<br/>Spinnaker]

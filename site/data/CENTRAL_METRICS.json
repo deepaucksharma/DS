@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2025-09-21T12:41:44.326021",
+    "last_updated": "2025-09-21T13:32:53.458658",
     "description": "Single source of truth for ALL Atlas project metrics. Updated ONLY by scripts.",
     "update_script": "scripts/unified_status_tracker.py",
     "warning": "DO NOT manually edit this file. All updates must come from automated scripts."
@@ -14,8 +14,8 @@
     "weekly_hours": 60
   },
   "current_status": {
-    "diagrams_created": 605,
-    "files_created": 703,
+    "diagrams_created": 660,
+    "files_created": 758,
     "systems_documented": {
       "complete": 30,
       "partial": 0,
@@ -26,56 +26,56 @@
       "streamlined_from": 26
     },
     "compliance": {
-      "average_score": 32.051209103840684,
+      "average_score": 31.526385224274406,
       "fully_compliant": 0,
-      "needs_updates": 702,
-      "non_compliant": 675
+      "needs_updates": 757,
+      "non_compliant": 730
     }
   },
   "progress_percentages": {
-    "overall": 67.22222222222223,
+    "overall": 73.33333333333333,
     "systems": 100.0,
     "specifications": 100.0,
-    "quality_compliance": 32.051209103840684
+    "quality_compliance": 31.526385224274406
   },
   "status_distribution": {
     "not_created": 233,
-    "needs_update": 604,
+    "needs_update": 659,
     "in_review": 1,
     "up_to_date": 0
   },
   "category_breakdown": {
     "systems": 142,
     "incidents": 71,
-    "debugging": 5,
-    "patterns": 5,
+    "debugging": 29,
+    "patterns": 27,
     "performance": 53,
     "scaling": 48,
     "costs": 43,
     "migrations": 40,
     "capacity": 38,
-    "comparisons": 25,
-    "production": 5
+    "comparisons": 30,
+    "production": 10
   },
   "timeline": {
     "project_start": "2025-09-18",
     "current_week": 1,
     "weeks_remaining": 36,
     "estimated_completion": "2025-09-28",
-    "current_velocity": 2117.5,
-    "required_velocity": 8.428571428571429
+    "current_velocity": 2310.0,
+    "required_velocity": 6.857142857142857
   },
   "quality_metrics": {
-    "with_slo_labels": 838,
-    "with_cost_data": 838,
-    "with_failure_scenarios": 838,
-    "following_4_plane": 838,
+    "with_slo_labels": 893,
+    "with_cost_data": 893,
+    "with_failure_scenarios": 893,
+    "following_4_plane": 893,
     "production_ready": 0,
     "emergency_ready": 1
   },
   "execution": {
-    "last_review": "2025-09-21T12:41:44.327001",
-    "next_milestone": "Week 2: 705 diagrams",
+    "last_review": "2025-09-21T13:32:53.460077",
+    "next_milestone": "Week 2: 760 diagrams",
     "blockers": [],
     "3am_test_time": "< 3 minutes",
     "navigation_clicks": 3

@@ -8,22 +8,22 @@ Cloudflare operates the world's largest Nginx deployment, handling over 10 milli
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         EDGE[Cloudflare Edge<br/>330+ PoPs globally<br/>99.99% availability]
         LB[Load Balancing<br/>Anycast + BGP<br/>Automatic failover]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         NGINX[Nginx Workers<br/>Custom build<br/>50K+ instances]
         CACHE[Edge Cache<br/>In-memory + SSD<br/>95% hit ratio]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         ORIGIN[Origin Servers<br/>Customer backends<br/>Global distribution]
         CONFIG[Configuration<br/>Edge configuration<br/>Real-time updates]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MON[Monitoring<br/>Real-time metrics<br/>Global visibility]
         AUTO[Auto-scaling<br/>Traffic-based<br/>Predictive scaling]
     end

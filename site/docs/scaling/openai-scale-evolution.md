@@ -18,17 +18,17 @@ OpenAI's scaling journey from a research organization to serving 100M+ ChatGPT u
 ### Research Infrastructure
 ```mermaid
 graph TB
-    subgraph ResearchInfra[Research Infrastructure - #3B82F6]
+    subgraph ResearchInfra["Research Infrastructure"]
         JUPYTER[Jupyter Notebooks<br/>Research experiments]
         WEIGHTS[Weights & Biases<br/>Experiment tracking]
     end
 
-    subgraph ComputeLayer[Compute Layer - #10B981]
+    subgraph ComputeLayer["Compute Layer"]
         GPU_CLUSTER[GPU Cluster<br/>8x V100<br/>Model training]
         CPU_CLUSTER[CPU Cluster<br/>Data preprocessing]
     end
 
-    subgraph DataLayer[Data Layer - #F59E0B]
+    subgraph DataLayer["Data Layer"]
         DATASETS[(Research Datasets<br/>Common Crawl<br/>WebText)]
         MODELS[(Model Artifacts<br/>PyTorch checkpoints)]
     end
@@ -73,23 +73,23 @@ graph TB
 ### Production API Infrastructure
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CLOUDFLARE[Cloudflare<br/>API protection<br/>Rate limiting]
         ALB[Application Load Balancer<br/>Auto-scaling]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         API_GATEWAY[API Gateway<br/>Authentication<br/>Billing]
         INFERENCE_CLUSTER[Inference Cluster<br/>Multiple instances<br/>Model serving]
         QUEUE_MANAGER[Queue Manager<br/>Request batching<br/>Priority handling]
     end
 
-    subgraph ComputePlane[Compute Plane - #9966CC]
+    subgraph ComputePlane["Compute Plane"]
         GPU_INFERENCE[GPU Inference<br/>NVIDIA A100<br/>Optimized serving]
         MODEL_CACHE[Model Cache<br/>Hot loading<br/>Version management]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         POSTGRES[(PostgreSQL<br/>User accounts<br/>Usage tracking)]
         REDIS[(Redis<br/>Session cache<br/>Rate limiting)]
         S3[(S3<br/>Model storage<br/>Logs)]

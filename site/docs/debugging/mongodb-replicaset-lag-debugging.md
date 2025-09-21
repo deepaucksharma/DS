@@ -16,23 +16,23 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         APP[Application<br/>Write Concern: majority<br/>Read Preference: secondaryPreferred]
         ANALYTICS[Analytics Service<br/>Read from secondary<br/>Tolerance for lag]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         PRIMARY[Primary Node<br/>rs-primary-01<br/>Oplog Size: 10GB<br/>Write Load: High]
         SECONDARY1[Secondary Node 1<br/>rs-secondary-01<br/>Lag: 15 seconds<br/>Status: Falling behind]
         SECONDARY2[Secondary Node 2<br/>rs-secondary-02<br/>Lag: 3 seconds<br/>Status: Normal]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         OPLOG[Oplog Collection<br/>Capped collection<br/>24 hour window<br/>Replication source]
         DATA[Data Collections<br/>User data<br/>Application state]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MONITORING[MongoDB Monitoring<br/>rs.status() metrics<br/>Lag alerts]
         LOGS[MongoDB Logs<br/>Replication errors<br/>Performance issues]
     end

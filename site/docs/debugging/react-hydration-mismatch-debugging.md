@@ -16,23 +16,23 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         BROWSER[User Browser<br/>Initial HTML load]
         CRAWLER[Search Crawler<br/>SEO indexing]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         SSR[SSR Server<br/>React renderToString()<br/>Node.js Runtime]
         HYDRATION[Client Hydration<br/>React.hydrate()<br/>Browser Runtime]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         SERVERDOM[Server DOM<br/>Initial timestamp:<br/>2023-01-01 12:00:00]
         CLIENTDOM[Client DOM<br/>Hydration timestamp:<br/>2023-01-01 12:00:05]
         STATE[Application State<br/>User session, API data]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CONSOLE[Browser Console<br/>Hydration warnings]
         DEVTOOLS[React DevTools<br/>Component diff]
         MONITORING[Error Monitoring<br/>Sentry/Bugsnag]

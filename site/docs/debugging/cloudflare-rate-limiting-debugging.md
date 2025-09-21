@@ -16,22 +16,22 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         USER[User Requests<br/>Various IPs/Patterns]
         BOT[Bot Traffic<br/>Potentially malicious]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         CF[Cloudflare Edge<br/>Rate Limiting Rules<br/>WAF Policies]
         ANALYTICS[CF Analytics<br/>Traffic patterns]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         ORIGIN[Origin Server<br/>Protected by CF<br/>Real traffic only]
         CACHE[CF Cache<br/>Cached responses]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         LOGS[CF Logs<br/>Rate limit events]
         RULES[Rate Limit Rules<br/>Thresholds & actions]
         ALERTS[Monitoring Alerts<br/>Blocked traffic spikes]

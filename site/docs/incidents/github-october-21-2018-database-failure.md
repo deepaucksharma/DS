@@ -43,19 +43,19 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane["Edge Plane"]
         LB[Load Balancer<br/>✅ Operational]
         CDN[Fastly CDN<br/>✅ Operational]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane["Service Plane"]
         WEB[Web Servers<br/>⚠️ Read-Only Mode]
         API[GitHub API<br/>❌ Degraded]
         WH[Webhooks<br/>❌ Failed]
         PAGES[GitHub Pages<br/>❌ Build Failed]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane["State Plane"]
         subgraph EastCoast[East Coast DC]
             MySQL_E[MySQL Primary<br/>❌ Isolated]
             REDIS_E[Redis Cache<br/>❌ Stale Data]
@@ -71,7 +71,7 @@ graph TB
         end
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane["Control Plane"]
         ORCH[Orchestrator<br/>❌ Wrong Decision]
         MON[Monitoring<br/>❌ Blind Spots]
         DEPLOY[Deployment<br/>❌ Halted]

@@ -16,22 +16,22 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         APP[Application Server<br/>Connection Pool: 50<br/>Timeout: 5s]
         LB[Load Balancer<br/>Health Checks]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         REDISCLI[Redis CLI<br/>Diagnostic Commands]
         MON[Memory Monitor<br/>CloudWatch/Grafana]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         REDIS[Redis 7.0<br/>Memory: 16GB<br/>Used: 14.8GB (92%)]
         DISK[Disk Storage<br/>RDB/AOF Files]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         ALERT[Memory Alerts<br/>PagerDuty]
         METRICS[Metrics Collection<br/>used_memory_rss<br/>used_memory_dataset]
         LOGS[System Logs<br/>/var/log/redis<br/>dmesg OOM]

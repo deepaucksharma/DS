@@ -8,26 +8,26 @@ This guide provides comprehensive strategies for identifying, analyzing, and res
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[Load Balancer<br/>HAProxy/nginx]
         CDN[CDN<br/>CloudFlare]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         APP1[App Instance 1<br/>Transaction Service]
         APP2[App Instance 2<br/>Transaction Service]
         APP3[App Instance 3<br/>Transaction Service]
         POOL[Connection Pool<br/>PgBouncer/ProxySQL]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         PRIMARY[(Primary DB<br/>PostgreSQL 15)]
         REPLICA1[(Read Replica 1<br/>Async Replication)]
         REPLICA2[(Read Replica 2<br/>Async Replication)]
         DEADLOCK_LOG[(Deadlock Log<br/>pg_stat_statements)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MONITOR[Monitoring<br/>Prometheus + Grafana]
         ALERT[Alerting<br/>PagerDuty]
         TRACE[Distributed Tracing<br/>Jaeger]

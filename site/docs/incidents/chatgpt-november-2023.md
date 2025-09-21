@@ -78,14 +78,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CDN[Global CDN<br/>Content Delivery]
         LB[Load Balancers<br/>Request Distribution]
         CACHE[Edge Cache<br/>Response Caching]
         WAF[Web Application Firewall<br/>Security Layer]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         WEB[Web Interface<br/>ChatGPT Frontend]
         API[OpenAI API<br/>Enterprise Integration]
         AUTH[Authentication<br/>User Management]
@@ -93,7 +93,7 @@ graph TB
         INFERENCE[Inference Engine<br/>Model Processing]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         USERDB[(User Database<br/>Account Information)]
         SESSIONDB[(Session Store<br/>Conversation History)]
         MODELSTORE[(Model Storage<br/>Neural Network Weights)]
@@ -101,7 +101,7 @@ graph TB
         QUEUEDB[(Queue Database<br/>Request Tracking)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         GPU[GPU Clusters<br/>A100/H100 Infrastructure]
         MONITOR[Monitoring<br/>Real-time Metrics]
         DEPLOY[Deployment<br/>Model Updates]

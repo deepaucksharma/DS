@@ -16,24 +16,24 @@ Stripe's journey from a simple payment API to processing over $1 trillion in ann
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         WebDashboard[Stripe Dashboard<br/>Rails Frontend<br/>Merchant Portal]
         PublicAPI[Public API<br/>RESTful Endpoints<br/>Token-based Auth]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         PaymentAPI[Payment API<br/>Ruby on Rails<br/>Monolithic App]
         TokenizationService[Tokenization<br/>Credit Card Security<br/>PCI Compliance]
         WebhookService[Webhook Service<br/>Event Notifications<br/>HTTP Callbacks]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         PostgreSQL[(PostgreSQL<br/>Transaction Data<br/>Single Instance)]
         Redis[(Redis<br/>Session Storage<br/>API Rate Limiting)]
         EncryptedStorage[Encrypted Storage<br/>Sensitive Card Data<br/>Hardware Security Module)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         BasicMonitoring[Basic Monitoring<br/>New Relic<br/>Error Tracking]
         PCI_Compliance[PCI Compliance<br/>Security Audits<br/>Quarterly Reviews]
         Manual_Ops[Manual Operations<br/>Customer Support<br/>Fraud Review]
@@ -85,13 +85,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         DeveloperDashboard[Developer Dashboard<br/>React + Rails<br/>API Documentation]
         MobileDashboard[Mobile Dashboard<br/>iOS/Android Apps<br/>Real-time Notifications]
         PartnerPortal[Partner Portal<br/>Platform Partners<br/>OAuth Integration]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         PaymentCore[Payment Core<br/>Enhanced Rails<br/>Multiple Processors]
         SubscriptionEngine[Subscription Engine<br/>Recurring Billing<br/>Complex Pricing]
         ConnectPlatform[Stripe Connect<br/>Marketplace Payments<br/>Split Transactions]
@@ -99,7 +99,7 @@ graph TB
         WebhookManager[Webhook Manager<br/>Reliable Delivery<br/>Retry Logic]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         PaymentDB[(Payment Database<br/>PostgreSQL Cluster<br/>Transaction History)]
         SubscriptionDB[(Subscription DB<br/>MySQL<br/>Billing Cycles)]
         ConnectDB[(Connect Database<br/>PostgreSQL<br/>Platform Accounts)]
@@ -107,7 +107,7 @@ graph TB
         CacheCluster[(Redis Cluster<br/>API Caching<br/>Session Management)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         ComprehensiveMonitoring[Monitoring<br/>Custom + Datadog<br/>Transaction Tracking]
         MLPipeline[ML Pipeline<br/>Fraud Detection<br/>Risk Modeling]
         ComplianceSystem[Compliance System<br/>Multi-jurisdiction<br/>Automated Reporting]
@@ -167,14 +167,14 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         GlobalCDN[Global CDN<br/>CloudFlare<br/>API Documentation + Assets]
         RegionalAPIs[Regional APIs<br/>Multi-region Deployment<br/>Local Data Residency]
         DeveloperTools[Developer Tools<br/>CLI + Testing Tools<br/>Local Development]
         PartnerEcosystem[Partner Ecosystem<br/>App Marketplace<br/>Third-party Integrations]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         APIGateway[API Gateway<br/>Kong + Custom<br/>Rate Limiting + Auth]
         PaymentService[Payment Service<br/>Go + gRPC<br/>Core Processing]
         BillingService[Billing Service<br/>Java + Spring<br/>Complex Billing Logic]
@@ -185,7 +185,7 @@ graph TB
         NotificationService[Notification Service<br/>Node.js + Kafka<br/>Event Processing]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         PaymentShard[(Payment Shards<br/>PostgreSQL<br/>Merchant-based Sharding)]
         BillingShard[(Billing Shards<br/>MySQL<br/>Customer-based Sharding)]
         ConnectShard[(Connect Shards<br/>PostgreSQL<br/>Platform-based Sharding)]
@@ -195,7 +195,7 @@ graph TB
         TimeSeriesDB[(Time Series DB<br/>InfluxDB<br/>Metrics Storage)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         ServiceMesh[Service Mesh<br/>Istio<br/>Traffic Management]
         ObservabilityStack[Observability<br/>Prometheus + Grafana<br/>Distributed Tracing]
         MLOpsplatform[MLOps Platform<br/>Model Training<br/>A/B Testing]
@@ -264,7 +264,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         DeveloperPortal[Developer Portal<br/>GraphQL + REST<br/>Unified API Experience]
         MerchantDashboard[Merchant Dashboard<br/>React + TypeScript<br/>Real-time Analytics]
         MobileApps[Mobile Apps<br/>Native + React Native<br/>On-the-go Management]
@@ -272,7 +272,7 @@ graph TB
         EmbeddedFinance[Embedded Finance<br/>White-label Solutions<br/>Platform Integration]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         UnifiedAPI[Unified API<br/>GraphQL Federation<br/>Microservices Orchestration]
         PaymentProcessing[Payment Processing<br/>Multi-processor Routing<br/>Intelligent Failover]
         BankingCore[Banking Core<br/>Account Management<br/>Ledger System]
@@ -283,7 +283,7 @@ graph TB
         RevenueRecognition[Revenue Recognition<br/>Accounting Automation<br/>GAAP Compliance]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         TransactionLedger[(Transaction Ledger<br/>Immutable Audit Trail<br/>Double-entry Bookkeeping)]
         BankingAccounts[(Banking Accounts<br/>Customer Funds<br/>FDIC Insured)]
         LendingData[(Lending Data<br/>Risk Models<br/>Credit Decisions)]
@@ -293,7 +293,7 @@ graph TB
         RealTimeCache[(Real-time Cache<br/>Account Balances<br/>Transaction State)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         RiskManagement[Risk Management<br/>Real-time Monitoring<br/>Automated Actions]
         ComplianceOrchestration[Compliance Orchestration<br/>Regulatory Workflows<br/>Automated Reporting]
         MLPlatform[ML Platform<br/>Feature Engineering<br/>Model Deployment]
@@ -365,7 +365,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ConversationalAPI[Conversational API<br/>Natural Language<br/>AI-powered Integration]
         IntelligentDashboard[Intelligent Dashboard<br/>Predictive Analytics<br/>Automated Insights]
         EmbeddedAI[Embedded AI<br/>Smart Components<br/>No-code Integration]
@@ -373,7 +373,7 @@ graph TB
         GlobalPayments[Global Payments<br/>Local Methods<br/>Cultural Optimization]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         AIOrchestrator[AI Orchestrator<br/>Unified ML Platform<br/>Real-time Inference]
         SmartRouting[Smart Routing<br/>ML-optimized Processing<br/>Success Rate Optimization]
         PredictiveAnalytics[Predictive Analytics<br/>Business Intelligence<br/>Revenue Forecasting]
@@ -384,7 +384,7 @@ graph TB
         AICustomerService[AI Customer Service<br/>Natural Language<br/>Automated Resolution]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         KnowledgeGraph[(Knowledge Graph<br/>Business Relationships<br/>Semantic Understanding)]
         VectorDatabase[(Vector Database<br/>Embeddings Storage<br/>Similarity Search)]
         ModelRegistry[(Model Registry<br/>Versioned AI Models<br/>A/B Testing)]
@@ -394,7 +394,7 @@ graph TB
         BlockchainLedger[(Blockchain Ledger<br/>Immutable Records<br/>Smart Contracts)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MLOpsOrchestration[MLOps Orchestration<br/>Automated Training<br/>Model Deployment]
         AIGovernance[AI Governance<br/>Model Explainability<br/>Bias Detection]
         AutomatedTesting[Automated Testing<br/>AI-powered QA<br/>Continuous Validation]
@@ -464,7 +464,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         AutonomousAPI[Autonomous API<br/>Self-configuring<br/>Zero-setup Integration]
         AdaptiveInterfaces[Adaptive Interfaces<br/>Context-aware UI<br/>Personalized Experience]
         GlobalFinancialNetwork[Global Financial Network<br/>Central Bank Connections<br/>Real-time Settlement]
@@ -472,7 +472,7 @@ graph TB
         MetaversePayments[Metaverse Payments<br/>Virtual World Commerce<br/>Digital Asset Integration]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         AutonomousOrchestrator[Autonomous Orchestrator<br/>Self-healing Systems<br/>Predictive Operations]
         GlobalLiquidity[Global Liquidity<br/>Real-time Currency<br/>Automated Forex]
         AutonomousCompliance[Autonomous Compliance<br/>Self-updating Rules<br/>Regulatory Prediction]
@@ -483,7 +483,7 @@ graph TB
         CentralBankIntegration[Central Bank Integration<br/>CBDC Support<br/>Real-time Settlement]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         QuantumLedger[(Quantum Ledger<br/>Quantum-encrypted<br/>Immutable History)]
         GlobalState[(Global State<br/>Real-time Synchronization<br/>Eventual Consistency)]
         PredictiveCache[(Predictive Cache<br/>ML-driven Preloading<br/>Zero-latency Access)]
@@ -493,7 +493,7 @@ graph TB
         QuantumStorage[(Quantum Storage<br/>Quantum Encryption<br/>Perfect Security)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         AutonomousOps[Autonomous Ops<br/>Self-healing Infrastructure<br/>Predictive Maintenance]
         QuantumSecurity[Quantum Security<br/>Threat Prediction<br/>Automated Response]
         ContinuousCompliance[Continuous Compliance<br/>Real-time Auditing<br/>Automated Reporting]

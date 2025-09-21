@@ -16,24 +16,24 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         APP[Application<br/>Delete operations<br/>TTL data patterns]
         CLIENT[Client Driver<br/>CQL queries]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         NODE1[Cassandra Node 1<br/>Coordinator<br/>tombstone_warn_threshold: 1000]
         NODE2[Cassandra Node 2<br/>Replica<br/>tombstone_failure_threshold: 100000]
         NODE3[Cassandra Node 3<br/>Replica<br/>Compaction backlog: HIGH]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         SSTABLE1[SSTable 1<br/>Live data: 10%<br/>Tombstones: 90%]
         SSTABLE2[SSTable 2<br/>Recent writes<br/>Mixed data]
         SSTABLE3[SSTable 3<br/>Old data<br/>Many deletes]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         COMPACTION[Compaction Process<br/>Tombstone cleanup<br/>gc_grace_seconds: 864000]
         MONITORING[Monitoring<br/>Tombstone metrics<br/>Read latency alerts]
         LOGS[Cassandra Logs<br/>Tombstone warnings<br/>Compaction status]

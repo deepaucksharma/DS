@@ -89,13 +89,13 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CDN[CloudFlare CDN<br/>Global Edge Network]
         LB[Load Balancers<br/>AWS ALB + NLB]
         WAF[Web Application Firewall<br/>CloudFlare + AWS WAF]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         API[API Gateway<br/>Kong + Custom Router]
         AUTH[Auth Service<br/>Go + Redis Sessions]
         GAME[Game Servers<br/>C++ + Custom Protocol]
@@ -104,7 +104,7 @@ graph TB
         PAY[Payment Service<br/>Java + Stripe/PayPal]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         CONSUL[Consul Cluster<br/>Service Discovery]
         MYSQL[(MySQL Cluster<br/>User Data + Game State)]
         REDIS[(Redis Cluster<br/>Sessions + Cache)]
@@ -112,7 +112,7 @@ graph TB
         CASSAN[(Cassandra<br/>Game Logs + Analytics)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MON[Monitoring<br/>DataDog + Custom Metrics]
         DEPLOY[Deployment<br/>Jenkins + Docker]
         CONFIG[Configuration<br/>Consul KV Store]

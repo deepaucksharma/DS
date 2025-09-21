@@ -18,16 +18,16 @@ GitHub's scaling journey from a Ruby on Rails application serving 100K developer
 ### Simple Rails Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         NGINX[Nginx<br/>Load balancer<br/>Static assets]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         RAILS[Rails Monolith<br/>GitHub web app<br/>Git operations]
         GRIT[Grit Library<br/>Git repository access<br/>Ruby Git bindings]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         MYSQL[(MySQL<br/>User data<br/>Repository metadata)]
         GIT_REPOS[(Git Repositories<br/>File system<br/>Bare repositories)]
         MEMCACHED[(Memcached<br/>Object caching)]
@@ -68,18 +68,18 @@ graph TB
 ### Separated Git Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[Load Balancer<br/>HAProxy<br/>SSL termination]
         CDN[CDN<br/>Static assets<br/>Release downloads]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         WEB_CLUSTER[Web Cluster<br/>Rails applications<br/>3+ instances]
         GIT_CLUSTER[Git Cluster<br/>Dedicated Git servers<br/>SSH + HTTPS]
         BACKGROUND[Background Jobs<br/>Repository processing<br/>Email notifications]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         MYSQL_M[(MySQL Master<br/>Write operations<br/>Repository metadata)]
         MYSQL_S[(MySQL Slaves<br/>Read operations<br/>User queries)]
         REDIS[(Redis<br/>Job queues<br/>Session storage)]
@@ -120,12 +120,12 @@ graph TB
 ### Microservices and Distributed Storage
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         FASTLY[Fastly CDN<br/>Global distribution<br/>Edge computing]
         ALB[AWS ALB<br/>Auto-scaling<br/>Health checks]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         subgraph WebServices[Web Services]
             FRONTEND[Frontend Service<br/>React + Rails<br/>User interface]
             API[API Service<br/>REST + GraphQL<br/>Third-party access]
@@ -143,7 +143,7 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         subgraph DatabaseLayer[Database Layer]
             MYSQL_CLUSTER[(MySQL Cluster<br/>Vitess sharding<br/>Horizontal scaling)]
             ELASTICSEARCH[(Elasticsearch<br/>Code indexing<br/>Search queries)]

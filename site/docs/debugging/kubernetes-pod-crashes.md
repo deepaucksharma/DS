@@ -8,24 +8,24 @@ This guide provides a comprehensive approach to debugging Kubernetes pod crashes
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         INGRESS[Ingress Controller<br/>nginx-ingress]
         LB[Load Balancer<br/>AWS ALB]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         KAPI[Kubernetes API Server<br/>kube-apiserver]
         SCHED[Scheduler<br/>kube-scheduler]
         KUBELET[Kubelet<br/>Node Agent]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         ETCD[(etcd Cluster<br/>State Storage)]
         LOGS[(Pod Logs<br/>Container stdout/stderr)]
         EVENTS[(Events<br/>Kubernetes Events)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         PROM[Prometheus<br/>Metrics Collection]
         GRAF[Grafana<br/>Visualization]
         ALERT[AlertManager<br/>Incident Response]

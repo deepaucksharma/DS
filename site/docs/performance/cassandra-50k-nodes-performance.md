@@ -8,24 +8,24 @@ Apple operates one of the world's largest Apache Cassandra deployments, spanning
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[Apple Load Balancer<br/>Custom L4/L7 LB<br/>99.99% availability]
         CDN[Apple CDN<br/>Global edge network<br/>90% cache hit ratio]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         API[Apple Services API<br/>Swift/Objective-C<br/>10,000+ instances]
         DRIVER[Cassandra Drivers<br/>Connection pooling<br/>Smart routing]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         DC1[Data Center 1<br/>15,000 nodes<br/>US West Coast]
         DC2[Data Center 2<br/>15,000 nodes<br/>US East Coast]
         DC3[Data Center 3<br/>10,000 nodes<br/>Ireland]
         DC4[Data Center 4<br/>10,000 nodes<br/>Asia Pacific]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MON[Monitoring<br/>Apple Internal Tools<br/>Real-time metrics]
         BACKUP[Backup System<br/>Cross-DC replication<br/>Point-in-time recovery]
     end

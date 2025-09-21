@@ -8,27 +8,27 @@ This guide provides systematic approaches to debugging rate limiting issues and 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CDN[CDN Rate Limiting<br/>Edge Protection]
         WAF[WAF<br/>DDoS Protection]
         API_GW[API Gateway<br/>Primary Rate Limiting]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         RATE_LIMITER[Rate Limiter Service<br/>Token Bucket/Sliding Window]
         QUOTA_SERVICE[Quota Service<br/>Usage Tracking]
         LB[Load Balancer<br/>Connection Limiting]
         APP[Application Services<br/>Business Logic]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         REDIS_COUNTER[(Redis<br/>Rate Limit Counters)]
         QUOTA_DB[(Quota Database<br/>User Limits)]
         METRICS_DB[(Metrics Storage<br/>Usage Analytics)]
         CIRCUIT_BREAKER[(Circuit Breaker State<br/>Service Protection)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MONITOR[Monitoring<br/>Rate Limit Metrics]
         ALERTING[Alerting<br/>Threshold Violations]
         ANALYTICS[Analytics<br/>Usage Patterns]

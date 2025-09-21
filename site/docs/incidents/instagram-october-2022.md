@@ -65,14 +65,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CDN[Facebook CDN<br/>Global Edge Network]
         LB[Load Balancers<br/>F4 + HAProxy]
         EDGE[Edge PoPs<br/>180+ Global Locations]
         CACHE[Edge Cache<br/>TAO + Memcached]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         API[Instagram API<br/>HHVM + Hack]
         FEED[Feed Service<br/>Ranking Algorithm]
         STORY[Stories Service<br/>Ephemeral Content]
@@ -82,7 +82,7 @@ graph TB
         ADS[Ads Service<br/>Revenue Generation]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         USERDB[(User Database<br/>MySQL Cluster)]
         MEDIADB[(Media Metadata<br/>MySQL + Cassandra)]
         GRAPHDB[(Social Graph<br/>TAO + MySQL)]
@@ -91,7 +91,7 @@ graph TB
         MSGSTORE[(Message Store<br/>HBase + Cassandra)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CONFIG[Configuration<br/>Chef + ConfigeratoR]
         MON[Monitoring<br/>Scuba + ODS]
         DEPLOY[Deployment<br/>Tupperware]

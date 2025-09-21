@@ -16,24 +16,24 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         USER1[User - US East<br/>Request: /api/data?v=1]
         USER2[User - EU West<br/>Request: /api/data?v=2]
         USER3[User - Asia<br/>Request: /api/data?session=abc]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         CDN1[CDN Edge - US<br/>Cache Status: MISS<br/>TTL: 300s]
         CDN2[CDN Edge - EU<br/>Cache Status: MISS<br/>TTL: 300s]
         CDN3[CDN Edge - Asia<br/>Cache Status: MISS<br/>TTL: 300s]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         ORIGIN[Origin Server<br/>Load: 95% CPU<br/>Response Time: 2.5s<br/>Cache-Control: no-cache]
         DATABASE[Database<br/>Connection Pool: 98/100<br/>Query Time: 800ms]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         ANALYTICS[CDN Analytics<br/>Hit Ratio: 65%<br/>Origin Requests: 35%]
         MONITORING[Origin Monitoring<br/>Error Rate: 12%<br/>Response Time Alerts]
         LOGS[CDN Logs<br/>Cache miss reasons<br/>Vary header analysis]

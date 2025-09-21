@@ -70,14 +70,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         EDGE[WhatsApp Edge Servers<br/>Global PoPs]
         LB[Load Balancers<br/>Custom + HAProxy]
         PROXY[Message Proxies<br/>Regional Distribution]
         CDN[Media CDN<br/>Facebook Infrastructure]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         AUTH[Authentication Service<br/>Certificate-based Auth]
         MSG[Messaging Service<br/>End-to-End Encryption]
         CALL[Voice/Video Service<br/>WebRTC + TURN]
@@ -86,7 +86,7 @@ graph TB
         STATUS[Status Service<br/>Stories + Updates]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         USERDB[(User Database<br/>MySQL Cluster)]
         MSGSTORE[(Message Store<br/>HBase + Cassandra)]
         MEDIASTORE[(Media Storage<br/>Haystack + Blob)]
@@ -95,7 +95,7 @@ graph TB
         ROUTEDB[(Routing Database<br/>User Location)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CERTMGR[Certificate Manager<br/>Auto-renewal System]
         MON[Monitoring<br/>Scuba + Custom Metrics]
         DEPLOY[Deployment<br/>Tupperware + Chef]

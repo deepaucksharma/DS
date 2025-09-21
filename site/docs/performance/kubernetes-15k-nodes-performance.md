@@ -8,23 +8,23 @@ Google operates the world's largest Kubernetes clusters, managing over 15,000 no
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[Google Load Balancer<br/>Maglev + Andromeda<br/>Global load balancing]
         INGRESS[Ingress Controllers<br/>GKE Ingress<br/>L7 load balancing]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         API[Kubernetes API<br/>etcd cluster<br/>Control plane scaling]
         SCHEDULER[Scheduler<br/>Custom schedulers<br/>Bin packing optimization]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         NODES[Worker Nodes<br/>15,000 nodes<br/>n2-standard-96 instances]
         PODS[Pod Workloads<br/>2M+ pods<br/>Microservices architecture]
         STORAGE[Persistent Storage<br/>Persistent disks<br/>Multi-zone replication]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MON[Monitoring<br/>Stackdriver<br/>Real-time metrics]
         AUTOSCALE[Auto-scaling<br/>HPA + VPA + CA<br/>Predictive scaling]
     end

@@ -8,27 +8,27 @@ This guide provides comprehensive debugging strategies for SSL/TLS certificate i
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CLIENT[Client Browser<br/>Certificate Validation]
         LB[Load Balancer<br/>SSL Termination]
         CDN[CDN<br/>Edge Certificate]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         CERT_MANAGER[Cert Manager<br/>K8s Certificate Controller]
         ACME_CLIENT[ACME Client<br/>Let's Encrypt]
         PROXY[Reverse Proxy<br/>nginx/HAProxy]
         APP[Application<br/>Backend Services]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         CERT_STORE[(Certificate Store<br/>Kubernetes Secrets)]
         CA_CERT[(CA Certificates<br/>Trust Store)]
         PRIVATE_KEYS[(Private Keys<br/>Secure Storage)]
         CERT_LOG[(Certificate Logs<br/>CT Transparency)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CERT_MONITOR[Certificate Monitor<br/>Expiry Tracking]
         PKI_VALIDATOR[PKI Validator<br/>Chain Verification]
         ALERTING[Alerting<br/>Certificate Expiry]

@@ -16,18 +16,18 @@ Reddit's scaling journey from 1K users to 500M+ monthly active users represents 
 
 ```mermaid
 graph TB
-    subgraph SimpleSite[Simple Website - #3B82F6]
+    subgraph SimpleSite["Simple Website"]
         WEB_INTERFACE[Web Interface<br/>Python/web.py<br/>Simple voting]
         RSS_FEEDS[RSS Feeds<br/>Content syndication<br/>Basic API]
     end
 
-    subgraph BasicCore[Basic Core - #10B981]
+    subgraph BasicCore["Basic Core"]
         VOTING_SYSTEM[Voting System<br/>Upvote/downvote<br/>Score calculation]
         COMMENT_SYSTEM[Comment System<br/>Threaded discussions<br/>Basic threading]
         USER_SYSTEM[User System<br/>Registration<br/>Karma tracking]
     end
 
-    subgraph SimpleData[Simple Data - #F59E0B]
+    subgraph SimpleData["Simple Data"]
         POSTGRES[(PostgreSQL<br/>All data<br/>Single instance)]
         MEMCACHED[(Memcached<br/>Page caching<br/>Session storage)]
     end
@@ -64,19 +64,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph CommunityPlatform[Community Platform - #3B82F6]
+    subgraph CommunityPlatform["Community Platform"]
         SUBREDDIT_SYSTEM[Subreddit System<br/>Community creation<br/>Moderation tools]
         MODERATION[Moderation System<br/>User reports<br/>Content removal]
         CUSTOMIZATION[Customization<br/>CSS themes<br/>Community branding]
     end
 
-    subgraph ScaledServices[Scaled Services - #10B981]
+    subgraph ScaledServices["Scaled Services"]
         RANKING_ENGINE[Ranking Engine<br/>Hot algorithm<br/>Time decay]
         SEARCH_SYSTEM[Search System<br/>Lucene/Solr<br/>Content indexing]
         NOTIFICATION_SYS[Notification System<br/>Message inbox<br/>Comment replies]
     end
 
-    subgraph ScaledData[Scaled Data Infrastructure - #F59E0B]
+    subgraph ScaledData["Scaled Data Infrastructure"]
         POSTGRES_MASTER[(PostgreSQL Master<br/>Write operations<br/>ACID compliance)]
         POSTGRES_SLAVES[(PostgreSQL Slaves<br/>Read scaling<br/>Report queries)]
         REDIS[(Redis<br/>Real-time cache<br/>Session data)]
@@ -116,27 +116,27 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph ModernClients[Modern Clients - #3B82F6]
+    subgraph ModernClients["Modern Clients"]
         MOBILE_APPS[Mobile Apps<br/>iOS/Android<br/>Native experience]
         NEW_WEB[New Web Interface<br/>React/Redux<br/>Single page app]
         API_PLATFORM[API Platform<br/>Public API<br/>Third-party apps]
     end
 
-    subgraph AdvancedFeatures[Advanced Features - #10B981]
+    subgraph AdvancedFeatures["Advanced Features"]
         LIVE_COMMENTS[Live Comments<br/>Real-time updates<br/>WebSocket streaming]
         IMAGE_HOSTING[Image/Video Hosting<br/>Native uploads<br/>Content processing]
         CHAT_SYSTEM[Chat System<br/>Direct messaging<br/>Real-time chat]
         AWARDS_SYSTEM[Awards System<br/>Reddit Gold/Silver<br/>Premium features]
     end
 
-    subgraph MicroservicesArch[Microservices Architecture - #F59E0B]
+    subgraph MicroservicesArch["Microservices Architecture"]
         USER_SERVICE[User Service<br/>Authentication<br/>Profile management]
         CONTENT_SERVICE[Content Service<br/>Posts/comments<br/>Voting logic]
         COMMUNITY_SERVICE[Community Service<br/>Subreddit management<br/>Moderation]
         NOTIFICATION_SERVICE[Notification Service<br/>Real-time alerts<br/>Push notifications]
     end
 
-    subgraph DistributedData[Distributed Data - #9966CC]
+    subgraph DistributedData["Distributed Data"]
         POSTGRES_CLUSTER[(PostgreSQL Cluster<br/>Sharded database<br/>Multi-master)]
         CASSANDRA_CLUSTER[(Cassandra Cluster<br/>Comment/vote storage<br/>High throughput)]
         ELASTICSEARCH[(Elasticsearch<br/>Search index<br/>Full-text search)]

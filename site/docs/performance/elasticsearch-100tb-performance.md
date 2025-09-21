@@ -8,23 +8,23 @@ GitHub operates one of the world's largest code search systems, indexing over 10
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[GitHub Load Balancer<br/>NGINX + HAProxy<br/>99.99% availability]
         CDN[Search Result Cache<br/>Redis + Varnish<br/>65% cache hit ratio]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         API[Search API<br/>Ruby on Rails<br/>500 instances]
         QUEUE[Index Queue<br/>Redis + Sidekiq<br/>100K jobs/hour]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         ES_MASTER[ES Master Nodes<br/>3x r6g.2xlarge<br/>Cluster coordination]
         ES_DATA[ES Data Nodes<br/>200x r6g.8xlarge<br/>32GB RAM, 4TB NVMe]
         ES_INGEST[ES Ingest Nodes<br/>20x c6g.4xlarge<br/>Preprocessing pipeline]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MON[Monitoring<br/>Elasticsearch + Kibana<br/>Custom dashboards]
         BACKUP[Backup System<br/>S3 snapshots<br/>Daily incremental]
     end

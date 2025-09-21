@@ -16,23 +16,23 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CLIENT[Client Browser<br/>User Requests]
         CDN[CloudFlare CDN<br/>Edge Caching]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         NGINX[Nginx Reverse Proxy<br/>nginx/1.20.2<br/>worker_processes: 4]
         LB[Load Balancer<br/>HAProxy/AWS ALB]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         UPSTREAM1[Backend Server 1<br/>app1.internal:8080<br/>Status: UP]
         UPSTREAM2[Backend Server 2<br/>app2.internal:8080<br/>Status: DOWN - 502]
         UPSTREAM3[Backend Server 3<br/>app3.internal:8080<br/>Status: SLOW Response]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         ACCESSLOG[Access Logs<br/>/var/log/nginx/access.log<br/>502 responses]
         ERRORLOG[Error Logs<br/>/var/log/nginx/error.log<br/>upstream timeouts]
         METRICS[Nginx Metrics<br/>Active connections<br/>Request rate]

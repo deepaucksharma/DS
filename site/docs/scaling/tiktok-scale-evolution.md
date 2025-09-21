@@ -17,24 +17,24 @@ TikTok's scaling journey from Musical.ly's 100M users to becoming the world's fa
 
 ```mermaid
 graph TB
-    subgraph CorePlatform[Musical.ly Platform - #3B82F6]
+    subgraph CorePlatform["Musical.ly Platform"]
         MOBILE_APP[Mobile Apps<br/>iOS/Android<br/>Video creation]
         WEB_INTERFACE[Web Interface<br/>Basic viewing<br/>User profiles]
     end
 
-    subgraph VideoInfra[Video Infrastructure - #10B981]
+    subgraph VideoInfra["Video Infrastructure"]
         UPLOAD_SVC[Upload Service<br/>Video processing<br/>Format conversion]
         STORAGE_SVC[Storage Service<br/>Video files<br/>CDN distribution]
         STREAMING_SVC[Streaming Service<br/>Adaptive bitrate<br/>Global delivery]
     end
 
-    subgraph DataPlatform[Data Platform - #F59E0B]
+    subgraph DataPlatform["Data Platform"]
         USER_DB[(User Database<br/>PostgreSQL<br/>User profiles)]
         VIDEO_DB[(Video Metadata<br/>MySQL<br/>Content catalog)]
         REDIS_CACHE[(Redis Cache<br/>Session data<br/>Feed caching)]
     end
 
-    subgraph AICore[AI/ML Core - #9966CC]
+    subgraph AICore["AI/ML Core"]
         RECOMMENDATION[Recommendation Engine<br/>Collaborative filtering<br/>Content discovery]
         MUSIC_MATCHING[Music Matching<br/>Audio fingerprinting<br/>License compliance]
     end
@@ -73,24 +73,24 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph GlobalPlatform[Global Platform Integration - #3B82F6]
+    subgraph GlobalPlatform["Global Platform Integration"]
         TIKTOK_APP[TikTok App<br/>Rebranded interface<br/>Enhanced features]
         DOUYIN_APP[Douyin App<br/>China market<br/>Localized content]
     end
 
-    subgraph AdvancedAI[Advanced AI Systems - #9966CC]
+    subgraph AdvancedAI["Advanced AI Systems"]
         FYP_ALGORITHM[For You Page Algorithm<br/>Deep learning<br/>Personalization]
         CONTENT_UNDERSTANDING[Content Understanding<br/>Computer vision<br/>NLP processing]
         SAFETY_AI[Safety AI<br/>Content moderation<br/>Policy enforcement]
     end
 
-    subgraph ScalableInfra[Scalable Infrastructure - #10B981]
+    subgraph ScalableInfra["Scalable Infrastructure"]
         MICROSERVICES[Microservices Architecture<br/>Service mesh<br/>Independent scaling]
         GLOBAL_CDN[Global CDN<br/>Multi-provider<br/>Edge optimization]
         REAL_TIME[Real-time Processing<br/>Live streaming<br/>Instant uploads]
     end
 
-    subgraph BigData[Big Data Platform - #F59E0B]
+    subgraph BigData["Big Data Platform"]
         DATA_LAKE[(Data Lake<br/>Hadoop/Spark<br/>Petabyte storage)]
         STREAM_PROCESSING[(Stream Processing<br/>Apache Flink<br/>Real-time analytics)]
         ML_PLATFORM[(ML Platform<br/>TensorFlow<br/>Model training)]
@@ -125,12 +125,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph HyperscaleEdge[Hyperscale Edge Infrastructure - #3B82F6]
+    subgraph HyperscaleEdge["Hyperscale Edge Infrastructure"]
         GLOBAL_EDGE[Global Edge Network<br/>1000+ locations<br/>Sub-50ms latency]
         INTELLIGENT_ROUTING[Intelligent Routing<br/>ML-based optimization<br/>Dynamic load balancing]
     end
 
-    subgraph ContentPlatform[Content Platform - #10B981]
+    subgraph ContentPlatform["Content Platform"]
         subgraph VideoProcessing[Video Processing]
             UPLOAD_PIPELINE[Upload Pipeline<br/>Parallel processing<br/>Format optimization]
             TRANSCODING[Transcoding Service<br/>Multiple resolutions<br/>Adaptive streaming]
@@ -144,7 +144,7 @@ graph TB
         end
     end
 
-    subgraph AIRecommendation[AI Recommendation Engine - #9966CC]
+    subgraph AIRecommendation["AI Recommendation Engine"]
         subgraph UserModeling[User Modeling]
             INTEREST_GRAPH[Interest Graph<br/>Real-time updates<br/>Multi-dimensional vectors]
             BEHAVIOR_ANALYSIS[Behavior Analysis<br/>Watch time patterns<br/>Engagement prediction]
@@ -164,7 +164,7 @@ graph TB
         end
     end
 
-    subgraph MassiveData[Massive Data Infrastructure - #F59E0B]
+    subgraph MassiveData["Massive Data Infrastructure"]
         subgraph StreamingData[Real-time Streaming]
             KAFKA_CLUSTERS[(Kafka Clusters<br/>Multi-region<br/>Billions events/day)]
             FLINK_PROCESSING[(Flink Processing<br/>Stream analytics<br/>Real-time features)]

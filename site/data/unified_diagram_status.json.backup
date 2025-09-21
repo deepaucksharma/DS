@@ -8802,27 +8802,6 @@
       "legacy_category": "patterns",
       "legacy_file_path": "guarantees/exactly-once/exactly-once-kafka.md"
     },
-    "case-studies/index": {
-      "status": "needs_update",
-      "category": "home/foundation",
-      "created_date": "2025-09-18T18:08:06.546872",
-      "last_updated": "2025-09-18T18:08:06.546875",
-      "last_reviewed": null,
-      "spec_version": "d41d8cd9",
-      "file_path": "case-studies/index.md",
-      "diagram_count": 1,
-      "content_hash": "840e4e31",
-      "compliance_score": 42,
-      "issues": [
-        "Missing metrics: throughput, latency, storage, cost",
-        "No MTTR/MTTD metrics documented",
-        "Insufficient cost/resource info (found 1/5 patterns)",
-        "Generic term 'Database' without specific technology",
-        "Generic term 'Service' without specific technology",
-        "No technology version numbers found"
-      ],
-      "legacy_category": "other"
-    },
     "getting-started/quick-start": {
       "status": "needs_update",
       "category": "home/patterns",

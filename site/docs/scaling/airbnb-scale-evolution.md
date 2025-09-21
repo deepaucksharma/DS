@@ -16,23 +16,23 @@ Airbnb's transformation from renting air mattresses during a design conference t
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         WebApp[Airbnb Website<br/>Rails Frontend<br/>Simple Listing Pages]
         BasicEmail[Email System<br/>SMTP + Templates<br/>Manual Notifications]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         RailsMonolith[Rails Monolith<br/>All Business Logic<br/>Single Application]
         ImageUpload[Image Upload<br/>Simple File Handling<br/>Basic Resizing]
         PaymentBasic[Basic Payments<br/>PayPal Integration<br/>Manual Processing]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         PostgreSQL[(PostgreSQL<br/>Single Database<br/>Users + Listings + Bookings)]
         FileStorage[File Storage<br/>Local Disk<br/>Property Photos)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         BasicLogs[Basic Logging<br/>Rails Logs<br/>Manual Monitoring]
         ManualOps[Manual Operations<br/>Customer Service<br/>Host Approval]
     end
@@ -83,13 +83,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         WebPortal[Web Portal<br/>Enhanced UI/UX<br/>Professional Photography]
         MobileWeb[Mobile Web<br/>Responsive Design<br/>Mobile Bookings]
         HostDashboard[Host Dashboard<br/>Listing Management<br/>Calendar Sync]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         UserService[User Service<br/>Profiles + Authentication<br/>Identity Verification]
         ListingService[Listing Service<br/>Property Management<br/>Availability Calendar]
         BookingService[Booking Service<br/>Reservation Management<br/>Payment Processing]
@@ -98,7 +98,7 @@ graph TB
         TrustSafety[Trust & Safety<br/>Manual Review<br/>Basic Verification]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         UserDB[(User Database<br/>PostgreSQL<br/>Profiles + Verification)]
         ListingDB[(Listing Database<br/>PostgreSQL<br/>Properties + Photos)]
         BookingDB[(Booking Database<br/>PostgreSQL<br/>Reservations + Payments)]
@@ -106,7 +106,7 @@ graph TB
         ImageCDN[Image CDN<br/>Amazon CloudFront<br/>Property Photos]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         BasicMonitoring[Monitoring<br/>New Relic<br/>Performance Tracking]
         CustomerSupport[Customer Support<br/>Zendesk<br/>24/7 Help Center]
         DataAnalytics[Analytics<br/>Google Analytics<br/>Basic Metrics]
@@ -166,7 +166,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         GlobalCDN[Global CDN<br/>Multi-region<br/>Image Optimization]
         WebApp[Web Application<br/>React + Rails<br/>Responsive Design]
         iOSApp[iOS App<br/>Native Swift<br/>Offline Functionality]
@@ -174,7 +174,7 @@ graph TB
         PartnerAPIs[Partner APIs<br/>Channel Managers<br/>OTA Integration]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         APIGateway[API Gateway<br/>Rate Limiting<br/>Authentication]
         UserPlatform[User Platform<br/>Global Identity<br/>Multi-language]
         ListingPlatform[Listing Platform<br/>Global Inventory<br/>Dynamic Pricing]
@@ -185,7 +185,7 @@ graph TB
         TrustPlatform[Trust Platform<br/>ML-powered Verification<br/>Risk Assessment]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         UserShards[(User Shards<br/>MySQL<br/>Geographic Partitioning)]
         ListingShards[(Listing Shards<br/>MySQL<br/>City-based Sharding)]
         BookingShards[(Booking Shards<br/>MySQL<br/>Time-based Sharding)]
@@ -195,7 +195,7 @@ graph TB
         AnalyticsDB[(Analytics DB<br/>Vertica<br/>Data Warehouse)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         ServiceMesh[Service Mesh<br/>Envoy Proxy<br/>Traffic Management]
         Monitoring[Monitoring<br/>Datadog<br/>Business Metrics]
         DataPipeline[Data Pipeline<br/>Kafka + Spark<br/>Real-time Analytics]
@@ -265,7 +265,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         WebPlatform[Web Platform<br/>React + GraphQL<br/>Progressive Web App]
         MobileApps[Mobile Apps<br/>Native Performance<br/>Offline Capabilities]
         ExperienceApps[Experience Apps<br/>Tours + Activities<br/>Local Discovery]
@@ -273,7 +273,7 @@ graph TB
         PartnerIntegrations[Partner Integrations<br/>Property Managers<br/>Channel Sync]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         UnifiedAPI[Unified API<br/>GraphQL Federation<br/>Real-time Updates]
         UserIntelligence[User Intelligence<br/>Behavioral Analysis<br/>Preference Learning]
         ListingIntelligence[Listing Intelligence<br/>Smart Pricing<br/>Occupancy Optimization]
@@ -284,7 +284,7 @@ graph TB
         TrustIntelligence[Trust Intelligence<br/>ML-powered Safety<br/>Fraud Detection]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         UserGraph[(User Graph<br/>Neo4j<br/>Social + Behavioral Data)]
         ListingGraph[(Listing Graph<br/>Neo4j<br/>Property Relationships)]
         BookingLedger[(Booking Ledger<br/>Event Sourcing<br/>Immutable History)]
@@ -294,7 +294,7 @@ graph TB
         ConversationStore[(Conversation Store<br/>Cassandra<br/>Message History)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MLPlatform[ML Platform<br/>TensorFlow + PyTorch<br/>Model Training + Serving]
         ABTestingPlatform[A/B Testing<br/>Statistical Analysis<br/>Experimentation]
         DataLakehouse[Data Lakehouse<br/>Delta Lake<br/>Unified Analytics]
@@ -366,7 +366,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ConsumerPlatform[Consumer Platform<br/>Personalized Experience<br/>Multi-device Sync]
         BusinessPlatform[Business Platform<br/>Corporate Booking<br/>Expense Integration]
         HostPlatform[Host Platform<br/>Professional Management<br/>Revenue Analytics]
@@ -374,7 +374,7 @@ graph TB
         LuxuryPlatform[Luxury Platform<br/>Plus + Luxe<br/>Premium Services]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         TravelOrchestrator[Travel Orchestrator<br/>End-to-end Trips<br/>Multi-service Booking]
         BusinessTravelEngine[Business Travel<br/>Corporate Policies<br/>Expense Management]
         LongTermStayEngine[Long-term Stays<br/>Monthly Bookings<br/>Relocation Services]
@@ -385,7 +385,7 @@ graph TB
         SafetyIntelligence[Safety Intelligence<br/>Health Protocols<br/>Crisis Management]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         CustomerDataPlatform[(Customer Data Platform<br/>Unified Profiles<br/>360° View)]
         BusinessTravelDB[(Business Travel DB<br/>Corporate Accounts<br/>Policy Management)]
         LongTermStayDB[(Long-term Stay DB<br/>Extended Bookings<br/>Relationship Management)]
@@ -395,7 +395,7 @@ graph TB
         SafetyProtocolDB[(Safety Protocol DB<br/>Health Guidelines<br/>Emergency Procedures)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         AdvancedMLOps[Advanced MLOps<br/>Model Lifecycle<br/>Continuous Learning]
         BusinessIntelligence[Business Intelligence<br/>Advanced Analytics<br/>Predictive Insights]
         ComplianceAutomation[Compliance Automation<br/>Regulatory Updates<br/>Auto-adaptation]
@@ -465,7 +465,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         UnifiedTravelPlatform[Unified Travel Platform<br/>AI-powered Discovery<br/>Seamless Multi-modal]
         RemoteWorkPlatform[Remote Work Platform<br/>Nomad-optimized<br/>Workspace Integration]
         LivingPlatform[Living Platform<br/>Long-term Housing<br/>Community Building]
@@ -473,7 +473,7 @@ graph TB
         SustainabilityPlatform[Sustainability Platform<br/>Carbon Tracking<br/>Eco-friendly Options]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         AITravelOrchestrator[AI Travel Orchestrator<br/>Intelligent Trip Planning<br/>Predictive Optimization]
         RemoteWorkServices[Remote Work Services<br/>Workspace Management<br/>Productivity Tools]
         CommunityPlatform[Community Platform<br/>Social Connections<br/>Local Integration]
@@ -484,7 +484,7 @@ graph TB
         IntelligentPricing[Intelligent Pricing<br/>Market Optimization<br/>Revenue Management]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         UnifiedCustomerGraph[(Unified Customer Graph<br/>Complete Lifecycle<br/>Behavioral Prediction)]
         RemoteWorkDB[(Remote Work DB<br/>Workspace Preferences<br/>Productivity Patterns)]
         CommunityGraph[(Community Graph<br/>Social Networks<br/>Local Connections)]
@@ -495,7 +495,7 @@ graph TB
         RevenueOptimizationDB[(Revenue Optimization<br/>Pricing Models<br/>Market Intelligence)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         AIMLPlatform[AI/ML Platform<br/>Advanced Models<br/>Continuous Learning]
         PredictiveAnalytics[Predictive Analytics<br/>Market Forecasting<br/>Demand Planning]
         AutomatedCompliance[Automated Compliance<br/>Regulatory Monitoring<br/>Policy Updates]

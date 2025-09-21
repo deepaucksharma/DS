@@ -80,14 +80,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CDN[GitHub CDN<br/>Git-LFS + Assets]
         LB[Load Balancers<br/>HAProxy + NGINX]
         EDGE[Edge Servers<br/>Global Distribution]
         CACHE[Redis Cache<br/>Session + Metadata]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         WEB[GitHub Web<br/>Ruby on Rails]
         API[GitHub API<br/>RESTful + GraphQL]
         GIT[Git Services<br/>Git Protocol Handlers]
@@ -96,7 +96,7 @@ graph TB
         PACKAGES[Package Registries<br/>npm, Docker, Maven]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         PRIMARYDB[(Primary Database<br/>MySQL Cluster)]
         REPLICA1[(Read Replica 1<br/>MySQL)]
         REPLICA2[(Read Replica 2<br/>MySQL)]
@@ -105,7 +105,7 @@ graph TB
         SEARCHDB[(Search Index<br/>Elasticsearch)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CONFIG[Configuration Management<br/>Database Tuning]
         MONITOR[Monitoring<br/>DataDog + Custom)]
         DEPLOY[Deployment<br/>GitHub's own CI/CD]

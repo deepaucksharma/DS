@@ -67,14 +67,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CDN[Content Delivery Network<br/>Game Downloads + Updates]
         LB[Load Balancers<br/>Traffic Distribution]
         EDGE[Edge Servers<br/>Regional Distribution]
         CACHE[Content Cache<br/>Game Assets]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         AUTH[Authentication Service<br/>User Login]
         STORE[PlayStation Store<br/>Digital Commerce]
         SOCIAL[Social Features<br/>Friends + Messages]
@@ -82,7 +82,7 @@ graph TB
         TROPHY[Trophy System<br/>Achievement Tracking]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         USERDB[(User Database<br/>77M User Accounts)]
         PAYMENT[(Payment Database<br/>Credit Card Data)]
         GAMEDB[(Game Database<br/>Saves + Purchases)]
@@ -90,7 +90,7 @@ graph TB
         LOGDB[(Logging Database<br/>Activity Tracking)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         SECURITY[Security Systems<br/>Legacy Firewalls]
         MONITOR[Monitoring<br/>Basic Network Monitoring]
         DEPLOY[Deployment<br/>Manual Processes]

@@ -17,24 +17,24 @@ This playbook guides the migration from Python 2.7 (end-of-life) to Python 3.9+ 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         NGINX[Nginx Reverse Proxy<br/>Load balancing<br/>SSL termination<br/>Static file serving]
         CF[CloudFlare<br/>CDN + DDoS protection<br/>Web Application Firewall]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         DJANGO_APP[Django 1.11 Application<br/>Python 2.7.18<br/>Legacy codebase 150k+ lines<br/>Custom middleware]
         CELERY_WORKERS[Celery Workers<br/>Python 2.7.18<br/>Background task processing<br/>Legacy libraries]
         WSGI[uWSGI Server<br/>Python 2.7 runtime<br/>Process management<br/>Memory limitations]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         MYSQL_DB[(MySQL 5.7<br/>Legacy schema<br/>MySQLdb connector<br/>Character encoding issues)]
         REDIS_CACHE[Redis 4.0<br/>Session storage<br/>Cache backend<br/>Task queue broker]
         FILE_STORAGE[NFS Storage<br/>Legacy file handling<br/>Encoding issues<br/>Permission problems]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         LEGACY_MONITORING[Legacy Monitoring<br/>Custom Python 2 scripts<br/>Limited observability<br/>Manual log parsing]
         CRON_JOBS[Cron Jobs<br/>Python 2 scripts<br/>Error-prone scheduling<br/>No failure recovery]
     end
@@ -77,24 +77,24 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         NGINX[Nginx Reverse Proxy<br/>Same configuration<br/>SSL termination<br/>Static file serving]
         CF[CloudFlare<br/>Same CDN setup<br/>Enhanced security<br/>Modern TLS]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         DJANGO_APP_NEW[Django 4.2 LTS Application<br/>Python 3.9+<br/>Modernized codebase<br/>Type hints + async support]
         CELERY_WORKERS_NEW[Celery 5.x Workers<br/>Python 3.9+<br/>Async task processing<br/>Modern dependencies]
         ASGI[ASGI Server (Uvicorn)<br/>Python 3.9+ runtime<br/>Async support<br/>Better performance]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         MYSQL_DB_NEW[(MySQL 8.0<br/>UTF-8 schema<br/>PyMySQL connector<br/>Connection pooling)]
         REDIS_CACHE_NEW[Redis 7.0<br/>Enhanced features<br/>Better memory usage<br/>Async support]
         FILE_STORAGE_NEW[S3-Compatible Storage<br/>Modern file handling<br/>UTF-8 support<br/>Cloud-native]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MODERN_MONITORING[Modern Monitoring<br/>Prometheus + Grafana<br/>Structured logging<br/>APM integration]
         SCHEDULED_TASKS[Celery Beat + Kubernetes<br/>Cloud-native scheduling<br/>Auto-retry mechanisms<br/>Health monitoring]
     end

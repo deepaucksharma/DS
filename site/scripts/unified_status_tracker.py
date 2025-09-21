@@ -291,8 +291,7 @@ class UnifiedStatusTracker:
                 # Production is now its own top-level category
                 "production": "production",
                 "examples": "patterns",
-                "reference": "patterns",
-                "case-studies": "patterns"
+                "reference": "patterns"
             }
             return category_map.get(category, "other")
         return "unknown"

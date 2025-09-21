@@ -18,12 +18,12 @@ Cloudflare's scaling journey from a startup idea to serving 20% of all internet 
 
 ```mermaid
 graph TB
-    subgraph PoC[Proof of Concept - #3B82F6]
+    subgraph PoC["Proof of Concept"]
         UNIVERSITY[University Servers<br/>Research project<br/>Basic caching]
         DEMO[Demo Application<br/>Performance testing]
     end
 
-    subgraph TestData[Test Infrastructure - #F59E0B]
+    subgraph TestData["Test Infrastructure"]
         CACHE[(Local Cache<br/>Static assets)]
         METRICS[(Basic Metrics<br/>Performance data)]
     end
@@ -49,19 +49,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Network - #3B82F6]
+    subgraph EdgePlane["Edge Network"]
         SF[San Francisco<br/>Primary PoP]
         DC[Washington DC<br/>East Coast PoP]
         LON[London<br/>European PoP]
     end
 
-    subgraph ServicePlane[Core Services - #10B981]
+    subgraph ServicePlane["Core Services"]
         DNS[Authoritative DNS<br/>Global anycast]
         CDN[Content Delivery<br/>Static acceleration]
         WAF[Web Application Firewall<br/>Basic protection]
     end
 
-    subgraph ControlPlane[Management - #8B5CF6]
+    subgraph ControlPlane["Management"]
         DASHBOARD[Customer Dashboard<br/>Configuration UI]
         API[Management API<br/>Automation]
         ANALYTICS[Basic Analytics<br/>Traffic reports]
@@ -97,21 +97,21 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph GlobalEdge[Global Edge Network - #3B82F6]
+    subgraph GlobalEdge["Global Edge Network"]
         AMERICAS[Americas<br/>20 locations<br/>US, Canada, Brazil]
         EUROPE[Europe<br/>15 locations<br/>Major cities]
         APAC[Asia Pacific<br/>10 locations<br/>Growth markets]
         AFRICA[Emerging<br/>5 locations<br/>Early expansion]
     end
 
-    subgraph ServiceEvolution[Enhanced Services - #10B981]
+    subgraph ServiceEvolution["Enhanced Services"]
         ANYCAST_DNS[Anycast DNS<br/>Global distribution<br/>DDoS resilience]
         ADVANCED_CDN[Advanced CDN<br/>Dynamic content<br/>Smart routing]
         ENTERPRISE_WAF[Enterprise WAF<br/>OWASP protection<br/>Custom rules]
         SSL_SERVICE[SSL Service<br/>Universal SSL<br/>Certificate management]
     end
 
-    subgraph IntelligenceLayer[Threat Intelligence - #9966CC]
+    subgraph IntelligenceLayer["Threat Intelligence"]
         THREAT_DB[Threat Database<br/>Global intelligence<br/>Shared protection]
         ML_DETECTION[ML Detection<br/>Anomaly detection<br/>Pattern recognition]
         REPUTATION[IP Reputation<br/>Scoring system<br/>Behavioral analysis]
@@ -143,26 +143,26 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph MassiveEdge[Massive Edge Network - #3B82F6]
+    subgraph MassiveEdge["Massive Edge Network"]
         TIER1[Tier 1 Locations<br/>100+ major cities<br/>High capacity]
         TIER2[Tier 2 Locations<br/>100+ secondary cities<br/>Regional coverage]
         SUBMARINE[Submarine Cables<br/>Direct connections<br/>Reduced latency]
     end
 
-    subgraph DeveloperPlatform[Developer Platform - #10B981]
+    subgraph DeveloperPlatform["Developer Platform"]
         WORKERS[Cloudflare Workers<br/>Serverless compute<br/>Edge computing]
         KV_STORE[Workers KV<br/>Global key-value<br/>Edge storage]
         DURABLE_OBJECTS[Durable Objects<br/>Stateful compute<br/>Strong consistency]
         PAGES[Cloudflare Pages<br/>JAMstack hosting<br/>Git integration]
     end
 
-    subgraph EnterpriseSecurity[Enterprise Security - #FF0000]
+    subgraph EnterpriseSecurity["Enterprise Security"]
         ZERO_TRUST[Cloudflare Access<br/>Zero Trust Network<br/>Identity-based security]
         TEAMS[Cloudflare for Teams<br/>Secure web gateway<br/>Remote workforce]
         MAGIC_TRANSIT[Magic Transit<br/>Network-level protection<br/>IP prefix announcement]
     end
 
-    subgraph AIAnalytics[AI & Analytics - #9966CC]
+    subgraph AIAnalytics["AI & Analytics"]
         AI_WAF[AI-Powered WAF<br/>Machine learning<br/>Adaptive protection]
         ANALYTICS_PLATFORM[Analytics Platform<br/>Real-time insights<br/>Custom dashboards]
         RADAR[Cloudflare Radar<br/>Internet intelligence<br/>Threat visibility]

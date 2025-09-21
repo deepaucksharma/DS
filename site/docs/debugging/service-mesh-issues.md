@@ -8,12 +8,12 @@ This guide provides comprehensive debugging strategies for service mesh issues i
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         GATEWAY[Istio Gateway<br/>External Traffic Entry]
         LB[Load Balancer<br/>AWS ALB/GCP LB]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         PILOT[Pilot<br/>Service Discovery & Config]
         CITADEL[Citadel<br/>Certificate Management]
         GALLEY[Galley<br/>Configuration Validation]
@@ -22,14 +22,14 @@ graph TB
         SIDECAR3[Envoy Sidecar<br/>Service C]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         ETCD[(etcd<br/>Kubernetes API)]
         ENVOY_CONFIG[(Envoy Config<br/>XDS Cache)]
         CERT_STORE[(Certificate Store<br/>Kubernetes Secrets)]
         ACCESS_LOGS[(Access Logs<br/>Structured Logging)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         TELEMETRY[Telemetry v2<br/>Metrics Collection]
         JAEGER[Jaeger<br/>Distributed Tracing]
         KIALI[Kiali<br/>Service Mesh Observability]

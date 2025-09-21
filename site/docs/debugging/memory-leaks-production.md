@@ -8,25 +8,25 @@ This guide provides systematic approaches to detecting, analyzing, and fixing me
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[Load Balancer<br/>AWS ALB]
         CDN[CDN<br/>CloudFront]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         APP1[App Instance 1<br/>Java 17 - 4GB heap]
         APP2[App Instance 2<br/>Java 17 - 4GB heap]
         APP3[App Instance 3<br/>Java 17 - 4GB heap]
         SIDECAR[Monitoring Sidecar<br/>JVM metrics]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         HEAP_DUMP[(Heap Dumps<br/>S3 Storage)]
         METRICS_DB[(Metrics Storage<br/>InfluxDB)]
         GC_LOG[(GC Logs<br/>Structured logging)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         APM[APM Tool<br/>New Relic/DataDog]
         PROFILER[Continuous Profiler<br/>async-profiler]
         ALERT[Alerting<br/>PagerDuty]

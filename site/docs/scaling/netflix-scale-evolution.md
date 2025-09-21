@@ -16,23 +16,23 @@ Netflix's transformation from a DVD-by-mail service to the world's largest strea
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         Website[Website<br/>Apache + PHP<br/>Single Server]
         CustomerService[Customer Service<br/>Call Center<br/>Manual Operations]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         WebApp[Web Application<br/>LAMP Stack<br/>Single Monolith]
         Inventory[Inventory Management<br/>Custom Software<br/>DVD Tracking]
         Shipping[Shipping System<br/>USPS Integration<br/>Manual Sorting]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         MySQL[(MySQL Database<br/>Customer Data<br/>Single Instance)]
         FileStorage[File Storage<br/>DVD Catalog Images<br/>Local Disk)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         BasicLogs[Basic Logs<br/>Apache Logs<br/>Manual Monitoring]
         BackupTapes[Backup System<br/>Tape Backups<br/>Weekly Schedule]
     end
@@ -77,25 +77,25 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         WebPortal[Netflix Website<br/>Load Balanced<br/>CDN for Images]
         APIv1[Public API v1<br/>Third-party Access<br/>Basic Rate Limiting]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         WebTier[Web Tier<br/>Java + Tomcat<br/>Clustered Servers]
         RecommendationEngine[Recommendation Engine<br/>Collaborative Filtering<br/>Mahout ML Library]
         InventoryService[Inventory Service<br/>Real-time Availability<br/>Warehouse Optimization]
         RatingService[Rating Service<br/>Customer Reviews<br/>Prediction Algorithm]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         MySQLCluster[(MySQL Cluster<br/>Master-Slave Setup<br/>Customer/Inventory Data)]
         RecommendationDB[(Recommendation DB<br/>User Ratings<br/>Algorithm Models)]
         CacheLayer[(Memcached<br/>Page Caching<br/>Session Storage)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         Monitoring[Nagios Monitoring<br/>Server Health<br/>Database Performance]
         BatchJobs[Batch Processing<br/>Nightly Recommendations<br/>Data Analytics]
         BackupSystem[MySQL Replication<br/>Daily Backups<br/>Disaster Recovery]
@@ -150,14 +150,14 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         GlobalCDN[Akamai CDN<br/>Video Content Delivery<br/>Adaptive Bitrate]
         WebApp[Netflix Web App<br/>Silverlight Player<br/>HTML5 Fallback]
         MobileApps[Mobile Apps<br/>iOS + Android<br/>Offline Downloads]
         DeviceApps[Device Apps<br/>Roku, Xbox, PS3<br/>Custom Integrations]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         APIGateway[API Gateway<br/>RESTful Services<br/>Device Authentication]
         StreamingService[Streaming Service<br/>Video Playback<br/>Adaptive Streaming]
         DVDService[DVD Service<br/>Legacy Monolith<br/>Inventory Management]
@@ -166,7 +166,7 @@ graph TB
         RecommendationV2[Recommendation v2<br/>Real-time ML<br/>Viewing History]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         UserDB[(User Database<br/>PostgreSQL<br/>Account Information)]
         ContentDB[(Content Database<br/>MySQL<br/>Video Metadata)]
         ViewingDB[(Viewing Database<br/>Cassandra<br/>Playback Events)]
@@ -175,7 +175,7 @@ graph TB
         CDNOrigin[CDN Origin Servers<br/>High-bandwidth<br/>Global Distribution]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         VideoEncoding[Video Encoding<br/>AWS EC2<br/>Multiple Bitrates]
         AnalyticsPipeline[Analytics Pipeline<br/>Hadoop Cluster<br/>Viewing Analytics]
         ABTesting[A/B Testing<br/>Recommendation Algorithms<br/>UI Experiments]
@@ -238,14 +238,14 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         NetflixCDN[Netflix CDN<br/>Custom Global Network<br/>15% of Internet Traffic]
         WebUI[Web UI<br/>React + Node.js<br/>Single Page App]
         MobileApps[Mobile Apps<br/>Native iOS/Android<br/>Smart Downloads]
         SmartTVs[Smart TV Apps<br/>100+ Device Types<br/>Custom Players]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         Zuul[Zuul Gateway<br/>Dynamic Routing<br/>Circuit Breakers]
         UserMS[User Microservice<br/>Account Management<br/>Spring Boot]
         ContentMS[Content Microservice<br/>Metadata Service<br/>Elasticsearch]
@@ -256,7 +256,7 @@ graph TB
         PersonalizationMS[Personalization MS<br/>Homepage Optimization<br/>A/B Testing]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         Cassandra[(Cassandra Clusters<br/>Viewing History<br/>Petabyte Scale)]
         DynamoDB[(DynamoDB<br/>User Preferences<br/>Global Tables)]
         ElasticSearch[(Elasticsearch<br/>Content Search<br/>Real-time Indexing)]
@@ -265,7 +265,7 @@ graph TB
         EVCache[EVCache<br/>Distributed Cache<br/>Custom Memcached)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         Hystrix[Hystrix<br/>Circuit Breaker<br/>Fault Tolerance]
         Eureka[Eureka<br/>Service Discovery<br/>Load Balancing]
         Spinnaker[Spinnaker<br/>Continuous Deployment<br/>Blue-Green Deploys]
@@ -332,7 +332,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         OpenConnect[Open Connect CDN<br/>Netflix Custom Hardware<br/>ISP Partnerships]
         GlobalWebApp[Global Web App<br/>Localized UI<br/>Progressive Web App]
         MobileSDK[Mobile SDK<br/>Smart Downloads<br/>Offline Viewing]
@@ -340,7 +340,7 @@ graph TB
         StudioConnect[Studio Connect<br/>Content Partner Portal<br/>Rights Management]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         GlobalAPI[Global API Gateway<br/>GraphQL Federation<br/>Regional Routing]
         ContentPlatform[Content Platform<br/>Metadata + Rights<br/>Global Catalog]
         PersonalizationEngine[Personalization Engine<br/>Deep Learning<br/>Real-time ML]
@@ -351,7 +351,7 @@ graph TB
         ComplianceService[Compliance Service<br/>Regional Regulations<br/>Content Filtering]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         GlobalUserDB[(Global User DB<br/>Cross-region Sync<br/>GDPR Compliance)]
         ContentCatalog[(Content Catalog<br/>Global Metadata<br/>Rights Information)]
         ViewingDataLake[(Viewing Data Lake<br/>Spark + Kafka<br/>Real-time Analytics)]
@@ -361,7 +361,7 @@ graph TB
         VideoAssets[Video Assets<br/>Encoded Content<br/>Global Distribution]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MLPlatform[ML Platform<br/>Model Training<br/>Feature Engineering]
         DataPipeline[Data Pipeline<br/>Real-time Streaming<br/>Batch Processing]
         ExperimentPlatform[Experiment Platform<br/>A/B Testing<br/>Statistical Analysis]
@@ -431,7 +431,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         NextGenCDN[Next-Gen CDN<br/>Edge Computing<br/>Real-time Optimization]
         InteractivePlayer[Interactive Player<br/>Branching Narratives<br/>Real-time Choices]
         CloudGaming[Cloud Gaming<br/>Game Streaming<br/>Low-latency Delivery]
@@ -439,7 +439,7 @@ graph TB
         StudioCloud[Studio Cloud<br/>Remote Production<br/>Collaborative Tools]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         UnifiedAPI[Unified API<br/>GraphQL + REST<br/>Multi-modal Content]
         ContentIntelligence[Content Intelligence<br/>AI Analysis<br/>Automated Tagging]
         InteractiveEngine[Interactive Engine<br/>Branching Logic<br/>Real-time State]
@@ -450,7 +450,7 @@ graph TB
         AIContentGen[AI Content Gen<br/>Automated Production<br/>Personalized Stories]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         UnifiedProfileDB[(Unified Profile DB<br/>Cross-platform Identity<br/>Behavioral Patterns)]
         InteractiveStateDB[(Interactive State DB<br/>Choice History<br/>Branching Paths)]
         CreativeAssetDB[(Creative Asset DB<br/>Raw Footage<br/>AI-generated Content)]
@@ -460,7 +460,7 @@ graph TB
         BlockchainLedger[(Blockchain Ledger<br/>Creator Payments<br/>Rights Management)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         AIOps[AIOps Platform<br/>Predictive Scaling<br/>Self-healing Systems]
         EdgeOrchestration[Edge Orchestration<br/>Global Deployment<br/>Latency Optimization]
         CreatorEconomyPlatform[Creator Economy<br/>Revenue Sharing<br/>Analytics Dashboard]

@@ -8,27 +8,27 @@ This guide provides systematic approaches to identifying and handling poison mes
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         PRODUCER1[Producer Service 1<br/>Order Events]
         PRODUCER2[Producer Service 2<br/>Payment Events]
         PRODUCER3[Producer Service 3<br/>Inventory Events]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         BROKER[Message Broker<br/>Apache Kafka/RabbitMQ]
         CONSUMER1[Consumer Service 1<br/>Email Notifications]
         CONSUMER2[Consumer Service 2<br/>Analytics Pipeline]
         CONSUMER3[Consumer Service 3<br/>Audit Logger]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         MAIN_TOPIC[(Main Topic<br/>business-events)]
         DLQ[(Dead Letter Queue<br/>failed-messages)]
         POISON_STORE[(Poison Message Store<br/>S3/Database)]
         CONSUMER_OFFSET[(Consumer Offsets<br/>__consumer_offsets)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MONITORING[Monitoring<br/>Prometheus + Grafana]
         ALERTING[Alerting<br/>PagerDuty]
         POISON_DETECTOR[Poison Detector<br/>Custom Service]

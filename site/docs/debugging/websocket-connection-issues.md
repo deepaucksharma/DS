@@ -8,24 +8,24 @@ Systematic debugging of WebSocket connection issues in production environments. 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[Load Balancer<br/>WebSocket Support]
         PROXY[WebSocket Proxy<br/>nginx/HAProxy]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         WS_GATEWAY[WebSocket Gateway<br/>Connection Manager]
         WS_HANDLER[WebSocket Handler<br/>Message Processing]
         AUTH_SERVICE[Auth Service<br/>Connection Validation]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         CONNECTION_STORE[(Connection Store<br/>Redis/Memory)]
         MESSAGE_QUEUE[(Message Queue<br/>Redis Streams)]
         SESSION_STORE[(Session Store<br/>User Sessions)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         WS_MONITOR[WebSocket Monitor<br/>Connection Metrics]
         HEALTH_CHECK[Health Checker<br/>Connection Validation]
         ALERTING[Alerting<br/>Connection Issues]

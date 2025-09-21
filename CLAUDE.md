@@ -55,9 +55,7 @@ site/
 │   ├── capacity/           # Capacity Models (60)
 │   ├── migrations/         # Migration Playbooks (60)
 │   ├── costs/              # Cost Breakdowns (60)
-│   ├── comparisons/        # Technology Comparisons (40)
-│   ├── case-studies/       # In-depth analyses
-│   └── production/         # Production best practices
+│   └── comparisons/        # Technology Comparisons (40)
 ├── scripts/                # Automation tools
 ├── data/                   # Progress tracking
 ├── EXECUTION_MASTER.md     # Primary execution guide
@@ -190,7 +188,7 @@ All diagrams MUST use these exact Tailwind-inspired colors:
 - **Guarantees**: What the system promises (consistency, availability, etc.)
 - **Mechanisms**: How guarantees are implemented (consensus, replication, etc.)
 - **Patterns**: Complete architectural solutions combining mechanisms
-- **Examples**: Case studies, implementations, pitfalls
+- **Examples**: Implementations, pitfalls
 - **Reference**: API reference, glossary, further reading
 
 #### Main Sections
@@ -203,8 +201,6 @@ All diagrams MUST use these exact Tailwind-inspired colors:
 - **Migrations**: Transformation playbooks (60 diagrams)
 - **Costs**: Infrastructure economics (60 diagrams)
 - **Comparisons**: Technology trade-offs (40 diagrams)
-- **Case Studies**: In-depth analyses
-- **Production**: Best practices and reality checks
 
 ## Common Commands
 

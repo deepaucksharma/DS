@@ -55,12 +55,12 @@ graph TB
         BOTS[Bot Ecosystem<br/>🤖 API failures]
     end
 
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane["Edge Plane"]
         GATEWAY[Discord Gateway<br/>✅ Accepting connections<br/>⚠️ WebSocket drops]
         CDN[CloudFlare CDN<br/>✅ Static assets OK<br/>📊 API requests timing out]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane["Service Plane"]
         subgraph APILayer[API Layer - CRITICAL FAILURE]
             API1[API Server 1<br/>❌ Redis connection lost]
             API2[API Server 2<br/>❌ Redis connection lost]
@@ -80,7 +80,7 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane["State Plane"]
         subgraph RedisCluster[Redis HA Cluster - EPICENTER]
             REDIS_OLD[Redis Primary (Old)<br/>❌ GCP migrated away<br/>💀 Node offline]
             REDIS_NEW[Redis Primary (New)<br/>⚠️ Promoting to primary<br/>🔄 Failover in progress]
@@ -99,7 +99,7 @@ graph TB
         end
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane["Control Plane"]
         subgraph Monitoring[Monitoring - OVERWHELMED]
             METRICS[Prometheus<br/>❌ High cardinality explosion<br/>📊 Scrape timeouts]
             DASH[Grafana<br/>⚠️ Dashboard loading slowly<br/>📈 Alert fatigue]

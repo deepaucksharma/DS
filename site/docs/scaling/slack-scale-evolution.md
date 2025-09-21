@@ -17,23 +17,23 @@ Slack's scaling journey from a small team communication tool to supporting 20M+ 
 ### Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ELB[Elastic Load Balancer]
         CF[CloudFront CDN]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         RAILS[Rails Monolith<br/>3 instances<br/>m3.medium]
         SOCK[Socket.io Server<br/>2 instances<br/>m3.small]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         MYSQL[(MySQL<br/>db.t2.small<br/>20GB)]
         REDIS[(Redis<br/>cache.t2.micro<br/>1GB)]
         S3[(S3 Bucket<br/>File Storage)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         LOGS[Papertrail Logs]
         MON[New Relic APM]
     end
@@ -91,12 +91,12 @@ graph TB
 ### Architecture Evolution
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ELB[Application Load Balancer]
         CF[CloudFront CDN<br/>Global edge locations]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         RAILS1[Rails App 1<br/>m3.large]
         RAILS2[Rails App 2<br/>m3.large]
         RAILS3[Rails App 3<br/>m3.large]
@@ -105,7 +105,7 @@ graph TB
         BG[Background Jobs<br/>m3.medium]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         MYSQL_M[(MySQL Master<br/>db.m3.xlarge<br/>500GB)]
         MYSQL_S[(MySQL Slave<br/>db.m3.large<br/>500GB)]
         REDIS_M[(Redis Master<br/>cache.m3.large<br/>13GB)]
@@ -113,7 +113,7 @@ graph TB
         S3[(S3 Bucket<br/>Multi-part uploads)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         LOGS[Centralized Logging<br/>ELK Stack]
         MON[Monitoring<br/>DataDog + PagerDuty]
         DEPLOY[Deployment<br/>Jenkins CI/CD]
@@ -177,13 +177,13 @@ graph TB
 ### Architecture Revolution
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ALB[Application Load Balancer<br/>Multi-AZ]
         CF[CloudFront CDN<br/>15 global regions]
         WAF[AWS WAF<br/>DDoS protection]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         subgraph WebTier[Web Tier - Auto Scaling]
             WEB1[Web Server 1<br/>c4.xlarge]
             WEB2[Web Server 2<br/>c4.xlarge]
@@ -202,7 +202,7 @@ graph TB
         FILES[File Service<br/>Dedicated processing]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         subgraph MySQLCluster[MySQL Cluster]
             MYSQL_M[(Master<br/>db.r3.2xlarge<br/>1TB SSD)]
             MYSQL_R1[(Read Replica 1<br/>db.r3.xlarge)]
@@ -220,7 +220,7 @@ graph TB
         S3[(S3 + CloudFront<br/>Global file distribution)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MON[DataDog + Custom<br/>500+ metrics]
         LOGS[Centralized Logging<br/>20GB/day]
         DEPLOY[Blue-Green Deploy<br/>Zero downtime]

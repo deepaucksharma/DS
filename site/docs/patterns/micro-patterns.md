@@ -512,18 +512,18 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         REQUEST[Single Request<br/>Fan-out coordinator<br/>SLO: p99 <30s]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         SERVICE1[Service A<br/>p99: 10ms, 99% SLA<br/>Cost: $2K/month]
         SERVICE2[Service B<br/>p99: 15ms, 95% SLA<br/>Cost: $3K/month]
         SERVICE3[Service C<br/>p99: 20ms, 98% SLA<br/>Cost: $2.5K/month]
         AGGREGATOR[Result Aggregator<br/>p99: 5ms merge<br/>Partial results: 90%]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         RESULTS[(Aggregated Results<br/>JSON merge, 10GB/day<br/>Failure metadata)]
     end
 
@@ -558,22 +558,22 @@ graph LR
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         QUERY_API[Analytics API<br/>SQL interface, p99: 2s<br/>10K queries/day]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         QUERY_ENGINE[Query Engine<br/>Apache Spark 3.4<br/>1TB/hour processing]
         ETL[ETL Processor<br/>Airflow orchestration<br/>500GB/day pipeline]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         DWH[(Data Warehouse<br/>Snowflake, 100TB<br/>$50K/month)]
         STAGING[(Staging Area<br/>S3, 10TB buffer<br/>7-day retention)]
         METADATA[(Metadata Store<br/>Apache Atlas<br/>10K entities)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         WORKLOAD[Workload Manager<br/>Resource allocation<br/>Auto-scaling: 10-100 nodes]
         SCHEDULER[Job Scheduler<br/>Airflow 2.7<br/>1K DAGs, 99.9% SLA]
     end

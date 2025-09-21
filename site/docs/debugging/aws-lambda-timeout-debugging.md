@@ -16,23 +16,23 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         TRIGGER[Event Trigger<br/>API Gateway/S3/SQS]
         CLIENT[Client Application<br/>Synchronous calls]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         LAMBDA[Lambda Function<br/>Timeout: 5 minutes<br/>Memory: 1GB]
         XRAY[X-Ray Tracing<br/>Performance analysis]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         RDS[RDS Database<br/>Connection timeout: 30s]
         S3[S3 Storage<br/>Large file processing]
         EXTERNAL[External API<br/>Third-party service]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CLOUDWATCH[CloudWatch Logs<br/>Timeout errors]
         METRICS[CloudWatch Metrics<br/>Duration, errors]
         ALARMS[CloudWatch Alarms<br/>Timeout threshold]

@@ -17,12 +17,12 @@ This playbook guides the migration from traditional Virtual Machine deployments 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ALB[Application Load Balancer<br/>Target Groups: VM instances<br/>Health checks: HTTP:8080/health]
         CF[CloudFront<br/>Static assets caching<br/>Origin: ALB]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         WEB_VM1[Web Server VM 1<br/>c5.xlarge (4 CPU, 8GB)<br/>Ubuntu 20.04<br/>Nginx + Node.js 16]
         WEB_VM2[Web Server VM 2<br/>c5.xlarge (4 CPU, 8GB)<br/>Ubuntu 20.04<br/>Nginx + Node.js 16]
         API_VM1[API Server VM 1<br/>c5.2xlarge (8 CPU, 16GB)<br/>Ubuntu 20.04<br/>Java 11 + Spring Boot]
@@ -31,13 +31,13 @@ graph TB
         WORKER_VM2[Worker VM 2<br/>c5.large (2 CPU, 4GB)<br/>Ubuntu 20.04<br/>Python 3.9 + Celery]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         RDS[RDS PostgreSQL<br/>db.r5.xlarge<br/>Multi-AZ deployment<br/>500GB storage]
         REDIS[ElastiCache Redis<br/>cache.r6g.large<br/>Cluster mode enabled<br/>Session store]
         S3[S3 Buckets<br/>Application logs<br/>Static assets<br/>File uploads]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CW[CloudWatch<br/>Instance metrics<br/>Application logs<br/>Custom dashboards]
         ANSIBLE[Ansible Tower<br/>Configuration management<br/>Application deployment<br/>VM provisioning]
     end
@@ -105,12 +105,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ALB[Application Load Balancer<br/>Target Groups: EKS nodes<br/>Health checks: /health]
         CF[CloudFront<br/>Static assets caching<br/>Origin: ALB]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         EKS[EKS Cluster<br/>3x m5.large nodes<br/>Auto Scaling Groups<br/>Kubernetes 1.28]
 
         subgraph WebPods[Web Service Pods]
@@ -130,14 +130,14 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         RDS[RDS PostgreSQL<br/>db.r5.xlarge<br/>Same as current<br/>Connection pooling]
         REDIS[ElastiCache Redis<br/>cache.r6g.large<br/>Same as current<br/>Session + cache]
         ECR[ECR Repository<br/>Container images<br/>Vulnerability scanning<br/>Lifecycle policies]
         S3[S3 Buckets<br/>Application logs<br/>Static assets<br/>File uploads]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CW[CloudWatch<br/>Container metrics<br/>Application logs<br/>Kubernetes events]
         PROMETHEUS[Prometheus<br/>Custom metrics<br/>Alert manager<br/>Service monitoring]
         GRAFANA[Grafana<br/>Visualization<br/>Dashboards<br/>Alerts]

@@ -16,24 +16,24 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CLIENT[Client Application<br/>Timeout: 30s]
         GATEWAY[API Gateway<br/>gRPC-Web Proxy]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         SERVICEA[Service A<br/>Order Service<br/>Timeout: 20s]
         SERVICEB[Service B<br/>Payment Service<br/>Timeout: 15s]
         SERVICEC[Service C<br/>Inventory Service<br/>Timeout: 10s]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         DBASE[Database<br/>PostgreSQL<br/>Query Timeout: 5s]
         CACHE[Redis Cache<br/>Timeout: 2s]
         EXTERNAL[External API<br/>Partner Service<br/>Timeout: 8s]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         TRACING[Distributed Tracing<br/>Jaeger/Zipkin]
         METRICS[gRPC Metrics<br/>Prometheus]
         LOGS[Service Logs<br/>Structured JSON]

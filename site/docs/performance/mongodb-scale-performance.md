@@ -8,24 +8,24 @@ Uber operates one of the world's largest MongoDB deployments, managing petabytes
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[Uber Load Balancer<br/>Envoy Proxy<br/>99.99% availability]
         CDN[Uber CDN<br/>Edge caching<br/>Location-aware routing]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         API[Uber APIs<br/>Go microservices<br/>5000+ instances]
         ROUTER[MongoDB Router<br/>mongos processes<br/>Query routing layer]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         CONFIG[Config Servers<br/>3x r6g.xlarge<br/>Metadata storage]
         SHARD1[Shard 1<br/>3x r6g.16xlarge<br/>Primary + 2 secondaries]
         SHARD2[Shard 2<br/>3x r6g.16xlarge<br/>Primary + 2 secondaries]
         SHARDN[Shard N<br/>500 total shards<br/>1500 replica set members]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MON[Monitoring<br/>MongoDB Ops Manager<br/>Real-time metrics]
         BACKUP[Backup System<br/>Continuous backup<br/>Point-in-time recovery]
     end

@@ -16,23 +16,23 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CLIENT[GraphQL Client<br/>Single Query Request]
         INTROSPECT[GraphQL Introspection<br/>Schema exploration]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         GRAPHQL[GraphQL Server<br/>Resolver execution<br/>DataLoader batching]
         SCHEMA[GraphQL Schema<br/>Type definitions<br/>Resolver mapping]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         DB[Database<br/>PostgreSQL/MySQL<br/>Connection pool: 20]
         CACHE[Redis Cache<br/>Query result caching]
         API[External APIs<br/>REST/gRPC services]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         TRACE[Query Tracing<br/>Apollo Studio/Jaeger<br/>Resolver timing]
         MONITOR[Performance Monitor<br/>Query complexity<br/>Execution time]
     end

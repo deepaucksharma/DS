@@ -8,26 +8,26 @@ This guide provides systematic approaches to debugging cache coherency issues in
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CDN[CDN Cache<br/>CloudFlare/Fastly]
         LB[Load Balancer<br/>AWS ALB + Caching]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         APP1[App Instance 1<br/>Local Cache L1]
         APP2[App Instance 2<br/>Local Cache L1]
         APP3[App Instance 3<br/>Local Cache L1]
         CACHE_PROXY[Cache Proxy<br/>Twemproxy/Envoy]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         L2_CACHE[(L2 Distributed Cache<br/>Redis Cluster)]
         L3_CACHE[(L3 Persistent Cache<br/>Memcached)]
         PRIMARY_DB[(Primary Database<br/>PostgreSQL)]
         CACHE_INVALIDATION[(Cache Invalidation Log<br/>Kafka/Redis Streams)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CACHE_MONITOR[Cache Monitor<br/>Prometheus + Grafana]
         INVALIDATION_SERVICE[Invalidation Service<br/>Cache Coordinator]
         CONSISTENCY_CHECKER[Consistency Checker<br/>Background Validator]

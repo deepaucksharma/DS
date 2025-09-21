@@ -18,25 +18,25 @@ Zoom's scaling journey from a small video conferencing startup to supporting 300
 ### Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[Load Balancer<br/>F5 BigIP]
         CDN[Basic CDN<br/>CloudFront]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         WEB[Web Servers<br/>3x c3.large<br/>Nginx + Node.js]
         SIG[Signaling Server<br/>2x c3.xlarge<br/>Custom C++]
         MEDIA[Media Server<br/>5x c4.2xlarge<br/>Custom C++]
         RECORD[Recording Service<br/>2x m3.medium]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         MYSQL[(MySQL<br/>db.m3.large<br/>100GB)]
         REDIS[(Redis<br/>cache.m3.medium<br/>2GB)]
         S3[(S3 Storage<br/>Recordings)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MON[Monitoring<br/>Nagios]
         LOGS[Logging<br/>Syslog]
     end
@@ -101,13 +101,13 @@ graph TB
 ### Enhanced Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ALB[Application Load Balancer<br/>AWS ALB]
         CF[CloudFront CDN<br/>Global edge locations]
         STUN[STUN/TURN Servers<br/>NAT traversal]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         subgraph WebTier[Web Tier]
             WEB1[Web Server 1<br/>c4.large]
             WEB2[Web Server 2<br/>c4.large]
@@ -130,7 +130,7 @@ graph TB
         RECORD[Recording Cluster<br/>5x instances]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         MYSQL_M[(MySQL Master<br/>db.r4.xlarge<br/>500GB SSD)]
         MYSQL_R1[(MySQL Replica 1<br/>db.r4.large)]
         MYSQL_R2[(MySQL Replica 2<br/>db.r4.large)]
@@ -139,7 +139,7 @@ graph TB
         S3_COLD[(S3 Cold Storage<br/>Archive)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         DATADOG[DataDog<br/>Metrics + APM]
         ELK[ELK Stack<br/>Centralized logging]
         DEPLOY[Jenkins<br/>CI/CD pipeline]

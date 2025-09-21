@@ -413,9 +413,7 @@ site/
 │   ├── capacity/              # Capacity Models (60)
 │   ├── migrations/            # Migration Playbooks (60)
 │   ├── costs/                 # Cost Breakdowns (60)
-│   ├── comparisons/           # Technology Comparisons (40)
-│   ├── case-studies/          # In-depth analyses
-│   └── production/            # Best practices (20)
+│   └── comparisons/           # Technology Comparisons (40)
 ├── scripts/                   # Automation tools
 ├── data/                      # Progress tracking (v5.0)
 ├── execution/                 # Daily workflow guides

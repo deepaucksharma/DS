@@ -170,12 +170,12 @@ See [Contribution Guidelines](readonly-spec/14-GOVERNANCE-CONTRIBUTION.md)
 
 ### For System Architects
 1. Start with [Patterns](site/docs/patterns/)
-2. Study [Case Studies](site/docs/case-studies/)
+2. Study [Systems](site/docs/systems/)
 3. Review [Production Reality](reference/07-production-reality.md)
 
 ### For SREs/DevOps
 1. Focus on [Mechanisms](site/docs/mechanisms/)
-2. Study incident timelines in case studies
+2. Study incident timelines in system architectures
 3. Review failure modes and recovery procedures
 
 ### For Developers

@@ -16,23 +16,23 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         APP[Application<br/>DynamoDB SDK<br/>Retry logic]
         LAMBDA[Lambda Functions<br/>Event-driven writes]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         DDB[DynamoDB Table<br/>Provisioned: 1000 RCU/WCU<br/>Auto Scaling: Enabled]
         GSI[Global Secondary Index<br/>Provisioned: 500 RCU/WCU]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         PARTITION1[Partition 1<br/>Hot partition<br/>90% of traffic]
         PARTITION2[Partition 2<br/>Cold partition<br/>5% of traffic]
         PARTITION3[Partition 3<br/>Cold partition<br/>5% of traffic]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         METRICS[CloudWatch Metrics<br/>Throttle events<br/>Consumed capacity]
         ALARMS[CloudWatch Alarms<br/>Throttle threshold]
         AUTOSCALE[Auto Scaling<br/>Target utilization: 70%]

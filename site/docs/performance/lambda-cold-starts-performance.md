@@ -8,23 +8,23 @@ AWS Lambda handles billions of function invocations daily across millions of fun
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         API_GW[API Gateway<br/>Global endpoints<br/>Request routing]
         ALB[Application LB<br/>Regional routing<br/>Health checking]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         LAMBDA[Lambda Service<br/>Function management<br/>Execution coordination]
         INVOKE[Invocation Service<br/>Request processing<br/>Concurrency control]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         FIRECRACKER[Firecracker MicroVMs<br/>Lightweight isolation<br/>Fast boot times]
         RUNTIME[Language Runtimes<br/>Node.js, Python, Java<br/>Runtime optimization]
         STORAGE[Function Storage<br/>S3 deployment packages<br/>Layer caching]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         SCHEDULER[Lambda Scheduler<br/>Placement decisions<br/>Resource allocation]
         MONITOR[CloudWatch<br/>Performance metrics<br/>Cold start tracking]
     end

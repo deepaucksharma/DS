@@ -81,14 +81,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         FRONT[Front Door<br/>Global Load Balancer]
         CDN[Azure CDN<br/>Static Content Delivery]
         EDGE[Edge PoPs<br/>150+ Global Locations]
         WAF[Web Application Firewall<br/>DDoS Protection]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         AAD[Azure Active Directory<br/>Identity Service]
         AUTH[Authentication Service<br/>Token Generation]
         AUTHZ[Authorization Service<br/>Permission Validation]
@@ -96,7 +96,7 @@ graph TB
         GRAPH[Microsoft Graph<br/>Unified API]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         TENANT[(Tenant Database<br/>User Directory)]
         TOKEN[(Token Store<br/>JWT + Refresh Tokens)]
         CONFIG[(Configuration DB<br/>Service Settings)]
@@ -104,7 +104,7 @@ graph TB
         DNS[(DNS Infrastructure<br/>Service Discovery)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         DEPLOY[Deployment Service<br/>Configuration Management]
         MON[Monitoring<br/>Application Insights)]
         HEALTH[Health Service<br/>Service Validation]

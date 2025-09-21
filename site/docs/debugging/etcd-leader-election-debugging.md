@@ -16,24 +16,24 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         KUBECTL[kubectl Client<br/>API requests]
         APPS[Applications<br/>K8s API calls]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         APISERVER[Kubernetes API Server<br/>Connects to etcd leader<br/>Read/Write operations]
         SCHEDULER[K8s Scheduler<br/>Leader election via etcd]
         CONTROLLER[Controller Manager<br/>Leader election via etcd]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         ETCD1[etcd-1<br/>Role: LEADER<br/>Term: 15<br/>Heartbeat: OK]
         ETCD2[etcd-2<br/>Role: FOLLOWER<br/>Term: 15<br/>Lag: 10ms]
         ETCD3[etcd-3<br/>Role: FOLLOWER<br/>Term: 15<br/>Status: UNHEALTHY]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MONITORING[etcd Monitoring<br/>Leader election frequency<br/>Network latency metrics]
         LOGS[etcd Logs<br/>Leader election events<br/>Network timeouts]
         ALERTS[Cluster Alerts<br/>Control plane instability]

@@ -8,23 +8,23 @@ Netflix operates one of the largest PostgreSQL deployments globally, managing ov
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[Netflix Load Balancer<br/>HAProxy + Zuul<br/>99.99% availability]
         CDN[Netflix CDN<br/>Open Connect<br/>90% cache hit ratio]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         API[Microservices<br/>Java/Spring Boot<br/>2000+ services]
         CP[Connection Pooler<br/>PgBouncer<br/>25,000 connections]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         PRI[Primary PostgreSQL<br/>r6g.24xlarge<br/>768GB RAM, 96 vCPU]
         REP[Read Replicas<br/>5x r6g.16xlarge<br/>512GB RAM each]
         CACHE[Redis Cache<br/>ElastiCache<br/>99.9% hit ratio]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MON[Monitoring<br/>Netflix Atlas<br/>1M metrics/sec]
         CHAOS[Chaos Engineering<br/>Chaos Monkey<br/>Automated failover]
     end

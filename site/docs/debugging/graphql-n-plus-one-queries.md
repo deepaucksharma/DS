@@ -8,25 +8,25 @@ Systematic approaches to identifying and resolving N+1 query problems in GraphQL
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CDN[CDN<br/>Query Caching]
         API_GW[API Gateway<br/>Rate Limiting]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         GRAPHQL_SERVER[GraphQL Server<br/>Apollo/GraphQL-Yoga]
         DATALOADER[DataLoader<br/>Batch Loading]
         RESOLVER[Field Resolvers<br/>Business Logic]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         PRIMARY_DB[(Primary Database<br/>PostgreSQL)]
         SEARCH_DB[(Search Database<br/>Elasticsearch)]
         CACHE_LAYER[(Cache Layer<br/>Redis)]
         QUERY_LOG[(Query Log<br/>Performance Tracking)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         QUERY_ANALYZER[Query Analyzer<br/>Performance Monitoring]
         APM[APM Tool<br/>New Relic/DataDog]
         ALERTING[Alerting<br/>Slow Query Detection]

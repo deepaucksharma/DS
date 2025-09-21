@@ -17,18 +17,18 @@ Salesforce's scaling journey from a CRM startup to a $30B+ revenue cloud computi
 
 ```mermaid
 graph TB
-    subgraph SaaSConcept[SaaS Concept - #3B82F6]
+    subgraph SaaSConcept["SaaS Concept"]
         WEB_CRM[Web-based CRM<br/>Browser access<br/>No installation]
         MULTI_TENANT[Multi-tenant Architecture<br/>Shared infrastructure<br/>Cost efficiency]
     end
 
-    subgraph SimpleApp[Simple Application - #10B981]
+    subgraph SimpleApp["Simple Application"]
         CONTACT_MGMT[Contact Management<br/>Customer records<br/>Basic tracking]
         SALES_PIPELINE[Sales Pipeline<br/>Opportunity tracking<br/>Deal management]
         REPORTING[Basic Reporting<br/>Sales analytics<br/>Dashboard views]
     end
 
-    subgraph BasicInfra[Basic Infrastructure - #F59E0B]
+    subgraph BasicInfra["Basic Infrastructure"]
         ORACLE_DB[(Oracle Database<br/>Customer data<br/>Single instance)]
         WEB_SERVERS[Web Servers<br/>Application logic<br/>Load balanced)]
         FILE_STORAGE[(File Storage<br/>Document management<br/>Attachment handling)]
@@ -67,19 +67,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph PlatformConcept[Platform Concept - #3B82F6]
+    subgraph PlatformConcept["Platform Concept"]
         APPEXCHANGE[AppExchange<br/>Third-party apps<br/>Marketplace ecosystem]
         APEX_PLATFORM[Apex Platform<br/>Custom development<br/>PaaS offering]
         FORCE_COM[Force.com<br/>Platform as a Service<br/>Custom applications]
     end
 
-    subgraph AdvancedCRM[Advanced CRM - #10B981]
+    subgraph AdvancedCRM["Advanced CRM"]
         WORKFLOW_ENGINE[Workflow Engine<br/>Business automation<br/>Approval processes]
         CUSTOM_OBJECTS[Custom Objects<br/>Data model extension<br/>Industry adaptation]
         INTEGRATION_HUB[Integration Hub<br/>API connectivity<br/>Data synchronization]
     end
 
-    subgraph ScaledInfra[Scaled Infrastructure - #F59E0B]
+    subgraph ScaledInfra["Scaled Infrastructure"]
         ORACLE_CLUSTER[(Oracle RAC Cluster<br/>High availability<br/>Performance scaling)]
         APP_SERVERS[Application Server Cluster<br/>Java EE platform<br/>Session management)]
         SEARCH_ENGINE[(Search Engine<br/>Lucene-based<br/>Full-text search)]
@@ -120,28 +120,28 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph CloudEcosystem[Cloud Ecosystem - #3B82F6]
+    subgraph CloudEcosystem["Cloud Ecosystem"]
         SALES_CLOUD[Sales Cloud<br/>CRM platform<br/>Sales automation]
         SERVICE_CLOUD[Service Cloud<br/>Customer support<br/>Case management]
         MARKETING_CLOUD[Marketing Cloud<br/>Digital marketing<br/>Customer journey]
         COMMERCE_CLOUD[Commerce Cloud<br/>E-commerce platform<br/>Digital shopping]
     end
 
-    subgraph PlatformServices[Platform Services - #10B981]
+    subgraph PlatformServices["Platform Services"]
         EINSTEIN_AI[Einstein AI<br/>Machine learning<br/>Predictive analytics]
         LIGHTNING_PLATFORM[Lightning Platform<br/>Modern development<br/>Component framework]
         INTEGRATION_PLATFORM[Integration Platform<br/>MuleSoft acquisition<br/>API management]
         ANALYTICS_PLATFORM[Analytics Platform<br/>Tableau acquisition<br/>Data visualization]
     end
 
-    subgraph HyperscaleInfra[Hyperscale Infrastructure - #F59E0B]
+    subgraph HyperscaleInfra["Hyperscale Infrastructure"]
         MULTI_CLOUD[(Multi-cloud Database<br/>Oracle + PostgreSQL<br/>Data partitioning)]
         MICROSERVICES[Microservices Architecture<br/>Service mesh<br/>Independent scaling)]
         GLOBAL_CDN[(Global CDN<br/>Edge computing<br/>Performance optimization)]
         DATA_LAKES[(Data Lakes<br/>Big data storage<br/>Analytics processing)]
     end
 
-    subgraph AIMLPlatform[AI/ML Platform - #9966CC]
+    subgraph AIMLPlatform["AI/ML Platform"]
         EINSTEIN_DISCOVERY[Einstein Discovery<br/>Automated insights<br/>Predictive modeling]
         NATURAL_LANGUAGE[Natural Language Processing<br/>Voice interfaces<br/>Chatbot platform]
         COMPUTER_VISION[Computer Vision<br/>Image recognition<br/>Document processing]

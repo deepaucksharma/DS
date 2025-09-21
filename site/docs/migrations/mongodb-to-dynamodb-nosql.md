@@ -17,25 +17,25 @@ This playbook guides the migration from MongoDB to AWS DynamoDB for applications
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ALB[Application Load Balancer<br/>Target health checks<br/>SSL termination<br/>Request routing]
         CF[CloudFront CDN<br/>Static asset caching<br/>API response caching<br/>Global distribution]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         API_SERVERS[API Servers<br/>Node.js/Python services<br/>Connection pooling<br/>Query optimization]
         BG_WORKERS[Background Workers<br/>Data processing<br/>ETL operations<br/>Analytics jobs]
         CACHE_LAYER[Application Cache<br/>Redis cluster<br/>Query result caching<br/>Session storage]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         MONGO_PRIMARY[(MongoDB Primary<br/>r5.2xlarge<br/>Read/Write operations<br/>Replica set leader)]
         MONGO_SECONDARY1[(MongoDB Secondary 1<br/>r5.xlarge<br/>Read operations<br/>Backup target)]
         MONGO_SECONDARY2[(MongoDB Secondary 2<br/>r5.xlarge<br/>Read operations<br/>Analytics queries)]
         MONGO_ARBITER[MongoDB Arbiter<br/>t3.small<br/>Election participation<br/>No data storage]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MONGO_OPS[MongoDB Ops Manager<br/>Cluster monitoring<br/>Backup management<br/>Performance tuning]
         ALERTING[CloudWatch Alerting<br/>Custom metrics<br/>Log aggregation<br/>On-call automation]
     end
@@ -85,24 +85,24 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ALB[Application Load Balancer<br/>Same configuration<br/>Health check updates<br/>Request routing]
         CF[CloudFront CDN<br/>Enhanced with DynamoDB<br/>DAX caching integration<br/>Global distribution]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         API_SERVERS_NEW[API Servers<br/>Updated DB drivers<br/>DynamoDB SDK<br/>Async operations]
         BG_WORKERS_NEW[Background Workers<br/>DynamoDB Streams<br/>Event-driven processing<br/>Lambda integration]
         DAX_CACHE[DynamoDB Accelerator<br/>Microsecond latency<br/>Transparent caching<br/>Cluster mode]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         DYNAMODB_MAIN[(DynamoDB Tables<br/>On-demand scaling<br/>Global tables<br/>Point-in-time recovery)]
         DYNAMODB_GSI[(Global Secondary Indexes<br/>Alternative access patterns<br/>Query optimization<br/>Independent scaling)]
         S3_BACKUP[S3 Backup Vault<br/>Automated backups<br/>Cross-region replication<br/>Lifecycle policies]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CLOUDWATCH[CloudWatch Monitoring<br/>Native DynamoDB metrics<br/>Custom application metrics<br/>Auto-scaling triggers]
         XRAY[AWS X-Ray<br/>Distributed tracing<br/>Performance insights<br/>Error analysis]
         DYNAMODB_STREAMS[DynamoDB Streams<br/>Change data capture<br/>Real-time processing<br/>Lambda triggers]

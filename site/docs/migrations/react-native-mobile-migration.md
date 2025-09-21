@@ -17,19 +17,19 @@ This playbook guides the migration from separate native iOS and Android applicat
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CDN[CloudFront CDN<br/>Mobile API endpoints<br/>Asset delivery<br/>Global edge locations]
         API_GW[API Gateway<br/>Mobile-specific endpoints<br/>Rate limiting<br/>Authentication]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         IOS_APP[iOS Native App<br/>Swift 5.7 + UIKit<br/>Xcode 14<br/>iOS 13+ support<br/>200k+ lines of code]
         ANDROID_APP[Android Native App<br/>Kotlin + Jetpack Compose<br/>Android Studio<br/>API 23+ support<br/>180k+ lines of code]
 
         MOBILE_API[Mobile API Service<br/>Node.js + Express<br/>Mobile-optimized endpoints<br/>Push notifications]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         REALM_IOS[Realm Database<br/>iOS local storage<br/>Sync with backend<br/>Offline capability]
         ROOM_ANDROID[Room Database<br/>Android local storage<br/>SQLite backend<br/>Offline capability]
 
@@ -40,7 +40,7 @@ graph TB
         PLAY_STORE[Google Play Store<br/>Android distribution<br/>Internal testing<br/>Staged rollout]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         FIREBASE_IOS[Firebase Analytics<br/>iOS crash reporting<br/>Performance monitoring]
         FIREBASE_ANDROID[Firebase Analytics<br/>Android crash reporting<br/>Performance monitoring]
 
@@ -92,12 +92,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CDN[CloudFront CDN<br/>Same mobile APIs<br/>Asset delivery<br/>Global edge locations]
         API_GW[API Gateway<br/>Unified mobile endpoints<br/>React Native optimized<br/>GraphQL support]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         RN_APP[React Native App<br/>TypeScript + React Native 0.72<br/>Shared codebase<br/>Platform-specific modules<br/>~120k lines (40% reduction)]
 
         RN_IOS[iOS Bundle<br/>Metro bundler<br/>Hermes engine<br/>Native modules bridge]
@@ -106,7 +106,7 @@ graph TB
         MOBILE_API[Mobile API Service<br/>GraphQL + REST<br/>React Native optimized<br/>Real-time subscriptions]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         ASYNC_STORAGE[AsyncStorage<br/>Cross-platform storage<br/>Key-value persistence<br/>Secure storage]
         MMKV[MMKV Storage<br/>High-performance storage<br/>Cross-platform<br/>Encryption support]
 
@@ -116,7 +116,7 @@ graph TB
         PLAY_STORE_RN[Google Play Store<br/>React Native Android<br/>Bundle optimization<br/>OTA updates via CodePush]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         FLIPPER[Flipper<br/>Cross-platform debugging<br/>Network inspection<br/>Layout inspector]
         CODEPUSH[CodePush<br/>Over-the-air updates<br/>Staged rollouts<br/>Rollback capability]
 

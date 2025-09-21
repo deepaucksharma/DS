@@ -75,7 +75,7 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ANYCAST[Anycast DNS Network<br/>200+ Global PoPs]
         EDGE1[Edge DNS Servers<br/>US-East Region]
         EDGE2[Edge DNS Servers<br/>US-West Region]
@@ -83,21 +83,21 @@ graph TB
         EDGE4[Edge DNS Servers<br/>Asia Region]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         AUTH[Authoritative DNS<br/>Primary Resolution]
         CACHE[DNS Caching Layer<br/>TTL Management]
         LB[Load Balancing<br/>Traffic Distribution]
         HEALTH[Health Checking<br/>Service Monitoring]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         ZONES[(DNS Zone Data<br/>Authoritative Records)]
         CONFIG[(Configuration DB<br/>Routing Rules)]
         METRICS[(Telemetry Store<br/>Performance Data)]
         BACKUP[(Backup Systems<br/>Disaster Recovery)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         DEPLOY[Deployment System<br/>Software Updates]
         MON[Monitoring<br/>Real-time Alerting]
         TRAFFIC[Traffic Management<br/>Global Steering]

@@ -8,23 +8,23 @@ Twitter operates one of the world's largest Redis deployments, handling over 1 m
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[Twitter Load Balancer<br/>HAProxy + Istio<br/>99.99% availability]
         CDN[Twitter CDN<br/>Global PoPs<br/>85% cache hit ratio]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         API[Timeline API<br/>Scala/Finagle<br/>1000+ instances]
         PROXY[Redis Proxy<br/>Twemproxy + Envoy<br/>Connection multiplexing]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         CLUSTER[Redis Cluster<br/>500 nodes<br/>r6g.8xlarge instances]
         CACHE[L1 Cache<br/>Application-level<br/>99.8% hit ratio]
         PERSIST[Persistent Storage<br/>Redis AOF + RDB<br/>Backup every 15min]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MON[Monitoring<br/>Twitter Observability<br/>Real-time metrics]
         AUTO[Auto-scaling<br/>Custom algorithms<br/>Traffic-based scaling]
     end

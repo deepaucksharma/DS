@@ -17,23 +17,23 @@ This playbook guides the migration from Redis-based session storage to DynamoDB,
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ALB[Application Load Balancer<br/>p99: 5ms]
         CF[CloudFront CDN<br/>Cache-Control: no-cache for /login]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         APP1[Web Server 1<br/>Spring Boot 2.7<br/>c5.2xlarge]
         APP2[Web Server 2<br/>Spring Boot 2.7<br/>c5.2xlarge]
         APP3[Web Server 3<br/>Spring Boot 2.7<br/>c5.2xlarge]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         REDIS_MASTER[Redis Master<br/>r6g.xlarge<br/>16GB RAM<br/>5000 sessions/min]
         REDIS_REPLICA[Redis Replica<br/>r6g.xlarge<br/>16GB RAM<br/>Read-only]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CW[CloudWatch<br/>Session metrics<br/>Memory usage]
         ELK[ELK Stack<br/>Session audit logs<br/>Auth events]
     end
@@ -76,23 +76,23 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ALB[Application Load Balancer<br/>p99: 5ms]
         CF[CloudFront CDN<br/>Cache-Control: no-cache for /login]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         APP1[Web Server 1<br/>Spring Boot 2.7<br/>c5.2xlarge<br/>AWS SDK v2]
         APP2[Web Server 2<br/>Spring Boot 2.7<br/>c5.2xlarge<br/>AWS SDK v2]
         APP3[Web Server 3<br/>Spring Boot 2.7<br/>c5.2xlarge<br/>AWS SDK v2]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         DDB[DynamoDB Sessions Table<br/>On-Demand Billing<br/>TTL: 30 minutes<br/>Global Tables: Multi-region]
         DAX[DynamoDB Accelerator<br/>dax.r4.xlarge<br/>Sub-millisecond reads<br/>Write-through cache]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CW[CloudWatch<br/>DynamoDB metrics<br/>Throttling alerts]
         XRAY[X-Ray Tracing<br/>Session operations<br/>Performance analysis]
     end

@@ -17,24 +17,24 @@ Instacart's scaling journey from 100 beta users to 10M+ customers represents the
 
 ```mermaid
 graph TB
-    subgraph LocalApp[Local App - #3B82F6]
+    subgraph LocalApp["Local App"]
         MOBILE_APP[Mobile App<br/>iOS grocery shopping<br/>Simple ordering]
         SHOPPER_APP[Shopper App<br/>Order fulfillment<br/>Shopping interface]
     end
 
-    subgraph SimpleLogistics[Simple Logistics - #10B981]
+    subgraph SimpleLogistics["Simple Logistics"]
         ORDER_MATCHING[Order Matching<br/>Customer to shopper<br/>Manual assignment]
         INVENTORY_BASIC[Basic Inventory<br/>Store product data<br/>Simple catalog]
         PAYMENT_SIMPLE[Simple Payments<br/>Stripe integration<br/>Basic processing]
     end
 
-    subgraph BasicData[Basic Data - #F59E0B]
+    subgraph BasicData["Basic Data"]
         POSTGRES[(PostgreSQL<br/>Orders and users<br/>Single database)]
         REDIS[(Redis<br/>Session storage<br/>Basic caching)]
         S3[(S3<br/>Product images<br/>Receipt photos)]
     end
 
-    subgraph ManualOps[Manual Operations - #9966CC]
+    subgraph ManualOps["Manual Operations"]
         CUSTOMER_SERVICE[Customer Service<br/>Human support<br/>Order issues]
         SHOPPER_SUPPORT[Shopper Support<br/>Training and help<br/>Quality control]
         STORE_RELATIONS[Store Relations<br/>Partnership management<br/>Inventory updates]
@@ -78,27 +78,27 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph ScaledPlatform[Scaled Platform - #3B82F6]
+    subgraph ScaledPlatform["Scaled Platform"]
         MOBILE_PLATFORM[Mobile Platform<br/>iOS + Android<br/>Feature parity]
         WEB_PLATFORM[Web Platform<br/>Desktop ordering<br/>Account management]
         SHOPPER_PLATFORM[Shopper Platform<br/>Enhanced tools<br/>Batch shopping]
     end
 
-    subgraph IntelligentLogistics[Intelligent Logistics - #10B981]
+    subgraph IntelligentLogistics["Intelligent Logistics"]
         SMART_MATCHING[Smart Matching<br/>Algorithm-based<br/>Distance + availability]
         INVENTORY_SYNC[Inventory Sync<br/>Real-time updates<br/>Stock tracking]
         DYNAMIC_PRICING[Dynamic Pricing<br/>Delivery fees<br/>Demand-based]
         BATCH_DELIVERY[Batch Delivery<br/>Route optimization<br/>Multiple orders]
     end
 
-    subgraph ScaledData[Scaled Data - #F59E0B]
+    subgraph ScaledData["Scaled Data"]
         POSTGRES_CLUSTER[(PostgreSQL Cluster<br/>Sharded by region<br/>Read replicas)]
         ELASTICSEARCH[(Elasticsearch<br/>Product search<br/>Catalog indexing)]
         REDIS_CLUSTER[(Redis Cluster<br/>Real-time data<br/>Shopping cart state)]
         KAFKA[(Apache Kafka<br/>Event streaming<br/>Order lifecycle)]
     end
 
-    subgraph AutomatedOps[Automated Operations - #9966CC]
+    subgraph AutomatedOps["Automated Operations"]
         ML_RECOMMENDATIONS[ML Recommendations<br/>Product suggestions<br/>Personalization]
         FRAUD_DETECTION[Fraud Detection<br/>Order validation<br/>Payment security]
         QUALITY_SCORING[Quality Scoring<br/>Shopper ratings<br/>Performance metrics]
@@ -144,27 +144,27 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph NationalPlatform[National Platform - #3B82F6]
+    subgraph NationalPlatform["National Platform"]
         OMNICHANNEL[Omnichannel Platform<br/>Mobile + Web + API<br/>Unified experience]
         RETAILER_PLATFORM[Retailer Platform<br/>Enterprise dashboard<br/>Analytics and insights]
         ADVERTISING_PLATFORM[Advertising Platform<br/>Sponsored products<br/>Brand promotion]
     end
 
-    subgraph AdvancedLogistics[Advanced Logistics - #10B981]
+    subgraph AdvancedLogistics["Advanced Logistics"]
         AI_MATCHING[AI-Powered Matching<br/>Machine learning<br/>Optimal assignments]
         PREDICTIVE_INVENTORY[Predictive Inventory<br/>Demand forecasting<br/>Stock optimization]
         ROUTE_OPTIMIZATION[Route Optimization<br/>Geographic algorithms<br/>Delivery efficiency]
         SUBSTITUTE_ENGINE[Substitute Engine<br/>Smart replacements<br/>Customer preferences]
     end
 
-    subgraph DataPlatform[Modern Data Platform - #F59E0B]
+    subgraph DataPlatform["Modern Data Platform"]
         DATA_WAREHOUSE[(Data Warehouse<br/>Snowflake<br/>Analytics workloads)]
         STREAM_PROCESSING[(Stream Processing<br/>Apache Flink<br/>Real-time analytics)]
         FEATURE_STORE[(Feature Store<br/>ML features<br/>Model serving)]
         GRAPH_DATABASE[(Graph Database<br/>Neo4j<br/>Product relationships)]
     end
 
-    subgraph MLPlatform[ML Platform - #9966CC]
+    subgraph MLPlatform["ML Platform"]
         DEMAND_FORECASTING[Demand Forecasting<br/>Time series models<br/>Seasonal patterns]
         PERSONALIZATION[Personalization Engine<br/>Recommendation models<br/>Shopping behavior]
         COMPUTER_VISION[Computer Vision<br/>Product recognition<br/>Quality verification]

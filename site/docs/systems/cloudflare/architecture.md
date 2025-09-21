@@ -8,96 +8,130 @@ Cloudflare operates the world's largest edge computing platform, protecting and 
 
 ```mermaid
 graph TB
-    subgraph Edge_Plane___Global_Network__3B82F6[Edge Plane - Global Network #3B82F6]
-        subgraph sg_285__Cities_Worldwide[285+ Cities Worldwide]
-            CDN[CDN Cache Servers<br/>SSD: 100TB per PoP]
-            WAF[Web Application Firewall<br/>DDoS: 76M attacks/day]
-            DNS[1.1.1.1 DNS<br/>14ms global average]
-            WORKERS[Workers Runtime<br/>V8 Isolates: 50k/second]
+    subgraph EdgePlane[Edge Plane - Global Network]
+        subgraph GlobalCities[285+ Cities Worldwide]
+            CDN[CDN Cache Servers<br/>NGINX 1.24 + SSD<br/>100TB per PoP<br/>96% cache hit rate<br/>Cost: $50M/month]
+
+            WAF[Web Application Firewall<br/>Rust-based engine<br/>76M attacks/day blocked<br/>100+ OWASP rules<br/>10μs processing time]
+
+            DNS[1.1.1.1 DNS Resolver<br/>PowerDNS Recursor 4.8<br/>14ms global average<br/>1.8T queries/day<br/>DNSSEC validation]
+
+            WorkersEdge[Workers Edge Runtime<br/>V8 Isolates v11.8<br/>50k isolates/server<br/>1ms cold start<br/>50ms CPU limit]
         end
 
-        subgraph Anycast_Network[Anycast Network]
-            BGP[BGP Routing<br/>65,000+ routes]
-            LOAD[Traffic Distribution<br/>100+ Tbps capacity]
-        end
-    end
+        subgraph AnycastNetwork[Anycast Network Infrastructure]
+            BGP[BGP Routing<br/>BIRD 2.13 daemon<br/>65,000+ routes<br/>100+ ASNs<br/>Tier 1 peering]
 
-    subgraph Service_Plane___Core_Services__10B981[Service Plane - Core Services #10B981]
-        subgraph Workers_Platform[Workers Platform]
-            WRUNTIME[Workers Runtime<br/>V8 Isolates, Rust]
-            WKV[Workers KV<br/>Eventually consistent]
-            DURABLE[Durable Objects<br/>SQLite at edge]
-        end
-
-        subgraph Security_Services[Security Services]
-            DDOS[DDoS Protection<br/>Layer 3/4/7]
-            BOTMAN[Bot Management<br/>ML-based detection]
-            ZERO[Zero Trust<br/>SASE platform]
-        end
-
-        subgraph Performance_Services[Performance Services]
-            ARGO[Argo Smart Routing<br/>30% faster]
-            COMPRESS[Compression<br/>Brotli/Gzip]
-            MINIFY[Auto Minification<br/>JS/CSS/HTML]
+            LoadBalancer[Traffic Distribution<br/>ECMP load balancing<br/>100+ Tbps capacity<br/>50M req/sec peak<br/>Anycast magic]
         end
     end
 
-    subgraph State_Plane___Storage_Systems__F59E0B[State Plane - Storage Systems #F59E0B]
-        subgraph R2_Object_Storage[R2 Object Storage]
-            R2[R2 Storage<br/>S3 Compatible API<br/>No egress fees]
-            R2CACHE[R2 Cache<br/>Global distribution]
+    subgraph ServicePlane[Service Plane - Core Services]
+        subgraph WorkersPlatform[Workers Platform]
+            WorkersRuntime[Workers Runtime<br/>V8 Engine v11.8<br/>Rust control plane<br/>50k isolates/server<br/>128MB memory limit]
+
+            WorkersKV[Workers KV<br/>Eventually consistent<br/>400+ edge locations<br/>60s global replication<br/>10GB per namespace]
+
+            DurableObjects[Durable Objects<br/>SQLite 3.42 at edge<br/>Strong consistency<br/>Hibernation support<br/>WebSocket connections]
         end
 
-        subgraph KV_Store[KV Store]
-            KV[Workers KV<br/>Eventually consistent<br/>400+ edge locations]
-            KVPROP[KV Propagation<br/>60s global replication]
+        subgraph SecurityServices[Security Services]
+            DDoSProtection[DDoS Protection<br/>L3/L4/L7 mitigation<br/>100Tbps scrubbing<br/>Sub-second detection<br/>Magic Transit]
+
+            BotManagement[Bot Management<br/>ML-based detection<br/>99.9% accuracy<br/>JavaScript fingerprinting<br/>Behavioral analysis]
+
+            ZeroTrust[Zero Trust Network<br/>SASE platform<br/>50+ countries<br/>Magic WAN/LAN<br/>CASB integration]
         end
 
-        subgraph Analytics_Storage[Analytics Storage]
-            ANALYTICS[Analytics Engine<br/>ClickHouse-based]
-            LOGS[Log Push<br/>Real-time streaming]
+        subgraph PerformanceServices[Performance Services]
+            ArgoRouting[Argo Smart Routing<br/>Network optimization<br/>30% faster routes<br/>Real-time path selection<br/>Congestion avoidance]
+
+            Compression[Content Compression<br/>Brotli level 6<br/>Gzip level 6<br/>50% size reduction<br/>CPU-optimized]
+
+            AutoMinify[Auto Minification<br/>JavaScript minifier<br/>CSS/HTML optimization<br/>Tree shaking<br/>Source map support]
         end
     end
 
-    subgraph Control_Plane___Operations__8B5CF6[Control Plane - Operations #8B5CF6]
-        subgraph Configuration
-            CONFIG[Configuration API<br/>30s global propagation]
-            QUICKSILVER[Quicksilver<br/>Edge config distribution]
+    subgraph StatePlane[State Plane - Storage Systems]
+        subgraph R2ObjectStorage[R2 Object Storage]
+            R2Storage[R2 Storage<br/>S3-compatible API<br/>Multi-region replication<br/>99.999999999% durability<br/>Zero egress fees]
+
+            R2Cache[R2 Cache<br/>SSD-based caching<br/>Global distribution<br/>Automatic invalidation<br/>100TB per region]
         end
 
-        subgraph Monitoring
-            GRAFANA[Grafana Dashboards<br/>Network health]
-            RADAR[Cloudflare Radar<br/>Internet insights]
-            RUM[Real User Monitoring<br/>Performance metrics]
+        subgraph KVStorage[Distributed KV Store]
+            WorkersKVStorage[Workers KV Storage<br/>Eventually consistent<br/>400+ edge locations<br/>1MB value limit<br/>25M operations/month]
+
+            KVPropagation[KV Propagation System<br/>60s global replication<br/>Merkle tree sync<br/>Conflict resolution<br/>CRDTs for consistency]
         end
 
-        subgraph Operations
-            DEPLOY[Edge Deployment<br/>30-second rollouts]
-            INCIDENT[Incident Response<br/>24/7 NOC]
+        subgraph AnalyticsStorage[Analytics Storage]
+            AnalyticsEngine[Analytics Engine<br/>ClickHouse 23.8<br/>Real-time ingestion<br/>SQL query interface<br/>100M events/second]
+
+            LogPush[Log Push Service<br/>Real-time streaming<br/>Kafka 2.8 backend<br/>Custom destinations<br/>Schema validation]
+        end
+    end
+
+    subgraph ControlPlane[Control Plane - Operations]
+        subgraph ConfigurationMgmt[Configuration Management]
+            ConfigAPI[Configuration API<br/>GraphQL + REST<br/>30s global propagation<br/>Terraform provider<br/>Version control]
+
+            Quicksilver[Quicksilver Distribution<br/>Edge config system<br/>CRDT-based sync<br/>Sub-second updates<br/>Conflict resolution]
+        end
+
+        subgraph MonitoringObs[Monitoring & Observability]
+            GrafanaDash[Grafana Dashboards<br/>Grafana 10.1<br/>Network health metrics<br/>Custom alerting<br/>SLA tracking]
+
+            CloudflareRadar[Cloudflare Radar<br/>Internet insights<br/>Attack intelligence<br/>Traffic analytics<br/>Public API]
+
+            RealUserMon[Real User Monitoring<br/>Web vitals tracking<br/>Performance metrics<br/>Error tracking<br/>User journey analysis]
+        end
+
+        subgraph OperationsTeam[Operations & Deployment]
+            EdgeDeploy[Edge Deployment<br/>GitOps workflow<br/>30-second rollouts<br/>Canary deployments<br/>Automated rollback]
+
+            IncidentResponse[Incident Response<br/>24/7 NOC team<br/>PagerDuty integration<br/>Automated remediation<br/>Post-mortem analysis]
         end
     end
 
     %% User Traffic Flow
-    USER[Users Worldwide<br/>20% of web traffic] --> CDN
+    USER[Users Worldwide<br/>20% of web traffic<br/>50M req/sec peak<br/>100+ countries] --> CDN
     CDN --> WAF
-    WAF --> WORKERS
-    WORKERS --> DURABLE
-    WORKERS --> WKV
+    WAF --> WorkersEdge
+    WorkersEdge --> DurableObjects
+    WorkersEdge --> WorkersKV
 
     %% Anycast Routing
     USER --> BGP
-    BGP --> LOAD
-    LOAD --> CDN
+    BGP --> LoadBalancer
+    LoadBalancer --> CDN
+
+    %% Workers Platform Connections
+    WorkersEdge --> WorkersRuntime
+    WorkersRuntime --> DurableObjects
+    WorkersRuntime --> WorkersKVStorage
+
+    %% Security Service Connections
+    WAF --> DDoSProtection
+    CDN --> BotManagement
+    WorkersEdge --> ZeroTrust
+
+    %% Performance Optimizations
+    CDN --> ArgoRouting
+    CDN --> Compression
+    CDN --> AutoMinify
 
     %% Storage Connections
-    WORKERS --> R2
-    WORKERS --> KV
-    ANALYTICS --> LOGS
+    WorkersRuntime --> R2Storage
+    WorkersKV --> KVPropagation
+    DurableObjects --> R2Cache
+    AnalyticsEngine --> LogPush
 
     %% Control Connections
-    CONFIG --> QUICKSILVER
-    QUICKSILVER --> WORKERS
-    GRAFANA --> RUM
+    ConfigAPI --> Quicksilver
+    Quicksilver --> WorkersRuntime
+    GrafanaDash --> RealUserMon
+    EdgeDeploy --> WorkersEdge
 
     %% Apply four-plane colors
     classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
@@ -105,10 +139,10 @@ graph TB
     classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-    class CDN,WAF,DNS,WORKERS,BGP,LOAD edgeStyle
-    class WRUNTIME,WKV,DURABLE,DDOS,BOTMAN,ZERO,ARGO,COMPRESS,MINIFY serviceStyle
-    class R2,R2CACHE,KV,KVPROP,ANALYTICS,LOGS stateStyle
-    class CONFIG,QUICKSILVER,GRAFANA,RADAR,RUM,DEPLOY,INCIDENT controlStyle
+    class CDN,WAF,DNS,WorkersEdge,BGP,LoadBalancer edgeStyle
+    class WorkersRuntime,WorkersKV,DurableObjects,DDoSProtection,BotManagement,ZeroTrust,ArgoRouting,Compression,AutoMinify serviceStyle
+    class R2Storage,R2Cache,WorkersKVStorage,KVPropagation,AnalyticsEngine,LogPush stateStyle
+    class ConfigAPI,Quicksilver,GrafanaDash,CloudflareRadar,RealUserMon,EdgeDeploy,IncidentResponse controlStyle
 ```
 
 ## Key Architecture Components

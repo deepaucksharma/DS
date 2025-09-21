@@ -8,23 +8,23 @@ Facebook operates one of the world's largest MySQL deployments, handling over 1 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[Facebook Load Balancer<br/>Katran + BGP<br/>99.99% availability]
         CDN[Facebook CDN<br/>Global edge network<br/>87% cache hit ratio]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         API[Social Graph API<br/>Hack/PHP + C++<br/>50,000+ instances]
         PROXY[MySQL Proxy<br/>Custom proxy layer<br/>Connection multiplexing]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         PRIMARY[Primary MySQL<br/>500x r6i.32xlarge<br/>Write operations]
         REPLICA[Read Replicas<br/>5000x r6i.16xlarge<br/>Read scaling]
         CACHE[TAO Cache Layer<br/>Memcached clusters<br/>99.8% hit ratio]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MON[Monitoring<br/>Facebook ODS<br/>Real-time metrics]
         FAILOVER[Automated Failover<br/>MHA + Custom tools<br/><30s recovery]
     end

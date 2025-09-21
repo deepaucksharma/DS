@@ -61,7 +61,7 @@ graph TB
         end
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane["Service Plane"]
         subgraph WAF[Web Application Firewall]
             LUA[Lua WAF Engine<br/>❌ PCRE Regex<br/>❌ Catastrophic Backtracking]
             RULES[3,868 WAF Rules<br/>⚠️ Rule #XSS.001 TOXIC]
@@ -70,11 +70,11 @@ graph TB
         PROXY[HTTP/HTTPS Proxy<br/>❌ Can't reach backends<br/>502 Error Generator]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane["State Plane"]
         BACKENDS[Origin Servers<br/>✅ Healthy but unreachable<br/>❌ Cloudflare blocking all]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane["Control Plane"]
         DEPLOY[Global Deployment<br/>❌ No Staged Rollout<br/>💀 Instant Global Push]
         MON[Monitoring<br/>✅ PagerDuty Firing<br/>📊 CPU Alerts: 100%]
         DASH[Cloudflare Dashboard<br/>❌ Also Behind CF<br/>❌ Can't Access Own Tools]

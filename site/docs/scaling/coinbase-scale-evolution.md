@@ -19,28 +19,28 @@ Coinbase's scaling journey from a small cryptocurrency exchange to the world's l
 ### Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         HEROKU_LB[Heroku Router<br/>Basic load balancing]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         RAILS_APP[Rails Application<br/>1x dyno<br/>Wallet + Exchange]
         BITCOIN_NODE[Bitcoin Core Node<br/>Full blockchain sync]
         WORKER[Background Worker<br/>Transaction processing]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         POSTGRES[(PostgreSQL<br/>Heroku Postgres<br/>User accounts)]
         REDIS[(Redis<br/>Session storage<br/>Rate limiting)]
         BITCOIN_WALLET[(Bitcoin Wallet<br/>Hot + Cold storage)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         HEROKU_LOGS[Heroku Logs]
         NEW_RELIC[New Relic APM]
     end
 
-    subgraph ExternalServices[External Services - #800080]
+    subgraph ExternalServices["External Services"]
         BLOCKCHAIN[Bitcoin Network<br/>Peer-to-peer]
         BANK_API[Bank API<br/>ACH transfers]
     end
@@ -103,12 +103,12 @@ graph TB
 ### Enhanced Trading Platform
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         ALB[Application Load Balancer<br/>AWS ALB]
         CLOUDFRONT[CloudFront CDN<br/>Static assets + API cache]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         subgraph WebTier[Web Application Tier]
             WEB1[Web App 1<br/>m4.large<br/>Rails API]
             WEB2[Web App 2<br/>m4.large<br/>Rails API]
@@ -130,20 +130,20 @@ graph TB
         WORKER_CLUSTER[Worker Cluster<br/>Background processing]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         POSTGRES_M[(PostgreSQL Master<br/>db.r4.xlarge<br/>Financial data)]
         POSTGRES_R[(PostgreSQL Replica<br/>db.r4.large<br/>Read queries)]
         REDIS_CLUSTER[(Redis Cluster<br/>cache.r4.large<br/>Order book cache)]
         S3_COLD[(S3 Cold Storage<br/>Backup wallets<br/>Compliance data)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         DATADOG[DataDog<br/>Infrastructure monitoring]
         SPLUNK[Splunk<br/>Security logging<br/>Compliance audit]
         JENKINS[Jenkins<br/>Deployment pipeline]
     end
 
-    subgraph SecurityLayer[Security Layer - #FF0000]
+    subgraph SecurityLayer["Security Layer"]
         WAF[Web Application Firewall<br/>OWASP protection]
         HSM[Hardware Security Module<br/>Key management]
         VAULT[HashiCorp Vault<br/>Secrets management]

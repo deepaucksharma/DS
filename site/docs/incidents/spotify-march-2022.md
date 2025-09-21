@@ -68,14 +68,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CDN[Global CDN<br/>Fastly + CloudFront]
         LB[Load Balancers<br/>HAProxy + NGINX]
         API[API Gateway<br/>Kong + Custom Routing]
         CACHE[Edge Caching<br/>Varnish + Redis]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         AUTH[Auth Service<br/>OAuth + JWT]
         USER[User Service<br/>Profile Management]
         MUSIC[Music Service<br/>Streaming Engine]
@@ -86,7 +86,7 @@ graph TB
         PODCAST[Podcast Service<br/>Audio Content]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         USERDB[(User Database<br/>PostgreSQL Cluster)]
         MUSICDB[(Music Metadata<br/>Cassandra)]
         AUDIOSTORE[(Audio Storage<br/>S3 + Custom CDN)]
@@ -95,7 +95,7 @@ graph TB
         SESSIONS[(Session Store<br/>Redis)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         DEPLOY[Deployment Pipeline<br/>Jenkins + Kubernetes]
         MON[Monitoring<br/>DataDog + Prometheus]
         METRICS[Metrics Collection<br/>Custom + Grafana]

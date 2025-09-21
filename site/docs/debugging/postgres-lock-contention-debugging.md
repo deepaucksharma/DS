@@ -16,23 +16,23 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         APP[Application Server<br/>Connection Pool: 100<br/>Timeout: 30s]
         WEB[Web Frontend<br/>Request Queue]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         PGCLI[psql Client<br/>Lock Analysis Queries]
         MONITOR[pgAdmin/Datadog<br/>Lock Monitoring]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         PGPRIMARY[PostgreSQL Primary<br/>Version: 14.2<br/>Connections: 200/200]
         PGREPLICA[PostgreSQL Replica<br/>Read-only Queries]
         LOCKTABLE[Lock Table<br/>pg_locks view<br/>Current: 1,247 locks]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         LOCKS[Lock Statistics<br/>pg_stat_activity<br/>pg_blocking_pids()]
         DEADLOCKS[Deadlock Detection<br/>log_lock_waits=on]
         ALERTS[Lock Alerts<br/>Query timeout > 10s]

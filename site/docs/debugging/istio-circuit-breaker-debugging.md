@@ -16,23 +16,23 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         GATEWAY[Istio Gateway<br/>External traffic entry]
         CLIENT[External Client<br/>API requests]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         SERVICEA[Service A<br/>Envoy Sidecar<br/>Circuit Breaker: OPEN]
         SERVICEB[Service B<br/>Envoy Sidecar<br/>Circuit Breaker: CLOSED]
         ENVOY[Envoy Proxy<br/>Load balancing<br/>Health checks]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         UPSTREAM[Upstream Service<br/>3/5 instances healthy<br/>2/5 instances failing]
         PODS[Service Pods<br/>Resource constraints<br/>High error rate]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         PILOT[Pilot<br/>Service discovery<br/>Config distribution]
         TELEMETRY[Istio Telemetry<br/>Metrics collection<br/>Circuit breaker state]
         KIALI[Kiali Dashboard<br/>Service mesh visualization]

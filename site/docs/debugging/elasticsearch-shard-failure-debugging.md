@@ -16,24 +16,24 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         APP[Application<br/>Search Requests]
         LB[Load Balancer<br/>9200 Port]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         ESCLI[Elasticsearch CLI<br/>curl/_cat/health]
         KIBANA[Kibana<br/>Monitoring Dashboard]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         MASTER[Master Node<br/>elasticsearch-master-01<br/>heap: 4GB]
         DATA1[Data Node 1<br/>elasticsearch-data-01<br/>disk: 2TB (85% full)]
         DATA2[Data Node 2<br/>elasticsearch-data-02<br/>Status: FAILED]
         DATA3[Data Node 3<br/>elasticsearch-data-03<br/>disk: 2TB (45% full)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         LOGS[Cluster Logs<br/>/var/log/elasticsearch]
         METRICS[Cluster Metrics<br/>JVM, CPU, Disk I/O]
         ALERTS[Shard Alerts<br/>RED status, unassigned]

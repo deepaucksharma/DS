@@ -87,14 +87,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CDN[Global CDN<br/>Video Distribution]
         EDGE[Edge Data Centers<br/>150+ Global Locations]
         LB[Load Balancers<br/>Traffic Distribution]
         RELAY[Media Relays<br/>Video/Audio Routing]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         MEETING[Meeting Service<br/>Core Video Conferencing]
         WEBINAR[Webinar Platform<br/>Large Scale Broadcasting]
         PHONE[Zoom Phone<br/>VoIP Services]
@@ -103,7 +103,7 @@ graph TB
         RECORDING[Cloud Recording<br/>Video Storage]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         USERDB[(User Database<br/>Account Management)]
         MEETINGDB[(Meeting Database<br/>Session Management)]
         AUTHDB[(Authentication<br/>Login and Security)]
@@ -112,7 +112,7 @@ graph TB
         CACHE[(Redis Cache<br/>Session State)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CAPACITY[Capacity Management<br/>Auto-scaling Systems]
         MONITOR[Monitoring<br/>Real-time Metrics]
         TRAFFIC[Traffic Engineering<br/>Global Load Balancing]

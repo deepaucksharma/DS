@@ -85,14 +85,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         EU[European Edge Network<br/>19 Data Centers]
         US[US Edge Network<br/>45 Data Centers]
         ASIA[Asia-Pacific Edge<br/>35 Data Centers]
         OTHER[Other Regions<br/>25 Data Centers]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         CDN[Global CDN<br/>Content Delivery]
         WAF[Web Application Firewall<br/>Security Layer]
         DDOS[DDoS Protection<br/>Traffic Filtering]
@@ -101,7 +101,7 @@ graph TB
         TUNNEL[Argo Tunnels<br/>Secure Connections]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         CONFIG[(Global Config<br/>Routing Rules)]
         CACHE[(Distributed Cache<br/>Content Storage)]
         ANALYTICS[(Analytics Store<br/>Traffic Metrics)]
@@ -109,7 +109,7 @@ graph TB
         CERTS[(Certificate Store<br/>SSL/TLS Certificates)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         TRAFFIC[Traffic Engineering<br/>Global Load Balancing]
         MON[Monitoring<br/>Real-time Metrics]
         DEPLOY[Deployment<br/>Configuration Management]

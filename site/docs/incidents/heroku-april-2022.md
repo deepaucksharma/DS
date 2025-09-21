@@ -72,14 +72,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CLI[Heroku CLI<br/>Developer Tools]
         DASHBOARD[Web Dashboard<br/>Application Management]
         API[Heroku API<br/>Platform Integration]
         GIT[Git Integration<br/>Code Deployment]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         AUTH[Authentication<br/>User Management]
         OAUTH[OAuth Service<br/>Third-party Integration]
         DEPLOY[Deployment Service<br/>Application Builds]
@@ -87,7 +87,7 @@ graph TB
         ADDONS[Add-ons Marketplace<br/>Service Integration]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         USERDB[(User Database<br/>Account Information)]
         APPDB[(Application Database<br/>App Configurations)]
         TOKENSTORE[(OAuth Token Store<br/>Integration Credentials)]
@@ -95,7 +95,7 @@ graph TB
         CONFIGSTORE[(Config Store<br/>Environment Variables)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         SECURITY[Security Service<br/>Access Control)]
         AUDIT[Audit Logging<br/>Access Monitoring]
         BACKUP[Backup Service<br/>Data Protection]

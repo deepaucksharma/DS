@@ -8,23 +8,23 @@ Discord operates one of the world's largest WebSocket deployments, maintaining o
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[Discord Load Balancer<br/>HAProxy + Consul<br/>Connection-aware routing]
         CDN[Discord CDN<br/>Media delivery<br/>Voice packet optimization]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         GATEWAY[Gateway Servers<br/>Elixir/Erlang<br/>WebSocket termination]
         VOICE[Voice Servers<br/>Rust + WebRTC<br/>Real-time audio]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         PRESENCE[Presence State<br/>Redis Cluster<br/>10M user states]
         MESSAGES[Message Queue<br/>RabbitMQ<br/>Reliable delivery]
         STORAGE[Persistent Storage<br/>Cassandra + ScyllaDB<br/>Message history]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MON[Monitoring<br/>Custom metrics<br/>Connection health]
         SCALE[Auto-scaling<br/>Connection-based<br/>Predictive scaling]
     end

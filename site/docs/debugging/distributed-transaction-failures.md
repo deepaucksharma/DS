@@ -8,12 +8,12 @@ This guide provides systematic approaches to debugging failed distributed transa
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         API_GW[API Gateway<br/>Kong/Ambassador]
         LB[Load Balancer<br/>AWS ALB]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         ORDER_SVC[Order Service<br/>Transaction Coordinator]
         PAYMENT_SVC[Payment Service<br/>Transaction Participant]
         INVENTORY_SVC[Inventory Service<br/>Transaction Participant]
@@ -21,14 +21,14 @@ graph TB
         SAGA_ENGINE[Saga Engine<br/>Orchestrator Pattern]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         TXN_LOG[(Transaction Log<br/>PostgreSQL)]
         EVENT_STORE[(Event Store<br/>Apache Kafka)]
         COMPENSATE_QUEUE[(Compensation Queue<br/>Redis)]
         TRACE_STORE[(Distributed Traces<br/>Jaeger/Zipkin)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         MONITOR[Monitoring<br/>Prometheus/Grafana]
         ALERT[Alerting<br/>PagerDuty)]
         TRACE_UI[Tracing UI<br/>Jaeger Dashboard]

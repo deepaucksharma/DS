@@ -86,6 +86,7 @@ nav:
       - Primitives: foundation/primitives.md
       - Guarantees Overview: foundation/guarantees.md
       - Mechanisms Overview: foundation/mechanisms.md
+      - Production Reality: foundation/production-reality.md
     - Guarantees:
       - Linearizability:
         - Concept: guarantees/linearizability/linearizability-concept.md
@@ -151,14 +152,37 @@ nav:
       - Decision Engine: patterns/decision-engine.md
       - Mechanisms: patterns/mechanisms.md
       - Pattern Catalog: patterns/pattern-catalog.md
+      - Production Best Practices: patterns/production-best-practices.md
+      - Chaos Engineering: patterns/chaos-engineering-implementation.md
+      - Progressive Delivery: patterns/progressive-delivery-pipeline.md
+      - Circuit Breaker (Netflix): patterns/circuit-breaker-netflix-hystrix.md
+      - Bulkhead Isolation (Shopify): patterns/bulkhead-isolation-shopify.md
+      - Saga Pattern (Uber): patterns/saga-pattern-uber-rides.md
+      - Event Sourcing (Stripe): patterns/event-sourcing-stripe-payments.md
+      - CQRS (LinkedIn): patterns/cqrs-linkedin-feed.md
+      - Outbox Pattern (DoorDash): patterns/outbox-pattern-doordash.md
+      - Two-Phase Commit (Google): patterns/two-phase-commit-google-spanner.md
+      - Leader Election (Kubernetes): patterns/leader-election-kubernetes.md
+      - Rate Limiting (Discord): patterns/rate-limiting-discord.md
+      - Retry with Backoff (AWS): patterns/retry-backoff-aws-sdk.md
+      - Cache-Aside (Reddit): patterns/cache-aside-reddit.md
+      - Write-Through Cache (Facebook): patterns/write-through-cache-facebook.md
+      - Sidecar Proxy (Lyft): patterns/sidecar-proxy-lyft-envoy.md
+      - Ambassador Gateway (Airbnb): patterns/ambassador-gateway-airbnb.md
+      - Strangler Fig (Monzo): patterns/strangler-fig-monzo.md
+      - Blue-Green Deployment (Netflix): patterns/blue-green-deployment-netflix.md
+      - Canary Release (GitHub): patterns/canary-release-github.md
+      - Feature Toggle (Spotify): patterns/feature-toggle-spotify.md
+      - Database per Service (Uber): patterns/database-per-service-uber.md
+      - API Composition (Netflix): patterns/api-composition-netflix-bff.md
     - Examples:
-      - Case Studies: examples/case-studies.md
       - Implementation: examples/implementation.md
       - Pitfalls: examples/pitfalls.md
     - Reference:
       - API Reference: reference/api.md
       - Glossary: reference/glossary.md
       - Further Reading: reference/reading.md
+      - Proof Obligations: reference/proof-obligations.md
 
   - Systems:
     - Airbnb:
@@ -535,6 +559,11 @@ nav:
       - Load Balancer Debugging: debugging/load-balancer-debugging.md
       - DNS Resolution Issues: debugging/dns-resolution-issues-debugging.md
       - S3 Access Denied: debugging/s3-access-denied-debugging.md
+      - Cache Coherency Issues: debugging/cache-coherency-issues.md
+      - CDN Cache Misses: debugging/cdn-cache-misses.md
+      - Database Deadlocks: debugging/database-deadlocks.md
+      - SSL/TLS Certificate Issues: debugging/ssl-tls-certificate-issues.md
+      - WebSocket Connection Issues: debugging/websocket-connection-issues.md
     - Application Issues:
       - API Gateway Issues: debugging/api-gateway-issues-debugging.md
       - API Rate Limiting: debugging/api-rate-limiting-debugging.md
@@ -568,6 +597,26 @@ nav:
       - Cascading Failure Prevention: debugging/cascading-failure-prevention.md
       - Resource Exhaustion Diagnosis: debugging/resource-exhaustion-diagnosis.md
       - Performance Bottleneck Identification: debugging/performance-bottleneck-identification.md
+      - Redis Memory Leak: debugging/redis-memory-leak-debugging.md
+      - Elasticsearch Shard Failure: debugging/elasticsearch-shard-failure-debugging.md
+      - PostgreSQL Lock Contention: debugging/postgres-lock-contention-debugging.md
+      - Nginx 502 Errors: debugging/nginx-502-errors-debugging.md
+      - Kubernetes OOM Kills: debugging/kubernetes-oom-kills-debugging.md
+      - gRPC Timeout Chains: debugging/grpc-timeout-chains-debugging.md
+      - Cloudflare Rate Limiting: debugging/cloudflare-rate-limiting-debugging.md
+      - DynamoDB Throttling: debugging/dynamodb-throttling-debugging.md
+      - RabbitMQ Queue Buildup: debugging/rabbitmq-queue-buildup-debugging.md
+      - MongoDB ReplicaSet Lag: debugging/mongodb-replicaset-lag-debugging.md
+      - React Hydration Mismatch: debugging/react-hydration-mismatch-debugging.md
+      - GraphQL N+1 Queries: debugging/graphql-n-plus-one-debugging.md
+      - AWS Lambda Timeout: debugging/aws-lambda-timeout-debugging.md
+      - Istio Circuit Breaker: debugging/istio-circuit-breaker-debugging.md
+      - MySQL Deadlock: debugging/mysql-deadlock-debugging.md
+      - Cassandra Tombstone: debugging/cassandra-tombstone-debugging.md
+      - S3 Eventual Consistency: debugging/s3-eventual-consistency-debugging.md
+      - WebSocket Disconnect: debugging/websocket-disconnect-debugging.md
+      - CDN Cache Miss: debugging/cdn-cache-miss-debugging.md
+      - etcd Leader Election: debugging/etcd-leader-election-debugging.md
       - Throughput Degradation: debugging/throughput-degradation.md
       - Timeout and Retry Tuning: debugging/timeout-and-retry-tuning.md
     - Security:
@@ -832,19 +881,6 @@ nav:
       - Vault vs AWS Secrets vs Azure Key Vault: comparisons/vault-vs-aws-secrets-vs-azure-key-vault.md
     - Frontend:
       - React vs Vue vs Angular: comparisons/react-vs-vue-vs-angular.md
-
-  - Case Studies:
-    - Overview: case-studies/index.md
-    - Netflix Architecture: case-studies/netflix.md
-    - Uber Systems: case-studies/uber.md
-    - Framework: case-studies/framework.md
-    - Data Collection: case-studies/data-collection-framework.md
-    - Comparisons: case-studies/comparison-matrices.md
-
-  - Production:
-    - Reality Check: production/reality.md
-    - Best Practices: production/best-practices.md
-    - Proof Obligations: production/proof-obligations.md
 
 plugins:
   - search

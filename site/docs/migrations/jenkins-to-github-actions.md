@@ -17,12 +17,12 @@ This playbook guides the migration from Jenkins-based CI/CD to GitHub Actions, e
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LB[Load Balancer<br/>ALB - ssl termination<br/>p99: 100ms]
         VPN[VPN Gateway<br/>Site-to-site connection<br/>Corporate network access]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         JENKINS_MASTER[Jenkins Master<br/>c5.2xlarge<br/>8 CPU, 16GB RAM<br/>300+ jobs configured]
         JENKINS_AGENT1[Jenkins Agent 1<br/>c5.xlarge<br/>Docker + Node.js<br/>4 executors]
         JENKINS_AGENT2[Jenkins Agent 2<br/>c5.xlarge<br/>Docker + Java 11<br/>4 executors]
@@ -31,13 +31,13 @@ graph TB
         NEXUS[Nexus Repository<br/>c5.large<br/>Artifact storage]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         JENKINS_DB[(PostgreSQL<br/>Jenkins metadata<br/>db.t3.medium<br/>500GB)]
         EFS[EFS Storage<br/>Jenkins workspace<br/>2TB allocated<br/>Build artifacts)]
         S3[S3 Buckets<br/>Backup storage<br/>Log archival<br/>500GB]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CW[CloudWatch<br/>Build metrics<br/>Infrastructure monitoring]
         SLACK[Slack Integration<br/>Build notifications<br/>Deployment alerts]
         PAGER[PagerDuty<br/>Pipeline failures<br/>On-call escalation]
@@ -86,24 +86,24 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         GITHUB[GitHub.com<br/>Git repository hosting<br/>99.95% uptime SLA<br/>Global CDN]
         GHCR[GitHub Container Registry<br/>Docker image hosting<br/>Integrated with GitHub<br/>Private repositories]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         GHA_HOSTED[GitHub Hosted Runners<br/>Ubuntu/Windows/macOS<br/>Auto-scaling<br/>2-core, 7GB RAM]
         GHA_SELF1[Self-Hosted Runner 1<br/>c5.2xlarge<br/>Docker + specialized tools<br/>Dedicated workloads]
         GHA_SELF2[Self-Hosted Runner 2<br/>c5.2xlarge<br/>GPU enabled<br/>ML model training]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         S3_ARTIFACTS[S3 Buckets<br/>Build artifacts<br/>Test reports<br/>Cache storage]
         SONAR_CLOUD[SonarCloud<br/>SaaS code quality<br/>GitHub integration<br/>Pay-per-analysis]
         GHCR_STORAGE[GHCR Storage<br/>Container images<br/>Package artifacts<br/>Integrated billing]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         GHA_INSIGHTS[GitHub Insights<br/>Workflow analytics<br/>Performance metrics<br/>Usage tracking]
         SLACK_WEBHOOKS[Slack Webhooks<br/>Direct integration<br/>Rich notifications<br/>Thread updates]
         DATADOG[Datadog<br/>Application monitoring<br/>Deployment tracking<br/>Custom metrics]

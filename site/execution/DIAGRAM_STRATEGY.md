@@ -217,13 +217,6 @@ site/docs/
 │   │   │   ├── raft-state.md   # M5-RAFT-ST
 │   │   │   └── raft-deploy.md  # M5-RAFT-DP
 │   │   └── ...
-│   ├── case-studies/
-│   │   ├── netflix/
-│   │   │   ├── architecture.md  # CS-NFX-L0
-│   │   │   ├── streaming.md     # CS-NFX-ST
-│   │   │   ├── chaos.md         # CS-NFX-CH
-│   │   │   └── incidents.md     # CS-NFX-IN
-│   │   └── ...
 │   └── incidents/
 │       ├── aws-s3-2017.md
 │       ├── github-2018.md
@@ -244,9 +237,9 @@ nav:
     - Mechanisms:
       - Consensus: diagrams/mechanisms/consensus/index.md
       - Replication: diagrams/mechanisms/replication/index.md
-    - Case Studies:
-      - Netflix: diagrams/case-studies/netflix/index.md
-      - Uber: diagrams/case-studies/uber/index.md
+    - Systems:
+      - Netflix: systems/netflix/
+      - Uber: systems/uber/
     - Incidents:
       - AWS S3 2017: diagrams/incidents/aws-s3-2017.md
       - GitHub 2018: diagrams/incidents/github-2018.md
@@ -269,8 +262,8 @@ Consistency models, availability patterns, durability
 ### "I need to implement something" → [Mechanisms](mechanisms/)
 Consensus, replication, partitioning, caching
 
-### "I need architecture examples" → [Case Studies](case-studies/)
-Netflix, Uber, Stripe, Discord, and 70+ more
+### "I need architecture examples" → [Systems](systems/)
+Netflix, Uber, Stripe, Discord, and 26+ more
 
 ## Progress Tracker
 

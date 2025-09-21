@@ -17,19 +17,19 @@ This playbook guides the migration from on-premise Hadoop clusters to cloud-nati
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         LOAD_BALANCER[Hardware Load Balancer<br/>F5 BigIP<br/>Health checks<br/>SSL termination]
         VPN_GATEWAY[VPN Gateway<br/>Site-to-site connectivity<br/>Secure data ingestion<br/>Partner connections]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         NAMENODE1[Hadoop NameNode 1<br/>r5.2xlarge<br/>Active master<br/>Metadata management]
         NAMENODE2[Hadoop NameNode 2<br/>r5.2xlarge<br/>Standby master<br/>Failover ready]
         RESOURCE_MANAGER[YARN ResourceManager<br/>r5.xlarge<br/>Job scheduling<br/>Resource allocation]
         SPARK_MASTER[Spark Master<br/>r5.xlarge<br/>Distributed processing<br/>Job coordination]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         DATANODE1[DataNode 1<br/>r5.4xlarge + 8TB SSD<br/>Data storage<br/>Block replication]
         DATANODE2[DataNode 2<br/>r5.4xlarge + 8TB SSD<br/>Data storage<br/>Block replication]
         DATANODE3[DataNode 3<br/>r5.4xlarge + 8TB SSD<br/>Data storage<br/>Block replication]
@@ -39,7 +39,7 @@ graph TB
         HIVE_METASTORE[(Hive Metastore<br/>MySQL 8.0<br/>Schema metadata<br/>Table definitions)]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         AMBARI[Ambari Management<br/>Cluster monitoring<br/>Service management<br/>Configuration control]
         GANGLIA[Ganglia Monitoring<br/>Performance metrics<br/>Resource utilization<br/>Alert management]
         ELK_STACK[ELK Stack<br/>Log aggregation<br/>Search and analytics<br/>Operational insights]
@@ -117,20 +117,20 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #3B82F6]
+    subgraph EdgePlane["Edge Plane"]
         CLOUDFRONT[CloudFront CDN<br/>Global edge locations<br/>API acceleration<br/>Security headers]
         API_GATEWAY[API Gateway<br/>RESTful APIs<br/>Authentication<br/>Rate limiting]
         ALB[Application Load Balancer<br/>Multi-AZ distribution<br/>Health checks<br/>WebSocket support]
     end
 
-    subgraph ServicePlane[Service Plane - #10B981]
+    subgraph ServicePlane["Service Plane"]
         EMR_CLUSTER[EMR Cluster<br/>Auto-scaling enabled<br/>Spot instances<br/>Transient workloads]
         GLUE_JOBS[AWS Glue<br/>Serverless ETL<br/>Data cataloging<br/>Schema evolution]
         LAMBDA_FUNCTIONS[Lambda Functions<br/>Event-driven processing<br/>Real-time triggers<br/>Cost-effective compute]
         KINESIS_ANALYTICS[Kinesis Analytics<br/>Stream processing<br/>Real-time analytics<br/>SQL on streams]
     end
 
-    subgraph StatePlane[State Plane - #F59E0B]
+    subgraph StatePlane["State Plane"]
         S3_DATA_LAKE[S3 Data Lake<br/>Unlimited storage<br/>Multiple storage classes<br/>Lifecycle policies]
         REDSHIFT_CLUSTER[Redshift Cluster<br/>Columnar storage<br/>Concurrency scaling<br/>Materialized views]
         DYNAMODB[DynamoDB<br/>NoSQL database<br/>Auto-scaling<br/>Global tables]
@@ -138,7 +138,7 @@ graph TB
         GLUE_CATALOG[AWS Glue Data Catalog<br/>Centralized metadata<br/>Schema registry<br/>Table versioning]
     end
 
-    subgraph ControlPlane[Control Plane - #8B5CF6]
+    subgraph ControlPlane["Control Plane"]
         CLOUDWATCH[CloudWatch<br/>Metrics and alarms<br/>Log aggregation<br/>Custom dashboards]
         CLOUDTRAIL[CloudTrail<br/>API logging<br/>Compliance auditing<br/>Security monitoring]
         DATA_PIPELINE[Data Pipeline<br/>Workflow orchestration<br/>Dependency management<br/>Error handling]
