@@ -99,8 +99,8 @@ class UnifiedStatusTracker:
                 "specific_technologies": True
             },
             "spec_versions": {
-                "02-DIAGRAM-SPECIFICATIONS-V3.md": None,
-                "26-VISUAL-FIRST-SPECIFICATION.md": None
+                "02-DIAGRAM-SPECIFICATIONS-V3.md": None
+                # Visual specs merged into 02-DIAGRAM-SPECIFICATIONS-V3.md
             }
         }
 
@@ -549,8 +549,8 @@ class UnifiedStatusTracker:
     def get_current_spec_version(self) -> str:
         """Get current spec version hash"""
         spec_files = [
-            self.readonly_spec_path / "02-DIAGRAM-SPECIFICATIONS-V3.md",
-            self.readonly_spec_path / "26-VISUAL-FIRST-SPECIFICATION.md"
+            self.readonly_spec_path / "02-DIAGRAM-SPECIFICATIONS-V3.md"
+            # Visual specs merged into 02-DIAGRAM-SPECIFICATIONS-V3.md
         ]
 
         version_parts = []

@@ -97,18 +97,18 @@ python scripts/unified_status_tracker.py --export weekly_report  # Export for re
 Every diagram MUST use these exact colors and interactive features:
 
 ```css
-Edge Plane:    #3B82F6 (Blue)    - CDN, WAF, Load Balancers
-Service Plane: #10B981 (Emerald) - API Gateway, Business Logic
-State Plane:   #F59E0B (Amber)   - Databases, Caches, Storage
-Control Plane: #8B5CF6 (Violet)  - Monitoring, Config, Automation
+Edge Plane:    #0066CC (Blue)    - CDN, WAF, Load Balancers
+Service Plane: #00AA00 (Green)   - API Gateway, Business Logic
+State Plane:   #FF8800 (Orange)  - Databases, Caches, Storage
+Control Plane: #CC0000 (Red)     - Monitoring, Config, Automation
 ```
 
 **Why These Colors?**
-- Based on Tailwind CSS palette (battle-tested in production)
-- Better accessibility (WCAG AAA compliant)
-- Less eye strain during long debugging sessions
-- Violet for control instead of red (distinctive without implying error)
-- Professional yet pleasant aesthetic
+- Battle-tested in production across 467+ diagrams
+- Clear visual distinction between planes
+- Consistent with existing codebase (3,101 occurrences)
+- Red for control plane indicates critical monitoring/alerting
+- Professional and recognizable color scheme
 
 **Note**: The "Stream Plane" has been removed from specifications.
 
@@ -517,9 +517,9 @@ graph LR
     GW --> SVC
     SVC --> DB
 
-    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
-    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
-    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
 
     class APP edgeStyle
     class GW,SVC serviceStyle
@@ -610,7 +610,7 @@ When readonly-spec files change, affected diagrams are automatically identified:
 - `03-GUARANTEES-SPECIFICATIONS.md` → Guarantees category
 - `04-MECHANISM-SPECIFICATIONS.md` → Mechanisms category
 - `05-PATTERN-SPECIFICATIONS.md` → Patterns category
-- `26-VISUAL-FIRST-SPECIFICATION.md` → All diagrams (visual update)
+- `02-DIAGRAM-SPECIFICATIONS-V3.md` → All diagrams (includes visual specs)
 
 ## 🎉 Completion Criteria
 

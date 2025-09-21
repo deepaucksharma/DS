@@ -52,7 +52,6 @@ All diagrams must use the consistent color scheme:
 planes:
   edge: "#0066CC"      # Blue - Request routing, admission control
   service: "#00AA00"   # Green - Business logic, orchestration
-  stream: "#AA00AA"    # Purple - Event processing, async workflows
   state: "#FF8800"     # Orange - Persistence, consistency
   control: "#CC0000"   # Red - Configuration, monitoring, chaos
 ```
@@ -73,7 +72,7 @@ flowchart TB
         SVC[Core Service]
     end
 
-    subgraph stream ["Stream Plane"]
+    subgraph service2 ["Service Plane - Async"]
         Q[Event Queue]
         PROC[Stream Processor]
     end
@@ -100,7 +99,7 @@ flowchart TB
 
     classDef edge fill:#0066CC,stroke:#004499,color:#fff
     classDef service fill:#00AA00,stroke:#007700,color:#fff
-    classDef stream fill:#AA00AA,stroke:#770077,color:#fff
+    classDef service2 fill:#00AA00,stroke:#007700,color:#fff
     classDef state fill:#FF8800,stroke:#CC6600,color:#fff
     classDef control fill:#CC0000,stroke:#990000,color:#fff
 
@@ -277,7 +276,7 @@ plugins:
         themeCSS: |
           .edge { fill: #0066CC !important; }
           .service { fill: #00AA00 !important; }
-          .stream { fill: #AA00AA !important; }
+          .service { fill: #00AA00 !important; }
           .state { fill: #FF8800 !important; }
           .control { fill: #CC0000 !important; }
 

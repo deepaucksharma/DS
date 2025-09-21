@@ -45,7 +45,7 @@ def technical_review(diagram):
         'syntax_valid': validate_mermaid_syntax(diagram),
         'renders_quickly': render_time < 2000,  # ms
         'file_size_ok': file_size < 500,  # KB
-        'colors_correct': uses_five_plane_colors(diagram),
+        'colors_correct': uses_four_plane_colors(diagram),
         'no_placeholders': not contains_lorem_ipsum(diagram)
     }
     return all(checks.values()), checks
@@ -55,7 +55,7 @@ def technical_review(diagram):
 - [ ] **Mermaid Syntax**: Valid and renders without errors
 - [ ] **Performance**: Renders in <2 seconds
 - [ ] **Size**: File <500KB uncompressed
-- [ ] **Colors**: Uses correct 5-plane architecture colors
+- [ ] **Colors**: Uses correct 4-plane architecture colors
 - [ ] **Formatting**: Proper indentation and structure
 
 ### Common Failures
@@ -65,7 +65,7 @@ failures:
     fix: "Validate at mermaid.live before submitting"
 
   - issue: "Wrong color codes"
-    fix: "Use exactly: #0066CC, #00AA00, #AA00AA, #FF8800, #CC0000"
+    fix: "Use exactly: #0066CC, #00AA00, #FF8800, #CC0000"
 
   - issue: "File too large"
     fix: "Simplify diagram or split into multiple"
@@ -379,7 +379,7 @@ Before submitting any diagram:
 
 ### Must Have
 - [ ] Passes Mermaid syntax validation
-- [ ] Uses correct 5-plane colors
+- [ ] Uses correct 4-plane colors
 - [ ] All metrics have sources
 - [ ] Helps debug production issues
 - [ ] Shows failure modes

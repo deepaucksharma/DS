@@ -480,7 +480,7 @@ Enable external contributions:
 
 ### Must Have
 1. **Real production data** (not theoretical)
-2. **Consistent visual language** (5-plane colors)
+2. **Consistent visual language** (4-plane colors)
 3. **Incident focus** (learn from failures)
 4. **Cost awareness** ($ amounts matter)
 5. **Source attribution** (verifiable claims)
