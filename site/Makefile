@@ -6,7 +6,7 @@
 
 # Directory structure validation paths
 HOME_DIRS := foundation guarantees mechanisms patterns examples reference
-OPERATIONS_DIRS := debugging production
+OPERATIONS_DIRS := debugging
 SYSTEMS_DIRS := airbnb amazon cloudflare coinbase datadog discord doordash dropbox github google instacart linkedin meta microsoft netflix openai pinterest reddit robinhood shopify slack snap spotify square stripe tiktok twitch twitter uber zoom
 INCIDENTS_DIRS := high-profile cloud-providers financial-services communication entertainment e-commerce travel social-media response-patterns
 COMPARISONS_DIRS := database messaging api-networking cloud-infrastructure monitoring-observability ci-cd-devops service-discovery-config frontend
