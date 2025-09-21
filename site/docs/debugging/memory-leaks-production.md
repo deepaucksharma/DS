@@ -8,25 +8,25 @@ This guide provides systematic approaches to detecting, analyzing, and fixing me
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[Load Balancer<br/>AWS ALB]
         CDN[CDN<br/>CloudFront]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         APP1[App Instance 1<br/>Java 17 - 4GB heap]
         APP2[App Instance 2<br/>Java 17 - 4GB heap]
         APP3[App Instance 3<br/>Java 17 - 4GB heap]
         SIDECAR[Monitoring Sidecar<br/>JVM metrics]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         HEAP_DUMP[(Heap Dumps<br/>S3 Storage)]
         METRICS_DB[(Metrics Storage<br/>InfluxDB)]
         GC_LOG[(GC Logs<br/>Structured logging)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         APM[APM Tool<br/>New Relic/DataDog]
         PROFILER[Continuous Profiler<br/>async-profiler]
         ALERT[Alerting<br/>PagerDuty]
@@ -53,10 +53,10 @@ graph TB
     PROFILER --> ALERT
 
     %% Apply styles
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,CDN edgeStyle
     class APP1,APP2,APP3,SIDECAR serviceStyle

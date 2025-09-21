@@ -8,28 +8,28 @@ Docker build failures affect 25% of CI/CD pipelines and are responsible for sign
 
 ```mermaid
 graph TB
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         START[Docker Build Failing]
         VERBOSE[Run with --verbose]
         LOGS[Check Build Logs]
         CACHE[Check Layer Cache]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         SYNTAX[Dockerfile Syntax?]
         DEPS[Dependency Issues?]
         MULTI[Multi-stage Issues?]
         CONTEXT[Build Context Size?]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         DISK[Disk Space Issues?]
         NETWORK[Network Connectivity?]
         REGISTRY[Registry Access?]
         SECRETS[Build Secrets?]
     end
 
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         BASE[Base Image Issues?]
         PLATFORM[Platform Compatibility?]
         PERMS[File Permissions?]
@@ -53,10 +53,10 @@ graph TB
     PERMS --> ENV
 
     %% Apply four-plane colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class START,VERBOSE,LOGS,CACHE controlStyle
     class SYNTAX,DEPS,MULTI,CONTEXT serviceStyle

@@ -515,10 +515,10 @@ graph TB
     CIRCUIT_BREAKER --> HIKARI
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class API_GW,ALB edgeStyle
     class APP1,APP2,APP3,HIKARI,PGPOOL,REDIS_POOL serviceStyle
@@ -574,10 +574,10 @@ graph LR
     LEAK_DETECTION --> RECOVERY
     RECOVERY --> MAINTENANCE
 
-    classDef initStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef processStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef scalingStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef healthStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef initStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef processStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef scalingStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef healthStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class STARTUP,VALIDATE,READY initStyle
     class REQUEST,ACQUIRE,EXECUTE,RELEASE processStyle

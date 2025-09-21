@@ -17,25 +17,25 @@ This playbook guides the migration from MongoDB to AWS DynamoDB for applications
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ALB[Application Load Balancer<br/>Target health checks<br/>SSL termination<br/>Request routing]
         CF[CloudFront CDN<br/>Static asset caching<br/>API response caching<br/>Global distribution]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         API_SERVERS[API Servers<br/>Node.js/Python services<br/>Connection pooling<br/>Query optimization]
         BG_WORKERS[Background Workers<br/>Data processing<br/>ETL operations<br/>Analytics jobs]
         CACHE_LAYER[Application Cache<br/>Redis cluster<br/>Query result caching<br/>Session storage]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         MONGO_PRIMARY[(MongoDB Primary<br/>r5.2xlarge<br/>Read/Write operations<br/>Replica set leader)]
         MONGO_SECONDARY1[(MongoDB Secondary 1<br/>r5.xlarge<br/>Read operations<br/>Backup target)]
         MONGO_SECONDARY2[(MongoDB Secondary 2<br/>r5.xlarge<br/>Read operations<br/>Analytics queries)]
         MONGO_ARBITER[MongoDB Arbiter<br/>t3.small<br/>Election participation<br/>No data storage]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MONGO_OPS[MongoDB Ops Manager<br/>Cluster monitoring<br/>Backup management<br/>Performance tuning]
         ALERTING[CloudWatch Alerting<br/>Custom metrics<br/>Log aggregation<br/>On-call automation]
     end
@@ -63,10 +63,10 @@ graph TB
     MONGO_OPS --> ALERTING
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALB,CF edgeStyle
     class API_SERVERS,BG_WORKERS,CACHE_LAYER serviceStyle
@@ -85,24 +85,24 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ALB[Application Load Balancer<br/>Same configuration<br/>Health check updates<br/>Request routing]
         CF[CloudFront CDN<br/>Enhanced with DynamoDB<br/>DAX caching integration<br/>Global distribution]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         API_SERVERS_NEW[API Servers<br/>Updated DB drivers<br/>DynamoDB SDK<br/>Async operations]
         BG_WORKERS_NEW[Background Workers<br/>DynamoDB Streams<br/>Event-driven processing<br/>Lambda integration]
         DAX_CACHE[DynamoDB Accelerator<br/>Microsecond latency<br/>Transparent caching<br/>Cluster mode]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         DYNAMODB_MAIN[(DynamoDB Tables<br/>On-demand scaling<br/>Global tables<br/>Point-in-time recovery)]
         DYNAMODB_GSI[(Global Secondary Indexes<br/>Alternative access patterns<br/>Query optimization<br/>Independent scaling)]
         S3_BACKUP[S3 Backup Vault<br/>Automated backups<br/>Cross-region replication<br/>Lifecycle policies]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CLOUDWATCH[CloudWatch Monitoring<br/>Native DynamoDB metrics<br/>Custom application metrics<br/>Auto-scaling triggers]
         XRAY[AWS X-Ray<br/>Distributed tracing<br/>Performance insights<br/>Error analysis]
         DYNAMODB_STREAMS[DynamoDB Streams<br/>Change data capture<br/>Real-time processing<br/>Lambda triggers]
@@ -129,10 +129,10 @@ graph TB
     DYNAMODB_STREAMS --> XRAY
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALB,CF edgeStyle
     class API_SERVERS_NEW,BG_WORKERS_NEW,DAX_CACHE serviceStyle
@@ -165,8 +165,8 @@ graph LR
     DESIGN_GSI --> VALIDATE_MODEL
 
     %% Apply colors
-    classDef analysisStyle fill:#E8F4FD,stroke:#0066CC,color:#000
-    classDef designStyle fill:#E8F7E8,stroke:#00AA00,color:#000
+    classDef analysisStyle fill:#E8F4FD,stroke:#3B82F6,color:#000
+    classDef designStyle fill:#E8F7E8,stroke:#10B981,color:#000
 
     class ANALYZE_QUERIES,ANALYZE_SCHEMA,IDENTIFY_PATTERNS analysisStyle
     class DESIGN_TABLES,DESIGN_GSI,VALIDATE_MODEL designStyle

@@ -51,25 +51,25 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         F5[F5 Load Balancers<br/>Hardware appliances<br/>8 data centers]
         AKAMAI[Akamai CDN<br/>Global content delivery<br/>Financial compliance]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         MAINFRAME[IBM Mainframes<br/>COBOL applications<br/>Core banking systems]
         JAVA[Java Applications<br/>WebSphere servers<br/>300+ applications]
         WEB[Web Applications<br/>Apache/IIS servers<br/>Customer portals]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         DB2[IBM DB2<br/>Core banking data<br/>500TB database]
         ORACLE[Oracle RAC<br/>Risk management<br/>100TB database]
         TERADATA[Teradata<br/>Data warehouse<br/>2PB analytics]
         SAN[EMC SAN Storage<br/>10PB total capacity<br/>Tier 1 storage]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         TIVOLI[IBM Tivoli<br/>Systems management<br/>Monitoring/alerting]
         REMEDY[BMC Remedy<br/>ITSM platform<br/>Change management]
         CA[CA Technologies<br/>Job scheduling<br/>Backup management]
@@ -90,10 +90,10 @@ graph TB
     CA -.-> DB2
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class F5,AKAMAI edgeStyle
     class MAINFRAME,JAVA,WEB serviceStyle
@@ -112,13 +112,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         ALB[AWS Application Load Balancer<br/>Multi-AZ deployment<br/>Auto-scaling enabled]
         CF[Amazon CloudFront<br/>Global edge locations<br/>WAF integration]
         APIGW[API Gateway<br/>Rate limiting<br/>Authentication]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         subgraph ECS[Amazon ECS Clusters]
             CORE[Core Banking Services<br/>Java microservices<br/>Auto-scaling]
             RISK[Risk Management Services<br/>Python/R analytics<br/>Spot instances]
@@ -128,14 +128,14 @@ graph TB
         LAMBDA[AWS Lambda<br/>Serverless functions<br/>Event-driven processing]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         RDS[Amazon RDS<br/>Multi-AZ PostgreSQL<br/>Read replicas]
         AURORA[Amazon Aurora<br/>Serverless scaling<br/>Global database]
         REDSHIFT[Amazon Redshift<br/>Data warehouse<br/>Petabyte scale]
         S3[Amazon S3<br/>Data lake storage<br/>99.999999999% durability]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         CLOUDWATCH[CloudWatch<br/>Monitoring/alerting<br/>Custom metrics]
         XRAY[AWS X-Ray<br/>Distributed tracing<br/>Performance insights]
         CONFIG[AWS Config<br/>Compliance monitoring<br/>Resource tracking]
@@ -159,10 +159,10 @@ graph TB
     SYSTEMS -.-> ECS
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALB,CF,APIGW edgeStyle
     class CORE,RISK,CUSTOMER,LAMBDA,ECS serviceStyle

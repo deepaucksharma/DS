@@ -81,9 +81,9 @@ graph TB
         GLACIER[Glacier Deep Archive<br/>7-year compliance<br/>$200K/year]
     end
 
-    classDef dbStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef warehouseStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef backupStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef dbStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef warehouseStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef backupStyle fill:#10B981,stroke:#059669,color:#fff
 
     class PAYDB,LEDGER,CASHDB dbStyle
     class SNOWFLAKE,REDSHIFT warehouseStyle
@@ -113,7 +113,7 @@ graph LR
         BANKING[Banking Licenses<br/>$2M/year<br/>- 50 state MTL licenses<br/>- FDIC partnership<br/>- Federal oversight<br/>- Regulatory reporting]
     end
 
-    classDef complianceStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef complianceStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     class PCI,SOX,BANKING complianceStyle
 ```
 
@@ -146,9 +146,9 @@ graph TB
         CONTRACTS[Merchant Contracts<br/>Partnership agreements<br/>$2M/year]
     end
 
-    classDef engineeringStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef supportStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef legalStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef engineeringStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef supportStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef legalStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class PLATFORM,PAYMENTS,CASHAPP engineeringStyle
     class ONCALL,SRE,SECURITY supportStyle

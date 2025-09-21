@@ -81,14 +81,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         FRONT[Front Door<br/>Global Load Balancer]
         CDN[Azure CDN<br/>Static Content Delivery]
         EDGE[Edge PoPs<br/>150+ Global Locations]
         WAF[Web Application Firewall<br/>DDoS Protection]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         AAD[Azure Active Directory<br/>Identity Service]
         AUTH[Authentication Service<br/>Token Generation]
         AUTHZ[Authorization Service<br/>Permission Validation]
@@ -96,7 +96,7 @@ graph TB
         GRAPH[Microsoft Graph<br/>Unified API]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         TENANT[(Tenant Database<br/>User Directory)]
         TOKEN[(Token Store<br/>JWT + Refresh Tokens)]
         CONFIG[(Configuration DB<br/>Service Settings)]
@@ -104,7 +104,7 @@ graph TB
         DNS[(DNS Infrastructure<br/>Service Discovery)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         DEPLOY[Deployment Service<br/>Configuration Management]
         MON[Monitoring<br/>Application Insights)]
         HEALTH[Health Service<br/>Service Validation]
@@ -118,10 +118,10 @@ graph TB
     AAD -.->|AUTH UNAVAILABLE| AUTH
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class FRONT,CDN,EDGE,WAF edgeStyle
     class AAD,AUTH,AUTHZ,MFA,GRAPH serviceStyle

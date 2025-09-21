@@ -515,11 +515,11 @@ graph TB
     MONITORING --> CDN_CONTROLLER
 
     %% Apply four-plane colors
-    classDef userStyle fill:#E8F4FD,stroke:#0066CC,color:#000
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef regionalStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef originStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef userStyle fill:#E8F4FD,stroke:#3B82F6,color:#000
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef regionalStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef originStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class NA_USERS,EU_USERS,ASIA_USERS,SA_USERS,AF_USERS,ME_USERS userStyle
     class EDGE_NA,EDGE_EU,EDGE_ASIA,EDGE_SA,EDGE_AF,EDGE_ME edgeStyle
@@ -588,10 +588,10 @@ graph TD
     EVICTION_POLICY --> PREFETCH_STRATEGY
     PREFETCH_STRATEGY --> EDGE_CHECK
 
-    classDef requestStyle fill:#E8F4FD,stroke:#0066CC,color:#000
-    classDef hitStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef missStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef originStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef requestStyle fill:#E8F4FD,stroke:#3B82F6,color:#000
+    classDef hitStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef missStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef originStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     classDef metricsStyle fill:#F0F0F0,stroke:#666,color:#000
     classDef optimStyle fill:#DDA0DD,stroke:#9370DB,color:#000
 

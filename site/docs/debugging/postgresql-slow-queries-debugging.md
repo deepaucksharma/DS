@@ -8,28 +8,28 @@ PostgreSQL slow queries affect 40% of database performance issues and can cascad
 
 ```mermaid
 graph TB
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         START[Slow Query Detected]
         LOGS[Check Query Logs]
         STATS[Check pg_stat_statements]
         ACTIVE[Check Active Queries]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         EXPLAIN[EXPLAIN ANALYZE]
         INDEX[Index Analysis]
         PLAN[Query Plan Review]
         REWRITE[Query Rewriting]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         LOCKS[Lock Contention?]
         VACUUM[VACUUM Status?]
         BLOAT[Table Bloat?]
         STATS_UPDATE[Statistics Updated?]
     end
 
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         CONFIG[Configuration Tuning]
         MEMORY[Memory Settings]
         IO[I/O Performance]
@@ -53,10 +53,10 @@ graph TB
     IO --> CONN
 
     %% Apply four-plane colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class START,LOGS,STATS,ACTIVE controlStyle
     class EXPLAIN,INDEX,PLAN,REWRITE serviceStyle

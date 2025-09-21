@@ -70,11 +70,11 @@ graph TB
     Phase4 --> Phase5
 
     %% Apply phase colors
-    classDef phase1Style fill:#FFE0E0,stroke:#CC0000,color:#000,stroke-width:2px
+    classDef phase1Style fill:#FFE0E0,stroke:#8B5CF6,color:#000,stroke-width:2px
     classDef phase2Style fill:#FFE5CC,stroke:#FF6600,color:#000,stroke-width:2px
     classDef phase3Style fill:#FFF2CC,stroke:#FF9900,color:#000,stroke-width:2px
-    classDef phase4Style fill:#E5F7E5,stroke:#00AA00,color:#000,stroke-width:2px
-    classDef phase5Style fill:#E0E5FF,stroke:#0066CC,color:#000,stroke-width:2px
+    classDef phase4Style fill:#E5F7E5,stroke:#10B981,color:#000,stroke-width:2px
+    classDef phase5Style fill:#E0E5FF,stroke:#3B82F6,color:#000,stroke-width:2px
 
     class P1_CLIENT,P1_WEB,P1_S3,P1_META phase1Style
     class P2_LB,P2_API,P2_S3,P2_RDS,P2_REDIS phase2Style

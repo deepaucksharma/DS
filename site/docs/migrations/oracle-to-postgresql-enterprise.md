@@ -60,24 +60,24 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         LB[F5 Load Balancer]
         WEB[Apache HTTP Server<br/>mod_plsql]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         APP[Java Applications<br/>Oracle OCI Driver<br/>Connection Pooling]
         APEX[Oracle APEX<br/>Web Applications]
         FORMS[Oracle Forms<br/>Desktop Apps]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         RAC[Oracle RAC<br/>3-node cluster<br/>500TB database]
         STANDBY[Oracle DataGuard<br/>Standby Database<br/>500TB replica]
         PLSQL[Stored Procedures<br/>1M+ lines PL/SQL<br/>Business Logic]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         OEM[Oracle Enterprise Manager<br/>Database Monitoring]
         RMAN[Oracle RMAN<br/>Backup Management]
         GRID[Oracle Grid Infrastructure<br/>Cluster Management]
@@ -98,10 +98,10 @@ graph TB
     GRID -.-> RAC
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,WEB edgeStyle
     class APP,APEX,FORMS serviceStyle
@@ -120,24 +120,24 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         ALB[AWS ALB]
         NGINX[NGINX Reverse Proxy<br/>Connection Pooling]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         APP_NEW[Java Applications<br/>PostgreSQL JDBC<br/>HikariCP Pool]
         WEB_APP[Modern Web Apps<br/>React/Angular<br/>REST APIs]
         API[REST API Gateway<br/>Spring Boot<br/>Microservices]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         PG_PRIMARY[PostgreSQL Primary<br/>Version 15<br/>500TB database]
         PG_REPLICA[PostgreSQL Replicas<br/>3 read replicas<br/>Streaming replication]
         APP_LOGIC[Application Logic<br/>Java/Python services<br/>Business rules in code]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         PGMON[PostgreSQL Monitoring<br/>Prometheus + Grafana]
         BACKUP[pgBackRest<br/>Automated backups<br/>Point-in-time recovery]
         PATRONI[Patroni + etcd<br/>High Availability<br/>Automatic failover]
@@ -158,10 +158,10 @@ graph TB
     PATRONI -.-> PG_PRIMARY
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALB,NGINX edgeStyle
     class APP_NEW,WEB_APP,API serviceStyle

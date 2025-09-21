@@ -8,7 +8,7 @@ API Gateway issues can manifest as rate limiting failures, authentication proble
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         CLIENT_REQ[Client Request]
         RATE_LIMITED{Rate Limited?}
         AUTH_FAILED{Auth Failed?}
@@ -16,21 +16,21 @@ graph TB
         TIMEOUT{Gateway Timeout?}
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         CHECK_QUOTAS[Check Rate Quotas]
         VERIFY_AUTH[Verify Auth Config]
         TRACE_ROUTING[Trace Request Route]
         ANALYZE_UPSTREAM[Analyze Upstream Health]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         GATEWAY_LOGS[(Gateway Access Logs)]
         ERROR_LOGS[(Error Logs)]
         METRICS[(Request Metrics)]
         CONFIG_STATE[(Configuration State)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         MONITOR[Traffic Monitoring]
         CIRCUIT_BREAKER[Circuit Breakers]
         AUTO_SCALE[Auto Scaling]
@@ -57,10 +57,10 @@ graph TB
     CONFIG_STATE --> ALERTS
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT_REQ,RATE_LIMITED,AUTH_FAILED,ROUTING_ERROR,TIMEOUT edgeStyle
     class CHECK_QUOTAS,VERIFY_AUTH,TRACE_ROUTING,ANALYZE_UPSTREAM serviceStyle
@@ -392,21 +392,21 @@ spec:
 ### Gateway Performance Metrics
 ```mermaid
 graph TB
-    subgraph RequestFlow[Request Flow - Blue #0066CC]
+    subgraph RequestFlow[Request Flow - Blue #3B82F6]
         DNS_LOOKUP[DNS Lookup<br/>Target: < 10ms]
         TLS_HANDSHAKE[TLS Handshake<br/>Target: < 50ms]
         GATEWAY_PROCESS[Gateway Processing<br/>Target: < 5ms]
         UPSTREAM_REQUEST[Upstream Request<br/>Target: < 100ms]
     end
 
-    subgraph Bottlenecks[Common Bottlenecks - Red #CC0000]
+    subgraph Bottlenecks[Common Bottlenecks - Red #8B5CF6]
         PLUGIN_OVERHEAD[Plugin Chain<br/>Each plugin adds 1-5ms]
         AUTH_LATENCY[Auth Validation<br/>External calls: 10-50ms]
         RATE_LIMIT_CHECK[Rate Limit Check<br/>Redis/DB lookup: 1-10ms]
         SERVICE_DISCOVERY[Service Discovery<br/>DNS/Registry: 5-20ms]
     end
 
-    subgraph Optimization[Optimization Strategies - Green #00AA00]
+    subgraph Optimization[Optimization Strategies - Green #10B981]
         CACHE_AUTH[Cache Auth Results<br/>TTL: 5-15 minutes]
         ASYNC_LOGGING[Async Logging<br/>Non-blocking writes]
         CONNECTION_POOLING[Connection Pooling<br/>Reuse upstream connections]
@@ -423,9 +423,9 @@ graph TB
     RATE_LIMIT_CHECK --> CONNECTION_POOLING
     SERVICE_DISCOVERY --> CIRCUIT_BREAKERS
 
-    classDef requestStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef bottleneckStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef optimizeStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef requestStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef bottleneckStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef optimizeStyle fill:#10B981,stroke:#059669,color:#fff
 
     class DNS_LOOKUP,TLS_HANDSHAKE,GATEWAY_PROCESS,UPSTREAM_REQUEST requestStyle
     class PLUGIN_OVERHEAD,AUTH_LATENCY,RATE_LIMIT_CHECK,SERVICE_DISCOVERY bottleneckStyle
@@ -435,20 +435,20 @@ graph TB
 ### Rate Limiting Strategy Matrix
 ```mermaid
 graph LR
-    subgraph Algorithms[Rate Limiting Algorithms - Orange #FF8800]
+    subgraph Algorithms[Rate Limiting Algorithms - Orange #F59E0B]
         TOKEN_BUCKET[Token Bucket<br/>Burst handling<br/>Good for APIs]
         LEAKY_BUCKET[Leaky Bucket<br/>Smooth rate<br/>Good for uploads]
         FIXED_WINDOW[Fixed Window<br/>Simple implementation<br/>Thundering herd risk]
         SLIDING_WINDOW[Sliding Window<br/>Precise control<br/>Memory intensive]
     end
 
-    subgraph Storage[Storage Backend - Blue #0066CC]
+    subgraph Storage[Storage Backend - Blue #3B82F6]
         IN_MEMORY[In-Memory<br/>Fastest: < 1ms<br/>Not distributed]
         REDIS[Redis<br/>Fast: 1-5ms<br/>Distributed]
         DATABASE[Database<br/>Slow: 5-50ms<br/>Persistent]
     end
 
-    subgraph UseCase[Use Cases - Green #00AA00]
+    subgraph UseCase[Use Cases - Green #10B981]
         API_CALLS[API Rate Limits<br/>1000 req/min per user]
         FILE_UPLOAD[File Upload<br/>10MB/min per user]
         LOGIN_ATTEMPTS[Login Attempts<br/>5 attempts/15min]
@@ -465,9 +465,9 @@ graph LR
     LOGIN_ATTEMPTS --> DATABASE
     BULK_OPERATIONS --> REDIS
 
-    classDef algoStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef storageStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef usecaseStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef algoStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef storageStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef usecaseStyle fill:#10B981,stroke:#059669,color:#fff
 
     class TOKEN_BUCKET,LEAKY_BUCKET,FIXED_WINDOW,SLIDING_WINDOW algoStyle
     class IN_MEMORY,REDIS,DATABASE storageStyle

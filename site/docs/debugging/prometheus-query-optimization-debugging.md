@@ -8,28 +8,28 @@ Prometheus query performance issues can cause dashboard timeouts, cardinality ex
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         SLOW_DASHBOARD[Slow Dashboard]
         QUERY_TIMEOUT{Query Timeout?}
         HIGH_CARDINALITY{High Cardinality?}
         STORAGE_FULL{Storage Full?}
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         ANALYZE_QUERIES[Analyze Query Performance]
         CHECK_CARDINALITY[Check Metric Cardinality]
         OPTIMIZE_PROMQL[Optimize PromQL]
         REVIEW_RETENTION[Review Retention Policy]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         QUERY_LOGS[(Query Logs)]
         CARDINALITY_METRICS[(Cardinality Metrics)]
         STORAGE_METRICS[(Storage Metrics)]
         PERFORMANCE_DATA[(Performance Data)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         QUERY_MONITORING[Query Monitoring]
         CARDINALITY_ALERTS[Cardinality Alerts]
         STORAGE_MANAGEMENT[Storage Management]
@@ -54,10 +54,10 @@ graph TB
     PERFORMANCE_DATA --> AUTO_OPTIMIZATION
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SLOW_DASHBOARD,QUERY_TIMEOUT,HIGH_CARDINALITY,STORAGE_FULL edgeStyle
     class ANALYZE_QUERIES,CHECK_CARDINALITY,OPTIMIZE_PROMQL,REVIEW_RETENTION serviceStyle
@@ -105,14 +105,14 @@ curl 'http://prometheus:9090/api/v1/query?query=process_resident_memory_bytes{jo
 ### Query Optimization Matrix
 ```mermaid
 graph TB
-    subgraph SlowQueries[Slow Query Patterns - Red #CC0000]
+    subgraph SlowQueries[Slow Query Patterns - Red #8B5CF6]
         HIGH_CARD[High Cardinality<br/>http_requests_total{}<br/>1M+ series]
         WIDE_RANGE[Wide Time Range<br/>rate()[30d]<br/>Massive data scan]
         COMPLEX_REGEX[Complex Regex<br/>{job=~".*api.*"}<br/>Inefficient matching]
         NESTED_FUNCTIONS[Nested Functions<br/>avg(rate(sum()))<br/>Multiple aggregations]
     end
 
-    subgraph OptimizedQueries[Optimized Patterns - Green #00AA00]
+    subgraph OptimizedQueries[Optimized Patterns - Green #10B981]
         FILTERED[Pre-filtered Queries<br/>http_requests_total{job="api"}<br/>Specific labels first]
         SHORTER_RANGE[Shorter Ranges<br/>rate()[5m]<br/>Reasonable windows]
         EXACT_MATCH[Exact Matching<br/>{job="api-server"}<br/>Precise selectors]
@@ -124,8 +124,8 @@ graph TB
     COMPLEX_REGEX --> EXACT_MATCH
     NESTED_FUNCTIONS --> SIMPLIFIED
 
-    classDef slowStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef fastStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef slowStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef fastStyle fill:#10B981,stroke:#059669,color:#fff
 
     class HIGH_CARD,WIDE_RANGE,COMPLEX_REGEX,NESTED_FUNCTIONS slowStyle
     class FILTERED,SHORTER_RANGE,EXACT_MATCH,SIMPLIFIED fastStyle
@@ -134,14 +134,14 @@ graph TB
 ### Cardinality Management Strategy
 ```mermaid
 graph LR
-    subgraph HighCardinality[High Cardinality Sources - Orange #FF8800]
+    subgraph HighCardinality[High Cardinality Sources - Orange #F59E0B]
         USER_ID[user_id labels<br/>Millions of users<br/>Unbounded growth]
         TRACE_ID[trace_id labels<br/>Unique per request<br/>No reuse]
         FULL_URL[Full URL paths<br/>Dynamic parameters<br/>Infinite combinations]
         TIMESTAMP[Timestamp labels<br/>Every second unique<br/>Time-based explosion]
     end
 
-    subgraph Solutions[Cardinality Solutions - Blue #0066CC]
+    subgraph Solutions[Cardinality Solutions - Blue #3B82F6]
         RECORDING_RULES[Recording Rules<br/>Pre-aggregate metrics<br/>Reduce query load]
         LABEL_DROPPING[Label Dropping<br/>Drop high-cardinality labels<br/>Keep essential only]
         SAMPLING[Metric Sampling<br/>Sample high-volume metrics<br/>Statistical accuracy]
@@ -153,8 +153,8 @@ graph LR
     FULL_URL --> SAMPLING
     TIMESTAMP --> RELABELING
 
-    classDef cardinalityStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef cardinalityStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class USER_ID,TRACE_ID,FULL_URL,TIMESTAMP cardinalityStyle
     class RECORDING_RULES,LABEL_DROPPING,SAMPLING,RELABELING solutionStyle

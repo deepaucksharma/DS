@@ -8,23 +8,23 @@ Netflix operates one of the largest PostgreSQL deployments globally, managing ov
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[Netflix Load Balancer<br/>HAProxy + Zuul<br/>99.99% availability]
         CDN[Netflix CDN<br/>Open Connect<br/>90% cache hit ratio]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         API[Microservices<br/>Java/Spring Boot<br/>2000+ services]
         CP[Connection Pooler<br/>PgBouncer<br/>25,000 connections]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         PRI[Primary PostgreSQL<br/>r6g.24xlarge<br/>768GB RAM, 96 vCPU]
         REP[Read Replicas<br/>5x r6g.16xlarge<br/>512GB RAM each]
         CACHE[Redis Cache<br/>ElastiCache<br/>99.9% hit ratio]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MON[Monitoring<br/>Netflix Atlas<br/>1M metrics/sec]
         CHAOS[Chaos Engineering<br/>Chaos Monkey<br/>Automated failover]
     end
@@ -40,10 +40,10 @@ graph TB
     MON --> REP
     CHAOS --> PRI
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,CDN edgeStyle
     class API,CP serviceStyle
@@ -79,7 +79,7 @@ graph LR
         P999[p999: 12.5ms]
     end
 
-    classDef metricStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class A,B,C,D,E,F,P50,P95,P99,P999 metricStyle
 ```
 
@@ -108,7 +108,7 @@ graph TB
         TC[pool_mode = transaction<br/>max_client_conn = 25000<br/>default_pool_size = 100<br/>reserve_pool_size = 25]
     end
 
-    classDef poolStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef poolStyle fill:#10B981,stroke:#059669,color:#fff
     class APP,PGB,PG,TC poolStyle
 ```
 
@@ -162,8 +162,8 @@ graph TB
     JSON --> IDX
     CONN --> CP
 
-    classDef bottleneckStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef bottleneckStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class QP,AGG,JSON,CONN,OTHER bottleneckStyle
     class PC,PAR,IDX,CP solutionStyle
@@ -203,8 +203,8 @@ graph LR
 
     C20000 --> POOL
 
-    classDef scaleStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef scaleStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class C1000,C5000,C10000,C15000,C20000 scaleStyle
     class POOL solutionStyle
@@ -257,8 +257,8 @@ graph TB
     SUPPORT --> TOTAL
     OVERHEAD --> TOTAL
 
-    classDef costStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef totalStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef costStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef totalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PRIMARY,REPLICAS,STORAGE,IOPS,BACKUP,NETWORK,MONITORING,SUPPORT,OVERHEAD costStyle
     class TOTAL totalStyle
@@ -379,8 +379,8 @@ graph TB
         CONN[Connection Storm<br/>Critical: >24K connections<br/>Major: >22K connections<br/>Warning: >20K connections]
     end
 
-    classDef metricStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef alertStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef metricStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef alertStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class QPS,LAT,CON,CPU,MEM,IO,REP,CACHE metricStyle
     class CRIT,CONN alertStyle

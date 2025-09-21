@@ -16,17 +16,17 @@ Square's scaling journey from 10 coffee shops to 4M+ merchants globally represen
 
 ```mermaid
 graph TB
-    subgraph HardwareMVP[Hardware MVP - #0066CC]
+    subgraph HardwareMVP[Hardware MVP - #3B82F6]
         SQUARE_READER[Square Reader<br/>Audio jack dongle<br/>Magnetic stripe]
         MOBILE_APP[Mobile App<br/>iOS/Android<br/>Simple checkout]
     end
 
-    subgraph PaymentCore[Payment Core - #00AA00]
+    subgraph PaymentCore[Payment Core - #10B981]
         PAYMENT_API[Payment API<br/>Transaction processing<br/>Card authorization]
         MERCHANT_DASH[Merchant Dashboard<br/>Sales analytics<br/>Transaction history]
     end
 
-    subgraph SimpleInfra[Simple Infrastructure - #FF8800]
+    subgraph SimpleInfra[Simple Infrastructure - #F59E0B]
         POSTGRES[(PostgreSQL<br/>Transaction data<br/>Merchant accounts)]
         REDIS[(Redis<br/>Session cache<br/>Real-time data)]
         S3[(S3<br/>Receipt storage<br/>Backup data)]
@@ -43,9 +43,9 @@ graph TB
     MERCHANT_DASH --> POSTGRES
     PAYMENT_API --> BANKS
 
-    classDef hardwareStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef paymentStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef hardwareStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef paymentStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef networkStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class SQUARE_READER,MOBILE_APP hardwareStyle
@@ -65,20 +65,20 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph ExpandedHardware[Expanded Hardware - #0066CC]
+    subgraph ExpandedHardware[Expanded Hardware - #3B82F6]
         SQUARE_STAND[Square Stand<br/>iPad point of sale<br/>Professional setup]
         SQUARE_REGISTER[Square Register<br/>All-in-one system<br/>Receipt printer]
         CHIP_READER[Chip Reader<br/>EMV compliance<br/>Security upgrade]
     end
 
-    subgraph BusinessPlatform[Business Platform - #00AA00]
+    subgraph BusinessPlatform[Business Platform - #10B981]
         POS_SOFTWARE[POS Software<br/>Inventory management<br/>Employee management]
         ANALYTICS[Analytics Platform<br/>Sales insights<br/>Customer data]
         INVOICES[Invoicing System<br/>Online payments<br/>Recurring billing]
         PAYROLL[Payroll Service<br/>Employee payments<br/>Tax compliance]
     end
 
-    subgraph ScaledInfra[Scaled Infrastructure - #FF8800]
+    subgraph ScaledInfra[Scaled Infrastructure - #F59E0B]
         MICROSERVICES[Microservices<br/>API-first architecture<br/>Independent scaling]
         DATABASE_CLUSTER[(Database Cluster<br/>Sharded by merchant<br/>High availability)]
         KAFKA_STREAMS[(Kafka Streams<br/>Real-time processing<br/>Event sourcing)]
@@ -90,9 +90,9 @@ graph TB
     ANALYTICS --> DATABASE_CLUSTER
     INVOICES --> KAFKA_STREAMS
 
-    classDef hardwareStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef platformStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef hardwareStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef platformStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SQUARE_STAND,SQUARE_REGISTER,CHIP_READER hardwareStyle
     class POS_SOFTWARE,ANALYTICS,INVOICES,PAYROLL platformStyle
@@ -110,19 +110,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph FinancialPlatform[Financial Platform - #0066CC]
+    subgraph FinancialPlatform[Financial Platform - #3B82F6]
         SQUARE_BANKING[Square Banking<br/>Business accounts<br/>Debit cards]
         SQUARE_LOANS[Square Loans<br/>Automated underwriting<br/>Data-driven lending]
         SQUARE_PAYROLL[Square Payroll<br/>Full-service payroll<br/>Benefits management]
     end
 
-    subgraph AdvancedPayments[Advanced Payments - #00AA00]
+    subgraph AdvancedPayments[Advanced Payments - #10B981]
         ONLINE_PAYMENTS[Online Payments<br/>E-commerce integration<br/>API platform]
         MOBILE_PAYMENTS[Mobile Payments<br/>Contactless/NFC<br/>Digital wallets]
         OMNICHANNEL[Omnichannel<br/>Unified commerce<br/>Cross-platform]
     end
 
-    subgraph MLPlatform[ML Platform - #FF8800]
+    subgraph MLPlatform[ML Platform - #F59E0B]
         FRAUD_DETECTION[Fraud Detection<br/>Real-time scoring<br/>Behavioral analysis]
         UNDERWRITING[Automated Underwriting<br/>Alternative data<br/>Risk assessment]
         PERSONALIZATION[Personalization<br/>Merchant insights<br/>Custom recommendations]
@@ -133,9 +133,9 @@ graph TB
     MOBILE_PAYMENTS --> UNDERWRITING
     OMNICHANNEL --> PERSONALIZATION
 
-    classDef financialStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef paymentsStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef mlStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef financialStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef paymentsStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef mlStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SQUARE_BANKING,SQUARE_LOANS,SQUARE_PAYROLL financialStyle
     class ONLINE_PAYMENTS,MOBILE_PAYMENTS,OMNICHANNEL paymentsStyle

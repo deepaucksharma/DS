@@ -886,8 +886,8 @@ graph TB
     end
 
     %% Risk level colors
-    classDef highRisk fill:#ff4444,stroke:#cc0000,color:#fff
-    classDef mediumRisk fill:#ffaa00,stroke:#cc6600,color:#fff
+    classDef highRisk fill:#ff4444,stroke:#8B5CF6,color:#fff
+    classDef mediumRisk fill:#ffaa00,stroke:#D97706,color:#fff
     classDef lowRisk fill:#44aa44,stroke:#006600,color:#fff
 
     class CONFIG_LOSS,COMPLEXITY_INCREASE,STATE_MANAGEMENT highRisk

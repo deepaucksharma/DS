@@ -129,8 +129,8 @@ graph LR
     COSTS --> NETWORK
     COSTS --> OVERHEAD
 
-    classDef valueStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef costStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef valueStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef costStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class ARPU,MARGIN valueStyle
     class STORAGE,COMPUTE,NETWORK,OVERHEAD costStyle

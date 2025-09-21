@@ -84,11 +84,11 @@ graph TB
     FEATURE_STORE --> REDIS_CACHE
 
     %% Apply storage-specific styling
-    classDef hotStorage fill:#FF4444,stroke:#CC0000,color:#fff,stroke-width:3px
-    classDef warmStorage fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:2px
+    classDef hotStorage fill:#FF4444,stroke:#8B5CF6,color:#fff,stroke-width:3px
+    classDef warmStorage fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:2px
     classDef coldStorage fill:#4444FF,stroke:#0000CC,color:#fff,stroke-width:2px
-    classDef cdnStorage fill:#00AA00,stroke:#007700,color:#fff,stroke-width:2px
-    classDef metadataStorage fill:#AA00AA,stroke:#770077,color:#fff,stroke-width:2px
+    classDef cdnStorage fill:#10B981,stroke:#059669,color:#fff,stroke-width:2px
+    classDef metadataStorage fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:2px
     classDef mlStorage fill:#00AAAA,stroke:#007777,color:#fff,stroke-width:2px
 
     class S3_HOT,HDFS_HOT,REDIS_CACHE hotStorage

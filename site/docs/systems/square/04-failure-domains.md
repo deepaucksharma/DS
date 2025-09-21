@@ -105,7 +105,7 @@ graph TB
     CARDNETWORKS -.->|Monitors| CB4
 
     %% Apply four-plane colors with failure indicators
-    classDef edgeFailure fill:#FFB3B3,stroke:#CC0000,color:#000
+    classDef edgeFailure fill:#FFB3B3,stroke:#8B5CF6,color:#000
     classDef serviceFailure fill:#FFD700,stroke:#FF8C00,color:#000
     classDef stateFailure fill:#FFA500,stroke:#FF4500,color:#000
     classDef externalFailure fill:#DDA0DD,stroke:#8B008B,color:#fff
@@ -283,7 +283,7 @@ graph TD
     RESOLVED2 -->|No| WAR_ROOM[War Room + Executive Alert]
     RESOLVED2 -->|Yes| POSTMORTEM
 
-    classDef criticalStyle fill:#FF6B6B,stroke:#CC0000,color:#fff
+    classDef criticalStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff
     classDef warningStyle fill:#FFD93D,stroke:#FF8C00,color:#000
     classDef infoStyle fill:#6BCF7F,stroke:#28A745,color:#fff
 

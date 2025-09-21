@@ -8,12 +8,12 @@ This guide provides systematic approaches to debugging failed distributed transa
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         API_GW[API Gateway<br/>Kong/Ambassador]
         LB[Load Balancer<br/>AWS ALB]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         ORDER_SVC[Order Service<br/>Transaction Coordinator]
         PAYMENT_SVC[Payment Service<br/>Transaction Participant]
         INVENTORY_SVC[Inventory Service<br/>Transaction Participant]
@@ -21,14 +21,14 @@ graph TB
         SAGA_ENGINE[Saga Engine<br/>Orchestrator Pattern]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         TXN_LOG[(Transaction Log<br/>PostgreSQL)]
         EVENT_STORE[(Event Store<br/>Apache Kafka)]
         COMPENSATE_QUEUE[(Compensation Queue<br/>Redis)]
         TRACE_STORE[(Distributed Traces<br/>Jaeger/Zipkin)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MONITOR[Monitoring<br/>Prometheus/Grafana]
         ALERT[Alerting<br/>PagerDuty)]
         TRACE_UI[Tracing UI<br/>Jaeger Dashboard]
@@ -61,10 +61,10 @@ graph TB
     MONITOR --> ALERT
 
     %% Apply styles
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class API_GW,LB edgeStyle
     class ORDER_SVC,PAYMENT_SVC,INVENTORY_SVC,SHIPPING_SVC,SAGA_ENGINE serviceStyle

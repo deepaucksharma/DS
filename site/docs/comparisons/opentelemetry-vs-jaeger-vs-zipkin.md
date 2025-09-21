@@ -116,10 +116,10 @@ graph TB
     end
 
     %% 4-Plane Architecture Colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class OTEL_SDKS1,OTEL_APIS1,JAEGER_UI2,JAEGER_QUERY2,ZIPKIN_UI3,ZIPKIN_API3 edgeStyle
     class OTEL_COLLECTOR1,INSTRUMENTATION1,EXPORTERS1,JAEGER_AGENT2,JAEGER_COLLECTOR2,JAEGER_INGESTER2,ZIPKIN_SERVER3,ZIPKIN_TRANSPORT3,BRAVE_TRACER3 serviceStyle
@@ -156,10 +156,10 @@ graph LR
         JAEGER_CLUSTER --> ADAPTIVE_SAMPLING
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MICROSERVICES edgeStyle
     class JAEGER_CLUSTER,TRACE_COLLECTION serviceStyle
@@ -194,10 +194,10 @@ graph LR
         OTEL_COLLECTORS --> TAIL_SAMPLING
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class STREAMING_SERVICES edgeStyle
     class OTEL_COLLECTORS,TELEMETRY_PIPELINE serviceStyle
@@ -232,10 +232,10 @@ graph LR
         ZIPKIN_CLUSTER --> FIXED_SAMPLING
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SOCIAL_PLATFORM edgeStyle
     class ZIPKIN_CLUSTER,SIMPLE_COLLECTION serviceStyle
@@ -321,9 +321,9 @@ graph TB
         TAIL_SAMPLING_IMPL --> VENDOR_FLEXIBILITY
     end
 
-    classDef migrationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef legacyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef newStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef migrationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef legacyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef newStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class INSTRUMENTATION_PLAN,COLLECTOR_SCALING migrationStyle
     class VENDOR_LOCKED legacyStyle
@@ -358,9 +358,9 @@ graph TB
         ADAPTIVE_SAMPLING_SETUP --> MULTI_TENANT
     end
 
-    classDef migrationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef legacyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef newStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef migrationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef legacyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef newStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class AGENT_DEPLOYMENT,ELASTICSEARCH_SETUP migrationStyle
     class NO_TRACING legacyStyle

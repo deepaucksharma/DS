@@ -116,10 +116,10 @@ graph TB
     end
 
     %% 4-Plane Architecture Colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ISTIO_GATEWAY1,PILOT_API1,LINKERD_INGRESS2,LINKERD_CLI2,CONSUL_GATEWAY3,CONSUL_UI3 edgeStyle
     class ENVOY_PROXIES1,PILOT1,CITADEL1,LINKERD_PROXY2,DESTINATION2,IDENTITY2,CONNECT_PROXIES3,CONSUL_AGENTS3,CONNECT_CA3 serviceStyle
@@ -156,10 +156,10 @@ graph LR
         ISTIO_MESH --> SECURITY_POLICIES
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MOBILE_CLIENTS edgeStyle
     class ISTIO_MESH,TRAFFIC_MANAGEMENT serviceStyle
@@ -194,10 +194,10 @@ graph LR
         LINKERD_MESH --> SIMPLE_POLICIES
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ENTERPRISE_USERS edgeStyle
     class LINKERD_MESH,GOLDEN_METRICS serviceStyle
@@ -232,10 +232,10 @@ graph LR
         CONSUL_MESH --> FEDERATION
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MULTI_PLATFORM edgeStyle
     class CONSUL_MESH,INTENTIONS_MGMT serviceStyle
@@ -321,9 +321,9 @@ graph TB
         MULTI_CLUSTER --> SECURITY_HARDENING
     end
 
-    classDef migrationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef legacyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef newStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef migrationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef legacyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef newStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class OBSERVABILITY_SETUP,PROGRESSIVE_ROLLOUT migrationStyle
     class LEGACY_NETWORKING legacyStyle
@@ -358,9 +358,9 @@ graph TB
         MONITORING_ALERTS --> MULTI_CLUSTER_SIMPLE
     end
 
-    classDef migrationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef legacyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef newStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef migrationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef legacyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef newStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class GOLDEN_METRICS_SETUP,TRAFFIC_SPLIT migrationStyle
     class NO_MESH legacyStyle

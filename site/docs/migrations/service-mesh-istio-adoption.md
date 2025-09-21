@@ -15,11 +15,11 @@ Service mesh adoption represents one of the most transformative infrastructure c
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         LB[Load Balancer<br/>External traffic<br/>Basic routing]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         subgraph App1[User Service]
             USER_CODE[Business Logic]
             USER_NET[HTTP Client<br/>Retries, timeouts<br/>Circuit breakers<br/>Auth headers]
@@ -41,14 +41,14 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         DB1[(User Database)]
         DB2[(Order Database)]
         DB3[(Payment Database)]
         DB4[(Inventory Database)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         PROMETHEUS[Prometheus<br/>Inconsistent metrics<br/>Per-service config]
         JAEGER[Jaeger<br/>Manual instrumentation<br/>Incomplete traces]
         LOGS[Log Aggregation<br/>Unstructured data<br/>No correlation]
@@ -70,10 +70,10 @@ graph TB
     PAY_NET -.-> LOGS
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB edgeStyle
     class USER_CODE,USER_NET,ORDER_CODE,ORDER_NET,PAY_CODE,PAY_NET,INV_CODE,INV_NET,App1,App2,App3,App4 serviceStyle
@@ -92,11 +92,11 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         GATEWAY[Istio Gateway<br/>Envoy proxy<br/>TLS termination<br/>Advanced routing]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         subgraph App1[User Service]
             USER_APP[Business Logic<br/>Pure application code<br/>No networking concerns]
             USER_PROXY[Envoy Sidecar<br/>Service mesh proxy<br/>Policy enforcement]
@@ -118,14 +118,14 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         DB1[(User Database)]
         DB2[(Order Database)]
         DB3[(Payment Database)]
         DB4[(Inventory Database)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         ISTIOD[Istiod Control Plane<br/>Configuration distribution<br/>Certificate management<br/>Service discovery]
 
         TELEMETRY[Telemetry V2<br/>Standardized metrics<br/>Automatic tracing<br/>Access logs]
@@ -158,10 +158,10 @@ graph TB
     KIALI -.-> ISTIOD
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class GATEWAY edgeStyle
     class USER_APP,USER_PROXY,ORDER_APP,ORDER_PROXY,PAY_APP,PAY_PROXY,INV_APP,INV_PROXY,App1,App2,App3,App4 serviceStyle

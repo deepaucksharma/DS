@@ -116,10 +116,10 @@ graph TB
     end
 
     %% 4-Plane Architecture Colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ARGO_UI1,ARGO_CLI1,FLUX_CLI2,GIT_WEBHOOKS2,SPINNAKER_UI3,API_GATEWAY3 edgeStyle
     class ARGO_SERVER1,APP_CONTROLLER1,REPO_SERVER1,SOURCE_CONTROLLER2,KUSTOMIZE_CONTROLLER2,HELM_CONTROLLER2,CLOUDDRIVER3,ORCA3,DECK3 serviceStyle
@@ -156,10 +156,10 @@ graph LR
         SPINNAKER_CLUSTER --> CHAOS_AUTOMATION
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DEVELOPERS edgeStyle
     class SPINNAKER_CLUSTER,DEPLOYMENT_STRATEGIES serviceStyle
@@ -194,10 +194,10 @@ graph LR
         ARGOCD_CLUSTER --> RBAC_MULTI_TENANT
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PRODUCT_TEAMS edgeStyle
     class ARGOCD_CLUSTER,APPLICATION_SETS serviceStyle
@@ -232,10 +232,10 @@ graph LR
         FLUX_CONTROLLERS --> POLICY_ENGINE
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PLATFORM_TEAMS edgeStyle
     class FLUX_CONTROLLERS,SECURITY_SCANNING serviceStyle
@@ -321,9 +321,9 @@ graph TB
         PROGRESSIVE_DELIVERY --> MULTI_TENANT
     end
 
-    classDef migrationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef legacyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef newStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef migrationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef legacyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef newStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class GIT_RESTRUCTURE,APPLICATIONSETS migrationStyle
     class LEGACY_CICD legacyStyle
@@ -358,9 +358,9 @@ graph TB
         POLICY_INTEGRATION --> MONITORING_OBSERVABILITY
     end
 
-    classDef migrationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef legacyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef newStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef migrationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef legacyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef newStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class GITOPS_REPO,IMAGE_AUTOMATION migrationStyle
     class KUBECTL_DEPLOYMENTS legacyStyle

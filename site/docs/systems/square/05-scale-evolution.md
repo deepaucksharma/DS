@@ -241,7 +241,7 @@ graph LR
     RAILS -.->|Decomposition| RISK_SVC
     RAILS -.->|Decomposition| MERCHANT_SVC
 
-    classDef beforeStyle fill:#FFB3B3,stroke:#CC0000,color:#000
+    classDef beforeStyle fill:#FFB3B3,stroke:#8B5CF6,color:#000
     classDef afterStyle fill:#B3FFB3,stroke:#00CC00,color:#000
 
     class RAILS beforeStyle

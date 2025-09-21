@@ -20,10 +20,10 @@ graph TB
     end
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MATCHING,LOGISTICS edgeStyle
     class COMPUTE serviceStyle
@@ -64,7 +64,7 @@ graph TB
     DASHER_POS --> EFFICIENCY
 
     %% Apply edge plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     class DISPATCH,ETA_ENGINE,DASHER_POS,BATCH_OPT,ROUTE_OPT,INVENTORY,DEMAND_PRED,SURGE_PRICING edgeStyle
 ```
 
@@ -99,7 +99,7 @@ graph TB
     end
 
     %% Apply service plane colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     class MOBILE_API,RESTAURANT_API,SEARCH_DISC,DASHER_MOBILE,EARNINGS,ONBOARDING,DOORDASH_WORK,ANALYTICS,SUPPORT serviceStyle
 ```
 
@@ -129,7 +129,7 @@ graph TB
     end
 
     %% Apply state plane colors
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class POSTGRES,REDIS,KAFKA,CASSANDRA,DATA_LAKE,WAREHOUSE,BACKUP stateStyle
 ```
 
@@ -166,7 +166,7 @@ graph TB
     end
 
     %% Apply control plane colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     class GOOGLE_MAPS,ROUTING_ENGINE,GEOFENCING,STRIPE,DASHER_PAY,FRAUD_DETECT,MONITORING,SECURITY,CDN,NETWORKING controlStyle
 ```
 

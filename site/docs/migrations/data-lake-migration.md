@@ -15,11 +15,11 @@ Data lake migrations represent one of the most transformative analytics infrastr
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         ETL_TOOLS[ETL Tools<br/>Informatica/Talend<br/>Batch processing<br/>Nightly loads]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         subgraph DataSources[Data Sources]
             ERP[ERP Systems<br/>SAP, Oracle<br/>Structured data<br/>Business transactions]
             CRM[CRM Systems<br/>Salesforce<br/>Customer data<br/>Sales pipeline]
@@ -30,7 +30,7 @@ graph TB
         DW_STAGING[Data Warehouse Staging<br/>Temporary storage<br/>Data transformation<br/>Quality checks]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         EDW[Enterprise Data Warehouse<br/>Teradata/Oracle Exadata<br/>100TB structured data<br/>Star/snowflake schema]
 
         subgraph DataMarts[Data Marts]
@@ -40,7 +40,7 @@ graph TB
         end
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         BI_TOOLS[BI Tools<br/>Tableau, PowerBI<br/>Predefined reports<br/>Limited self-service]
         SCHEDULER[Job Scheduler<br/>Cron/Control-M<br/>Batch processing<br/>Dependency management]
         MONITORING[Data Monitoring<br/>Custom scripts<br/>Manual checks<br/>Error notifications]
@@ -56,10 +56,10 @@ graph TB
     MONITORING -.-> EDW
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ETL_TOOLS edgeStyle
     class ERP,CRM,WEB_LOGS,FILES,DW_STAGING,DataSources serviceStyle
@@ -78,12 +78,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         INGESTION[Data Ingestion<br/>Kafka, Kinesis<br/>Real-time streaming<br/>Batch uploads]
         API_GATEWAY[API Gateway<br/>Data access APIs<br/>Authentication<br/>Rate limiting]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         subgraph StreamingLayer[Streaming Layer]
             KAFKA[Apache Kafka<br/>Real-time events<br/>Change data capture<br/>IoT sensors]
             KINESIS[AWS Kinesis<br/>Clickstream data<br/>Application logs<br/>Device telemetry]
@@ -95,7 +95,7 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         subgraph DataLakeStorage[Data Lake Storage]
             RAW_ZONE[Raw Zone<br/>S3/ADLS<br/>Original format<br/>Immutable data<br/>$0.023/GB/month]
             CURATED_ZONE[Curated Zone<br/>Parquet/Delta<br/>Cleaned data<br/>Schema evolution<br/>Partitioned]
@@ -109,7 +109,7 @@ graph TB
         end
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         CATALOG[Data Catalog<br/>AWS Glue/Apache Atlas<br/>Schema discovery<br/>Data lineage]
         GOVERNANCE[Data Governance<br/>Apache Ranger<br/>Access control<br/>Data quality]
         ANALYTICS[Analytics Tools<br/>Tableau, Looker<br/>Jupyter notebooks<br/>Self-service BI]
@@ -126,10 +126,10 @@ graph TB
     ANALYTICS --> ComputeEngines
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class INGESTION,API_GATEWAY edgeStyle
     class KAFKA,KINESIS,SPARK,AIRFLOW,StreamingLayer,ProcessingLayer serviceStyle

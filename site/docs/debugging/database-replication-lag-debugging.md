@@ -8,28 +8,28 @@ Database replication lag can cause data inconsistency, read-after-write failures
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         READ_FAIL[Read-After-Write Failure]
         STALE_DATA[Stale Data Detected]
         INCONSISTENT[Data Inconsistency]
         SLOW_READS[Slow Read Queries]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         CHECK_LAG[Measure Replication Lag]
         ANALYZE_LOAD[Analyze Master Load]
         CHECK_NETWORK[Network Latency Check]
         REVIEW_CONFIG[Review Configuration]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         MASTER_LOGS[(Master Binary Logs)]
         SLAVE_LOGS[(Slave Relay Logs)]
         REPL_STATUS[(Replication Status)]
         PERF_METRICS[(Performance Metrics)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         LAG_MONITOR[Lag Monitoring]
         AUTO_FAILOVER[Automatic Failover]
         SCALING[Read Replica Scaling]
@@ -52,10 +52,10 @@ graph TB
     PERF_METRICS --> ALERTS
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class READ_FAIL,STALE_DATA,INCONSISTENT,SLOW_READS edgeStyle
     class CHECK_LAG,ANALYZE_LOAD,CHECK_NETWORK,REVIEW_CONFIG serviceStyle
@@ -284,21 +284,21 @@ db.runCommand({getDefaultRWConcern: 1})
 ### Network-Related Lag
 ```mermaid
 graph LR
-    subgraph NetworkIssues[Network Issues - Red #CC0000]
+    subgraph NetworkIssues[Network Issues - Red #8B5CF6]
         LATENCY[High Latency<br/>RTT > 10ms]
         BANDWIDTH[Limited Bandwidth<br/>< 1Gbps for large datasets]
         PACKET_LOSS[Packet Loss<br/>> 0.1%]
         DNS_DELAY[DNS Resolution<br/>> 100ms]
     end
 
-    subgraph Symptoms[Symptoms - Orange #FF8800]
+    subgraph Symptoms[Symptoms - Orange #F59E0B]
         VARIABLE_LAG[Variable Lag Times]
         TIMEOUT_ERRORS[Connection Timeouts]
         RETRY_STORMS[Retry Attempts]
         SLOW_RECOVERY[Slow Failover]
     end
 
-    subgraph Solutions[Solutions - Green #00AA00]
+    subgraph Solutions[Solutions - Green #10B981]
         DEDICATED_LINK[Dedicated Network Link]
         COMPRESSION[Enable Compression]
         REGIONAL_REPLICAS[Regional Replicas]
@@ -315,9 +315,9 @@ graph LR
     RETRY_STORMS --> REGIONAL_REPLICAS
     SLOW_RECOVERY --> CONNECTION_POOLING
 
-    classDef networkStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef symptomStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef networkStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef symptomStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class LATENCY,BANDWIDTH,PACKET_LOSS,DNS_DELAY networkStyle
     class VARIABLE_LAG,TIMEOUT_ERRORS,RETRY_STORMS,SLOW_RECOVERY symptomStyle
@@ -327,14 +327,14 @@ graph LR
 ### Load-Related Lag
 ```mermaid
 graph TB
-    subgraph LoadSources[Load Sources - Blue #0066CC]
+    subgraph LoadSources[Load Sources - Blue #3B82F6]
         WRITE_HEAVY[Write-Heavy Master<br/>10,000+ writes/sec]
         LONG_TRANSACTIONS[Long Transactions<br/>> 30 second duration]
         BULK_OPERATIONS[Bulk Operations<br/>Million+ row updates]
         INDEX_MAINTENANCE[Index Rebuilds<br/>Background operations]
     end
 
-    subgraph Impact[Impact on Replication - Orange #FF8800]
+    subgraph Impact[Impact on Replication - Orange #F59E0B]
         BINLOG_BACKUP[Binary Log Backup]
         IO_CONTENTION[I/O Contention]
         LOCK_WAITS[Lock Wait Times]
@@ -346,8 +346,8 @@ graph TB
     BULK_OPERATIONS --> IO_CONTENTION
     INDEX_MAINTENANCE --> CPU_SATURATION
 
-    classDef loadStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef impactStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef loadStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef impactStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class WRITE_HEAVY,LONG_TRANSACTIONS,BULK_OPERATIONS,INDEX_MAINTENANCE loadStyle
     class BINLOG_BACKUP,IO_CONTENTION,LOCK_WAITS,CPU_SATURATION impactStyle
@@ -361,18 +361,18 @@ graph TB
 **Architecture:**
 ```mermaid
 graph TB
-    subgraph Master[Master Cluster - Blue #0066CC]
+    subgraph Master[Master Cluster - Blue #3B82F6]
         MASTER1[MySQL Master 1<br/>db.r5.24xlarge<br/>768GB RAM]
         MASTER2[MySQL Master 2<br/>Cross-region failover]
     end
 
-    subgraph ReadReplicas[Read Replicas - Green #00AA00]
+    subgraph ReadReplicas[Read Replicas - Green #10B981]
         REPLICA1[Local Replica 1<br/>db.r5.12xlarge<br/>Application reads]
         REPLICA2[Local Replica 2<br/>Analytics queries]
         REPLICA3[Cross-region Replica<br/>Disaster recovery]
     end
 
-    subgraph Monitoring[Monitoring - Red #CC0000]
+    subgraph Monitoring[Monitoring - Red #8B5CF6]
         LAG_ALERT[Lag > 5s Alert]
         FAILOVER[Auto-failover < 30s]
         METRICS[Custom lag metrics]
@@ -387,9 +387,9 @@ graph TB
     REPLICA2 --> FAILOVER
     REPLICA3 --> METRICS
 
-    classDef masterStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef replicaStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef monitorStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef masterStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef replicaStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef monitorStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MASTER1,MASTER2 masterStyle
     class REPLICA1,REPLICA2,REPLICA3 replicaStyle

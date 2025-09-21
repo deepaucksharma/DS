@@ -57,10 +57,10 @@ graph TB
     API_GATEWAY -->|"Requests"| USER_PROFILES
 
     %% 4-Plane Colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
 
     class CREATIVE_CDN,ASSET_CACHE,API_GATEWAY,MEDIA_EDGE edgeStyle
     class CREATIVE_ENGINES,COLLABORATION,AI_SERVICES,DOCUMENT_CLOUD,STOCK_PLATFORM serviceStyle

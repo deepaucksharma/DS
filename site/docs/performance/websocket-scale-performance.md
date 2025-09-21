@@ -8,23 +8,23 @@ Discord operates one of the world's largest WebSocket deployments, maintaining o
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[Discord Load Balancer<br/>HAProxy + Consul<br/>Connection-aware routing]
         CDN[Discord CDN<br/>Media delivery<br/>Voice packet optimization]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         GATEWAY[Gateway Servers<br/>Elixir/Erlang<br/>WebSocket termination]
         VOICE[Voice Servers<br/>Rust + WebRTC<br/>Real-time audio]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         PRESENCE[Presence State<br/>Redis Cluster<br/>10M user states]
         MESSAGES[Message Queue<br/>RabbitMQ<br/>Reliable delivery]
         STORAGE[Persistent Storage<br/>Cassandra + ScyllaDB<br/>Message history]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MON[Monitoring<br/>Custom metrics<br/>Connection health]
         SCALE[Auto-scaling<br/>Connection-based<br/>Predictive scaling]
     end
@@ -38,10 +38,10 @@ graph TB
     MON --> GATEWAY
     SCALE --> GATEWAY
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,CDN edgeStyle
     class GATEWAY,VOICE serviceStyle
@@ -76,7 +76,7 @@ graph LR
         VOICE_RATE[500K voice users<br/>Concurrent audio streams<br/>Real-time processing]
     end
 
-    classDef metricStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class HANDSHAKE,MESSAGE,VOICE,PRESENCE,JOIN,MSG_RATE,CONN_RATE,VOICE_RATE metricStyle
 ```
 
@@ -398,8 +398,8 @@ graph TB
     NETWORK --> POOLING
     STATE --> SHARDING
 
-    classDef bottleneckStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef bottleneckStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class MEMORY,CPU,NETWORK,STATE bottleneckStyle
     class ERLANG,POOLING,BATCHING,SHARDING solutionStyle
@@ -432,8 +432,8 @@ graph LR
 
     S150K --> SHARDING
 
-    classDef scaleStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef scaleStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class S10K,S30K,S65K,S100K,S150K scaleStyle
     class SHARDING solutionStyle

@@ -66,8 +66,8 @@ graph TB
     HBASE_CLUSTER -->|Read Replica| BACKUP_CLUSTER[Backup HBase<br/>Cross-region replica<br/>5-min lag]
 
     %% Apply failure domain colors
-    classDef criticalFailure fill:#FF4444,stroke:#CC0000,color:#fff,stroke-width:4px
-    classDef cascadeRisk fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
+    classDef criticalFailure fill:#FF4444,stroke:#8B5CF6,color:#fff,stroke-width:4px
+    classDef cascadeRisk fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
     classDef recoveryMech fill:#00CC00,stroke:#009900,color:#fff,stroke-width:3px
 
     class PINSAGE,CV_API,CLOUDFLARE,HBASE_CLUSTER,KAFKA_CLUSTER criticalFailure

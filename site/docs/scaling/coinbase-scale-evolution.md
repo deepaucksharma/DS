@@ -19,23 +19,23 @@ Coinbase's scaling journey from a small cryptocurrency exchange to the world's l
 ### Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         HEROKU_LB[Heroku Router<br/>Basic load balancing]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         RAILS_APP[Rails Application<br/>1x dyno<br/>Wallet + Exchange]
         BITCOIN_NODE[Bitcoin Core Node<br/>Full blockchain sync]
         WORKER[Background Worker<br/>Transaction processing]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         POSTGRES[(PostgreSQL<br/>Heroku Postgres<br/>User accounts)]
         REDIS[(Redis<br/>Session storage<br/>Rate limiting)]
         BITCOIN_WALLET[(Bitcoin Wallet<br/>Hot + Cold storage)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         HEROKU_LOGS[Heroku Logs]
         NEW_RELIC[New Relic APM]
     end
@@ -54,10 +54,10 @@ graph TB
     BITCOIN_NODE --> BLOCKCHAIN
     WORKER --> BANK_API
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     classDef externalStyle fill:#800080,stroke:#600060,color:#fff
 
     class HEROKU_LB edgeStyle
@@ -103,12 +103,12 @@ graph TB
 ### Enhanced Trading Platform
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ALB[Application Load Balancer<br/>AWS ALB]
         CLOUDFRONT[CloudFront CDN<br/>Static assets + API cache]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         subgraph WebTier[Web Application Tier]
             WEB1[Web App 1<br/>m4.large<br/>Rails API]
             WEB2[Web App 2<br/>m4.large<br/>Rails API]
@@ -130,14 +130,14 @@ graph TB
         WORKER_CLUSTER[Worker Cluster<br/>Background processing]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         POSTGRES_M[(PostgreSQL Master<br/>db.r4.xlarge<br/>Financial data)]
         POSTGRES_R[(PostgreSQL Replica<br/>db.r4.large<br/>Read queries)]
         REDIS_CLUSTER[(Redis Cluster<br/>cache.r4.large<br/>Order book cache)]
         S3_COLD[(S3 Cold Storage<br/>Backup wallets<br/>Compliance data)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         DATADOG[DataDog<br/>Infrastructure monitoring]
         SPLUNK[Splunk<br/>Security logging<br/>Compliance audit]
         JENKINS[Jenkins<br/>Deployment pipeline]
@@ -174,11 +174,11 @@ graph TB
     POSTGRES_M --> POSTGRES_R
     WORKER_CLUSTER --> S3_COLD
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef securityStyle fill:#FF0000,stroke:#CC0000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef securityStyle fill:#FF0000,stroke:#8B5CF6,color:#fff
 
     class ALB,CLOUDFRONT edgeStyle
     class WEB1,WEB2,WEB3,MATCHING,ORDER_BOOK,BTC_NODE,ETH_NODE,LTC_NODE,WALLET_SVC,WORKER_CLUSTER serviceStyle
@@ -296,10 +296,10 @@ graph TB
     WITHDRAWAL_SVC --> PRIVILEGED_ACCESS
     AML_SVC --> THREAT_DETECTION
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef securityStyle fill:#FF0000,stroke:#CC0000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef securityStyle fill:#FF0000,stroke:#8B5CF6,color:#fff
 
     class CLOUDFLARE,FASTLY edgeStyle
     class AUTH_SVC,USER_SVC,NOTIFICATION_SVC,ORDER_SVC,EXECUTION_SVC,MARKET_DATA,CUSTODY_SVC,WITHDRAWAL_SVC,STAKING_SVC,AML_SVC,REPORTING_SVC,SANCTIONS_SVC,API_GATEWAY serviceStyle

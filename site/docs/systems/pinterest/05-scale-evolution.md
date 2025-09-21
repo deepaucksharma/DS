@@ -91,10 +91,10 @@ graph TB
     VISUAL_SEARCH --> MULTI_MODAL
 
     %% Apply evolution colors
-    classDef eraStyle1 fill:#E6F3FF,stroke:#0066CC,color:#000,stroke-width:2px
-    classDef eraStyle2 fill:#E6FFE6,stroke:#00AA00,color:#000,stroke-width:2px
-    classDef eraStyle3 fill:#FFE6E6,stroke:#CC0000,color:#000,stroke-width:2px
-    classDef eraStyle4 fill:#FFEECC,stroke:#FF8800,color:#000,stroke-width:2px
+    classDef eraStyle1 fill:#E6F3FF,stroke:#3B82F6,color:#000,stroke-width:2px
+    classDef eraStyle2 fill:#E6FFE6,stroke:#10B981,color:#000,stroke-width:2px
+    classDef eraStyle3 fill:#FFE6E6,stroke:#8B5CF6,color:#000,stroke-width:2px
+    classDef eraStyle4 fill:#FFEECC,stroke:#F59E0B,color:#000,stroke-width:2px
     classDef eraStyle5 fill:#F0E6FF,stroke:#8800CC,color:#000,stroke-width:2px
     classDef eraStyle6 fill:#FFFFE6,stroke:#CCCC00,color:#000,stroke-width:2px
 

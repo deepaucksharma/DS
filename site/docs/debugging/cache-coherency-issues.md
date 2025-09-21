@@ -8,26 +8,26 @@ This guide provides systematic approaches to debugging cache coherency issues in
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CDN[CDN Cache<br/>CloudFlare/Fastly]
         LB[Load Balancer<br/>AWS ALB + Caching]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         APP1[App Instance 1<br/>Local Cache L1]
         APP2[App Instance 2<br/>Local Cache L1]
         APP3[App Instance 3<br/>Local Cache L1]
         CACHE_PROXY[Cache Proxy<br/>Twemproxy/Envoy]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         L2_CACHE[(L2 Distributed Cache<br/>Redis Cluster)]
         L3_CACHE[(L3 Persistent Cache<br/>Memcached)]
         PRIMARY_DB[(Primary Database<br/>PostgreSQL)]
         CACHE_INVALIDATION[(Cache Invalidation Log<br/>Kafka/Redis Streams)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CACHE_MONITOR[Cache Monitor<br/>Prometheus + Grafana]
         INVALIDATION_SERVICE[Invalidation Service<br/>Cache Coordinator]
         CONSISTENCY_CHECKER[Consistency Checker<br/>Background Validator]
@@ -65,10 +65,10 @@ graph TB
     INVALIDATION_SERVICE --> CONSISTENCY_CHECKER
 
     %% Apply styles
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB edgeStyle
     class APP1,APP2,APP3,CACHE_PROXY serviceStyle

@@ -8,24 +8,24 @@ Systematic debugging of WebSocket connection issues in production environments. 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[Load Balancer<br/>WebSocket Support]
         PROXY[WebSocket Proxy<br/>nginx/HAProxy]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         WS_GATEWAY[WebSocket Gateway<br/>Connection Manager]
         WS_HANDLER[WebSocket Handler<br/>Message Processing]
         AUTH_SERVICE[Auth Service<br/>Connection Validation]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         CONNECTION_STORE[(Connection Store<br/>Redis/Memory)]
         MESSAGE_QUEUE[(Message Queue<br/>Redis Streams)]
         SESSION_STORE[(Session Store<br/>User Sessions)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         WS_MONITOR[WebSocket Monitor<br/>Connection Metrics]
         HEALTH_CHECK[Health Checker<br/>Connection Validation]
         ALERTING[Alerting<br/>Connection Issues]
@@ -48,10 +48,10 @@ graph TB
     WS_MONITOR --> ALERTING
 
     %% Apply styles
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,PROXY edgeStyle
     class WS_GATEWAY,WS_HANDLER,AUTH_SERVICE serviceStyle

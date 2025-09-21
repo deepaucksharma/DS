@@ -88,10 +88,10 @@ graph TB
     S3_BACKUPS --> GLACIER
 
     %% Apply styling
-    classDef userStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef tradingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef marketStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef complianceStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef userStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef tradingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef marketStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef complianceStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     classDef cacheStyle fill:#9966CC,stroke:#663399,color:#fff
     classDef streamStyle fill:#66CC99,stroke:#339966,color:#fff
     classDef archiveStyle fill:#999999,stroke:#666666,color:#fff
@@ -183,9 +183,9 @@ graph TB
         MARKET_HISTORICAL[(market_historical<br/>> 1 year old)]
     end
 
-    classDef orderStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef userStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef marketStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef orderStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef userStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef marketStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class ORDERS_2024,ORDERS_2024_Q2,ORDERS_2024_Q3,ORDERS_2024_Q4,ORDERS_HOT orderStyle
     class USERS_SHARD1,USERS_SHARD2,USERS_SHARD3,USERS_SHARD4 userStyle
@@ -259,7 +259,7 @@ graph LR
     AUDIT[Audit Trail] --> BLOCKCHAIN[Blockchain Hash<br/>Merkle Tree]
     BLOCKCHAIN --> GLACIER_VAULT
 
-    classDef complianceStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef complianceStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     class IMMUTABLE,S3_LEGAL,GLACIER_VAULT,BLOCKCHAIN complianceStyle
 ```
 

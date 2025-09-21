@@ -20,10 +20,10 @@ graph TB
     end
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class VOICE,REALTIME edgeStyle
     class COMPUTE serviceStyle
@@ -63,7 +63,7 @@ graph TB
     MESSAGE_BROKER --> SCALE
 
     %% Apply edge plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     class VOICE_SERVERS,VIDEO_RELAY,AUDIO_PROC,CODEC,GATEWAY,MESSAGE_BROKER,PRESENCE edgeStyle
 ```
 
@@ -93,7 +93,7 @@ graph TB
     end
 
     %% Apply service plane colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     class REST_API,GUILD_API,USER_API,BOT_API,MODERATION,NOTIFICATIONS,ANALYTICS serviceStyle
 ```
 
@@ -122,7 +122,7 @@ graph TB
     end
 
     %% Apply state plane colors
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class MONGODB,REDIS,POSTGRES,S3_MEDIA,CDN_CACHE,BACKUP stateStyle
 ```
 
@@ -160,7 +160,7 @@ graph TB
     end
 
     %% Apply control plane colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     class CLOUDFLARE,FASTLY,MEDIA_PROC,LOAD_BAL,VPN,DNS,MONITORING,LOGGING,SECURITY,COMPLIANCE,SUPPORT controlStyle
 ```
 

@@ -54,7 +54,7 @@ graph TB
     STF1 --> STF2
 
     %% Apply failure domain colors
-    classDef clientFailure fill:#FFE0E0,stroke:#CC0000,color:#000,stroke-width:2px
+    classDef clientFailure fill:#FFE0E0,stroke:#8B5CF6,color:#000,stroke-width:2px
     classDef edgeFailure fill:#FFE5CC,stroke:#FF6600,color:#000,stroke-width:2px
     classDef serviceFailure fill:#FFF2CC,stroke:#FF9900,color:#000,stroke-width:2px
     classDef stateFailure fill:#FFE0F0,stroke:#CC0066,color:#000,stroke-width:2px

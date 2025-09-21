@@ -8,25 +8,25 @@ Systematic approaches to identifying and resolving N+1 query problems in GraphQL
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CDN[CDN<br/>Query Caching]
         API_GW[API Gateway<br/>Rate Limiting]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         GRAPHQL_SERVER[GraphQL Server<br/>Apollo/GraphQL-Yoga]
         DATALOADER[DataLoader<br/>Batch Loading]
         RESOLVER[Field Resolvers<br/>Business Logic]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         PRIMARY_DB[(Primary Database<br/>PostgreSQL)]
         SEARCH_DB[(Search Database<br/>Elasticsearch)]
         CACHE_LAYER[(Cache Layer<br/>Redis)]
         QUERY_LOG[(Query Log<br/>Performance Tracking)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         QUERY_ANALYZER[Query Analyzer<br/>Performance Monitoring]
         APM[APM Tool<br/>New Relic/DataDog]
         ALERTING[Alerting<br/>Slow Query Detection]
@@ -51,10 +51,10 @@ graph TB
     APM --> ALERTING
 
     %% Apply styles
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,API_GW edgeStyle
     class GRAPHQL_SERVER,DATALOADER,RESOLVER serviceStyle

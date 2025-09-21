@@ -17,11 +17,11 @@ This playbook guides the migration from legacy SOAP-based web services to modern
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         F5_LB[F5 Load Balancer<br/>SOAP endpoint routing<br/>SSL termination<br/>WSDL serving]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         SOAP_SERVICE[SOAP Web Service<br/>Apache Axis2<br/>Java 8<br/>WS-Security<br/>Heavy XML processing]
 
         WSDL_GEN[WSDL Generator<br/>Contract-first approach<br/>Complex schema definitions<br/>Versioning challenges]
@@ -29,13 +29,13 @@ graph TB
         XML_PROCESSING[XML Processing<br/>JAXB marshalling<br/>Schema validation<br/>Large payload overhead]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         ORACLE_DB[(Oracle Database<br/>Stored procedures<br/>Complex joins<br/>SOAP-specific tables)]
 
         XML_CACHE[XML Response Cache<br/>Redis cache<br/>Large XML documents<br/>Cache invalidation issues]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         SOAPUI[SoapUI Testing<br/>WSDL-based tests<br/>Manual test creation<br/>Limited automation]
 
         SOAP_MONITORING[SOAP Monitoring<br/>Custom XML parsing<br/>WSDL endpoint monitoring<br/>Limited observability]
@@ -52,10 +52,10 @@ graph TB
     SOAP_MONITORING --> SOAP_SERVICE
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class F5_LB edgeStyle
     class SOAP_SERVICE,WSDL_GEN,XML_PROCESSING serviceStyle
@@ -74,11 +74,11 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         API_GATEWAY[API Gateway<br/>Kong/AWS API Gateway<br/>Rate limiting<br/>Authentication<br/>OpenAPI specs]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         REST_API[REST API Service<br/>Spring Boot 3<br/>Java 17<br/>JSON processing<br/>HTTP status codes]
 
         OPENAPI_DOC[OpenAPI Documentation<br/>Swagger/Redoc<br/>Interactive testing<br/>Code generation]
@@ -86,7 +86,7 @@ graph TB
         JSON_PROCESSING[JSON Processing<br/>Jackson library<br/>Fast serialization<br/>Compact payloads]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         POSTGRES_DB[(PostgreSQL<br/>RESTful data models<br/>JSON columns<br/>Optimized queries)]
 
         REDIS_CACHE[Redis Cache<br/>JSON responses<br/>Efficient caching<br/>TTL management]
@@ -94,7 +94,7 @@ graph TB
         S3_STORAGE[S3 Storage<br/>File uploads<br/>Presigned URLs<br/>CDN integration]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         POSTMAN_NEWMAN[Postman + Newman<br/>Collection-based testing<br/>CI/CD integration<br/>Environment management]
 
         REST_MONITORING[Modern Monitoring<br/>Prometheus metrics<br/>Grafana dashboards<br/>Distributed tracing]
@@ -112,10 +112,10 @@ graph TB
     REST_MONITORING --> REST_API
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class API_GATEWAY edgeStyle
     class REST_API,OPENAPI_DOC,JSON_PROCESSING serviceStyle

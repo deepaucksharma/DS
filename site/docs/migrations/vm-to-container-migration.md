@@ -17,12 +17,12 @@ This playbook guides the migration from traditional Virtual Machine deployments 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ALB[Application Load Balancer<br/>Target Groups: VM instances<br/>Health checks: HTTP:8080/health]
         CF[CloudFront<br/>Static assets caching<br/>Origin: ALB]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         WEB_VM1[Web Server VM 1<br/>c5.xlarge (4 CPU, 8GB)<br/>Ubuntu 20.04<br/>Nginx + Node.js 16]
         WEB_VM2[Web Server VM 2<br/>c5.xlarge (4 CPU, 8GB)<br/>Ubuntu 20.04<br/>Nginx + Node.js 16]
         API_VM1[API Server VM 1<br/>c5.2xlarge (8 CPU, 16GB)<br/>Ubuntu 20.04<br/>Java 11 + Spring Boot]
@@ -31,13 +31,13 @@ graph TB
         WORKER_VM2[Worker VM 2<br/>c5.large (2 CPU, 4GB)<br/>Ubuntu 20.04<br/>Python 3.9 + Celery]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         RDS[RDS PostgreSQL<br/>db.r5.xlarge<br/>Multi-AZ deployment<br/>500GB storage]
         REDIS[ElastiCache Redis<br/>cache.r6g.large<br/>Cluster mode enabled<br/>Session store]
         S3[S3 Buckets<br/>Application logs<br/>Static assets<br/>File uploads]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CW[CloudWatch<br/>Instance metrics<br/>Application logs<br/>Custom dashboards]
         ANSIBLE[Ansible Tower<br/>Configuration management<br/>Application deployment<br/>VM provisioning]
     end
@@ -83,10 +83,10 @@ graph TB
     ANSIBLE --> WORKER_VM2
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALB,CF edgeStyle
     class WEB_VM1,WEB_VM2,API_VM1,API_VM2,WORKER_VM1,WORKER_VM2 serviceStyle
@@ -105,12 +105,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ALB[Application Load Balancer<br/>Target Groups: EKS nodes<br/>Health checks: /health]
         CF[CloudFront<br/>Static assets caching<br/>Origin: ALB]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         EKS[EKS Cluster<br/>3x m5.large nodes<br/>Auto Scaling Groups<br/>Kubernetes 1.28]
 
         subgraph WebPods[Web Service Pods]
@@ -130,14 +130,14 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         RDS[RDS PostgreSQL<br/>db.r5.xlarge<br/>Same as current<br/>Connection pooling]
         REDIS[ElastiCache Redis<br/>cache.r6g.large<br/>Same as current<br/>Session + cache]
         ECR[ECR Repository<br/>Container images<br/>Vulnerability scanning<br/>Lifecycle policies]
         S3[S3 Buckets<br/>Application logs<br/>Static assets<br/>File uploads]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CW[CloudWatch<br/>Container metrics<br/>Application logs<br/>Kubernetes events]
         PROMETHEUS[Prometheus<br/>Custom metrics<br/>Alert manager<br/>Service monitoring]
         GRAFANA[Grafana<br/>Visualization<br/>Dashboards<br/>Alerts]
@@ -188,10 +188,10 @@ graph TB
     HELM --> EKS
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALB,CF edgeStyle
     class EKS,WEB_POD1,WEB_POD2,API_POD1,API_POD2,API_POD3,WORKER_POD1,WORKER_POD2 serviceStyle
@@ -825,7 +825,7 @@ graph TB
     %% Environment colors
     classDef blueEnv fill:#4444ff,stroke:#0000cc,color:#fff
     classDef greenEnv fill:#44aa44,stroke:#006600,color:#fff
-    classDef migrationStep fill:#ff8800,stroke:#cc6600,color:#fff
+    classDef migrationStep fill:#F59E0B,stroke:#D97706,color:#fff
 
     class BLUE_LB,BLUE_VM1,BLUE_VM2 blueEnv
     class GREEN_LB,GREEN_K8S,GREEN_POD1,GREEN_POD2 greenEnv
@@ -858,8 +858,8 @@ graph TB
     end
 
     %% Risk level colors
-    classDef highRisk fill:#ff4444,stroke:#cc0000,color:#fff
-    classDef mediumRisk fill:#ffaa00,stroke:#cc6600,color:#fff
+    classDef highRisk fill:#ff4444,stroke:#8B5CF6,color:#fff
+    classDef mediumRisk fill:#ffaa00,stroke:#D97706,color:#fff
     classDef lowRisk fill:#44aa44,stroke:#006600,color:#fff
 
     class APP_COMPAT,PERF_DEGRADATION,DATA_PERSISTENCE highRisk
@@ -1131,9 +1131,9 @@ graph TB
     end
 
     %% Cost colors
-    classDef vmCost fill:#ff8800,stroke:#cc6600,color:#fff
+    classDef vmCost fill:#F59E0B,stroke:#D97706,color:#fff
     classDef containerCost fill:#44aa44,stroke:#006600,color:#fff
-    classDef savingsStyle fill:#0066cc,stroke:#004499,color:#fff
+    classDef savingsStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class VM_COMPUTE,VM_STORAGE,VM_BACKUP,VM_NETWORK,VM_MONITORING,VM_CONFIG_MGMT,VM_PATCH_MGMT,VM_SECURITY,VM_SUPPORT vmCost
     class K8S_COMPUTE,K8S_CONTROL,K8S_STORAGE,ECR_STORAGE,K8S_NETWORK,K8S_MONITORING,HELM_DEPLOYMENT,K8S_SECURITY,K8S_SUPPORT,FARGATE_BURST,COST_MONITORING containerCost

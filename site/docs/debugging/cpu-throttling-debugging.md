@@ -8,28 +8,28 @@ CPU throttling can cause performance degradation, increased latency, and service
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         SLOW_PERFORMANCE[Slow Performance]
         HIGH_LATENCY{High Latency?}
         CPU_ALERTS{CPU Alerts?}
         THROTTLING{CPU Throttling?}
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         CHECK_CPU_LIMITS[Check CPU Limits]
         MONITOR_UTILIZATION[Monitor CPU Utilization]
         ANALYZE_CONTAINERS[Analyze Container Stats]
         CHECK_THERMAL[Check Thermal State]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         CPU_METRICS[(CPU Metrics)]
         CONTAINER_STATS[(Container Statistics)]
         KERNEL_LOGS[(Kernel Logs)]
         THERMAL_DATA[(Thermal Data)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         CPU_MONITORING[CPU Monitoring]
         LIMIT_MANAGEMENT[Limit Management]
         AUTO_SCALING[Auto Scaling]
@@ -54,10 +54,10 @@ graph TB
     THERMAL_DATA --> THERMAL_MANAGEMENT
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SLOW_PERFORMANCE,HIGH_LATENCY,CPU_ALERTS,THROTTLING edgeStyle
     class CHECK_CPU_LIMITS,MONITOR_UTILIZATION,ANALYZE_CONTAINERS,CHECK_THERMAL serviceStyle
@@ -139,22 +139,22 @@ cat /proc/PID/stat | awk '{print "CPU time:", $14+$15}'
 ### Throttling Sources Matrix
 ```mermaid
 graph TB
-    subgraph ContainerThrottling[Container Throttling - Blue #0066CC]
+    subgraph ContainerThrottling[Container Throttling - Blue #3B82F6]
         CPU_LIMITS[CPU Limits<br/>Kubernetes/Docker limits<br/>CFS quota enforcement]
         CGROUP_LIMITS[CGroup Limits<br/>System-imposed limits<br/>Resource isolation]
     end
 
-    subgraph SystemThrottling[System Throttling - Green #00AA00]
+    subgraph SystemThrottling[System Throttling - Green #10B981]
         THERMAL[Thermal Throttling<br/>CPU overheating<br/>DVFS reduction]
         POWER[Power Throttling<br/>Power limit enforcement<br/>TDP constraints]
     end
 
-    subgraph CloudThrottling[Cloud Throttling - Orange #FF8800]
+    subgraph CloudThrottling[Cloud Throttling - Orange #F59E0B]
         CPU_CREDITS[CPU Credits<br/>AWS t-instances<br/>Burstable performance]
         PREEMPTIBLE[Preemptible VMs<br/>Google Cloud preemption<br/>Spot instance limits]
     end
 
-    subgraph Impact[Performance Impact - Red #CC0000]
+    subgraph Impact[Performance Impact - Red #8B5CF6]
         LATENCY_SPIKE[Latency Spikes<br/>Request queue buildup<br/>Timeout increases]
         THROUGHPUT_DROP[Throughput Drop<br/>Reduced processing rate<br/>Lower QPS]
     end
@@ -164,10 +164,10 @@ graph TB
     CPU_CREDITS --> LATENCY_SPIKE
     POWER --> THROUGHPUT_DROP
 
-    classDef containerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef systemStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef cloudStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef impactStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef containerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef systemStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef cloudStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef impactStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CPU_LIMITS,CGROUP_LIMITS containerStyle
     class THERMAL,POWER systemStyle

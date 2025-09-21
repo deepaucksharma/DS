@@ -19,21 +19,21 @@ DoorDash's scaling journey from a small food delivery startup at Stanford to the
 ### Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         HEROKU[Heroku App<br/>Basic load balancing]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         RAILS[Rails Monolith<br/>1x dyno<br/>All-in-one app]
         WORKER[Background Worker<br/>Sidekiq]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         POSTGRES[(PostgreSQL<br/>Heroku Postgres<br/>10GB)]
         REDIS[(Redis<br/>Heroku Redis<br/>25MB)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         LOGS[Heroku Logs]
         METRICS[New Relic]
     end
@@ -52,10 +52,10 @@ graph TB
     RAILS --> STRIPE
     RAILS --> GOOGLE
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     classDef externalStyle fill:#800080,stroke:#600060,color:#fff
 
     class HEROKU edgeStyle
@@ -101,12 +101,12 @@ graph TB
 ### Enhanced Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ALB[Application Load Balancer<br/>AWS ALB]
         CF[CloudFront CDN<br/>Static assets]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         WEB1[Web App 1<br/>m4.large<br/>Rails + API]
         WEB2[Web App 2<br/>m4.large<br/>Rails + API]
         MOBILE_API[Mobile API<br/>m4.medium<br/>Rails API]
@@ -114,14 +114,14 @@ graph TB
         WORKER[Background Jobs<br/>m4.medium<br/>Sidekiq cluster]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         POSTGRES_M[(PostgreSQL Master<br/>db.m4.large<br/>500GB SSD)]
         POSTGRES_R[(PostgreSQL Replica<br/>db.m4.medium<br/>Read queries)]
         REDIS_M[(Redis Master<br/>cache.m4.large<br/>Real-time data)]
         REDIS_R[(Redis Replica<br/>cache.m4.medium<br/>Session cache)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         DATADOG[DataDog<br/>Monitoring + APM]
         LOGS[Centralized Logging<br/>ELK Stack]
         DEPLOY[Deployment<br/>Capistrano]
@@ -154,10 +154,10 @@ graph TB
     POSTGRES_M --> POSTGRES_R
     REDIS_M --> REDIS_R
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     classDef externalStyle fill:#800080,stroke:#600060,color:#fff
 
     class ALB,CF edgeStyle
@@ -197,13 +197,13 @@ graph TB
 ### Microservices Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ALB[Global Load Balancer<br/>Route 53 + ALB]
         CDN[CloudFront CDN<br/>Global edge locations]
         WAF[AWS WAF<br/>DDoS protection]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         subgraph UserServices[User Services]
             USER_SVC[User Service<br/>Authentication]
             RESTAURANT_SVC[Restaurant Service<br/>Menu management]
@@ -227,7 +227,7 @@ graph TB
         API_GATEWAY[API Gateway<br/>Kong + rate limiting]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         subgraph OrderData[Order Data]
             ORDER_DB[(Order Database<br/>PostgreSQL<br/>Partitioned by city)]
             ORDER_CACHE[(Order Cache<br/>Redis Cluster<br/>Real-time state)]
@@ -249,7 +249,7 @@ graph TB
         end
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MONITORING[Comprehensive Monitoring<br/>DataDog + Custom]
         LOGGING[Distributed Logging<br/>ELK + Fluentd]
         DEPLOYMENT[Blue-Green Deploy<br/>Spinnaker]
@@ -272,10 +272,10 @@ graph TB
     ORDER_DB --> ANALYTICS_DB
     STREAM_DATA --> ANALYTICS_DB
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALB,CDN,WAF edgeStyle
     class USER_SVC,RESTAURANT_SVC,DASHER_SVC,ORDER_SVC,PAYMENT_SVC,DISPATCH_SVC,TRACKING_SVC,NOTIFICATION_SVC,ANALYTICS_SVC,FRAUD_SVC,PRICING_SVC,API_GATEWAY serviceStyle
@@ -404,10 +404,10 @@ graph TB
     KAFKA_STREAMS --> REDSHIFT
     TENSORFLOW_SERVING --> ML_CACHE
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     classDef mlStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class CLOUDFLARE,LB_INTELLIGENT edgeStyle
@@ -537,10 +537,10 @@ graph TB
     KAFKA_CONFLUENT --> FLINK
     SAGEMAKER_ENDPOINTS --> REAL_TIME_INFERENCE
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     classDef mlStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class EDGE_US,EDGE_INTL,EDGE_CACHE,GLOBAL_LB,DDOS_PROTECTION edgeStyle
@@ -646,9 +646,9 @@ graph TB
     DISPATCH_NEURAL --> STREAM_PROCESSING
     PERSONALIZATION --> DOMAIN_DATA
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef aiStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class AI_EDGE,PREDICTIVE_CACHE edgeStyle

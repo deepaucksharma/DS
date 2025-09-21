@@ -78,14 +78,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CDN[Global CDN<br/>Content Delivery]
         LB[Load Balancers<br/>Request Distribution]
         CACHE[Edge Cache<br/>Response Caching]
         WAF[Web Application Firewall<br/>Security Layer]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         WEB[Web Interface<br/>ChatGPT Frontend]
         API[OpenAI API<br/>Enterprise Integration]
         AUTH[Authentication<br/>User Management]
@@ -93,7 +93,7 @@ graph TB
         INFERENCE[Inference Engine<br/>Model Processing]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         USERDB[(User Database<br/>Account Information)]
         SESSIONDB[(Session Store<br/>Conversation History)]
         MODELSTORE[(Model Storage<br/>Neural Network Weights)]
@@ -101,7 +101,7 @@ graph TB
         QUEUEDB[(Queue Database<br/>Request Tracking)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         GPU[GPU Clusters<br/>A100/H100 Infrastructure]
         MONITOR[Monitoring<br/>Real-time Metrics]
         DEPLOY[Deployment<br/>Model Updates]
@@ -115,10 +115,10 @@ graph TB
     WEB -.->|USER IMPACT| CDN
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB,CACHE,WAF edgeStyle
     class WEB,API,AUTH,QUEUE,INFERENCE serviceStyle

@@ -265,10 +265,10 @@ graph TB
     CHAOS --> INCIDENT
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CF,AKAMAI,FASTLY edgeStyle
     class LB,ORIGIN,ENCODER,ABR,AUTH,METRICS,DASH serviceStyle
@@ -329,9 +329,9 @@ graph TB
     AUTO_ABR --> Q_1080
     AUTO_ABR --> Q_4K
 
-    classDef regionStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef failoverStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef qualityStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef regionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef failoverStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef qualityStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class NA,EU,ASIA,LATAM,AFRICA regionStyle
     class GSLB,PRIMARY,SECONDARY,BACKUP failoverStyle
@@ -871,10 +871,10 @@ graph TB
     PRIMARY_DB --> SECONDARY_DB
     SECONDARY_DB --> TERTIARY_DB
 
-    classDef primaryStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef secondaryStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef tertiaryStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef logicStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef primaryStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef secondaryStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef tertiaryStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef logicStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class PRIMARY_LB,PRIMARY_ORIGIN,PRIMARY_DB primaryStyle
     class SECONDARY_LB,SECONDARY_ORIGIN,SECONDARY_DB secondaryStyle

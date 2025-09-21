@@ -173,12 +173,12 @@ For each of the 30 systems, these 8 diagrams are REQUIRED:
 ## Core Architectural Concepts
 
 ### 4-Plane Architecture (MANDATORY)
-All diagrams MUST use these exact colors:
+All diagrams MUST use these exact Tailwind-inspired colors:
 
-- **Edge Plane** (Blue #0066CC): CDN, WAF, Load Balancers
-- **Service Plane** (Green #00AA00): API Gateway, Business Logic
-- **State Plane** (Orange #FF8800): Databases, Caches, Storage
-- **Control Plane** (Red #CC0000): Monitoring, Config, Automation
+- **Edge Plane** (Blue #3B82F6): CDN, WAF, Load Balancers
+- **Service Plane** (Emerald #10B981): API Gateway, Business Logic
+- **State Plane** (Amber #F59E0B): Databases, Caches, Storage
+- **Control Plane** (Violet #8B5CF6): Monitoring, Config, Automation
 
 **Note**: The "Stream Plane" has been removed from specifications.
 
@@ -262,31 +262,31 @@ Write Mermaid diagrams directly in markdown files - no intermediate formats need
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         LB[Load Balancer]
         CDN[CDN]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Emerald #10B981]
         API[API Gateway]
         MS[Microservices]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Amber #F59E0B]
         DB[(Database)]
         CACHE[(Cache)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Violet #8B5CF6]
         MON[Monitoring]
         LOG[Logging]
     end
 
-    %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    %% Apply four-plane colors (Tailwind palette)
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,CDN edgeStyle
     class API,MS serviceStyle

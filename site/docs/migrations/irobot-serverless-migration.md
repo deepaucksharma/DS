@@ -15,12 +15,12 @@ iRobot's migration from containerized infrastructure to serverless architecture 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         ALB[Application Load Balancer<br/>Multi-AZ deployment<br/>SSL termination]
         API_GW[API Gateway<br/>Device authentication<br/>Rate limiting]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         subgraph ECSCluster[ECS Cluster - 200 instances]
             DEVICE_SVC[Device Service<br/>m5.large × 20<br/>Device state management]
             TELEMETRY_SVC[Telemetry Service<br/>c5.2xlarge × 15<br/>Data ingestion]
@@ -35,14 +35,14 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         RDS[Amazon RDS<br/>PostgreSQL cluster<br/>Device metadata]
         DYNAMODB[DynamoDB<br/>Telemetry data<br/>Time series storage]
         ELASTICSEARCH[Elasticsearch<br/>Log aggregation<br/>Device search]
         S3[Amazon S3<br/>Firmware files<br/>User data backup]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         CLOUDWATCH[CloudWatch<br/>Container monitoring<br/>Log aggregation]
         ECS_SERVICE[ECS Service<br/>Container orchestration<br/>Auto scaling]
         CODEPIPELINE[CodePipeline<br/>CI/CD deployment<br/>Blue-green deploys]
@@ -62,10 +62,10 @@ graph TB
     CODEPIPELINE -.-> ECSCluster
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALB,API_GW edgeStyle
     class DEVICE_SVC,TELEMETRY_SVC,COMMAND_SVC,ANALYTICS_SVC,NOTIFICATION_SVC,SCHEDULER,PROCESSOR,ECSCluster,Workers serviceStyle
@@ -84,12 +84,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         CLOUDFRONT[CloudFront CDN<br/>Global edge locations<br/>Static content delivery]
         API_GW_V2[API Gateway v2<br/>HTTP APIs<br/>JWT validation]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         subgraph LambdaFunctions[Lambda Functions - 800+]
             DEVICE_LAMBDA[Device Management<br/>Node.js runtime<br/>512MB memory]
             TELEMETRY_LAMBDA[Telemetry Ingestion<br/>Python runtime<br/>1024MB memory]
@@ -105,14 +105,14 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         RDS_AURORA[Aurora Serverless<br/>Auto-scaling database<br/>Device metadata]
         DYNAMODB_V2[DynamoDB<br/>On-demand pricing<br/>Time series data]
         S3_V2[Amazon S3<br/>Event notifications<br/>Lifecycle policies]
         OPENSEARCH[OpenSearch Serverless<br/>Log analytics<br/>Device search]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         XRAY[AWS X-Ray<br/>Distributed tracing<br/>Performance insights]
         CLOUDWATCH_V2[CloudWatch<br/>Function monitoring<br/>Custom metrics]
         SAM[AWS SAM<br/>Infrastructure as code<br/>Local development]
@@ -138,10 +138,10 @@ graph TB
     LAMBDA_INSIGHTS -.-> LambdaFunctions
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLOUDFRONT,API_GW_V2 edgeStyle
     class DEVICE_LAMBDA,TELEMETRY_LAMBDA,COMMAND_LAMBDA,ANALYTICS_LAMBDA,NOTIFICATION_LAMBDA,SQS,SNS,EVENTBRIDGE,LambdaFunctions,EventDriven serviceStyle

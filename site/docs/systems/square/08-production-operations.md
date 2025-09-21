@@ -107,10 +107,10 @@ graph TB
     LOADTEST --> OPTIMIZATION
 
     %% Apply four-plane colors for operations
-    classDef monitoringStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef alertingStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef deploymentStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef securityStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef monitoringStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef alertingStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef deploymentStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef securityStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class DATADOG,PROMETHEUS,GRAFANA,ELK,FLUENTD,SPLUNK,JAEGER,ZIPKIN,OPENCENSUS monitoringStyle
     class PAGERDUTY,SLACK,EMAIL,WARROOM,POSTMORTEM,COMMS alertingStyle
@@ -191,8 +191,8 @@ graph LR
     SEV3 --> ACTION3
     SEV4 --> ACTION4
 
-    classDef sevCritical fill:#FF4444,stroke:#CC0000,color:#fff
-    classDef sevHigh fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef sevCritical fill:#FF4444,stroke:#8B5CF6,color:#fff
+    classDef sevHigh fill:#F59E0B,stroke:#D97706,color:#fff
     classDef sevMedium fill:#FFCC00,stroke:#996600,color:#000
     classDef sevLow fill:#88CC88,stroke:#006600,color:#000
 

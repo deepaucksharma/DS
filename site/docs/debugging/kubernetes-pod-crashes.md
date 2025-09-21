@@ -8,24 +8,24 @@ This guide provides a comprehensive approach to debugging Kubernetes pod crashes
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         INGRESS[Ingress Controller<br/>nginx-ingress]
         LB[Load Balancer<br/>AWS ALB]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         KAPI[Kubernetes API Server<br/>kube-apiserver]
         SCHED[Scheduler<br/>kube-scheduler]
         KUBELET[Kubelet<br/>Node Agent]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         ETCD[(etcd Cluster<br/>State Storage)]
         LOGS[(Pod Logs<br/>Container stdout/stderr)]
         EVENTS[(Events<br/>Kubernetes Events)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         PROM[Prometheus<br/>Metrics Collection]
         GRAF[Grafana<br/>Visualization]
         ALERT[AlertManager<br/>Incident Response]
@@ -46,10 +46,10 @@ graph TB
     PROM --> ALERT
 
     %% Apply styles
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class INGRESS,LB edgeStyle
     class KAPI,SCHED,KUBELET serviceStyle

@@ -17,16 +17,16 @@ Shopify's scaling journey from hosting 5 stores to powering 4M+ merchants global
 
 ```mermaid
 graph TB
-    subgraph Origin[Original Problem - #0066CC]
+    subgraph Origin[Original Problem - #3B82F6]
         SNOWBOARD[Snowboard Shop<br/>Custom e-commerce<br/>Ruby on Rails]
     end
 
-    subgraph BasicInfra[Basic Infrastructure - #00AA00]
+    subgraph BasicInfra[Basic Infrastructure - #10B981]
         RAILS_APP[Rails Application<br/>Monolithic design<br/>Single server]
         SHARED_HOSTING[Shared Hosting<br/>Basic LAMP stack]
     end
 
-    subgraph SimpleData[Simple Data - #FF8800]
+    subgraph SimpleData[Simple Data - #F59E0B]
         MYSQL[(MySQL Database<br/>Single instance<br/>All data)]
         FILES[(File Storage<br/>Local disk<br/>Product images)]
     end
@@ -36,9 +36,9 @@ graph TB
     RAILS_APP --> MYSQL
     RAILS_APP --> FILES
 
-    classDef originStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef infraStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef originStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef infraStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SNOWBOARD originStyle
     class RAILS_APP,SHARED_HOSTING infraStyle
@@ -55,18 +55,18 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgeLayer[Edge Layer - #0066CC]
+    subgraph EdgeLayer[Edge Layer - #3B82F6]
         CDN[Content Delivery Network<br/>Static assets<br/>Global distribution]
         LB[Load Balancer<br/>Traffic distribution<br/>High availability]
     end
 
-    subgraph ApplicationLayer[Application Layer - #00AA00]
+    subgraph ApplicationLayer[Application Layer - #10B981]
         WEB_CLUSTER[Web Application Cluster<br/>Rails instances<br/>Auto-scaling]
         ADMIN_CLUSTER[Admin Interface Cluster<br/>Merchant management<br/>Separate scaling]
         API_CLUSTER[API Cluster<br/>Third-party integrations<br/>Rate limiting]
     end
 
-    subgraph DataLayer[Data Layer - #FF8800]
+    subgraph DataLayer[Data Layer - #F59E0B]
         MYSQL_MASTER[(MySQL Master<br/>Write operations<br/>ACID compliance)]
         MYSQL_SLAVES[(MySQL Read Replicas<br/>Read scaling<br/>Reporting queries)]
         REDIS[(Redis Cache<br/>Session storage<br/>Fragment caching)]
@@ -95,9 +95,9 @@ graph TB
     MYSQL_MASTER --> MYSQL_SLAVES
     WEB_CLUSTER --> S3
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef appStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef appStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef serviceStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class CDN,LB edgeStyle
@@ -122,12 +122,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph GlobalEdge[Global Edge Infrastructure - #0066CC]
+    subgraph GlobalEdge[Global Edge Infrastructure - #3B82F6]
         FASTLY[Fastly CDN<br/>Global edge locations<br/>Edge computing]
         EDGE_POP[Edge Points of Presence<br/>Regional optimization<br/>Low latency]
     end
 
-    subgraph MicroservicesCore[Microservices Architecture - #00AA00]
+    subgraph MicroservicesCore[Microservices Architecture - #10B981]
         subgraph CoreServices[Core Services]
             STORE_SVC[Store Service<br/>Store management<br/>Configuration]
             PRODUCT_SVC[Product Service<br/>Catalog management<br/>Inventory]
@@ -143,7 +143,7 @@ graph TB
         end
     end
 
-    subgraph DataInfrastructure[Data Infrastructure - #FF8800]
+    subgraph DataInfrastructure[Data Infrastructure - #F59E0B]
         subgraph TransactionalData[Transactional Data]
             MYSQL_SHARDS[(MySQL Shards<br/>Horizontal partitioning<br/>Store-based sharding)]
             POSTGRES[(PostgreSQL<br/>Complex queries<br/>Analytics)]
@@ -174,9 +174,9 @@ graph TB
     ORDER_SVC --> KAFKA
     CHECKOUT_SVC --> PAYMENT_GATEWAY
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef commerceStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class FASTLY,EDGE_POP edgeStyle
@@ -202,12 +202,12 @@ graph TB
 ### Advanced Platform Architecture
 ```mermaid
 graph TB
-    subgraph IntelligentEdge[Intelligent Edge Computing - #0066CC]
+    subgraph IntelligentEdge[Intelligent Edge Computing - #3B82F6]
         EDGE_COMPUTE[Edge Computing<br/>Shopify Scripts<br/>Real-time personalization]
         GLOBAL_CDN[Global CDN<br/>Multi-provider<br/>Performance optimization]
     end
 
-    subgraph CommerceCloud[Commerce Cloud Platform - #00AA00]
+    subgraph CommerceCloud[Commerce Cloud Platform - #10B981]
         subgraph CorePlatform[Core Platform]
             STOREFRONT_API[Storefront API<br/>Headless commerce<br/>Custom frontends]
             ADMIN_API[Admin API<br/>Merchant tools<br/>App development]
@@ -221,7 +221,7 @@ graph TB
         end
     end
 
-    subgraph AdvancedData[Advanced Data Platform - #FF8800]
+    subgraph AdvancedData[Advanced Data Platform - #F59E0B]
         subgraph StreamingData[Real-time Streaming]
             KAFKA_CLUSTER[(Kafka Cluster<br/>Event streaming<br/>Real-time processing)]
             STREAM_PROCESSING[Stream Processing<br/>Apache Flink<br/>Real-time analytics]
@@ -250,9 +250,9 @@ graph TB
     ML_PLATFORM --> PERSONALIZATION
     STREAM_PROCESSING --> FRAUD_DETECTION
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef aiStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class EDGE_COMPUTE,GLOBAL_CDN edgeStyle

@@ -20,10 +20,10 @@ graph TB
     end
 
     %% Apply 4-plane colors
-    classDef computeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef matchingStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef mapsStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef computeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef matchingStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef mapsStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class COMPUTE computeStyle
     class MATCHING matchingStyle
@@ -56,7 +56,7 @@ graph TB
     ETA --> AVAILABILITY
 
     %% Apply edge plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     class DISPATCH,GEOFENCE,PRICING,ETA,EDGE_LB edgeStyle
 ```
 
@@ -87,7 +87,7 @@ graph TB
     end
 
     %% Apply service plane colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     class RIDER_API,DRIVER_API,PAYMENT,LOCATION,MARKETPLACE,K8S,DOCKER,SERVERLESS serviceStyle
 ```
 
@@ -116,7 +116,7 @@ graph TB
     end
 
     %% Apply state plane colors
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class POSTGRES,CASSANDRA,REDIS,HDFS,KAFKA,BACKUP stateStyle
 ```
 
@@ -158,7 +158,7 @@ graph TB
     end
 
     %% Apply control plane colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     class GOOGLE_MAPS,TILE_SERVER,GEOCODING,ETA_ML,FRAUD,RECOMMENDATION,CDN,SECURITY,MONITORING,VPN,SPARK,STREAM controlStyle
 ```
 

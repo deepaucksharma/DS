@@ -116,10 +116,10 @@ graph TB
     end
 
     %% 4-Plane Architecture Colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class VAULT_UI1,VAULT_API1,AWS_CONSOLE2,AWS_CLI2,AZURE_PORTAL3,AZURE_CLI3 edgeStyle
     class VAULT_SERVER1,AUTH_METHODS1,SECRET_ENGINES1,SECRETS_MANAGER2,ROTATION_SERVICE2,RETRIEVAL_SERVICE2,KEY_VAULT3,MANAGED_HSM3,CERTIFICATES3 serviceStyle
@@ -156,10 +156,10 @@ graph LR
         VAULT_CLUSTER --> POLICY_MANAGEMENT
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MICROSERVICES edgeStyle
     class VAULT_CLUSTER,SECRET_ENGINES serviceStyle
@@ -194,10 +194,10 @@ graph LR
         SECRETS_MANAGER --> IAM_POLICIES
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class APPLICATIONS edgeStyle
     class SECRETS_MANAGER,RDS_INTEGRATION serviceStyle
@@ -232,10 +232,10 @@ graph LR
         KEY_VAULT_PREMIUM --> AZURE_AD
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AZURE_SERVICES edgeStyle
     class KEY_VAULT_PREMIUM,MANAGED_HSM serviceStyle
@@ -321,9 +321,9 @@ graph TB
         ADVANCED_AUTH --> ENCRYPTION_SERVICES
     end
 
-    classDef migrationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef legacyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef newStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef migrationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef legacyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef newStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class SECRET_INVENTORY,DYNAMIC_SECRETS migrationStyle
     class LEGACY_SECRETS legacyStyle
@@ -358,9 +358,9 @@ graph TB
         CROSS_ACCOUNT --> MONITORING_ALERTS
     end
 
-    classDef migrationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef legacyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef newStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef migrationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef legacyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef newStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class SECRET_MIGRATION,APPLICATION_INTEGRATION,ROTATION_AUTOMATION migrationStyle
     class ON_PREM_SECRETS legacyStyle

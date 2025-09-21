@@ -56,10 +56,10 @@ graph TB
     end
 
     %% Apply cost-based colors
-    classDef highCost fill:#FF4444,stroke:#CC0000,color:#fff,stroke-width:3px
-    classDef mediumCost fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef lowCost fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef regionStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:2px
+    classDef highCost fill:#FF4444,stroke:#8B5CF6,color:#fff,stroke-width:3px
+    classDef mediumCost fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef lowCost fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef regionStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:2px
 
     class COMPUTE_ML,STORAGE_IMAGES highCost
     class COMPUTE_DB,CDN_GLOBAL,COMPUTE_API,STORAGE_DB,NETWORK_INTER mediumCost

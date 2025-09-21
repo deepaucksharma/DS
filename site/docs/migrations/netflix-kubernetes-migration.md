@@ -42,25 +42,25 @@ gantt
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         ELB[AWS ELB]
         CF[CloudFront CDN]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         AG[API Gateway VMs<br/>m5.2xlarge × 500]
         MS1[User Service VMs<br/>c5.4xlarge × 200]
         MS2[Catalog Service VMs<br/>r5.xlarge × 300]
         MS3[Recommendation VMs<br/>c5.9xlarge × 100]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         CASS[(Cassandra Cluster<br/>i3.2xlarge × 1000)]
         ES[(Elasticsearch<br/>r5.xlarge × 500)]
         REDIS[(Redis Cluster<br/>r5.large × 200)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         SPINN[Spinnaker<br/>Deployment]
         ATLS[Atlas Metrics]
         EUREKA[Eureka Discovery]
@@ -82,10 +82,10 @@ graph TB
     EUREKA -.-> MS1
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ELB,CF edgeStyle
     class AG,MS1,MS2,MS3 serviceStyle
@@ -104,13 +104,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         ALB[AWS ALB]
         CF[CloudFront CDN]
         IG[Istio Gateway]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         subgraph K8S1[Kubernetes Cluster 1<br/>m5.4xlarge × 100]
             AGP[API Gateway Pods<br/>2 CPU, 4GB × 200]
             USP[User Service Pods<br/>4 CPU, 8GB × 150]
@@ -122,13 +122,13 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         CASS[(Cassandra Cluster<br/>i3.2xlarge × 800)]
         ES[(Elasticsearch<br/>r5.xlarge × 400)]
         REDIS[(Redis Cluster<br/>r5.large × 150)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         subgraph TITUS[Titus Platform]
             SCHED[Fenzo Scheduler]
             REG[Container Registry]
@@ -156,10 +156,10 @@ graph TB
     MON -.-> K8S1
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALB,CF,IG edgeStyle
     class AGP,USP,CSP,RSP,K8S1,K8S2 serviceStyle

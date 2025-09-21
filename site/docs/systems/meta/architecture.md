@@ -8,62 +8,109 @@ Meta operates one of the world's largest distributed systems, serving 3+ billion
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Global CDN Network]
-        CDN[Facebook CDN - 200+ PoPs]
-        EDGE[Edge Servers - Haystack Cache]
-        WAF[Web Application Firewall]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
+
+        CDN[Meta CDN Network v4<br/>━━━━━<br/>200+ PoPs globally<br/>150 Tbps capacity<br/>p99: 35ms globally<br/>HTTP/3 QUIC enabled]
+
+        EdgeCache[Haystack Edge Cache<br/>━━━━━<br/>Photo/video cache<br/>1M+ photos/sec<br/>95% cache hit rate<br/>Local SSD storage]
+
+        WAF[Meta WAF v3.2<br/>━━━━━<br/>DDoS protection<br/>15M+ requests/sec<br/>ML-based detection<br/>Real-time blocking]
     end
 
-    subgraph ServicePlane[Service Plane - Application Layer]
-        LB[Load Balancers - GLB/HAProxy]
-        WEB[Web Tier - HHVM/Hack]
-        API[Graph API Gateway]
-        FEED[News Feed Service]
-        MSG[Messenger/WhatsApp]
-        ML[ML Inference - PyTorch]
+    subgraph ServicePlane[Service Plane - Green #10B981]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
+
+        LoadBalancer[Katran Load Balancer<br/>━━━━━<br/>C++ XDP/eBPF<br/>100M+ packets/sec<br/>ECMP load balancing<br/>Health check automation]
+
+        WebTier[HHVM/Hack v4.172<br/>━━━━━<br/>PHP 8.1 compatible<br/>JIT compilation<br/>2B+ requests/day<br/>Sub-10ms p99]
+
+        GraphAPI[Graph API v18.0<br/>━━━━━<br/>GraphQL endpoint<br/>Rate limiting enabled<br/>10M+ RPS peak<br/>OAuth 2.0 auth]
+
+        NewsFeed[News Feed Ranking<br/>━━━━━<br/>PyTorch 2.0 ML<br/>Real-time inference<br/>50K+ features<br/>Personalized ranking]
+
+        Messaging[WhatsApp/Messenger<br/>━━━━━<br/>Erlang/C++ backend<br/>100B+ messages/day<br/>End-to-end encryption<br/>Signal protocol]
+
+        VideoProcessing[Video Processing Pipeline<br/>━━━━━<br/>FFmpeg 5.1<br/>Transcoding cluster<br/>H.264/H.265/AV1<br/>4K+ uploads/sec]
     end
 
-    subgraph StatePlane[State Plane - Storage Systems]
-        TAO[(TAO - Social Graph Store)]
-        MYSQL[(MySQL - Backing Store)]
-        HAYSTACK[(Haystack - Photo Storage)]
-        F4[(F4 - Warm Storage)]
-        MEMCACHE[(Memcached - 28TB RAM)]
-        ROCKSDB[(RocksDB - Hot Data)]
-        ZIPPYDB[(ZippyDB - KV Store)]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
+
+        TAO[TAO Social Graph v7<br/>━━━━━<br/>Distributed cache/DB<br/>1 trillion objects<br/>Sub-ms p99 reads<br/>Graph query engine]
+
+        MySQL[MySQL 8.0 Clusters<br/>━━━━━<br/>InnoDB storage engine<br/>10,000+ shards<br/>Multi-master setup<br/>Percona XtraDB]
+
+        Haystack[Haystack Photo Store v5<br/>━━━━━<br/>Custom blob storage<br/>500 PB+ photos<br/>1M+ photos/sec write<br/>Erasure coding]
+
+        F4[F4 Warm Storage v3<br/>━━━━━<br/>Reed-Solomon coding<br/>Exabyte scale<br/>Archive tier storage<br/>Geographic replication]
+
+        Memcached[Memcached Clusters<br/>━━━━━<br/>28 TB+ total RAM<br/>1B+ operations/sec<br/>99.9% hit rate<br/>Consistent hashing]
+
+        RocksDB[RocksDB v7.10<br/>━━━━━<br/>LSM-tree storage<br/>Hot data tier<br/>NVMe SSD backend<br/>Compression enabled]
     end
 
-    subgraph ControlPlane[Control Plane - Infrastructure]
-        SCUBA[Scuba - Real-time Analytics]
-        PROPHET[Prophet - Time Series]
-        TUPPERWARE[Tupperware - Containers]
-        DELOS[Delos - Coordination]
-        CHAOS[Chaos Engineering]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
+
+        Scuba[Scuba Analytics v3<br/>━━━━━<br/>Real-time OLAP<br/>Trillions of rows<br/>Sub-second queries<br/>Columnar storage]
+
+        Prophet[Prophet Forecasting<br/>━━━━━<br/>Time series analysis<br/>Capacity planning<br/>Trend detection<br/>R/Python libraries]
+
+        Tupperware[Tupperware Container v4<br/>━━━━━<br/>Container orchestration<br/>Resource allocation<br/>Service mesh<br/>Auto-scaling]
+
+        ServiceRouter[Service Router v2<br/>━━━━━<br/>Traffic management<br/>Circuit breakers<br/>Load shedding<br/>Canary deployments]
+
+        Monitoring[Meta Monitoring v5<br/>━━━━━<br/>Metrics collection<br/>Alert management<br/>SLO tracking<br/>Distributed tracing]
     end
 
-    %% Connections with SLOs
-    CDN -->|"p99: 50ms"| LB
-    LB -->|"p99: 10ms"| WEB
-    WEB -->|"p99: 5ms"| TAO
-    TAO -->|"p99: 1ms"| MYSQL
-    FEED -->|"p99: 100ms"| TAO
-    API -->|"Rate: 10M RPS"| TAO
-    WEB -->|"Hit Ratio: 99%"| MEMCACHE
+    %% Connections with real metrics
+    CDN -->|"Global CDN<br/>p99: 35ms<br/>150 Tbps"| EdgeCache
+    EdgeCache -->|"Cache hit: 95%<br/>p99: 10ms"| WAF
+    WAF -->|"DDoS filtered<br/>15M+ req/sec"| LoadBalancer
 
-    %% Photo serving path
-    EDGE -->|"Throughput: 1M photos/sec"| HAYSTACK
-    HAYSTACK -->|"Backup"| F4
+    LoadBalancer -->|"Load balanced<br/>p99: 5ms"| WebTier
+    WebTier -->|"Graph queries<br/>p99: 8ms"| GraphAPI
+    GraphAPI -->|"Social graph<br/>1T objects"| TAO
 
-    %% Apply four-plane colors
-    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
-    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
-    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
-    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    NewsFeed -->|"Ranking model<br/>p99: 100ms"| TAO
+    NewsFeed -->|"ML inference<br/>50K features"| RocksDB
 
-    class CDN,EDGE,WAF edgeStyle
-    class LB,WEB,API,FEED,MSG,ML serviceStyle
-    class TAO,MYSQL,HAYSTACK,F4,MEMCACHE,ROCKSDB,ZIPPYDB stateStyle
-    class SCUBA,PROPHET,TUPPERWARE,DELOS,CHAOS controlStyle
+    Messaging -->|"Message storage<br/>100B/day"| TAO
+    Messaging -->|"Media files"| Haystack
+
+    VideoProcessing -->|"Video storage<br/>Exabyte scale"| F4
+    VideoProcessing -->|"Metadata"| MySQL
+
+    %% Data layer interactions
+    TAO -->|"Backing store<br/>p99: 1ms"| MySQL
+    TAO -->|"Cache layer<br/>99.9% hit"| Memcached
+
+    WebTier -->|"Session cache<br/>p99: 0.5ms"| Memcached
+    GraphAPI -->|"Hot data<br/>p99: 2ms"| RocksDB
+
+    %% Photo/video serving
+    EdgeCache -->|"Media serving<br/>1M photos/sec"| Haystack
+    Haystack -->|"Archive tier<br/>cold storage"| F4
+
+    %% Control plane monitoring
+    WebTier -.->|"Metrics/logs<br/>1M/sec"| Scuba
+    NewsFeed -.->|"Performance data"| Monitoring
+    Messaging -.->|"Service metrics"| Prophet
+
+    Tupperware -.->|"Container mgmt"| WebTier
+    ServiceRouter -.->|"Traffic routing"| GraphAPI
+
+    %% Apply 4-plane colors
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
+
+    class CDN,EdgeCache,WAF edgeStyle
+    class LoadBalancer,WebTier,GraphAPI,NewsFeed,Messaging,VideoProcessing serviceStyle
+    class TAO,MySQL,Haystack,F4,Memcached,RocksDB stateStyle
+    class Scuba,Prophet,Tupperware,ServiceRouter,Monitoring controlStyle
 ```
 
 ## Global Infrastructure Scale

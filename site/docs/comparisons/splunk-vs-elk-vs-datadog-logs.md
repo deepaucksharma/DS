@@ -116,10 +116,10 @@ graph TB
     end
 
     %% 4-Plane Architecture Colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SPLUNK_WEB1,SPLUNK_API1,KIBANA2,ELASTIC_API2,DD_WEB3,DD_API3 edgeStyle
     class SEARCH_HEAD1,INDEXER_CLUSTER1,HEAVY_FORWARDER1,LOGSTASH2,FILEBEAT2,ELASTICSEARCH2,DD_AGENT3,LOG_INTAKE3,LIVE_TAIL3 serviceStyle
@@ -156,10 +156,10 @@ graph LR
         INDEXERS --> MANAGEMENT
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SEARCH_HEADS edgeStyle
     class INDEXERS,FORWARDERS serviceStyle
@@ -194,10 +194,10 @@ graph LR
         ELASTICSEARCH_CLUSTER --> ILM_MANAGEMENT
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class KIBANA_CLUSTER edgeStyle
     class ELASTICSEARCH_CLUSTER,LOGSTASH_PIPELINE serviceStyle
@@ -232,10 +232,10 @@ graph LR
         DD_AGENTS --> OBSERVABILITY
     end
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DD_DASHBOARDS edgeStyle
     class DD_AGENTS,LOG_PIPELINES serviceStyle
@@ -321,9 +321,9 @@ graph TB
         ADVANCED_ANALYTICS --> COMPLIANCE_REPORTS
     end
 
-    classDef migrationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef legacyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef newStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef migrationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef legacyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef newStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class DATA_MAPPING,FORWARDER_ROLLOUT migrationStyle
     class LEGACY_TOOLS legacyStyle
@@ -358,9 +358,9 @@ graph TB
         PERFORMANCE_TUNING --> CUSTOM_PLUGINS
     end
 
-    classDef migrationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef legacyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef newStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef migrationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef legacyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef newStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class ARCHITECTURE_DESIGN,DATA_MIGRATION,PERFORMANCE_TUNING migrationStyle
     class PROPRIETARY_LOGS legacyStyle

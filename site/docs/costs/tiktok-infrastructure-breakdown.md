@@ -20,10 +20,10 @@ graph TB
     end
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class VIDEO,CDN edgeStyle
     class RECOMMENDATION,COMPUTE serviceStyle
@@ -66,7 +66,7 @@ graph TB
     TRANSCODING --> LATENCY
 
     %% Apply edge plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     class UPLOAD_PROC,TRANSCODING,THUMBNAIL,COMPRESSION,QUALITY_ENHANCE,BYTEDANCE_CDN,AWS_CLOUDFRONT,ALIBABA_CDN,TENCENT_CDN,OTHER_CDN edgeStyle
 ```
 
@@ -98,7 +98,7 @@ graph TB
     end
 
     %% Apply service plane colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     class FOR_YOU,CONTENT_RANKING,USER_MODELING,TREND_DETECTION,MOBILE_API,USER_SERVICE,CREATOR_TOOLS,LIVE_STREAMING,MESSAGING serviceStyle
 ```
 
@@ -129,7 +129,7 @@ graph TB
     end
 
     %% Apply state plane colors
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class ORIGIN_STORAGE,PROCESSED_STORAGE,ARCHIVE_STORAGE,THUMBNAIL_STORAGE,USER_DATA,CONTENT_META,ANALYTICS_DB,CACHE_LAYER stateStyle
 ```
 
@@ -165,7 +165,7 @@ graph TB
     end
 
     %% Apply control plane colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     class CONTENT_MODERATION,REGIONAL_COMPLIANCE,DATA_GOVERNANCE,MONITORING,NETWORKING,SECURITY,DATA_PIPELINE,BUSINESS_INTEL,CREATOR_ANALYTICS controlStyle
 ```
 

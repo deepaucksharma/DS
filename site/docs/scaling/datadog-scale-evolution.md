@@ -18,17 +18,17 @@ Datadog's scaling journey from a monitoring startup to processing 18 trillion da
 
 ```mermaid
 graph TB
-    subgraph BasicMonitoring[Basic Monitoring Platform - #0066CC]
+    subgraph BasicMonitoring[Basic Monitoring Platform - #3B82F6]
         AGENT[Datadog Agent<br/>Python daemon<br/>System metrics]
         WEB_UI[Web Interface<br/>Dashboards<br/>Basic alerting]
     end
 
-    subgraph SimpleInfra[Simple Infrastructure - #00AA00]
+    subgraph SimpleInfra[Simple Infrastructure - #10B981]
         API_SERVER[API Server<br/>Metric ingestion<br/>Query processing]
         WORKER[Background Worker<br/>Alert processing<br/>Data aggregation]
     end
 
-    subgraph TimeSeriesData[Time Series Storage - #FF8800]
+    subgraph TimeSeriesData[Time Series Storage - #F59E0B]
         CASSANDRA[(Cassandra<br/>Time series data<br/>High write throughput)]
         REDIS[(Redis<br/>Real-time cache<br/>Alert state)]
         POSTGRES[(PostgreSQL<br/>Metadata<br/>User accounts)]
@@ -40,9 +40,9 @@ graph TB
     WORKER --> REDIS
     API_SERVER --> POSTGRES
 
-    classDef monitoringStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef infraStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef monitoringStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef infraStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class AGENT,WEB_UI monitoringStyle
     class API_SERVER,WORKER infraStyle
@@ -69,19 +69,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph AdvancedPlatform[Advanced Platform - #0066CC]
+    subgraph AdvancedPlatform[Advanced Platform - #3B82F6]
         AGENT_V2[Enhanced Agent<br/>Multi-language<br/>Custom metrics]
         DASHBOARD[Advanced Dashboards<br/>Real-time updates<br/>Custom visualizations]
         ALERTING[Alerting Engine<br/>Complex conditions<br/>Multiple channels]
     end
 
-    subgraph ScalableServices[Scalable Services - #00AA00]
+    subgraph ScalableServices[Scalable Services - #10B981]
         INGESTION[Ingestion Service<br/>High throughput<br/>Batching optimization]
         QUERY_ENGINE[Query Engine<br/>Time series queries<br/>Aggregation functions]
         NOTIFICATION[Notification Service<br/>Email/SMS/Webhooks<br/>Escalation policies]
     end
 
-    subgraph DistributedData[Distributed Data - #FF8800]
+    subgraph DistributedData[Distributed Data - #F59E0B]
         CASSANDRA_CLUSTER[(Cassandra Cluster<br/>Sharded by metric<br/>Multi-datacenter)]
         ELASTICSEARCH[(Elasticsearch<br/>Log analysis<br/>Search capabilities)]
         KAFKA[(Apache Kafka<br/>Event streaming<br/>Reliable delivery)]
@@ -94,9 +94,9 @@ graph TB
     QUERY_ENGINE --> CASSANDRA_CLUSTER
     NOTIFICATION --> ELASTICSEARCH
 
-    classDef platformStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef platformStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class AGENT_V2,DASHBOARD,ALERTING platformStyle
     class INGESTION,QUERY_ENGINE,NOTIFICATION serviceStyle
@@ -119,20 +119,20 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph ObservabilityPlatform[Full-Stack Observability - #0066CC]
+    subgraph ObservabilityPlatform[Full-Stack Observability - #3B82F6]
         UNIFIED_AGENT[Unified Agent<br/>Metrics + Logs + Traces<br/>Low overhead]
         CORRELATION[Data Correlation<br/>Cross-platform insights<br/>Unified timeline]
         ML_INSIGHTS[ML-Powered Insights<br/>Anomaly detection<br/>Predictive alerting]
     end
 
-    subgraph MicroservicesArch[Microservices Architecture - #00AA00]
+    subgraph MicroservicesArch[Microservices Architecture - #10B981]
         INGESTION_MESH[Ingestion Mesh<br/>Multiple protocols<br/>Auto-scaling]
         STORAGE_LAYER[Storage Layer<br/>Custom time series DB<br/>Optimized compression]
         QUERY_FEDERATION[Query Federation<br/>Cross-data source<br/>Unified API]
         REAL_TIME[Real-time Processing<br/>Stream analytics<br/>Immediate alerting]
     end
 
-    subgraph BigDataPlatform[Big Data Platform - #FF8800]
+    subgraph BigDataPlatform[Big Data Platform - #F59E0B]
         TIME_SERIES_DB[(Custom TSDB<br/>Optimized for metrics<br/>Compression algorithms)]
         DISTRIBUTED_LOGS[(Distributed Logs<br/>Indexed storage<br/>Fast search)]
         TRACE_STORAGE[(Trace Storage<br/>Distributed tracing<br/>Span relationships)]
@@ -153,9 +153,9 @@ graph TB
     QUERY_FEDERATION --> ANALYTICS_DB
     REAL_TIME --> ANOMALY_DETECTION
 
-    classDef observabilityStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef archStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef observabilityStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef archStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef mlStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class UNIFIED_AGENT,CORRELATION,ML_INSIGHTS observabilityStyle

@@ -8,23 +8,23 @@ Facebook operates one of the world's largest MySQL deployments, handling over 1 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[Facebook Load Balancer<br/>Katran + BGP<br/>99.99% availability]
         CDN[Facebook CDN<br/>Global edge network<br/>87% cache hit ratio]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         API[Social Graph API<br/>Hack/PHP + C++<br/>50,000+ instances]
         PROXY[MySQL Proxy<br/>Custom proxy layer<br/>Connection multiplexing]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         PRIMARY[Primary MySQL<br/>500x r6i.32xlarge<br/>Write operations]
         REPLICA[Read Replicas<br/>5000x r6i.16xlarge<br/>Read scaling]
         CACHE[TAO Cache Layer<br/>Memcached clusters<br/>99.8% hit ratio]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MON[Monitoring<br/>Facebook ODS<br/>Real-time metrics]
         FAILOVER[Automated Failover<br/>MHA + Custom tools<br/><30s recovery]
     end
@@ -41,10 +41,10 @@ graph TB
     MON --> REPLICA
     FAILOVER --> PRIMARY
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,CDN edgeStyle
     class API,PROXY serviceStyle
@@ -88,7 +88,7 @@ graph LR
         ANALYTICS[Analytics: 5%<br/>Reporting queries<br/>Background processing]
     end
 
-    classDef metricStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class POINT,RANGE,JOIN,AGG,UPDATE,P50,P95,P99,P999,P9999,READS,WRITES,ANALYTICS metricStyle
 ```
 
@@ -141,8 +141,8 @@ graph TB
     PARTITION --> SHARD
     CACHE --> PREPARE
 
-    classDef optStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef techniqueStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef optStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef techniqueStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SCHEMA,INDEXES,PARTITION,CACHE optStyle
     class DENORM,COVERING,SHARD,PREPARE techniqueStyle
@@ -185,8 +185,8 @@ graph TB
     LOG --> ASYNC
     TEMP --> COMPRESS
 
-    classDef bottleneckStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef bottleneckStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class RANDOM,SEQUENTIAL,LOG,TEMP bottleneckStyle
     class NVME,BUFFER,ASYNC,COMPRESS solutionStyle
@@ -228,8 +228,8 @@ graph LR
     I5 --> REPLICAS
     I5 --> SHARDING
 
-    classDef scaleStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef scaleStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class I1,I2,I3,I4,I5 scaleStyle
     class REPLICAS,SHARDING solutionStyle
@@ -276,8 +276,8 @@ graph TB
     MONITORING --> TOTAL
     SUPPORT --> TOTAL
 
-    classDef costStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef totalStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef costStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef totalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PRIMARY_COMPUTE,REPLICA_COMPUTE,STORAGE,NETWORK,CACHE,MONITORING,SUPPORT costStyle
     class TOTAL totalStyle
@@ -447,8 +447,8 @@ graph TB
         DEADLOCKS[Deadlock Rate<br/>Lock contention<br/>Transaction conflicts]
     end
 
-    classDef metricStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef healthStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef healthStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class QPS,LATENCY,CPU,BUFFER,REPL_LAG,CONNECTIONS,DISK,SLOW_QUERIES metricStyle
     class MASTER,SLAVES,DEADLOCKS healthStyle

@@ -18,17 +18,17 @@ OpenAI's scaling journey from a research organization to serving 100M+ ChatGPT u
 ### Research Infrastructure
 ```mermaid
 graph TB
-    subgraph ResearchInfra[Research Infrastructure - #0066CC]
+    subgraph ResearchInfra[Research Infrastructure - #3B82F6]
         JUPYTER[Jupyter Notebooks<br/>Research experiments]
         WEIGHTS[Weights & Biases<br/>Experiment tracking]
     end
 
-    subgraph ComputeLayer[Compute Layer - #00AA00]
+    subgraph ComputeLayer[Compute Layer - #10B981]
         GPU_CLUSTER[GPU Cluster<br/>8x V100<br/>Model training]
         CPU_CLUSTER[CPU Cluster<br/>Data preprocessing]
     end
 
-    subgraph DataLayer[Data Layer - #FF8800]
+    subgraph DataLayer[Data Layer - #F59E0B]
         DATASETS[(Research Datasets<br/>Common Crawl<br/>WebText)]
         MODELS[(Model Artifacts<br/>PyTorch checkpoints)]
     end
@@ -38,9 +38,9 @@ graph TB
     GPU_CLUSTER --> DATASETS
     GPU_CLUSTER --> MODELS
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class JUPYTER,WEIGHTS edgeStyle
     class GPU_CLUSTER,CPU_CLUSTER serviceStyle
@@ -73,12 +73,12 @@ graph TB
 ### Production API Infrastructure
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CLOUDFLARE[Cloudflare<br/>API protection<br/>Rate limiting]
         ALB[Application Load Balancer<br/>Auto-scaling]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         API_GATEWAY[API Gateway<br/>Authentication<br/>Billing]
         INFERENCE_CLUSTER[Inference Cluster<br/>Multiple instances<br/>Model serving]
         QUEUE_MANAGER[Queue Manager<br/>Request batching<br/>Priority handling]
@@ -89,7 +89,7 @@ graph TB
         MODEL_CACHE[Model Cache<br/>Hot loading<br/>Version management]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         POSTGRES[(PostgreSQL<br/>User accounts<br/>Usage tracking)]
         REDIS[(Redis<br/>Session cache<br/>Rate limiting)]
         S3[(S3<br/>Model storage<br/>Logs)]
@@ -106,9 +106,9 @@ graph TB
     QUEUE_MANAGER --> REDIS
     MODEL_CACHE --> S3
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef computeStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class CLOUDFLARE,ALB edgeStyle
@@ -166,9 +166,9 @@ graph TB
     INFERENCE_MESH --> CONVERSATION_DB
     MODEL_ROUTER --> ANALYTICS_DB
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class EDGE_GLOBAL,DDOS_PROTECTION edgeStyle
     class CHAT_API,WEB_APP,MOBILE_APP,CONTENT_FILTER,INFERENCE_MESH,MODEL_ROUTER,RESPONSE_CACHE serviceStyle

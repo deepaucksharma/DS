@@ -65,9 +65,9 @@ graph TB
         MICRO_INVESTING[Micro-Investing<br/>Round-up purchases<br/>Recurring investments]
     end
 
-    classDef pfofStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef fractionalStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef mobileStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef pfofStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef fractionalStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef mobileStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef innovationStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class RETAIL_ORDER,PFOF_ROUTER,MARKET_MAKER,PRICE_IMPROVE,PFOF_PAYMENT pfofStyle
@@ -189,9 +189,9 @@ graph TB
     OWNERSHIP_DB --> CORP_ACTIONS
     OWNERSHIP_DB --> TAX_REPORTING
 
-    classDef customerStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef processingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef customerStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef processingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef settlementStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class MOBILE_APP,WEB_APP customerStyle
@@ -293,7 +293,7 @@ graph TB
     end
 
     classDef goldStyle fill:#FFD700,stroke:#FFC107,color:#000
-    classDef economicsStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef economicsStyle fill:#10B981,stroke:#059669,color:#fff
 
     class INSTANT_DEPOSIT,MARGIN_TRADING,LEVEL_2_DATA,RESEARCH,LARGER_DEPOSITS goldStyle
     class SUBSCRIBERS,RETENTION,UPGRADE_PATH,ARPU economicsStyle
@@ -395,9 +395,9 @@ graph TB
         TRANSPARENCY_TOOLS[Transparency Tools<br/>Order execution quality<br/>Real-time metrics]
     end
 
-    classDef innovationStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef challengeStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef solutionStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef innovationStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef challengeStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef solutionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class PFOF_DISCLOSURE,BEST_EXECUTION,DIGITAL_DELIVERY,AUTOMATED_COMPLIANCE innovationStyle
     class GAMIFICATION_CONCERN,PFOF_CONTROVERSY,MEME_STOCK_RESTRICTIONS,CRYPTO_UNCERTAINTY challengeStyle

@@ -18,12 +18,12 @@ Cloudflare's scaling journey from a startup idea to serving 20% of all internet 
 
 ```mermaid
 graph TB
-    subgraph PoC[Proof of Concept - #0066CC]
+    subgraph PoC[Proof of Concept - #3B82F6]
         UNIVERSITY[University Servers<br/>Research project<br/>Basic caching]
         DEMO[Demo Application<br/>Performance testing]
     end
 
-    subgraph TestData[Test Infrastructure - #FF8800]
+    subgraph TestData[Test Infrastructure - #F59E0B]
         CACHE[(Local Cache<br/>Static assets)]
         METRICS[(Basic Metrics<br/>Performance data)]
     end
@@ -32,8 +32,8 @@ graph TB
     DEMO --> CACHE
     DEMO --> METRICS
 
-    classDef pocStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef pocStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class UNIVERSITY,DEMO pocStyle
     class CACHE,METRICS dataStyle
@@ -49,19 +49,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Network - #0066CC]
+    subgraph EdgePlane[Edge Network - #3B82F6]
         SF[San Francisco<br/>Primary PoP]
         DC[Washington DC<br/>East Coast PoP]
         LON[London<br/>European PoP]
     end
 
-    subgraph ServicePlane[Core Services - #00AA00]
+    subgraph ServicePlane[Core Services - #10B981]
         DNS[Authoritative DNS<br/>Global anycast]
         CDN[Content Delivery<br/>Static acceleration]
         WAF[Web Application Firewall<br/>Basic protection]
     end
 
-    subgraph ControlPlane[Management - #CC0000]
+    subgraph ControlPlane[Management - #8B5CF6]
         DASHBOARD[Customer Dashboard<br/>Configuration UI]
         API[Management API<br/>Automation]
         ANALYTICS[Basic Analytics<br/>Traffic reports]
@@ -74,9 +74,9 @@ graph TB
     CDN --> API
     WAF --> ANALYTICS
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class SF,DC,LON edgeStyle
     class DNS,CDN,WAF serviceStyle
@@ -97,14 +97,14 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph GlobalEdge[Global Edge Network - #0066CC]
+    subgraph GlobalEdge[Global Edge Network - #3B82F6]
         AMERICAS[Americas<br/>20 locations<br/>US, Canada, Brazil]
         EUROPE[Europe<br/>15 locations<br/>Major cities]
         APAC[Asia Pacific<br/>10 locations<br/>Growth markets]
         AFRICA[Emerging<br/>5 locations<br/>Early expansion]
     end
 
-    subgraph ServiceEvolution[Enhanced Services - #00AA00]
+    subgraph ServiceEvolution[Enhanced Services - #10B981]
         ANYCAST_DNS[Anycast DNS<br/>Global distribution<br/>DDoS resilience]
         ADVANCED_CDN[Advanced CDN<br/>Dynamic content<br/>Smart routing]
         ENTERPRISE_WAF[Enterprise WAF<br/>OWASP protection<br/>Custom rules]
@@ -123,8 +123,8 @@ graph TB
     ANYCAST_DNS --> THREAT_DB
     ADVANCED_CDN --> ML_DETECTION
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     classDef mlStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class AMERICAS,EUROPE,APAC,AFRICA edgeStyle
@@ -143,13 +143,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph MassiveEdge[Massive Edge Network - #0066CC]
+    subgraph MassiveEdge[Massive Edge Network - #3B82F6]
         TIER1[Tier 1 Locations<br/>100+ major cities<br/>High capacity]
         TIER2[Tier 2 Locations<br/>100+ secondary cities<br/>Regional coverage]
         SUBMARINE[Submarine Cables<br/>Direct connections<br/>Reduced latency]
     end
 
-    subgraph DeveloperPlatform[Developer Platform - #00AA00]
+    subgraph DeveloperPlatform[Developer Platform - #10B981]
         WORKERS[Cloudflare Workers<br/>Serverless compute<br/>Edge computing]
         KV_STORE[Workers KV<br/>Global key-value<br/>Edge storage]
         DURABLE_OBJECTS[Durable Objects<br/>Stateful compute<br/>Strong consistency]
@@ -173,9 +173,9 @@ graph TB
     WORKERS --> ZERO_TRUST
     KV_STORE --> AI_WAF
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef securityStyle fill:#FF0000,stroke:#CC0000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef securityStyle fill:#FF0000,stroke:#8B5CF6,color:#fff
     classDef mlStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class TIER1,TIER2,SUBMARINE edgeStyle

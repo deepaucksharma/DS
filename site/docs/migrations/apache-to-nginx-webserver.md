@@ -17,24 +17,24 @@ This playbook guides the migration from Apache HTTP Server to Nginx for improved
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CLOUDFLARE[CloudFlare<br/>CDN + DDoS protection<br/>SSL termination<br/>Global distribution]
         ELB[Elastic Load Balancer<br/>Health checks<br/>SSL passthrough<br/>Multi-AZ distribution]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         APACHE1[Apache Server 1<br/>m5.large instance<br/>mod_php enabled<br/>50 MaxRequestWorkers]
         APACHE2[Apache Server 2<br/>m5.large instance<br/>mod_php enabled<br/>50 MaxRequestWorkers]
         APACHE3[Apache Server 3<br/>m5.large instance<br/>mod_php enabled<br/>50 MaxRequestWorkers]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         MYSQL_RDS[(MySQL RDS<br/>db.r5.xlarge<br/>Multi-AZ setup<br/>Connection pooling)]
         REDIS_CACHE[Redis ElastiCache<br/>cache.r5.large<br/>Session storage<br/>Application cache]
         EFS_STORAGE[EFS Storage<br/>Static assets<br/>Shared files<br/>User uploads]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CLOUDWATCH[CloudWatch<br/>Apache access logs<br/>Error log monitoring<br/>Performance metrics]
         NEW_RELIC[New Relic APM<br/>Application monitoring<br/>Database performance<br/>Error tracking]
     end
@@ -65,10 +65,10 @@ graph TB
     APACHE3 --> NEW_RELIC
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLOUDFLARE,ELB edgeStyle
     class APACHE1,APACHE2,APACHE3 serviceStyle
@@ -87,25 +87,25 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CLOUDFLARE[CloudFlare<br/>Same configuration<br/>Enhanced caching rules<br/>Global distribution]
         ALB[Application Load Balancer<br/>Enhanced health checks<br/>WebSocket support<br/>HTTP/2 optimization]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         NGINX1[Nginx Server 1<br/>t3.medium instance<br/>Event-driven architecture<br/>10k+ concurrent connections]
         NGINX2[Nginx Server 2<br/>t3.medium instance<br/>Event-driven architecture<br/>10k+ concurrent connections]
         PHP_FPM1[PHP-FPM Pool 1<br/>t3.medium instance<br/>Process manager<br/>Dynamic scaling]
         PHP_FPM2[PHP-FPM Pool 2<br/>t3.medium instance<br/>Process manager<br/>Dynamic scaling]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         MYSQL_RDS_NEW[(MySQL RDS<br/>Same configuration<br/>Optimized connections<br/>Connection pooling)]
         REDIS_CACHE_NEW[Redis ElastiCache<br/>Same configuration<br/>Session storage<br/>Nginx cache integration]
         S3_STORAGE[S3 Storage<br/>Static assets<br/>CloudFront integration<br/>Optimized delivery]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CLOUDWATCH_NEW[CloudWatch<br/>Nginx access logs<br/>JSON log format<br/>Custom metrics]
         PROMETHEUS[Prometheus + Grafana<br/>Real-time metrics<br/>Nginx module stats<br/>PHP-FPM monitoring]
     end
@@ -139,10 +139,10 @@ graph TB
     PHP_FPM2 --> PROMETHEUS
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLOUDFLARE,ALB edgeStyle
     class NGINX1,NGINX2,PHP_FPM1,PHP_FPM2 serviceStyle

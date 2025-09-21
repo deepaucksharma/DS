@@ -8,28 +8,28 @@ Container registry issues can halt deployments and prevent scaling operations. T
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         START[Image Pull Failing]
         RATE_LIMIT{Rate Limited?}
         AUTH_FAIL{Auth Failed?}
         NETWORK{Network Issue?}
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         CHECK_QUOTA[Check Pull Quota]
         CHECK_CREDS[Verify Credentials]
         CHECK_DNS[Test Registry DNS]
         CHECK_FIREWALL[Verify Firewall Rules]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         REGISTRY_LOGS[(Registry Logs)]
         DOCKER_LOGS[(Docker Daemon Logs)]
         K8S_EVENTS[(K8s Events)]
         METRICS[(Pull Metrics)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         MONITOR[Registry Monitoring]
         ALERT[Rate Limit Alerts]
         CACHE[Registry Cache Status]
@@ -55,10 +55,10 @@ graph TB
     METRICS --> BACKUP
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class START,RATE_LIMIT,AUTH_FAIL,NETWORK edgeStyle
     class CHECK_QUOTA,CHECK_CREDS,CHECK_DNS,CHECK_FIREWALL serviceStyle
@@ -137,12 +137,12 @@ openssl s_client -connect registry-1.docker.io:443 -servername registry-1.docker
 ### Docker Hub Rate Limits
 ```mermaid
 graph LR
-    subgraph Problem[Problem - Red #CC0000]
+    subgraph Problem[Problem - Red #8B5CF6]
         A[Anonymous: 100 pulls/6h<br/>Authenticated: 200 pulls/6h]
         B[Large deployments exceed limits]
     end
 
-    subgraph Solution[Solution - Green #00AA00]
+    subgraph Solution[Solution - Green #10B981]
         C[Docker Hub Pro: $5/month<br/>200 pulls/6h → 5000/day]
         D[Private registry mirror]
         E[Image caching proxy]
@@ -152,8 +152,8 @@ graph LR
     B --> D
     B --> E
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class A,B problemStyle
     class C,D,E solutionStyle
@@ -162,14 +162,14 @@ graph LR
 ### Private Registry Solutions
 ```mermaid
 graph TB
-    subgraph Registry[Registry Options - Orange #FF8800]
+    subgraph Registry[Registry Options - Orange #F59E0B]
         HARBOR[Harbor<br/>CNCF Project<br/>$0/month]
         ECR[AWS ECR<br/>$0.10/GB/month<br/>High availability]
         GCR[Google Container Registry<br/>$0.026/GB/month<br/>Auto-scaling]
         ACR[Azure Container Registry<br/>$5/month basic<br/>Geo-replication]
     end
 
-    subgraph Features[Features - Blue #0066CC]
+    subgraph Features[Features - Blue #3B82F6]
         SCAN[Vulnerability Scanning]
         RBAC[Role-Based Access Control]
         MIRROR[Registry Mirroring]
@@ -181,8 +181,8 @@ graph TB
     GCR --> MIRROR
     ACR --> CACHE
 
-    classDef registryStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef featureStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef registryStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef featureStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class HARBOR,ECR,GCR,ACR registryStyle
     class SCAN,RBAC,MIRROR,CACHE featureStyle

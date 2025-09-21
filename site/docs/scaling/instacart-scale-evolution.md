@@ -17,18 +17,18 @@ Instacart's scaling journey from 100 beta users to 10M+ customers represents the
 
 ```mermaid
 graph TB
-    subgraph LocalApp[Local App - #0066CC]
+    subgraph LocalApp[Local App - #3B82F6]
         MOBILE_APP[Mobile App<br/>iOS grocery shopping<br/>Simple ordering]
         SHOPPER_APP[Shopper App<br/>Order fulfillment<br/>Shopping interface]
     end
 
-    subgraph SimpleLogistics[Simple Logistics - #00AA00]
+    subgraph SimpleLogistics[Simple Logistics - #10B981]
         ORDER_MATCHING[Order Matching<br/>Customer to shopper<br/>Manual assignment]
         INVENTORY_BASIC[Basic Inventory<br/>Store product data<br/>Simple catalog]
         PAYMENT_SIMPLE[Simple Payments<br/>Stripe integration<br/>Basic processing]
     end
 
-    subgraph BasicData[Basic Data - #FF8800]
+    subgraph BasicData[Basic Data - #F59E0B]
         POSTGRES[(PostgreSQL<br/>Orders and users<br/>Single database)]
         REDIS[(Redis<br/>Session storage<br/>Basic caching)]
         S3[(S3<br/>Product images<br/>Receipt photos)]
@@ -50,9 +50,9 @@ graph TB
     INVENTORY_BASIC --> SHOPPER_SUPPORT
     PAYMENT_SIMPLE --> STORE_RELATIONS
 
-    classDef appStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef logisticsStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef appStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef logisticsStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef opsStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class MOBILE_APP,SHOPPER_APP appStyle
@@ -78,20 +78,20 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph ScaledPlatform[Scaled Platform - #0066CC]
+    subgraph ScaledPlatform[Scaled Platform - #3B82F6]
         MOBILE_PLATFORM[Mobile Platform<br/>iOS + Android<br/>Feature parity]
         WEB_PLATFORM[Web Platform<br/>Desktop ordering<br/>Account management]
         SHOPPER_PLATFORM[Shopper Platform<br/>Enhanced tools<br/>Batch shopping]
     end
 
-    subgraph IntelligentLogistics[Intelligent Logistics - #00AA00]
+    subgraph IntelligentLogistics[Intelligent Logistics - #10B981]
         SMART_MATCHING[Smart Matching<br/>Algorithm-based<br/>Distance + availability]
         INVENTORY_SYNC[Inventory Sync<br/>Real-time updates<br/>Stock tracking]
         DYNAMIC_PRICING[Dynamic Pricing<br/>Delivery fees<br/>Demand-based]
         BATCH_DELIVERY[Batch Delivery<br/>Route optimization<br/>Multiple orders]
     end
 
-    subgraph ScaledData[Scaled Data - #FF8800]
+    subgraph ScaledData[Scaled Data - #F59E0B]
         POSTGRES_CLUSTER[(PostgreSQL Cluster<br/>Sharded by region<br/>Read replicas)]
         ELASTICSEARCH[(Elasticsearch<br/>Product search<br/>Catalog indexing)]
         REDIS_CLUSTER[(Redis Cluster<br/>Real-time data<br/>Shopping cart state)]
@@ -116,9 +116,9 @@ graph TB
     INVENTORY_SYNC --> FRAUD_DETECTION
     DYNAMIC_PRICING --> QUALITY_SCORING
 
-    classDef platformStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef logisticsStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef platformStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef logisticsStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef opsStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class MOBILE_PLATFORM,WEB_PLATFORM,SHOPPER_PLATFORM platformStyle
@@ -144,20 +144,20 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph NationalPlatform[National Platform - #0066CC]
+    subgraph NationalPlatform[National Platform - #3B82F6]
         OMNICHANNEL[Omnichannel Platform<br/>Mobile + Web + API<br/>Unified experience]
         RETAILER_PLATFORM[Retailer Platform<br/>Enterprise dashboard<br/>Analytics and insights]
         ADVERTISING_PLATFORM[Advertising Platform<br/>Sponsored products<br/>Brand promotion]
     end
 
-    subgraph AdvancedLogistics[Advanced Logistics - #00AA00]
+    subgraph AdvancedLogistics[Advanced Logistics - #10B981]
         AI_MATCHING[AI-Powered Matching<br/>Machine learning<br/>Optimal assignments]
         PREDICTIVE_INVENTORY[Predictive Inventory<br/>Demand forecasting<br/>Stock optimization]
         ROUTE_OPTIMIZATION[Route Optimization<br/>Geographic algorithms<br/>Delivery efficiency]
         SUBSTITUTE_ENGINE[Substitute Engine<br/>Smart replacements<br/>Customer preferences]
     end
 
-    subgraph DataPlatform[Modern Data Platform - #FF8800]
+    subgraph DataPlatform[Modern Data Platform - #F59E0B]
         DATA_WAREHOUSE[(Data Warehouse<br/>Snowflake<br/>Analytics workloads)]
         STREAM_PROCESSING[(Stream Processing<br/>Apache Flink<br/>Real-time analytics)]
         FEATURE_STORE[(Feature Store<br/>ML features<br/>Model serving)]
@@ -184,9 +184,9 @@ graph TB
     FEATURE_STORE --> COMPUTER_VISION
     GRAPH_DATABASE --> OPTIMIZATION_ENGINE
 
-    classDef platformStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef logisticsStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef platformStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef logisticsStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef mlStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class OMNICHANNEL,RETAILER_PLATFORM,ADVERTISING_PLATFORM platformStyle

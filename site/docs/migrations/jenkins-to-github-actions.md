@@ -17,12 +17,12 @@ This playbook guides the migration from Jenkins-based CI/CD to GitHub Actions, e
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[Load Balancer<br/>ALB - ssl termination<br/>p99: 100ms]
         VPN[VPN Gateway<br/>Site-to-site connection<br/>Corporate network access]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         JENKINS_MASTER[Jenkins Master<br/>c5.2xlarge<br/>8 CPU, 16GB RAM<br/>300+ jobs configured]
         JENKINS_AGENT1[Jenkins Agent 1<br/>c5.xlarge<br/>Docker + Node.js<br/>4 executors]
         JENKINS_AGENT2[Jenkins Agent 2<br/>c5.xlarge<br/>Docker + Java 11<br/>4 executors]
@@ -31,13 +31,13 @@ graph TB
         NEXUS[Nexus Repository<br/>c5.large<br/>Artifact storage]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         JENKINS_DB[(PostgreSQL<br/>Jenkins metadata<br/>db.t3.medium<br/>500GB)]
         EFS[EFS Storage<br/>Jenkins workspace<br/>2TB allocated<br/>Build artifacts)]
         S3[S3 Buckets<br/>Backup storage<br/>Log archival<br/>500GB]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CW[CloudWatch<br/>Build metrics<br/>Infrastructure monitoring]
         SLACK[Slack Integration<br/>Build notifications<br/>Deployment alerts]
         PAGER[PagerDuty<br/>Pipeline failures<br/>On-call escalation]
@@ -64,10 +64,10 @@ graph TB
     JENKINS_MASTER --> PAGER
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,VPN edgeStyle
     class JENKINS_MASTER,JENKINS_AGENT1,JENKINS_AGENT2,JENKINS_AGENT3,SONAR,NEXUS serviceStyle
@@ -86,24 +86,24 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         GITHUB[GitHub.com<br/>Git repository hosting<br/>99.95% uptime SLA<br/>Global CDN]
         GHCR[GitHub Container Registry<br/>Docker image hosting<br/>Integrated with GitHub<br/>Private repositories]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         GHA_HOSTED[GitHub Hosted Runners<br/>Ubuntu/Windows/macOS<br/>Auto-scaling<br/>2-core, 7GB RAM]
         GHA_SELF1[Self-Hosted Runner 1<br/>c5.2xlarge<br/>Docker + specialized tools<br/>Dedicated workloads]
         GHA_SELF2[Self-Hosted Runner 2<br/>c5.2xlarge<br/>GPU enabled<br/>ML model training]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         S3_ARTIFACTS[S3 Buckets<br/>Build artifacts<br/>Test reports<br/>Cache storage]
         SONAR_CLOUD[SonarCloud<br/>SaaS code quality<br/>GitHub integration<br/>Pay-per-analysis]
         GHCR_STORAGE[GHCR Storage<br/>Container images<br/>Package artifacts<br/>Integrated billing]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         GHA_INSIGHTS[GitHub Insights<br/>Workflow analytics<br/>Performance metrics<br/>Usage tracking]
         SLACK_WEBHOOKS[Slack Webhooks<br/>Direct integration<br/>Rich notifications<br/>Thread updates]
         DATADOG[Datadog<br/>Application monitoring<br/>Deployment tracking<br/>Custom metrics]
@@ -132,10 +132,10 @@ graph TB
     GHA_SELF2 --> DATADOG
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class GITHUB,GHCR edgeStyle
     class GHA_HOSTED,GHA_SELF1,GHA_SELF2 serviceStyle
@@ -882,8 +882,8 @@ graph TB
     end
 
     %% Risk level colors
-    classDef highRisk fill:#ff4444,stroke:#cc0000,color:#fff
-    classDef mediumRisk fill:#ffaa00,stroke:#cc6600,color:#fff
+    classDef highRisk fill:#ff4444,stroke:#8B5CF6,color:#fff
+    classDef mediumRisk fill:#ffaa00,stroke:#D97706,color:#fff
     classDef lowRisk fill:#44aa44,stroke:#006600,color:#fff
 
     class PIPELINE_BREAK,SECRET_EXPOSURE,COMPLIANCE_GAP highRisk
@@ -1034,8 +1034,8 @@ graph TB
     end
 
     %% Cost colors
-    classDef computeCost fill:#ff8800,stroke:#cc6600,color:#fff
-    classDef operationalCost fill:#ff4444,stroke:#cc0000,color:#fff
+    classDef computeCost fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef operationalCost fill:#ff4444,stroke:#8B5CF6,color:#fff
 
     class JENKINS_MASTER_COST,JENKINS_AGENTS_COST,SONAR_COST,NEXUS_COST,RDS_COST,EFS_COST,S3_COST,ALB_COST,VPN_COST,DATA_TRANSFER computeCost
     class MAINTENANCE,PLUGIN_MGMT,BACKUP_MGMT,SECURITY_UPDATES,MONITORING operationalCost
@@ -1072,8 +1072,8 @@ graph TB
 
     %% Cost colors
     classDef ghaCost fill:#44aa44,stroke:#006600,color:#fff
-    classDef serviceCost fill:#0066cc,stroke:#004499,color:#fff
-    classDef savingsCost fill:#00aa00,stroke:#007700,color:#fff
+    classDef serviceCost fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef savingsCost fill:#10B981,stroke:#059669,color:#fff
 
     class HOSTED_MINUTES,SELF_HOSTED ghaCost
     class GITHUB_ENTERPRISE,SONAR_CLOUD,GITHUB_STORAGE,S3_ARTIFACTS serviceCost
@@ -1315,8 +1315,8 @@ graph TB
     end
 
     %% Step colors
-    classDef triggerStyle fill:#ff4444,stroke:#cc0000,color:#fff
-    classDef stepStyle fill:#0066cc,stroke:#004499,color:#fff
+    classDef triggerStyle fill:#ff4444,stroke:#8B5CF6,color:#fff
+    classDef stepStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef completeStyle fill:#44aa44,stroke:#006600,color:#fff
 
     class TRIGGER triggerStyle

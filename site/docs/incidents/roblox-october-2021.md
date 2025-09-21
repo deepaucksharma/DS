@@ -89,13 +89,13 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CDN[CloudFlare CDN<br/>Global Edge Network]
         LB[Load Balancers<br/>AWS ALB + NLB]
         WAF[Web Application Firewall<br/>CloudFlare + AWS WAF]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         API[API Gateway<br/>Kong + Custom Router]
         AUTH[Auth Service<br/>Go + Redis Sessions]
         GAME[Game Servers<br/>C++ + Custom Protocol]
@@ -104,7 +104,7 @@ graph TB
         PAY[Payment Service<br/>Java + Stripe/PayPal]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         CONSUL[Consul Cluster<br/>Service Discovery]
         MYSQL[(MySQL Cluster<br/>User Data + Game State)]
         REDIS[(Redis Cluster<br/>Sessions + Cache)]
@@ -112,7 +112,7 @@ graph TB
         CASSAN[(Cassandra<br/>Game Logs + Analytics)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MON[Monitoring<br/>DataDog + Custom Metrics]
         DEPLOY[Deployment<br/>Jenkins + Docker]
         CONFIG[Configuration<br/>Consul KV Store]
@@ -125,10 +125,10 @@ graph TB
     CONSUL -.->|CONFIG LOSS| GAME
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB,WAF edgeStyle
     class API,AUTH,GAME,AVATAR,CHAT,PAY serviceStyle

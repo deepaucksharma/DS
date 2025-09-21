@@ -17,19 +17,19 @@ This playbook guides the migration from on-premise Hadoop clusters to cloud-nati
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LOAD_BALANCER[Hardware Load Balancer<br/>F5 BigIP<br/>Health checks<br/>SSL termination]
         VPN_GATEWAY[VPN Gateway<br/>Site-to-site connectivity<br/>Secure data ingestion<br/>Partner connections]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         NAMENODE1[Hadoop NameNode 1<br/>r5.2xlarge<br/>Active master<br/>Metadata management]
         NAMENODE2[Hadoop NameNode 2<br/>r5.2xlarge<br/>Standby master<br/>Failover ready]
         RESOURCE_MANAGER[YARN ResourceManager<br/>r5.xlarge<br/>Job scheduling<br/>Resource allocation]
         SPARK_MASTER[Spark Master<br/>r5.xlarge<br/>Distributed processing<br/>Job coordination]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         DATANODE1[DataNode 1<br/>r5.4xlarge + 8TB SSD<br/>Data storage<br/>Block replication]
         DATANODE2[DataNode 2<br/>r5.4xlarge + 8TB SSD<br/>Data storage<br/>Block replication]
         DATANODE3[DataNode 3<br/>r5.4xlarge + 8TB SSD<br/>Data storage<br/>Block replication]
@@ -39,7 +39,7 @@ graph TB
         HIVE_METASTORE[(Hive Metastore<br/>MySQL 8.0<br/>Schema metadata<br/>Table definitions)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         AMBARI[Ambari Management<br/>Cluster monitoring<br/>Service management<br/>Configuration control]
         GANGLIA[Ganglia Monitoring<br/>Performance metrics<br/>Resource utilization<br/>Alert management]
         ELK_STACK[ELK Stack<br/>Log aggregation<br/>Search and analytics<br/>Operational insights]
@@ -95,10 +95,10 @@ graph TB
     ELK_STACK --> DATANODE1
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LOAD_BALANCER,VPN_GATEWAY edgeStyle
     class NAMENODE1,NAMENODE2,RESOURCE_MANAGER,SPARK_MASTER serviceStyle
@@ -117,20 +117,20 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CLOUDFRONT[CloudFront CDN<br/>Global edge locations<br/>API acceleration<br/>Security headers]
         API_GATEWAY[API Gateway<br/>RESTful APIs<br/>Authentication<br/>Rate limiting]
         ALB[Application Load Balancer<br/>Multi-AZ distribution<br/>Health checks<br/>WebSocket support]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         EMR_CLUSTER[EMR Cluster<br/>Auto-scaling enabled<br/>Spot instances<br/>Transient workloads]
         GLUE_JOBS[AWS Glue<br/>Serverless ETL<br/>Data cataloging<br/>Schema evolution]
         LAMBDA_FUNCTIONS[Lambda Functions<br/>Event-driven processing<br/>Real-time triggers<br/>Cost-effective compute]
         KINESIS_ANALYTICS[Kinesis Analytics<br/>Stream processing<br/>Real-time analytics<br/>SQL on streams]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         S3_DATA_LAKE[S3 Data Lake<br/>Unlimited storage<br/>Multiple storage classes<br/>Lifecycle policies]
         REDSHIFT_CLUSTER[Redshift Cluster<br/>Columnar storage<br/>Concurrency scaling<br/>Materialized views]
         DYNAMODB[DynamoDB<br/>NoSQL database<br/>Auto-scaling<br/>Global tables]
@@ -138,7 +138,7 @@ graph TB
         GLUE_CATALOG[AWS Glue Data Catalog<br/>Centralized metadata<br/>Schema registry<br/>Table versioning]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CLOUDWATCH[CloudWatch<br/>Metrics and alarms<br/>Log aggregation<br/>Custom dashboards]
         CLOUDTRAIL[CloudTrail<br/>API logging<br/>Compliance auditing<br/>Security monitoring]
         DATA_PIPELINE[Data Pipeline<br/>Workflow orchestration<br/>Dependency management<br/>Error handling]
@@ -188,10 +188,10 @@ graph TB
     CLOUDTRAIL --> S3_DATA_LAKE
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLOUDFRONT,API_GATEWAY,ALB edgeStyle
     class EMR_CLUSTER,GLUE_JOBS,LAMBDA_FUNCTIONS,KINESIS_ANALYTICS serviceStyle

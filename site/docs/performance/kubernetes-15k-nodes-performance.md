@@ -8,23 +8,23 @@ Google operates the world's largest Kubernetes clusters, managing over 15,000 no
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[Google Load Balancer<br/>Maglev + Andromeda<br/>Global load balancing]
         INGRESS[Ingress Controllers<br/>GKE Ingress<br/>L7 load balancing]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         API[Kubernetes API<br/>etcd cluster<br/>Control plane scaling]
         SCHEDULER[Scheduler<br/>Custom schedulers<br/>Bin packing optimization]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         NODES[Worker Nodes<br/>15,000 nodes<br/>n2-standard-96 instances]
         PODS[Pod Workloads<br/>2M+ pods<br/>Microservices architecture]
         STORAGE[Persistent Storage<br/>Persistent disks<br/>Multi-zone replication]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MON[Monitoring<br/>Stackdriver<br/>Real-time metrics]
         AUTOSCALE[Auto-scaling<br/>HPA + VPA + CA<br/>Predictive scaling]
     end
@@ -39,10 +39,10 @@ graph TB
     MON --> NODES
     AUTOSCALE --> NODES
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,INGRESS edgeStyle
     class API,SCHEDULER serviceStyle
@@ -78,7 +78,7 @@ graph LR
         WATCH[Watch: 0.1ms<br/>Event streaming<br/>Connection pooling]
     end
 
-    classDef metricStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class SUBMIT,QUEUE,SCHEDULE,BIND,START,READ,WRITE,LIST,WATCH metricStyle
 ```
 
@@ -202,8 +202,8 @@ graph TB
     SCHEDULER --> CUSTOM_SCHED
     CONTROLLER --> RATE_LIMIT
 
-    classDef bottleneckStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef bottleneckStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class ETCD,API,SCHEDULER,CONTROLLER bottleneckStyle
     class ETCD_CLUSTER,API_SCALE,CUSTOM_SCHED,RATE_LIMIT solutionStyle
@@ -236,8 +236,8 @@ graph LR
 
     P400 --> OPTIMIZE
 
-    classDef scaleStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef scaleStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class P50,P100,P200,P300,P400 scaleStyle
     class OPTIMIZE solutionStyle

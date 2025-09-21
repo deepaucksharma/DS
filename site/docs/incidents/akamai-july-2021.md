@@ -75,7 +75,7 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ANYCAST[Anycast DNS Network<br/>200+ Global PoPs]
         EDGE1[Edge DNS Servers<br/>US-East Region]
         EDGE2[Edge DNS Servers<br/>US-West Region]
@@ -83,21 +83,21 @@ graph TB
         EDGE4[Edge DNS Servers<br/>Asia Region]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         AUTH[Authoritative DNS<br/>Primary Resolution]
         CACHE[DNS Caching Layer<br/>TTL Management]
         LB[Load Balancing<br/>Traffic Distribution]
         HEALTH[Health Checking<br/>Service Monitoring]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         ZONES[(DNS Zone Data<br/>Authoritative Records)]
         CONFIG[(Configuration DB<br/>Routing Rules)]
         METRICS[(Telemetry Store<br/>Performance Data)]
         BACKUP[(Backup Systems<br/>Disaster Recovery)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         DEPLOY[Deployment System<br/>Software Updates]
         MON[Monitoring<br/>Real-time Alerting]
         TRAFFIC[Traffic Management<br/>Global Steering]
@@ -111,10 +111,10 @@ graph TB
     EDGE1 -.->|PROPAGATED| ANYCAST
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ANYCAST,EDGE1,EDGE2,EDGE3,EDGE4 edgeStyle
     class AUTH,CACHE,LB,HEALTH serviceStyle

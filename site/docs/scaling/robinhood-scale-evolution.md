@@ -16,18 +16,18 @@ Robinhood's scaling journey from 10K beta users to 23M+ registered users represe
 
 ```mermaid
 graph TB
-    subgraph MobileFirst[Mobile-First Platform - #0066CC]
+    subgraph MobileFirst[Mobile-First Platform - #3B82F6]
         IOS_APP[iOS App<br/>Native Swift<br/>Simple trading]
         ANDROID_APP[Android App<br/>Native Kotlin<br/>Unified experience]
     end
 
-    subgraph TradingCore[Trading Core - #00AA00]
+    subgraph TradingCore[Trading Core - #10B981]
         ORDER_SVC[Order Service<br/>Trade execution<br/>Market connectivity]
         ACCOUNT_SVC[Account Service<br/>User management<br/>Portfolio tracking]
         MARKET_DATA[Market Data<br/>Real-time quotes<br/>Price updates]
     end
 
-    subgraph DataLayer[Data Layer - #FF8800]
+    subgraph DataLayer[Data Layer - #F59E0B]
         POSTGRES[(PostgreSQL<br/>User accounts<br/>Trade history)]
         REDIS[(Redis<br/>Real-time cache<br/>Session data)]
         S3[(S3<br/>Document storage<br/>Compliance data)]
@@ -46,9 +46,9 @@ graph TB
     ACCOUNT_SVC --> POSTGRES
     ORDER_SVC --> REDIS
 
-    classDef mobileStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef tradingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef mobileStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef tradingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef externalStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class IOS_APP,ANDROID_APP mobileStyle
@@ -62,18 +62,18 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph ScaledPlatform[Scaled Platform - #0066CC]
+    subgraph ScaledPlatform[Scaled Platform - #3B82F6]
         MOBILE_CLUSTER[Mobile App Cluster<br/>Real-time updates<br/>Push notifications]
         WEB_PLATFORM[Web Platform<br/>Desktop trading<br/>Advanced charts]
     end
 
-    subgraph TradingInfra[Trading Infrastructure - #00AA00]
+    subgraph TradingInfra[Trading Infrastructure - #10B981]
         MATCHING_ENGINE[Matching Engine<br/>High-frequency trading<br/>Microsecond latency]
         RISK_MGMT[Risk Management<br/>Position limits<br/>Margin requirements]
         SETTLEMENT[Settlement System<br/>T+2 processing<br/>Automated reconciliation]
     end
 
-    subgraph DistributedData[Distributed Data - #FF8800]
+    subgraph DistributedData[Distributed Data - #F59E0B]
         POSTGRES_CLUSTER[(PostgreSQL Cluster<br/>Sharded by user<br/>Read replicas)]
         TIME_SERIES[(Time Series DB<br/>Market data<br/>Portfolio history)]
         KAFKA[(Apache Kafka<br/>Event streaming<br/>Audit trails)]
@@ -85,9 +85,9 @@ graph TB
     RISK_MGMT --> TIME_SERIES
     SETTLEMENT --> KAFKA
 
-    classDef platformStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef tradingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef platformStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef tradingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class MOBILE_CLUSTER,WEB_PLATFORM platformStyle
     class MATCHING_ENGINE,RISK_MGMT,SETTLEMENT tradingStyle

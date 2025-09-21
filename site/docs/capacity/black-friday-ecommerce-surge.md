@@ -169,10 +169,10 @@ graph TB
     PD --> CW
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CF,ALB,WAF edgeStyle
     class ASG,API,CART,ORDER,PAY,INV,SEARCH serviceStyle
@@ -214,9 +214,9 @@ graph LR
 
     SCALE_IN --> WEB
 
-    classDef metricStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef actionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef resourceStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef actionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef resourceStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CPU,RPS,LAT,ERR metricStyle
     class SCALE_OUT,SCALE_IN,EMERGENCY actionStyle
@@ -473,9 +473,9 @@ graph TB
     PAY_FAIL --> CB_PAY --> PAY_FALLBACK
     CACHE_FAIL --> CB_SEARCH --> SEARCH_FALLBACK
 
-    classDef failureStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef breakerStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef fallbackStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef failureStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef breakerStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef fallbackStyle fill:#10B981,stroke:#059669,color:#fff
 
     class DB_FAIL,CACHE_FAIL,PAY_FAIL,CDN_FAIL failureStyle
     class CB_DB,CB_PAY,CB_SEARCH breakerStyle

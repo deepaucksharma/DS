@@ -43,26 +43,26 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[Load Balancer<br/>ALB + CloudFront]
         CDN[Global CDN<br/>CloudFront + Fastly]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         API[API Gateway<br/>Kong + AWS ALB]
         JIRA[Jira Service<br/>Java/Spring Boot]
         CONF[Confluence Service<br/>Java/Spring Boot]
         AUTH[Auth Service<br/>OAuth 2.0 + SAML]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         MAINDB[(Main Database<br/>PostgreSQL RDS)]
         USERDB[(User Database<br/>PostgreSQL RDS)]
         FILESTORE[(File Storage<br/>S3 + EFS)]
         BACKUP[(Backup System<br/>S3 Cross-Region)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MAINT[Maintenance Scripts<br/>Python + Cron]
         MON[Monitoring<br/>DataDog + PagerDuty]
         DEPLOY[Deployment<br/>Jenkins + Docker]
@@ -74,10 +74,10 @@ graph TB
     BACKUP -.->|INCOMPLETE| USERDB
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,CDN edgeStyle
     class API,JIRA,CONF,AUTH serviceStyle

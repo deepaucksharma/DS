@@ -20,10 +20,10 @@ graph TB
     end
 
     %% Apply 4-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CONTENT edgeStyle
     class COMPUTE,SEARCH serviceStyle
@@ -63,7 +63,7 @@ graph TB
     REDDIT_CDN --> BANDWIDTH
 
     %% Apply edge plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     class FASTLY,CLOUDFLARE,REDDIT_CDN,IMAGE_PROC,VIDEO_PROC,PREVIEW_GEN,MOBILE_OPT edgeStyle
 ```
 
@@ -95,7 +95,7 @@ graph TB
     end
 
     %% Apply service plane colors
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     class API_GATEWAY,REDDIT_WEB,MOBILE_API,OLD_REDDIT,NEW_REDDIT,ELASTICSEARCH,RECOMMENDATION,TRENDING,SUBREDDIT_DISC serviceStyle
 ```
 
@@ -124,7 +124,7 @@ graph TB
     end
 
     %% Apply state plane colors
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class POSTGRES,CASSANDRA,REDIS,S3_ARCHIVE,DATA_WAREHOUSE,BACKUP stateStyle
 ```
 
@@ -162,7 +162,7 @@ graph TB
     end
 
     %% Apply control plane colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     class AUTO_MOD,HUMAN_MOD,SAFETY_ML,MONITORING,LOGGING,NETWORKING,DEPLOYMENT,DDoS_PROTECTION,FRAUD_DETECTION,COMPLIANCE controlStyle
 ```
 

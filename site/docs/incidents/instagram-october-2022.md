@@ -65,14 +65,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CDN[Facebook CDN<br/>Global Edge Network]
         LB[Load Balancers<br/>F4 + HAProxy]
         EDGE[Edge PoPs<br/>180+ Global Locations]
         CACHE[Edge Cache<br/>TAO + Memcached]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         API[Instagram API<br/>HHVM + Hack]
         FEED[Feed Service<br/>Ranking Algorithm]
         STORY[Stories Service<br/>Ephemeral Content]
@@ -82,7 +82,7 @@ graph TB
         ADS[Ads Service<br/>Revenue Generation]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         USERDB[(User Database<br/>MySQL Cluster)]
         MEDIADB[(Media Metadata<br/>MySQL + Cassandra)]
         GRAPHDB[(Social Graph<br/>TAO + MySQL)]
@@ -91,7 +91,7 @@ graph TB
         MSGSTORE[(Message Store<br/>HBase + Cassandra)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CONFIG[Configuration<br/>Chef + ConfigeratoR]
         MON[Monitoring<br/>Scuba + ODS]
         DEPLOY[Deployment<br/>Tupperware]
@@ -105,10 +105,10 @@ graph TB
     API -.->|SERVICE FAILURE| EDGE
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB,EDGE,CACHE edgeStyle
     class API,FEED,STORY,MSG,UPLOAD,SEARCH,ADS serviceStyle

@@ -467,10 +467,10 @@ graph TB
     PD --> CW
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class INGRESS,ALB edgeStyle
     class HPA,VPA,CA,WEB,API,WORKER,METRICS,PROMETHEUS,ADAPTER serviceStyle
@@ -539,10 +539,10 @@ graph TD
 
     SCALE_UP --> SCALE_DOWN
 
-    classDef metricsStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef hpaStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef vpaStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef caStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef metricsStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef hpaStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef vpaStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef caStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CPU_METRIC,MEM_METRIC,CUSTOM_METRIC,EXTERNAL_METRIC metricsStyle
     class CURRENT_REPLICAS,TARGET_CPU,ACTUAL_CPU,FORMULA,POLICIES hpaStyle

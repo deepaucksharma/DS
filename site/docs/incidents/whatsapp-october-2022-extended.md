@@ -70,14 +70,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         EDGE[WhatsApp Edge Servers<br/>Global PoPs]
         LB[Load Balancers<br/>Custom + HAProxy]
         PROXY[Message Proxies<br/>Regional Distribution]
         CDN[Media CDN<br/>Facebook Infrastructure]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         AUTH[Authentication Service<br/>Certificate-based Auth]
         MSG[Messaging Service<br/>End-to-End Encryption]
         CALL[Voice/Video Service<br/>WebRTC + TURN]
@@ -86,7 +86,7 @@ graph TB
         STATUS[Status Service<br/>Stories + Updates]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         USERDB[(User Database<br/>MySQL Cluster)]
         MSGSTORE[(Message Store<br/>HBase + Cassandra)]
         MEDIASTORE[(Media Storage<br/>Haystack + Blob)]
@@ -95,7 +95,7 @@ graph TB
         ROUTEDB[(Routing Database<br/>User Location)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CERTMGR[Certificate Manager<br/>Auto-renewal System]
         MON[Monitoring<br/>Scuba + Custom Metrics]
         DEPLOY[Deployment<br/>Tupperware + Chef]
@@ -109,10 +109,10 @@ graph TB
     EDGE -.->|CONNECTION REFUSED| PROXY
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EDGE,LB,PROXY,CDN edgeStyle
     class AUTH,MSG,CALL,MEDIA,BUSINESS,STATUS serviceStyle

@@ -8,28 +8,28 @@ Nginx 502 and 504 errors are among the most common web server issues, affecting 
 
 ```mermaid
 graph TB
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         START[502/504 Error Detected]
         LOGS[Check Nginx Logs]
         STATUS[Check Service Status]
         CONFIG[Validate Configuration]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         UPSTREAM[Upstream Health?]
         TIMEOUT[Timeout Settings?]
         LOAD[Load Balancing?]
         HEALTH[Health Checks?]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         CONN[Connection Limits?]
         POOL[Connection Pooling?]
         KEEP[Keep-Alive Settings?]
         BUFFER[Buffer Configuration?]
     end
 
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         NETWORK[Network Connectivity?]
         DNS[DNS Resolution?]
         FIREWALL[Firewall Rules?]
@@ -53,10 +53,10 @@ graph TB
     FIREWALL --> SSL
 
     %% Apply four-plane colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class START,LOGS,STATUS,CONFIG controlStyle
     class UPSTREAM,TIMEOUT,LOAD,HEALTH serviceStyle

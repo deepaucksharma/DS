@@ -18,16 +18,16 @@ GitHub's scaling journey from a Ruby on Rails application serving 100K developer
 ### Simple Rails Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         NGINX[Nginx<br/>Load balancer<br/>Static assets]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         RAILS[Rails Monolith<br/>GitHub web app<br/>Git operations]
         GRIT[Grit Library<br/>Git repository access<br/>Ruby Git bindings]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         MYSQL[(MySQL<br/>User data<br/>Repository metadata)]
         GIT_REPOS[(Git Repositories<br/>File system<br/>Bare repositories)]
         MEMCACHED[(Memcached<br/>Object caching)]
@@ -39,9 +39,9 @@ graph TB
     GRIT --> GIT_REPOS
     RAILS --> MEMCACHED
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class NGINX edgeStyle
     class RAILS,GRIT serviceStyle
@@ -68,18 +68,18 @@ graph TB
 ### Separated Git Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[Load Balancer<br/>HAProxy<br/>SSL termination]
         CDN[CDN<br/>Static assets<br/>Release downloads]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         WEB_CLUSTER[Web Cluster<br/>Rails applications<br/>3+ instances]
         GIT_CLUSTER[Git Cluster<br/>Dedicated Git servers<br/>SSH + HTTPS]
         BACKGROUND[Background Jobs<br/>Repository processing<br/>Email notifications]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         MYSQL_M[(MySQL Master<br/>Write operations<br/>Repository metadata)]
         MYSQL_S[(MySQL Slaves<br/>Read operations<br/>User queries)]
         REDIS[(Redis<br/>Job queues<br/>Session storage)]
@@ -94,9 +94,9 @@ graph TB
     BACKGROUND --> REDIS
     GIT_CLUSTER --> NFS
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class LB,CDN edgeStyle
     class WEB_CLUSTER,GIT_CLUSTER,BACKGROUND serviceStyle
@@ -120,12 +120,12 @@ graph TB
 ### Microservices and Distributed Storage
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         FASTLY[Fastly CDN<br/>Global distribution<br/>Edge computing]
         ALB[AWS ALB<br/>Auto-scaling<br/>Health checks]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         subgraph WebServices[Web Services]
             FRONTEND[Frontend Service<br/>React + Rails<br/>User interface]
             API[API Service<br/>REST + GraphQL<br/>Third-party access]
@@ -143,7 +143,7 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         subgraph DatabaseLayer[Database Layer]
             MYSQL_CLUSTER[(MySQL Cluster<br/>Vitess sharding<br/>Horizontal scaling)]
             ELASTICSEARCH[(Elasticsearch<br/>Code indexing<br/>Search queries)]
@@ -164,9 +164,9 @@ graph TB
     SEARCH --> ELASTICSEARCH
     GIT_BACKEND --> GIT_STORAGE
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class FASTLY,ALB edgeStyle
     class FRONTEND,API,GIT_FRONTEND,GIT_BACKEND,SEARCH,NOTIFICATIONS,ACTIONS serviceStyle
@@ -237,9 +237,9 @@ graph TB
     API_MGMT --> COPILOT
     GIT_SERVERS --> GIT_DISTRIBUTED
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef aiStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class AZURE_CDN,AZURE_FRONT_DOOR edgeStyle

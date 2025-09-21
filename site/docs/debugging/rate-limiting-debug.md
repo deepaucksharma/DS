@@ -8,27 +8,27 @@ This guide provides systematic approaches to debugging rate limiting issues and 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CDN[CDN Rate Limiting<br/>Edge Protection]
         WAF[WAF<br/>DDoS Protection]
         API_GW[API Gateway<br/>Primary Rate Limiting]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         RATE_LIMITER[Rate Limiter Service<br/>Token Bucket/Sliding Window]
         QUOTA_SERVICE[Quota Service<br/>Usage Tracking]
         LB[Load Balancer<br/>Connection Limiting]
         APP[Application Services<br/>Business Logic]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         REDIS_COUNTER[(Redis<br/>Rate Limit Counters)]
         QUOTA_DB[(Quota Database<br/>User Limits)]
         METRICS_DB[(Metrics Storage<br/>Usage Analytics)]
         CIRCUIT_BREAKER[(Circuit Breaker State<br/>Service Protection)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MONITOR[Monitoring<br/>Rate Limit Metrics]
         ALERTING[Alerting<br/>Threshold Violations]
         ANALYTICS[Analytics<br/>Usage Patterns]
@@ -57,10 +57,10 @@ graph TB
     ANALYTICS --> ADMIN_UI
 
     %% Apply styles
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,WAF,API_GW edgeStyle
     class RATE_LIMITER,QUOTA_SERVICE,LB,APP serviceStyle

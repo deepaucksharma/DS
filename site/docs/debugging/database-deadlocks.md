@@ -8,26 +8,26 @@ This guide provides comprehensive strategies for identifying, analyzing, and res
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[Load Balancer<br/>HAProxy/nginx]
         CDN[CDN<br/>CloudFlare]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         APP1[App Instance 1<br/>Transaction Service]
         APP2[App Instance 2<br/>Transaction Service]
         APP3[App Instance 3<br/>Transaction Service]
         POOL[Connection Pool<br/>PgBouncer/ProxySQL]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         PRIMARY[(Primary DB<br/>PostgreSQL 15)]
         REPLICA1[(Read Replica 1<br/>Async Replication)]
         REPLICA2[(Read Replica 2<br/>Async Replication)]
         DEADLOCK_LOG[(Deadlock Log<br/>pg_stat_statements)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MONITOR[Monitoring<br/>Prometheus + Grafana]
         ALERT[Alerting<br/>PagerDuty]
         TRACE[Distributed Tracing<br/>Jaeger]
@@ -57,10 +57,10 @@ graph TB
     APP3 --> TRACE
 
     %% Apply styles
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,CDN edgeStyle
     class APP1,APP2,APP3,POOL serviceStyle

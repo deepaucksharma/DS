@@ -56,10 +56,10 @@ ds-framework.dev/
 ### 4-Plane Architecture (MANDATORY)
 All diagrams MUST use these exact colors:
 
-- **Edge Plane** (Blue #0066CC): CDN, WAF, Load Balancers, API Gateways
-- **Service Plane** (Green #00AA00): Business Logic, Microservices, Application Logic
-- **State Plane** (Orange #FF8800): Databases, Caches, Storage, Message Queues
-- **Control Plane** (Red #CC0000): Monitoring, Config, Automation, Observability
+- **Edge Plane** (Blue #3B82F6): CDN, WAF, Load Balancers, API Gateways
+- **Service Plane** (Emerald #10B981): Business Logic, Microservices, Application Logic
+- **State Plane** (Amber #F59E0B): Databases, Caches, Storage, Message Queues
+- **Control Plane** (Violet #8B5CF6): Monitoring, Config, Automation, Observability
 
 **Note**: The architecture has been simplified from 5 planes to 4 planes. The former "Stream Plane" components are now part of the State Plane.
 

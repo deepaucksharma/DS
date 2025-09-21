@@ -16,22 +16,22 @@ Uber's scaling journey from a simple black car service in San Francisco to a glo
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         iPhone[iPhone App<br/>iOS 3.0]
         Web[Web Portal<br/>Driver Dashboard]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         Rails[Ruby on Rails<br/>Monolith<br/>Single Heroku Dyno]
         SMS[SMS Gateway<br/>Twilio API]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         PG[(PostgreSQL<br/>Shared DB<br/>32MB RAM)]
         Files[Static Files<br/>S3 Basic]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         Log[Heroku Logs<br/>Basic Monitoring]
         Deploy[Git Push<br/>Manual Deploy]
     end
@@ -44,10 +44,10 @@ graph TB
     Rails --> Log
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class iPhone,Web edgeStyle
     class Rails,SMS serviceStyle
@@ -75,13 +75,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         iOS[iOS App<br/>v2.0 GPS]
         Android[Android App<br/>First Version]
         AdminWeb[Admin Portal<br/>City Operations]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         LB[Load Balancer<br/>HAProxy]
         Rails1[Rails App 1<br/>User Requests]
         Rails2[Rails App 2<br/>Driver Matching]
@@ -89,14 +89,14 @@ graph TB
         Payment[Payment Service<br/>Braintree API]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         PGMaster[(PostgreSQL Master<br/>db.m1.large<br/>15GB RAM)]
         PGSlave[(PostgreSQL Slave<br/>Read Replica)]
         Redis[(Redis<br/>Job Queue<br/>cache.m1.small)]
         S3[S3 Bucket<br/>Driver Photos]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         NewRelic[New Relic<br/>APM Monitoring]
         Airbrake[Airbrake<br/>Error Tracking]
         Deploy[Capistrano<br/>Automated Deploy]
@@ -116,10 +116,10 @@ graph TB
     Rails1 --> S3
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class iOS,Android,AdminWeb edgeStyle
     class LB,Rails1,Rails2,Background,Payment serviceStyle
@@ -158,14 +158,14 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CDN[CloudFlare CDN<br/>Static Assets]
         LB[AWS ELB<br/>Multi-AZ]
         iOS[iOS App<br/>Real-time Updates]
         Android[Android App<br/>WebSocket Support]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         API[API Gateway<br/>Node.js<br/>c3.2xlarge × 10]
         Dispatch[Dispatch Engine<br/>Go Service<br/>Real-time Matching]
         Supply[Supply Service<br/>Driver Management]
@@ -174,14 +174,14 @@ graph TB
         Notification[Push Service<br/>iOS/Android]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         PGCluster[(PostgreSQL Cluster<br/>Master + 3 Slaves<br/>db.r3.8xlarge)]
         RedisCluster[(Redis Cluster<br/>Real-time State<br/>cache.r3.2xlarge × 6)]
         Cassandra[(Cassandra<br/>Trip History<br/>c3.4xlarge × 12)]
         S3[S3<br/>Driver Documents<br/>Trip Receipts]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         Datadog[Datadog<br/>Infrastructure Monitoring]
         PagerDuty[PagerDuty<br/>Incident Management]
         Jenkins[Jenkins<br/>CI/CD Pipeline]
@@ -204,10 +204,10 @@ graph TB
     Pricing --> Kafka
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB,iOS,Android edgeStyle
     class API,Dispatch,Supply,Demand,Pricing,Notification serviceStyle
@@ -242,14 +242,14 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         GlobalCDN[Global CDN<br/>CloudFlare + AWS CloudFront]
         RegionalLB[Regional Load Balancers<br/>AWS ALB × 15 regions]
         MobileApps[Mobile Apps<br/>iOS + Android<br/>100M+ installs]
         DriverApps[Driver Apps<br/>Real-time GPS<br/>Offline Capability]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         APIGateway[API Gateway<br/>Kong + Rate Limiting]
         UserSvc[User Service<br/>Go + gRPC]
         DriverSvc[Driver Service<br/>Go + gRPC]
@@ -261,7 +261,7 @@ graph TB
         NotificationSvc[Notification Service<br/>Go + FCM/APNS]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         UserDB[(User Database<br/>MySQL Cluster<br/>Sharded by user_id)]
         DriverDB[(Driver Database<br/>PostgreSQL<br/>Geospatial indexes)]
         TripDB[(Trip Database<br/>Cassandra<br/>Time-series data)]
@@ -271,7 +271,7 @@ graph TB
         HDFS[HDFS<br/>Analytics Data<br/>1PB+ storage]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         Prometheus[Prometheus<br/>Metrics Collection]
         Grafana[Grafana<br/>Dashboards]
         Jaeger[Jaeger<br/>Distributed Tracing]
@@ -300,10 +300,10 @@ graph TB
     NotificationSvc --> HDFS
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class GlobalCDN,RegionalLB,MobileApps,DriverApps edgeStyle
     class APIGateway,UserSvc,DriverSvc,TripSvc,PaymentSvc,DispatchSvc,PricingSvc,MapsSvc,NotificationSvc serviceStyle
@@ -339,14 +339,14 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         EdgeCDN[Edge Computing<br/>CloudFlare Workers<br/>Real-time Route Optimization]
         MobileSDK[Mobile SDK<br/>Offline ML Models<br/>ETA Prediction]
         DriverApp[Driver App<br/>Computer Vision<br/>Document Verification]
         RiderApp[Rider App<br/>Personalized UI<br/>ML Recommendations]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         APIGateway[API Gateway<br/>Envoy Proxy<br/>gRPC + REST]
         UserPlatform[User Platform<br/>Java + Kafka Streams]
         DriverPlatform[Driver Platform<br/>Go + gRPC]
@@ -358,7 +358,7 @@ graph TB
         SupplyPositioning[Supply Positioning<br/>Reinforcement Learning<br/>Driver Recommendations]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         UserGraph[(User Graph DB<br/>Neo4j Cluster<br/>Social Connections)]
         TripLake[(Trip Data Lake<br/>Delta Lake on S3<br/>100TB+ daily)]
         FeatureStore[(Feature Store<br/>Redis + DynamoDB<br/>ML Features)]
@@ -368,7 +368,7 @@ graph TB
         VectorDB[(Vector Database<br/>Pinecone<br/>Embedding Search)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MLOps[MLOps Pipeline<br/>Kubeflow<br/>Model Training]
         Monitoring[Observability<br/>Datadog + Custom<br/>Business Metrics]
         FeaturePlatform[Feature Platform<br/>Real-time Features<br/>A/B Testing]
@@ -398,10 +398,10 @@ graph TB
     SupplyPositioning --> VectorDB
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EdgeCDN,MobileSDK,DriverApp,RiderApp edgeStyle
     class APIGateway,UserPlatform,DriverPlatform,TripPlatform,DispatchEngine,PricingML,ETAService,FraudDetection,SupplyPositioning serviceStyle
@@ -437,7 +437,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         GlobalEdge[Global Edge Network<br/>Custom CDN + Edge Compute<br/>Sub-50ms latency worldwide]
         SuperApp[Uber Super App<br/>Rides + Eats + Freight<br/>200M+ MAU]
         DriverApp[Driver App<br/>Multi-product<br/>AI-powered earnings optimization]
@@ -445,7 +445,7 @@ graph TB
         FreightApp[Freight App<br/>B2B Logistics<br/>Enterprise Integration]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         UnifiedAPI[Unified API Gateway<br/>GraphQL Federation<br/>Rate Limiting per Product]
         RidesCore[Rides Core<br/>Microservices<br/>99.99% Availability]
         EatsCore[Eats Core<br/>Logistics Optimization<br/>Multi-modal Delivery]
@@ -455,7 +455,7 @@ graph TB
         MarketplaceEngine[Marketplace Engine<br/>Cross-product Optimization<br/>Dynamic Matching]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         UnifiedUserDB[(Unified User DB<br/>Global User Profiles<br/>Multi-product History)]
         ProductDBs[(Product Databases<br/>Rides/Eats/Freight<br/>Specialized Schemas)]
         RealTimeState[(Real-time State<br/>Apache Kafka + Redis<br/>1M+ events/sec)]
@@ -465,7 +465,7 @@ graph TB
         BlockchainLedger[(Blockchain Ledger<br/>Crypto Payments<br/>Financial Records)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         ObservabilityStack[Observability Stack<br/>Custom + Datadog<br/>Real-time Anomaly Detection]
         MLPlatform[ML Platform<br/>Feature Store + Model Serving<br/>10,000+ Models]
         ExperimentationEngine[Experimentation Engine<br/>Multi-armed Bandits<br/>Causal Inference]
@@ -497,10 +497,10 @@ graph TB
     UnifiedAPI --> BlockchainLedger
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class GlobalEdge,SuperApp,DriverApp,MerchantApp,FreightApp edgeStyle
     class UnifiedAPI,RidesCore,EatsCore,FreightCore,SharedServices,AIOrchestrator,MarketplaceEngine serviceStyle

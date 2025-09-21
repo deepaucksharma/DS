@@ -85,14 +85,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         EU[European Edge Network<br/>19 Data Centers]
         US[US Edge Network<br/>45 Data Centers]
         ASIA[Asia-Pacific Edge<br/>35 Data Centers]
         OTHER[Other Regions<br/>25 Data Centers]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         CDN[Global CDN<br/>Content Delivery]
         WAF[Web Application Firewall<br/>Security Layer]
         DDOS[DDoS Protection<br/>Traffic Filtering]
@@ -101,7 +101,7 @@ graph TB
         TUNNEL[Argo Tunnels<br/>Secure Connections]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         CONFIG[(Global Config<br/>Routing Rules)]
         CACHE[(Distributed Cache<br/>Content Storage)]
         ANALYTICS[(Analytics Store<br/>Traffic Metrics)]
@@ -109,7 +109,7 @@ graph TB
         CERTS[(Certificate Store<br/>SSL/TLS Certificates)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         TRAFFIC[Traffic Engineering<br/>Global Load Balancing]
         MON[Monitoring<br/>Real-time Metrics]
         DEPLOY[Deployment<br/>Configuration Management]
@@ -124,10 +124,10 @@ graph TB
     TRAFFIC -.->|TRAFFIC SPIKE| ASIA
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EU,US,ASIA,OTHER edgeStyle
     class CDN,WAF,DDOS,DNS,WORKER,TUNNEL serviceStyle

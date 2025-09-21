@@ -8,28 +8,28 @@ GitHub Actions failures affect 35% of CI/CD pipelines and cause significant depl
 
 ```mermaid
 graph TB
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         START[GitHub Actions Failing]
         LOGS[Check Workflow Logs]
         STATUS[Check Action Status]
         HISTORY[Check Run History]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         SYNTAX[Workflow Syntax?]
         DEPS[Action Dependencies?]
         TIMEOUT[Timeout Issues?]
         MATRIX[Matrix Strategy?]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         RUNNER[Runner Availability?]
         SECRETS[Secrets Access?]
         ARTIFACTS[Artifact Issues?]
         CACHE[Cache Problems?]
     end
 
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         PERMS[Permission Issues?]
         LIMITS[Rate Limits?]
         NETWORK[Network Access?]
@@ -53,10 +53,10 @@ graph TB
     NETWORK --> ENV
 
     %% Apply four-plane colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class START,LOGS,STATUS,HISTORY controlStyle
     class SYNTAX,DEPS,TIMEOUT,MATRIX serviceStyle

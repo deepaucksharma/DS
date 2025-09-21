@@ -73,10 +73,10 @@ graph TB
     SEC_FILING --> AUDIT_TRAIL
     RISK_MONITORING --> PAGERDUTY
 
-    classDef marketStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef marketStyle fill:#10B981,stroke:#059669,color:#fff
     classDef alertStyle fill:#FF6600,stroke:#CC4400,color:#fff
-    classDef deployStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef complianceStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef deployStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef complianceStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class PM_ONCALL,PM_MONITORING,RH_INCIDENT,RH_TRADE_OPS,AH_ONCALL,ON_SKELETON marketStyle
     class DATADOG,PAGERDUTY,SLACK,SMS alertStyle
@@ -178,11 +178,11 @@ graph TB
 
     EXEC_NOTIFY --> REGULATORY
 
-    classDef sevCritical fill:#CC0000,stroke:#990000,color:#fff
+    classDef sevCritical fill:#8B5CF6,stroke:#7C3AED,color:#fff
     classDef sevHigh fill:#FF6600,stroke:#CC4400,color:#fff
     classDef sevMedium fill:#FFAA00,stroke:#CC8800,color:#fff
-    classDef sevLow fill:#00AA00,stroke:#007700,color:#fff
-    classDef responseStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef sevLow fill:#10B981,stroke:#059669,color:#fff
+    classDef responseStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef escalationStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class SEV1 sevCritical
@@ -274,10 +274,10 @@ flowchart LR
     CANARY --> BLUE_GREEN
     BLUE_GREEN --> FULL_DEPLOY
 
-    classDef devStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef buildStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef testStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef prodStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef devStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef buildStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef testStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef prodStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class COMMIT,UNIT_TEST,LINT devStyle
     class BUILD,REGISTRY,SECURITY buildStyle
@@ -322,9 +322,9 @@ graph TB
         SECURITY_INCIDENTS[Security Incidents<br/>Data breaches: 0<br/>Vulnerabilities: Low]
     end
 
-    classDef businessStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef technicalStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef securityStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef businessStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef technicalStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef securityStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class TRADES_SEC,REVENUE_MIN,USER_SATISFACTION,REGULATORY businessStyle
     class API_LATENCY,DB_PERFORMANCE,SYSTEM_UPTIME,ERROR_RATE technicalStyle
@@ -356,9 +356,9 @@ graph TB
         AUDIT[Audit Trail<br/>Access logs<br/>Change tracking]
     end
 
-    classDef tradingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef infraStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef complianceStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef tradingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef infraStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef complianceStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ORDER_VOLUME,EXECUTION_LATENCY,MARKET_DATA,PFOF_METRICS tradingStyle
     class CPU_MEMORY,DATABASE,NETWORK,STORAGE infraStyle
@@ -402,9 +402,9 @@ graph TB
         RISK_ALERTS[Risk Alerts<br/>Position limits<br/>Margin calls]
     end
 
-    classDef auditStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef loggingStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef reportingStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef auditStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef loggingStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef reportingStyle fill:#10B981,stroke:#059669,color:#fff
 
     class IMMUTABLE,RETENTION,ACCESS_LOG,CHAIN_CUSTODY auditStyle
     class TRADE_LOGS,USER_ACTIONS,SYSTEM_EVENTS,SECURITY_EVENTS loggingStyle

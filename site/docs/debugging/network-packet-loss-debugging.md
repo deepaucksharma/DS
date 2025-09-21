@@ -8,28 +8,28 @@ Network packet loss can cause application timeouts, data corruption, and service
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         CONNECTION_DROPS[Connection Drops]
         TIMEOUTS{Connection Timeouts?}
         SLOW_RESPONSES{Slow Responses?}
         RETRANSMISSIONS{TCP Retransmissions?}
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         CAPTURE_PACKETS[Capture Network Packets]
         ANALYZE_TCP[Analyze TCP Statistics]
         CHECK_BANDWIDTH[Check Bandwidth Usage]
         TEST_LATENCY[Test Network Latency]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         PACKET_CAPTURES[(Packet Captures)]
         TCP_STATS[(TCP Statistics)]
         BANDWIDTH_METRICS[(Bandwidth Metrics)]
         LATENCY_DATA[(Latency Data)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         NETWORK_MONITORING[Network Monitoring]
         QOS_MANAGEMENT[QoS Management]
         TRAFFIC_SHAPING[Traffic Shaping]
@@ -54,10 +54,10 @@ graph TB
     LATENCY_DATA --> ALERTING
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CONNECTION_DROPS,TIMEOUTS,SLOW_RESPONSES,RETRANSMISSIONS edgeStyle
     class CAPTURE_PACKETS,ANALYZE_TCP,CHECK_BANDWIDTH,TEST_LATENCY serviceStyle
@@ -138,22 +138,22 @@ nethogs -d 1
 ### Network Stack Visualization
 ```mermaid
 graph TB
-    subgraph Application[Application Layer - Blue #0066CC]
+    subgraph Application[Application Layer - Blue #3B82F6]
         APP_SOCKET[Application Socket<br/>Connect timeouts<br/>Read/write errors]
         APP_BUFFER[Application Buffer<br/>Send/receive buffers<br/>Buffer overflow]
     end
 
-    subgraph Transport[Transport Layer - Green #00AA00]
+    subgraph Transport[Transport Layer - Green #10B981]
         TCP_STACK[TCP Stack<br/>Retransmissions<br/>Window scaling<br/>Congestion control]
         UDP_STACK[UDP Stack<br/>Packet drops<br/>No reliability]
     end
 
-    subgraph Network[Network Layer - Orange #FF8800]
+    subgraph Network[Network Layer - Orange #F59E0B]
         IP_LAYER[IP Layer<br/>Fragmentation<br/>Routing issues<br/>TTL expiration]
         FIREWALL[Firewall/NAT<br/>Connection tracking<br/>Rule processing]
     end
 
-    subgraph Physical[Physical Layer - Red #CC0000]
+    subgraph Physical[Physical Layer - Red #8B5CF6]
         NIC_DRIVER[NIC Driver<br/>Hardware queues<br/>Interrupt handling]
         PHYSICAL_LINK[Physical Link<br/>Cable issues<br/>Switch problems<br/>Bandwidth limits]
     end
@@ -166,10 +166,10 @@ graph TB
     FIREWALL --> NIC_DRIVER
     NIC_DRIVER --> PHYSICAL_LINK
 
-    classDef appStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef transportStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef networkStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef physicalStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef appStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef transportStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef networkStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef physicalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class APP_SOCKET,APP_BUFFER appStyle
     class TCP_STACK,UDP_STACK transportStyle
@@ -180,14 +180,14 @@ graph TB
 ### Common Packet Loss Patterns
 ```mermaid
 graph LR
-    subgraph LossPatterns[Packet Loss Patterns - Orange #FF8800]
+    subgraph LossPatterns[Packet Loss Patterns - Orange #F59E0B]
         RANDOM_LOSS[Random Loss<br/>Physical layer issues<br/>Cable problems<br/>Interference]
         BURST_LOSS[Burst Loss<br/>Buffer overflow<br/>Switch congestion<br/>QoS issues]
         PERIODIC_LOSS[Periodic Loss<br/>Routing loops<br/>Load balancer issues<br/>Maintenance windows]
         DIRECTIONAL_LOSS[Directional Loss<br/>Asymmetric routing<br/>Firewall rules<br/>MTU mismatch]
     end
 
-    subgraph Symptoms[Symptoms - Blue #0066CC]
+    subgraph Symptoms[Symptoms - Blue #3B82F6]
         SLOW_TRANSFER[Slow File Transfers<br/>TCP window shrinking<br/>Reduced throughput]
         APP_TIMEOUTS[Application Timeouts<br/>Connection failures<br/>Request drops]
         HIGH_LATENCY[High Latency<br/>Retransmission delays<br/>Poor user experience]
@@ -199,8 +199,8 @@ graph LR
     PERIODIC_LOSS --> HIGH_LATENCY
     DIRECTIONAL_LOSS --> CONNECTION_RESETS
 
-    classDef patternStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef symptomStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef patternStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef symptomStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class RANDOM_LOSS,BURST_LOSS,PERIODIC_LOSS,DIRECTIONAL_LOSS patternStyle
     class SLOW_TRANSFER,APP_TIMEOUTS,HIGH_LATENCY,CONNECTION_RESETS symptomStyle

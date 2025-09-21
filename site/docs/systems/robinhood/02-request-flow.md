@@ -136,9 +136,9 @@ flowchart TD
     LOG --> USER_NOTIFY[Notify User of Rejection]
     APPROVE --> ROUTE[Route to Execution]
 
-    classDef approveStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef rejectStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef checkStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef approveStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef rejectStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef checkStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class APPROVE,ROUTE approveStyle
     class REJECT1,REJECT2,REJECT3,REJECT4,REJECT5,REJECT6 rejectStyle
@@ -183,9 +183,9 @@ flowchart TD
 
     RETRY --> VENUE
 
-    classDef routingStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef venueStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef settleStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef routingStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef venueStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef settleStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class CITADEL,BACKUP_MM,NYSE,NASDAQ,BATS routingStyle
     class PFOF,PRICE_IMPROVE,VENUE venueStyle

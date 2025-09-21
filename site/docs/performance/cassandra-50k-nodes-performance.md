@@ -8,24 +8,24 @@ Apple operates one of the world's largest Apache Cassandra deployments, spanning
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[Apple Load Balancer<br/>Custom L4/L7 LB<br/>99.99% availability]
         CDN[Apple CDN<br/>Global edge network<br/>90% cache hit ratio]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         API[Apple Services API<br/>Swift/Objective-C<br/>10,000+ instances]
         DRIVER[Cassandra Drivers<br/>Connection pooling<br/>Smart routing]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         DC1[Data Center 1<br/>15,000 nodes<br/>US West Coast]
         DC2[Data Center 2<br/>15,000 nodes<br/>US East Coast]
         DC3[Data Center 3<br/>10,000 nodes<br/>Ireland]
         DC4[Data Center 4<br/>10,000 nodes<br/>Asia Pacific]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MON[Monitoring<br/>Apple Internal Tools<br/>Real-time metrics]
         BACKUP[Backup System<br/>Cross-DC replication<br/>Point-in-time recovery]
     end
@@ -42,10 +42,10 @@ graph TB
     MON --> DC2
     BACKUP --> DC1
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,CDN edgeStyle
     class API,DRIVER serviceStyle
@@ -90,7 +90,7 @@ graph LR
         DC4_OPS[DC4: 12M ops/sec<br/>Asian traffic<br/>Regional optimization]
     end
 
-    classDef metricStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class WRITE,READ,BATCH,RANGE,SECONDARY,P50,P95,P99,P999,P9999,DC1_OPS,DC2_OPS,DC3_OPS,DC4_OPS metricStyle
 ```
 
@@ -131,9 +131,9 @@ graph TB
     ANALYTICS --> BUCKETING
     METADATA --> DENORM
 
-    classDef modelStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef strategyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef designStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef modelStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef strategyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef designStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class TIME_SERIES,USER_DATA,ANALYTICS,METADATA modelStyle
     class HOT_COLD,BUCKETING,HASHING strategyStyle
@@ -195,8 +195,8 @@ graph TB
     STREAMING --> COMPRESSION
     COORDINATOR --> BATCHING
 
-    classDef bottleneckStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef bottleneckStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class GOSSIP,REPLICATION,STREAMING,COORDINATOR bottleneckStyle
     class DEDICATED,COMPRESSION,BATCHING,TOPOLOGY solutionStyle
@@ -235,8 +235,8 @@ graph LR
 
     C50000 --> FEDERATION
 
-    classDef scaleStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef scaleStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class C1000,C5000,C10000,C25000,C50000 scaleStyle
     class FEDERATION solutionStyle
@@ -280,8 +280,8 @@ graph TB
     SUPPORT --> TOTAL
     BACKUP --> TOTAL
 
-    classDef costStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef totalStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef costStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef totalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class HARDWARE,POWER,NETWORK,DATACENTER,SUPPORT,BACKUP costStyle
     class TOTAL totalStyle
@@ -434,8 +434,8 @@ graph TB
         HINTS[Hinted Handoffs<br/>Pending hints count<br/>Recovery tracking]
     end
 
-    classDef metricStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef healthStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef healthStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class OPS,LATENCY,CPU,MEMORY,DISK,NETWORK,GOSSIP,REPAIR metricStyle
     class NODES,CONSISTENCY,HINTS healthStyle

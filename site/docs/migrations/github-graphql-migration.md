@@ -15,12 +15,12 @@ GitHub's migration from fragmented REST APIs to a unified GraphQL platform repre
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         CDN[GitHub CDN<br/>Global edge caching<br/>API response caching]
         RATE_LIMIT[Rate Limiting<br/>5000 requests/hour<br/>Per-endpoint limits]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         subgraph RESTEndpoints[REST API Endpoints - 400+]
             USER_API[User API<br/>/users/:username<br/>Limited fields]
             REPO_API[Repository API<br/>/repos/:owner/:repo<br/>Basic metadata]
@@ -31,14 +31,14 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         MYSQL[MySQL Clusters<br/>User/repo metadata<br/>Relational data]
         POSTGRES[PostgreSQL<br/>Git object storage<br/>Version control data]
         REDIS[Redis Clusters<br/>Session/cache data<br/>Rate limit counters]
         ELASTICSEARCH[Elasticsearch<br/>Code search<br/>Issue/PR indexing]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         MONITORING[API Monitoring<br/>Per-endpoint metrics<br/>Error tracking]
         DOCS[API Documentation<br/>400+ endpoint docs<br/>Maintenance overhead]
         VERSIONING[API Versioning<br/>v3, v4 compatibility<br/>Breaking changes]
@@ -61,10 +61,10 @@ graph TB
     VERSIONING -.-> RESTEndpoints
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,RATE_LIMIT edgeStyle
     class USER_API,REPO_API,ISSUES_API,PR_API,COMMITS_API,ORGS_API,RESTEndpoints serviceStyle
@@ -83,12 +83,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         CDN_GQL[GitHub CDN<br/>Query-aware caching<br/>Response optimization]
         RATE_LIMIT_GQL[GraphQL Rate Limiting<br/>Node-based scoring<br/>Complexity analysis]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         GRAPHQL_GATEWAY[GraphQL Gateway<br/>Single endpoint<br/>/graphql]
 
         subgraph ResolverLayer[Resolver Layer]
@@ -104,14 +104,14 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         MYSQL_GQL[MySQL Clusters<br/>Optimized queries<br/>Batch loading]
         POSTGRES_GQL[PostgreSQL<br/>Git data access<br/>Efficient joins]
         REDIS_GQL[Redis Clusters<br/>DataLoader caching<br/>Query optimization]
         ELASTICSEARCH_GQL[Elasticsearch<br/>Search integration<br/>Result aggregation]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         SCHEMA_REGISTRY[Schema Registry<br/>Version management<br/>Breaking change detection]
         QUERY_ANALYTICS[Query Analytics<br/>Performance insights<br/>Usage patterns]
         EXPLORER[GraphQL Explorer<br/>Interactive documentation<br/>Query building]
@@ -134,10 +134,10 @@ graph TB
     EXPLORER -.-> INTROSPECTION
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN_GQL,RATE_LIMIT_GQL edgeStyle
     class GRAPHQL_GATEWAY,USER_RESOLVER,REPO_RESOLVER,CONTENT_RESOLVER,SEARCH_RESOLVER,SCHEMA,INTROSPECTION,ResolverLayer,SchemaLayer serviceStyle

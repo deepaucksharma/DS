@@ -17,24 +17,24 @@ This playbook guides the migration from Python 2.7 (end-of-life) to Python 3.9+ 
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         NGINX[Nginx Reverse Proxy<br/>Load balancing<br/>SSL termination<br/>Static file serving]
         CF[CloudFlare<br/>CDN + DDoS protection<br/>Web Application Firewall]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         DJANGO_APP[Django 1.11 Application<br/>Python 2.7.18<br/>Legacy codebase 150k+ lines<br/>Custom middleware]
         CELERY_WORKERS[Celery Workers<br/>Python 2.7.18<br/>Background task processing<br/>Legacy libraries]
         WSGI[uWSGI Server<br/>Python 2.7 runtime<br/>Process management<br/>Memory limitations]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         MYSQL_DB[(MySQL 5.7<br/>Legacy schema<br/>MySQLdb connector<br/>Character encoding issues)]
         REDIS_CACHE[Redis 4.0<br/>Session storage<br/>Cache backend<br/>Task queue broker]
         FILE_STORAGE[NFS Storage<br/>Legacy file handling<br/>Encoding issues<br/>Permission problems]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         LEGACY_MONITORING[Legacy Monitoring<br/>Custom Python 2 scripts<br/>Limited observability<br/>Manual log parsing]
         CRON_JOBS[Cron Jobs<br/>Python 2 scripts<br/>Error-prone scheduling<br/>No failure recovery]
     end
@@ -55,10 +55,10 @@ graph TB
     CELERY_WORKERS --> CRON_JOBS
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class NGINX,CF edgeStyle
     class DJANGO_APP,CELERY_WORKERS,WSGI serviceStyle
@@ -77,24 +77,24 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         NGINX[Nginx Reverse Proxy<br/>Same configuration<br/>SSL termination<br/>Static file serving]
         CF[CloudFlare<br/>Same CDN setup<br/>Enhanced security<br/>Modern TLS]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         DJANGO_APP_NEW[Django 4.2 LTS Application<br/>Python 3.9+<br/>Modernized codebase<br/>Type hints + async support]
         CELERY_WORKERS_NEW[Celery 5.x Workers<br/>Python 3.9+<br/>Async task processing<br/>Modern dependencies]
         ASGI[ASGI Server (Uvicorn)<br/>Python 3.9+ runtime<br/>Async support<br/>Better performance]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         MYSQL_DB_NEW[(MySQL 8.0<br/>UTF-8 schema<br/>PyMySQL connector<br/>Connection pooling)]
         REDIS_CACHE_NEW[Redis 7.0<br/>Enhanced features<br/>Better memory usage<br/>Async support]
         FILE_STORAGE_NEW[S3-Compatible Storage<br/>Modern file handling<br/>UTF-8 support<br/>Cloud-native]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MODERN_MONITORING[Modern Monitoring<br/>Prometheus + Grafana<br/>Structured logging<br/>APM integration]
         SCHEDULED_TASKS[Celery Beat + Kubernetes<br/>Cloud-native scheduling<br/>Auto-retry mechanisms<br/>Health monitoring]
     end
@@ -115,10 +115,10 @@ graph TB
     CELERY_WORKERS_NEW --> SCHEDULED_TASKS
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class NGINX,CF edgeStyle
     class DJANGO_APP_NEW,CELERY_WORKERS_NEW,ASGI serviceStyle

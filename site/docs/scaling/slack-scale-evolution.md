@@ -17,23 +17,23 @@ Slack's scaling journey from a small team communication tool to supporting 20M+ 
 ### Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ELB[Elastic Load Balancer]
         CF[CloudFront CDN]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         RAILS[Rails Monolith<br/>3 instances<br/>m3.medium]
         SOCK[Socket.io Server<br/>2 instances<br/>m3.small]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         MYSQL[(MySQL<br/>db.t2.small<br/>20GB)]
         REDIS[(Redis<br/>cache.t2.micro<br/>1GB)]
         S3[(S3 Bucket<br/>File Storage)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         LOGS[Papertrail Logs]
         MON[New Relic APM]
     end
@@ -46,10 +46,10 @@ graph TB
     RAILS --> S3
     SOCK --> REDIS
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ELB,CF edgeStyle
     class RAILS,SOCK serviceStyle
@@ -91,12 +91,12 @@ graph TB
 ### Architecture Evolution
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ELB[Application Load Balancer]
         CF[CloudFront CDN<br/>Global edge locations]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         RAILS1[Rails App 1<br/>m3.large]
         RAILS2[Rails App 2<br/>m3.large]
         RAILS3[Rails App 3<br/>m3.large]
@@ -105,7 +105,7 @@ graph TB
         BG[Background Jobs<br/>m3.medium]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         MYSQL_M[(MySQL Master<br/>db.m3.xlarge<br/>500GB)]
         MYSQL_S[(MySQL Slave<br/>db.m3.large<br/>500GB)]
         REDIS_M[(Redis Master<br/>cache.m3.large<br/>13GB)]
@@ -113,7 +113,7 @@ graph TB
         S3[(S3 Bucket<br/>Multi-part uploads)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         LOGS[Centralized Logging<br/>ELK Stack]
         MON[Monitoring<br/>DataDog + PagerDuty]
         DEPLOY[Deployment<br/>Jenkins CI/CD]
@@ -141,10 +141,10 @@ graph TB
     MYSQL_M --> MYSQL_S
     REDIS_M --> REDIS_S
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ELB,CF edgeStyle
     class RAILS1,RAILS2,RAILS3,RT1,RT2,BG serviceStyle
@@ -177,13 +177,13 @@ graph TB
 ### Architecture Revolution
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ALB[Application Load Balancer<br/>Multi-AZ]
         CF[CloudFront CDN<br/>15 global regions]
         WAF[AWS WAF<br/>DDoS protection]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         subgraph WebTier[Web Tier - Auto Scaling]
             WEB1[Web Server 1<br/>c4.xlarge]
             WEB2[Web Server 2<br/>c4.xlarge]
@@ -202,7 +202,7 @@ graph TB
         FILES[File Service<br/>Dedicated processing]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         subgraph MySQLCluster[MySQL Cluster]
             MYSQL_M[(Master<br/>db.r3.2xlarge<br/>1TB SSD)]
             MYSQL_R1[(Read Replica 1<br/>db.r3.xlarge)]
@@ -220,7 +220,7 @@ graph TB
         S3[(S3 + CloudFront<br/>Global file distribution)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MON[DataDog + Custom<br/>500+ metrics]
         LOGS[Centralized Logging<br/>20GB/day]
         DEPLOY[Blue-Green Deploy<br/>Zero downtime]
@@ -253,10 +253,10 @@ graph TB
     MYSQL_M --> MYSQL_R2
     MYSQL_M --> MYSQL_R3
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALB,CF,WAF edgeStyle
     class WEB1,WEB2,WEB3,RT1,RT2,RT3,RTN,API,SEARCH,FILES serviceStyle
@@ -357,9 +357,9 @@ graph TB
     REDISUS --> REDISEU
     REDISUS --> REDISAP
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class ALBM,CFUS,ALBEU,CFEU,ALBAP,CFAP edgeStyle
     class APIUS,WEBUS,RTUS,APIEU,WEBEU,RTEU,APIAP,WEBAP,RTAP serviceStyle
@@ -484,10 +484,10 @@ graph TB
     KAFKA --> CASSANDRA
     MYSQL --> REDIS
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB edgeStyle
     class AUTH,SSO,PERM,MSG,USER,TEAM,NOTIF,SEARCH,FILE,VOICE,APP,GATEWAY,PRESENCE,TYPING,CHANNEL serviceStyle
@@ -601,10 +601,10 @@ graph TB
     K8S_ML --> TRITON
     SAGEMAKER --> TRITON
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     classDef mlStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class SMART_CDN,DDoS edgeStyle

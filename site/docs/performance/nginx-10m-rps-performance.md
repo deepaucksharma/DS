@@ -8,22 +8,22 @@ Cloudflare operates the world's largest Nginx deployment, handling over 10 milli
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         EDGE[Cloudflare Edge<br/>330+ PoPs globally<br/>99.99% availability]
         LB[Load Balancing<br/>Anycast + BGP<br/>Automatic failover]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         NGINX[Nginx Workers<br/>Custom build<br/>50K+ instances]
         CACHE[Edge Cache<br/>In-memory + SSD<br/>95% hit ratio]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         ORIGIN[Origin Servers<br/>Customer backends<br/>Global distribution]
         CONFIG[Configuration<br/>Edge configuration<br/>Real-time updates]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MON[Monitoring<br/>Real-time metrics<br/>Global visibility]
         AUTO[Auto-scaling<br/>Traffic-based<br/>Predictive scaling]
     end
@@ -37,10 +37,10 @@ graph TB
     MON --> NGINX
     AUTO --> NGINX
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class EDGE,LB edgeStyle
     class NGINX,CACHE serviceStyle
@@ -76,7 +76,7 @@ graph LR
         MEM[16GB memory usage<br/>Cache + connections<br/>Optimized allocation]
     end
 
-    classDef metricStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class ACCEPT,PARSE,ROUTE,PROCESS,RESPOND,RPS,CONN,CPU,MEM metricStyle
 ```
 
@@ -189,8 +189,8 @@ graph TB
     CONNECTIONS --> TUNING
     LATENCY --> ANYCAST
 
-    classDef bottleneckStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef bottleneckStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class BANDWIDTH,PACKETS,CONNECTIONS,LATENCY bottleneckStyle
     class BONDING,DPDK,TUNING,ANYCAST solutionStyle

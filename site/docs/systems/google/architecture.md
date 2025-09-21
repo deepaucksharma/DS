@@ -7,171 +7,116 @@ Google's planetary-scale infrastructure processes 8.5B+ searches daily, serves 3
 
 ```mermaid
 graph TB
-    subgraph GlobalEdge[Global Edge Network - Edge Plane]
-        GlobalLB[Global Load Balancer<br/>Anycast IP addresses<br/>100+ data centers<br/>Sub-100ms global latency]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
 
-        Maglev[Maglev Load Balancing<br/>Consistent hashing<br/>5M+ packets/second<br/>99.99% availability]
+        GlobalLB[Cloud Load Balancing v2023<br/>━━━━━<br/>Anycast IP addresses<br/>100+ data centers<br/>Sub-50ms global p99<br/>Maglev consistent hashing]
 
-        EdgeCache[Global Edge Caches<br/>CDN functionality<br/>Brotli compression<br/>HTTP/3 QUIC protocol]
+        EdgeCache[Global Edge Caches<br/>━━━━━<br/>Cloud CDN v2.0<br/>Brotli compression<br/>HTTP/3 QUIC protocol<br/>450+ PoPs globally]
 
-        EdgeCompute[Edge Computing Nodes<br/>Cloud Functions@Edge<br/>Real-time processing<br/>Regional distribution]
+        CloudArmor[Cloud Armor DDoS<br/>━━━━━<br/>Layer 3/4/7 protection<br/>10M+ rules/sec<br/>Adaptive protection<br/>ML-based detection]
+
+        EdgeCompute[Edge Computing v2<br/>━━━━━<br/>Cloud Functions 2nd gen<br/>Real-time processing<br/>Regional distribution<br/>Sub-100ms cold start]
     end
 
-    subgraph FrontendServices[Frontend Service Mesh - Service Plane]
-        Envoy[Envoy Proxy Mesh<br/>Service discovery<br/>Load balancing<br/>TLS termination<br/>Observability]
+    subgraph ServicePlane[Service Plane - Green #10B981]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        APIGateway[API Gateway<br/>Rate limiting<br/>Authentication<br/>Request routing<br/>Protocol translation]
+        APIGateway[Cloud API Gateway v2<br/>━━━━━<br/>OpenAPI 3.0 spec<br/>Rate limiting built-in<br/>Authentication policies<br/>Protocol translation]
 
-        AuthZ[Authorization Service<br/>Zanzibar system<br/>Relationship-based<br/>Sub-millisecond decisions<br/>Billions of checks/second]
+        AuthZ[Zanzibar AuthZ v3<br/>━━━━━<br/>Relationship-based ACL<br/>Sub-millisecond decisions<br/>10B+ checks/second<br/>Global consistency]
 
-        RateLimiter[Global Rate Limiter<br/>Distributed quotas<br/>Fairness algorithms<br/>Anti-abuse protection]
+        SearchFrontend[Search Frontend v12<br/>━━━━━<br/>Go 1.21 service<br/>Query parsing engine<br/>Personalization ML<br/>200ms latency budget]
+
+        YouTubeAPI[YouTube API v3<br/>━━━━━<br/>Java 17 Spring Boot<br/>Multi-part uploads<br/>Transcoding pipeline<br/>1B+ hours/day]
+
+        GmailAPI[Gmail API v1.0<br/>━━━━━<br/>Python 3.11 FastAPI<br/>Real-time sync<br/>Push notifications<br/>1.8B+ users served]
     end
 
-    subgraph CoreServices[Core Google Services - Service Plane]
-        subgraph SearchStack[Search Services]
-            SearchFrontend[Search Frontend<br/>Query parsing<br/>Personalization<br/>A/B testing<br/>200ms budget]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
 
-            SearchIndex[Search Index<br/>Inverted indexes<br/>PageRank algorithm<br/>100B+ pages<br/>Bigtable storage]
+        Spanner[Cloud Spanner v6.45<br/>━━━━━<br/>Global SQL database<br/>TrueTime synchronization<br/>External consistency<br/>99.999% availability SLA]
 
-            KnowledgeGraph[Knowledge Graph<br/>500B+ facts<br/>Entity resolution<br/>Semantic search<br/>ML inference]
-        end
+        Bigtable[Cloud Bigtable v2.21<br/>━━━━━<br/>NoSQL wide-column<br/>Petabyte scale capacity<br/>Sub-10ms p99 latency<br/>Auto-scaling enabled]
 
-        subgraph YouTubeStack[YouTube Services]
-            VideoUpload[Video Upload Service<br/>Multi-part uploads<br/>Transcoding pipeline<br/>Global distribution<br/>1B+ hours uploaded/day]
+        Colossus[Colossus File System v5<br/>━━━━━<br/>Exabyte-scale storage<br/>Reed-Solomon coding<br/>Global replication<br/>Self-healing clusters]
 
-            RecommendationEngine[Recommendation Engine<br/>ML-driven algorithms<br/>Real-time inference<br/>Personalized feeds<br/>70% of watch time]
+        BigQuery[BigQuery Enterprise v2.0<br/>━━━━━<br/>Petabyte analytics<br/>Dremel query engine<br/>Columnar storage<br/>Standard SQL interface]
 
-            VideoServing[Video Serving<br/>Adaptive bitrate<br/>Global CDN<br/>Edge caching<br/>Millisecond startup]
-        end
+        MemoryStore[Memorystore Redis 7.0<br/>━━━━━<br/>Managed Redis clusters<br/>Sub-ms p99 latency<br/>99.9% availability SLA<br/>Multi-region replication]
 
-        subgraph GmailStack[Gmail Services]
-            EmailProcessing[Email Processing<br/>Spam detection<br/>Virus scanning<br/>Smart filtering<br/>1.8B+ users]
-
-            ConversationStorage[Conversation Storage<br/>BigTable backend<br/>15GB+ per user<br/>Global replication<br/>Strong consistency]
-
-            RealTimeSync[Real-time Sync<br/>Multi-device sync<br/>Push notifications<br/>Conflict resolution<br/>Offline support]
-        end
+        CloudSQL[Cloud SQL PostgreSQL 15<br/>━━━━━<br/>Fully managed RDBMS<br/>Read replicas enabled<br/>Automatic backups<br/>Point-in-time recovery]
     end
 
-    subgraph DataLayer[Data Storage Layer - State Plane]
-        subgraph DistributedStorage[Distributed Storage Systems]
-            Spanner[Cloud Spanner<br/>Global SQL database<br/>TrueTime synchronization<br/>External consistency<br/>Automatic sharding]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
-            Bigtable[Cloud Bigtable<br/>NoSQL wide-column<br/>Petabyte scale<br/>Sub-10ms latency<br/>Auto-scaling]
+        GKE[GKE Kubernetes v1.28<br/>━━━━━<br/>Managed control plane<br/>Autopilot mode<br/>Multi-zone clusters<br/>Security hardening]
 
-            Colossus[Colossus File System<br/>Exabyte-scale storage<br/>Reed-Solomon coding<br/>Global replication<br/>Self-healing]
+        CloudMonitoring[Cloud Monitoring v3<br/>━━━━━<br/>Prometheus compatible<br/>Custom metrics API<br/>SLI/SLO tracking<br/>Alert policies]
 
-            Firestore[Cloud Firestore<br/>Document database<br/>Real-time sync<br/>Offline support<br/>Multi-region]
-        end
+        CloudLogging[Cloud Logging v2<br/>━━━━━<br/>Structured logging<br/>Log-based metrics<br/>Export to BigQuery<br/>Retention policies]
 
-        subgraph CachingLayer[Multi-Level Caching]
-            MemoryCache[Distributed Memory Cache<br/>Memcached clusters<br/>Sub-millisecond access<br/>Petabytes in memory<br/>99.9% hit rate]
+        CloudTrace[Cloud Trace v2<br/>━━━━━<br/>Distributed tracing<br/>Latency analysis<br/>Request correlation<br/>Performance insights]
 
-            L1Cache[L1 Application Cache<br/>Process-local cache<br/>Microsecond access<br/>LRU eviction<br/>High hit rate]
+        Deployment[Cloud Deploy v1.8<br/>━━━━━<br/>CI/CD pipelines<br/>Canary deployments<br/>Progressive delivery<br/>Rollback automation]
 
-            L2Cache[L2 Network Cache<br/>Cross-service cache<br/>Consistent hashing<br/>Replication factor 3<br/>Global distribution]
-        end
-
-        subgraph AnalyticsStorage[Analytics & ML Storage]
-            BigQuery[BigQuery<br/>Petabyte analytics<br/>Dremel engine<br/>Columnar storage<br/>SQL interface]
-
-            DataflowStorage[Dataflow Processing<br/>Stream & batch<br/>Windowing functions<br/>Exactly-once semantics<br/>Global scale]
-        end
+        SecretManager[Secret Manager v1<br/>━━━━━<br/>Centralized secrets<br/>Automatic rotation<br/>Audit logging<br/>IAM integration]
     end
 
-    subgraph InfrastructureLayer[Infrastructure Layer - Control Plane]
-        subgraph ContainerOrchestration[Container Orchestration]
-            Borg[Borg Cluster Manager<br/>Container orchestration<br/>Resource allocation<br/>Fault tolerance<br/>Kubernetes ancestor]
+    %% Connections with real metrics
+    GlobalLB -->|"p50: 15ms<br/>p99: 50ms<br/>Global anycast"| EdgeCache
+    EdgeCache -->|"95% cache hit<br/>p99: 25ms"| CloudArmor
+    CloudArmor -->|"DDoS filtered<br/>99.9% clean"| EdgeCompute
 
-            GKE[Google Kubernetes Engine<br/>Managed Kubernetes<br/>Auto-scaling<br/>Multi-zone clusters<br/>Security hardening]
+    EdgeCompute -->|"Function calls<br/>p99: 100ms"| APIGateway
+    APIGateway -->|"Auth required<br/>p99: 50ms"| AuthZ
+    AuthZ -->|"10B checks/sec<br/>p99: 1ms"| SearchFrontend
+    AuthZ -->|"Authorized requests"| YouTubeAPI
+    AuthZ -->|"Gmail access"| GmailAPI
 
-            Knative[Knative Serverless<br/>Event-driven scaling<br/>Container-based<br/>Blue-green deployments<br/>Traffic splitting]
-        end
+    %% Data flow patterns
+    SearchFrontend -->|"Index queries<br/>p99: 10ms"| Bigtable
+    SearchFrontend -->|"Knowledge lookup<br/>p99: 15ms"| Spanner
+    SearchFrontend -->|"Cache hit: 99%<br/>p99: 0.5ms"| MemoryStore
 
-        subgraph MonitoringControl[Monitoring & Control]
-            Monarch[Monarch Monitoring<br/>Time series database<br/>Billions of metrics<br/>Real-time alerting<br/>Global visibility]
+    YouTubeAPI -->|"Video storage<br/>Exabyte scale"| Colossus
+    YouTubeAPI -->|"Analytics queries"| BigQuery
+    YouTubeAPI -->|"Metadata lookup"| CloudSQL
 
-            Dapper[Dapper Tracing<br/>Distributed tracing<br/>Low-overhead sampling<br/>Request correlation<br/>Performance analysis]
+    GmailAPI -->|"Email storage<br/>15GB/user"| Bigtable
+    GmailAPI -->|"Real-time sync"| Spanner
+    GmailAPI -->|"Session cache"| MemoryStore
 
-            ErrorReporting[Error Reporting<br/>Crash analytics<br/>Stack trace analysis<br/>Real-time alerting<br/>Auto-grouping]
-        end
+    %% Analytics and ML integration
+    SearchFrontend -->|"Query logs<br/>8.5B/day"| BigQuery
+    YouTubeAPI -->|"View events<br/>3B hours/day"| BigQuery
+    GmailAPI -->|"Usage metrics"| BigQuery
 
-        subgraph SecurityLayer[Security & Compliance]
-            BeyondCorp[BeyondCorp Zero Trust<br/>Identity-based access<br/>Device verification<br/>Context-aware policies<br/>No VPN required]
+    %% Control plane monitoring
+    SearchFrontend -.->|"Metrics/traces<br/>1M/sec"| CloudMonitoring
+    YouTubeAPI -.->|"Performance traces"| CloudTrace
+    GmailAPI -.->|"Application logs"| CloudLogging
 
-            KMS[Key Management Service<br/>Encryption key lifecycle<br/>Hardware security modules<br/>Audit logging<br/>Global availability]
+    Deployment -.->|"CI/CD pipeline"| SearchFrontend
+    Deployment -.->|"Canary deploy"| YouTubeAPI
+    SecretManager -.->|"API keys/certs"| GmailAPI
 
-            VPCSecurity[VPC Security<br/>Network isolation<br/>Firewall rules<br/>Private connectivity<br/>Traffic inspection]
-        end
-    end
+    %% Container orchestration
+    GKE -.->|"Pod management"| SearchFrontend
+    GKE -.->|"Auto-scaling"| YouTubeAPI
 
-    subgraph MLPlatform[ML/AI Platform - Intelligence Layer]
-        subgraph MLInfrastructure[ML Infrastructure]
-            TPU[Tensor Processing Units<br/>Custom ML chips<br/>Matrix operations<br/>100x speedup<br/>Distributed training]
+    %% Apply 4-plane colors
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
-            VertexAI[Vertex AI Platform<br/>MLOps pipeline<br/>Model training<br/>Hyperparameter tuning<br/>Deployment automation]
-
-            AutoML[AutoML Services<br/>Automated ML<br/>Neural architecture search<br/>No-code ML<br/>Transfer learning]
-        end
-
-        subgraph AIServices[AI/ML Services]
-            LLMServices[Large Language Models<br/>PaLM, Gemini models<br/>Natural language<br/>Code generation<br/>Reasoning capabilities]
-
-            VisionAPI[Vision API<br/>Image recognition<br/>OCR capabilities<br/>Video analysis<br/>Real-time inference]
-
-            TranslateAPI[Translate API<br/>100+ languages<br/>Neural translation<br/>Real-time translation<br/>Context awareness]
-        end
-    end
-
-    %% Global traffic flow
-    GlobalLB --> Maglev
-    Maglev --> EdgeCache --> EdgeCompute
-    EdgeCompute --> Envoy --> APIGateway
-
-    %% Authentication and authorization
-    APIGateway --> AuthZ --> RateLimiter
-
-    %% Service routing
-    RateLimiter --> SearchFrontend & VideoUpload & EmailProcessing
-
-    %% Search flow
-    SearchFrontend --> SearchIndex --> Bigtable
-    SearchFrontend --> KnowledgeGraph --> Spanner
-
-    %% YouTube flow
-    VideoUpload --> Colossus
-    RecommendationEngine --> BigQuery
-    VideoServing --> EdgeCache
-
-    %% Gmail flow
-    EmailProcessing --> ConversationStorage --> Bigtable
-    RealTimeSync --> Firestore
-
-    %% Data storage integration
-    SearchIndex --> MemoryCache
-    ConversationStorage --> L1Cache & L2Cache
-    RecommendationEngine --> DataflowStorage
-
-    %% Infrastructure management
-    Borg --> GKE --> Knative
-    Monarch --> Dapper --> ErrorReporting
-    BeyondCorp --> KMS --> VPCSecurity
-
-    %% ML platform integration
-    RecommendationEngine --> TPU --> VertexAI
-    KnowledgeGraph --> LLMServices
-    SearchIndex --> VisionAPI & TranslateAPI
-
-    %% Apply four-plane architecture colors
-    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
-    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
-    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
-    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
-
-    class GlobalLB,Maglev,EdgeCache,EdgeCompute edgeStyle
-    class Envoy,APIGateway,AuthZ,RateLimiter,SearchFrontend,SearchIndex,KnowledgeGraph,VideoUpload,RecommendationEngine,VideoServing,EmailProcessing,ConversationStorage,RealTimeSync serviceStyle
-    class Spanner,Bigtable,Colossus,Firestore,MemoryCache,L1Cache,L2Cache,BigQuery,DataflowStorage stateStyle
-    class Borg,GKE,Knative,Monarch,Dapper,ErrorReporting,BeyondCorp,KMS,VPCSecurity,TPU,VertexAI,AutoML,LLMServices,VisionAPI,TranslateAPI controlStyle
+    class GlobalLB,EdgeCache,CloudArmor,EdgeCompute edgeStyle
+    class APIGateway,AuthZ,SearchFrontend,YouTubeAPI,GmailAPI serviceStyle
+    class Spanner,Bigtable,Colossus,BigQuery,MemoryStore,CloudSQL stateStyle
+    class GKE,CloudMonitoring,CloudLogging,CloudTrace,Deployment,SecretManager controlStyle
 ```
 
 ## Global Infrastructure Scale

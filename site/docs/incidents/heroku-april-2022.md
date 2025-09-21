@@ -72,14 +72,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CLI[Heroku CLI<br/>Developer Tools]
         DASHBOARD[Web Dashboard<br/>Application Management]
         API[Heroku API<br/>Platform Integration]
         GIT[Git Integration<br/>Code Deployment]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         AUTH[Authentication<br/>User Management]
         OAUTH[OAuth Service<br/>Third-party Integration]
         DEPLOY[Deployment Service<br/>Application Builds]
@@ -87,7 +87,7 @@ graph TB
         ADDONS[Add-ons Marketplace<br/>Service Integration]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         USERDB[(User Database<br/>Account Information)]
         APPDB[(Application Database<br/>App Configurations)]
         TOKENSTORE[(OAuth Token Store<br/>Integration Credentials)]
@@ -95,7 +95,7 @@ graph TB
         CONFIGSTORE[(Config Store<br/>Environment Variables)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         SECURITY[Security Service<br/>Access Control)]
         AUDIT[Audit Logging<br/>Access Monitoring]
         BACKUP[Backup Service<br/>Data Protection]
@@ -109,10 +109,10 @@ graph TB
     CONFIGSTORE -.->|SECRETS LEAKED| CODESTORE
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLI,DASHBOARD,API,GIT edgeStyle
     class AUTH,OAUTH,DEPLOY,RUNTIME,ADDONS serviceStyle

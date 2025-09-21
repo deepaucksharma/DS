@@ -52,10 +52,10 @@ graph TB
     CLEARING_FAIL -.->|Settlement delays| USER
     BANK_FAIL -.->|ACH failures| USER
 
-    classDef criticalStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef criticalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     classDef highStyle fill:#FF6600,stroke:#CC4400,color:#fff
     classDef mediumStyle fill:#FFAA00,stroke:#CC8800,color:#fff
-    classDef lowStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef lowStyle fill:#10B981,stroke:#059669,color:#fff
     classDef externalStyle fill:#9999CC,stroke:#666699,color:#fff
 
     class CDN_FAIL,EXEC_FAIL,DB_MASTER_FAIL,EXCHANGE_HALT criticalStyle
@@ -220,8 +220,8 @@ flowchart TD
     MONITOR --> POSTMORTEM[Post-incident Review<br/>Root cause analysis<br/>Prevention measures]
 
     classDef alertStyle fill:#FF6600,stroke:#CC4400,color:#fff
-    classDef actionStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef decisionStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef actionStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef decisionStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class DETECT,ALERT alertStyle
     class PROMOTE,MANUAL,UPDATE_APP actionStyle
@@ -294,9 +294,9 @@ graph TB
     OPS --> LEGAL[Legal/Compliance<br/>Regulatory notifications]
     OPS --> EXEC[Executive Team<br/>Business decisions]
 
-    classDef leaderStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef techStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef opsStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef leaderStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef techStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef opsStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class IC,COMMS leaderStyle
     class TECH,DEV1,DEV2,DEV3 techStyle

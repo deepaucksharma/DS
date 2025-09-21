@@ -16,18 +16,18 @@ Dropbox's scaling journey from 100K beta users to 700M+ registered users represe
 
 ```mermaid
 graph TB
-    subgraph ClientApps[Client Applications - #0066CC]
+    subgraph ClientApps[Client Applications - #3B82F6]
         DESKTOP[Desktop Client<br/>Windows/Mac/Linux<br/>File system monitoring]
         WEB[Web Interface<br/>File browser<br/>Basic sharing]
     end
 
-    subgraph SyncCore[Sync Core - #00AA00]
+    subgraph SyncCore[Sync Core - #10B981]
         SYNC_ENGINE[Sync Engine<br/>File delta detection<br/>Conflict resolution]
         METADATA_SVC[Metadata Service<br/>File attributes<br/>Version tracking]
         NOTIFICATION_SVC[Notification Service<br/>Real-time updates<br/>Event distribution]
     end
 
-    subgraph StorageLayer[Storage Layer - #FF8800]
+    subgraph StorageLayer[Storage Layer - #F59E0B]
         MYSQL[(MySQL<br/>File metadata<br/>User accounts)]
         S3[(Amazon S3<br/>File content<br/>Block storage)]
         MEMCACHED[(Memcached<br/>Metadata cache<br/>Session storage)]
@@ -39,9 +39,9 @@ graph TB
     METADATA_SVC --> S3
     NOTIFICATION_SVC --> MEMCACHED
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef syncStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef syncStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class DESKTOP,WEB clientStyle
     class SYNC_ENGINE,METADATA_SVC,NOTIFICATION_SVC syncStyle
@@ -65,19 +65,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph ScaledClients[Scaled Clients - #0066CC]
+    subgraph ScaledClients[Scaled Clients - #3B82F6]
         MULTI_PLATFORM[Multi-Platform Clients<br/>Desktop + Mobile<br/>Consistent experience]
         MOBILE_APPS[Mobile Apps<br/>iOS/Android<br/>Camera upload]
         SELECTIVE_SYNC[Selective Sync<br/>Folder selection<br/>Storage optimization]
     end
 
-    subgraph DistributedSync[Distributed Sync - #00AA00]
+    subgraph DistributedSync[Distributed Sync - #10B981]
         SYNC_CLUSTER[Sync Service Cluster<br/>Auto-scaling<br/>Load balancing]
         CONFLICT_RESOLUTION[Conflict Resolution<br/>Merge algorithms<br/>User notification]
         BATCH_PROCESSOR[Batch Processor<br/>Large file handling<br/>Background processing]
     end
 
-    subgraph ScaledStorage[Scaled Storage - #FF8800]
+    subgraph ScaledStorage[Scaled Storage - #F59E0B]
         MYSQL_CLUSTER[(MySQL Cluster<br/>Master-slave setup<br/>Read scaling)]
         S3_MULTI_REGION[(S3 Multi-Region<br/>Geographic distribution<br/>Disaster recovery)]
         REDIS_CLUSTER[(Redis Cluster<br/>Real-time cache<br/>Session management)]
@@ -91,9 +91,9 @@ graph TB
     CONFLICT_RESOLUTION --> S3_MULTI_REGION
     BATCH_PROCESSOR --> REDIS_CLUSTER
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef syncStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef syncStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class MULTI_PLATFORM,MOBILE_APPS,SELECTIVE_SYNC clientStyle
     class SYNC_CLUSTER,CONFLICT_RESOLUTION,BATCH_PROCESSOR syncStyle
@@ -117,19 +117,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EnterprisePlatform[Enterprise Platform - #0066CC]
+    subgraph EnterprisePlatform[Enterprise Platform - #3B82F6]
         DROPBOX_BUSINESS[Dropbox Business<br/>Team management<br/>Admin controls]
         SMART_SYNC[Smart Sync<br/>Cloud-only files<br/>Local space optimization]
         PAPER[Dropbox Paper<br/>Collaborative docs<br/>Real-time editing]
     end
 
-    subgraph CollaborationServices[Collaboration Services - #00AA00]
+    subgraph CollaborationServices[Collaboration Services - #10B981]
         REAL_TIME_COLLAB[Real-time Collaboration<br/>Operational transforms<br/>Conflict-free editing]
         COMMENT_SYSTEM[Comment System<br/>File annotations<br/>Review workflows]
         ACTIVITY_FEED[Activity Feed<br/>Team updates<br/>Notification system]
     end
 
-    subgraph AdvancedInfra[Advanced Infrastructure - #FF8800]
+    subgraph AdvancedInfra[Advanced Infrastructure - #F59E0B]
         MICROSERVICES[Microservices Architecture<br/>Service mesh<br/>Independent scaling]
         DISTRIBUTED_DB[(Distributed Database<br/>Sharded by team<br/>Consistent hashing)]
         OBJECT_STORAGE[(Object Storage<br/>Custom file system<br/>Deduplication)]
@@ -150,9 +150,9 @@ graph TB
     ACTIVITY_FEED --> SEARCH_ENGINE
     MICROSERVICES --> ENCRYPTION
 
-    classDef platformStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef collabStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef platformStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef collabStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef securityStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class DROPBOX_BUSINESS,SMART_SYNC,PAPER platformStyle

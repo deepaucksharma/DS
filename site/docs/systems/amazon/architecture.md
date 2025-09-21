@@ -7,113 +7,103 @@ Amazon's global infrastructure spans 1.5M+ servers across 100+ availability zone
 
 ```mermaid
 graph TB
-    subgraph GlobalEdge[Global Edge Infrastructure - 450+ Edge Locations]
-        CF[CloudFront CDN<br/>450+ PoPs<br/>$8B/year cost]
-        R53[Route 53 DNS<br/>100% SLA<br/>400B queries/month]
-        WAF[AWS WAF<br/>10M+ rules/sec<br/>DDoS protection]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
+        style EdgePlane fill:#3B82F6,stroke:#2563EB,color:#fff
+
+        CF[CloudFront CDN v3.2<br/>━━━━━<br/>450+ PoPs globally<br/>200 Tbps aggregate<br/>p99: 45ms cache hit<br/>Cost: $8B/year]
+
+        R53[Route 53 DNS<br/>━━━━━<br/>100% uptime SLA<br/>400B queries/month<br/>Anycast architecture<br/>13 root name servers]
+
+        WAF[AWS WAF v2<br/>━━━━━<br/>10M+ rules/sec<br/>DDoS Shield Advanced<br/>Layer 3/4/7 protection<br/>c5n.18xlarge fleet]
     end
 
-    subgraph AZInfra[Availability Zone Infrastructure - 100+ AZs]
-        subgraph AZ1[Availability Zone us-east-1a]
-            NLB1[Network Load Balancer<br/>100M+ connections/hour]
-            ALB1[Application Load Balancer<br/>p99: 2ms response]
-            EC21[EC2 Fleet<br/>500K+ instances<br/>c5n.18xlarge dominance]
-            ECS1[ECS Fargate<br/>50K+ tasks/cluster]
-        end
+    subgraph ServicePlane[Service Plane - Green #10B981]
+        style ServicePlane fill:#10B981,stroke:#059669,color:#fff
 
-        subgraph AZ2[Availability Zone us-east-1b]
-            NLB2[Network Load Balancer<br/>Multi-AZ failover]
-            ALB2[Application Load Balancer<br/>Cross-zone enabled]
-            EC22[EC2 Fleet<br/>Auto Scaling Groups]
-            ECS2[ECS Fargate<br/>Service mesh integration]
-        end
+        APIGW[API Gateway REST v2<br/>━━━━━<br/>10B requests/month<br/>$3.50/million calls<br/>p99: 100ms<br/>429 rate limiting]
+
+        Lambda[Lambda Runtime v2023<br/>━━━━━<br/>15M+ concurrent<br/>Java 17 Corretto<br/>Cold start: 80ms<br/>ARM64 Graviton3]
+
+        CatalogSvc[Catalog Microservice<br/>━━━━━<br/>Spring Boot 3.1.2<br/>Java 17 OpenJDK<br/>r5.12xlarge instances<br/>40M+ products indexed]
+
+        OrderSvc[Order Processing Service<br/>━━━━━<br/>Go 1.21 service<br/>Event-driven CQRS<br/>c5.9xlarge instances<br/>2M orders/day peak]
+
+        PaymentSvc[Payment Processing<br/>━━━━━<br/>Java 17 Spring Boot<br/>PCI-DSS Level 1<br/>r5.16xlarge instances<br/>Multi-region active]
+
+        RecommendSvc[ML Recommendation Engine<br/>━━━━━<br/>Python 3.11 FastAPI<br/>TensorFlow 2.13<br/>p4d.24xlarge GPU<br/>SageMaker integration]
     end
 
-    subgraph APILayer[API Gateway Layer - Service Plane]
-        APIGW[API Gateway<br/>10B requests/month<br/>$3.50/million calls]
-        Lambda[Lambda Functions<br/>15M+ concurrent executions<br/>Cold start: <100ms Java 17]
-        ELB[Elastic Load Balancer<br/>Cross-zone load balancing]
-        SvcMesh[AWS App Mesh<br/>Envoy proxy sidecar<br/>mTLS enforcement]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
+        style StatePlane fill:#F59E0B,stroke:#D97706,color:#fff
+
+        DynamoDB[DynamoDB v2023<br/>━━━━━<br/>100 trillion objects<br/>Single-digit ms p99<br/>Multi-Paxos consensus<br/>On-Demand billing]
+
+        RDS[Aurora PostgreSQL 15.3<br/>━━━━━<br/>db.r6gd.16xlarge<br/>99.99% availability SLA<br/>6-way replication<br/>15-second backup RPO]
+
+        S3[S3 Standard/IA/Glacier<br/>━━━━━<br/>100+ trillion objects<br/>11 9's durability<br/>Multi-part upload<br/>Cross-Region Replication]
+
+        ElastiCache[ElastiCache Redis 7.0<br/>━━━━━<br/>r6gd.16xlarge nodes<br/>Sub-ms latency p99<br/>Cluster mode enabled<br/>Encryption in transit]
+
+        Redshift[Redshift RA3.16xlarge<br/>━━━━━<br/>Petabyte warehouse<br/>Columnar compression<br/>ML built-in<br/>Concurrency scaling]
     end
 
-    subgraph CoreServices[Core Business Services - Microservices]
-        CatalogSvc[Catalog Service<br/>40M+ products<br/>ElastiCache Redis cluster]
-        OrderSvc[Order Service<br/>Two-pizza team owned<br/>Event-driven architecture]
-        PaymentSvc[Payment Service<br/>PCI-DSS Level 1<br/>Multi-region replication]
-        InventorySvc[Inventory Service<br/>DynamoDB Global Tables<br/>Eventually consistent]
-        RecommendSvc[Recommendation Service<br/>ML inference pipeline<br/>SageMaker endpoints]
-        FulfillmentSvc[Fulfillment Service<br/>Robotics integration<br/>Kiva systems coordination]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
+        style ControlPlane fill:#8B5CF6,stroke:#7C3AED,color:#fff
+
+        CloudWatch[CloudWatch Metrics<br/>━━━━━<br/>1B+ data points/day<br/>Custom metrics API<br/>$0.30/metric/month<br/>1-minute resolution]
+
+        XRay[X-Ray Distributed Tracing<br/>━━━━━<br/>Service map generation<br/>1M traces/month free<br/>99th percentile analysis<br/>Anomaly detection]
+
+        EKS[EKS Kubernetes 1.28<br/>━━━━━<br/>Managed control plane<br/>Fargate serverless<br/>$0.10/hour cluster<br/>Auto-scaling enabled]
+
+        CodeDeploy[CodeDeploy Blue-Green<br/>━━━━━<br/>Canary deployments<br/>Auto rollback triggers<br/>CloudFormation integration<br/>Zero-downtime deploys]
     end
 
-    subgraph StateLayer[State Plane - Storage & Data]
-        DynamoDB[DynamoDB<br/>100 trillion objects<br/>Single-digit ms latency<br/>Multi-Paxos consensus<br/>$20B+ managed database market]
-        RDS[Amazon RDS<br/>Aurora PostgreSQL/MySQL<br/>99.99% availability<br/>6-way replication]
-        S3[Amazon S3<br/>100+ trillion objects<br/>11 9's durability<br/>$70B+ storage revenue]
-        Redshift[Redshift<br/>Petabyte data warehouse<br/>Columnar compression<br/>Machine learning integrated]
-        ElastiCache[ElastiCache<br/>Redis/Memcached<br/>Sub-millisecond latency<br/>In-memory data store]
-        DocumentDB[DocumentDB<br/>MongoDB compatible<br/>JSON document store<br/>Fully managed]
-    end
+    %% Connections with real metrics
+    CF -->|"p50: 15ms<br/>p99: 45ms<br/>95% cache hit"| R53
+    R53 -->|"DNS resolution<br/>p99: 5ms"| WAF
+    WAF -->|"Filtered traffic<br/>99.9% clean"| APIGW
 
-    subgraph ControlPlane[Control Plane - Operations & Monitoring]
-        CloudWatch[CloudWatch<br/>1B+ data points/day<br/>Custom metrics: $0.30/metric]
-        XRay[X-Ray Tracing<br/>Distributed tracing<br/>Service map generation]
-        CloudTrail[CloudTrail<br/>API audit logging<br/>Security compliance]
-        Config[AWS Config<br/>Configuration management<br/>Compliance monitoring]
-        SystemsManager[Systems Manager<br/>Patch management<br/>Parameter Store]
-        SecManager[Secrets Manager<br/>Automatic rotation<br/>Cross-service integration]
-    end
+    APIGW -->|"10B req/month<br/>p99: 100ms"| Lambda
+    APIGW -->|"Authenticated<br/>p99: 50ms"| CatalogSvc
+    APIGW -->|"2M orders/day"| OrderSvc
 
-    subgraph MLPipeline[ML/AI Pipeline - Intelligence Layer]
-        SageMaker[SageMaker<br/>ML model training<br/>300+ pre-built algorithms]
-        Personalize[Amazon Personalize<br/>Real-time recommendations<br/>$1B+ recommendation revenue]
-        Comprehend[Amazon Comprehend<br/>NLP service<br/>Sentiment analysis]
-        Rekognition[Amazon Rekognition<br/>Computer vision<br/>Face/object detection]
-    end
+    CatalogSvc -->|"Product lookup<br/>p99: 5ms"| DynamoDB
+    CatalogSvc -->|"Cache hit: 98%<br/>p99: 0.3ms"| ElastiCache
 
-    %% Request Flow
-    CF --> R53
-    R53 --> WAF
-    WAF --> NLB1 & NLB2
-    NLB1 --> ALB1 --> APIGW
-    NLB2 --> ALB2 --> APIGW
+    OrderSvc -->|"Order persistence<br/>p99: 15ms"| RDS
+    OrderSvc -->|"Event store<br/>p99: 10ms"| DynamoDB
 
-    APIGW --> Lambda
-    APIGW --> ELB --> SvcMesh
-    SvcMesh --> CatalogSvc & OrderSvc & PaymentSvc
+    PaymentSvc -->|"Transaction log<br/>p99: 20ms"| RDS
+    PaymentSvc -->|"Audit trail"| S3
 
-    CatalogSvc --> DynamoDB & ElastiCache
-    OrderSvc --> RDS & DynamoDB
-    PaymentSvc --> RDS & DocumentDB
-    InventorySvc --> DynamoDB
-    RecommendSvc --> SageMaker --> Personalize
-    FulfillmentSvc --> DynamoDB & RDS
+    RecommendSvc -->|"ML inference<br/>p99: 150ms"| Lambda
+    RecommendSvc -->|"Model artifacts"| S3
 
-    %% Storage Integration
-    CatalogSvc --> S3
-    OrderSvc --> S3
-    PaymentSvc --> S3
+    %% Analytics pipeline
+    DynamoDB -->|"DynamoDB Streams<br/>1s latency"| Redshift
+    RDS -->|"CDC replication<br/>5min lag"| Redshift
+    S3 -->|"Batch ETL<br/>Glue jobs"| Redshift
 
-    %% Analytics Pipeline
-    DynamoDB --> Redshift
-    RDS --> Redshift
-    S3 --> Redshift
+    %% Control plane monitoring
+    CatalogSvc -.->|"Metrics/logs<br/>1M/sec"| CloudWatch
+    OrderSvc -.->|"Distributed traces"| XRay
+    PaymentSvc -.->|"Security audit"| CloudWatch
+    RecommendSvc -.->|"Container logs"| EKS
 
-    %% Monitoring Integration
-    Lambda --> CloudWatch & XRay
-    CatalogSvc --> CloudWatch & XRay
-    OrderSvc --> CloudWatch & XRay
-    PaymentSvc --> CloudTrail & XRay
+    CodeDeploy -.->|"Deploy pipeline"| CatalogSvc
+    CodeDeploy -.->|"Blue-green deploy"| OrderSvc
 
-    %% Apply four-plane architecture colors
-    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
-    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
-    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
-    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    %% Apply 4-plane colors
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,font-weight:bold
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,font-weight:bold
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,font-weight:bold
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
-    class CF,R53,WAF,NLB1,NLB2,ALB1,ALB2 edgeStyle
-    class APIGW,Lambda,ELB,SvcMesh,CatalogSvc,OrderSvc,PaymentSvc,InventorySvc,RecommendSvc,FulfillmentSvc,EC21,EC22,ECS1,ECS2 serviceStyle
-    class DynamoDB,RDS,S3,Redshift,ElastiCache,DocumentDB stateStyle
-    class CloudWatch,XRay,CloudTrail,Config,SystemsManager,SecManager,SageMaker,Personalize,Comprehend,Rekognition controlStyle
+    class CF,R53,WAF edgeStyle
+    class APIGW,Lambda,CatalogSvc,OrderSvc,PaymentSvc,RecommendSvc serviceStyle
+    class DynamoDB,RDS,S3,ElastiCache,Redshift stateStyle
+    class CloudWatch,XRay,EKS,CodeDeploy controlStyle
 ```
 
 ## Key Architecture Metrics

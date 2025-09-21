@@ -87,14 +87,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CDN[Global CDN<br/>Video Distribution]
         EDGE[Edge Data Centers<br/>150+ Global Locations]
         LB[Load Balancers<br/>Traffic Distribution]
         RELAY[Media Relays<br/>Video/Audio Routing]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         MEETING[Meeting Service<br/>Core Video Conferencing]
         WEBINAR[Webinar Platform<br/>Large Scale Broadcasting]
         PHONE[Zoom Phone<br/>VoIP Services]
@@ -103,7 +103,7 @@ graph TB
         RECORDING[Cloud Recording<br/>Video Storage]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         USERDB[(User Database<br/>Account Management)]
         MEETINGDB[(Meeting Database<br/>Session Management)]
         AUTHDB[(Authentication<br/>Login and Security)]
@@ -112,7 +112,7 @@ graph TB
         CACHE[(Redis Cache<br/>Session State)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CAPACITY[Capacity Management<br/>Auto-scaling Systems]
         MONITOR[Monitoring<br/>Real-time Metrics]
         TRAFFIC[Traffic Engineering<br/>Global Load Balancing]
@@ -126,10 +126,10 @@ graph TB
     AUTHDB -.->|AUTH FAILURES| EDUCATION
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,EDGE,LB,RELAY edgeStyle
     class MEETING,WEBINAR,PHONE,ROOMS,EDUCATION,RECORDING serviceStyle

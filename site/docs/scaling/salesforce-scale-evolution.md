@@ -17,18 +17,18 @@ Salesforce's scaling journey from a CRM startup to a $30B+ revenue cloud computi
 
 ```mermaid
 graph TB
-    subgraph SaaSConcept[SaaS Concept - #0066CC]
+    subgraph SaaSConcept[SaaS Concept - #3B82F6]
         WEB_CRM[Web-based CRM<br/>Browser access<br/>No installation]
         MULTI_TENANT[Multi-tenant Architecture<br/>Shared infrastructure<br/>Cost efficiency]
     end
 
-    subgraph SimpleApp[Simple Application - #00AA00]
+    subgraph SimpleApp[Simple Application - #10B981]
         CONTACT_MGMT[Contact Management<br/>Customer records<br/>Basic tracking]
         SALES_PIPELINE[Sales Pipeline<br/>Opportunity tracking<br/>Deal management]
         REPORTING[Basic Reporting<br/>Sales analytics<br/>Dashboard views]
     end
 
-    subgraph BasicInfra[Basic Infrastructure - #FF8800]
+    subgraph BasicInfra[Basic Infrastructure - #F59E0B]
         ORACLE_DB[(Oracle Database<br/>Customer data<br/>Single instance)]
         WEB_SERVERS[Web Servers<br/>Application logic<br/>Load balanced)]
         FILE_STORAGE[(File Storage<br/>Document management<br/>Attachment handling)]
@@ -40,9 +40,9 @@ graph TB
     SALES_PIPELINE --> WEB_SERVERS
     REPORTING --> FILE_STORAGE
 
-    classDef conceptStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef appStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef conceptStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef appStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class WEB_CRM,MULTI_TENANT conceptStyle
     class CONTACT_MGMT,SALES_PIPELINE,REPORTING appStyle
@@ -67,19 +67,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph PlatformConcept[Platform Concept - #0066CC]
+    subgraph PlatformConcept[Platform Concept - #3B82F6]
         APPEXCHANGE[AppExchange<br/>Third-party apps<br/>Marketplace ecosystem]
         APEX_PLATFORM[Apex Platform<br/>Custom development<br/>PaaS offering]
         FORCE_COM[Force.com<br/>Platform as a Service<br/>Custom applications]
     end
 
-    subgraph AdvancedCRM[Advanced CRM - #00AA00]
+    subgraph AdvancedCRM[Advanced CRM - #10B981]
         WORKFLOW_ENGINE[Workflow Engine<br/>Business automation<br/>Approval processes]
         CUSTOM_OBJECTS[Custom Objects<br/>Data model extension<br/>Industry adaptation]
         INTEGRATION_HUB[Integration Hub<br/>API connectivity<br/>Data synchronization]
     end
 
-    subgraph ScaledInfra[Scaled Infrastructure - #FF8800]
+    subgraph ScaledInfra[Scaled Infrastructure - #F59E0B]
         ORACLE_CLUSTER[(Oracle RAC Cluster<br/>High availability<br/>Performance scaling)]
         APP_SERVERS[Application Server Cluster<br/>Java EE platform<br/>Session management)]
         SEARCH_ENGINE[(Search Engine<br/>Lucene-based<br/>Full-text search)]
@@ -93,9 +93,9 @@ graph TB
     CUSTOM_OBJECTS --> APP_SERVERS
     INTEGRATION_HUB --> SEARCH_ENGINE
 
-    classDef platformStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef crmStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef platformStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef crmStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class APPEXCHANGE,APEX_PLATFORM,FORCE_COM platformStyle
     class WORKFLOW_ENGINE,CUSTOM_OBJECTS,INTEGRATION_HUB crmStyle
@@ -120,21 +120,21 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph CloudEcosystem[Cloud Ecosystem - #0066CC]
+    subgraph CloudEcosystem[Cloud Ecosystem - #3B82F6]
         SALES_CLOUD[Sales Cloud<br/>CRM platform<br/>Sales automation]
         SERVICE_CLOUD[Service Cloud<br/>Customer support<br/>Case management]
         MARKETING_CLOUD[Marketing Cloud<br/>Digital marketing<br/>Customer journey]
         COMMERCE_CLOUD[Commerce Cloud<br/>E-commerce platform<br/>Digital shopping]
     end
 
-    subgraph PlatformServices[Platform Services - #00AA00]
+    subgraph PlatformServices[Platform Services - #10B981]
         EINSTEIN_AI[Einstein AI<br/>Machine learning<br/>Predictive analytics]
         LIGHTNING_PLATFORM[Lightning Platform<br/>Modern development<br/>Component framework]
         INTEGRATION_PLATFORM[Integration Platform<br/>MuleSoft acquisition<br/>API management]
         ANALYTICS_PLATFORM[Analytics Platform<br/>Tableau acquisition<br/>Data visualization]
     end
 
-    subgraph HyperscaleInfra[Hyperscale Infrastructure - #FF8800]
+    subgraph HyperscaleInfra[Hyperscale Infrastructure - #F59E0B]
         MULTI_CLOUD[(Multi-cloud Database<br/>Oracle + PostgreSQL<br/>Data partitioning)]
         MICROSERVICES[Microservices Architecture<br/>Service mesh<br/>Independent scaling)]
         GLOBAL_CDN[(Global CDN<br/>Edge computing<br/>Performance optimization)]
@@ -163,9 +163,9 @@ graph TB
     GLOBAL_CDN --> COMPUTER_VISION
     DATA_LAKES --> MACHINE_LEARNING
 
-    classDef cloudStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef platformStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef cloudStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef platformStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef aiStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class SALES_CLOUD,SERVICE_CLOUD,MARKETING_CLOUD,COMMERCE_CLOUD cloudStyle

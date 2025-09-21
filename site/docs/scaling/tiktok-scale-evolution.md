@@ -17,18 +17,18 @@ TikTok's scaling journey from Musical.ly's 100M users to becoming the world's fa
 
 ```mermaid
 graph TB
-    subgraph CorePlatform[Musical.ly Platform - #0066CC]
+    subgraph CorePlatform[Musical.ly Platform - #3B82F6]
         MOBILE_APP[Mobile Apps<br/>iOS/Android<br/>Video creation]
         WEB_INTERFACE[Web Interface<br/>Basic viewing<br/>User profiles]
     end
 
-    subgraph VideoInfra[Video Infrastructure - #00AA00]
+    subgraph VideoInfra[Video Infrastructure - #10B981]
         UPLOAD_SVC[Upload Service<br/>Video processing<br/>Format conversion]
         STORAGE_SVC[Storage Service<br/>Video files<br/>CDN distribution]
         STREAMING_SVC[Streaming Service<br/>Adaptive bitrate<br/>Global delivery]
     end
 
-    subgraph DataPlatform[Data Platform - #FF8800]
+    subgraph DataPlatform[Data Platform - #F59E0B]
         USER_DB[(User Database<br/>PostgreSQL<br/>User profiles)]
         VIDEO_DB[(Video Metadata<br/>MySQL<br/>Content catalog)]
         REDIS_CACHE[(Redis Cache<br/>Session data<br/>Feed caching)]
@@ -45,9 +45,9 @@ graph TB
     STORAGE_SVC --> REDIS_CACHE
     STREAMING_SVC --> RECOMMENDATION
 
-    classDef platformStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef infraStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef platformStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef infraStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef aiStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class MOBILE_APP,WEB_INTERFACE platformStyle
@@ -73,7 +73,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph GlobalPlatform[Global Platform Integration - #0066CC]
+    subgraph GlobalPlatform[Global Platform Integration - #3B82F6]
         TIKTOK_APP[TikTok App<br/>Rebranded interface<br/>Enhanced features]
         DOUYIN_APP[Douyin App<br/>China market<br/>Localized content]
     end
@@ -84,13 +84,13 @@ graph TB
         SAFETY_AI[Safety AI<br/>Content moderation<br/>Policy enforcement]
     end
 
-    subgraph ScalableInfra[Scalable Infrastructure - #00AA00]
+    subgraph ScalableInfra[Scalable Infrastructure - #10B981]
         MICROSERVICES[Microservices Architecture<br/>Service mesh<br/>Independent scaling]
         GLOBAL_CDN[Global CDN<br/>Multi-provider<br/>Edge optimization]
         REAL_TIME[Real-time Processing<br/>Live streaming<br/>Instant uploads]
     end
 
-    subgraph BigData[Big Data Platform - #FF8800]
+    subgraph BigData[Big Data Platform - #F59E0B]
         DATA_LAKE[(Data Lake<br/>Hadoop/Spark<br/>Petabyte storage)]
         STREAM_PROCESSING[(Stream Processing<br/>Apache Flink<br/>Real-time analytics)]
         ML_PLATFORM[(ML Platform<br/>TensorFlow<br/>Model training)]
@@ -103,10 +103,10 @@ graph TB
     MICROSERVICES --> DATA_LAKE
     REAL_TIME --> STREAM_PROCESSING
 
-    classDef platformStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef platformStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef aiStyle fill:#9966CC,stroke:#663399,color:#fff
-    classDef infraStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef infraStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class TIKTOK_APP,DOUYIN_APP platformStyle
     class FYP_ALGORITHM,CONTENT_UNDERSTANDING,SAFETY_AI aiStyle
@@ -125,12 +125,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph HyperscaleEdge[Hyperscale Edge Infrastructure - #0066CC]
+    subgraph HyperscaleEdge[Hyperscale Edge Infrastructure - #3B82F6]
         GLOBAL_EDGE[Global Edge Network<br/>1000+ locations<br/>Sub-50ms latency]
         INTELLIGENT_ROUTING[Intelligent Routing<br/>ML-based optimization<br/>Dynamic load balancing]
     end
 
-    subgraph ContentPlatform[Content Platform - #00AA00]
+    subgraph ContentPlatform[Content Platform - #10B981]
         subgraph VideoProcessing[Video Processing]
             UPLOAD_PIPELINE[Upload Pipeline<br/>Parallel processing<br/>Format optimization]
             TRANSCODING[Transcoding Service<br/>Multiple resolutions<br/>Adaptive streaming]
@@ -164,7 +164,7 @@ graph TB
         end
     end
 
-    subgraph MassiveData[Massive Data Infrastructure - #FF8800]
+    subgraph MassiveData[Massive Data Infrastructure - #F59E0B]
         subgraph StreamingData[Real-time Streaming]
             KAFKA_CLUSTERS[(Kafka Clusters<br/>Multi-region<br/>Billions events/day)]
             FLINK_PROCESSING[(Flink Processing<br/>Stream analytics<br/>Real-time features)]
@@ -190,10 +190,10 @@ graph TB
     VIDEO_UNDERSTANDING --> KAFKA_CLUSTERS
     REAL_TIME_RANKING --> DISTRIBUTED_DB
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef contentStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef contentStyle fill:#10B981,stroke:#059669,color:#fff
     classDef aiStyle fill:#9966CC,stroke:#663399,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class GLOBAL_EDGE,INTELLIGENT_ROUTING edgeStyle
     class UPLOAD_PIPELINE,TRANSCODING,THUMBNAIL_GEN,CDN_MULTI,EDGE_CACHING,BANDWIDTH_OPT contentStyle

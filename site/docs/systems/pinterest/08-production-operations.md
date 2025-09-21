@@ -150,10 +150,10 @@ graph TB
     CDN_OUTAGE --> DISASTER_RECOVERY
 
     %% Apply operational colors
-    classDef deployStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef moderationStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef cdnStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef monitorStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef deployStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef moderationStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef cdnStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef monitorStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef chaosStyle fill:#8800CC,stroke:#660099,color:#fff,stroke-width:3px
 
     class GIT,CI,STAGING,SPINNAKER,KUBERNETES,HELM,HEALTH_CHECK,METRICS_GATE,CANARY_ANALYSIS deployStyle

@@ -17,23 +17,23 @@ This playbook guides the migration from Redis-based session storage to DynamoDB,
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ALB[Application Load Balancer<br/>p99: 5ms]
         CF[CloudFront CDN<br/>Cache-Control: no-cache for /login]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         APP1[Web Server 1<br/>Spring Boot 2.7<br/>c5.2xlarge]
         APP2[Web Server 2<br/>Spring Boot 2.7<br/>c5.2xlarge]
         APP3[Web Server 3<br/>Spring Boot 2.7<br/>c5.2xlarge]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         REDIS_MASTER[Redis Master<br/>r6g.xlarge<br/>16GB RAM<br/>5000 sessions/min]
         REDIS_REPLICA[Redis Replica<br/>r6g.xlarge<br/>16GB RAM<br/>Read-only]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CW[CloudWatch<br/>Session metrics<br/>Memory usage]
         ELK[ELK Stack<br/>Session audit logs<br/>Auth events]
     end
@@ -55,10 +55,10 @@ graph TB
     REDIS_MASTER --> CW
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALB,CF edgeStyle
     class APP1,APP2,APP3 serviceStyle
@@ -76,23 +76,23 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ALB[Application Load Balancer<br/>p99: 5ms]
         CF[CloudFront CDN<br/>Cache-Control: no-cache for /login]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         APP1[Web Server 1<br/>Spring Boot 2.7<br/>c5.2xlarge<br/>AWS SDK v2]
         APP2[Web Server 2<br/>Spring Boot 2.7<br/>c5.2xlarge<br/>AWS SDK v2]
         APP3[Web Server 3<br/>Spring Boot 2.7<br/>c5.2xlarge<br/>AWS SDK v2]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         DDB[DynamoDB Sessions Table<br/>On-Demand Billing<br/>TTL: 30 minutes<br/>Global Tables: Multi-region]
         DAX[DynamoDB Accelerator<br/>dax.r4.xlarge<br/>Sub-millisecond reads<br/>Write-through cache]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CW[CloudWatch<br/>DynamoDB metrics<br/>Throttling alerts]
         XRAY[X-Ray Tracing<br/>Session operations<br/>Performance analysis]
     end
@@ -114,10 +114,10 @@ graph TB
     DDB --> CW
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALB,CF edgeStyle
     class APP1,APP2,APP3 serviceStyle
@@ -416,8 +416,8 @@ graph TB
     end
 
     %% Risk level colors
-    classDef highRisk fill:#ff4444,stroke:#cc0000,color:#fff
-    classDef mediumRisk fill:#ffaa00,stroke:#cc6600,color:#fff
+    classDef highRisk fill:#ff4444,stroke:#8B5CF6,color:#fff
+    classDef mediumRisk fill:#ffaa00,stroke:#D97706,color:#fff
     classDef lowRisk fill:#44aa44,stroke:#006600,color:#fff
 
     class PERF,DATA,COST highRisk
@@ -536,8 +536,8 @@ graph TB
     end
 
     %% Step colors
-    classDef triggerStyle fill:#ff4444,stroke:#cc0000,color:#fff
-    classDef stepStyle fill:#0066cc,stroke:#004499,color:#fff
+    classDef triggerStyle fill:#ff4444,stroke:#8B5CF6,color:#fff
+    classDef stepStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef completeStyle fill:#44aa44,stroke:#006600,color:#fff
 
     class TRIGGER triggerStyle
@@ -626,9 +626,9 @@ graph TB
     end
 
     %% Cost colors
-    classDef currentCost fill:#ff8800,stroke:#cc6600,color:#fff
+    classDef currentCost fill:#F59E0B,stroke:#D97706,color:#fff
     classDef targetCost fill:#44aa44,stroke:#006600,color:#fff
-    classDef savingsStyle fill:#0066cc,stroke:#004499,color:#fff
+    classDef savingsStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class REDIS_COMPUTE,REDIS_STORAGE,REDIS_NETWORK,REDIS_BACKUP,REDIS_MONITORING,REDIS_SUPPORT currentCost
     class DDB_READ,DDB_WRITE,DAX_COMPUTE,DDB_STORAGE,DDB_BACKUP,DDB_MONITORING targetCost

@@ -51,10 +51,10 @@ graph TB
 
     %% Apply cost-tier colors
     classDef totalStyle fill:#000000,stroke:#333333,color:#fff,stroke-width:4px
-    classDef highCostStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
-    classDef mediumCostStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:2px
-    classDef lowCostStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:2px
-    classDef toolingStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:2px
+    classDef highCostStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
+    classDef mediumCostStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:2px
+    classDef lowCostStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:2px
+    classDef toolingStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:2px
 
     class TOTAL totalStyle
     class EC2_GENERAL,GPU_ML,VIDEO_STORAGE,CDN_PRIMARY highCostStyle

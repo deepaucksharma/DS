@@ -8,28 +8,28 @@ CrashLoopBackOff is one of the most common Kubernetes failure modes, affecting 3
 
 ```mermaid
 graph TB
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         START[Pod in CrashLoopBackOff]
         EVENTS[Check Pod Events]
         LOGS[Check Container Logs]
         DESCRIBE[Describe Pod Details]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         EXIT[Exit Code Analysis]
         HEALTH[Health Check Failures?]
         DEPS[Dependency Issues?]
         CONFIG[Configuration Issues?]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         RESOURCES[Resource Constraints?]
         STORAGE[Storage Issues?]
         NETWORK[Network Policies?]
         SECRETS[Secrets/ConfigMaps?]
     end
 
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         IMAGE[Image Pull Issues?]
         REGISTRY[Registry Access?]
         NODE[Node Conditions?]
@@ -53,10 +53,10 @@ graph TB
     NODE --> SCHED
 
     %% Apply four-plane colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class START,EVENTS,LOGS,DESCRIBE controlStyle
     class EXIT,HEALTH,DEPS,CONFIG serviceStyle

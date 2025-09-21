@@ -8,24 +8,24 @@ Uber operates one of the world's largest MongoDB deployments, managing petabytes
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[Uber Load Balancer<br/>Envoy Proxy<br/>99.99% availability]
         CDN[Uber CDN<br/>Edge caching<br/>Location-aware routing]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         API[Uber APIs<br/>Go microservices<br/>5000+ instances]
         ROUTER[MongoDB Router<br/>mongos processes<br/>Query routing layer]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         CONFIG[Config Servers<br/>3x r6g.xlarge<br/>Metadata storage]
         SHARD1[Shard 1<br/>3x r6g.16xlarge<br/>Primary + 2 secondaries]
         SHARD2[Shard 2<br/>3x r6g.16xlarge<br/>Primary + 2 secondaries]
         SHARDN[Shard N<br/>500 total shards<br/>1500 replica set members]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MON[Monitoring<br/>MongoDB Ops Manager<br/>Real-time metrics]
         BACKUP[Backup System<br/>Continuous backup<br/>Point-in-time recovery]
     end
@@ -42,10 +42,10 @@ graph TB
     MON --> SHARD1
     BACKUP --> SHARD1
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,CDN edgeStyle
     class API,ROUTER serviceStyle
@@ -89,7 +89,7 @@ graph LR
         BULK[Bulk Ops: 250K/sec<br/>Batch inserts<br/>Optimized batching]
     end
 
-    classDef metricStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class INSERT,UPDATE,FIND,AGG,INDEX,P50,P95,P99,P999,P9999,WRITES,READS,BULK metricStyle
 ```
 
@@ -131,9 +131,9 @@ graph TB
     HASH --> USER
     COMPOUND --> DRIVER
 
-    classDef strategyStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef keyStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef benefitStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef strategyStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef keyStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef benefitStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class GEO,TIME,HASH,COMPOUND strategyStyle
     class TRIP,USER,DRIVER,PAYMENT keyStyle
@@ -194,8 +194,8 @@ graph TB
     INDEX --> BATCH
     REPLICATION --> ASYNC
 
-    classDef bottleneckStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef bottleneckStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class JOURNAL,REPLICATION,LOCKING,INDEX,VALIDATION bottleneckStyle
     class NVME,BATCH,PARTIAL,ASYNC solutionStyle
@@ -235,8 +235,8 @@ graph LR
 
     S5 --> RESHARD
 
-    classDef scaleStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef scaleStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class S1,S2,S3,S4,S5 scaleStyle
     class RESHARD solutionStyle
@@ -283,8 +283,8 @@ graph TB
     SUPPORT --> TOTAL
     TEAM --> TOTAL
 
-    classDef costStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef totalStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef costStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef totalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class COMPUTE,STORAGE,NETWORK,BACKUP,MONITORING,SUPPORT,TEAM costStyle
     class TOTAL totalStyle
@@ -411,8 +411,8 @@ graph TB
         CONFIG[Config Servers<br/>Metadata consistency<br/>Election status]
     end
 
-    classDef metricStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef healthStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef healthStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class OPS,LATENCY,MEMORY,CONNECTIONS,REPLICATION,DISK,QUEUE,CURSORS metricStyle
     class SHARDS,CHUNKS,CONFIG healthStyle

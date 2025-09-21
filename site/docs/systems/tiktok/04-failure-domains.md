@@ -76,11 +76,11 @@ graph TB
     EDGE_POP --> CASCADE4
 
     %% Apply severity-based colors
-    classDef criticalStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef criticalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
     classDef highStyle fill:#FF4400,stroke:#CC3300,color:#fff,stroke-width:3px
-    classDef mediumStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:2px
+    classDef mediumStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:2px
     classDef lowStyle fill:#FFAA00,stroke:#CC8800,color:#fff,stroke-width:2px
-    classDef cascadeStyle fill:#AA00AA,stroke:#770077,color:#fff,stroke-width:2px
+    classDef cascadeStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:2px
 
     class CRITICAL,CDN_PRIMARY criticalStyle
     class HIGH,ML_SERVING,UPLOAD_PIPELINE,REGION_FAILURE,MODERATION highStyle

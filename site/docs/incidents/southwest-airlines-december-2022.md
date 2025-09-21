@@ -44,14 +44,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         GATES[Gate Systems<br/>Airport Operations]
         MOBILE[Mobile Apps<br/>Customer Interface]
         WEB[Website<br/>Booking + Check-in]
         KIOSKS[Airport Kiosks<br/>Self-Service]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         BOOKING[Booking System<br/>Reservations]
         CHECKIN[Check-in System<br/>Passenger Processing]
         OPS[Operations Control<br/>Flight Management]
@@ -59,7 +59,7 @@ graph TB
         MAINT[Maintenance<br/>Aircraft Management]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         PASSDB[(Passenger Database<br/>Customer Records)]
         FLIGHTDB[(Flight Database<br/>Schedule Management)]
         CREWDB[(Crew Database<br/>Personnel Tracking)]
@@ -67,7 +67,7 @@ graph TB
         BAGGAGE[(Baggage System<br/>Tracking Database)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         LEGACY[Legacy Systems<br/>30+ Year Old Code]
         WEATHER[Weather Integration<br/>External Data)]
         COMMS[Communication<br/>Internal Messaging]
@@ -81,10 +81,10 @@ graph TB
     BOOKING -.->|PASSENGER IMPACT| MOBILE
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class GATES,MOBILE,WEB,KIOSKS edgeStyle
     class BOOKING,CHECKIN,OPS,CREW,MAINT serviceStyle

@@ -101,10 +101,10 @@ graph TB
     Phase4 -.->|GameStop crisis| Phase5
 
     classDef mvpStyle fill:#999999,stroke:#666666,color:#fff
-    classDef pmfStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef microStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef hyperStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef entStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef pmfStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef microStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef hyperStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef entStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class MVP_APP,MVP_API,MVP_DB,MVP_QUEUE mvpStyle
     class PMF_APP,PMF_LB,PMF_API,PMF_DB,PMF_REDIS pmfStyle
@@ -205,8 +205,8 @@ graph LR
     OVERLOAD --> SOLUTION[Read Replicas<br/>Connection pooling]
     SOLUTION --> SCALE[10x capacity increase]
 
-    classDef problemStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef problemStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class OVERLOAD problemStyle
     class SOLUTION,SCALE solutionStyle
@@ -232,8 +232,8 @@ graph TB
     MONOLITH --> USER[User Service<br/>Profile management<br/>CRUD operations]
     MONOLITH --> PORTFOLIO[Portfolio Service<br/>Position tracking<br/>P&L calculations]
 
-    classDef monolithStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef monolithStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
 
     class MONOLITH monolithStyle
     class AUTH,ORDER,MARKET,USER,PORTFOLIO serviceStyle
@@ -368,8 +368,8 @@ graph TB
     Regulatory2019 -.->|Regulatory expansion| Regulatory2023
 
     classDef basicStyle fill:#999999,stroke:#666666,color:#fff
-    classDef autoStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef aiStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef autoStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef aiStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class BASIC_KYC,BASIC_REPORTS basicStyle
     class AUTO_KYC,AUTO_REPORTS,SURVEILLANCE autoStyle

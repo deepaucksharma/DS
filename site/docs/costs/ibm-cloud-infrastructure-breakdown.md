@@ -57,10 +57,10 @@ graph TB
     QUANTUM_COMPUTING -->|"Research data"| WATSON_KNOWLEDGE
 
     %% 4-Plane Colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
 
     class EDGE_COMPUTING,CDN,SATELLITE,HYBRID_CONNECTIVITY edgeStyle
     class WATSON_AI,OPENSHIFT,AUTOMATION,QUANTUM_COMPUTING,BLOCKCHAIN serviceStyle
@@ -120,7 +120,7 @@ graph TB
     RHEL_INFRASTRUCTURE --> PROFESSIONAL_SERVICES
     ANSIBLE_AUTOMATION --> TRAINING_CERTIFICATION
 
-    classDef redhatStyle fill:#EE0000,stroke:#CC0000,color:#fff
+    classDef redhatStyle fill:#EE0000,stroke:#8B5CF6,color:#fff
     classDef revenueStyle fill:#4CAF50,stroke:#388E3C,color:#fff
 
     class OPENSHIFT_PLATFORM,RHEL_INFRASTRUCTURE,ANSIBLE_AUTOMATION,MIDDLEWARE_STACK redhatStyle

@@ -8,28 +8,28 @@ Terraform apply errors affect 40% of infrastructure deployments and can cause si
 
 ```mermaid
 graph TB
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         START[Terraform Apply Failed]
         PLAN[Check Plan Output]
         STATE[Inspect State File]
         LOGS[Check Debug Logs]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         SYNTAX[HCL Syntax Issues?]
         DEPS[Resource Dependencies?]
         LOCK[State Lock Issues?]
         DRIFT[State Drift Detected?]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         BACKEND[Backend Configuration?]
         PERMS[Provider Permissions?]
         QUOTAS[Resource Quotas?]
         CONFLICTS[Resource Conflicts?]
     end
 
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         PROVIDER[Provider Version?]
         REGION[Region/Zone Issues?]
         NETWORK[Network Connectivity?]
@@ -53,10 +53,10 @@ graph TB
     NETWORK --> TIMEOUT
 
     %% Apply four-plane colors
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class START,PLAN,STATE,LOGS controlStyle
     class SYNTAX,DEPS,LOCK,DRIFT serviceStyle

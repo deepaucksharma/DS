@@ -8,28 +8,28 @@ Cascading timeout failures in microservice architectures can bring down entire s
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         CLIENT_REQUEST[Client Request]
         TIMEOUT_DETECTED{Timeout Detected?}
         PARTIAL_FAILURE{Partial Failure?}
         CASCADE_FAILURE{Cascade Detected?}
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         TRACE_REQUEST[Trace Request Path]
         ANALYZE_TIMEOUTS[Analyze Timeout Chain]
         CHECK_CIRCUIT_BREAKERS[Check Circuit Breakers]
         ISOLATE_ROOT_CAUSE[Isolate Root Cause]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         DISTRIBUTED_TRACES[(Distributed Traces)]
         SERVICE_LOGS[(Service Logs)]
         TIMEOUT_METRICS[(Timeout Metrics)]
         DEPENDENCY_MAP[(Service Dependencies)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         TIMEOUT_MONITORING[Timeout Monitoring]
         AUTO_SCALING[Auto Scaling]
         FAILURE_ISOLATION[Failure Isolation]
@@ -54,10 +54,10 @@ graph TB
     DEPENDENCY_MAP --> RECOVERY_AUTOMATION
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT_REQUEST,TIMEOUT_DETECTED,PARTIAL_FAILURE,CASCADE_FAILURE edgeStyle
     class TRACE_REQUEST,ANALYZE_TIMEOUTS,CHECK_CIRCUIT_BREAKERS,ISOLATE_ROOT_CAUSE serviceStyle
@@ -130,7 +130,7 @@ kubectl get destinationrule -o yaml | grep -A 10 circuitBreaker
 ### Timeout Hierarchy Visualization
 ```mermaid
 graph TB
-    subgraph TimeoutLayers[Timeout Configuration Layers - Blue #0066CC]
+    subgraph TimeoutLayers[Timeout Configuration Layers - Blue #3B82F6]
         LOAD_BALANCER[Load Balancer<br/>60s - External timeout]
         API_GATEWAY[API Gateway<br/>45s - Service timeout]
         SERVICE_MESH[Service Mesh<br/>30s - Inter-service timeout]
@@ -138,14 +138,14 @@ graph TB
         DATABASE[Database<br/>10s - Query timeout]
     end
 
-    subgraph BestPractices[Best Practices - Green #00AA00]
+    subgraph BestPractices[Best Practices - Green #10B981]
         DECREASING[Decreasing Timeouts<br/>Each layer < previous]
         BUFFER_TIME[Buffer Time<br/>5-10s between layers]
         CIRCUIT_BREAKERS[Circuit Breakers<br/>Fail fast on timeout]
         RETRY_LOGIC[Exponential Backoff<br/>Avoid retry storms]
     end
 
-    subgraph AntiPatterns[Anti-Patterns - Red #CC0000]
+    subgraph AntiPatterns[Anti-Patterns - Red #8B5CF6]
         SAME_TIMEOUT[Same Timeout<br/>All layers = 30s]
         INCREASING[Increasing Timeouts<br/>Downstream > upstream]
         NO_TIMEOUTS[No Timeouts<br/>Infinite wait]
@@ -162,9 +162,9 @@ graph TB
     NO_TIMEOUTS --> CIRCUIT_BREAKERS
     AGGRESSIVE_RETRY --> RETRY_LOGIC
 
-    classDef timeoutStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef goodStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef badStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef timeoutStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef goodStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef badStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LOAD_BALANCER,API_GATEWAY,SERVICE_MESH,APPLICATION,DATABASE timeoutStyle
     class DECREASING,BUFFER_TIME,CIRCUIT_BREAKERS,RETRY_LOGIC goodStyle
@@ -174,27 +174,27 @@ graph TB
 ### Service-Specific Timeout Patterns
 ```mermaid
 graph LR
-    subgraph FastServices[Fast Services - Green #00AA00]
+    subgraph FastServices[Fast Services - Green #10B981]
         CACHE[Cache Service<br/>100ms - 1s<br/>Redis/Memcached]
         AUTH[Auth Service<br/>500ms - 2s<br/>JWT validation]
         CONFIG[Config Service<br/>1s - 5s<br/>Feature flags]
     end
 
-    subgraph MediumServices[Medium Services - Orange #FF8800]
+    subgraph MediumServices[Medium Services - Orange #F59E0B]
         USER_API[User API<br/>2s - 10s<br/>Database queries]
         SEARCH[Search Service<br/>5s - 15s<br/>Elasticsearch]
         NOTIFICATION[Notification<br/>10s - 30s<br/>Email/SMS]
     end
 
-    subgraph SlowServices[Slow Services - Red #CC0000]
+    subgraph SlowServices[Slow Services - Red #8B5CF6]
         ANALYTICS[Analytics<br/>30s - 120s<br/>Heavy computation]
         BATCH_PROCESS[Batch Processing<br/>5min - 30min<br/>Background jobs]
         FILE_UPLOAD[File Upload<br/>2min - 10min<br/>Large files]
     end
 
-    classDef fastStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef mediumStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef slowStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef fastStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef mediumStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef slowStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CACHE,AUTH,CONFIG fastStyle
     class USER_API,SEARCH,NOTIFICATION mediumStyle

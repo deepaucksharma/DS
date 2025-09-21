@@ -64,10 +64,10 @@ graph TB
     APPGW -->|"$0.36/hour"| STORAGE
 
     %% 4-Plane Colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
 
     class FRONTDOOR,CDN,LB,APPGW,TRAFFIC_MGR,FIREWALL edgeStyle
     class VMS,CONTAINERS,FUNCTIONS,BATCH,SERVICE_FABRIC,VMSS serviceStyle
@@ -193,7 +193,7 @@ graph TB
     end
 
     classDef enterpriseStyle fill:#107C10,stroke:#0B5A0B,color:#fff
-    classDef consumerStyle fill:#FF4B4B,stroke:#CC0000,color:#fff
+    classDef consumerStyle fill:#FF4B4B,stroke:#8B5CF6,color:#fff
 
     class E1,E2,E3,E4,E5 enterpriseStyle
     class C1,C2,C3,C4,C5 consumerStyle

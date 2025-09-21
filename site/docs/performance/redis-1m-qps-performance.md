@@ -8,23 +8,23 @@ Twitter operates one of the world's largest Redis deployments, handling over 1 m
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[Twitter Load Balancer<br/>HAProxy + Istio<br/>99.99% availability]
         CDN[Twitter CDN<br/>Global PoPs<br/>85% cache hit ratio]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         API[Timeline API<br/>Scala/Finagle<br/>1000+ instances]
         PROXY[Redis Proxy<br/>Twemproxy + Envoy<br/>Connection multiplexing]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         CLUSTER[Redis Cluster<br/>500 nodes<br/>r6g.8xlarge instances]
         CACHE[L1 Cache<br/>Application-level<br/>99.8% hit ratio]
         PERSIST[Persistent Storage<br/>Redis AOF + RDB<br/>Backup every 15min]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MON[Monitoring<br/>Twitter Observability<br/>Real-time metrics]
         AUTO[Auto-scaling<br/>Custom algorithms<br/>Traffic-based scaling]
     end
@@ -39,10 +39,10 @@ graph TB
     MON --> CLUSTER
     AUTO --> CLUSTER
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,CDN edgeStyle
     class API,PROXY serviceStyle
@@ -86,7 +86,7 @@ graph LR
         HASH[HASH ops: 0.19ms avg<br/>50K ops/sec]
     end
 
-    classDef metricStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class A,B,C,D,E,P50,P95,P99,P999,P9999,GET,SET,INCR,HASH metricStyle
 ```
 
@@ -120,8 +120,8 @@ graph TB
     OVERHEAD --> EXP
     BUFFER --> SHARD
 
-    classDef memoryStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef techniqueStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef memoryStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef techniqueStyle fill:#10B981,stroke:#059669,color:#fff
 
     class DATA,OVERHEAD,BUFFER,RESERVE memoryStyle
     class COMP,EXP,SHARD techniqueStyle
@@ -185,8 +185,8 @@ graph TB
     NET --> ASYNC
     PERSIST --> COMPRESS
 
-    classDef bottleneckStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef bottleneckStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class HASH,SER,NET,PERSIST,OTHER bottleneckStyle
     class ALGO,BATCH,ASYNC,COMPRESS solutionStyle
@@ -225,8 +225,8 @@ graph LR
 
     N5 --> CLUSTER
 
-    classDef scaleStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef scaleStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class N1,N2,N3,N4,N5 scaleStyle
     class CLUSTER solutionStyle
@@ -273,8 +273,8 @@ graph TB
     SUPPORT --> TOTAL
     OVERHEAD --> TOTAL
 
-    classDef costStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef totalStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef costStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef totalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class COMPUTE,STORAGE,NETWORK,BACKUP,MONITORING,SUPPORT,OVERHEAD costStyle
     class TOTAL totalStyle
@@ -427,8 +427,8 @@ graph TB
         CLUSTER[Cluster Health<br/>Node failures<br/>Resharding required]
     end
 
-    classDef metricStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef alertStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef metricStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef alertStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class QPS,LAT,MEM,CPU,CON,NET,HIT,FRAG metricStyle
     class PERF,MEMORY,CLUSTER alertStyle

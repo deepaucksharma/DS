@@ -129,10 +129,10 @@ graph TB
     ENCRYPTION -.-> PCIVAULT
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class API,STREAM,CDC edgeStyle
     class TXNPROC,BATCHPROC,RISKPROC serviceStyle
@@ -189,9 +189,9 @@ graph LR
     BALANCES --> RISK[Risk Assessment]
     CRYPTO --> COMPLIANCE[Regulatory Reporting]
 
-    classDef dbStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef dbStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef userStyle fill:#9999CC,stroke:#666699,color:#fff
-    classDef processStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef processStyle fill:#10B981,stroke:#059669,color:#fff
 
     class USERPROFILE,TRANSACTIONS,BALANCES,CRYPTO dbStyle
     class USER userStyle
@@ -225,9 +225,9 @@ flowchart LR
     SNOWFLAKE --> REPORTS[Business Reports]
     SNOWFLAKE --> ML[ML Feature Store]
 
-    classDef sourceStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef processStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef storeStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef sourceStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef processStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef storeStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef outputStyle fill:#9999CC,stroke:#666699,color:#fff
 
     class SOURCES sourceStyle
@@ -271,9 +271,9 @@ graph TB
     BACKUP1 --> S3[S3 Cross-Region<br/>Backup Storage]
     BACKUP2 --> GLACIER[Glacier Deep Archive<br/>Long-term Storage]
 
-    classDef primaryStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef replicaStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef backupStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef primaryStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef replicaStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef backupStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class PRIMARY primaryStyle
     class SYNC,ASYNC replicaStyle

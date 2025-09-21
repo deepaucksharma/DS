@@ -57,10 +57,10 @@ graph TB
     APPLICATION_SERVICES -->|"Transactions"| BLOCK_STORAGE
 
     %% 4-Plane Colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff,stroke-width:3px
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff,stroke-width:3px
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff,stroke-width:3px
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff,stroke-width:3px
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff,stroke-width:3px
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff,stroke-width:3px
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff,stroke-width:3px
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,stroke-width:3px
 
     class EDGE_LOCATIONS,CDN,LOAD_BALANCERS,API_GATEWAY edgeStyle
     class DATABASE_ENGINES,COMPUTE_SERVICES,MIDDLEWARE,ANALYTICS_ENGINES,APPLICATION_SERVICES serviceStyle
@@ -90,7 +90,7 @@ graph LR
     A --> B --> C --> D
     E --> F --> G
 
-    classDef enterpriseStyle fill:#FF0000,stroke:#CC0000,color:#fff,stroke-width:2px
+    classDef enterpriseStyle fill:#FF0000,stroke:#8B5CF6,color:#fff,stroke-width:2px
     classDef autonomousStyle fill:#1976D2,stroke:#1565C0,color:#fff,stroke-width:2px
 
     class A,B,C,D enterpriseStyle
@@ -297,7 +297,7 @@ graph TB
         HYPERSCALER_INTEGRATION[Hyperscaler Integration<br/>Multi-vendor complexity<br/>Integration challenges<br/>Performance overhead]
     end
 
-    classDef oracleStyle fill:#FF0000,stroke:#CC0000,color:#fff
+    classDef oracleStyle fill:#FF0000,stroke:#8B5CF6,color:#fff
     classDef competitorStyle fill:#FFB74D,stroke:#F57C00,color:#000
 
     class ORACLE_PERF,ORACLE_STACK oracleStyle

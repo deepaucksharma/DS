@@ -17,19 +17,19 @@ This playbook guides the migration from separate native iOS and Android applicat
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CDN[CloudFront CDN<br/>Mobile API endpoints<br/>Asset delivery<br/>Global edge locations]
         API_GW[API Gateway<br/>Mobile-specific endpoints<br/>Rate limiting<br/>Authentication]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         IOS_APP[iOS Native App<br/>Swift 5.7 + UIKit<br/>Xcode 14<br/>iOS 13+ support<br/>200k+ lines of code]
         ANDROID_APP[Android Native App<br/>Kotlin + Jetpack Compose<br/>Android Studio<br/>API 23+ support<br/>180k+ lines of code]
 
         MOBILE_API[Mobile API Service<br/>Node.js + Express<br/>Mobile-optimized endpoints<br/>Push notifications]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         REALM_IOS[Realm Database<br/>iOS local storage<br/>Sync with backend<br/>Offline capability]
         ROOM_ANDROID[Room Database<br/>Android local storage<br/>SQLite backend<br/>Offline capability]
 
@@ -40,7 +40,7 @@ graph TB
         PLAY_STORE[Google Play Store<br/>Android distribution<br/>Internal testing<br/>Staged rollout]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         FIREBASE_IOS[Firebase Analytics<br/>iOS crash reporting<br/>Performance monitoring]
         FIREBASE_ANDROID[Firebase Analytics<br/>Android crash reporting<br/>Performance monitoring]
 
@@ -70,10 +70,10 @@ graph TB
     ANDROID_APP --> GITHUB_ACTIONS
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,API_GW edgeStyle
     class IOS_APP,ANDROID_APP,MOBILE_API serviceStyle
@@ -92,12 +92,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CDN[CloudFront CDN<br/>Same mobile APIs<br/>Asset delivery<br/>Global edge locations]
         API_GW[API Gateway<br/>Unified mobile endpoints<br/>React Native optimized<br/>GraphQL support]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         RN_APP[React Native App<br/>TypeScript + React Native 0.72<br/>Shared codebase<br/>Platform-specific modules<br/>~120k lines (40% reduction)]
 
         RN_IOS[iOS Bundle<br/>Metro bundler<br/>Hermes engine<br/>Native modules bridge]
@@ -106,7 +106,7 @@ graph TB
         MOBILE_API[Mobile API Service<br/>GraphQL + REST<br/>React Native optimized<br/>Real-time subscriptions]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         ASYNC_STORAGE[AsyncStorage<br/>Cross-platform storage<br/>Key-value persistence<br/>Secure storage]
         MMKV[MMKV Storage<br/>High-performance storage<br/>Cross-platform<br/>Encryption support]
 
@@ -116,7 +116,7 @@ graph TB
         PLAY_STORE_RN[Google Play Store<br/>React Native Android<br/>Bundle optimization<br/>OTA updates via CodePush]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         FLIPPER[Flipper<br/>Cross-platform debugging<br/>Network inspection<br/>Layout inspector]
         CODEPUSH[CodePush<br/>Over-the-air updates<br/>Staged rollouts<br/>Rollback capability]
 
@@ -150,10 +150,10 @@ graph TB
     RN_APP --> BUGSNAG
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,API_GW edgeStyle
     class RN_APP,RN_IOS,RN_ANDROID,MOBILE_API serviceStyle
@@ -631,8 +631,8 @@ graph TB
     end
 
     %% Risk level colors
-    classDef highRisk fill:#ff4444,stroke:#cc0000,color:#fff
-    classDef mediumRisk fill:#ffaa00,stroke:#cc6600,color:#fff
+    classDef highRisk fill:#ff4444,stroke:#8B5CF6,color:#fff
+    classDef mediumRisk fill:#ffaa00,stroke:#D97706,color:#fff
     classDef lowRisk fill:#44aa44,stroke:#006600,color:#fff
 
     class PERFORMANCE,NATIVE_FEATURES,RELEASE_DELAYS highRisk

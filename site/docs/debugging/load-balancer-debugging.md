@@ -8,7 +8,7 @@ Load balancer issues can cause connection drops, uneven traffic distribution, an
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         CLIENT[Client Request]
         TIMEOUT{Connection Timeout?}
         DROPPED{Connection Dropped?}
@@ -16,21 +16,21 @@ graph TB
         HEALTH{Health Check Failing?}
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         CHECK_BACKEND[Check Backend Status]
         VERIFY_CONFIG[Verify LB Configuration]
         TEST_HEALTH[Test Health Endpoints]
         ANALYZE_ALGO[Analyze Algorithm]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         LB_LOGS[(Load Balancer Logs)]
         ACCESS_LOGS[(Access Logs)]
         METRICS[(Connection Metrics)]
         BACKEND_STATS[(Backend Statistics)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         MONITOR[Traffic Monitoring]
         ALERTS[Health Alerts]
         SCALING[Auto Scaling]
@@ -57,10 +57,10 @@ graph TB
     BACKEND_STATS --> FAILOVER
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT,TIMEOUT,DROPPED,UNEVEN,HEALTH edgeStyle
     class CHECK_BACKEND,VERIFY_CONFIG,TEST_HEALTH,ANALYZE_ALGO serviceStyle
@@ -162,21 +162,21 @@ curl -w "@curl-format.txt" -o /dev/null -s http://app:8080/health
 ### Layer 4 vs Layer 7 Decision Matrix
 ```mermaid
 graph TB
-    subgraph L4[Layer 4 - Transport - Blue #0066CC]
+    subgraph L4[Layer 4 - Transport - Blue #3B82F6]
         TCP[TCP Load Balancing]
         UDP[UDP Load Balancing]
         PERF[High Performance<br/>1M+ connections/sec]
         SIMPLE[Simple Configuration]
     end
 
-    subgraph L7[Layer 7 - Application - Green #00AA00]
+    subgraph L7[Layer 7 - Application - Green #10B981]
         HTTP[HTTP/HTTPS Routing]
         CONTENT[Content-Based Routing]
         SSL[SSL Termination]
         ADVANCED[Advanced Features]
     end
 
-    subgraph UseCase[Use Cases - Orange #FF8800]
+    subgraph UseCase[Use Cases - Orange #F59E0B]
         DATABASE[Database Connections]
         GAMING[Gaming Traffic]
         API[API Gateway]
@@ -188,9 +188,9 @@ graph TB
     HTTP --> API
     CONTENT --> WEB
 
-    classDef l4Style fill:#0066CC,stroke:#004499,color:#fff
-    classDef l7Style fill:#00AA00,stroke:#007700,color:#fff
-    classDef usecaseStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef l4Style fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef l7Style fill:#10B981,stroke:#059669,color:#fff
+    classDef usecaseStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class TCP,UDP,PERF,SIMPLE l4Style
     class HTTP,CONTENT,SSL,ADVANCED l7Style
@@ -200,19 +200,19 @@ graph TB
 ### Health Check Strategy Matrix
 ```mermaid
 graph LR
-    subgraph HealthTypes[Health Check Types - Red #CC0000]
+    subgraph HealthTypes[Health Check Types - Red #8B5CF6]
         TCP_CHECK[TCP Connect<br/>Fast: 1-5ms<br/>Basic: Port open]
         HTTP_CHECK[HTTP GET<br/>Medium: 10-50ms<br/>Path: /health]
         DEEP_CHECK[Deep Check<br/>Slow: 100-500ms<br/>DB + Dependencies]
     end
 
-    subgraph Frequency[Check Frequency - Blue #0066CC]
+    subgraph Frequency[Check Frequency - Blue #3B82F6]
         HIGH[Every 5s<br/>Critical services]
         MEDIUM[Every 30s<br/>Normal services]
         LOW[Every 60s<br/>Background services]
     end
 
-    subgraph Thresholds[Failure Thresholds - Green #00AA00]
+    subgraph Thresholds[Failure Thresholds - Green #10B981]
         STRICT[1 failure = down<br/>Stateless services]
         MODERATE[3 failures = down<br/>Web applications]
         LENIENT[5 failures = down<br/>Batch processing]
@@ -226,9 +226,9 @@ graph LR
     MEDIUM --> MODERATE
     LOW --> LENIENT
 
-    classDef healthStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef freqStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef thresholdStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef healthStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef freqStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef thresholdStyle fill:#10B981,stroke:#059669,color:#fff
 
     class TCP_CHECK,HTTP_CHECK,DEEP_CHECK healthStyle
     class HIGH,MEDIUM,LOW freqStyle
@@ -240,7 +240,7 @@ graph LR
 ### Algorithm Performance Comparison
 ```mermaid
 graph TB
-    subgraph Algorithms[Load Balancing Algorithms - Orange #FF8800]
+    subgraph Algorithms[Load Balancing Algorithms - Orange #F59E0B]
         RR[Round Robin<br/>Fair distribution<br/>No state needed]
         WRR[Weighted Round Robin<br/>Different server capacities<br/>Static weights]
         LC[Least Connections<br/>Dynamic load aware<br/>State tracking needed]
@@ -248,7 +248,7 @@ graph TB
         SH[Source Hash<br/>Session affinity<br/>Consistent routing]
     end
 
-    subgraph Metrics[Performance Metrics - Blue #0066CC]
+    subgraph Metrics[Performance Metrics - Blue #3B82F6]
         LATENCY[Response Time<br/>p50, p95, p99]
         THROUGHPUT[Requests/Second<br/>Total capacity]
         DISTRIBUTION[Traffic Distribution<br/>Coefficient of variation]
@@ -261,8 +261,8 @@ graph TB
     WLC --> OVERHEAD
     SH --> LATENCY
 
-    classDef algoStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef metricStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef algoStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef metricStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class RR,WRR,LC,WLC,SH algoStyle
     class LATENCY,THROUGHPUT,DISTRIBUTION,OVERHEAD metricStyle

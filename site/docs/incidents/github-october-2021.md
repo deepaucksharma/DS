@@ -80,14 +80,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CDN[GitHub CDN<br/>Git-LFS + Assets]
         LB[Load Balancers<br/>HAProxy + NGINX]
         EDGE[Edge Servers<br/>Global Distribution]
         CACHE[Redis Cache<br/>Session + Metadata]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         WEB[GitHub Web<br/>Ruby on Rails]
         API[GitHub API<br/>RESTful + GraphQL]
         GIT[Git Services<br/>Git Protocol Handlers]
@@ -96,7 +96,7 @@ graph TB
         PACKAGES[Package Registries<br/>npm, Docker, Maven]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         PRIMARYDB[(Primary Database<br/>MySQL Cluster)]
         REPLICA1[(Read Replica 1<br/>MySQL)]
         REPLICA2[(Read Replica 2<br/>MySQL)]
@@ -105,7 +105,7 @@ graph TB
         SEARCHDB[(Search Index<br/>Elasticsearch)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CONFIG[Configuration Management<br/>Database Tuning]
         MONITOR[Monitoring<br/>DataDog + Custom)]
         DEPLOY[Deployment<br/>GitHub's own CI/CD]
@@ -120,10 +120,10 @@ graph TB
     REPLICA2 -.->|STALE DATA| API
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB,EDGE,CACHE edgeStyle
     class WEB,API,GIT,ACTIONS,PAGES,PACKAGES serviceStyle

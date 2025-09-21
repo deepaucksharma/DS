@@ -8,28 +8,28 @@ Java Garbage Collection issues can cause application pauses, memory leaks, and p
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         APP_PAUSES[Application Pauses]
         HIGH_LATENCY{High Response Time?}
         MEMORY_ALERTS{Memory Alerts?}
         OOM_ERRORS{OutOfMemory Errors?}
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         ANALYZE_GC_LOGS[Analyze GC Logs]
         PROFILE_HEAP[Profile Heap Usage]
         CHECK_ALLOCATIONS[Check Allocation Patterns]
         TUNE_GC_PARAMS[Tune GC Parameters]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         GC_LOGS[(GC Logs)]
         HEAP_DUMPS[(Heap Dumps)]
         JVM_METRICS[(JVM Metrics)]
         ALLOCATION_PROFILES[(Allocation Profiles)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         GC_MONITORING[GC Monitoring]
         MEMORY_ALERTS_SYS[Memory Alerting]
         AUTO_SCALING[Auto Scaling]
@@ -54,10 +54,10 @@ graph TB
     ALLOCATION_PROFILES --> PERFORMANCE_TRACKING
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class APP_PAUSES,HIGH_LATENCY,MEMORY_ALERTS,OOM_ERRORS edgeStyle
     class ANALYZE_GC_LOGS,PROFILE_HEAP,CHECK_ALLOCATIONS,TUNE_GC_PARAMS serviceStyle
@@ -161,19 +161,19 @@ watch -n 5 'jstat -gc <pid>'
 ### GC Algorithm Comparison
 ```mermaid
 graph TB
-    subgraph SerialGC[Serial GC - Blue #0066CC]
+    subgraph SerialGC[Serial GC - Blue #3B82F6]
         SERIAL[Serial GC<br/>Single-threaded<br/>Best for: < 100MB heap<br/>Pause: 10-100ms]
     end
 
-    subgraph ParallelGC[Parallel GC - Green #00AA00]
+    subgraph ParallelGC[Parallel GC - Green #10B981]
         PARALLEL[Parallel GC<br/>Multi-threaded<br/>Best for: Batch processing<br/>Pause: 100-1000ms]
     end
 
-    subgraph G1GC[G1 GC - Orange #FF8800]
+    subgraph G1GC[G1 GC - Orange #F59E0B]
         G1[G1 GC<br/>Low-latency focused<br/>Best for: < 6GB heap<br/>Pause: < 10ms target]
     end
 
-    subgraph ZGC[ZGC/Shenandoah - Red #CC0000]
+    subgraph ZGC[ZGC/Shenandoah - Red #8B5CF6]
         Z[ZGC/Shenandoah<br/>Ultra-low latency<br/>Best for: > 8GB heap<br/>Pause: < 1ms]
     end
 
@@ -189,10 +189,10 @@ graph TB
     Z --> BIG_DATA
     PARALLEL --> BATCH
 
-    classDef serialStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef parallelStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef g1Style fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef zStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef serialStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef parallelStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef g1Style fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef zStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
     classDef usecaseStyle fill:#9900CC,stroke:#660099,color:#fff
 
     class SERIAL serialStyle
@@ -205,24 +205,24 @@ graph TB
 ### GC Tuning Parameters by Scenario
 ```mermaid
 graph LR
-    subgraph LowLatency[Low Latency - Blue #0066CC]
+    subgraph LowLatency[Low Latency - Blue #3B82F6]
         G1_LOW[G1GC Configuration<br/>-XX:+UseG1GC<br/>-XX:MaxGCPauseTimeMillis=10<br/>-XX:G1HeapRegionSize=16m]
         ZGC_LOW[ZGC Configuration<br/>-XX:+UseZGC<br/>-XX:+UnlockExperimentalVMOptions<br/>-Xmx8g]
     end
 
-    subgraph HighThroughput[High Throughput - Green #00AA00]
+    subgraph HighThroughput[High Throughput - Green #10B981]
         PARALLEL_HIGH[Parallel GC<br/>-XX:+UseParallelGC<br/>-XX:ParallelGCThreads=8<br/>-XX:MaxGCPauseTimeMillis=200]
         G1_HIGH[G1GC Throughput<br/>-XX:+UseG1GC<br/>-XX:MaxGCPauseTimeMillis=100<br/>-XX:GCTimeRatio=19]
     end
 
-    subgraph MemoryConstrained[Memory Constrained - Orange #FF8800]
+    subgraph MemoryConstrained[Memory Constrained - Orange #F59E0B]
         SERIAL_MEM[Serial GC<br/>-XX:+UseSerialGC<br/>-Xms512m -Xmx1g<br/>-XX:NewRatio=3]
         G1_MEM[G1GC Small Heap<br/>-XX:+UseG1GC<br/>-XX:G1HeapRegionSize=8m<br/>-XX:G1NewSizePercent=40]
     end
 
-    classDef lowLatencyStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef highThroughputStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef memConstrainedStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef lowLatencyStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef highThroughputStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef memConstrainedStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class G1_LOW,ZGC_LOW lowLatencyStyle
     class PARALLEL_HIGH,G1_HIGH highThroughputStyle

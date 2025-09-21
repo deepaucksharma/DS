@@ -62,12 +62,12 @@ graph TB
         DIRECT_CONNECT[Direct Connect<br/>Dedicated lines<br/>$55K/month]
     end
 
-    classDef computeStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef databaseStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef computeStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef databaseStyle fill:#3B82F6,stroke:#2563EB,color:#fff
     classDef cacheStyle fill:#9966CC,stroke:#663399,color:#fff
     classDef streamStyle fill:#66CC99,stroke:#339966,color:#fff
-    classDef storageStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef networkStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef storageStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef networkStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class TRADING,API,EXECUTION,ML,BACKGROUND computeStyle
     class PRIMARY,REPLICAS,ANALYTICS,COMPLIANCE databaseStyle
@@ -109,9 +109,9 @@ graph TB
         SETTLEMENTS[Legal Settlements<br/>Customer disputes<br/>$385K/month]
     end
 
-    classDef feeStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef infraStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef staffStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef feeStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef infraStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef staffStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class FINRA_FEES,SEC_FEES,NSCC_FEES,OCC_FEES,STATE_FEES feeStyle
     class SURVEILLANCE,REPORTING,KYC_SYSTEMS,AUDIT_TOOLS infraStyle
@@ -301,8 +301,8 @@ graph TB
     Year1 --> Year2
     Year2 --> Year3
 
-    classDef currentStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef futureStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef currentStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef futureStyle fill:#10B981,stroke:#059669,color:#fff
 
     class USERS_23 currentStyle
     class USERS_24,USERS_25,USERS_26 futureStyle

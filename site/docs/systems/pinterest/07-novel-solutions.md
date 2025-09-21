@@ -93,7 +93,7 @@ graph TB
     ANOMALY_DETECTION -.-> INFERENCE
 
     %% Apply innovation colors
-    classDef problemStyle fill:#FF6B6B,stroke:#CC0000,color:#fff,stroke-width:3px
+    classDef problemStyle fill:#FF6B6B,stroke:#8B5CF6,color:#fff,stroke-width:3px
     classDef solutionStyle fill:#4ECDC4,stroke:#00AA88,color:#fff,stroke-width:3px
     classDef integrationStyle fill:#45B7D1,stroke:#0088CC,color:#fff,stroke-width:3px
 

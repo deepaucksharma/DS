@@ -26,7 +26,7 @@ graph TB
 
             ParticipantManager[Participant Manager<br/>━━━━━<br/>User authentication<br/>Permission management<br/>Presence tracking<br/>Connection state: 300M users]
 
-            SchedulingService[Scheduling Service<br/>━━━━━<br/>Calendar integration<br/>Recurring meetings<br/>Time zone handling<br/>API gateway integration]
+            SchedulingEngine[Scheduling Engine v2.1<br/>━━━━━<br/>Node.js 18 service<br/>Calendar API integration<br/>Recurring meeting logic<br/>Timezone: moment.js]
         end
 
         subgraph MediaServices[Media Processing Services]
@@ -34,9 +34,9 @@ graph TB
 
             TranscodingCluster[Transcoding Cluster<br/>━━━━━<br/>Real-time video transcoding<br/>Multiple resolution support<br/>GPU acceleration<br/>p3.8xlarge instances]
 
-            RecordingService[Recording Service<br/>━━━━━<br/>Cloud recording<br/>MP4 generation<br/>AI transcription<br/>Storage integration]
+            RecordingEngine[Cloud Recording Engine<br/>━━━━━<br/>FFmpeg 5.1 processor<br/>MP4/WebM generation<br/>AWS S3 integration<br/>GPU transcoding: p3.8xlarge]
 
-            ScreenShareService[Screen Share Service<br/>━━━━━<br/>Desktop capture<br/>Annotation support<br/>Remote control<br/>Low latency: <100ms]
+            ScreenShareEngine[Screen Share Engine v3<br/>━━━━━<br/>C++ capture library<br/>WebRTC data channels<br/>Canvas annotation API<br/>Sub-100ms p99 latency]
         end
 
         subgraph AIServices[AI & Analytics Services]
@@ -141,7 +141,7 @@ graph TB
     classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff,font-weight:bold
 
     class GlobalCDN,LoadBalancers,EdgeGateways,WebRTCGateways edgeStyle
-    class MeetingController,ParticipantManager,SchedulingService,MediaRouter,TranscodingCluster,RecordingService,ScreenShareService,TranscriptionAI,BackgroundAI,AnalyticsEngine serviceStyle
+    class MeetingController,ParticipantManager,SchedulingEngine,MediaRouter,TranscodingCluster,RecordingEngine,ScreenShareEngine,TranscriptionAI,BackgroundAI,AnalyticsEngine serviceStyle
     class PostgreSQLCluster,CassandraCluster,RedisCluster,S3ObjectStore,ElasticSearch,CDNStorage,KafkaCluster,PubSubSystem stateStyle
     class PrometheusStack,GrafanaCluster,ELKStack,KubernetesOrchestrator,CICDPipeline,ConfigManagement,SecurityMonitoring,IdentityManagement controlStyle
 ```

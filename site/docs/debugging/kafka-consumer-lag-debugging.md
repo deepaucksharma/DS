@@ -8,28 +8,28 @@ Kafka consumer lag can cause data processing delays, memory issues, and real-tim
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         DATA_DELAY[Data Processing Delay]
         HIGH_LAG{Consumer Lag High?}
         REBALANCING{Frequent Rebalancing?}
         THROUGHPUT_LOW{Low Throughput?}
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         CHECK_LAG_METRICS[Check Lag Metrics]
         ANALYZE_PARTITIONS[Analyze Partition Distribution]
         REVIEW_CONSUMER_CONFIG[Review Consumer Config]
         MONITOR_PROCESSING[Monitor Processing Time]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         CONSUMER_OFFSETS[(Consumer Offsets)]
         PARTITION_METADATA[(Partition Metadata)]
         CONSUMER_METRICS[(Consumer Metrics)]
         BROKER_LOGS[(Broker Logs)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         LAG_MONITORING[Lag Monitoring]
         AUTO_SCALING[Consumer Auto Scaling]
         PARTITION_REBALANCE[Partition Rebalancing]
@@ -54,10 +54,10 @@ graph TB
     BROKER_LOGS --> ALERTING
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DATA_DELAY,HIGH_LAG,REBALANCING,THROUGHPUT_LOW edgeStyle
     class CHECK_LAG_METRICS,ANALYZE_PARTITIONS,REVIEW_CONSUMER_CONFIG,MONITOR_PROCESSING serviceStyle
@@ -130,21 +130,21 @@ kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
 ### Lag Pattern Classification
 ```mermaid
 graph TB
-    subgraph LagPatterns[Lag Patterns - Orange #FF8800]
+    subgraph LagPatterns[Lag Patterns - Orange #F59E0B]
         STEADY_LAG[Steady Lag<br/>Constant 1000-5000 messages<br/>Producer > Consumer rate]
         SPIKE_LAG[Spike Lag<br/>Sudden jumps to 50k+<br/>Processing bottlenecks]
         GROWING_LAG[Growing Lag<br/>Continuously increasing<br/>Consumer failures]
         OSCILLATING_LAG[Oscillating Lag<br/>Up/down pattern<br/>Rebalancing issues]
     end
 
-    subgraph RootCauses[Root Causes - Red #CC0000]
+    subgraph RootCauses[Root Causes - Red #8B5CF6]
         SLOW_PROCESSING[Slow Message Processing<br/>Database bottlenecks<br/>External API calls]
         INSUFFICIENT_CONSUMERS[Insufficient Consumers<br/>Too few consumer instances<br/>Poor partition distribution]
         NETWORK_ISSUES[Network Issues<br/>High latency to brokers<br/>Connection timeouts]
         GC_PRESSURE[GC Pressure<br/>Long GC pauses<br/>Memory constraints]
     end
 
-    subgraph Solutions[Solutions - Green #00AA00]
+    subgraph Solutions[Solutions - Green #10B981]
         OPTIMIZE_PROCESSING[Optimize Processing<br/>Batch operations<br/>Async processing]
         SCALE_CONSUMERS[Scale Consumers<br/>Add consumer instances<br/>Improve partition strategy]
         IMPROVE_NETWORK[Improve Network<br/>Dedicated network<br/>Connection pooling]
@@ -161,9 +161,9 @@ graph TB
     NETWORK_ISSUES --> IMPROVE_NETWORK
     GC_PRESSURE --> TUNE_JVM
 
-    classDef lagStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef causeStyle fill:#CC0000,stroke:#990000,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef lagStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef causeStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class STEADY_LAG,SPIKE_LAG,GROWING_LAG,OSCILLATING_LAG lagStyle
     class SLOW_PROCESSING,INSUFFICIENT_CONSUMERS,NETWORK_ISSUES,GC_PRESSURE causeStyle
@@ -173,14 +173,14 @@ graph TB
 ### Consumer Configuration Optimization
 ```mermaid
 graph LR
-    subgraph ConsumerConfig[Consumer Configuration - Blue #0066CC]
+    subgraph ConsumerConfig[Consumer Configuration - Blue #3B82F6]
         FETCH_SIZE[fetch.min.bytes<br/>Default: 1<br/>Increase: 50KB-1MB]
         FETCH_WAIT[fetch.max.wait.ms<br/>Default: 500ms<br/>Tune: 100-1000ms]
         MAX_POLL[max.poll.records<br/>Default: 500<br/>Tune: 100-2000]
         SESSION_TIMEOUT[session.timeout.ms<br/>Default: 10s<br/>Tune: 6-30s]
     end
 
-    subgraph PerformanceImpact[Performance Impact - Orange #FF8800]
+    subgraph PerformanceImpact[Performance Impact - Orange #F59E0B]
         THROUGHPUT[Throughput<br/>Higher fetch.min.bytes<br/>= fewer requests]
         LATENCY[Latency<br/>Lower fetch.max.wait<br/>= lower latency]
         MEMORY[Memory Usage<br/>Higher max.poll.records<br/>= more memory]
@@ -192,8 +192,8 @@ graph LR
     MAX_POLL --> MEMORY
     SESSION_TIMEOUT --> STABILITY
 
-    classDef configStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef impactStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef configStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef impactStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class FETCH_SIZE,FETCH_WAIT,MAX_POLL,SESSION_TIMEOUT configStyle
     class THROUGHPUT,LATENCY,MEMORY,STABILITY impactStyle

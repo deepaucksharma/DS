@@ -15,12 +15,12 @@ LinkedIn's transformation from a traditional REST-based architecture to a compre
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         CDN[Akamai CDN<br/>Global edge caching<br/>Static content delivery]
         LB[Load Balancers<br/>HAProxy clusters<br/>Traffic distribution]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         API[API Gateway<br/>REST endpoints<br/>500+ APIs]
 
         subgraph SyncServices[Synchronous Services]
@@ -31,14 +31,14 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         MYSQL[MySQL Clusters<br/>Member profiles<br/>100TB data]
         GRAPH[Graph Database<br/>Social connections<br/>500B edges]
         SEARCH_INDEX[Elasticsearch<br/>Search indices<br/>Member/job data]
         CACHE[Redis Clusters<br/>Session/feed cache<br/>Hot data]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         MONITORING[Custom Monitoring<br/>Service metrics<br/>Performance tracking]
         CONFIG[Configuration Service<br/>Feature flags<br/>A/B testing]
         DEPLOY[Deployment System<br/>Rolling updates<br/>Blue-green deploys]
@@ -68,10 +68,10 @@ graph TB
     DEPLOY -.-> SyncServices
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB edgeStyle
     class API,PROFILE,CONNECT,FEED,SEARCH,SyncServices serviceStyle
@@ -90,12 +90,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         CDN[Global CDN<br/>Edge computing<br/>Real-time updates]
         GATEWAY[API Gateway<br/>Event subscription<br/>WebSocket support]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         subgraph EventProducers[Event Producers]
             PROFILE_SVC[Profile Service<br/>Member events<br/>Profile updates]
             CONNECT_SVC[Connection Service<br/>Network events<br/>Graph changes]
@@ -110,7 +110,7 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         KAFKA[Apache Kafka<br/>1000+ clusters<br/>7T events/day]
 
         subgraph StorageSystems[Storage Systems]
@@ -121,7 +121,7 @@ graph TB
         end
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         KAFKA_ADMIN[Kafka Administration<br/>Cluster management<br/>Topic lifecycle]
         SCHEMA_REG[Schema Registry<br/>Event schema evolution<br/>Compatibility checks]
         STREAM_PROC[Stream Processing<br/>Kafka Streams<br/>Real-time transformations]
@@ -153,10 +153,10 @@ graph TB
     MONITORING_NEW -.-> KAFKA
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,GATEWAY edgeStyle
     class PROFILE_SVC,CONNECT_SVC,ACTIVITY_SVC,FEED_SVC,SEARCH_SVC,NOTIF_SVC,ANALYTICS_SVC,EventProducers,EventConsumers serviceStyle

@@ -67,14 +67,14 @@
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CDN[Content Delivery Network<br/>Game Downloads + Updates]
         LB[Load Balancers<br/>Traffic Distribution]
         EDGE[Edge Servers<br/>Regional Distribution]
         CACHE[Content Cache<br/>Game Assets]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         AUTH[Authentication Service<br/>User Login]
         STORE[PlayStation Store<br/>Digital Commerce]
         SOCIAL[Social Features<br/>Friends + Messages]
@@ -82,7 +82,7 @@ graph TB
         TROPHY[Trophy System<br/>Achievement Tracking]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         USERDB[(User Database<br/>77M User Accounts)]
         PAYMENT[(Payment Database<br/>Credit Card Data)]
         GAMEDB[(Game Database<br/>Saves + Purchases)]
@@ -90,7 +90,7 @@ graph TB
         LOGDB[(Logging Database<br/>Activity Tracking)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         SECURITY[Security Systems<br/>Legacy Firewalls]
         MONITOR[Monitoring<br/>Basic Network Monitoring]
         DEPLOY[Deployment<br/>Manual Processes]
@@ -104,10 +104,10 @@ graph TB
     BACKUP -.->|UNENCRYPTED DATA| GAMEDB
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB,EDGE,CACHE edgeStyle
     class AUTH,STORE,SOCIAL,GAME,TROPHY serviceStyle

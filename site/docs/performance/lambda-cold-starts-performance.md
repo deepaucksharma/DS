@@ -8,23 +8,23 @@ AWS Lambda handles billions of function invocations daily across millions of fun
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         API_GW[API Gateway<br/>Global endpoints<br/>Request routing]
         ALB[Application LB<br/>Regional routing<br/>Health checking]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         LAMBDA[Lambda Service<br/>Function management<br/>Execution coordination]
         INVOKE[Invocation Service<br/>Request processing<br/>Concurrency control]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         FIRECRACKER[Firecracker MicroVMs<br/>Lightweight isolation<br/>Fast boot times]
         RUNTIME[Language Runtimes<br/>Node.js, Python, Java<br/>Runtime optimization]
         STORAGE[Function Storage<br/>S3 deployment packages<br/>Layer caching]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         SCHEDULER[Lambda Scheduler<br/>Placement decisions<br/>Resource allocation]
         MONITOR[CloudWatch<br/>Performance metrics<br/>Cold start tracking]
     end
@@ -39,10 +39,10 @@ graph TB
     SCHEDULER --> FIRECRACKER
     MONITOR --> LAMBDA
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class API_GW,ALB edgeStyle
     class LAMBDA,INVOKE serviceStyle
@@ -71,7 +71,7 @@ graph LR
         WARM_GO[Go: 1ms<br/>Goroutine ready<br/>Memory allocated]
     end
 
-    classDef metricStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class NODE,PYTHON,JAVA,DOTNET,GO,RUST,WARM_NODE,WARM_PYTHON,WARM_JAVA,WARM_GO metricStyle
 ```
 
@@ -278,8 +278,8 @@ graph TB
     CODE_INIT --> CODE_OPT
     CODE_INIT --> LAYER_CACHE
 
-    classDef bottleneckStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef bottleneckStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class INVOKE,SCHEDULE,VM_INIT,RUNTIME_INIT,CODE_INIT bottleneckStyle
     class PROVISIONED,RUNTIME_OPT,CODE_OPT,LAYER_CACHE solutionStyle
@@ -315,8 +315,8 @@ graph LR
     C100000 --> PROVISIONED
     C100000 --> GRADUAL
 
-    classDef scaleStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef scaleStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class C100,C1000,C10000,C100000 scaleStyle
     class RESERVED,PROVISIONED,GRADUAL solutionStyle
@@ -349,8 +349,8 @@ graph TB
     LATENCY --> UX
     UX --> SLA
 
-    classDef costStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef roiStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef costStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef roiStyle fill:#10B981,stroke:#059669,color:#fff
 
     class STANDARD,PROVISIONED,TOTAL_COST costStyle
     class LATENCY,UX,SLA roiStyle
@@ -426,8 +426,8 @@ graph TB
         TIMEOUT[Timeout Alarm<br/>Function timeouts<br/>Resource constraints]
     end
 
-    classDef metricStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef alarmStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef alarmStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class DURATION,INIT_DURATION,MEMORY,ERRORS metricStyle
     class COLD_START,ERROR_RATE,TIMEOUT alarmStyle

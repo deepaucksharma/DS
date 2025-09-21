@@ -18,25 +18,25 @@ Zoom's scaling journey from a small video conferencing startup to supporting 300
 ### Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[Load Balancer<br/>F5 BigIP]
         CDN[Basic CDN<br/>CloudFront]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         WEB[Web Servers<br/>3x c3.large<br/>Nginx + Node.js]
         SIG[Signaling Server<br/>2x c3.xlarge<br/>Custom C++]
         MEDIA[Media Server<br/>5x c4.2xlarge<br/>Custom C++]
         RECORD[Recording Service<br/>2x m3.medium]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         MYSQL[(MySQL<br/>db.m3.large<br/>100GB)]
         REDIS[(Redis<br/>cache.m3.medium<br/>2GB)]
         S3[(S3 Storage<br/>Recordings)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MON[Monitoring<br/>Nagios]
         LOGS[Logging<br/>Syslog]
     end
@@ -49,10 +49,10 @@ graph TB
     WEB --> REDIS
     RECORD --> S3
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,CDN edgeStyle
     class WEB,SIG,MEDIA,RECORD serviceStyle
@@ -96,13 +96,13 @@ graph TB
 ### Enhanced Architecture
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ALB[Application Load Balancer<br/>AWS ALB]
         CF[CloudFront CDN<br/>Global edge locations]
         STUN[STUN/TURN Servers<br/>NAT traversal]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         subgraph WebTier[Web Tier]
             WEB1[Web Server 1<br/>c4.large]
             WEB2[Web Server 2<br/>c4.large]
@@ -125,7 +125,7 @@ graph TB
         RECORD[Recording Cluster<br/>5x instances]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         MYSQL_M[(MySQL Master<br/>db.r4.xlarge<br/>500GB SSD)]
         MYSQL_R1[(MySQL Replica 1<br/>db.r4.large)]
         MYSQL_R2[(MySQL Replica 2<br/>db.r4.large)]
@@ -134,7 +134,7 @@ graph TB
         S3_COLD[(S3 Cold Storage<br/>Archive)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         DATADOG[DataDog<br/>Metrics + APM]
         ELK[ELK Stack<br/>Centralized logging]
         DEPLOY[Jenkins<br/>CI/CD pipeline]
@@ -165,10 +165,10 @@ graph TB
     MYSQL_M --> MYSQL_R1
     MYSQL_M --> MYSQL_R2
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ALB,CF,STUN edgeStyle
     class WEB1,WEB2,WEB3,SIG1,SIG2,SIG3,MEDIA1,MEDIA2,MEDIA3,SCHEDULER,RECORD serviceStyle
@@ -282,9 +282,9 @@ graph TB
     MYSQLW --> MYSQLEU
     MYSQLW --> MYSQLAP
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class ALBW,CDNW,ALBE,CDNE,ALBEU,CDNEU,ALBAP,CDNAP edgeStyle
     class WEBW,SIGW,MEDIAW,WEBE,SIGE,MEDIAE,WEBEU,SIGEU,MEDIAEU,WEBAP,SIGAP,MEDIAAP serviceStyle
@@ -419,10 +419,10 @@ graph TB
     MEDIA_SVC --> KAFKA
     RECORD_SVC --> S3_GLOBAL
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN_AWS,CDN_CF,CDN_AZURE,EDGE_US,EDGE_EU,EDGE_APAC,EDGE_LATAM edgeStyle
     class USW_CORE,USE_CORE,USC_CORE,EUW_CORE,EUC_CORE,APAC_CORE,INDIA_CORE,AUTH_SVC,USER_SVC,MEET_SVC,ROOM_SVC,WEBINAR_SVC,SIGNAL_SVC,MEDIA_SVC,RECORD_SVC,STREAM_SVC,TRANSCRIBE,TRANSLATE,NOISE_AI,VIRTUAL_BG serviceStyle
@@ -554,9 +554,9 @@ graph TB
     AI_TRANSCRIPTION --> GPU_CLUSTERS
     AI_SUMMARY --> TRITON_INFERENCE
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef aiStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class SMART_EDGE,SECURITY_EDGE,QUALITY_EDGE edgeStyle
@@ -622,8 +622,8 @@ graph TB
     IMMERSIVE_VIDEO --> CLOUD_INFERENCE
     PRODUCTIVITY_AI --> HYBRID_INFERENCE
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
     classDef aiStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class NEURAL_EDGE,ADAPTIVE_QUALITY edgeStyle

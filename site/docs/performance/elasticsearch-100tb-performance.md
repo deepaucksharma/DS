@@ -8,23 +8,23 @@ GitHub operates one of the world's largest code search systems, indexing over 10
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         LB[GitHub Load Balancer<br/>NGINX + HAProxy<br/>99.99% availability]
         CDN[Search Result Cache<br/>Redis + Varnish<br/>65% cache hit ratio]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         API[Search API<br/>Ruby on Rails<br/>500 instances]
         QUEUE[Index Queue<br/>Redis + Sidekiq<br/>100K jobs/hour]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         ES_MASTER[ES Master Nodes<br/>3x r6g.2xlarge<br/>Cluster coordination]
         ES_DATA[ES Data Nodes<br/>200x r6g.8xlarge<br/>32GB RAM, 4TB NVMe]
         ES_INGEST[ES Ingest Nodes<br/>20x c6g.4xlarge<br/>Preprocessing pipeline]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MON[Monitoring<br/>Elasticsearch + Kibana<br/>Custom dashboards]
         BACKUP[Backup System<br/>S3 snapshots<br/>Daily incremental]
     end
@@ -41,10 +41,10 @@ graph TB
     MON --> ES_DATA
     BACKUP --> ES_DATA
 
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class LB,CDN edgeStyle
     class API,QUEUE serviceStyle
@@ -88,7 +88,7 @@ graph LR
         PHRASE[Phrase Query: 95ms<br/>Position-aware<br/>Proximity scoring]
     end
 
-    classDef metricStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#F59E0B,stroke:#D97706,color:#fff
     class PARSE,ROUTE,EXEC,MERGE,RETURN,P50,P95,P99,P999,SIMPLE,REGEX,FUZZY,PHRASE metricStyle
 ```
 
@@ -129,9 +129,9 @@ graph TB
     CODE --> CODE_SHARD
     COMMIT --> TIME_SHARD
 
-    classDef indexStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef shardStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef mappingStyle fill:#0066CC,stroke:#004499,color:#fff
+    classDef indexStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef shardStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef mappingStyle fill:#3B82F6,stroke:#2563EB,color:#fff
 
     class REPO,CODE,COMMIT,ISSUE indexStyle
     class REPO_SHARD,CODE_SHARD,TIME_SHARD shardStyle
@@ -199,8 +199,8 @@ graph TB
     WRITE --> ASYNC
     MERGE --> COMPRESS
 
-    classDef bottleneckStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef bottleneckStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class READ,WRITE,MERGE,SNAP bottleneckStyle
     class NVME,CACHE,ASYNC,COMPRESS solutionStyle
@@ -241,8 +241,8 @@ graph LR
 
     S20000 --> REINDEX
 
-    classDef scaleStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef solutionStyle fill:#00AA00,stroke:#007700,color:#fff
+    classDef scaleStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef solutionStyle fill:#10B981,stroke:#059669,color:#fff
 
     class S1000,S5000,S10000,S15000,S20000 scaleStyle
     class REINDEX solutionStyle
@@ -295,8 +295,8 @@ graph TB
     SUPPORT --> TOTAL
     TEAM --> TOTAL
 
-    classDef costStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef totalStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef costStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef totalStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DATA_NODES,MASTER_NODES,INGEST_NODES,STORAGE,NETWORK,BACKUP,MONITORING,SUPPORT,TEAM costStyle
     class TOTAL totalStyle
@@ -456,8 +456,8 @@ graph TB
         NODES[Node Health<br/>Active nodes<br/>Memory pressure]
     end
 
-    classDef metricStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef healthStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef metricStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef healthStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class QPS,LATENCY,INDEX_RATE,HEAP,CACHE,DISK,CPU,NETWORK metricStyle
     class STATUS,SHARDS,NODES healthStyle

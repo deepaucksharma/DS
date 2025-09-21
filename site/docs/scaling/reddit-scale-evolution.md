@@ -16,18 +16,18 @@ Reddit's scaling journey from 1K users to 500M+ monthly active users represents 
 
 ```mermaid
 graph TB
-    subgraph SimpleSite[Simple Website - #0066CC]
+    subgraph SimpleSite[Simple Website - #3B82F6]
         WEB_INTERFACE[Web Interface<br/>Python/web.py<br/>Simple voting]
         RSS_FEEDS[RSS Feeds<br/>Content syndication<br/>Basic API]
     end
 
-    subgraph BasicCore[Basic Core - #00AA00]
+    subgraph BasicCore[Basic Core - #10B981]
         VOTING_SYSTEM[Voting System<br/>Upvote/downvote<br/>Score calculation]
         COMMENT_SYSTEM[Comment System<br/>Threaded discussions<br/>Basic threading]
         USER_SYSTEM[User System<br/>Registration<br/>Karma tracking]
     end
 
-    subgraph SimpleData[Simple Data - #FF8800]
+    subgraph SimpleData[Simple Data - #F59E0B]
         POSTGRES[(PostgreSQL<br/>All data<br/>Single instance)]
         MEMCACHED[(Memcached<br/>Page caching<br/>Session storage)]
     end
@@ -38,9 +38,9 @@ graph TB
     COMMENT_SYSTEM --> MEMCACHED
     USER_SYSTEM --> POSTGRES
 
-    classDef siteStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef coreStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef siteStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef coreStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class WEB_INTERFACE,RSS_FEEDS siteStyle
     class VOTING_SYSTEM,COMMENT_SYSTEM,USER_SYSTEM coreStyle
@@ -64,19 +64,19 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph CommunityPlatform[Community Platform - #0066CC]
+    subgraph CommunityPlatform[Community Platform - #3B82F6]
         SUBREDDIT_SYSTEM[Subreddit System<br/>Community creation<br/>Moderation tools]
         MODERATION[Moderation System<br/>User reports<br/>Content removal]
         CUSTOMIZATION[Customization<br/>CSS themes<br/>Community branding]
     end
 
-    subgraph ScaledServices[Scaled Services - #00AA00]
+    subgraph ScaledServices[Scaled Services - #10B981]
         RANKING_ENGINE[Ranking Engine<br/>Hot algorithm<br/>Time decay]
         SEARCH_SYSTEM[Search System<br/>Lucene/Solr<br/>Content indexing]
         NOTIFICATION_SYS[Notification System<br/>Message inbox<br/>Comment replies]
     end
 
-    subgraph ScaledData[Scaled Data Infrastructure - #FF8800]
+    subgraph ScaledData[Scaled Data Infrastructure - #F59E0B]
         POSTGRES_MASTER[(PostgreSQL Master<br/>Write operations<br/>ACID compliance)]
         POSTGRES_SLAVES[(PostgreSQL Slaves<br/>Read scaling<br/>Report queries)]
         REDIS[(Redis<br/>Real-time cache<br/>Session data)]
@@ -91,9 +91,9 @@ graph TB
     NOTIFICATION_SYS --> REDIS
     RANKING_ENGINE --> CASSANDRA
 
-    classDef platformStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef dataStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef platformStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef dataStyle fill:#F59E0B,stroke:#D97706,color:#fff
 
     class SUBREDDIT_SYSTEM,MODERATION,CUSTOMIZATION platformStyle
     class RANKING_ENGINE,SEARCH_SYSTEM,NOTIFICATION_SYS serviceStyle
@@ -116,20 +116,20 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph ModernClients[Modern Clients - #0066CC]
+    subgraph ModernClients[Modern Clients - #3B82F6]
         MOBILE_APPS[Mobile Apps<br/>iOS/Android<br/>Native experience]
         NEW_WEB[New Web Interface<br/>React/Redux<br/>Single page app]
         API_PLATFORM[API Platform<br/>Public API<br/>Third-party apps]
     end
 
-    subgraph AdvancedFeatures[Advanced Features - #00AA00]
+    subgraph AdvancedFeatures[Advanced Features - #10B981]
         LIVE_COMMENTS[Live Comments<br/>Real-time updates<br/>WebSocket streaming]
         IMAGE_HOSTING[Image/Video Hosting<br/>Native uploads<br/>Content processing]
         CHAT_SYSTEM[Chat System<br/>Direct messaging<br/>Real-time chat]
         AWARDS_SYSTEM[Awards System<br/>Reddit Gold/Silver<br/>Premium features]
     end
 
-    subgraph MicroservicesArch[Microservices Architecture - #FF8800]
+    subgraph MicroservicesArch[Microservices Architecture - #F59E0B]
         USER_SERVICE[User Service<br/>Authentication<br/>Profile management]
         CONTENT_SERVICE[Content Service<br/>Posts/comments<br/>Voting logic]
         COMMUNITY_SERVICE[Community Service<br/>Subreddit management<br/>Moderation]
@@ -152,9 +152,9 @@ graph TB
     COMMUNITY_SERVICE --> ELASTICSEARCH
     NOTIFICATION_SERVICE --> KAFKA
 
-    classDef clientStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef featureStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef serviceStyle fill:#FF8800,stroke:#CC6600,color:#fff
+    classDef clientStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef featureStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef serviceStyle fill:#F59E0B,stroke:#D97706,color:#fff
     classDef dataStyle fill:#9966CC,stroke:#663399,color:#fff
 
     class MOBILE_APPS,NEW_WEB,API_PLATFORM clientStyle

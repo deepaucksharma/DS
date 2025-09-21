@@ -8,27 +8,27 @@ This guide provides comprehensive debugging strategies for SSL/TLS certificate i
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         CLIENT[Client Browser<br/>Certificate Validation]
         LB[Load Balancer<br/>SSL Termination]
         CDN[CDN<br/>Edge Certificate]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         CERT_MANAGER[Cert Manager<br/>K8s Certificate Controller]
         ACME_CLIENT[ACME Client<br/>Let's Encrypt]
         PROXY[Reverse Proxy<br/>nginx/HAProxy]
         APP[Application<br/>Backend Services]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         CERT_STORE[(Certificate Store<br/>Kubernetes Secrets)]
         CA_CERT[(CA Certificates<br/>Trust Store)]
         PRIVATE_KEYS[(Private Keys<br/>Secure Storage)]
         CERT_LOG[(Certificate Logs<br/>CT Transparency)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         CERT_MONITOR[Certificate Monitor<br/>Expiry Tracking]
         PKI_VALIDATOR[PKI Validator<br/>Chain Verification]
         ALERTING[Alerting<br/>Certificate Expiry]
@@ -60,10 +60,10 @@ graph TB
     CERT_LOG --> PKI_VALIDATOR
 
     %% Apply styles
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CLIENT,LB,CDN edgeStyle
     class CERT_MANAGER,ACME_CLIENT,PROXY,APP serviceStyle

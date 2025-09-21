@@ -8,12 +8,12 @@ This guide provides comprehensive debugging strategies for service mesh issues i
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         GATEWAY[Istio Gateway<br/>External Traffic Entry]
         LB[Load Balancer<br/>AWS ALB/GCP LB]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         PILOT[Pilot<br/>Service Discovery & Config]
         CITADEL[Citadel<br/>Certificate Management]
         GALLEY[Galley<br/>Configuration Validation]
@@ -22,14 +22,14 @@ graph TB
         SIDECAR3[Envoy Sidecar<br/>Service C]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         ETCD[(etcd<br/>Kubernetes API)]
         ENVOY_CONFIG[(Envoy Config<br/>XDS Cache)]
         CERT_STORE[(Certificate Store<br/>Kubernetes Secrets)]
         ACCESS_LOGS[(Access Logs<br/>Structured Logging)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         TELEMETRY[Telemetry v2<br/>Metrics Collection]
         JAEGER[Jaeger<br/>Distributed Tracing]
         KIALI[Kiali<br/>Service Mesh Observability]
@@ -70,10 +70,10 @@ graph TB
     PROMETHEUS --> KIALI
 
     %% Apply styles
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class GATEWAY,LB edgeStyle
     class PILOT,CITADEL,GALLEY,SIDECAR1,SIDECAR2,SIDECAR3 serviceStyle

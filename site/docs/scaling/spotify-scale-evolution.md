@@ -16,24 +16,24 @@ Spotify's transformation from a Swedish startup combating music piracy to the wo
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         DesktopClient[Desktop Client<br/>C++ Application<br/>P2P Music Streaming]
         WebPortal[Web Portal<br/>PHP + MySQL<br/>Account Management]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         P2PNetwork[P2P Network<br/>BitTorrent Protocol<br/>Distributed Music Sharing]
         AuthService[Auth Service<br/>User Authentication<br/>License Validation]
         MusicCatalog[Music Catalog<br/>Metadata Service<br/>Track Information]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         UserDB[(User Database<br/>MySQL<br/>Account Information)]
         MetadataDB[(Metadata DB<br/>MySQL<br/>Song Information)]
         P2PIndex[P2P Index<br/>Distributed Hash Table<br/>Content Location]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         BasicMonitoring[Basic Monitoring<br/>Custom Logs<br/>System Health]
         LicenseServer[License Server<br/>DRM Protection<br/>Music Rights]
     end
@@ -46,10 +46,10 @@ graph TB
     P2PNetwork --> P2PIndex
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DesktopClient,WebPortal edgeStyle
     class P2PNetwork,AuthService,MusicCatalog serviceStyle
@@ -84,13 +84,13 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         DesktopApp[Desktop App<br/>Enhanced UI<br/>Social Features]
         WebPlayer[Web Player<br/>Flash-based<br/>Browser Streaming]
         MobileApp[Mobile App<br/>iOS + Android<br/>Offline Sync]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         StreamingService[Streaming Service<br/>Hybrid P2P + CDN<br/>Adaptive Quality]
         UserService[User Service<br/>Accounts + Social<br/>Friend Discovery]
         PlaylistService[Playlist Service<br/>Music Organization<br/>Collaborative Playlists]
@@ -99,7 +99,7 @@ graph TB
         AdService[Ad Service<br/>Audio Advertisements<br/>Targeting Engine]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         UserDB[(User Database<br/>PostgreSQL<br/>Profile + Social Graph)]
         MusicDB[(Music Database<br/>PostgreSQL<br/>Track Metadata)]
         PlaylistDB[(Playlist Database<br/>PostgreSQL<br/>User Collections)]
@@ -108,7 +108,7 @@ graph TB
         CacheLayer[(Cache Layer<br/>Memcached<br/>Hot Music Data)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         Analytics[Analytics<br/>Custom Pipeline<br/>Listening Metrics]
         Monitoring[Monitoring<br/>Nagios<br/>Service Health]
         DeploymentPipeline[Deployment<br/>Custom Scripts<br/>Rolling Updates]
@@ -129,10 +129,10 @@ graph TB
     AdService --> CacheLayer
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class DesktopApp,WebPlayer,MobileApp edgeStyle
     class StreamingService,UserService,PlaylistService,RecommendationEngine,SubscriptionService,AdService serviceStyle
@@ -169,7 +169,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         WebApp[Web App<br/>React + Redux<br/>Progressive Web App]
         MobileApps[Mobile Apps<br/>Native iOS/Android<br/>Offline First]
         DesktopApps[Desktop Apps<br/>Electron-based<br/>Cross-platform]
@@ -177,7 +177,7 @@ graph TB
         SmartSpeakers[Smart Speakers<br/>Alexa + Google<br/>Voice Commands]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         APIGateway[API Gateway<br/>Rate Limiting<br/>Authentication]
         UserMS[User Microservice<br/>Java + Spring<br/>Account Management]
         MusicMS[Music Microservice<br/>Python + Django<br/>Catalog Management]
@@ -188,7 +188,7 @@ graph TB
         AdMS[Ad Microservice<br/>Real-time Bidding<br/>Targeted Advertising]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         UserCluster[(User Cluster<br/>Cassandra<br/>Profile + Social Data)]
         MusicCluster[(Music Cluster<br/>Cassandra<br/>Track Metadata)]
         PlaybackCluster[(Playback Cluster<br/>Cassandra<br/>Streaming Events)]
@@ -198,7 +198,7 @@ graph TB
         AnalyticsLake[Analytics Lake<br/>Hadoop + Spark<br/>Behavioral Data)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         KubernetesOrchestration[Kubernetes<br/>Container Orchestration<br/>Auto-scaling]
         PrometheusMonitoring[Prometheus<br/>Metrics Collection<br/>Real-time Alerting]
         KafkaStreaming[Kafka<br/>Event Streaming<br/>Real-time Data Pipeline]
@@ -229,10 +229,10 @@ graph TB
     AdMS --> AnalyticsLake
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class WebApp,MobileApps,DesktopApps,CarIntegration,SmartSpeakers edgeStyle
     class APIGateway,UserMS,MusicMS,PlaybackMS,PlaylistMS,RecommendationMS,SocialMS,AdMS serviceStyle
@@ -270,7 +270,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         AdaptiveUI[Adaptive UI<br/>Personalized Interface<br/>Context-aware Design]
         VoiceInterface[Voice Interface<br/>Spotify Voice<br/>Natural Language]
         SmartDevices[Smart Devices<br/>Spotify Connect<br/>Seamless Handoff]
@@ -278,7 +278,7 @@ graph TB
         CarOS[Car OS<br/>Spotify Car Thing<br/>Voice-first Interface]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         AIOrchestrator[AI Orchestrator<br/>Unified ML Platform<br/>Real-time Inference]
         PersonalizationEngine[Personalization Engine<br/>Deep Learning<br/>Individual Optimization]
         PodcastPlatform[Podcast Platform<br/>Creator Economy<br/>Monetization Tools]
@@ -289,7 +289,7 @@ graph TB
         VoiceProcessing[Voice Processing<br/>Speech Recognition<br/>Intent Understanding]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         UserBehaviorGraph[(User Behavior Graph<br/>Neo4j<br/>Listening Patterns)]
         ContentGraph[(Content Graph<br/>Neo4j<br/>Music + Podcast Relationships)]
         MLFeatureStore[(ML Feature Store<br/>Real-time Features<br/>User + Content Vectors)]
@@ -299,7 +299,7 @@ graph TB
         ContentDeliveryNetwork[Content CDN<br/>Global Edge<br/>Adaptive Streaming)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         MLOpsOrchestration[MLOps Platform<br/>Model Lifecycle<br/>A/B Testing]
         RealTimeAnalytics[Real-time Analytics<br/>Streaming Pipeline<br/>Live Insights]
         ContentModerationAI[Content Moderation<br/>AI Safety<br/>Policy Enforcement]
@@ -328,10 +328,10 @@ graph TB
     CreatorServices --> ContentDeliveryNetwork
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class AdaptiveUI,VoiceInterface,SmartDevices,PodcastApps,CarOS edgeStyle
     class AIOrchestrator,PersonalizationEngine,PodcastPlatform,ContentIntelligence,SocialEngine,AdPlatform,CreatorServices,VoiceProcessing serviceStyle
@@ -369,7 +369,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         ListenerApps[Listener Apps<br/>Personalized Experience<br/>Cross-device Sync]
         CreatorStudio[Creator Studio<br/>Professional Tools<br/>Analytics Dashboard]
         LiveAudioApps[Live Audio Apps<br/>Spotify Live<br/>Real-time Interaction]
@@ -377,7 +377,7 @@ graph TB
         BrandPartnerPortal[Brand Partner Portal<br/>Advertising Platform<br/>Campaign Management]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         UnifiedContentPlatform[Unified Content Platform<br/>Music + Podcasts + Live<br/>Creator Economy]
         CreatorEconomyEngine[Creator Economy Engine<br/>Monetization Tools<br/>Revenue Sharing]
         LiveAudioPlatform[Live Audio Platform<br/>Real-time Streaming<br/>Interactive Features]
@@ -388,7 +388,7 @@ graph TB
         ContentModerationAI[Content Moderation<br/>Automated Safety<br/>Real-time Monitoring]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         UnifiedContentGraph[(Unified Content Graph<br/>Music + Podcast + Live<br/>Cross-medium Relationships)]
         CreatorEconomyDB[(Creator Economy DB<br/>Revenue Tracking<br/>Performance Metrics)]
         LiveAudioStateDB[(Live Audio State<br/>Real-time Sessions<br/>Interaction Data)]
@@ -398,7 +398,7 @@ graph TB
         GlobalPersonalizationCache[(Global Personalization<br/>Edge Caching<br/>Sub-50ms Response)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         AdvancedMLOps[Advanced MLOps<br/>Multi-modal Learning<br/>Cross-platform Deployment]
         CreatorAnalyticsPlatform[Creator Analytics<br/>Revenue Insights<br/>Audience Intelligence]
         LiveAudioOrchestration[Live Audio Orchestration<br/>Real-time Scaling<br/>Quality Management]
@@ -427,10 +427,10 @@ graph TB
     AdvertisingEngine --> GlobalPersonalizationCache
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class ListenerApps,CreatorStudio,LiveAudioApps,CreatorMobileApps,BrandPartnerPortal edgeStyle
     class UnifiedContentPlatform,CreatorEconomyEngine,LiveAudioPlatform,AdvancedPersonalization,ContentCreationTools,CommunityPlatform,AdvertisingEngine,ContentModerationAI serviceStyle
@@ -468,7 +468,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - #0066CC]
+    subgraph EdgePlane[Edge Plane - #3B82F6]
         OmnichannelAudioApps[Omnichannel Apps<br/>Adaptive Interface<br/>Context-aware Experience]
         ImmersiveAudioDevices[Immersive Audio<br/>Spatial Audio<br/>AR/VR Integration]
         AIVoiceAssistant[AI Voice Assistant<br/>Conversational Interface<br/>Natural Interaction]
@@ -476,7 +476,7 @@ graph TB
         GlobalAudioNetwork[Global Audio Network<br/>Connected Devices<br/>Ambient Computing]
     end
 
-    subgraph ServicePlane[Service Plane - #00AA00]
+    subgraph ServicePlane[Service Plane - #10B981]
         AutonomousContentOrchestrator[Autonomous Content<br/>Self-generating Playlists<br/>AI Curation]
         ImmersiveAudioEngine[Immersive Audio Engine<br/>Spatial Audio Processing<br/>3D Sound Design]
         AIContentGeneration[AI Content Generation<br/>Music Composition<br/>Podcast Creation]
@@ -487,7 +487,7 @@ graph TB
         AmbientAudioPlatform[Ambient Audio Platform<br/>Environmental Integration<br/>Contextual Streaming]
     end
 
-    subgraph StatePlane[State Plane - #FF8800]
+    subgraph StatePlane[State Plane - #F59E0B]
         AutonomousContentGraph[(Autonomous Content Graph<br/>Self-evolving Relationships<br/>AI-driven Connections)]
         ImmersiveAudioAssets[(Immersive Audio Assets<br/>Spatial Audio Files<br/>3D Sound Libraries)]
         AIGeneratedContentStore[(AI-Generated Content<br/>Synthetic Music<br/>AI Podcast Episodes)]
@@ -497,7 +497,7 @@ graph TB
         GlobalComplianceRules[(Global Compliance Rules<br/>Regional Regulations<br/>Cultural Guidelines)]
     end
 
-    subgraph ControlPlane[Control Plane - #CC0000]
+    subgraph ControlPlane[Control Plane - #8B5CF6]
         AutonomousMLOps[Autonomous MLOps<br/>Self-training Models<br/>Continuous Evolution]
         ImmersiveAudioProcessing[Immersive Audio Processing<br/>Real-time 3D Rendering<br/>Spatial Computing]
         AIContentGovernance[AI Content Governance<br/>Quality Assurance<br/>Ethical AI]
@@ -526,10 +526,10 @@ graph TB
     GlobalContentCompliance --> GlobalComplianceRules
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class OmnichannelAudioApps,ImmersiveAudioDevices,AIVoiceAssistant,CreatorAIStudio,GlobalAudioNetwork edgeStyle
     class AutonomousContentOrchestrator,ImmersiveAudioEngine,AIContentGeneration,PredictivePersonalization,AdvancedCreatorEconomy,ConversationalAI,GlobalContentCompliance,AmbientAudioPlatform serviceStyle

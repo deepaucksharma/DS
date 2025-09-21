@@ -15,21 +15,21 @@ Uber's transformation from a single monolithic Python application to 4,000+ micr
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         CDN[Akamai CDN]
         LB[HAProxy<br/>2 instances]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         MONO[Uber Monolith<br/>Python/Django<br/>50GB codebase<br/>500 endpoints]
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         MYSQL[(MySQL 5.5<br/>Master-Slave<br/>2TB database)]
         REDIS[(Redis 2.8<br/>16GB cache)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         DEPLOY[Fabric Deploy<br/>Manual Process]
         MON[New Relic<br/>Basic Metrics]
     end
@@ -43,10 +43,10 @@ graph TB
     MON -.-> MONO
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,LB edgeStyle
     class MONO serviceStyle
@@ -65,12 +65,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         CDN[Akamai CDN]
         ALB[AWS ALB<br/>5 zones]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         API[API Gateway<br/>Node.js]
 
         subgraph Core[Core Services]
@@ -86,7 +86,7 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         MYSQL1[(Users MySQL<br/>10TB sharded)]
         MYSQL2[(Trips MySQL<br/>50TB sharded)]
         MYSQL3[(Payments MySQL<br/>5TB)]
@@ -94,7 +94,7 @@ graph TB
         REDIS[(Redis Cluster<br/>1TB cache)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         UBER_DEPLOY[uDeploy<br/>Custom Tool]
         UBER_MON[M3 Metrics<br/>Custom Platform]
         DISCO[Hyperbahn<br/>Service Discovery]
@@ -120,10 +120,10 @@ graph TB
     DISCO -.-> API
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,ALB edgeStyle
     class API,USER,TRIP,PAY,MATCH,PRICE,ETA,Core,Business serviceStyle
@@ -142,12 +142,12 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph EdgePlane[Edge Plane - Blue #0066CC]
+    subgraph EdgePlane[Edge Plane - Blue #3B82F6]
         CDN[Global CDN<br/>Akamai + CloudFlare]
         MESH[Envoy Service Mesh<br/>Global Load Balancing]
     end
 
-    subgraph ServicePlane[Service Plane - Green #00AA00]
+    subgraph ServicePlane[Service Plane - Green #10B981]
         subgraph Platform[Platform Services]
             GATEWAY[uGateway<br/>Go/Envoy]
             AUTH[Auth Service<br/>Java]
@@ -176,7 +176,7 @@ graph TB
         end
     end
 
-    subgraph StatePlane[State Plane - Orange #FF8800]
+    subgraph StatePlane[State Plane - Orange #F59E0B]
         MYSQL_SHARD[(MySQL Clusters<br/>100+ shards<br/>500TB total)]
         CASSANDRA[(Cassandra<br/>Location/Events<br/>2PB)]
         POSTGRES[(PostgreSQL<br/>Analytics<br/>100TB)]
@@ -184,7 +184,7 @@ graph TB
         REDIS_CLUSTER[(Redis Clusters<br/>50+ clusters<br/>10TB total)]
     end
 
-    subgraph ControlPlane[Control Plane - Red #CC0000]
+    subgraph ControlPlane[Control Plane - Red #8B5CF6]
         PIPER[Piper CI/CD<br/>Deployment Platform]
         M3[M3 Metrics<br/>Time Series DB]
         JAEGER[Jaeger Tracing<br/>Distributed Traces]
@@ -220,10 +220,10 @@ graph TB
     CADENCE -.-> Realtime
 
     %% Apply four-plane colors
-    classDef edgeStyle fill:#0066CC,stroke:#004499,color:#fff
-    classDef serviceStyle fill:#00AA00,stroke:#007700,color:#fff
-    classDef stateStyle fill:#FF8800,stroke:#CC6600,color:#fff
-    classDef controlStyle fill:#CC0000,stroke:#990000,color:#fff
+    classDef edgeStyle fill:#3B82F6,stroke:#2563EB,color:#fff
+    classDef serviceStyle fill:#10B981,stroke:#059669,color:#fff
+    classDef stateStyle fill:#F59E0B,stroke:#D97706,color:#fff
+    classDef controlStyle fill:#8B5CF6,stroke:#7C3AED,color:#fff
 
     class CDN,MESH edgeStyle
     class GATEWAY,AUTH,RATE,USER_V2,TRIP_V2,DRIVER,RIDER,SUPPLY,DEMAND,MATCHING,DISPATCH,LOCATION,ETA_V2,ROUTING,GEOFENCE,Platform,Core,Marketplace,Realtime serviceStyle
