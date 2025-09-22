@@ -241,6 +241,11 @@ class UnifiedStatusTracker:
             # Existing diagram - check if content changed
             existing = self.tracking_data["diagrams"][diagram_id]
 
+            # If this was a not_created entry, mark it as found
+            if existing["status"] == DiagramStatus.NOT_CREATED.value:
+                existing["status"] = DiagramStatus.DRAFT.value
+                existing["created_date"] = datetime.now().isoformat()
+
             if existing.get("content_hash") != content_hash:
                 existing["last_updated"] = datetime.now().isoformat()
                 existing["content_hash"] = content_hash
@@ -401,10 +406,10 @@ class UnifiedStatusTracker:
         # Check for correct plane names and colors
         mermaid_blocks = re.findall(r'```mermaid\n(.*?)\n```', content, re.DOTALL)
         color_mapping = {
-            "#0066CC": "Edge Plane",
-            "#00AA00": "Service Plane",
-            "#FF8800": "State Plane",
-            "#CC0000": "Control Plane"
+            "#3B82F6": "Edge Plane",
+            "#10B981": "Service Plane",
+            "#F59E0B": "State Plane",
+            "#8B5CF6": "Control Plane"
         }
 
         for block in mermaid_blocks:
@@ -517,7 +522,7 @@ class UnifiedStatusTracker:
         score = compliance_result["score"]
         current_status = self.tracking_data["diagrams"][diagram_id]["status"]
 
-        # Don't override NOT_CREATED status
+        # Don't override NOT_CREATED status (but allow DRAFT and others)
         if current_status == DiagramStatus.NOT_CREATED.value:
             return
 
