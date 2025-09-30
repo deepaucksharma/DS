@@ -1,0 +1,266 @@
+{
+  "concepts": [
+    {
+      "id": "FUND-001",
+      "name": "Distributed System",
+      "category": "FUNDAMENTALS",
+      "level": "beginner",
+      "learning_hours": 1.0,
+      "difficulty": 1,
+      "importance": 10,
+      "description": "Collection of independent computers that appears to users as a single coherent system",
+      "real_world_usage": 100,
+      "tags": ["definition", "basics", "foundation"],
+      "prerequisites": [],
+      "enables": ["FUND-002", "FUND-003", "REPL-001", "PART-001"],
+      "atlas_diagrams": ["foundation/distributed-systems-overview"]
+    },
+    {
+      "id": "FUND-002",
+      "name": "CAP Theorem",
+      "category": "FUNDAMENTALS",
+      "level": "beginner",
+      "learning_hours": 2.5,
+      "difficulty": 3,
+      "importance": 10,
+      "description": "Impossibility of simultaneously guaranteeing Consistency, Availability, and Partition tolerance",
+      "real_world_usage": 100,
+      "tags": ["cap", "theorem", "trade-offs", "fundamental-law"],
+      "prerequisites": ["FUND-001"],
+      "enables": ["CONS-001", "CONS-002", "CONS-003"],
+      "related_to": ["FUND-003"],
+      "atlas_diagrams": [
+        "foundation/cap-theorem",
+        "guarantees/cap-theorem-proof",
+        "examples/cap-real-world"
+      ]
+    },
+    {
+      "id": "FUND-005",
+      "name": "Time and Ordering",
+      "category": "FUNDAMENTALS",
+      "level": "intermediate",
+      "learning_hours": 3.0,
+      "difficulty": 5,
+      "importance": 9,
+      "description": "Challenges of time synchronization and event ordering in distributed systems",
+      "real_world_usage": 95,
+      "tags": ["time", "ordering", "clocks", "causality"],
+      "prerequisites": ["FUND-001"],
+      "enables": ["FUND-006", "CONS-010", "CONS-011"],
+      "atlas_diagrams": [
+        "foundation/time-and-ordering",
+        "mechanisms/logical-clocks"
+      ]
+    },
+    {
+      "id": "FUND-006",
+      "name": "Lamport Clocks",
+      "category": "FUNDAMENTALS",
+      "level": "intermediate",
+      "learning_hours": 2.5,
+      "difficulty": 5,
+      "importance": 7,
+      "description": "Logical clocks for establishing happened-before relationships",
+      "real_world_usage": 60,
+      "tags": ["logical-clocks", "ordering", "causality", "lamport"],
+      "prerequisites": ["FUND-005"],
+      "enables": ["FUND-007"],
+      "related_to": ["FUND-007", "FUND-008"],
+      "atlas_diagrams": [
+        "mechanisms/lamport-clocks",
+        "examples/lamport-implementation"
+      ]
+    },
+    {
+      "id": "FUND-007",
+      "name": "Vector Clocks",
+      "category": "FUNDAMENTALS",
+      "level": "intermediate",
+      "learning_hours": 3.0,
+      "difficulty": 6,
+      "importance": 8,
+      "description": "Extension of Lamport clocks to detect concurrent events",
+      "real_world_usage": 70,
+      "tags": ["vector-clocks", "causality", "concurrent-events"],
+      "prerequisites": ["FUND-006"],
+      "enables": ["CONS-015", "CONS-010"],
+      "related_to": ["FUND-006", "FUND-008"],
+      "atlas_diagrams": [
+        "mechanisms/vector-clocks",
+        "systems/amazon-dynamodb-vector-clocks"
+      ]
+    },
+    {
+      "id": "CONS-001",
+      "name": "Linearizability",
+      "category": "CONSISTENCY",
+      "level": "intermediate",
+      "learning_hours": 4.0,
+      "difficulty": 7,
+      "importance": 10,
+      "description": "Strongest consistency - operations appear instantaneous and in real-time order",
+      "real_world_usage": 40,
+      "tags": ["linearizability", "strong-consistency", "real-time-order"],
+      "prerequisites": ["FUND-002", "FUND-005"],
+      "conflicts_with": ["CONS-002"],
+      "atlas_diagrams": [
+        "guarantees/linearizability",
+        "mechanisms/linearizable-register",
+        "examples/etcd-linearizability"
+      ]
+    },
+    {
+      "id": "CONS-002",
+      "name": "Eventual Consistency",
+      "category": "CONSISTENCY",
+      "level": "beginner",
+      "learning_hours": 2.5,
+      "difficulty": 4,
+      "importance": 10,
+      "description": "Weak consistency - all replicas eventually converge if updates stop",
+      "real_world_usage": 80,
+      "tags": ["eventual-consistency", "weak-consistency", "convergence"],
+      "prerequisites": ["FUND-002"],
+      "enables": ["CONS-015", "CONS-016"],
+      "atlas_diagrams": [
+        "guarantees/eventual-consistency",
+        "systems/amazon-dynamodb",
+        "patterns/eventual-consistency"
+      ]
+    },
+    {
+      "id": "CNSP-005",
+      "name": "Raft Consensus",
+      "category": "CONSENSUS",
+      "level": "advanced",
+      "learning_hours": 6.0,
+      "difficulty": 7,
+      "importance": 10,
+      "description": "Understandable consensus algorithm",
+      "real_world_usage": 80,
+      "tags": ["raft", "consensus", "leader-election"],
+      "prerequisites": ["CNSP-001", "FUND-006"],
+      "enables": ["CNSP-006", "CNSP-007"],
+      "atlas_diagrams": [
+        "mechanisms/raft",
+        "mechanisms/raft-leader-election",
+        "mechanisms/raft-log-replication",
+        "systems/etcd",
+        "systems/consul"
+      ]
+    },
+    {
+      "id": "REPL-001",
+      "name": "Replication Fundamentals",
+      "category": "REPLICATION",
+      "level": "beginner",
+      "learning_hours": 2.0,
+      "difficulty": 3,
+      "importance": 10,
+      "description": "Basic concepts of data replication",
+      "real_world_usage": 100,
+      "tags": ["replication", "basics", "redundancy"],
+      "prerequisites": ["FUND-001"],
+      "enables": ["REPL-002", "REPL-005", "REPL-010"],
+      "atlas_diagrams": ["patterns/replication-overview"]
+    },
+    {
+      "id": "PART-001",
+      "name": "Data Partitioning",
+      "category": "PARTITIONING",
+      "level": "intermediate",
+      "learning_hours": 2.5,
+      "difficulty": 5,
+      "importance": 10,
+      "description": "Splitting data across multiple nodes",
+      "real_world_usage": 95,
+      "tags": ["partitioning", "sharding", "scalability"],
+      "prerequisites": ["FUND-001"],
+      "enables": ["PART-002", "PART-006", "PART-010"],
+      "atlas_diagrams": ["patterns/data-partitioning"]
+    }
+  ],
+  "relationships": {
+    "prerequisite_for": [
+      {
+        "from": "FUND-001",
+        "to": "FUND-002",
+        "strength": 1.0,
+        "optional": false
+      },
+      {
+        "from": "FUND-002",
+        "to": "CONS-001",
+        "strength": 1.0,
+        "optional": false
+      },
+      {
+        "from": "FUND-002",
+        "to": "CONS-002",
+        "strength": 0.9,
+        "optional": false
+      },
+      {
+        "from": "FUND-005",
+        "to": "FUND-006",
+        "strength": 1.0,
+        "optional": false
+      },
+      {
+        "from": "FUND-006",
+        "to": "FUND-007",
+        "strength": 0.9,
+        "optional": false
+      }
+    ],
+    "enables": [
+      {
+        "from": "FUND-002",
+        "to": "CONS-001",
+        "necessity": 1.0
+      },
+      {
+        "from": "FUND-007",
+        "to": "CONS-010",
+        "necessity": 0.9
+      }
+    ],
+    "conflicts_with": [
+      {
+        "from": "CONS-001",
+        "to": "CONS-002",
+        "reason": "Cannot have both linearizability and availability under partitions (CAP theorem)"
+      }
+    ],
+    "related_to": [
+      {
+        "from": "FUND-006",
+        "to": "FUND-007",
+        "similarity": 0.8
+      }
+    ]
+  },
+  "learning_paths": {
+    "beginner_foundation": {
+      "name": "Beginner Foundation Path",
+      "target_hours": 20,
+      "concepts": ["FUND-001", "FUND-002", "CONS-002", "REPL-001", "PART-001"],
+      "estimated_weeks": 3
+    },
+    "intermediate_consistency": {
+      "name": "Intermediate Consistency Path",
+      "prerequisites": ["beginner_foundation"],
+      "target_hours": 40,
+      "concepts": ["FUND-005", "FUND-006", "FUND-007", "CONS-001"],
+      "estimated_weeks": 5
+    },
+    "advanced_consensus": {
+      "name": "Advanced Consensus Path",
+      "prerequisites": ["intermediate_consistency"],
+      "target_hours": 30,
+      "concepts": ["CNSP-005", "CNSP-006", "CNSP-007"],
+      "estimated_weeks": 4
+    }
+  }
+}

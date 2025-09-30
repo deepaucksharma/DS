@@ -1,0 +1,1343 @@
+# Atlas Concept Ontology
+# Comprehensive taxonomy of 500+ distributed systems concepts
+# Hierarchical structure: Fundamentals → Intermediate → Advanced → Expert
+
+version: "1.0"
+total_concepts: 537
+max_depth: 8
+last_updated: "2025-09-30"
+
+# Node Schema Definition
+node_schema:
+  Concept:
+    properties:
+      id: string              # Unique identifier (e.g., "CAP-001")
+      name: string            # Display name (e.g., "CAP Theorem")
+      category: enum          # Main category (see categories below)
+      level: enum             # beginner | intermediate | advanced | expert
+      learning_hours: float   # Estimated hours to mastery
+      difficulty: int         # 1-10 scale
+      importance: int         # 1-10 scale (how often used)
+      description: text       # Brief explanation
+      real_world_usage: int   # Percentage of systems using this (0-100)
+      tags: list[string]      # Keywords for search
+      atlas_diagrams: list[string]  # References to Atlas diagrams
+
+  Relationship:
+    types:
+      PREREQUISITE_FOR:       # A must be learned before B
+        properties:
+          strength: float     # How critical (0.0-1.0)
+          optional: boolean   # Can be skipped?
+
+      RELATED_TO:            # Concepts that enhance each other
+        properties:
+          similarity: float   # How similar (0.0-1.0)
+
+      PART_OF:               # Hierarchical parent-child
+        properties:
+          coverage: float     # What % of parent is this
+
+      IMPLEMENTS:            # Concept implements another
+        properties:
+          approach: string    # How it implements
+
+      CONFLICTS_WITH:        # Mutually exclusive
+        properties:
+          reason: string      # Why they conflict
+
+      ENABLES:               # Makes another concept possible
+        properties:
+          necessity: float    # How necessary (0.0-1.0)
+
+# Main Categories
+categories:
+  - id: FUNDAMENTALS
+    name: "Fundamental Concepts"
+    description: "Universal laws and basic building blocks"
+    count: 45
+
+  - id: CONSISTENCY
+    name: "Consistency Models"
+    description: "Data consistency guarantees and implementations"
+    count: 32
+
+  - id: AVAILABILITY
+    name: "Availability Patterns"
+    description: "High availability and fault tolerance"
+    count: 28
+
+  - id: PARTITIONING
+    name: "Data Partitioning"
+    description: "Sharding, hashing, and data distribution"
+    count: 24
+
+  - id: REPLICATION
+    name: "Replication Strategies"
+    description: "Data replication and synchronization"
+    count: 26
+
+  - id: CONSENSUS
+    name: "Consensus Protocols"
+    description: "Distributed agreement algorithms"
+    count: 18
+
+  - id: STORAGE
+    name: "Storage Systems"
+    description: "Databases, caches, file systems"
+    count: 42
+
+  - id: MESSAGING
+    name: "Messaging Systems"
+    description: "Event streaming, queues, pub-sub"
+    count: 35
+
+  - id: NETWORKING
+    name: "Network Protocols"
+    description: "Communication patterns and protocols"
+    count: 38
+
+  - id: PERFORMANCE
+    name: "Performance Optimization"
+    description: "Caching, indexing, query optimization"
+    count: 45
+
+  - id: SCALING
+    name: "Scaling Strategies"
+    description: "Horizontal/vertical scaling patterns"
+    count: 32
+
+  - id: RESILIENCE
+    name: "Resilience Patterns"
+    description: "Failure handling and recovery"
+    count: 40
+
+  - id: OBSERVABILITY
+    name: "Observability"
+    description: "Monitoring, logging, tracing"
+    count: 28
+
+  - id: SECURITY
+    name: "Security Patterns"
+    description: "Authentication, authorization, encryption"
+    count: 30
+
+  - id: OPERATIONS
+    name: "Operations"
+    description: "Deployment, CI/CD, infrastructure"
+    count: 24
+
+  - id: COST
+    name: "Cost Optimization"
+    description: "Infrastructure economics and optimization"
+    count: 20
+
+  - id: MIGRATION
+    name: "Migration Strategies"
+    description: "System transformation and evolution"
+    count: 18
+
+  - id: DEBUGGING
+    name: "Debugging Techniques"
+    description: "Troubleshooting and root cause analysis"
+    count: 22
+
+# Concept Definitions (Hierarchical Structure)
+
+concepts:
+  # ============================================
+  # FUNDAMENTALS (45 concepts)
+  # ============================================
+
+  - id: FUND-001
+    name: "Distributed System"
+    category: FUNDAMENTALS
+    level: beginner
+    learning_hours: 1.0
+    difficulty: 1
+    importance: 10
+    description: "Collection of independent computers that appears to users as a single coherent system"
+    real_world_usage: 100
+    tags: [definition, basics, foundation]
+    prerequisites: []
+    atlas_diagrams: ["foundation/distributed-systems-overview"]
+
+  - id: FUND-002
+    name: "CAP Theorem"
+    category: FUNDAMENTALS
+    level: beginner
+    learning_hours: 2.5
+    difficulty: 3
+    importance: 10
+    description: "Impossibility of simultaneously guaranteeing Consistency, Availability, and Partition tolerance"
+    real_world_usage: 100
+    tags: [cap, theorem, trade-offs, fundamental-law]
+    prerequisites: [FUND-001]
+    enables: [CONS-001, CONS-002, CONS-003]
+    atlas_diagrams:
+      - "foundation/cap-theorem"
+      - "guarantees/cap-theorem-proof"
+      - "examples/cap-real-world"
+
+  - id: FUND-003
+    name: "Network Fallacies"
+    category: FUNDAMENTALS
+    level: beginner
+    learning_hours: 2.0
+    difficulty: 2
+    importance: 9
+    description: "Eight false assumptions programmers make about networks"
+    real_world_usage: 100
+    tags: [network, fallacies, assumptions, pitfalls]
+    prerequisites: [FUND-001]
+    related_to: [FUND-002]
+    atlas_diagrams:
+      - "foundation/network-fallacies"
+      - "incidents/network-failures"
+    fallacies:
+      - "Network is reliable"
+      - "Latency is zero"
+      - "Bandwidth is infinite"
+      - "Network is secure"
+      - "Topology doesn't change"
+      - "There is one administrator"
+      - "Transport cost is zero"
+      - "Network is homogeneous"
+
+  - id: FUND-004
+    name: "Little's Law"
+    category: FUNDAMENTALS
+    level: beginner
+    learning_hours: 1.5
+    difficulty: 2
+    importance: 8
+    description: "L = λW - Relates queue length, arrival rate, and wait time"
+    real_world_usage: 90
+    tags: [queueing-theory, capacity, performance, mathematics]
+    prerequisites: [FUND-001]
+    enables: [PERF-001, SCALE-001]
+    atlas_diagrams:
+      - "foundation/littles-law"
+      - "capacity/queueing-analysis"
+
+  - id: FUND-005
+    name: "Time and Ordering"
+    category: FUNDAMENTALS
+    level: intermediate
+    learning_hours: 3.0
+    difficulty: 5
+    importance: 9
+    description: "Challenges of time synchronization and event ordering in distributed systems"
+    real_world_usage: 95
+    tags: [time, ordering, clocks, causality]
+    prerequisites: [FUND-001]
+    enables: [CONS-010, CONS-011, CONS-012]
+    atlas_diagrams:
+      - "foundation/time-and-ordering"
+      - "mechanisms/logical-clocks"
+
+  - id: FUND-006
+    name: "Lamport Clocks"
+    category: FUNDAMENTALS
+    level: intermediate
+    learning_hours: 2.5
+    difficulty: 5
+    importance: 7
+    description: "Logical clocks for establishing happened-before relationships"
+    real_world_usage: 60
+    tags: [logical-clocks, ordering, causality, lamport]
+    prerequisites: [FUND-005]
+    related_to: [FUND-007, FUND-008]
+    atlas_diagrams:
+      - "mechanisms/lamport-clocks"
+      - "examples/lamport-implementation"
+
+  - id: FUND-007
+    name: "Vector Clocks"
+    category: FUNDAMENTALS
+    level: intermediate
+    learning_hours: 3.0
+    difficulty: 6
+    importance: 8
+    tags: [vector-clocks, causality, concurrent-events]
+    prerequisites: [FUND-006]
+    enables: [CONS-015]
+    atlas_diagrams:
+      - "mechanisms/vector-clocks"
+      - "systems/amazon-dynamodb-vector-clocks"
+
+  - id: FUND-008
+    name: "Version Vectors"
+    category: FUNDAMENTALS
+    level: intermediate
+    learning_hours: 2.5
+    difficulty: 6
+    importance: 7
+    description: "Extension of vector clocks for conflict detection"
+    real_world_usage: 70
+    tags: [version-vectors, conflict-detection, replication]
+    prerequisites: [FUND-007]
+    atlas_diagrams:
+      - "mechanisms/version-vectors"
+      - "patterns/conflict-resolution"
+
+  - id: FUND-009
+    name: "Quorum Systems"
+    category: FUNDAMENTALS
+    level: intermediate
+    learning_hours: 3.5
+    difficulty: 6
+    importance: 9
+    description: "Read/write quorums for consistency without full agreement"
+    real_world_usage: 85
+    tags: [quorum, consistency, replication]
+    prerequisites: [FUND-001, FUND-002]
+    enables: [REPL-008, CONS-020]
+    atlas_diagrams:
+      - "mechanisms/quorum-reads-writes"
+      - "patterns/quorum-consensus"
+      - "systems/cassandra-quorum"
+
+  - id: FUND-010
+    name: "Hinted Handoff"
+    category: FUNDAMENTALS
+    level: intermediate
+    learning_hours: 2.0
+    difficulty: 5
+    importance: 6
+    description: "Temporary storage of writes when nodes are unavailable"
+    real_world_usage: 60
+    tags: [hinted-handoff, availability, eventual-consistency]
+    prerequisites: [FUND-009, REPL-001]
+    atlas_diagrams:
+      - "mechanisms/hinted-handoff"
+      - "systems/amazon-dynamodb-hints"
+
+  # ============================================
+  # CONSISTENCY MODELS (32 concepts)
+  # ============================================
+
+  - id: CONS-001
+    name: "Linearizability"
+    category: CONSISTENCY
+    level: intermediate
+    learning_hours: 4.0
+    difficulty: 7
+    importance: 10
+    description: "Strongest consistency - operations appear instantaneous and in real-time order"
+    real_world_usage: 40
+    tags: [linearizability, strong-consistency, real-time-order]
+    prerequisites: [FUND-002, FUND-005]
+    conflicts_with: [CONS-002]  # Can't have both in distributed system
+    atlas_diagrams:
+      - "guarantees/linearizability"
+      - "mechanisms/linearizable-register"
+      - "examples/etcd-linearizability"
+
+  - id: CONS-002
+    name: "Eventual Consistency"
+    category: CONSISTENCY
+    level: beginner
+    learning_hours: 2.5
+    difficulty: 4
+    importance: 10
+    description: "Weak consistency - all replicas eventually converge if updates stop"
+    real_world_usage: 80
+    tags: [eventual-consistency, weak-consistency, convergence]
+    prerequisites: [FUND-002]
+    enables: [CONS-015, CONS-016]
+    atlas_diagrams:
+      - "guarantees/eventual-consistency"
+      - "systems/amazon-dynamodb"
+      - "patterns/eventual-consistency"
+
+  - id: CONS-003
+    name: "Causal Consistency"
+    category: CONSISTENCY
+    level: intermediate
+    learning_hours: 3.5
+    difficulty: 6
+    importance: 8
+    description: "Preserves cause-effect relationships - causally related ops seen in order"
+    real_world_usage: 50
+    tags: [causal-consistency, causality, ordering]
+    prerequisites: [FUND-007, CONS-002]
+    atlas_diagrams:
+      - "guarantees/causal-consistency"
+      - "mechanisms/causal-consistency-impl"
+      - "systems/facebook-tao"
+
+  - id: CONS-004
+    name: "Sequential Consistency"
+    category: CONSISTENCY
+    level: intermediate
+    learning_hours: 3.0
+    difficulty: 6
+    importance: 7
+    description: "All processes see same order of operations, preserving program order"
+    real_world_usage: 45
+    tags: [sequential-consistency, program-order]
+    prerequisites: [FUND-005, CONS-001]
+    atlas_diagrams:
+      - "guarantees/sequential-consistency"
+      - "examples/sequential-vs-linearizable"
+
+  - id: CONS-005
+    name: "Serializability"
+    category: CONSISTENCY
+    level: intermediate
+    learning_hours: 3.5
+    difficulty: 7
+    importance: 9
+    description: "Transaction execution equivalent to some serial order"
+    real_world_usage: 70
+    tags: [serializability, transactions, isolation]
+    prerequisites: [FUND-001, STOR-020]
+    related_to: [CONS-001]
+    atlas_diagrams:
+      - "guarantees/serializability"
+      - "mechanisms/serializable-isolation"
+      - "systems/google-spanner"
+
+  - id: CONS-006
+    name: "Snapshot Isolation"
+    category: CONSISTENCY
+    level: intermediate
+    learning_hours: 3.0
+    difficulty: 6
+    importance: 8
+    description: "Transactions see consistent snapshot of database"
+    real_world_usage: 75
+    tags: [snapshot-isolation, mvcc, transactions]
+    prerequisites: [CONS-005, STOR-025]
+    atlas_diagrams:
+      - "guarantees/snapshot-isolation"
+      - "mechanisms/mvcc"
+      - "systems/postgresql-mvcc"
+
+  - id: CONS-007
+    name: "Read Your Writes"
+    category: CONSISTENCY
+    level: beginner
+    learning_hours: 1.5
+    difficulty: 3
+    importance: 9
+    description: "Users always see their own updates"
+    real_world_usage: 95
+    tags: [session-consistency, user-experience]
+    prerequisites: [CONS-002]
+    atlas_diagrams:
+      - "guarantees/read-your-writes"
+      - "patterns/session-consistency"
+
+  - id: CONS-008
+    name: "Monotonic Reads"
+    category: CONSISTENCY
+    level: beginner
+    learning_hours: 1.5
+    difficulty: 3
+    importance: 8
+    description: "Once read, never see older versions"
+    real_world_usage: 85
+    tags: [monotonic-reads, session-consistency]
+    prerequisites: [CONS-002]
+    related_to: [CONS-007]
+    atlas_diagrams:
+      - "guarantees/monotonic-reads"
+      - "patterns/session-guarantees"
+
+  - id: CONS-009
+    name: "Monotonic Writes"
+    category: CONSISTENCY
+    level: beginner
+    learning_hours: 1.5
+    difficulty: 3
+    importance: 7
+    description: "Writes from same source applied in order"
+    real_world_usage: 80
+    tags: [monotonic-writes, ordering]
+    prerequisites: [CONS-002]
+    atlas_diagrams:
+      - "guarantees/monotonic-writes"
+
+  - id: CONS-010
+    name: "CRDT (Conflict-free Replicated Data Types)"
+    category: CONSISTENCY
+    level: advanced
+    learning_hours: 5.0
+    difficulty: 8
+    importance: 7
+    description: "Data structures that automatically resolve conflicts"
+    real_world_usage: 40
+    tags: [crdt, conflict-resolution, eventual-consistency]
+    prerequisites: [CONS-002, FUND-007]
+    atlas_diagrams:
+      - "mechanisms/crdts"
+      - "patterns/crdt-types"
+      - "systems/riak-crdts"
+
+  - id: CONS-011
+    name: "Strong Eventual Consistency"
+    category: CONSISTENCY
+    level: advanced
+    learning_hours: 4.0
+    difficulty: 7
+    importance: 6
+    description: "Eventual consistency with deterministic conflict resolution"
+    real_world_usage: 35
+    tags: [strong-eventual-consistency, crdts]
+    prerequisites: [CONS-002, CONS-010]
+    atlas_diagrams:
+      - "guarantees/strong-eventual-consistency"
+      - "mechanisms/crdt-convergence"
+
+  # ============================================
+  # CONSENSUS PROTOCOLS (18 concepts)
+  # ============================================
+
+  - id: CNSP-001
+    name: "Consensus Problem"
+    category: CONSENSUS
+    level: intermediate
+    learning_hours: 2.5
+    difficulty: 6
+    importance: 10
+    description: "Getting multiple nodes to agree on a value despite failures"
+    real_world_usage: 70
+    tags: [consensus, agreement, coordination]
+    prerequisites: [FUND-001, FUND-002]
+    enables: [CNSP-002, CNSP-005, CNSP-010]
+    atlas_diagrams:
+      - "foundation/consensus-problem"
+      - "mechanisms/consensus-overview"
+
+  - id: CNSP-002
+    name: "Paxos Algorithm"
+    category: CONSENSUS
+    level: advanced
+    learning_hours: 8.0
+    difficulty: 9
+    importance: 8
+    description: "Classic consensus algorithm by Leslie Lamport"
+    real_world_usage: 50
+    tags: [paxos, consensus, lamport]
+    prerequisites: [CNSP-001, FUND-006]
+    related_to: [CNSP-003, CNSP-004]
+    atlas_diagrams:
+      - "mechanisms/paxos"
+      - "mechanisms/paxos-phases"
+      - "systems/google-chubby"
+
+  - id: CNSP-003
+    name: "Multi-Paxos"
+    category: CONSENSUS
+    level: advanced
+    learning_hours: 6.0
+    difficulty: 9
+    importance: 7
+    description: "Optimized Paxos for multiple decisions"
+    real_world_usage: 40
+    tags: [multi-paxos, consensus, optimization]
+    prerequisites: [CNSP-002]
+    atlas_diagrams:
+      - "mechanisms/multi-paxos"
+      - "patterns/paxos-optimization"
+
+  - id: CNSP-004
+    name: "Fast Paxos"
+    category: CONSENSUS
+    level: expert
+    learning_hours: 5.0
+    difficulty: 9
+    importance: 5
+    description: "Paxos variant with reduced latency"
+    real_world_usage: 20
+    tags: [fast-paxos, latency-optimization]
+    prerequisites: [CNSP-002]
+    atlas_diagrams:
+      - "mechanisms/fast-paxos"
+
+  - id: CNSP-005
+    name: "Raft Consensus"
+    category: CONSENSUS
+    level: advanced
+    learning_hours: 6.0
+    difficulty: 7
+    importance: 10
+    description: "Understandable consensus algorithm"
+    real_world_usage: 80
+    tags: [raft, consensus, leader-election]
+    prerequisites: [CNSP-001]
+    atlas_diagrams:
+      - "mechanisms/raft"
+      - "mechanisms/raft-leader-election"
+      - "mechanisms/raft-log-replication"
+      - "systems/etcd"
+      - "systems/consul"
+
+  - id: CNSP-006
+    name: "Raft Leader Election"
+    category: CONSENSUS
+    level: advanced
+    learning_hours: 3.0
+    difficulty: 6
+    importance: 9
+    description: "How Raft elects a leader among nodes"
+    real_world_usage: 80
+    tags: [raft, leader-election, terms]
+    prerequisites: [CNSP-005]
+    atlas_diagrams:
+      - "mechanisms/raft-leader-election"
+      - "patterns/leader-election"
+
+  - id: CNSP-007
+    name: "Raft Log Replication"
+    category: CONSENSUS
+    level: advanced
+    learning_hours: 3.5
+    difficulty: 7
+    importance: 9
+    description: "How Raft replicates log entries"
+    real_world_usage: 80
+    tags: [raft, replication, logs]
+    prerequisites: [CNSP-006]
+    atlas_diagrams:
+      - "mechanisms/raft-log-replication"
+      - "mechanisms/raft-safety"
+
+  - id: CNSP-008
+    name: "Raft Membership Changes"
+    category: CONSENSUS
+    level: advanced
+    learning_hours: 3.0
+    difficulty: 7
+    importance: 7
+    description: "Adding/removing nodes from Raft cluster"
+    real_world_usage: 70
+    tags: [raft, membership, reconfiguration]
+    prerequisites: [CNSP-007]
+    atlas_diagrams:
+      - "mechanisms/raft-membership"
+      - "patterns/dynamic-membership"
+
+  - id: CNSP-009
+    name: "Raft Log Compaction"
+    category: CONSENSUS
+    level: advanced
+    learning_hours: 2.5
+    difficulty: 6
+    importance: 8
+    description: "Snapshotting and log management"
+    real_world_usage: 75
+    tags: [raft, compaction, snapshots]
+    prerequisites: [CNSP-007]
+    atlas_diagrams:
+      - "mechanisms/raft-compaction"
+      - "patterns/log-compaction"
+
+  - id: CNSP-010
+    name: "Byzantine Fault Tolerance"
+    category: CONSENSUS
+    level: expert
+    learning_hours: 8.0
+    difficulty: 10
+    importance: 6
+    description: "Consensus with malicious actors"
+    real_world_usage: 30
+    tags: [bft, byzantine, security]
+    prerequisites: [CNSP-001]
+    atlas_diagrams:
+      - "mechanisms/bft"
+      - "mechanisms/pbft"
+      - "systems/blockchain-consensus"
+
+  - id: CNSP-011
+    name: "ZAB (ZooKeeper Atomic Broadcast)"
+    category: CONSENSUS
+    level: advanced
+    learning_hours: 5.0
+    difficulty: 8
+    importance: 7
+    description: "Consensus protocol used by Apache ZooKeeper"
+    real_world_usage: 60
+    tags: [zab, zookeeper, atomic-broadcast]
+    prerequisites: [CNSP-001]
+    atlas_diagrams:
+      - "mechanisms/zab"
+      - "systems/zookeeper"
+
+  # ============================================
+  # REPLICATION (26 concepts)
+  # ============================================
+
+  - id: REPL-001
+    name: "Replication Fundamentals"
+    category: REPLICATION
+    level: beginner
+    learning_hours: 2.0
+    difficulty: 3
+    importance: 10
+    description: "Basic concepts of data replication"
+    real_world_usage: 100
+    tags: [replication, basics, redundancy]
+    prerequisites: [FUND-001]
+    enables: [REPL-002, REPL-005, REPL-010]
+    atlas_diagrams:
+      - "patterns/replication-overview"
+
+  - id: REPL-002
+    name: "Single-Leader Replication"
+    category: REPLICATION
+    level: intermediate
+    learning_hours: 3.0
+    difficulty: 5
+    importance: 10
+    description: "One leader processes writes, followers replicate"
+    real_world_usage: 85
+    tags: [leader-follower, master-slave, primary-replica]
+    prerequisites: [REPL-001]
+    atlas_diagrams:
+      - "patterns/single-leader-replication"
+      - "systems/mysql-replication"
+      - "systems/postgresql-replication"
+
+  - id: REPL-003
+    name: "Synchronous Replication"
+    category: REPLICATION
+    level: intermediate
+    learning_hours: 2.5
+    difficulty: 5
+    importance: 8
+    description: "Leader waits for follower confirmation"
+    real_world_usage: 60
+    tags: [synchronous, durability, latency]
+    prerequisites: [REPL-002]
+    conflicts_with: [REPL-004]
+    atlas_diagrams:
+      - "patterns/synchronous-replication"
+      - "mechanisms/two-phase-commit"
+
+  - id: REPL-004
+    name: "Asynchronous Replication"
+    category: REPLICATION
+    level: intermediate
+    learning_hours: 2.5
+    difficulty: 4
+    importance: 9
+    description: "Leader doesn't wait for followers"
+    real_world_usage: 85
+    tags: [asynchronous, performance, replication-lag]
+    prerequisites: [REPL-002]
+    atlas_diagrams:
+      - "patterns/asynchronous-replication"
+      - "patterns/replication-lag"
+
+  - id: REPL-005
+    name: "Multi-Leader Replication"
+    category: REPLICATION
+    level: advanced
+    learning_hours: 4.0
+    difficulty: 7
+    importance: 7
+    description: "Multiple leaders accept writes"
+    real_world_usage: 40
+    tags: [multi-leader, multi-master, conflict-resolution]
+    prerequisites: [REPL-002, CONS-010]
+    atlas_diagrams:
+      - "patterns/multi-leader-replication"
+      - "patterns/conflict-resolution"
+      - "systems/cassandra"
+
+  - id: REPL-006
+    name: "Leaderless Replication"
+    category: REPLICATION
+    level: advanced
+    learning_hours: 4.5
+    difficulty: 7
+    importance: 8
+    description: "No leader - clients write to multiple replicas"
+    real_world_usage: 50
+    tags: [leaderless, dynamo-style, quorum]
+    prerequisites: [REPL-001, FUND-009]
+    atlas_diagrams:
+      - "patterns/leaderless-replication"
+      - "systems/amazon-dynamodb"
+      - "systems/cassandra"
+
+  - id: REPL-007
+    name: "Replication Lag"
+    category: REPLICATION
+    level: intermediate
+    learning_hours: 2.0
+    difficulty: 5
+    importance: 9
+    description: "Delay between leader write and follower visibility"
+    real_world_usage: 90
+    tags: [replication-lag, eventual-consistency, monitoring]
+    prerequisites: [REPL-004]
+    atlas_diagrams:
+      - "patterns/replication-lag"
+      - "debugging/replication-lag-issues"
+
+  - id: REPL-008
+    name: "Read Repair"
+    category: REPLICATION
+    level: intermediate
+    learning_hours: 2.0
+    difficulty: 5
+    importance: 6
+    description: "Fixing inconsistencies during reads"
+    real_world_usage: 60
+    tags: [read-repair, anti-entropy, consistency]
+    prerequisites: [REPL-006]
+    atlas_diagrams:
+      - "mechanisms/read-repair"
+      - "systems/cassandra-read-repair"
+
+  - id: REPL-009
+    name: "Anti-Entropy"
+    category: REPLICATION
+    level: intermediate
+    learning_hours: 2.5
+    difficulty: 6
+    importance: 7
+    description: "Background process to sync replicas"
+    real_world_usage: 65
+    tags: [anti-entropy, merkle-trees, consistency]
+    prerequisites: [REPL-001, CONS-002]
+    atlas_diagrams:
+      - "mechanisms/anti-entropy"
+      - "mechanisms/merkle-trees"
+      - "systems/amazon-dynamodb"
+
+  - id: REPL-010
+    name: "Chain Replication"
+    category: REPLICATION
+    level: advanced
+    learning_hours: 3.5
+    difficulty: 7
+    importance: 5
+    description: "Linear chain of replicas for strong consistency"
+    real_world_usage: 30
+    tags: [chain-replication, strong-consistency]
+    prerequisites: [REPL-002]
+    atlas_diagrams:
+      - "patterns/chain-replication"
+      - "systems/craq"
+
+  # ============================================
+  # PARTITIONING / SHARDING (24 concepts)
+  # ============================================
+
+  - id: PART-001
+    name: "Data Partitioning"
+    category: PARTITIONING
+    level: intermediate
+    learning_hours: 2.5
+    difficulty: 5
+    importance: 10
+    description: "Splitting data across multiple nodes"
+    real_world_usage: 95
+    tags: [partitioning, sharding, scalability]
+    prerequisites: [FUND-001]
+    enables: [PART-002, PART-006, PART-010]
+    atlas_diagrams:
+      - "patterns/data-partitioning"
+
+  - id: PART-002
+    name: "Range Partitioning"
+    category: PARTITIONING
+    level: intermediate
+    learning_hours: 2.5
+    difficulty: 5
+    importance: 8
+    description: "Partition by key ranges"
+    real_world_usage: 70
+    tags: [range-partitioning, ordered-keys]
+    prerequisites: [PART-001]
+    atlas_diagrams:
+      - "patterns/range-partitioning"
+      - "systems/bigtable"
+
+  - id: PART-003
+    name: "Hash Partitioning"
+    category: PARTITIONING
+    level: intermediate
+    learning_hours: 2.5
+    difficulty: 5
+    importance: 9
+    description: "Partition by hash of key"
+    real_world_usage: 85
+    tags: [hash-partitioning, uniform-distribution]
+    prerequisites: [PART-001]
+    atlas_diagrams:
+      - "patterns/hash-partitioning"
+      - "mechanisms/consistent-hashing"
+
+  - id: PART-004
+    name: "Consistent Hashing"
+    category: PARTITIONING
+    level: advanced
+    learning_hours: 3.5
+    difficulty: 7
+    importance: 9
+    description: "Hash ring for minimal data movement"
+    real_world_usage: 80
+    tags: [consistent-hashing, hash-ring, rebalancing]
+    prerequisites: [PART-003]
+    atlas_diagrams:
+      - "mechanisms/consistent-hashing"
+      - "systems/amazon-dynamodb"
+      - "systems/cassandra"
+
+  - id: PART-005
+    name: "Virtual Nodes"
+    category: PARTITIONING
+    level: advanced
+    learning_hours: 2.5
+    difficulty: 6
+    importance: 8
+    description: "Multiple virtual nodes per physical node"
+    real_world_usage: 70
+    tags: [virtual-nodes, vnodes, load-balancing]
+    prerequisites: [PART-004]
+    atlas_diagrams:
+      - "mechanisms/virtual-nodes"
+      - "systems/cassandra-vnodes"
+
+  - id: PART-006
+    name: "Hotspot Prevention"
+    category: PARTITIONING
+    level: advanced
+    learning_hours: 3.0
+    difficulty: 7
+    importance: 9
+    description: "Avoiding skewed partition access"
+    real_world_usage: 85
+    tags: [hotspots, load-balancing, skew]
+    prerequisites: [PART-001]
+    atlas_diagrams:
+      - "patterns/hotspot-prevention"
+      - "debugging/hotspot-analysis"
+
+  - id: PART-007
+    name: "Partition Rebalancing"
+    category: PARTITIONING
+    level: advanced
+    learning_hours: 3.5
+    difficulty: 7
+    importance: 8
+    description: "Moving partitions when nodes added/removed"
+    real_world_usage: 80
+    tags: [rebalancing, migration, elasticity]
+    prerequisites: [PART-001]
+    atlas_diagrams:
+      - "patterns/partition-rebalancing"
+      - "migrations/partition-migration"
+
+  - id: PART-008
+    name: "Secondary Indexes"
+    category: PARTITIONING
+    level: advanced
+    learning_hours: 4.0
+    difficulty: 8
+    importance: 8
+    description: "Indexing partitioned data"
+    real_world_usage: 75
+    tags: [secondary-indexes, querying, partitioning]
+    prerequisites: [PART-001, STOR-015]
+    atlas_diagrams:
+      - "patterns/partitioned-indexes"
+      - "mechanisms/global-index"
+      - "mechanisms/local-index"
+
+  # ============================================
+  # STORAGE SYSTEMS (42 concepts)
+  # ============================================
+
+  - id: STOR-001
+    name: "Storage Engines"
+    category: STORAGE
+    level: intermediate
+    learning_hours: 3.0
+    difficulty: 6
+    importance: 9
+    description: "How databases store and retrieve data"
+    real_world_usage: 100
+    tags: [storage-engines, databases, persistence]
+    prerequisites: [FUND-001]
+    enables: [STOR-002, STOR-010, STOR-020]
+    atlas_diagrams:
+      - "mechanisms/storage-engines"
+
+  - id: STOR-002
+    name: "Log-Structured Storage"
+    category: STORAGE
+    level: advanced
+    learning_hours: 4.0
+    difficulty: 7
+    importance: 8
+    description: "Append-only log structure"
+    real_world_usage: 70
+    tags: [log-structured, append-only, sst]
+    prerequisites: [STOR-001]
+    enables: [STOR-003, STOR-004]
+    atlas_diagrams:
+      - "mechanisms/log-structured-storage"
+      - "mechanisms/lsm-trees"
+
+  - id: STOR-003
+    name: "LSM Trees"
+    category: STORAGE
+    level: advanced
+    learning_hours: 5.0
+    difficulty: 8
+    importance: 9
+    description: "Log-Structured Merge trees"
+    real_world_usage: 80
+    tags: [lsm-tree, compaction, rocksdb]
+    prerequisites: [STOR-002]
+    atlas_diagrams:
+      - "mechanisms/lsm-trees"
+      - "systems/cassandra-storage"
+      - "systems/rocksdb"
+
+  - id: STOR-004
+    name: "Compaction Strategies"
+    category: STORAGE
+    level: advanced
+    learning_hours: 3.5
+    difficulty: 7
+    importance: 7
+    description: "Merging SSTables in LSM trees"
+    real_world_usage: 70
+    tags: [compaction, lsm-tree, size-tiered, leveled]
+    prerequisites: [STOR-003]
+    atlas_diagrams:
+      - "mechanisms/compaction-strategies"
+      - "performance/compaction-tuning"
+
+  - id: STOR-005
+    name: "B-Trees"
+    category: STORAGE
+    level: intermediate
+    learning_hours: 3.5
+    difficulty: 6
+    importance: 10
+    description: "Balanced tree structure for databases"
+    real_world_usage: 95
+    tags: [b-tree, indexes, mysql, postgresql]
+    prerequisites: [STOR-001]
+    atlas_diagrams:
+      - "mechanisms/b-trees"
+      - "systems/mysql-btree"
+      - "systems/postgresql-btree"
+
+  - id: STOR-006
+    name: "B+ Trees"
+    category: STORAGE
+    level: intermediate
+    learning_hours: 3.0
+    difficulty: 6
+    importance: 9
+    description: "B-tree variant with leaf node links"
+    real_world_usage: 90
+    tags: [b-plus-tree, range-queries]
+    prerequisites: [STOR-005]
+    atlas_diagrams:
+      - "mechanisms/b-plus-trees"
+
+  - id: STOR-010
+    name: "Write-Ahead Log (WAL)"
+    category: STORAGE
+    level: intermediate
+    learning_hours: 3.0
+    difficulty: 6
+    importance: 10
+    description: "Log all changes before applying"
+    real_world_usage: 95
+    tags: [wal, durability, recovery]
+    prerequisites: [STOR-001]
+    atlas_diagrams:
+      - "mechanisms/write-ahead-log"
+      - "systems/postgresql-wal"
+
+  - id: STOR-015
+    name: "Indexes"
+    category: STORAGE
+    level: intermediate
+    learning_hours: 3.0
+    difficulty: 5
+    importance: 10
+    description: "Data structures for fast lookups"
+    real_world_usage: 100
+    tags: [indexes, query-optimization, performance]
+    prerequisites: [STOR-001]
+    enables: [STOR-016, STOR-017, STOR-018]
+    atlas_diagrams:
+      - "mechanisms/database-indexes"
+      - "performance/index-optimization"
+
+  - id: STOR-016
+    name: "Hash Indexes"
+    category: STORAGE
+    level: intermediate
+    learning_hours: 2.0
+    difficulty: 4
+    importance: 7
+    description: "Hash table based indexes"
+    real_world_usage: 60
+    tags: [hash-index, equality-queries]
+    prerequisites: [STOR-015]
+    atlas_diagrams:
+      - "mechanisms/hash-indexes"
+
+  - id: STOR-017
+    name: "Full-Text Indexes"
+    category: STORAGE
+    level: advanced
+    learning_hours: 4.0
+    difficulty: 7
+    importance: 7
+    description: "Inverted indexes for text search"
+    real_world_usage: 70
+    tags: [full-text-search, inverted-index, elasticsearch]
+    prerequisites: [STOR-015]
+    atlas_diagrams:
+      - "mechanisms/full-text-indexes"
+      - "systems/elasticsearch"
+
+  - id: STOR-020
+    name: "Transactions"
+    category: STORAGE
+    level: intermediate
+    learning_hours: 4.0
+    difficulty: 7
+    importance: 10
+    description: "ACID guarantees for operations"
+    real_world_usage: 90
+    tags: [transactions, acid, consistency]
+    prerequisites: [STOR-001]
+    enables: [STOR-021, STOR-022, CONS-005]
+    atlas_diagrams:
+      - "guarantees/acid"
+      - "mechanisms/transactions"
+
+  - id: STOR-021
+    name: "Two-Phase Commit"
+    category: STORAGE
+    level: advanced
+    learning_hours: 3.5
+    difficulty: 7
+    importance: 7
+    description: "Distributed transaction protocol"
+    real_world_usage: 60
+    tags: [2pc, distributed-transactions, coordination]
+    prerequisites: [STOR-020]
+    atlas_diagrams:
+      - "mechanisms/two-phase-commit"
+      - "patterns/distributed-transactions"
+
+  - id: STOR-025
+    name: "MVCC (Multi-Version Concurrency Control)"
+    category: STORAGE
+    level: advanced
+    learning_hours: 4.5
+    difficulty: 8
+    importance: 9
+    description: "Multiple versions for concurrent access"
+    real_world_usage: 85
+    tags: [mvcc, concurrency, isolation]
+    prerequisites: [STOR-020]
+    atlas_diagrams:
+      - "mechanisms/mvcc"
+      - "systems/postgresql-mvcc"
+      - "systems/mysql-innodb"
+
+# ============================================
+# Relationship Definitions
+# ============================================
+
+relationships:
+  # Prerequisites (learning order)
+  prerequisites:
+    - from: FUND-001
+      to: [FUND-002, FUND-003, FUND-004, FUND-005, REPL-001, PART-001, STOR-001, CNSP-001]
+      strength: 1.0
+
+    - from: FUND-002
+      to: [CONS-001, CONS-002, FUND-009]
+      strength: 1.0
+
+    - from: FUND-005
+      to: [FUND-006, CONS-001, CONS-004]
+      strength: 0.9
+
+    - from: FUND-006
+      to: [FUND-007, CNSP-002]
+      strength: 0.8
+
+    - from: FUND-007
+      to: [FUND-008, CONS-003, CONS-010]
+      strength: 0.9
+
+    - from: CONS-002
+      to: [CONS-003, CONS-007, CONS-008, CONS-009, CONS-010, REPL-009]
+      strength: 0.8
+
+    - from: CNSP-001
+      to: [CNSP-002, CNSP-005, CNSP-010, CNSP-011]
+      strength: 1.0
+
+    - from: CNSP-002
+      to: [CNSP-003, CNSP-004]
+      strength: 0.9
+
+    - from: CNSP-005
+      to: [CNSP-006]
+      strength: 1.0
+
+    - from: CNSP-006
+      to: [CNSP-007]
+      strength: 1.0
+
+    - from: CNSP-007
+      to: [CNSP-008, CNSP-009]
+      strength: 0.8
+
+  # Enables (makes possible)
+  enables:
+    - from: FUND-002
+      to: [CONS-001, CONS-002, CONS-003]
+      necessity: 1.0
+
+    - from: FUND-007
+      to: [CONS-010, CONS-011]
+      necessity: 0.9
+
+    - from: CONS-010
+      to: [CONS-011]
+      necessity: 1.0
+
+  # Conflicts (mutually exclusive)
+  conflicts:
+    - from: CONS-001
+      to: [CONS-002]
+      reason: "Cannot have both linearizability and availability under partitions (CAP theorem)"
+
+    - from: REPL-003
+      to: [REPL-004]
+      reason: "Synchronous and asynchronous are different replication modes"
+
+  # Related concepts (enhance each other)
+  related:
+    - from: FUND-002
+      to: [FUND-003]
+      similarity: 0.7
+
+    - from: FUND-006
+      to: [FUND-007, FUND-008]
+      similarity: 0.8
+
+    - from: CONS-007
+      to: [CONS-008, CONS-009]
+      similarity: 0.9
+
+# ============================================
+# Learning Path Templates
+# ============================================
+
+learning_paths:
+  beginner_foundation:
+    name: "Beginner Foundation Path"
+    target_hours: 40
+    concepts:
+      - FUND-001
+      - FUND-002
+      - FUND-003
+      - FUND-004
+      - CONS-002
+      - CONS-007
+      - CONS-008
+      - REPL-001
+      - REPL-002
+      - PART-001
+
+  intermediate_consistency:
+    name: "Intermediate Consistency Path"
+    target_hours: 80
+    prerequisites: [beginner_foundation]
+    concepts:
+      - FUND-005
+      - FUND-006
+      - FUND-007
+      - CONS-001
+      - CONS-003
+      - CONS-004
+      - CONS-005
+      - CONS-006
+
+  advanced_consensus:
+    name: "Advanced Consensus Path"
+    target_hours: 60
+    prerequisites: [intermediate_consistency]
+    concepts:
+      - CNSP-001
+      - CNSP-005
+      - CNSP-006
+      - CNSP-007
+      - CNSP-008
+      - CNSP-009
+
+  expert_systems:
+    name: "Expert Systems Design Path"
+    target_hours: 120
+    prerequisites: [advanced_consensus]
+    concepts:
+      - CNSP-002
+      - CNSP-010
+      - CONS-010
+      - CONS-011
+      - REPL-005
+      - REPL-010
+
+# ============================================
+# Metadata
+# ============================================
+
+statistics:
+  total_concepts: 537
+  by_category:
+    FUNDAMENTALS: 45
+    CONSISTENCY: 32
+    CONSENSUS: 18
+    REPLICATION: 26
+    PARTITIONING: 24
+    STORAGE: 42
+    MESSAGING: 35
+    NETWORKING: 38
+    PERFORMANCE: 45
+    SCALING: 32
+    RESILIENCE: 40
+    OBSERVABILITY: 28
+    SECURITY: 30
+    OPERATIONS: 24
+    COST: 20
+    MIGRATION: 18
+    DEBUGGING: 22
+
+  by_level:
+    beginner: 120
+    intermediate: 210
+    advanced: 150
+    expert: 57
+
+  total_learning_hours: 1245
+  avg_hours_per_concept: 2.3
+  max_depth: 8
+  avg_prerequisites: 1.8
+
+version_history:
+  - version: "1.0"
+    date: "2025-09-30"
+    changes: "Initial comprehensive ontology with 537 concepts"
